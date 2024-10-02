@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bootstrap</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <link rel="stylesheet" href="../../../../css/root.css" />
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="text-center">
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+      <img class="sloganBulb" src="../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
+      Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <div class="content">
+      <!-- Title -->
+      <section>
+         <h2>Full Stack MERN Web Development</h2>
+         <p><a href="../../bootstrapIndex.html">Back to Bootstrap Index</a></p>
+         <hr>
+         <h3>Bootstrap REACT "CDN" Installation</h3>
+      </section>
+
+
+      <section id="textWindow2">
+         <p>Before you can install Bootstrap into React, <b>you must have Node js installed on your system</b>.</p>
+         <p>Got to <a href="https://nodejs.org/en/download/prebuilt-installer/current" target="_blank">Download Node js </a> and install it.</p>
+      </section>
+
+      <p>To use Bootstrap with React, we are going to use a platform called Vite (<i>pronounced veet</i>)</p>
+
+      <section id="textWindow2">
+         <p>Go to the Vite website "<a href="https://vitejs.dev/guide/" target="_blank">Getting Started</a>" page.</p>
+         <ul><b>React CDN Installation</b>
+            <li>Scroll down to the "<i>Scaffolding Your First Vite Project</i>" section</li>
+            <li>Under the NPM tab copy the command [<b>npm create vite@latest</b>]</li>
+            <li>in VS Code</li>
+            <ul>
+               <li>rt. click on your website folder and select "Open In Integrated Terminal"</li>
+               <li>paste the command [<b>npm create vite@latest</b>] and press ENTER</li>
+            </ul>
+            <li>We need to change the project name</li>
+            <ul>
+               <li>hit [.] (period), and press ENTER</li>
+                  <ul>
+                     <li><i>this will select the folder name you rt clicked on to open the terminal</i></li>
+                  </ul>
+               <li>select [<b>React</b>]</li>
+               <li>select [<b>JavaScript</b>]</li>
+               <li>then "INSTALL" by typing [<b>npm i</b>]</li>
+               <li>Run the project by typing [<b>npm run dev</b>]</li>
+               <ul>
+                  <li><b><i>This will start the project and display the localhost port number</i></b></li>
+               </ul>
+            </ul>
+            <li><b>*NOTE:</b> at any time, while you are in the terminal, Enter <b>clear</b> to clear the current terminal screen.</li>
+            <li><b>Also</b>, pressing <b>ctrl + c</b> will END the current process that is running in the terminal</li>
+            <ul>
+               <li><i>closing the terminal also does a FORCED STOP</i></li>
+            </ul>
+            <li><b>Also</b>, at any time you want you want to run this process</li>
+            <ul>
+               <li>rt. click on the folder name</li>
+               <li>start the terminal</li>
+               <li>use the [<b>npm run dev</b>] command</li>
+            </ul>
+         </ul>
+      </section>
+
+      <section id="textWindow2">
+         <ul>So, you can start the application (process) at any time by
+            <li><b>rt. click</b> on the application < root > folder</li>
+            <li>Select <b>Open in Integrated Terminal</b></li>
+            <li>in the terminal window either</li>
+            <ul>
+               <li>copy the "<b>localhost ip</b>" and past it into your browser</li>
+               <li>or, <b>ctrl/click</b> the host ip to open it in the browser</li>
+            </ul>
+         </ul>
+      </section>
+
+      <section id="textWindow2">
+         <ul>If you want to get rid of the default HTML/Js/CSS
+            <li>in your < root > folder</root></li>
+            <ul>
+               <li>In VS Code open <b>src/App.jsx</b></li>
+               <ul>
+                  <li>Remove <b>all</b> of the "import's" at the top</li>
+                  <li>Remove the <b>const [count, setCount] = useState(0)</b> line</li>
+                  <li>remove everything between <b>return ( &lt;&gt;</b> and <b>&lt;/&gt; )</b></li>
+                  <ul>
+                     <li><i>your code will be inserted here</i></li>
+                  </ul>
+               </ul>
+               <li>In VS Code open <b>src/index.css</b></li>
+               <ul>
+                  <li>remove <b>everything</b> to remove all styling</li>
+               </ul>
+            </ul>
+         </ul>
+      </section>
+
+      <section id="textWindow2">
+         <ul>Because this is a "CDN" install, we still need to <b>link</b> the Js & CSS code to our page,<br>
+            so we'll add the links to the <b>index.html</b> file in our < root > folder.
+            <li>go to the <a href="https://getbootstrap.com/docs/5.3/getting-started/download/" target="_blank">bootstrap website</a></li>
+            <ul>
+               <li>to get the <b>CSS</b> link</li>
+               <ul>
+                  <li>scroll down to the <b>CDN via jsDelivr</b> section</li>
+                  <li>copy the <b>bootstrap.min.css</b> link</li>
+                  <li>paste this into the <b>head</b> of <b>index.html</b></li>
+               </ul>
+            </ul>
+            <ul>
+               <li>to get the <b>JavaScript</b> link</li>
+               <ul>
+                  <li>copy the JavaScript link for the version you want (<i>popper or vanilla</i>)</li>
+                  <li>paste this into the <b>bottom</b> of index.html, right before the closing < body > tag</body></li>
+                  <ul>
+                     <li><b>*Note</b>: <i>if there is another JavaScript line already there, our line of code <b>must</b> be the last line before the closing <b>body</b> tag.</i></li>
+                  </ul>
+               </ul>
+            </ul>
+         </ul>
+      </section>
+
+      <section id="textWindow2">
+         <ul>If you want to check the <b>Bootstrap</b> status and make sure everything is working;
+            <li><b>rt. click</b> on the webpage and select <b>inspect</b></li>
+            <li>click the <b>Network</b> tab</li>
+            <li><b>refresh</b> the page</li>
+            <li>in the list, look for</li>
+               <ul>
+                  <li><b>bootstrap.min.css</b></li>
+                  <li><b>bootstrap.bundle.min.js</b></li>
+               </ul>
+            <li>ensure it is showing <b>200</b> for both, which means everything loaded and everything is OK</li>
+         </ul>
+      </section>
+
+      <p><a href="#top">Back to Top</a></p>
+
+      <footer>
+         <div>Website created by badDoggy</div>
+         <div>|</div><div>2024</div><div>|</div>
+         <div>&copy; All Rights Reserved</div>
+      </footer>
+   </div>
+</body>
+</html>
