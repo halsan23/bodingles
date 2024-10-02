@@ -1,0 +1,90 @@
+article {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #e8e8e8;
+    line-height: 1.6;
+}
+
+#blog-post {
+    text-align: left;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 42px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.author {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+p {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+
+/* adding the Type Pseudo-Class */
+
+/* remove all empty p tags */
+p:empty {
+    display: none;
+}
+
+/* using :not() */
+/* select all p tags and div tags
+ without .special class */
+p:not(.special){
+    background-color: #d7d7d7;
+}
+
+/* you can also specify multiple class
+calls in one call, such as */
+p:not(.special),
+div:not(.special) {
+
+}
+
+
+/* using :where()e */
+/* select all p & div tags
+where class is author */
+:where(p, div).author {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.intro {
+    color: #444;
+    font-weight: bold;
+}
+
+.tags {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.tags span {
+    background-color: rgb(104, 90, 72);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 14px;
+    font-size: 14px;
+}
+
+.pic {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+}

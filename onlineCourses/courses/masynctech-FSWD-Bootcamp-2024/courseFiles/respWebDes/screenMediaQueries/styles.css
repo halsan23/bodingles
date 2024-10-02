@@ -1,0 +1,58 @@
+.bod {
+   margin: 0 auto;
+   padding: 0;
+   text-align: left;
+   width: 90%;
+}
+
+dl  {
+   display: inline-block;
+   text-align: left;
+   list-style-type: none;
+}
+
+/* Scaling down from large screen to smaller screens */
+/* Default style for large desktops */
+.header {
+   background-color: blue;
+   font-size: 30px;
+   height: 100px;
+   color: white;
+   padding: 40px;
+}
+
+/* adj styles for small screens up to 1439px
+@media (max-width: 1439px) {
+   .header {
+      background-color: darkorange;
+   }
+} */
+
+/* This is the same query as above, only more specific in scope, targeting output types of screen for styling */
+@media screen and (max-width: 1439px) {
+   .header {
+      background-color: darkorange;
+   }
+}
+
+/* adj styles for small screens up to 1279px */
+@media (max-width: 1279px) {
+   .header {
+      background-color: green;
+   }
+}
+
+/* adj styles for screen width up to 767px */
+@media (max-width: 767px) {
+   .header {
+      background-color: rebeccapurple;
+   }
+}
+
+/* adj styles for small screens up to 374px */
+@media (max-width: 374px) {
+   .header {
+      background-color: yellow;
+      color: black;
+   }
+}

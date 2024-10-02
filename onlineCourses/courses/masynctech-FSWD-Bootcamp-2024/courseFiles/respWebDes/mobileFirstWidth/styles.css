@@ -1,0 +1,80 @@
+.bod {
+   margin: 0 auto;
+   padding: 0;
+   text-align: left;
+   width: 90%;
+}
+
+dl  {
+   display: inline-block;
+   text-align: left;
+   list-style-type: none;
+}
+
+/* Default Styles - not setting a @media query makes it the default*/
+
+/* Smaller Phones (default) */
+.header {
+   background-color: yellow;
+   height: 50vh;
+}
+
+.header p {
+   color: white;
+   font-size: 2rem;
+}
+
+/* Larger Phones */
+/* @media (min-width: 375px) {
+   .header {
+      background-color: blue;
+   }
+   .header p {
+      color: yellow;
+      font-size: 5rem;
+   }
+} */
+
+/* This is the same query as above, only more specific in scope, targeting output types of screen for styling */
+@media screen and (min-width: 375px) {
+   .header {
+      background-color: blue;
+   }
+   .header p {
+      color: yellow;
+      font-size: 5rem;
+   }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+   .header {
+      background-color: green;
+   }
+   .header p {
+      color: orange;
+      font-size: 8rem;
+   }
+}
+
+/* Small Desktops */
+@media (min-width: 1280px) {
+   .header {
+      background-color: purple;
+   }
+   .header p {
+      color: black;
+      font-size: 10rem;
+   }
+}
+
+/* Large Desktops */
+@media (min-width: 1440px) {
+   .header {
+      background-color: red;
+   }
+   .header p {
+      color: blue;
+      font-size: 12rem;
+   }
+}

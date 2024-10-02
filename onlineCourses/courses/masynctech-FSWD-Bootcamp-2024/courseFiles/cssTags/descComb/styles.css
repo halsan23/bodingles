@@ -1,0 +1,41 @@
+#recipes {
+    text-align: left;
+    width: 40%;
+    display: inline-block;
+    background-color: #fae5d3;
+    padding: 15px;
+    border: 3px solid #000000;
+}
+
+#recipes .recipe {
+    text-align: left;
+    border: 1px solid #eb984e;
+    padding: 10px;
+    margin: 10px;
+}
+
+#recipes h3 {
+    text-align: left;
+    color: #ba4a00;
+}
+
+#reviews {
+    text-align: left;
+    width: 40%;
+    display: inline-block;
+    background-color: #d5dbdb;
+    padding: 15px;
+    border: 3px solid #000000;
+}
+
+#reviews .review {
+    text-align: left;
+    border: 1px solid #85929e;
+    padding: 10px;
+    margin: 10px;
+}
+
+#reviews h3 {
+    text-align: left;
+    color: #34495e;
+}

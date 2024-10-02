@@ -1,0 +1,57 @@
+.bod {
+   width: 80%;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.contain1 {
+   background-color: blue;
+   width: 110px;
+   margin: 0 auto;
+   padding: 1px 0;
+   text-align: center;
+}
+.contain2 {
+   background-color: blue;
+   display: flex;
+}
+.contain3 {
+   background-color: blue;
+   display: flex;
+   flex-direction: row-reverse;
+}
+.contain4 {
+   background-color: blue;
+   width: 110px;
+   margin: 0 auto;
+   padding: 1px 0;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+}
+.contain5 {
+   background-color: blue;
+   width: 110px;
+   margin: 0 auto;
+   padding: 1px 0;
+   text-align: center;
+   display: flex;
+   flex-direction: column-reverse;
+}
+
+.item {
+   background-color: lightskyblue;
+   width: 100px;
+   height: 100px;
+   text-align: center;
+   font-size: 24px;
+   margin: 5px;
+}
+
+.item:nth-child(odd) {
+   background-color: lightsalmon;
+}
+
+.item:nth-child(even) {
+   background-color: palegreen;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>RWD Media Queries</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <link rel="stylesheet" href="../../../css/root.css" />
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+      <img class="sloganBulb" src="../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
+      Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <div class="content">
+      <!-- Title -->
+      <section>
+         <h2>Full Stack MERN Web Development</h2>
+         <h3>Responsive Web Design (RWD)</h3>
+         <p><a href="../respDesIndex.html">Back to RWD Index</a></p>
+         <hr><h4>RWD Media Queries</h4>
+      </section>
+
+      <section id="textWindow2">
+         <ul>
+            <li>It is crucial for RWD to adapt to device characteristics</li>
+            <li>Media Queries inspect output device type and characteristics</li>
+            <li>then conditionally apply styles based on this information</li>
+            <li>Most commonly used for viewport, but can also be used for orientation, resolution, etc.</li>
+         </ul>
+      </section>
+      <hr>
+
+      <section id="textWindow3">
+         <ul><i>defines CSS rules for screens with a max-width of 600px</i>
+            <li><b>@media (max-width: 600px) {<br>
+            </b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* css rules */</i><br>
+            <b>}</b></li>
+            <li><b>@media screen and (max-width: 600px) {<br>
+            </b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* css rules */</i><br>
+            <b>}</b></li>
+            <ul>
+               <li><b>@media</b>: defines a "Media Query" rule to begin conditional styling</li>
+               <li><b>screen</b>: Media type (this rule <i>applies</i> to screens)</li>
+               <ul>
+                  <li>Use the <b>screen and</b> designation to make a more specific query to target output types of "screen"</li>
+                  <li>Omit the <b>screen and</b> designation, to include a broad range of output types, such as print or screen.</li>
+                  <li>*see info on <b>@media screen</b> specificity <a href="../screenMediaQueries/screenMediaQueries.html" target="_blank">here</a></li>
+               </ul>
+               <li><b>and</b>: Logical operator to combine conditions</li>
+               <li><b>(max-width: 600px)</b>: sets the conditions for the max width</li>
+               <li><b>{ <i>css rules</i> }</b>: set the css rules to apply to this style</li>
+            </ul>
+         </ul>
+      </section>
+      <hr>
+
+      <section id="textWindow2">
+         <ul><b>Important Rules</b>
+            <li>Use clear, simple conditions for Media Queries</li>
+            <li>Begin with "broader" queries, and refine them gradually for manageability</li>
+            <li>Test across different devices and sizes for correct functionality</li>
+         </ul>
+      </section>
+      <hr>
+
+      <section id="textWindow2">
+         <ul><b>These are the universal media queries</b>
+            <li><b>Mobile devices</b>: 480 pixels or less</li>
+            <li><b>Tablets and iPads</b>: 481 to 768 pixels</li>
+            <li><b>Small screens and laptops</b>: 769 to 1024 pixels</li>
+            <li><b>Desktops and large screens</b>: 1025 to 1200 pixels</li>
+            <li><b>Extra large screens and TVs</b>: 1201 pixels and greater </li>
+         </ul>
+      </section><br>
+
+      <p><a href="#top">Back to Top</a></p>
+
+      <footer>
+         <div>Website created by badDoggy</div>
+         <div>|</div><div>2024</div><div>|</div>
+         <div>&copy; All Rights Reserved</div>
+      </footer>
+   </div>
+</body>
+</html>

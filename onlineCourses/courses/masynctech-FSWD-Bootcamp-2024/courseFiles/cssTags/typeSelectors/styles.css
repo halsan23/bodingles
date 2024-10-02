@@ -1,0 +1,35 @@
+/* styling for all H1 elements */
+h1 {
+    color: #228b22;
+    text-align: center;
+    font-size: 60px;
+}
+
+/* styling for all H2 elements */
+h2 {
+    color: #6b8e23;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+/* styling for all p elements */
+p {
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* to center <li>'s AND their bullets */
+div {
+    text-align: center;
+}
+/* styling for all ul elements */
+ul {
+    list-style: square;
+    display: inline-block;
+    text-align: left;
+}
+
+.head2 {
+    padding: 14px 0px 13px 180px;
+}

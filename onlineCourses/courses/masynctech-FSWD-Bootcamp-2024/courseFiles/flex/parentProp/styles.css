@@ -1,0 +1,107 @@
+.bod {
+   width: 80%;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.contain1 {
+   background-color: blue;
+   width: 110px;
+   margin: 0 auto;
+   padding: 1px 0;
+   text-align: center;
+}
+.contain2 {
+   background-color: blue;
+   width: 80%;
+   margin: 0 auto;
+   display: flex;
+}
+.contain3 {
+   background-color: blue;
+   width: 80%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+}
+.contain4 {
+   background-color: blue;
+   width: 80%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+}
+.contain5 {
+   background-color: blue;
+   width: 80%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-around;
+}
+.contain6 {
+   background-color: blue;
+   width: 80%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: flex-start;
+}
+.contain7 {
+   background-color: blue;
+   width: 80%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: flex-end;
+}
+.contain8 {
+   background-color: blue;
+   width: 80%;
+   margin: 0 auto;
+   display: flex;
+   flex-direction: row-reverse;
+   justify-content: flex-end;
+}
+.contain9 {
+   background-color: blue;
+   width: 80%;
+   height: 400px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.contain10 {
+   background-color: blue;
+   width: 80%;
+   height: 400px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.contain11 {
+   background-color: blue;
+   width: 80%;
+   height: 400px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+.item {
+   background-color: lightskyblue;
+   width: 100px;
+   height: 100px;
+   text-align: center;
+   font-size: 24px;
+   margin: 5px;
+}
+
+.item:nth-child(odd) {
+   background-color: lightsalmon;
+}
+
+.item:nth-child(even) {
+   background-color: palegreen;
+}
