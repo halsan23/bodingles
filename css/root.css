@@ -286,6 +286,11 @@ li {
     height: .7%;
 }
 
+.instructor {
+   border-radius: 50%;
+   box-shadow: 3px 3px 10px #747474;
+}
+
 .btn {
     background: #6aeb82;
     background-image: -webkit-linear-gradient(top, #87C18B, #152215);
