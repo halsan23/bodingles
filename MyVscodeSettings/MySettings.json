@@ -1,0 +1,108 @@
+{
+   "workbench.colorCustomizations": {
+     "editor.background": "#191919"
+   },
+   "editor.fontSize": 15,
+   "editor.tabSize": 3,
+    "editor.tokenColorCustomizations": {
+        "[Default Dark Modern]": {
+            "textMateRules": [
+                {
+                    "scope": ["string.quoted.double.html",
+                                "meta.attribute.href.html",
+                                "meta.tag.metadata.link.void.html",
+                            ],
+                    "settings": {
+                        "foreground": "#908263"
+                    }
+                },
+                {
+                    "scope": ["entity.name.tag.html",
+                                "meta.tag.structure.header.start.html",
+                            ],
+                    "settings": {
+                        "foreground": "#25929a"
+                    }
+                },
+                {
+                    "scope": ["comment.block.html",
+                            ],
+                    "settings": {
+                        "foreground": "#657a5c"
+                    }
+                },
+                {
+                    "scope": ["entity.other.attribute-name.html",
+                                "meta.attribute.class.html",
+                                "meta.tag.object.img.void.html",
+                            ],
+                    "settings": {
+                        "foreground": "#b86c60"
+                    }
+                },
+                {
+                    "scope": ["meta.property-value.css",
+                                "meta.property-list.css",
+                                "source.css",
+                            ],
+                    "settings": {
+                        "foreground": "#b7b860"
+                    }
+                },
+                {
+                    "scope": ["keyword.other.unit.px.css",
+                            ],
+                    "settings": {
+                        "foreground": "#ffffff"
+                    }
+                },
+                {
+                    "scope": ["string.quoted.single.css",
+                                "meta.property-value.css",
+                                "meta.property-list.css",
+                                "source.css",
+                            ],
+                    "settings": {
+                        "foreground": "#e1e192"
+                    }
+                },
+                {
+                    "scope": ["constant.numeric.css",
+                            ],
+                    "settings": {
+                        "foreground": "#e98373"
+                    }
+                }
+            ]
+        }
+    },
+    "settingsSync.ignoredSettings": [],
+    "editor.linkedEditing": true,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.wordWrap": "on",
+    "git.autofetch": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.minimap.enabled": false,
+    "explorer.confirmDelete": false,
+    "git.confirmSync": false,
+    "html.hover.documentation": false,
+    "scss.hover.documentation": false,
+    "less.hover.documentation": false,
+    "css.hover.documentation": false,
+    "editor.detectIndentation": false,
+    "git.enableSmartCommit": true,
+    "cSpell.userWords": [
+        "Bodingos",
+        "Carbonara",
+        "classname",
+        "hoverable",
+        "idname",
+        "MERN",
+        "Photoshop",
+        "Psuedo"
+    ],
+    "files.trimTrailingWhitespace": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "explorer.confirmDragAndDrop": false,
+    "git.openRepositoryInParentFolders": "never",
+}
