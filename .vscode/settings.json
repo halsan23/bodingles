@@ -76,10 +76,11 @@
                    "scope": ["string.quoted.single.css",
                                "meta.property-value.css",
                                "meta.property-list.css",
-                               "source.css"
+                               "source.css",
+                               "string.quoted.single.css"
                            ],
                    "settings": {
-                       "foreground": "#e1e192"
+                       "foreground": "#b8b874"
                    }
                },
                {
@@ -212,5 +213,6 @@
 "git.ignoreRebaseWarning": true,
 "[html]": {
    "editor.defaultFormatter": "vscode.html-language-features"
-}
+},
+"editor.stickyScroll.enabled": false
 }
