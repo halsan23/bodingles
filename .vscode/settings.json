@@ -69,7 +69,7 @@
                    "scope": ["keyword.other.unit.px.css"
                            ],
                    "settings": {
-                       "foreground": "#ffffff"
+                       "foreground": "#e7e7e7"
                    }
                },
                {

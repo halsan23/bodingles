@@ -4,7 +4,7 @@ section img {
 }
 
 .navbar {
-   width: 60%;
+   width: 65%;
    display: flex;
    justify-content: space-evenly;
 }
