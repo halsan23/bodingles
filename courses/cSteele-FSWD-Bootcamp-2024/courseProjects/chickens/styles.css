@@ -4,7 +4,11 @@ section img {
 }
 
 .navbar {
-   width: 65%;
+   width: 47%;
    display: flex;
    justify-content: space-evenly;
+}
+
+ul {
+   display: flow-root;
 }
