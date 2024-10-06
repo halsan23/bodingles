@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../images/logos/lightbulb.png" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="../../../../css/root.css">
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <div class="content">
+      <h2><i>The Web Developer Bootcamp 2024</i></h2>
+      <p>Colt Steele</p>
+      <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+      <hr style="width: 40%;">
+      <h3>Tables and Forms</h3>
+
+      <!-- Class Content -->
+      <!-- Table References -->
+      <section>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank"
+               crossorigin="anonymous" referrerpolicy="no-referrer">MDN Table Reference</a></p>
+         <h4 style="margin: 0;">Tables</h4>
+         <!-- Table Layout -->
+         <table>
+            <thead>
+               <tr>
+                  <th>Common Name</th>
+                  <th>Binomial Name</th>
+                  <th>Avg. Mass</th>
+                  <th>Max. Mass</th>
+                  <th>Avg. Length</th>
+                  <th>Flighted</th>
+               </tr>
+            </thead>
+
+            <tbody>
+               <tr>
+                  <td>Ostrich</td>
+                  <td>Struthio camelus</td>
+                  <td>104 kg (230lbs)</td>
+                  <td>156.8 kg (346 lb)</td>
+                  <td>210 cm (6.9 ft)</td>
+                  <td>No</td>
+               </tr>
+
+               <tr>
+                  <td>Southern cassowary</td>
+                  <td>Casuarius casuarius</td>
+                  <td>45 kg (99 lb)</td>
+                  <td>85 kg (187 lb)</td>
+                  <td>155 cm (5.09 ft)</td>
+                  <td>No</td>
+               </tr>
+
+               <tr>
+                  <td>Emu</td>
+                  <td>Dromaius novaehollandiae</td>
+                  <td>33 kg (73 lb)</td>
+                  <td>70 kg (150 lb)</td>
+                  <td>153 cm (5.02 ft)</td>
+                  <td>No</td>
+               </tr>
+            </tbody>
+
+            <tfoot>
+               <tr>
+                  <td colspan="6"><i>Very Interesting</i></td>
+               </tr>
+            </tfoot>
+         </table>
+      </section>
+      <hr style="width: 50%;">
+
+      <!-- Forms References -->
+      <section>
+         <h4 style="margin: 0;">Forms</h4>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form" target="_blank"
+               crossorigin="anonymous" referrerpolicy="no-referrer">MDN Forms Reference</a></p>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank"
+               crossorigin="anonymous" referrerpolicy="no-referrer">MDN Form Input Types</a></p>
+         <hr style="width: 50%;">
+      </section>
+
+      <!-- Forms Layout -->
+      <section>
+         <form action="">
+            <p>Input type "Text"<br>
+               <label for="username">Username: </label>
+               <input id="username" type="text" placeholder="username" name="user">
+            </p>
+
+            <p>Input type "Password"<br>
+               <label for="password">Password: </label>
+               <input id="password" type="password" placeholder="password" name="pass">
+            </p>
+
+            <p>Input type "Color"<br>
+               <label for="color">Color: </label>
+               <input id="color" type="color" name="color">
+            </p>
+
+            <p>Input type "Number"<br>
+               <label for="number">Number: </label>
+               <input id="number" type="number" placeholder="enter a number" name="num">
+            </p>
+            <button>Enter</button>
+            <p></p>
+         </form>
+         <br>
+         <hr style="width: 40%;">
+      </section>
+
+      <!-- Functional Search Engines -->
+      <section>
+         <h3>Functioning Search Forms</h3>
+         <div style="width: 40%; margin: 0 auto;">
+            <p>Because every company has different formats for a search, <i>do a search
+                  on <b>their</b> search page and from the results in the address bar, and pick out the address and
+                  "name"
+                  for the search query.</i></p>
+            <p>ex. for reddit,<br>
+               form action = "https://www.reddit.com/search"<br>
+               input name = "q"</p>
+            <p><b><i>*also</i></b>, you can <b>omit</b> the "Submit" button and it will submit automatically when the
+               user
+               enters the search term and presses <b>Enter</b>, as in the Google example below.</p>
+         </div>
+         <hr style="width: 40%;">
+
+         <form action="https://www.reddit.com/search" target="_blank">
+            <h4 style="margin: 5px; text-align: center;">Reddit Search</h4>
+            <input type="text" name="q">&nbsp;&nbsp;
+            <button>Search Reddit</button>
+         </form><br><br>
+         <hr style="width: 20%;">
+
+         <form action="https://www.google.com/search" target="_blank">
+            <h4 style="margin: 5px; text-align: center;">Google Search</h4>
+            <input type="text" name="q">
+         </form><br><br>
+         <hr style="width: 20%;">
+
+         <form action="https://www.youtube.com/results" target="_blank">
+            <h4 style="margin: 5px; text-align: center;">Youtube Search</h4>
+            <input type="text" name="search_query">&nbsp;&nbsp;
+            <button>Search Youtube</button>
+         </form><br><br>
+         <hr style="width: 20%;">
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+
+      <footer>
+         <div>Website created by badDoggy</div>
+         <div>|</div>
+         <div>2024</div>
+         <div>|</div>
+         <div>&copy; All Rights Reserved</div>
+      </footer>
+   </div>
+</body>
+
+</html>
