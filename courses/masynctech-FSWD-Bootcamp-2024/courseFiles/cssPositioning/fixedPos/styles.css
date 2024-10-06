@@ -21,7 +21,7 @@ a {
     text-align: center;
     /* Fixed properties here */
     position: fixed;
-    top: 0;
+    top: 65px;
     left: 0;
 }
 
@@ -36,7 +36,7 @@ a {
 }
 
 .content-section {
-    padding: 100px 20px; /* Increased padding to avoid content hiding behind the navbar */
+    padding: 10px 20px; /* Increased padding to avoid content hiding behind the navbar */
     min-height: 100vh; /* Ensuring each section takes full viewport height */
     text-align: center; /* Centering content */
 }

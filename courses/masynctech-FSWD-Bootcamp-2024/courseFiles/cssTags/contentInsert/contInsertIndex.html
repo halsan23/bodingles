@@ -2,133 +2,151 @@
 <html lang="en" id="top">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content Insertion Pseudo Class Selector</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Content Insertion Pseudo Class Selector</title>
 
-    <!-- Link Favicon -->
-    <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
 
-    <!-- link stylesheet -->
-    <link rel="stylesheet" href="../../../../../css/root.css" />
-    <link rel="stylesheet" href="styles.css" />
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
+   <!-- Header -->
+   <header>
       <span class="headLogo"></span>
-        <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
-        <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-            <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-            Ideas&nbsp;&nbsp;&nbsp;- -</span>
-    </header>
+      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
 
-    <div class="content">
-        <!-- Title -->
-        <section>
-            <h2>Full Stack MERN Web Development</h2>
-            <h3><i>Content</i> Insertion Pseudo Class Selector (::)</h3>
-            <p><a href="../cssTagsIndex.html">Return to CSS Tags Index</a></p>
-        </section>
+   <div class="content">
+      <!-- Title -->
+      <section>
+         <h2>Full Stack MERN Web Development</h2>
+         <h3><i>Content</i> Insertion Pseudo Class Selector (::)</h3>
+         <p><a href="../cssTagsIndex.html">Return to CSS Tags Index</a></p>
+      </section>
 
-        <!-- Class Specific Info Sections -->
-        <section id="textWindow2">
-            <ul><h4>Content Insertion (::)</h4>
-                <li>Style specific parts of an element</li>
-                <li>Examples:</li>
-                <ul>
-                    <li>Content before/after</li>
-                    <li>First letter</li>
-                    <li>First line</li>
-                </ul>
-                <li>It's a "<i>granular</i>"styling control</li>
-                <li>No extra HTML needed</li>
+      <!-- Class Specific Info Sections -->
+      <section id="textWindow2">
+         <div class="lists">
+            <ul>
+               <h4>Content Insertion (::)</h4>
+               <li>Style specific parts of an element</li>
+               <li>Examples:
+                  <ul>
+                     <li>Content before/after</li>
+                     <li>First letter</li>
+                     <li>First line</li>
+                  </ul>
+               </li>
+               <li>It's a "<i>granular</i>"styling control</li>
+               <li>No extra HTML needed</li>
             </ul>
-        </section>
-        <section id="textWindow2">
-            <ul><h4>Sample types of Insertions</h4>
-                <li><b>::before :</b></li>
-                <ul>
-                    <li>Insert content <i>before</i> actual content</li>
-                    <li>Often with content' property</li>
-                </ul>
-                <li><b>::after :</b></li>
-                <ul>
-                    <li>Insert content <i>after</i> actual content</li>
-                    <li>also with content' property</li>
-                </ul>
-                <li><b>::first-letter :</b></li>
-                <ul>
-                    <li>Style the first letter of a text block</li>
-                </ul>
-                <li><b>::first-line :</b></li>
-                <ul>
-                    <li>Style the first line of a text block</li>
-                </ul>
-                <li><b>::selection :</b></li>
-                <ul>
-                    <li>Style <i>selected</i> parts of the users text"</li>
-                </ul>
+         </div>
+      </section>
+
+      <section id="textWindow2">
+         <div class="lists">
+            <ul>
+               <h4>Sample types of Insertions</h4>
+               <li><b>::before :</b>
+                  <ul>
+                     <li>Insert content <i>before</i> actual content</li>
+                     <li>Often with content' property</li>
+                  </ul>
+               </li>
+               <li><b>::after :</b>
+                  <ul>
+                     <li>Insert content <i>after</i> actual content</li>
+                     <li>also with content' property</li>
+                  </ul>
+               </li>
+               <li><b>::first-letter :</b>
+                  <ul>
+                     <li>Style the first letter of a text block</li>
+                  </ul>
+               </li>
+               <li><b>::first-line :</b>
+                  <ul>
+                     <li>Style the first line of a text block</li>
+                  </ul>
+               </li>
+               <li><b>::selection :</b>
+                  <ul>
+                     <li>Style <i>selected</i> parts of the users text"</li>
+                  </ul>
+               </li>
             </ul>
-        </section>
+         </div>
+      </section>
 
-        <section id="textWindow2">
-            <ul><h4>When to Use</h4>
-                <li><b>::before & ::after</b> - Decorative changes - no HTML changes</li>
-                <li><b>::first-letter</b> - Drop caps, special start styling</li>
-                <li><b>::first-line</b> - Style opening line in paragraph or heading</li>
-                <li><b>::selection</b> - Customize selected text appearance</li>
+      <section id="textWindow2">
+         <div class="lists">
+            <ul>
+               <h4>When to Use</h4>
+               <li><b>::before & ::after</b> - Decorative changes - no HTML changes</li>
+               <li><b>::first-letter</b> - Drop caps, special start styling</li>
+               <li><b>::first-line</b> - Style opening line in paragraph or heading</li>
+               <li><b>::selection</b> - Customize selected text appearance</li>
             </ul>
-        </section>
+         </div>
+      </section>
 
-        <!-- Class Code -->
-        <div id="cardbox">
-            <div id="recipe-card">
-                <h2 class="title">Fluffy Pancakes</h2>
+      <!-- Class Code -->
+      <div id="cardbox">
+         <div id="recipe-card">
+            <h2 class="title">Fluffy Pancakes</h2>
 
-                <div class="image">
-                    <img
-                    src="pancakes.jpeg"
-                    alt="A stack of fluffy pancakes"
-                    width="100%"
-                    />
-                </div>
-
-                <div class="time-container">
-                    <span class="time">Prep time: 15 mins</span> |
-                    <span class="time">Cook time: 20 mins</span>
-                </div>
-
-                <div class="ingredients">
-                    <ul><h4>Ingredients:</h4></ul>
-                        <li>Flour</li>
-                        <li>Sugar</li>
-                        <li>Eggs</li>
-                        <li>Milk</li>
-                </div>
-
-                <div class="steps-container">
-                    <h4>Instructions:</h4>
-                    <p class="steps">1. Start by mixing all the dry ingredients in a bowl.</p>
-                    <p class="steps">2. Whisk in the eggs and milk until you have a smooth batter.</p>
-                    <p class="steps">3. Cook each side on medium heat until golden brown.</p>
-                </div>
-
-                <p class="note">
-                    Tip: Serve with fresh berries and maple syrup for added deliciousness!
-                </p>
+            <div class="image">
+               <img src="pancakes.jpeg" alt="A stack of fluffy pancakes" width="100%" />
             </div>
-        </div>
 
-        <p><a href="#top">Back to Top</a></p>
-        <p></p><p></p>
+            <div class="time-container">
+               <span class="time">Prep time: 15 mins</span> |
+               <span class="time">Cook time: 20 mins</span>
+            </div>
 
-        <footer>
+            <div class="ingredients">
+               <ul>
+                  <h4>Ingredients:</h4>
+               </ul>
+               <li>Flour</li>
+               <li>Sugar</li>
+               <li>Eggs</li>
+               <li>Milk</li>
+            </div>
+
+            <div class="steps-container">
+               <h4>Instructions:</h4>
+               <p class="steps">1. Start by mixing all the dry ingredients in a bowl.</p>
+               <p class="steps">2. Whisk in the eggs and milk until you have a smooth batter.</p>
+               <p class="steps">3. Cook each side on medium heat until golden brown.</p>
+            </div>
+
+            <p class="note">
+               Tip: Serve with fresh berries and maple syrup for added deliciousness!
+            </p>
+         </div>
+      </div>
+
+      <p><a href="#top">Back to Top</a></p>
+      <p></p>
+      <p></p>
+
+      <footer>
          <div>Website created by badDoggy</div>
-         <div>|</div><div>2024</div><div>|</div>
+         <div>|</div>
+         <div>2024</div>
+         <div>|</div>
          <div>&copy; All Rights Reserved</div>
       </footer>
-    </div>
+   </div>
 </body>
+
 </html>
