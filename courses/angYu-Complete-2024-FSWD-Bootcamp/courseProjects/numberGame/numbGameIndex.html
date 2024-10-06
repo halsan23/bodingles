@@ -1,97 +1,102 @@
 <!DOCTYPE html>
 <html lang="en" id="top">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Number Guesser</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>JavaScript Number Guesser</title>
 
-    <!-- Insert Favicon -->
-    <link rel="icon" href="../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <!-- Insert Favicon -->
+   <link rel="icon" href="../../../../images/logos/favicon.ico" type="image/x-icon" />
 
-    <!-- Link Main Stylesheet -->
-    <link rel="stylesheet" href="../../../../css/root.css">
-    <link rel="stylesheet" href="css/style.css">
+   <!-- Link Main Stylesheet -->
+   <link rel="stylesheet" href="../../../../css/root.css">
+   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
+   <!-- Header -->
+   <header>
       <span class="headLogo"></span>
       <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
       <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
          <img class="sloganBulb" src="../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
          Ideas&nbsp;&nbsp;&nbsp;- -</span>
-    </header>
-    <div class="content">
-        <!-- Title -->
-        <section>
-            <h3>JavaScript Number Guesser!</h3>
-            <p><a href="../../angYuIndex.html">Back to Class Page</a></p>
-            <hr>
-        </section>
+   </header>
 
-        <!-- Start Game Code -->
-        <div class="game-container">
-            <p>Compete against the computer to see who is closer to the Secret Number (0 - 9)</p>
-            <div class="instructions">
-                <div class="instruction">
-                    <h3>Step 1</h3>
-                    <p>Input a number between 0 and 9</p>
-                </div>
-                <div class="instruction">
-                    <h3>Step 2</h3>
-                    <p>Click "Make a Guess" to submit your guess and see who won the round.</p>
-                </div>
-                <div class="instruction">
-                    <h3>Step 3</h3>
-                    <p>Click "Next Round" to play again.</p>
-                </div>
+   <div class="content">
+      <!-- Title -->
+      <section>
+         <h3>JavaScript Number Guesser!</h3>
+         <p><a href="../../angYuIndex.html">Back to Class Page</a></p>
+         <hr>
+      </section>
+
+      <!-- Start Game Code -->
+      <div class="game-container">
+         <p>Compete against the computer to see who is closer to the Secret Number (0 - 9)</p>
+         <div class="instructions">
+            <div class="instruction">
+               <h3>Step 1</h3>
+               <p>Input a number between 0 and 9</p>
             </div>
-
-            <div class="rounds">
-                <p class="round-label">Round <span id="round-number">1</span></p>
-                <p class="guess-label">Secret Number: <span id="target-number">?</span></p>
+            <div class="instruction">
+               <h3>Step 2</h3>
+               <p>Click "Make a Guess" to submit your guess and see who won the round.</p>
             </div>
-
-            <div class="guessing-area">
-                <div class="guess computer-guess">
-                    <div class="guess-title">
-                        <p class="guess-label">Computer</p>
-                        <p class="score-label">Score: <span id="computer-score">0</span></p>
-                    </div>
-                    <p id="computer-guess">?</p>
-                    <p class="winning-text" id="computer-wins"></p>
-                </div>
-                <div class="guess human-guess">
-                    <div class="guess-title">
-                        <p class="guess-label">You</p>
-                        <p class="score-label">Score: <span id="human-score">0</span></p>
-                    </div>
-                    <input type="number" id="human-guess" min=0 max=9 value=0>
-                    <div class="number-controls">
-                        <button class="number-control left" id="subtract" disabled>-</button>
-                        <button class="number-control right" id="add">+</button>
-                    </div>
-                    <button class="button" id="guess">Make a Guess</button>
-                </div>
+            <div class="instruction">
+               <h3>Step 3</h3>
+               <p>Click "Next Round" to play again.</p>
             </div>
+         </div>
 
-            <div class="next-round-container">
-                <button class="button" id="next-round" disabled>Next Round</button>
+         <div class="rounds">
+            <p class="round-label">Round <span id="round-number">1</span></p>
+            <p class="guess-label">Secret Number: <span id="target-number">?</span></p>
+         </div>
+
+         <div class="guessing-area">
+            <div class="guess computer-guess">
+               <div class="guess-title">
+                  <p class="guess-label">Computer</p>
+                  <p class="score-label">Score: <span id="computer-score">0</span></p>
+               </div>
+               <p id="computer-guess">?</p>
+               <p class="winning-text" id="computer-wins"></p>
             </div>
-        </div>
+            <div class="guess human-guess">
+               <div class="guess-title">
+                  <p class="guess-label">You</p>
+                  <p class="score-label">Score: <span id="human-score">0</span></p>
+               </div>
+               <input type="number" id="human-guess" min=0 max=9 value=0>
+               <div class="number-controls">
+                  <button class="number-control left" id="subtract" disabled>-</button>
+                  <button class="number-control right" id="add">+</button>
+               </div>
+               <button class="button" id="guess">Make a Guess</button>
+            </div>
+         </div>
 
-        <p><a href="#top">Back to Top</a></p>
-        <p></p><p></p>
+         <div class="next-round-container">
+            <button class="button" id="next-round" disabled>Next Round</button>
+         </div>
+      </div>
+      <p><a href="#top">Back to Top</a><br><br></p>
+   </div>
 
-        <footer>
-         <div>Website created by badDoggy</div>
-         <div>|</div><div>2024</div><div>|</div>
-         <div>&copy; All Rights Reserved</div>
-      </footer>
-    </div>
+   </div>
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
 
-    <script src="./scripts/game.js"></script>
-    <script src="./scripts/script.js"></script>
+   <script src="./scripts/game.js"></script>
+   <script src="./scripts/script.js"></script>
 
 </body>
+
 </html>

@@ -1,10 +1,10 @@
-section img {
+main img {
    border-radius: 40px;
    box-shadow: 5px 5px 10px #8b8b8b;
 }
 
 .navbar {
-   width: 47%;
+   width: 65%;
    display: flex;
    justify-content: space-evenly;
 }
