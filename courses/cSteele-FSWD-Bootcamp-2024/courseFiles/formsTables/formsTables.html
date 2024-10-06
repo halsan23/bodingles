@@ -7,7 +7,7 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../images/logos/lightbulb.png" type="image/x-icon">
+   <link rel="icon" href="../../../../images/logos/favicon.ico" type="image/x-icon">
 
    <!-- link stylesheet -->
    <link rel="stylesheet" href="../../../../css/root.css">
@@ -38,53 +38,55 @@
                crossorigin="anonymous" referrerpolicy="no-referrer">MDN Table Reference</a></p>
          <h4 style="margin: 0;">Tables</h4>
          <!-- Table Layout -->
-         <table>
-            <thead>
-               <tr>
-                  <th>Common Name</th>
-                  <th>Binomial Name</th>
-                  <th>Avg. Mass</th>
-                  <th>Max. Mass</th>
-                  <th>Avg. Length</th>
-                  <th>Flighted</th>
-               </tr>
-            </thead>
+         <div class="tab">
+            <table>
+               <thead>
+                  <tr>
+                     <th>Common Name</th>
+                     <th>Binomial Name</th>
+                     <th>Avg. Mass</th>
+                     <th>Max. Mass</th>
+                     <th>Avg. Length</th>
+                     <th>Flighted</th>
+                  </tr>
+               </thead>
 
-            <tbody>
-               <tr>
-                  <td>Ostrich</td>
-                  <td>Struthio camelus</td>
-                  <td>104 kg (230lbs)</td>
-                  <td>156.8 kg (346 lb)</td>
-                  <td>210 cm (6.9 ft)</td>
-                  <td>No</td>
-               </tr>
+               <tbody>
+                  <tr>
+                     <td>Ostrich</td>
+                     <td>Struthio camelus</td>
+                     <td>104 kg (230lbs)</td>
+                     <td>156.8 kg (346 lb)</td>
+                     <td>210 cm (6.9 ft)</td>
+                     <td>No</td>
+                  </tr>
 
-               <tr>
-                  <td>Southern cassowary</td>
-                  <td>Casuarius casuarius</td>
-                  <td>45 kg (99 lb)</td>
-                  <td>85 kg (187 lb)</td>
-                  <td>155 cm (5.09 ft)</td>
-                  <td>No</td>
-               </tr>
+                  <tr>
+                     <td>Southern cassowary</td>
+                     <td>Casuarius casuarius</td>
+                     <td>45 kg (99 lb)</td>
+                     <td>85 kg (187 lb)</td>
+                     <td>155 cm (5.09 ft)</td>
+                     <td>No</td>
+                  </tr>
 
-               <tr>
-                  <td>Emu</td>
-                  <td>Dromaius novaehollandiae</td>
-                  <td>33 kg (73 lb)</td>
-                  <td>70 kg (150 lb)</td>
-                  <td>153 cm (5.02 ft)</td>
-                  <td>No</td>
-               </tr>
-            </tbody>
+                  <tr>
+                     <td>Emu</td>
+                     <td>Dromaius novaehollandiae</td>
+                     <td>33 kg (73 lb)</td>
+                     <td>70 kg (150 lb)</td>
+                     <td>153 cm (5.02 ft)</td>
+                     <td>No</td>
+                  </tr>
+               </tbody>
 
-            <tfoot>
-               <tr>
-                  <td colspan="6"><i>Very Interesting</i></td>
-               </tr>
-            </tfoot>
-         </table>
+               <tfoot>
+                  <tr>
+                     <td colspan="6"><i>Very Interesting</i></td>
+                  </tr>
+               </tfoot>
+            </table>
+         </div>
       </section>
 
       <!-- Forms References -->
@@ -99,28 +101,65 @@
 
       <!-- Forms Layout -->
       <section>
+         <h4>Some Basic Input Types</h4>
          <form action="">
             <p>Input type "Text"<br>
                <label for="username">Username: </label>
                <input id="username" type="text" placeholder="username" name="user">
             </p>
+            <hr>
 
             <p>Input type "Password"<br>
                <label for="password">Password: </label>
                <input id="password" type="password" placeholder="password" name="pass">
             </p>
+            <hr>
+
+            <p>Input type "Checkbox"</p>
+            <table>
+               <thead>
+                  <tr>
+                     <td colspan="3">I Like eating,</td>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>
+                        <input id="in" type="checkbox" name="in">
+                        <label for="in">In</label>
+                     </td>
+                     <td>
+                        <input id="out" type="checkbox" name="out">
+                        <label for="out">Out</label>
+                     </td>
+                     <td>
+                        <input id="both" type="checkbox" name="both" checked>
+                        <label for="both">Both</label><br>
+                     </td>
+                  </tr>
+               </tbody>
+               <tfoot>
+                  <tr>
+                     <td colspan="3">Select all that apply</td>
+                  </tr>
+               </tfoot>
+            </table>
+            <hr>
 
             <p>Input type "Color"<br>
                <label for="color">Color: </label>
                <input id="color" type="color" name="color">
             </p>
+            <hr>
 
             <p>Input type "Number"<br>
                <label for="number">Number: </label>
                <input id="number" type="number" placeholder="enter a number" name="num">
             </p>
-            <button>Enter</button>
-            <p></p>
+            <hr>
+            <p>
+               <button>Enter</button>
+            </p>
          </form>
          <br>
          <hr style="width: 40%;">

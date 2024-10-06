@@ -1,16 +1,34 @@
 table {
+   margin: 0 auto;
+   width: 90%;
+}
+
+td {
+   padding: 5px;
+   text-align: center;
+}
+
+.tab table {
    margin: 5px auto 20px;
    padding: 5px;
    border: 1px solid brown;
 }
 
-th {
+.tab th {
    padding: 15px;
    background-color: #c3c3c3;
    border: 1px solid brown;
 }
 
-td {
+.tab td {
    padding: 15px;
    border: 1px solid brown;
+}
+
+p {
+   text-align: center;
+}
+
+button {
+   margin: 0 auto;
 }
