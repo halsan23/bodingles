@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="../../../../css/root.css">
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <div class="content">
+      <h2><i>The Web Developer Bootcamp 2024</i></h2>
+      <p>Colt Steele</p>
+      <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+      <hr style="width: 40%;">
+      <h3>HTML Forms</h3>
+
+      <!-- Class Content -->
+      <!-- Forms References -->
+      <section>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form" target="_blank"
+               crossorigin="anonymous" referrerpolicy="no-referrer">MDN Forms Reference</a></p>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank"
+               crossorigin="anonymous" referrerpolicy="no-referrer">MDN Form Input Types</a></p>
+         <hr style="width: 50%;">
+      </section>
+
+      <!-- Forms Layout -->
+      <section>
+         <h4>Some Basic Input Types</h4>
+         <form action="/">
+
+            <!-- Input type Text -->
+            <div>
+               <p>Input type "Text"<br>
+                  <label for="username">Username: </label>
+                  <input id="username" type="text" placeholder="username" name="user">
+               </p>
+               <hr>
+            </div>
+
+            <!-- Input type Password -->
+            <div>
+               <p>Input type "Password"<br>
+                  <label for="password">Password: </label>
+                  <input id="password" type="password" placeholder="password" name="pass">
+               </p>
+               <hr>
+            </div>
+
+            <!-- Input type Checkbox -->
+            <div>
+               <p>Input type "Checkbox"<br>
+                  You can make multiple selections.</p>
+               <table>
+                  <thead>
+                     <tr>
+                        <td colspan="3">I Like eating,</td>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>
+                           <input id="in" type="checkbox" name="dineIn">
+                           <label for="in">In</label>
+                        </td>
+                        <td>
+                           <input id="out" type="checkbox" name="dineOut">
+                           <label for="out">Out</label>
+                        </td>
+                        <td>
+                           <input id="both" type="checkbox" name="dineBoth" checked>
+                           <label for="both">Both</label><br>
+                        </td>
+                     </tr>
+                  </tbody>
+                  <tfoot>
+                     <tr>
+                        <td colspan="3">Select all that apply</td>
+                     </tr>
+                  </tfoot>
+               </table>
+               <hr>
+            </div>
+
+            <!-- Input type Radio Button -->
+            <div>
+               <p>Input type "Radio Button"<br>
+                  You can only select one.</p>
+               <p>Pick a size:<br>
+                  <!-- the for & ID link the button to the label -->
+                  <!-- the name links the buttons to the same variable -->
+                  <!-- the value is the attribute returned for the variable -->
+                  <!-- when submitted the result would ne size = s, m, or l -->
+                  <label for="s"> S </label>
+                  <input id="s" type="radio" name="size" value="sm">
+                  <label for="m"> M </label>
+                  <input id="m" type="radio" name="size" value="md">
+                  <label for="l"> L </label>
+                  <input id="l" type="radio" name="size" value="lg">
+               </p>
+               <hr>
+            </div>
+
+            <!-- Input type Drop-Down List -->
+            <div>
+               <p>Input type "Drop-Down" List</p>
+               <table>
+                  <tr>
+                     <td><label for="meal">Please make a selection:</label></td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <select name="meal" id="meal">
+                           <!-- you can make a "notice" value by not setting a value -->
+                           <option value="">-- Please Select One --</option>
+                           <option value="fish">Fish</option>
+                           <option value="steak">Steak</option>
+                           <!-- you can also set a default by assigning "selected" -->
+                           <option value="kabob" selected>Kabobs</option>
+                           <option value="chicken">Chicken</option>
+                           <option value="salad">Salad</option>
+                        </select>
+                     </td>
+                  </tr>
+               </table>
+               <hr>
+            </div>
+
+            <!-- Input type Color -->
+            <div>
+               <p>Input type "Color"<br>
+                  <label for="color">Color: </label>
+                  <input id="color" type="color" name="color">
+               </p>
+               <hr>
+            </div>
+
+            <!-- Input type Number -->
+            <div>
+               <p>Input type "Number"<br>
+                  <label for="number">Number: </label>
+                  <input id="number" type="number" placeholder="enter a number" name="num">
+                  <!-- you can add a step="xx" to increment by other than 1 -->
+                  <!-- you can also give it an initial value with value-"xx" -->
+                  <!-- You can set a minimum value allowed with min="xx" -->
+                  <!-- You can also set a maximum value allowed with max="xx" -->
+               </p>
+               <hr>
+            </div>
+
+            <!-- Input Type Range -->
+            <div>
+               <label for="volume">Volume: </label>
+               <input id="volume" type="range" name="volume" min="0" max="100">
+               <!-- you can add a step="xx" to increment by other than 1 -->
+               <!-- you can also give it an initial value with value-"xx" -->
+               <hr>
+            </div>
+
+            <!-- Textarea -->
+            <div>
+               <!-- Technically not an "Input" Type, but is used for "area" input -->
+               <p><label for="requests">Special Requests</label></p>
+               <textarea name="requests" id="requests" rows="10" cols="30" placeholder="Type Message Here"></textarea>
+               <!-- Set initial width & height with rows and columns (**optional) -->
+               <!-- Can set a placeholder (**optional) -->
+            </div>
+
+            <!-- Submit Button -->
+            <p><button>Submit</button></p>
+
+         </form><br>
+      </section>
+
+      <hr style="width: 40%;">
+      <hr style="width: 50%;">
+      <hr style="width: 40%;">
+
+      <!-- Functional Search Engines -->
+      <section>
+         <h3>Functioning Search Forms</h3>
+         <div style="width: 40%; margin: 0 auto;">
+            <p>Because every company has different formats for a search, <i>do a search
+                  on <b>their</b> search page and from the results in the address bar, and pick out the address and
+                  "name"
+                  for the search query.</i></p>
+            <p>ex. for reddit,<br>
+               form action = "https://www.reddit.com/search"<br>
+               input name = "q"</p>
+            <p><b><i>*also</i></b>, you can <b>omit</b> the "Submit" button and it will submit automatically when the
+               user
+               enters the search term and presses <b>Enter</b>, as in the Google example below.</p>
+         </div>
+         <hr style="width: 40%;">
+
+         <form action="https://www.reddit.com/search" target="_blank">
+            <h4 style="margin: 5px; text-align: center;">Reddit Search</h4>
+            <input type="text" name="q">&nbsp;&nbsp;
+            <button>Search Reddit</button>
+         </form><br><br>
+         <hr style="width: 20%;">
+
+         <form action="https://www.google.com/search" target="_blank">
+            <h4 style="margin: 5px; text-align: center;">Google Search</h4>
+            <input type="text" name="q">
+         </form><br><br>
+         <hr style="width: 20%;">
+
+         <form action="https://www.youtube.com/results" target="_blank">
+            <h4 style="margin: 5px; text-align: center;">Youtube Search</h4>
+            <input type="text" name="search_query">&nbsp;&nbsp;
+            <button>Search Youtube</button>
+         </form><br><br>
+         <hr style="width: 20%;">
+      </section>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
+
+   </div>
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+
+</body>
+
+</html>
