@@ -220,32 +220,36 @@ li {
    width: 90%;
    margin: 0 auto;
    display: flex;
+   /* border: 1px solid black; */
 }
 
 #splitWindowLt {
-   width: 50%;
+   width: 60%;
    padding: 10px 20px;
-   margin: 25px 40px 75px 35px;
+   margin: 25px 30px 75px 30px;
    text-align: justify;
    background-color: #ebebeb;
    border-radius: 10px;
    border: 1px solid  #b0b0b0;
 }
+
+#splitWindowRt {
+   width: 60%;
+   padding: 10px 20px;
+   margin: 75px 30px 25px 30px;
+   text-align: justify;
+   background-color: #ebebeb;
+   border-radius: 10px;
+   border: 1px solid  #b0b0b0;
+}
+
 #splitWindowLt img {
    padding: 25px;
    float: left;
    width: 20%;
    height: auto;
 }
-#splitWindowRt {
-   width: 50%;
-   padding: 10px 20px;
-   margin: 75px 35px 25px 40px;
-   text-align: justify;
-   background-color: #ebebeb;
-   border-radius: 10px;
-   border: 1px solid  #b0b0b0;
-}
+
 #splitWindowRt img {
    padding: 25px;
    float: right;
