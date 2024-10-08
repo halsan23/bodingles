@@ -191,7 +191,7 @@ li {
    width: 65%;
 }
 #textWindow2 {
-   width: 50%;
+   width: 35%;
    margin: 35px auto;
    padding: 0 40px;
    background-color: #ebebeb;
@@ -199,7 +199,7 @@ li {
    border: 1px solid  #b0b0b0;
 }
 #textWindow3 {
-   width: 65%;
+   width: 60%;
    margin: 35px auto;
    padding: 0 40px;
    background-color: #ebebeb;
@@ -225,7 +225,7 @@ li {
 #splitWindowLt {
    width: 50%;
    padding: 10px 20px;
-   margin: 25px 50px 50px 35px;
+   margin: 25px 40px 75px 35px;
    text-align: justify;
    background-color: #ebebeb;
    border-radius: 10px;
@@ -240,7 +240,7 @@ li {
 #splitWindowRt {
    width: 50%;
    padding: 10px 20px;
-   margin: 50px 35px 25px 50px;
+   margin: 75px 35px 25px 40px;
    text-align: justify;
    background-color: #ebebeb;
    border-radius: 10px;
