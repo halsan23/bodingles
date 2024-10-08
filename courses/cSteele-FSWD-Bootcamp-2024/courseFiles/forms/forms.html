@@ -25,11 +25,14 @@
    </header>
 
    <div class="content">
-      <h2><i>The Web Developer Bootcamp 2024</i></h2>
-      <p>Colt Steele</p>
-      <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
-      <hr style="width: 40%;">
-      <h3>HTML Forms</h3>
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+         <hr style="width: 40%;">
+         <h3>HTML Forms</h3>
+      </section>
 
       <!-- Class Content -->
       <!-- Forms References -->
@@ -40,6 +43,60 @@
                crossorigin="anonymous" referrerpolicy="no-referrer">MDN Form Input Types</a></p>
          <hr style="width: 50%;">
       </section>
+
+      <!-- Final Class Form Build -->
+      <section id="textWindow2">
+         <p><i>Sample form with basic HTML validation</i></p>
+         <form action="">
+            <h4>Marathon Entry Form</h4>
+            <p style="text-align: left;"><i>All fields are required</i></p>
+            <label for="fname">First Name: </label>
+            <input type="text" id="fname" name="fname" required>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="lname">Last Name: </label>
+            <input type="text" id="lname" name="lname" required>
+
+            <br><br>
+            <label for="pswd">Password: </label>
+            <input type="password" id="pswd" name="pswd" minlength="5" maxlength="10" required>
+            <br>(<i>must be between 5 and 10 characters</i>)
+
+            <br><br>Choose a race:<br>
+            <!-- the "name" in the INPUT field is what links them -->
+            <!-- so the "name" must be the same in all radio fields -->
+            <!-- the "value" is what is sent to the form -->
+            <input type="radio" id="fiveK" name="race" value="fiveK">
+            <label for="fiveK">Fun Run 5K</label><br>
+
+            <input type="radio" id="half" name="race" value="half">
+            <label for="half">Half Marathon</label><br>
+
+            <input type="radio" id="full" name="race" value="full">
+            <label for="full">Full Marathon</label><br>
+
+            <br><br>
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" required>
+
+            <br><br>
+            <label for="">Age Group:</label><br>
+            <select name="group" id="group" required>
+               <!-- you can make a "notice" value by not setting a value (optional) -->
+               <option value="">-- Please Select One --</option>
+
+               <option value="under20">Under 20</option>
+               <option value="20_35">20 to 35</option>
+               <option value="36_50">36 to 50</option>
+               <option value="over50">Over 50</option>
+            </select>
+
+            <br><br>
+            <button>Submit Entry</button>
+         </form>
+         <p><br></p>
+      </section>
+      <hr style="width: 40%;">
 
       <!-- Forms Layout -->
       <section>
@@ -128,11 +185,11 @@
                   <tr>
                      <td>
                         <select name="meal" id="meal">
-                           <!-- you can make a "notice" value by not setting a value -->
+                           <!-- you can make a "notice" value by not setting a value (optional) -->
                            <option value="">-- Please Select One --</option>
                            <option value="fish">Fish</option>
                            <option value="steak">Steak</option>
-                           <!-- you can also set a default by assigning "selected" -->
+                           <!-- you can also set a default by assigning "selected" (optional) -->
                            <option value="kabob" selected>Kabobs</option>
                            <option value="chicken">Chicken</option>
                            <option value="salad">Salad</option>
@@ -187,6 +244,44 @@
             <p><button>Submit</button></p>
 
          </form><br>
+      </section>
+      <hr style="width: 40%;">
+
+      <section>
+         <h3>HTML Form Validation</h3>
+         <p>HTML itself has limited form validation. Most proper form validation is done with JavaScript.<br>But with
+            HTML,
+            you can specify elements as <b>required</b> inputs by adding the term <b>required</b> to the form
+            input statement.</p>
+         <p>eg. <b>
+               < input type="text" id="username" name="user" required>
+            </b></p>
+         <form action="/dummy">
+            <label for="user">Username: </label>
+            <input type="text" id="user" name="user" required>
+            <button>Submit</button>
+         </form>
+         <p>So by simply adding <b>required</b>, HTML will do basic validation and ensure the form is not submitted with
+            required fields.<br></p>
+         <hr style="width: 40%;">
+         <p>You can also use this with elements using <b>min</b>, <b>max</b>, <b>minlength</b>, and <b>maxlength</b>
+            arguments, such as a password<br>
+            field (for example), lets say, min length of 5, and max length of 10</p>
+         <p>If the length is too short, you'll get a message, and it will not let you add any more characters after max
+            is reached.<br>
+            <b>
+               < input type="password" id="pswd" name="pswd" minlength="5" maxlength="10" required>
+            </b>
+         </p>
+         <form action="/dummy">
+            <label for="pswd">Password: </label>
+            <input type="password" id="pswd" name="pswd" minlength="5" maxlength="10" required>
+            <button>Submit</button>
+         </form>
+         <p>You can also do some basic pattern matching on elements such as email and url's. More info can be found <a
+               href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern" target="_blank"
+               rel="noopener noreferrer">HERE</a>.</p>
+         <p><br></p>
       </section>
 
       <hr style="width: 40%;">
