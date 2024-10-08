@@ -37,14 +37,14 @@ header {
    content: url(../images/logos/bodinglesLogo2.png);
    position: absolute;
    top: 20px;
-   left: 40px;
+   left: 30px;
    width: 40px;
    height: auto;
    vertical-align: middle;
 }
 .headTitle {
    position: absolute;
-   left: 100px;
+   left: 87px;
    top: 8px;
    color: #3e4b2b;
    font-size: 3.25rem;
@@ -52,7 +52,7 @@ header {
 }
 .headTitleb {
    position: absolute;
-   left: 163px;
+   left: 150px;
    top: 8px;
    color: #8b7c62;
    font-size: 3.25rem;
@@ -65,9 +65,10 @@ header sub {
 }
 .headSlogan {
    position: absolute;
-   right: 0;
+   right: 8px;
    top: 20px;
    color: #221e18;
+   text-align: center;
    font-size: 1.2rem;
    font-weight: normal;
    font-style: italic;
@@ -75,7 +76,7 @@ header sub {
 .sloganBulb {
    vertical-align: middle;
    width: 17%;
-   height: 17%;
+   height: auto;
 }
 
 footer {
