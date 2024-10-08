@@ -193,7 +193,7 @@ li {
    width: 50%;
    margin: 35px auto;
    padding: 0 40px;
-   background-color: #ececec;
+   background-color: #ebebeb;
    border-radius: 10px;
    border: 1px solid  #b0b0b0;
 }
@@ -201,7 +201,7 @@ li {
    width: 65%;
    margin: 35px auto;
    padding: 0 40px;
-   background-color: #ececec;
+   background-color: #ebebeb;
    border-radius: 10px;
    border: 1px solid  #b0b0b0;
 }
@@ -209,7 +209,7 @@ li {
    width: 75%;
    margin: 35px auto;
    padding: 0 40px;
-   background-color: #ececec;
+   background-color: #ebebeb;
    border-radius: 10px;
    border: 1px solid  #b0b0b0;
 }
@@ -224,9 +224,9 @@ li {
 #splitWindowLt {
    width: 50%;
    padding: 10px 20px;
-   margin: 25px 35px 25px 35px;
+   margin: 25px 50px 50px 35px;
    text-align: justify;
-   background-color: #ececec;
+   background-color: #ebebeb;
    border-radius: 10px;
    border: 1px solid  #b0b0b0;
 }
@@ -239,9 +239,9 @@ li {
 #splitWindowRt {
    width: 50%;
    padding: 10px 20px;
-   margin: 25px 35px 25px 35px;
+   margin: 50px 35px 25px 50px;
    text-align: justify;
-   background-color: #ececec;
+   background-color: #ebebeb;
    border-radius: 10px;
    border: 1px solid  #b0b0b0;
 }
@@ -253,7 +253,7 @@ li {
 }
 
 .contactWindow {
-   background-color: #ececec;
+   background-color: #ebebeb;
    width: 30%;
    margin: 0 auto;
    padding: 20px 20px;
