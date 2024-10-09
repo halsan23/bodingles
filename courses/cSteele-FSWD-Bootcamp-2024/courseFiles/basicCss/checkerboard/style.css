@@ -16,6 +16,7 @@
    width: 500px;
    display: flex;
    flex-wrap: wrap;
+   border: 8px solid rgb(139, 81, 0);
 }
 
 #board div:nth-child(odd) {
