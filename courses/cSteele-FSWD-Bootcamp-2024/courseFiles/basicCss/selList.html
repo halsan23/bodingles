@@ -69,14 +69,15 @@
                <h5>Combinator Selectors</h5>
                <li><b>Descendant</b> Selector | <b> </b> (space)
                   <ul>
-                     <li>selects a child element</li>
+                     <li>matches all elements that are descendants of a specified element</li>
                      <li>eg. [ <b>p a</b> ] | selects all <b>a</b> tags inside a <b>p</b> tag</li>
                   </ul>
                </li>
                <li><b>Adjacent</b> Selector | <b>+</b> (plus)
                   <ul>
-                     <li>selects adjacent sibling elements</li>
-                     <li>eg. [ <b>h1 + p</b> ] | selects all <b>p</b> tags that are adjacent to an <b>h1</b> tag
+                     <li>used to select a single element that is directly after another specific element</li>
+                     <li>the sibling element must have the same parent element, and "adjacent" means "immediately following"</li>
+                     <li>eg. [ <b>h1 + p</b> ] | selects the first <b>p</b> tag that is adjacent to an <b>h1</b> tag
                      </li>
                   </ul>
                </li>
@@ -90,10 +91,9 @@
                </li>
                <li><b>General Sibling</b> Selector | <b>~</b> (tilde)
                   <ul>
-                     <li>selects all elements that are the <b>next</b> siblings of a specified element</li>
-                     <li>eg. [ <b>div ~ p</b> ] | selects all <b>p</b> elements that are <b>siblings after</b> a
-                        <b>div</b>
-                        element
+                     <li>selects all elements that are the <b>next siblings</b> of a specified element</li>
+                     <li>eg. [ <b>div ~ p</b> ] | selects all <b>p</b> elements that are the <b>next siblings after</b> a
+                        <b>div</b> element
                      </li>
                   </ul>
                </li>
