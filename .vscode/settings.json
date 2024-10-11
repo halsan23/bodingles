@@ -228,5 +228,8 @@
     "vero",
     "voluptas",
     "voluptates"
-  ]
+],
+"[html]": {
+   "editor.defaultFormatter": "vscode.html-language-features"
+}
 }

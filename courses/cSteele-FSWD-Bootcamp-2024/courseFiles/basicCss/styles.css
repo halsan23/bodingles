@@ -1,0 +1,22 @@
+h4 {
+   background-color: #cce3dd;
+   padding: 8px;
+   text-align: center;
+   border: 1px solid black;
+   border-radius: 15px;
+}
+
+h4::selection {
+   background-color: brown;
+   color: wheat;
+}
+
+ul::selection {
+   background-color: brown;
+   color: wheat;
+}
+
+li::selection {
+   background-color: brown;
+   color: wheat;
+}
