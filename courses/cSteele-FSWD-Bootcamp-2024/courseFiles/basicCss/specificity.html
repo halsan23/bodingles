@@ -11,6 +11,30 @@
 
    <!-- link stylesheet -->
    <link rel="stylesheet" href="../../../../css/root.css">
+   <style>
+      .highlight {
+         background-color: #ecebc9;
+         padding-left: 10px;
+         border: 1px solid black;
+      }
+
+      table {
+         width: 90%;
+      }
+
+      th {
+         background-color: #e0e0e0;
+         text-align: center;
+         padding: 10px;
+         border: 1px solid black;
+      }
+
+      td {
+         text-align: center;
+         padding: 10px;
+         border: 1px solid black;
+      }
+   </style>
 </head>
 
 <body>
@@ -34,7 +58,113 @@
 
       <!-- HTML Resources -->
       <h3>CSS Specificity</h3>
-      <section id="textWindow3">
+      <section id="textWindow3" style="text-align: justify;">
+         <h4>What is Specificity?</h4>
+         <p>If there are two or more CSS rules that point to the same element, the selector with the <b>highest
+               specificity</b>
+            value will "win", and its style declaration will be applied to that HTML element.</p>
+         <p>Think of specificity as a score/rank that is determined mathematically, that calculates which style
+            declaration is ultimately applied to an element</p>
+         <p>Think of it like this, if you have a class, let's call it tmp, with a p tag child. When trying to style
+            <b>p</b> tags, the <b>.tmp p</b> tag would have a higher specificity, because mathematically, it is more
+            specific.
+         </p>
+         <p>So if you styled all <b>p</b> tags to green, but styled the <b>.tmp p</b> to red, then all of the <b>p</b>
+            tags would be green except the <b>.tmp p</b> which would be red, BECAUSE OF SPECIFICITY</p>
+         <p>In the most general and very broad sense, in terms of specificity, <b>INLINE > ID > CLASS > ELEMENT</b> with
+            INLINE being
+            the most specific and element being the least.</p>
+         <p><a href="https://www.w3schools.com/css/css_specificity.asp" target="_blank" crossorigin="anonymous"
+               referrerpolicy="no-referrer">W3Schools Specificity</a></p>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity" target="_blank"
+               crossorigin="anonymous" referrerpolicy="no-referrer">MDN Specificity</a></p>
+         <p>Here is a very interesting <a href="https://specificity.keegan.st/" target="_blank" crossorigin="anonymous"
+               referrerpolicy="no-referrer">Specificity Calculator</a> where you can copy and paste your styles and it
+            will calculate the specificity for you.</p>
+         <hr style="width: 100%;">
+         <h4>Specificity Hierarchy</h4>
+         <p>Every CSS selector has its place in the specificity hierarchy. There are four categories which define the
+            specificity level of a selector:</p>
+         <ol>
+            <li><b>Inline styles</b> - Example: < h1 style="color: pink;">
+            </li>
+            <li><b>IDs</b> - Example: #navbar</li>
+            <li><b>Classes, pseudo-classes, attribute selectors</b> - Example: .test, :hover, [href]</li>
+            <li><b>Elements and pseudo-elements</b> - Example: h1, ::before</li>
+         </ol>
+         <h4>How to Calculate Specificity?</h4>
+         <p>Start at 0, add 100 for each ID value, add 10 for each class value (or pseudo-class or attribute selector),
+            add 1 for each element selector or pseudo-element.</p>
+         <p class="highlight">
+            <br><b>Note</b>: Inline style gets a specificity value of 1000, and is always given the highest
+            priority!<br>
+
+            <b>Note 2</b>: There is one exception to this rule: if you use the
+            <a style="color: brown;" href="https://www.w3schools.com/css/css_important.asp" target="_blank"
+               crossorigin="anonymous" referrerpolicy="no-referrer">!important</a>
+            rule, it will even override inline styles!<br><br>
+         </p>
+         <p><b>The selector with the highest specificity value will win and take effect!</b></p>
+         <p>The table below shows some examples on how to calculate specificity values:</p>
+         <table>
+            <thead>
+               <tr>
+                  <th>Selector</th>
+                  <th>Specificity Value</th>
+                  <th>Calculation</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>p</td>
+                  <td>1</td>
+                  <td>1</td>
+               </tr>
+               <tr>
+                  <td>p.test</td>
+                  <td>11</td>
+                  <td>1 + 10</td>
+               </tr>
+               <tr>
+                  <td>p#demo</td>
+                  <td>101</td>
+                  <td>1 + 100</td>
+               </tr>
+               <tr>
+                  <td>
+                     < p style="color: pink;">
+                  </td>
+                  <td>1000</td>
+                  <td>1000</td>
+               </tr>
+               <tr>
+                  <td>#demo</td>
+                  <td>100</td>
+                  <td>100</td>
+               </tr>
+               <tr>
+                  <td>.test</td>
+                  <td>10</td>
+                  <td>10</td>
+               </tr>
+               <tr>
+                  <td>p.test1.test2</td>
+                  <td>21</td>
+                  <td>1 + 10 + 10</td>
+               </tr>
+               <tr>
+                  <td>#navbar p#demo</td>
+                  <td>201</td>
+                  <td>100 + 1 + 100</td>
+               </tr>
+               <tr>
+                  <td>*</td>
+                  <td>0</td>
+                  <td>0 (the universal selector is ignored)</td>
+               </tr>
+            </tbody>
+         </table>
+         <p><b>The selector with the highest specificity value will win and take effect!</b></p>
       </section>
 
       <p><a href="#top">Back to Top</a><br><br></p>
