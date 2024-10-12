@@ -40,7 +40,6 @@ body {
    margin: 0px;
    padding: 0px;
    box-sizing: border-box;
-
    /* set my page defaults */
    height: 100vh;
    background-color: #e7e7e7;
@@ -212,7 +211,6 @@ hr {
 }
 
 p {
-   font-size: 1.0rem;
    line-height: 1.5rem;
 }
 
