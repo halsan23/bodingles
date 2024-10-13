@@ -36,10 +36,106 @@
       <!-- Advanced CSS Selectors -->
       <h3>Advanced CSS Selectors</h3>
       <section id="textWindow3">
-         <h4>Opacity & Alpha Channel</h4>
          <div class="lists">
+            <h4 id="alpha">Alpha Channel</h4>
+            <p><b>Alpha Channel</b> is a component of rgb color</p>
             <ul>
-               <li>xdthtujth</li>
+               <li><b>color: rgb(255, 0, 0);</b>
+                  <ul>
+                     <li>this will produce the color RED</li>
+                  </ul>
+               </li>
+               <li>if we add the alpha channel,
+                  <ul>
+                     <li><b>color: rgba(255, 0, 0, 1);</b></li>
+                  </ul>
+               </li>
+               <li>we still get the color RED but we can now control it's opacity</li>
+               <li>by manipulating the <b>a</b>, or <b>alpha</b> component.</li>
+               <li>The range for the <b>Alpha Channel</b> is from <b>0 to 1</b>
+                  <ul>
+                     <li>with <b>0</b> being fully transparent,</li>
+                     <li>and <b>1</b> being fully opaque.</li>
+                  </ul>
+               </li>
+               <li>While <b>Alpha Channel</b> gives similar results as <b>Opacity</b>, it is different because
+                  <ul>
+                     <li>The <b>Alpha Channel</b> is a separate component in the rgb channel</li>
+                     <li><b>and</b> only effects the element that is being colored.</li>
+                  </ul>
+               </li>
+            </ul>
+            <h4 id="opacity">Opacity</h4>
+            <p><b>Opacity</b> gives similar result to <b>Alpha Channel</b>,</p>
+            <ul>but it differs in two ways
+               <li>It is <b>NOT</b> a separate component of an element, but a completely separate property.</li>
+               <li>and therefore, will not only affect the parent element, but also ALL other child elements under it.
+               </li>
+               <li>so you would set the desired color, and the set the opacity as a separate property
+                  <ul>
+                     <li>color: #ffbb66;</li>
+                     <li>opacity: 1;</li>
+                  </ul>
+               </li>
+               <li>The range for <b>Opacity</b> is still <b>0 to 1</b> just like the <b>Alpha Channel</b>.</li>
+               <li><b>*note</b>: you can omit a separate <b>opacity</b> property for "hex" colors simply by adding two
+                  more digits to the end of the hex color declaration.
+                  <ul>from the previous color example - color: #ffbb66;
+                     <li>color: #ffbb6600; | would be fully transparent</li>
+                     <li>color: #ffbb66ff; | would be fully opaque</li>
+                  </ul>
+               </li>
+            </ul>
+
+            <h4 id="posit">Positioning Property's</h4>
+            <p style="padding-left: 30px;"><a href="https://www.w3schools.com/Css/css_positioning.asp" target="_blank"
+                  crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools CSS Positioning</a></p>
+            <p style="padding-left: 30px;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"
+                  target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN CSS Positioning</a></p>
+            <h6>Static Positioning</h6>
+            <ul>
+               <li>HTML elements are positioned <b>static by default</b>, so there is no need to declare them as
+                  position:
+                  static;.</li>
+               <li>Static positioned elements are <b>not affected by the top, bottom, left, and right properties</b>.
+               </li>
+               <li>An element with <b>position: static;</b> is always positioned according to the normal flow of the
+                  page.</li>
+            </ul>
+            <h6>Relative Positioning</h6>
+            <ul>
+               <li>An element with <b>position: relative;</b> is positioned <b>relative to its normal position.</b></li>
+               <li>Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it
+                  to be adjusted away from its normal position.
+                  <ul>
+                     <li>So if you have a div and set <b>position: relative;</b> and <b>top: 100px;</b></li>
+                     <li>you would move the div down from the top of it's <b>original</b> position, 100 pixels.</li>
+                  </ul>
+               </li>
+               <li>Other content will <b>not</b> be adjusted to fit into any gap left by the element.</li>
+            </ul>
+            <h6>Fixed Positioning</h6>
+            <ul>
+               <li>An element with <b>position: fixed;</b> is positioned relative to the viewport, which means it always
+                  stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are
+                  used to position the element.</li>
+               <li>A fixed element does not leave a gap in the page where it would normally have been located.</li>
+            </ul>
+            <h6>Absolute Positioning</h6>
+            <ul>
+               <li>An element with <b>position: absolute;</b> is positioned relative to the nearest positioned ancestor
+                  (instead of positioned relative to the viewport, like fixed).</li>
+               <li>However; if an absolute positioned element has no positioned ancestors, it uses the document body,
+                  and moves along with page scrolling.</li>
+               <li><b>*Note</b>: Absolute positioned elements are removed from the normal flow, and can overlap
+                  elements.</li>
+            </ul>
+            <h6>Sticky Positioning</h6>
+            <ul>
+               <li>An element with <b>position: sticky;</b> is positioned based on the user's scroll position.</li>
+               <li>A sticky element toggles between <b>relative</b> and <b>fixed</b>, depending on the scroll position.
+                  It is positioned <b>relative</b> until a given offset position is met in the viewport - then it
+                  "sticks" in place (<b>like position:fixed</b>).</li>
             </ul>
          </div>
       </section>
