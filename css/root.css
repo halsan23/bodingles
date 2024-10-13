@@ -227,6 +227,7 @@ li {
    margin-top: 8px;
 }
 
+/* text Boxes */
 #textWindow {
    margin: 35px auto;
    padding: 0 40px;
@@ -334,18 +335,7 @@ li {
    box-shadow: 3px 3px 10px #747474;
 }
 
-.btn {
-   font-family: Arial;
-   color: #ffffff;
-   font-size: 14px;
-   padding: 10px 20px;
-   text-decoration: none;
-   background: #3c4a27;
-   border-radius: 11rem;
-   box-shadow: 2px 2px 5px #8b8b8b;
-}
-.btn:hover {
-   color: #020603;
-   background: #b2c795;
-   box-shadow: 3px 3px 8px inset #8b8b8b;
+.contMe {
+   padding-top: 30px;
+   font-weight: bold;
 }
