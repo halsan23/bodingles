@@ -205,8 +205,7 @@ h6 {
 }
 
 hr {
-   border: dashed #61777f 2px;
-   border-bottom: none;
+   border: 1px solid #3e4b2b;
    width: 60%;
 }
 
@@ -239,7 +238,7 @@ li {
    padding: 0 40px;
    background-color: #ebebeb;
    border-radius: 1.1rem;
-   border: 1px solid  #b0b0b0;
+   border: 1px solid  #3e4b2b;
    box-shadow: 1px 1px 5px #c9c9c9;
 }
 #textWindow3 {
@@ -248,7 +247,7 @@ li {
    padding: 0 40px;
    background-color: #ebebeb;
    border-radius: 1.1rem;
-   border: 1px solid  #b0b0b0;
+   border: 1px solid  #3e4b2b;
    box-shadow: 1px 1px 5px #c9c9c9;
 }
 #textWindow4 {
@@ -257,7 +256,7 @@ li {
    padding: 0 40px;
    background-color: #ebebeb;
    border-radius: 1.1rem;
-   border: 1px solid  #b0b0b0;
+   border: 1px solid  #3e4b2b;
    box-shadow: 1px 1px 5px #c9c9c9;
 }
 
@@ -275,7 +274,7 @@ li {
    text-align: justify;
    background-color: #ebebeb;
    border-radius: 1.1rem;
-   border: 1px solid  #b0b0b0;
+   border: 1px solid  #3e4b2b;
    box-shadow: 1px 1px 5px #c9c9c9;
 }
 
@@ -286,7 +285,7 @@ li {
    text-align: justify;
    background-color: #ebebeb;
    border-radius: 1.1rem;
-   border: 1px solid  #b0b0b0;
+   border: 1px solid  #3e4b2b;
    box-shadow: 1px 1px 5px #c9c9c9;
 }
 
@@ -310,7 +309,7 @@ li {
    margin: 0 auto;
    padding: 30px;
    border-radius: 5rem;
-   border: 1px solid #000 ;
+   border: 1px solid #3e4b2b ;
    box-shadow: 1px 1px 5px #c9c9c9;
 }
 
@@ -330,9 +329,9 @@ li {
 
 .instructor {
    margin-top: 25px;
-   border: 1px solid black;
-   border-radius: 10rem;
-   box-shadow: 3px 3px 10px #747474;
+   border: 2px solid #3e4b2b;
+   border-radius: 100px;
+   box-shadow: 3px 3px 13px #747474;
 }
 
 .contMe {
