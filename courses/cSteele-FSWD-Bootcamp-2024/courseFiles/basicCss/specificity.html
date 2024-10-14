@@ -20,17 +20,22 @@
 
       table {
          width: 90%;
+         margin: 0 auto;
+         padding: 0;
       }
 
       th {
-         background-color: #e0e0e0;
+         background-color: #cfcfcf;
          text-align: center;
+         margin: 0 auto;
          padding: 10px;
          border: 1px solid black;
       }
 
       td {
+         background-color: #dedede;
          text-align: center;
+         margin: 0 auto;
          padding: 10px;
          border: 1px solid black;
       }
@@ -85,16 +90,37 @@
          <h4>Specificity Hierarchy</h4>
          <p>Every CSS selector has its place in the specificity hierarchy. There are four categories which define the
             specificity level of a selector:</p>
-         <ol>
-            <li><b>Inline styles</b> - Example: < h1 style="color: pink;">
-            </li>
-            <li><b>IDs</b> - Example: #navbar</li>
-            <li><b>Classes, pseudo-classes, attribute selectors</b> - Example: .test, :hover, [href]</li>
-            <li><b>Elements and pseudo-elements</b> - Example: h1, ::before</li>
-         </ol>
          <h4>How to Calculate Specificity?</h4>
          <p>Start at 0, add 100 for each ID value, add 10 for each class value (or pseudo-class or attribute selector),
             add 1 for each element selector or pseudo-element.</p>
+         <table>
+            <thead>
+               <tr>
+                  <th style="padding: 10px 25px;">Points</th>
+                  <th style="text-align: left;">Style Specificity</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>1000</td>
+                  <td style="text-align: left;"><b>Inline styles</b> - Example: < h1 style="color: pink;">
+                  </td>
+               </tr>
+               <tr>
+                  <td>100</td>
+                  <td style="text-align: left;"><b>IDs</b> - Example: #navbar</td>
+               </tr>
+               <tr>
+                  <td>10</td>
+                  <td style="text-align: left;"><b>Classes, pseudo-classes, attribute selectors</b> - Example: .test,
+                     :hover, [href]</td>
+               </tr>
+               <tr>
+                  <td>1</td>
+                  <td style="text-align: left;"><b>Elements and pseudo-elements</b> - Example: h1, ::before</td>
+               </tr>
+            </tbody>
+         </table>
          <p class="highlight">
             <br><b>Note</b>: Inline style gets a specificity value of 1000, and is always given the highest
             priority!<br>

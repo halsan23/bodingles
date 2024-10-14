@@ -43,6 +43,7 @@ body {
    /* set my page defaults */
    height: 100vh;
    background-color: #e7e7e7;
+   color: #000;
    font-family: "SUSE", sans-serif;
    font-optical-sizing: auto;
    font-weight: 400;
@@ -57,14 +58,14 @@ header {
    top: 0px;
    left: 0px;
    width: 100%;
-   height: 100px;
+   height: 75px;
    /* background-image: url("../images/headBack.png"); */
    text-align: left;
 }
 .headLogo {
    content: url(../images/logos/bodinglesLogo2.png);
    position: absolute;
-   top: 20px;
+   top: 10px;
    left: 30px;
    width: 40px;
    height: auto;
@@ -73,29 +74,35 @@ header {
 .headTitle {
    position: absolute;
    left: 87px;
-   top: 8px;
-   color: #3e4b2b;
+   bottom: 12px;
+   color: #798b62;
    font-size: 3.25rem;
    font-weight: bold;
+   text-shadow: 4px 4px 7px #090909;
+   letter-spacing: 5px;
 }
 .headTitleb {
    position: absolute;
-   left: 150px;
-   top: 8px;
+   left: 160px;
+   bottom: 12px;
    color: #8b7c62;
    font-size: 3.25rem;
    font-weight: bold;
+   text-shadow: 4px 4px 7px #090909;
+   letter-spacing: 5px;
 }
 header sub {
-   color: black;
-   font-weight: normal;
-   font-size: .6rem;
+   font-weight: 700;
+   font-size: .7rem;
+   color: #7a7a7a;
+   padding-left: 2px;
+   text-shadow: none;
+   letter-spacing: 0;
 }
 .headSlogan {
    position: absolute;
    right: 8px;
-   top: 20px;
-   color: #221e18;
+   top: 15px;
    text-align: center;
    font-size: 1.2rem;
    font-weight: normal;
@@ -108,9 +115,11 @@ header sub {
 }
 
 footer {
-   color: #221e18;
    font-size: 0.9rem;
    font-style: italic;
+   font-weight: 400;
+   width: 98%;
+   margin: 0;
    padding: 15px;
    /* background-image: url("../images/footBack.png"); */
    /* border-radius: 7px; */
@@ -118,6 +127,7 @@ footer {
 footer div {
    display: inline-block;
    padding: 0 7px;
+   letter-spacing: 2px;
 }
 
 
@@ -125,11 +135,11 @@ footer div {
 .content{
    background-color: #f3f3f3;
    width: 91%;
-   margin: 90px auto 0;
-   padding: 0 20px;
+   margin: 75px auto 0;
+   padding: 0;
    border: 1px solid #bcbcbc;
    border-radius: 10px;
-   box-shadow: 1px 1px 5px inset #9c9c9a;
+   box-shadow: 3px 4px 8px inset #9c9c9a;
 }
 
 
@@ -205,7 +215,7 @@ h6 {
 }
 
 hr {
-   border: 1px solid #3e4b2b;
+   border: 1px solid #c1c5bb;
    width: 60%;
 }
 
@@ -304,20 +314,27 @@ li {
 }
 
 .contactWindow {
-   background-color: #ebebeb;
+   background-image: url("../images/email.png");
    width: 30%;
    margin: 0 auto;
-   padding: 30px;
-   border-radius: 5rem;
+   padding: 10px 10px;
+   border-radius: 10px;
    border: 1px solid #3e4b2b ;
    box-shadow: 1px 1px 5px #c9c9c9;
 }
 
 .contact {
-   margin: 0 auto;
-   padding: 50px 40px;
-   border-radius: 4rem;
-   background-color: #f4f3f3;
+   font-size: 16px;
+   font-weight: 500;
+   margin: 0;
+   padding: 10px;
+   border-radius: 10px;
+   background-color: rgba(255, 255, 255, .6);
+}
+
+.contMe {
+   padding-top: 30px;
+   font-weight: bold;
 }
 
 
@@ -332,9 +349,4 @@ li {
    border: 2px solid #3e4b2b;
    border-radius: 100px;
    box-shadow: 3px 3px 13px #747474;
-}
-
-.contMe {
-   padding-top: 30px;
-   font-weight: bold;
 }
