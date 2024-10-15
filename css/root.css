@@ -1,17 +1,20 @@
 /* import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
 /*
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 200 to 1000
-
 .akaya-telivigala-regular {
   font-family: "Akaya Telivigala", system-ui;
   font-weight: 400;
   font-style: normal;
 } */
 
-@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=SUSE:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&display=swap');
 /*
+.akaya-telivigala-regular {
+  font-family: "Akaya Telivigala", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 100 to 800
 
@@ -20,10 +23,8 @@
   font-optical-sizing: auto;
   font-weight: <weight>;
   font-style: normal;
-} */
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-/*
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 200 to 1000
 
@@ -75,9 +76,9 @@ header {
    position: absolute;
    left: 87px;
    bottom: 12px;
-   color: #7fa44f;
+   color: #77994b;
    font-size: 3.25rem;
-   font-weight: bold;
+   font-weight: 800;
    text-shadow: 4px 4px 6px #262626;
    letter-spacing: 5px;
 }
@@ -85,9 +86,9 @@ header {
    position: absolute;
    left: 160px;
    bottom: 12px;
-   color: #a48a5b;
+   color: #927b50;
    font-size: 3.25rem;
-   font-weight: bold;
+   font-weight: 800;
    text-shadow: 4px 4px 6px #262626;
    letter-spacing: 5px;
 }
@@ -127,14 +128,14 @@ footer {
 footer div {
    display: inline-block;
    padding: 0 7px;
-   letter-spacing: 2px;
+   letter-spacing: 1.25px;
 }
 
 
 /* set main container to start below header */
 .content{
    background-color: #f3f3f3;
-   width: 91%;
+   width: 93%;
    margin: 75px auto 0;
    padding: 0;
    border: 1px solid #bcbcbc;
@@ -146,7 +147,7 @@ footer div {
 /* -----------  HTML Elements  -----------  */
 a {
    color: #003088;
-   font-weight: 700;
+   font-weight: 600;
    text-decoration: none;
    cursor: pointer;
 }
@@ -314,8 +315,7 @@ li {
 }
 
 .contactWindow {
-   background-image: url("../images/email.png");
-   background-size: 130%;
+   background: center/cover url("../images/email.png");
    width: 30%;
    margin: 0 auto;
    padding: 10px 10px;
@@ -330,7 +330,7 @@ li {
    margin: 0;
    padding: 10px;
    border-radius: 10px;
-   background-color: rgba(255, 255, 255, .6);
+   background-color: rgba(255, 255, 255, .4);
 }
 
 .contMe {
