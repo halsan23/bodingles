@@ -14,3 +14,83 @@ h6 {
    border: 1px solid black;
    border-radius: 10px;
 }
+
+#textWindow4 p {
+   padding-left: 30px;
+   text-align: left;
+}
+
+.tlinks {
+   width: 60%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-evenly;
+}
+
+.ex1 {
+   margin-left: 30px;
+   width: 50px;
+   height: 50px;
+   background: rgb(54, 163, 152);
+   transition: width 2s;
+}
+
+.ex1:hover {
+   width: 250px;
+}
+
+.ex2 {
+   margin-left: 30px;
+   width: 50px;
+   height: 50px;
+   background-color: rgb(163, 118, 54);
+   transition: 2s;
+}
+
+.ex2:hover {
+   background-color: rgb(116, 54, 163);
+   border-radius: 50%;
+}
+
+.ex3 {
+   margin-left: 40px;
+}
+
+.ex3 div {
+   margin: 5px 0;
+   width: 50px;
+   height: 50px;
+   background-color: brown;
+   transition: margin-left 3s;
+}
+
+.ex3:hover div {
+   margin-left: 500px;
+}
+
+.ex3 div:nth-of-type(1) {
+   transition-timing-function: ease-in;
+}
+.ex3 div:nth-of-type(2) {
+   transition-timing-function: ease-out;
+}
+.ex3 div:nth-of-type(3) {
+   transition-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
+}
+.ex3 div:nth-of-type(4) {
+   transition-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+p img {
+   border: 1px solid black;
+   border-radius: 10px;
+   box-shadow: 3px 3px 8px black;
+}
+
+ul {
+   text-align: left;
+}
+
+li {
+   list-style: none;
+}
