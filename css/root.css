@@ -315,6 +315,7 @@ li {
 
 .contactWindow {
    background-image: url("../images/email.png");
+   background-size: 130%;
    width: 30%;
    margin: 0 auto;
    padding: 10px 10px;
