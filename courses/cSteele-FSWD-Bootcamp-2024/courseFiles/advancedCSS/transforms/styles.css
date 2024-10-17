@@ -36,5 +36,5 @@ section div {
 }
 
 section div:nth-of-type(2) {
-   transform: rotate(15deg);
+   transform: rotate(10deg);
 }
