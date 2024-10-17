@@ -9,12 +9,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&display=swap');
 /*
-.akaya-telivigala-regular {
-  font-family: "Akaya Telivigala", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 100 to 800
 
@@ -36,6 +30,7 @@
 } */
 
 
+
 body {
    /* set defaults for cross-browser control */
    margin: 0px;
@@ -49,7 +44,7 @@ body {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   font-size: 15px;
+   font-size: 16px;
    text-align: center;
 }
 
@@ -59,12 +54,13 @@ header {
    top: 0px;
    left: 0px;
    width: 100%;
-   height: 75px;
-   /* background-image: url("../images/headBack.png"); */
+   height: 100px;
+   background-image: url("../images/headBack2.png");
+   background-repeat: no-repeat;
    text-align: left;
 }
 .headLogo {
-   content: url(../images/logos/bodinglesLogo2.png);
+   content: url(../images/logos/bodinglesLogo3.png);
    position: absolute;
    top: 10px;
    left: 30px;
@@ -78,9 +74,10 @@ header {
    bottom: 12px;
    color: #77994b;
    font-size: 3.25rem;
-   font-weight: 800;
-   text-shadow: 4px 4px 6px #262626;
-   letter-spacing: 5px;
+   font-weight: 700;
+   font-style: normal;
+   /* text-shadow: 4px 4px 6px #262626; */
+   letter-spacing: 3px;
 }
 .headTitleb {
    position: absolute;
@@ -88,9 +85,10 @@ header {
    bottom: 12px;
    color: #927b50;
    font-size: 3.25rem;
-   font-weight: 800;
-   text-shadow: 4px 4px 6px #262626;
-   letter-spacing: 5px;
+   font-weight: 700;
+   font-style: normal;
+   /* text-shadow: 4px 4px 6px #262626; */
+   letter-spacing: 3px;
 }
 header sub {
    font-weight: 700;
@@ -136,7 +134,7 @@ footer div {
 .content{
    background-color: #f3f3f3;
    width: 93%;
-   margin: 75px auto 0;
+   margin: 100px auto 0;
    padding: 0;
    border: 1px solid #bcbcbc;
    border-radius: 10px;
