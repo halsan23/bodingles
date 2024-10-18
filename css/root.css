@@ -144,7 +144,7 @@ header sub {
    animation: fadeInAnimation ease 2s;
    animation-iteration-count: 1;
    animation-fill-mode: forwards;
-   animation-delay: 1.5s;
+   animation-delay: 1.25s;
 }
 .headScroll {
    position: absolute;
