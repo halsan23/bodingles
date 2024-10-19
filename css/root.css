@@ -49,7 +49,6 @@
    0% {
        opacity: 0;
    }
-
    100% {
        opacity: 1;
    }
@@ -166,9 +165,8 @@ footer div {
    letter-spacing: 1.25px;
 }
 
-
 /* set main container to start below header */
-.content{
+#main {
    background-color: #f3f3f3;
    width: 93%;
    margin: 120px auto 0;
@@ -176,12 +174,13 @@ footer div {
    border: 1px solid #bcbcbc;
    border-radius: 10px;
    box-shadow: 3px 0 8px inset #838383;
-
 }
-/* Page Load Fade-In effect */
-#fadeIn {
+
+/* set up Main Contents effects */
+/* in this case, were setting a fade-in */
+.content {
    opacity: 0;
-   animation: fadeInAnimation ease 1.5s;
+   animation: fadeInAnimation ease 2s;
    animation-iteration-count: 1;
    animation-fill-mode: forwards;
 }
