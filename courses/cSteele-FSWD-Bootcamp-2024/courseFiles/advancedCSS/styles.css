@@ -20,13 +20,6 @@ h6 {
    text-align: left;
 }
 
-.tlinks {
-   width: 60%;
-   margin: 0 auto;
-   display: flex;
-   justify-content: space-evenly;
-}
-
 .ex1 {
    margin-left: 30px;
    width: 50px;
@@ -93,6 +86,12 @@ ul {
 
 li {
    list-style: none;
+}
+
+.qlinks {
+   width: 100%;
+   display: flex;
+   justify-content: space-evenly;
 }
 
 button {
