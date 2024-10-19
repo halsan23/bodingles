@@ -1,0 +1,22 @@
+.classCode {
+      width: 100%;
+      margin: 0 auto;
+      border: 1px solid black;
+}
+
+.classCode img {
+   width: 28%;
+   margin: calc(10%/6);
+   border: 1px solid black;
+   box-shadow: 3px 3px 6px #888888;
+}
+
+h6 {
+   width: 20%;
+   text-align: left;
+   margin-left: 300px;
+   padding-bottom: 5px;
+   padding-left: 10px;
+   border-bottom: 2px solid #d8d8d8;
+   font-size: 1.5rem;
+}
