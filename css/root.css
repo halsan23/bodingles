@@ -62,7 +62,7 @@ body {
 
    /* set my page defaults */
    height: 100vh;
-   background-color: #d1d1d1;
+   background-color: #dfdfdf;
    color: #000;
    font-family: "SUSE", sans-serif;
    font-optical-sizing: auto;
@@ -180,7 +180,7 @@ footer div {
 /* in this case, were setting a fade-in */
 .content {
    opacity: 0;
-   animation: fadeInAnimation ease 2s;
+   animation: fadeInAnimation ease 2.5s;
    animation-iteration-count: 1;
    animation-fill-mode: forwards;
 }
