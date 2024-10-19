@@ -25,321 +25,325 @@
          Ideas&nbsp;&nbsp;&nbsp;- -</span>
    </header>
 
-   <div class="content">
-      <!-- Title -->
-      <section>
-         <h2><i>The Web Developer Bootcamp 2024</i></h2>
-         <p>Colt Steele</p>
-         <p><a href="../basicHtml.html"">Back to HTML Reference Index</a></p>
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../basicHtml.html"">Back to HTML Reference Index</a></p>
          <hr style=" width: 40%;">
-               <h3>HTML Forms</h3>
-      </section>
+                  <h3>HTML Forms</h3>
+         </section>
 
-      <!-- Class Content -->
-      <!-- Forms References -->
-      <section>
-         <p><a href="../../../assets/files/HTML_Forms_and_Tables.pdf" target="_blank">HTML Forms and Tables PDF</a>
-         <dl>
-            <dt><a href="https://www.w3schools.com/html/html_forms.asp" target="_blank" crossorigin="anonymous"
-                  referrerpolicy="no-referrer">W3Schools Forms Reference</a></dt>
-            <dt><a href="https://www.w3schools.com/html/html_form_input_types.asp" target="_blank"
-                  crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools Form Input Types</a></dt>
-         </dl>
-         <dl>
-            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form" target="_blank"
-                  crossorigin="anonymous" referrerpolicy="no-referrer">MDN Forms Reference</a></dt>
-            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank"
-                  crossorigin="anonymous" referrerpolicy="no-referrer">MDN Form Input Types</a></dt>
-         </dl>
-         </p>
-         <hr style="width: 50%;">
-      </section>
+         <!-- Class Content -->
+         <!-- Forms References -->
+         <section>
+            <p><a href="../../../assets/files/HTML_Forms_and_Tables.pdf" target="_blank">HTML Forms and Tables PDF</a>
+            <dl>
+               <dt><a href="https://www.w3schools.com/html/html_forms.asp" target="_blank" crossorigin="anonymous"
+                     referrerpolicy="no-referrer">W3Schools Forms Reference</a></dt>
+               <dt><a href="https://www.w3schools.com/html/html_form_input_types.asp" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools Form Input Types</a></dt>
+            </dl>
+            <dl>
+               <dt><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">MDN Forms Reference</a></dt>
+               <dt><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">MDN Form Input Types</a></dt>
+            </dl>
+            </p>
+            <hr style="width: 50%;">
+         </section>
 
-      <!-- Final Class Form Build -->
-      <section id="textWindow3">
-         <p><i>Sample form with basic HTML validation</i></p>
-         <form action="">
-            <h4>Marathon Entry Form</h4>
-            <p style="text-align: left;"><i>All fields are required</i></p>
-            <label for="fname">First Name: </label>
-            <input type="text" id="fname" name="fname" required>
+         <!-- Final Class Form Build -->
+         <section id="textWindow3">
+            <p><i>Sample form with basic HTML validation</i></p>
+            <form action="">
+               <h4>Marathon Entry Form</h4>
+               <p style="text-align: left;"><i>All fields are required</i></p>
+               <label for="fname">First Name: </label>
+               <input type="text" id="fname" name="fname" required>
 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <label for="lname">Last Name: </label>
-            <input type="text" id="lname" name="lname" required>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <label for="lname">Last Name: </label>
+               <input type="text" id="lname" name="lname" required>
 
-            <br><br>
-            <label for="pswd">Password: </label>
-            <input type="password" id="pswd" name="pswd" minlength="5" maxlength="10" required>
-            <br>(<i>must be between 5 and 10 characters</i>)
+               <br><br>
+               <label for="pswd">Password: </label>
+               <input type="password" id="pswd" name="pswd" minlength="5" maxlength="10" required>
+               <br>(<i>must be between 5 and 10 characters</i>)
 
-            <br><br>Choose a race:<br>
-            <!-- the "name" in the INPUT field is what links them -->
-            <!-- so the "name" must be the same in all radio fields -->
-            <!-- the "value" is what is sent to the form -->
-            <input type="radio" id="fiveK" name="race" value="fiveK">
-            <label for="fiveK">Fun Run 5K</label><br>
+               <br><br>Choose a race:<br>
+               <!-- the "name" in the INPUT field is what links them -->
+               <!-- so the "name" must be the same in all radio fields -->
+               <!-- the "value" is what is sent to the form -->
+               <input type="radio" id="fiveK" name="race" value="fiveK">
+               <label for="fiveK">Fun Run 5K</label><br>
 
-            <input type="radio" id="half" name="race" value="half">
-            <label for="half">Half Marathon</label><br>
+               <input type="radio" id="half" name="race" value="half">
+               <label for="half">Half Marathon</label><br>
 
-            <input type="radio" id="full" name="race" value="full">
-            <label for="full">Full Marathon</label><br>
+               <input type="radio" id="full" name="race" value="full">
+               <label for="full">Full Marathon</label><br>
 
-            <br><br>
-            <label for="email">Email: </label>
-            <input type="email" id="email" name="email" required>
+               <br><br>
+               <label for="email">Email: </label>
+               <input type="email" id="email" name="email" required>
 
-            <br><br>
-            <label for="">Age Group:</label><br>
-            <select name="group" id="group" required>
-               <!-- you can make a "notice" value by not setting a value (optional) -->
-               <option value="">-- Please Select One --</option>
+               <br><br>
+               <label for="">Age Group:</label><br>
+               <select name="group" id="group" required>
+                  <!-- you can make a "notice" value by not setting a value (optional) -->
+                  <option value="">-- Please Select One --</option>
 
-               <option value="under20">Under 20</option>
-               <option value="20_35">20 to 35</option>
-               <option value="36_50">36 to 50</option>
-               <option value="over50">Over 50</option>
-            </select>
+                  <option value="under20">Under 20</option>
+                  <option value="20_35">20 to 35</option>
+                  <option value="36_50">36 to 50</option>
+                  <option value="over50">Over 50</option>
+               </select>
 
-            <br><br>
-            <button>Submit Entry</button>
-         </form>
-         <p><br></p>
-      </section>
-      <hr style="width: 40%;">
+               <br><br>
+               <button>Submit Entry</button>
+            </form>
+            <p><br></p>
+         </section>
+         <hr style="width: 40%;">
 
-      <!-- Forms Layout -->
-      <section>
-         <h4>Some Basic Input Types</h4>
-         <form action="/">
+         <!-- Forms Layout -->
+         <section>
+            <h4>Some Basic Input Types</h4>
+            <form action="/">
 
-            <!-- Input type Text -->
-            <div>
-               <p>Input type "Text"<br>
-                  <label for="username">Username: </label>
-                  <input id="username" type="text" placeholder="username" name="user">
-               </p>
-               <hr>
-            </div>
+               <!-- Input type Text -->
+               <div>
+                  <p>Input type "Text"<br>
+                     <label for="username">Username: </label>
+                     <input id="username" type="text" placeholder="username" name="user">
+                  </p>
+                  <hr>
+               </div>
 
-            <!-- Input type Password -->
-            <div>
-               <p>Input type "Password"<br>
-                  <label for="password">Password: </label>
-                  <input id="password" type="password" placeholder="password" name="pass">
-               </p>
-               <hr>
-            </div>
+               <!-- Input type Password -->
+               <div>
+                  <p>Input type "Password"<br>
+                     <label for="password">Password: </label>
+                     <input id="password" type="password" placeholder="password" name="pass">
+                  </p>
+                  <hr>
+               </div>
 
-            <!-- Input type Checkbox -->
-            <div>
-               <p>Input type "Checkbox"<br>
-                  You can make multiple selections.</p>
-               <table>
-                  <thead>
+               <!-- Input type Checkbox -->
+               <div>
+                  <p>Input type "Checkbox"<br>
+                     You can make multiple selections.</p>
+                  <table>
+                     <thead>
+                        <tr>
+                           <td colspan="3">I Like eating,</td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>
+                              <input id="in" type="checkbox" name="dineIn">
+                              <label for="in">In</label>
+                           </td>
+                           <td>
+                              <input id="out" type="checkbox" name="dineOut">
+                              <label for="out">Out</label>
+                           </td>
+                           <td>
+                              <input id="both" type="checkbox" name="dineBoth" checked>
+                              <label for="both">Both</label><br>
+                           </td>
+                        </tr>
+                     </tbody>
+                     <tfoot>
+                        <tr>
+                           <td colspan="3">Select all that apply</td>
+                        </tr>
+                     </tfoot>
+                  </table>
+                  <hr>
+               </div>
+
+               <!-- Input type Radio Button -->
+               <div>
+                  <p>Input type "Radio Button"<br>
+                     You can only select one.</p>
+                  <p>Pick a size:<br>
+                     <!-- the for & ID link the button to the label -->
+                     <!-- the name links the buttons to the same variable -->
+                     <!-- the value is the attribute returned for the variable -->
+                     <!-- when submitted the result would ne size = s, m, or l -->
+                     <label for="s"> S </label>
+                     <input id="s" type="radio" name="size" value="sm">
+                     <label for="m"> M </label>
+                     <input id="m" type="radio" name="size" value="md">
+                     <label for="l"> L </label>
+                     <input id="l" type="radio" name="size" value="lg">
+                  </p>
+                  <hr>
+               </div>
+
+               <!-- Input type Drop-Down List -->
+               <div>
+                  <p>Input type "Drop-Down" List</p>
+                  <table>
                      <tr>
-                        <td colspan="3">I Like eating,</td>
+                        <td><label for="meal">Please make a selection:</label></td>
                      </tr>
-                  </thead>
-                  <tbody>
                      <tr>
                         <td>
-                           <input id="in" type="checkbox" name="dineIn">
-                           <label for="in">In</label>
-                        </td>
-                        <td>
-                           <input id="out" type="checkbox" name="dineOut">
-                           <label for="out">Out</label>
-                        </td>
-                        <td>
-                           <input id="both" type="checkbox" name="dineBoth" checked>
-                           <label for="both">Both</label><br>
+                           <select name="meal" id="meal">
+                              <!-- you can make a "notice" value by not setting a value (optional) -->
+                              <option value="">-- Please Select One --</option>
+                              <option value="fish">Fish</option>
+                              <option value="steak">Steak</option>
+                              <!-- you can also set a default by assigning "selected" (optional) -->
+                              <option value="kabob" selected>Kabobs</option>
+                              <option value="chicken">Chicken</option>
+                              <option value="salad">Salad</option>
+                           </select>
                         </td>
                      </tr>
-                  </tbody>
-                  <tfoot>
-                     <tr>
-                        <td colspan="3">Select all that apply</td>
-                     </tr>
-                  </tfoot>
-               </table>
-               <hr>
-            </div>
+                  </table>
+                  <hr>
+               </div>
 
-            <!-- Input type Radio Button -->
-            <div>
-               <p>Input type "Radio Button"<br>
-                  You can only select one.</p>
-               <p>Pick a size:<br>
-                  <!-- the for & ID link the button to the label -->
-                  <!-- the name links the buttons to the same variable -->
-                  <!-- the value is the attribute returned for the variable -->
-                  <!-- when submitted the result would ne size = s, m, or l -->
-                  <label for="s"> S </label>
-                  <input id="s" type="radio" name="size" value="sm">
-                  <label for="m"> M </label>
-                  <input id="m" type="radio" name="size" value="md">
-                  <label for="l"> L </label>
-                  <input id="l" type="radio" name="size" value="lg">
-               </p>
-               <hr>
-            </div>
+               <!-- Input type Color -->
+               <div>
+                  <p>Input type "Color"<br>
+                     <label for="color">Color: </label>
+                     <input id="color" type="color" name="color">
+                  </p>
+                  <hr>
+               </div>
 
-            <!-- Input type Drop-Down List -->
-            <div>
-               <p>Input type "Drop-Down" List</p>
-               <table>
-                  <tr>
-                     <td><label for="meal">Please make a selection:</label></td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <select name="meal" id="meal">
-                           <!-- you can make a "notice" value by not setting a value (optional) -->
-                           <option value="">-- Please Select One --</option>
-                           <option value="fish">Fish</option>
-                           <option value="steak">Steak</option>
-                           <!-- you can also set a default by assigning "selected" (optional) -->
-                           <option value="kabob" selected>Kabobs</option>
-                           <option value="chicken">Chicken</option>
-                           <option value="salad">Salad</option>
-                        </select>
-                     </td>
-                  </tr>
-               </table>
-               <hr>
-            </div>
+               <!-- Input type Number -->
+               <div>
+                  <p>Input type "Number"<br>
+                     <label for="number">Number: </label>
+                     <input id="number" type="number" placeholder="enter a number" name="num">
+                     <!-- you can add a step="xx" to increment by other than 1 -->
+                     <!-- you can also give it an initial value with value-"xx" -->
+                     <!-- You can set a minimum value allowed with min="xx" -->
+                     <!-- You can also set a maximum value allowed with max="xx" -->
+                  </p>
+                  <hr>
+               </div>
 
-            <!-- Input type Color -->
-            <div>
-               <p>Input type "Color"<br>
-                  <label for="color">Color: </label>
-                  <input id="color" type="color" name="color">
-               </p>
-               <hr>
-            </div>
-
-            <!-- Input type Number -->
-            <div>
-               <p>Input type "Number"<br>
-                  <label for="number">Number: </label>
-                  <input id="number" type="number" placeholder="enter a number" name="num">
+               <!-- Input Type Range -->
+               <div>
+                  <label for="volume">Volume: </label>
+                  <input id="volume" type="range" name="volume" min="0" max="100">
                   <!-- you can add a step="xx" to increment by other than 1 -->
                   <!-- you can also give it an initial value with value-"xx" -->
-                  <!-- You can set a minimum value allowed with min="xx" -->
-                  <!-- You can also set a maximum value allowed with max="xx" -->
-               </p>
-               <hr>
-            </div>
+                  <hr>
+               </div>
 
-            <!-- Input Type Range -->
-            <div>
-               <label for="volume">Volume: </label>
-               <input id="volume" type="range" name="volume" min="0" max="100">
-               <!-- you can add a step="xx" to increment by other than 1 -->
-               <!-- you can also give it an initial value with value-"xx" -->
-               <hr>
-            </div>
+               <!-- Textarea -->
+               <div>
+                  <!-- Technically not an "Input" Type, but is used for "area" input -->
+                  <p><label for="requests">Special Requests</label></p>
+                  <textarea name="requests" id="requests" rows="10" cols="30"
+                     placeholder="Type Message Here"></textarea>
+                  <!-- Set initial width & height with rows and columns (**optional) -->
+                  <!-- Can set a placeholder (**optional) -->
+               </div>
 
-            <!-- Textarea -->
-            <div>
-               <!-- Technically not an "Input" Type, but is used for "area" input -->
-               <p><label for="requests">Special Requests</label></p>
-               <textarea name="requests" id="requests" rows="10" cols="30" placeholder="Type Message Here"></textarea>
-               <!-- Set initial width & height with rows and columns (**optional) -->
-               <!-- Can set a placeholder (**optional) -->
-            </div>
+               <!-- Submit Button -->
+               <p><button>Submit</button></p>
 
-            <!-- Submit Button -->
-            <p><button>Submit</button></p>
-
-         </form><br>
-      </section>
-      <hr style="width: 40%;">
-
-      <section>
-         <h3>HTML Form Validation</h3>
-         <p>HTML itself has limited form validation. Most proper form validation is done with JavaScript.<br>But with
-            HTML,
-            you can specify elements as <b>required</b> inputs by adding the term <b>required</b> to the form
-            input statement.</p>
-         <p>eg. <b>
-               < input type="text" id="username" name="user" required>
-            </b></p>
-         <form action="/dummy">
-            <label for="user">Username: </label>
-            <input type="text" id="user" name="user" required>
-            <button>Submit</button>
-         </form>
-         <p>So by simply adding <b>required</b>, HTML will do basic validation and ensure the form is not submitted with
-            required fields.<br></p>
-         <hr style="width: 40%;">
-         <p>You can also use this with elements using <b>min</b>, <b>max</b>, <b>minlength</b>, and <b>maxlength</b>
-            arguments, such as a password<br>
-            field (for example), lets say, min length of 5, and max length of 10</p>
-         <p>If the length is too short, you'll get a message, and it will not let you add any more characters after max
-            is reached.<br>
-            <b>
-               < input type="password" id="pswd" name="pswd" minlength="5" maxlength="10" required>
-            </b>
-         </p>
-         <form action="/dummy">
-            <label for="pswd">Password: </label>
-            <input type="password" id="pswd" name="pswd" minlength="5" maxlength="10" required>
-            <button>Submit</button>
-         </form>
-         <p>You can also do some basic pattern matching on elements such as email and url's. More info can be found <a
-               href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern" target="_blank"
-               rel="noopener noreferrer">HERE</a>.</p>
-         <p><br></p>
-      </section>
-
-      <hr style="width: 40%;">
-      <hr style="width: 50%;">
-      <hr style="width: 40%;">
-
-      <!-- Functional Search Engines -->
-      <section>
-         <h3>Functioning Search Forms</h3>
-         <div style="width: 40%; margin: 0 auto;">
-            <p>Because every company has different formats for a search, <i>do a search
-                  on <b>their</b> search page and from the results in the address bar, and pick out the address and
-                  "name"
-                  for the search query.</i></p>
-            <p>ex. for reddit,<br>
-               form action = "https://www.reddit.com/search"<br>
-               input name = "q"</p>
-            <p><b><i>*also</i></b>, you can <b>omit</b> the "Submit" button and it will submit automatically when the
-               user
-               enters the search term and presses <b>Enter</b>, as in the Google example below.</p>
-         </div>
+            </form><br>
+         </section>
          <hr style="width: 40%;">
 
-         <form action="https://www.reddit.com/search" target="_blank">
-            <h4 style="margin: 5px; text-align: center;">Reddit Search</h4>
-            <input type="text" name="q">&nbsp;&nbsp;
-            <button>Search Reddit</button>
-         </form><br><br>
-         <hr style="width: 20%;">
+         <section>
+            <h3>HTML Form Validation</h3>
+            <p>HTML itself has limited form validation. Most proper form validation is done with JavaScript.<br>But with
+               HTML,
+               you can specify elements as <b>required</b> inputs by adding the term <b>required</b> to the form
+               input statement.</p>
+            <p>eg. <b>
+                  < input type="text" id="username" name="user" required>
+               </b></p>
+            <form action="/dummy">
+               <label for="user">Username: </label>
+               <input type="text" id="user" name="user" required>
+               <button>Submit</button>
+            </form>
+            <p>So by simply adding <b>required</b>, HTML will do basic validation and ensure the form is not submitted
+               with
+               required fields.<br></p>
+            <hr style="width: 40%;">
+            <p>You can also use this with elements using <b>min</b>, <b>max</b>, <b>minlength</b>, and <b>maxlength</b>
+               arguments, such as a password<br>
+               field (for example), lets say, min length of 5, and max length of 10</p>
+            <p>If the length is too short, you'll get a message, and it will not let you add any more characters after
+               max
+               is reached.<br>
+               <b>
+                  < input type="password" id="pswd" name="pswd" minlength="5" maxlength="10" required>
+               </b>
+            </p>
+            <form action="/dummy">
+               <label for="pswd">Password: </label>
+               <input type="password" id="pswd" name="pswd" minlength="5" maxlength="10" required>
+               <button>Submit</button>
+            </form>
+            <p>You can also do some basic pattern matching on elements such as email and url's. More info can be found
+               <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern" target="_blank"
+                  rel="noopener noreferrer">HERE</a>.</p>
+            <p><br></p>
+         </section>
 
-         <form action="https://www.google.com/search" target="_blank">
-            <h4 style="margin: 5px; text-align: center;">Google Search</h4>
-            <input type="text" name="q">
-         </form><br><br>
-         <hr style="width: 20%;">
+         <hr style="width: 40%;">
+         <hr style="width: 50%;">
+         <hr style="width: 40%;">
 
-         <form action="https://www.youtube.com/results" target="_blank">
-            <h4 style="margin: 5px; text-align: center;">Youtube Search</h4>
-            <input type="text" name="search_query">&nbsp;&nbsp;
-            <button>Search Youtube</button>
-         </form><br><br>
-         <hr style="width: 20%;">
-      </section>
+         <!-- Functional Search Engines -->
+         <section>
+            <h3>Functioning Search Forms</h3>
+            <div style="width: 40%; margin: 0 auto;">
+               <p>Because every company has different formats for a search, <i>do a search
+                     on <b>their</b> search page and from the results in the address bar, and pick out the address and
+                     "name"
+                     for the search query.</i></p>
+               <p>ex. for reddit,<br>
+                  form action = "https://www.reddit.com/search"<br>
+                  input name = "q"</p>
+               <p><b><i>*also</i></b>, you can <b>omit</b> the "Submit" button and it will submit automatically when the
+                  user
+                  enters the search term and presses <b>Enter</b>, as in the Google example below.</p>
+            </div>
+            <hr style="width: 40%;">
 
-      <p><a href="#top">Back to Top</a><br><br></p>
+            <form action="https://www.reddit.com/search" target="_blank">
+               <h4 style="margin: 5px; text-align: center;">Reddit Search</h4>
+               <input type="text" name="q">&nbsp;&nbsp;
+               <button>Search Reddit</button>
+            </form><br><br>
+            <hr style="width: 20%;">
 
-   </div>
+            <form action="https://www.google.com/search" target="_blank">
+               <h4 style="margin: 5px; text-align: center;">Google Search</h4>
+               <input type="text" name="q">
+            </form><br><br>
+            <hr style="width: 20%;">
+
+            <form action="https://www.youtube.com/results" target="_blank">
+               <h4 style="margin: 5px; text-align: center;">Youtube Search</h4>
+               <input type="text" name="search_query">&nbsp;&nbsp;
+               <button>Search Youtube</button>
+            </form><br><br>
+            <hr style="width: 20%;">
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
    <footer>
       <div>Website created by badDoggy</div>
       <div>|</div>

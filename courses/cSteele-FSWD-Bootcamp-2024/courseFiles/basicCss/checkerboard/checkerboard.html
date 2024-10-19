@@ -25,119 +25,111 @@
          Ideas&nbsp;&nbsp;&nbsp;- -</span>
    </header>
 
-   <div class="content">
-      <!-- Title -->
-      <div>
-         <h3>Temp Page</h3>
-         <p><a href="../basicCss.html">Back to CSS Reference Index</a></p>
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <div>
+            <h3>Temp Page</h3>
+            <p><a href="../basicCss.html">Back to CSS Reference Index</a></p>
 
-      </div>
+         </div>
 
-      <section class="lists">
-         <dl>
-            <dt>
-               First, in <b>HTML</b> add an <b>id</b> for the <b>board</b> |
+         <section class="lists">
+            <p>First, in <b>HTML</b> add an <b>id</b> for the <b>board</b> |
                <b>
-                  < div id="board></b>
-         </dt>
-      </dl>
-      <hr style=" width: 100%" />
-
-                  <dl>Next, nested inside the <b>board div</b>, we build a square in <b>HTML</b>
+                  < div id="board></b></p>
+            <hr style=" width: 100%" />
+                  <p>Next, nested inside the <b>board div</b>, we build a square in <b>HTML</b>
                      <dt><b>
-                           < div class=" square></b></dt>
-      </dl>
-      <div class=" square2">
-   </div>
-   <p>duplicate this 25 times</p>
-   <hr style="width: 100%" />
-   <hr style="width: 75%" />
+                           < div class=" square></b></p>
+            <p>duplicate this 25 times</p>
+            <hr style=" width: 100%" />
+                           <hr style="width: 75%" />
+                           <ul>in <b>CSS</b> define the board
+                              <li>#board {
+                                 <ul>
+                                    <li>margin: 0 auto;</li>
+                                    <li>width: 500px;</li>
+                                    <li>display: flex;</li>
+                                    <li>flex-wrap: wrap;</li>
+                                 </ul>
+                                 }
+                              </li>
+                           </ul>
+                           <hr style="width: 100%" />
+                           <ul>in <b>CSS</b> define the square
+                              <li>.square {
+                                 <ul>
+                                    <li>width: 100px;</li>
+                                    <li>height: 100px;</li>
+                                    <li>box-sizing: border-box;</li>
+                                    <li>border: 1px solid black;</li>
+                                 </ul>
+                                 }
+                              </li>
+                           </ul>
+                           <hr style="width: 100%" />
+                           <p>Because the boxes are 100x100, and the board is 500 wide, the boxes <b>wrap</b> to a 5x5
+                              grid.</p>
+                           <hr style="width: 100%" />
+                           <p>Next, Add the color</p>
 
-   <ul>in <b>CSS</b> define the board
-      <li>#board {
-         <ul>
-            <li>margin: 0 auto;</li>
-            <li>width: 500px;</li>
-            <li>display: flex;</li>
-            <li>flex-wrap: wrap;</li>
-         </ul>
-         }
-      </li>
-   </ul>
-   <hr style="width: 100%" />
+                           <ul>Black for the <b>odd</b> div boxes
+                              <li><b>#board div:nth-child(odd)</b> {
+                                 <ul>
+                                    <li>background-color: black</li>
+                                 </ul>
+                                 }
+                              </li>
+                           </ul>
+                           <br>
+                           <ul>RED for the <b>even</b> div boxes
+                              <li><b>#board div:nth-child(even)</b> {
+                                 <ul>
+                                    <li>background-color: red</li>
+                                 </ul>
+                                 }
+                              </li>
+                           </ul>
+                           <hr style="width: 100%" />
+                           <p><br></p>
+         </section>
 
-   <ul>in <b>CSS</b> define the square
-      <li>.square {
-         <ul>
-            <li>width: 100px;</li>
-            <li>height: 100px;</li>
-            <li>box-sizing: border-box;</li>
-            <li>border: 1px solid black;</li>
-         </ul>
-         }
-      </li>
-   </ul>
-   <hr style="width: 100%" />
-   <p>Because the boxes are 100x100, and the board is 500 wide, the boxes <b>wrap</b> to a 5x5 grid.</p>
-   <hr style="width: 100%" />
-   <p>Next, Add the color</p>
+         <!-- Classwork -->
+         <section class="classwork">
+            <div id="board">
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+               <div class="square"></div>
+            </div>
+         </section>
+         <p><br></p>
 
-   <ul>Black for the <b>odd</b> div boxes
-      <li><b>#board div:nth-child(odd)</b> {
-         <ul>
-            <li>background-color: black</li>
-         </ul>
-         }
-      </li>
-   </ul>
-   <br>
-   <ul>RED for the <b>even</b> div boxes
-      <li><b>#board div:nth-child(even)</b> {
-         <ul>
-            <li>background-color: red</li>
-         </ul>
-         }
-      </li>
-   </ul>
-   <hr style="width: 100%" />
-   <p><br></p>
-   </section>
-
-   <!-- Classwork -->
-   <section class="classwork">
-      <div id="board">
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
-         <div class="square"></div>
+         <p><a href="#top">Back to Top</a><br /><br /></p>
       </div>
    </section>
-   <p><br></p>
-
-   <p><a href="#top">Back to Top</a><br /><br /></p>
-   </div>
-
    <footer>
       <div>Website created by badDoggy</div>
       <div>|</div>
