@@ -34,83 +34,86 @@
          Ideas&nbsp;&nbsp;&nbsp;- -</span>
    </header>
 
-   <div class="content">
-      <!-- Title -->
-      <section>
-         <h2>Full Stack MERN Web Development</h2>
-         <p><a href="../bootstrapIndex.html">Back to Bootstrap Index</a></p>
-         <h3>Bootstrap Color Modes</h3><br>
-      </section>
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2>Full Stack MERN Web Development</h2>
+            <p><a href="../bootstrapIndex.html">Back to Bootstrap Index</a></p>
+            <h3>Bootstrap Color Modes</h3><br>
+         </section>
 
-      <section id="textwindow3">
+         <section id="textwindow3">
+            <hr style="margin: 0 auto;"><br>
+            <p>Bootstrap is controlled with <i>inline styles</i>. The <i>style call</i> is placed inside the controlling
+               HTML tag.</p>
+            <p>More information about colors and backgrounds can be found <a
+                  href="https://getbootstrap.com/docs/5.3/helpers/color-background/" target="_blank">here</a>.</p>
+            <p><b>*Also</b>, you can <i>customize</i> the colors. More info can be found <a
+                  href="https://getbootstrap.com/docs/5.3/customize/color/" target="_blank">here</a>.</p>
+            <hr style="margin: 0 auto;"><br><br>
+         </section>
+
+         <!-- Class Content -->
+         <!--   Primary Color Section -->
+         <div>
+            <h1>Bootstrap Theme Colors Display</h1>
+            <p>We added a <b><i>page style</i></b> in the <b>head</b> section to layout basic padding and margin for
+               this
+               section.<br>
+               Each color section is a <b>
+                  < div>
+               </b> that references this "<i>page style</i>". We then also add the styling for each<br>
+               color selection, <i>within</i> each individual <b>div</b> tag by adding <b>bg-color</b> and
+               <b>text-color</b>
+            </p>
+            <p>If we select both the bg and text colors to the same color, say <b>primary</b>, then we can add
+               <b>-emphasis</b> to<br>
+               the end of the text-color designation. This will set a offsetting text color so you can seen the text on
+               the
+               background.
+            </p>
+            <p>for example, in the first blue section, we set <b>class="bg-primary text-primary-emphasis"</b>.</p>
+            <p>the following box is <b>bg-primary</b></p>
+            <div class="color-section bg-primary">bg-primary | Primary Color Section</div>
+            <p>the following box is <b>bg-primary</b> <b>text-primary</b></p>
+            <div class="color-section bg-primary text-primary">bg-primary text-primary | Primary Color Section</div>
+            <p>the following box is <b>bg-primary</b> <b>text-primary-emphasis</b></p>
+            <div class="color-section bg-primary text-primary-emphasis">bg-primary text-primary-emphasis | Primary Color
+               Section</div>
+            <p>and so on down the list using <b>bg-color text-color-emphasis</b>,</p>
+            <div class="color-section bg-secondary text-secondary-emphasis">Secondary Color Section</div>
+            <div class="color-section bg-success text-success-emphasis">Success Color Section</div>
+            <div class="color-section bg-danger text-danger-emphasis">Danger Color Section</div>
+            <div class="color-section bg-warning text-warning-emphasis">Warning Color Section</div>
+            <div class="color-section bg-info text-info-emphasis">Info Color Section</div>
+            <div class="color-section bg-light text-light-emphasis">Light Color Section</div>
+            <div class="color-section bg-dark text-dark-emphasis">Dark Color Section</div>
+         </div>
+         <br><br>
+
+         <!-- Combing Text and Background Utilities -->
+         <h1>Combing Text and Background Utilities</h1>
+
          <hr style="margin: 0 auto;"><br>
-         <p>Bootstrap is controlled with <i>inline styles</i>. The <i>style call</i> is placed inside the controlling
-            HTML tag.</p>
-         <p>More information about colors and backgrounds can be found <a
-               href="https://getbootstrap.com/docs/5.3/helpers/color-background/" target="_blank">here</a>.</p>
-         <p><b>*Also</b>, you can <i>customize</i> the colors. More info can be found <a
-               href="https://getbootstrap.com/docs/5.3/customize/color/" target="_blank">here</a>.</p>
-         <hr style="margin: 0 auto;"><br><br>
-      </section>
+         <p>You can <i>combine</i> the foreground and background colors into a more simplified style call.</p>
+         <p>Instead of using <b>class="bg-primary text-primary-emphasis"</b>, use the simplified version
+            <b>class="text-bg-primary"</b>
+         </p>
+         <p>This sets, the background color with an "offsetting" foreground color as seen below.</p>
 
-      <!-- Class Content -->
-      <!--   Primary Color Section -->
-      <div>
-         <h1>Bootstrap Theme Colors Display</h1>
-         <p>We added a <b><i>page style</i></b> in the <b>head</b> section to layout basic padding and margin for this
-            section.<br>
-            Each color section is a <b>
-               < div>
-            </b> that references this "<i>page style</i>". We then also add the styling for each<br>
-            color selection, <i>within</i> each individual <b>div</b> tag by adding <b>bg-color</b> and
-            <b>text-color</b>
-         </p>
-         <p>If we select both the bg and text colors to the same color, say <b>primary</b>, then we can add
-            <b>-emphasis</b> to<br>
-            the end of the text-color designation. This will set a offsetting text color so you can seen the text on the
-            background.
-         </p>
-         <p>for example, in the first blue section, we set <b>class="bg-primary text-primary-emphasis"</b>.</p>
-         <p>the following box is <b>bg-primary</b></p>
-         <div class="color-section bg-primary">bg-primary | Primary Color Section</div>
-         <p>the following box is <b>bg-primary</b> <b>text-primary</b></p>
-         <div class="color-section bg-primary text-primary">bg-primary text-primary | Primary Color Section</div>
-         <p>the following box is <b>bg-primary</b> <b>text-primary-emphasis</b></p>
-         <div class="color-section bg-primary text-primary-emphasis">bg-primary text-primary-emphasis | Primary Color
-            Section</div>
-         <p>and so on down the list using <b>bg-color text-color-emphasis</b>,</p>
-         <div class="color-section bg-secondary text-secondary-emphasis">Secondary Color Section</div>
-         <div class="color-section bg-success text-success-emphasis">Success Color Section</div>
-         <div class="color-section bg-danger text-danger-emphasis">Danger Color Section</div>
-         <div class="color-section bg-warning text-warning-emphasis">Warning Color Section</div>
-         <div class="color-section bg-info text-info-emphasis">Info Color Section</div>
-         <div class="color-section bg-light text-light-emphasis">Light Color Section</div>
-         <div class="color-section bg-dark text-dark-emphasis">Dark Color Section</div>
+         <div class="color-section text-bg-primary">Primary with contrasting color</div>
+         <div class="color-section text-bg-secondary">Secondary with contrasting color</div>
+         <div class="color-section text-bg-success">Success with contrasting color</div>
+         <div class="color-section text-bg-danger">Danger with contrasting color</div>
+         <div class="color-section text-bg-warning">Warning with contrasting color</div>
+         <div class="color-section text-bg-info">Info with contrasting color</div>
+         <div class="color-section text-bg-light">Light with contrasting color</div>
+         <div class="color-section text-bg-dark">Dark with contrasting color</div>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
       </div>
-      <br><br>
-
-      <!-- Combing Text and Background Utilities -->
-      <h1>Combing Text and Background Utilities</h1>
-
-      <hr style="margin: 0 auto;"><br>
-      <p>You can <i>combine</i> the foreground and background colors into a more simplified style call.</p>
-      <p>Instead of using <b>class="bg-primary text-primary-emphasis"</b>, use the simplified version
-         <b>class="text-bg-primary"</b>
-      </p>
-      <p>This sets, the background color with an "offsetting" foreground color as seen below.</p>
-
-      <div class="color-section text-bg-primary">Primary with contrasting color</div>
-      <div class="color-section text-bg-secondary">Secondary with contrasting color</div>
-      <div class="color-section text-bg-success">Success with contrasting color</div>
-      <div class="color-section text-bg-danger">Danger with contrasting color</div>
-      <div class="color-section text-bg-warning">Warning with contrasting color</div>
-      <div class="color-section text-bg-info">Info with contrasting color</div>
-      <div class="color-section text-bg-light">Light with contrasting color</div>
-      <div class="color-section text-bg-dark">Dark with contrasting color</div>
-
-      <p><a href="#top">Back to Top</a><br><br></p>
-
-   </div>
+   </section>
    <footer>
       <div>Website created by badDoggy</div>
       <div>|</div>

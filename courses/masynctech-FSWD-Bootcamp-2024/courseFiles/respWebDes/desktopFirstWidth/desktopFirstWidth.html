@@ -25,92 +25,93 @@
          Ideas&nbsp;&nbsp;&nbsp;- -</span>
    </header>
 
-   <div class="content">
-      <!-- Title -->
-      <section>
-         <h2>Full Stack MERN Web Development</h2>
-         <h3>Responsive Web Design (RWD)</h3>
-         <p><a href="../respDesIndex.html">Back to RWD Index</a></p>
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2>Full Stack MERN Web Development</h2>
+            <h3>Responsive Web Design (RWD)</h3>
+            <p><a href="../respDesIndex.html">Back to RWD Index</a></p>
+            <hr>
+            <h4>Desktop First using width</h4>
+            <p>*see info on <b>@media screen</b> specificity <a href="../screenMediaQueries/screenMediaQueries.html"
+                  target="_blank">here</a></p>
+         </section>
+
+         <section id="textWindow2">
+            <div class="lists">
+               <ul><b>Desktop-first Design</b>
+                  <li>The opposite of Mobile-First (min-width, min-height) approach</li>
+                  <li>Start design with desktop and adjust for smaller screens</li>
+                  <li>Use "max-width" and "max-height" media queries
+                     <ul>
+                        <li>this sets the "upper boundaries" for the applied styles</li>
+                        <li>It triggers styles when below the specified dimensions</li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </section>
          <hr>
-         <h4>Desktop First using width</h4>
-         <p>*see info on <b>@media screen</b> specificity <a href="../screenMediaQueries/screenMediaQueries.html"
-               target="_blank">here</a></p>
-      </section>
 
-      <section id="textWindow2">
-         <div class="lists">
-            <ul><b>Desktop-first Design</b>
-               <li>The opposite of Mobile-First (min-width, min-height) approach</li>
-               <li>Start design with desktop and adjust for smaller screens</li>
-               <li>Use "max-width" and "max-height" media queries
-                  <ul>
-                     <li>this sets the "upper boundaries" for the applied styles</li>
-                     <li>It triggers styles when below the specified dimensions</li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-      </section>
-      <hr>
+         <section id="textWindow2">
+            <div class="lists">
+               <ul><b>When to use</b>
+                  <li>Desktop-first suits complex web apps who's primary users are desktop</li>
+                  <li>Useful for converting desktop-centric sites to a responsive site</li>
+                  <li>Requires fewer changes to the original design</li>
+               </ul>
+            </div>
+         </section>
+         <hr>
 
-      <section id="textWindow2">
-         <div class="lists">
-            <ul><b>When to use</b>
-               <li>Desktop-first suits complex web apps who's primary users are desktop</li>
-               <li>Useful for converting desktop-centric sites to a responsive site</li>
-               <li>Requires fewer changes to the original design</li>
-            </ul>
-         </div>
-      </section>
-      <hr>
+         <section id="textWindow2">
+            <div class="lists">
+               <ul><b>Important Rules</b>
+                  <li>Have a "fallback" style for smaller devices without queries</li>
+                  <li>Avoid excessive media queries for css manageability</li>
+                  <li>Always test on multiple devices for proper rendering.</li>
+               </ul>
+            </div>
+         </section>
+         <hr>
 
-      <section id="textWindow2">
-         <div class="lists">
-            <ul><b>Important Rules</b>
-               <li>Have a "fallback" style for smaller devices without queries</li>
-               <li>Avoid excessive media queries for css manageability</li>
-               <li>Always test on multiple devices for proper rendering.</li>
-            </ul>
-         </div>
-      </section>
-      <hr>
+         <section id="textWindow2" style="padding: 0 40px;">
+            <p>In the following example, we have set up different background colors based on the maximum screen width
+               values. You can resize the screen width to see the effect. The code is the same for Mobile-First media
+               queries, except we change <b>min-width</b> to <b>max-width</b>.</p>
+            <div class="lists">
+               <dl><b>we accomplish this by adding "media queries" in the CSS</b>
+                  <li>@media (max-width: <i>xxx</i>px) {</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.header {</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <i>header styles go here</i>;
+                  </li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p {</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <i>p styles go here</i>;
+                  </li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                  <li>}</li>
+               </dl>
+               <br>
+               <ul><b>** Note</b>
+                  <li>all of the <i>Styling Calls</i> are nested <b>within</b> the <i>@media function</i></li>
+                  <li>the "META" tag must reside within the HTML head section
+                     <ul>
+                        <li><b>
+                              < meta name="viewport" content="width=device-width, initial-scale=1.0">
+                           </b> </li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </section>
 
-      <section id="textWindow2" style="padding: 0 40px;">
-         <p>In the following example, we have set up different background colors based on the maximum screen width
-            values. You can resize the screen width to see the effect. The code is the same for Mobile-First media
-            queries, except we change <b>min-width</b> to <b>max-width</b>.</p>
-         <div class="lists">
-            <dl><b>we accomplish this by adding "media queries" in the CSS</b>
-               <li>@media (max-width: <i>xxx</i>px) {</li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.header {</li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <i>header styles go here</i>;
-               </li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p {</li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <i>p styles go here</i>;
-               </li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
-               <li>}</li>
-            </dl>
-            <br>
-            <ul><b>** Note</b>
-               <li>all of the <i>Styling Calls</i> are nested <b>within</b> the <i>@media function</i></li>
-               <li>the "META" tag must reside within the HTML head section
-                  <ul>
-                     <li><b>
-                           < meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        </b> </li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-      </section>
-
-      <p><a href="#top">Back to Top</a><br><br></p>
-
-   </div>
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
    <footer>
       <div>Website created by badDoggy</div>
       <div>|</div>

@@ -25,105 +25,107 @@
          Ideas&nbsp;&nbsp;&nbsp;- -</span>
    </header>
 
-   <div class="content">
-      <!-- Title -->
-      <section>
-         <h2>Full Stack MERN Web Development</h2>
-         <h3>CSS Fixed Positioning</h3>
-         <p><a href="../cssPosIndex.html">Return to CSS Positioning Index</a></p>
-      </section>
-
-      <!-- Class Specific Info Sections -->
-      <section id="textWindow3">
-         <div class="lists">
-            <ul><b>Fixed Position</b>
-               <li>An element is <i>removed</i> from the normal flow, and positioned <i>relative</i> to the viewport
-               </li>
-               <li>It's like <i>Absolute</i> positioning, except it's positioning is relative to the <i>view-port
-                     (page)</i> instead of it's relative ancestor.</li>
-               <li>This means it always stays in the same place even if the page is scrolled.
-                  <ul>
-                     <li> The top, right, bottom, and left properties are used to position the element.
-                     </li>
-                  </ul>
-               </li>
-               <li>A fixed element does not leave a gap in the page where it would normally have been located.</li>
-               <li>Most commonly used for fixed elements such as Headers, Footers, and Navigation Menu's.</li>
-            </ul>
-         </div>
-      </section>
-      <hr>
-
-      <section id="textWindow3">
-         <div class="lists">
-            <ul><b>When to Use</b>
-               <li>Most commonly used for fixed elements such as Headers, Footers, and Navigation Menu's.</li>
-               <li>Ideal for elements that must stay visible during scrolling</li>
-               <li>Useful for overlays such as modals with fixed position on a scrollable background.</li>
-            </ul>
-         </div>
-      </section>
-      <hr>
-
-      <section id="textWindow3">
-         <div class="lists">
-            <ul><b>Important Rules</b>
-               <li>Use sparingly. It can obscure content, especially on small screens</li>
-               <li>Be careful of overlapping content, especially on smaller screens</li>
-               <li>Use media queries for better control on different screen sizes.</li>
-            </ul>
-         </div>
-      </section>
-      <hr>
-
-      <section id="textWindow3">
-         <p>
-            Now, in the following example, we used fixed positioning on the "NAV BAR".<br>
-            We positioned it "top: 65px;" which forced it to the top of the page, right below my header bar.
-         </p>
-      </section>
-
-      <!-- Class Code -->
-      <div class="code">
-         <nav class="fixed-navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-         </nav>
-
-         <section id="home" class="content-section">
-            <h1>Welcome to Our Website</h1>
-            <p>Explore our site and learn more about what we do.</p>
-            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg" alt="Home Image" />
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2>Full Stack MERN Web Development</h2>
+            <h3>CSS Fixed Positioning</h3>
+            <p><a href="../cssPosIndex.html">Return to CSS Positioning Index</a></p>
          </section>
 
-         <section id="about" class="content-section">
-            <h1>About Us</h1>
+         <!-- Class Specific Info Sections -->
+         <section id="textWindow3">
+            <div class="lists">
+               <ul><b>Fixed Position</b>
+                  <li>An element is <i>removed</i> from the normal flow, and positioned <i>relative</i> to the viewport
+                  </li>
+                  <li>It's like <i>Absolute</i> positioning, except it's positioning is relative to the <i>view-port
+                        (page)</i> instead of it's relative ancestor.</li>
+                  <li>This means it always stays in the same place even if the page is scrolled.
+                     <ul>
+                        <li> The top, right, bottom, and left properties are used to position the element.
+                        </li>
+                     </ul>
+                  </li>
+                  <li>A fixed element does not leave a gap in the page where it would normally have been located.</li>
+                  <li>Most commonly used for fixed elements such as Headers, Footers, and Navigation Menu's.</li>
+               </ul>
+            </div>
+         </section>
+         <hr>
+
+         <section id="textWindow3">
+            <div class="lists">
+               <ul><b>When to Use</b>
+                  <li>Most commonly used for fixed elements such as Headers, Footers, and Navigation Menu's.</li>
+                  <li>Ideal for elements that must stay visible during scrolling</li>
+                  <li>Useful for overlays such as modals with fixed position on a scrollable background.</li>
+               </ul>
+            </div>
+         </section>
+         <hr>
+
+         <section id="textWindow3">
+            <div class="lists">
+               <ul><b>Important Rules</b>
+                  <li>Use sparingly. It can obscure content, especially on small screens</li>
+                  <li>Be careful of overlapping content, especially on smaller screens</li>
+                  <li>Use media queries for better control on different screen sizes.</li>
+               </ul>
+            </div>
+         </section>
+         <hr>
+
+         <section id="textWindow3">
             <p>
-               We are a dedicated team passionate about our work. Learn more about our
-               mission, vision, and values.
+               Now, in the following example, we used fixed positioning on the "NAV BAR".<br>
+               We positioned it "top: 65px;" which forced it to the top of the page, right below my header bar.
             </p>
-            <img src="https://cdn.pixabay.com/photo/2017/11/19/13/03/panorama-2962730_1280.jpg" alt="About Image" />
          </section>
 
-         <section id="contact" class="content-section">
-            <h1>Contact Us</h1>
-            <p>Have questions? Reach out to us through the contact form below.</p>
-            <form action="/submit" method="post">
-               <label for="name">Name:</label>
-               <input type="text" id="name" name="name" required />
-               <label for="email">Email:</label>
-               <input type="email" id="email" name="email" required />
-               <label for="message">Message:</label>
-               <textarea id="message" name="message" required></textarea>
-               <button type="submit">Submit</button>
-            </form>
-         </section>
+         <!-- Class Code -->
+         <div class="code">
+            <nav class="fixed-navbar">
+               <a href="#home">Home</a>
+               <a href="#about">About</a>
+               <a href="#contact">Contact</a>
+            </nav>
+
+            <section id="home" class="content-section">
+               <h1>Welcome to Our Website</h1>
+               <p>Explore our site and learn more about what we do.</p>
+               <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg"
+                  alt="Home Image" />
+            </section>
+
+            <section id="about" class="content-section">
+               <h1>About Us</h1>
+               <p>
+                  We are a dedicated team passionate about our work. Learn more about our
+                  mission, vision, and values.
+               </p>
+               <img src="https://cdn.pixabay.com/photo/2017/11/19/13/03/panorama-2962730_1280.jpg" alt="About Image" />
+            </section>
+
+            <section id="contact" class="content-section">
+               <h1>Contact Us</h1>
+               <p>Have questions? Reach out to us through the contact form below.</p>
+               <form action="/submit" method="post">
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" required />
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required />
+                  <label for="message">Message:</label>
+                  <textarea id="message" name="message" required></textarea>
+                  <button type="submit">Submit</button>
+               </form>
+            </section>
+         </div>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
       </div>
-
-      <p><a href="#top">Back to Top</a><br><br></p>
-
-   </div>
+   </section>
    <footer>
       <div>Website created by badDoggy</div>
       <div>|</div>

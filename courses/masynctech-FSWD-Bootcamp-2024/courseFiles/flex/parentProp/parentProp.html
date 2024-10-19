@@ -25,289 +25,297 @@
          Ideas&nbsp;&nbsp;&nbsp;- -</span>
    </header>
 
-   <div class="content">
-      <!-- Title -->
-      <section>
-         <h2>Full Stack MERN Web Development</h2>
-         <h3>Parent Element Flex Properties</h3>
-         <p><a href="../flexIndex.html">Back to Flex Reference Index</a></p>
-      </section>
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2>Full Stack MERN Web Development</h2>
+            <h3>Parent Element Flex Properties</h3>
+            <p><a href="../flexIndex.html">Back to Flex Reference Index</a></p>
+         </section>
 
-      <!-- Flex Specific Info Sections -->
-      <section id="textWindow4">
-         <div class="lists">
-            <ul>
-               <li>Parent Element Properties control the container layout, alignment, and spacing behavior of it's<br>
-                  "child" level elements.</li>
-               <li>Suitable for: menus, card alignment, responsive grids, etc.</li>
-            </ul>
-            <ul>
-               <li><b>display: flex</b> or <b>display:inline-flex;</b> defines the element as a "flex" container.</li>
-               <li><b>flex-direction</b>: Defines "main" axis direction (<b>row</b>, <b>column</b>, <b>row-reverse</b>
-                  or <b>column-reverse</b>)</li>
-               <li><b>justify-content</b>: Effects the "MAIN" axis alignment (<b>flex-start</b>, <b>flex-end</b>,
-                  <b>center</b>, <b>space-between</b>, etc.)
-               </li>
-               <li><b>align-items</b>: Effects the "CROSS" axis alignment (<b>flex-start</b>, <b>flex-end</b>,
-                  <b>center</b>, <b>stretch</b>, etc.)
-               </li>
-               <li><b>align-content</b>: Defines "cross" axis alignment for flex lines (<i>with extra space</i>)</li>
-               <li><b>flex-wrap</b>: Controls item wrapping (<b>wrap</b>, <b>no-wrap</b>, <b>wrap-reverse</b>)</li>
-            </ul>
-         </div>
-      </section>
-      <hr>
-
-      <section id="textWindow3">
-         <div class="lists">
-            <ul><b>Cautions</b>
-               <li>A flexbox container must be initiated with <b>display: flex;</b>, or <b>display: inline-flex;</b>.
-               </li>
-               <li>Use <b>justify-content</b> and <b>align-items</b> for single line containers.</li>
-               <li>Use <b>align-content</b> for multi-line containers.</li>
-               <li><b>flex-direction</b> defines the "Main" axis and all other properties are <i>relative</i> to that.
-               </li>
-            </ul>
-         </div>
-      </section>
-      <hr>
-
-      <!-- Discussion Area -->
-      <div class="bod"></div>
-
-      <!-- Default Setup -->
-      <h4>Default Setup</h4>
-      <p>Setting the default workspace</p>
-      <section class="contain1">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <br>
-      <hr>
-
-      <!-- Make it a flex container -->
-      <h4>Make it a flex container</h4>
-      <div class="lists">
-         <ul>add the following line(s) to the parent container
-            <li>display: flex; - or -</li>
-            <li>display: flex;<br>
-               flex-direction: row</li>
-         </ul>
-      </div>
-      <p><i>*it is not necessary to define flex direction as row because "ROW" is the<br>
-            default "MAIN" axis, however, it doesn't hurt anything to make that designation</i></p>
-      <section class="contain2">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <br>
-      <hr>
-
-      <!-- Align the items to center -->
-      <h4>Lets "align" the boxes inside of the workspace</h4>
-      <p><i>We use <b>justify-content</b> to affect the "MAIN" axis for single line containers.</i></p>
-      <div class="lists">
-         <ul>Let's <b>center</b> the boxes in the parent.
-            <li>add the following line(s) to the parent container
+         <!-- Flex Specific Info Sections -->
+         <section id="textWindow4">
+            <div class="lists">
                <ul>
-                  <li><b>justify-content: center;</b></li>
+                  <li>Parent Element Properties control the container layout, alignment, and spacing behavior of
+                     it's<br>
+                     "child" level elements.</li>
+                  <li>Suitable for: menus, card alignment, responsive grids, etc.</li>
                </ul>
-            </li>
-         </ul>
-      </div>
-      <section class="contain3">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <br>
+               <ul>
+                  <li><b>display: flex</b> or <b>display:inline-flex;</b> defines the element as a "flex" container.
+                  </li>
+                  <li><b>flex-direction</b>: Defines "main" axis direction (<b>row</b>, <b>column</b>,
+                     <b>row-reverse</b>
+                     or <b>column-reverse</b>)</li>
+                  <li><b>justify-content</b>: Effects the "MAIN" axis alignment (<b>flex-start</b>, <b>flex-end</b>,
+                     <b>center</b>, <b>space-between</b>, etc.)
+                  </li>
+                  <li><b>align-items</b>: Effects the "CROSS" axis alignment (<b>flex-start</b>, <b>flex-end</b>,
+                     <b>center</b>, <b>stretch</b>, etc.)
+                  </li>
+                  <li><b>align-content</b>: Defines "cross" axis alignment for flex lines (<i>with extra space</i>)</li>
+                  <li><b>flex-wrap</b>: Controls item wrapping (<b>wrap</b>, <b>no-wrap</b>, <b>wrap-reverse</b>)</li>
+               </ul>
+            </div>
+         </section>
+         <hr>
 
-      <!-- Using Space Between -->
-      <p>We can use <b>space-between</b>, and <b>space-around</b> to evenly distribute the extra spacing within the
-         container.</p>
-      <p>Lets distribute the extra spacing evenly <b>between</b> the content</p>
-      <div class="lists">
-         <ul>We do this by replacing
-            <li><b>justify-content: center;</b> with</li>
-            <li><b>justify-content: space-between;</b></li>
-         </ul>
-      </div>
-      <section class="contain4">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <br>
+         <section id="textWindow3">
+            <div class="lists">
+               <ul><b>Cautions</b>
+                  <li>A flexbox container must be initiated with <b>display: flex;</b>, or <b>display: inline-flex;</b>.
+                  </li>
+                  <li>Use <b>justify-content</b> and <b>align-items</b> for single line containers.</li>
+                  <li>Use <b>align-content</b> for multi-line containers.</li>
+                  <li><b>flex-direction</b> defines the "Main" axis and all other properties are <i>relative</i> to
+                     that.
+                  </li>
+               </ul>
+            </div>
+         </section>
+         <hr>
 
-      <!-- Using Space around -->
-      <p>Lets distribute the extra spacing evenly <b>around</b> the content</p>
-      <div class="lists">
-         <ul>We do this by replacing
-            <li><b>justify-content: center;</b> with</li>
-            <li><b>justify-content: space-around;</b></li>
-         </ul>
-      </div>
-      <section class="contain5">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <br>
-      <hr>
+         <!-- Discussion Area -->
+         <div class="bod"></div>
 
-      <!-- aligning items to left -->
-      <p>Lets align the items to the Left or Right sides</p>
-      <p>First we'll align to the left side.</p>
-      <div class="lists">
-         <ul>We do this by replacing
-            <li><b>justify-content: center;</b> with</li>
-            <li><b>justify-content: flex-start;</b></li>
-         </ul>
-      </div>
-      <section class="contain6">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <br>
+         <!-- Default Setup -->
+         <h4>Default Setup</h4>
+         <p>Setting the default workspace</p>
+         <section class="contain1">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <br>
+         <hr>
 
-      <!-- aligning items to right -->
-      <p>and now align to the right side.</p>
-      <div class="lists">
-         <ul>We do this by replacing
-            <li><b>justify-content: center;</b> with</li>
-            <li><b>justify-content: flex-end;</b></li>
-         </ul>
-      </div>
-      <section class="contain7">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <br>
-
-      <!-- row reverse -->
-      <p>*Remember, you can "reverse" the items using <b>flex-direction: row-reverse;</b></p>
-      <div class="lists">
-         <ul>Add the line
-            <li><b>flex-direction: row-reverse;</b></li>
-         </ul>
-      </div>
-      <section class="contain8">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <br>
-      <hr>
-
-      <!-- using align items -->
-      <p><b>justify-content</b> affects the MAIN AXIS, and</p>
-      <p><b>align-items</b> affects the CROSS AXIS</p>
-      <p>So we can align items on the CROSS AXIS, the same way we do on the MAIN AXIS, by using <b>align-items</b></p>
-      <section class="contain9">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <p>so we centered the items on the MAIN axis using <b>justify-content: center;</b><br>and we centered the items in
-         the CROSS axis using <b>align-items: center;</b></p>
-      <br>
-      <hr>
-
-      <!-- using flex-wrap -->
-      <p>If we have too many items for the space allocated, then we can use an interesting little property<br>called
-         <b>flex-wrap</b>, which works essentially like "Word Wrap" in other applications.
-      </p>
-      <p><b>nowrap</b> is the default and disables the wrap feature, but you can use <b>flex-wrap: wrap;</b> to enable
-         it</p>
-      <p>As you can see below, we have too many items for the allocated space.<br>
-         You can see that the boxes are "clipping".</p>
-      <section class="contain10">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <br>
-      <p>We can fix this using <b>flex-wrap: wrap;</b>.<br>
-         and now the boxes are "wrapping" to the next line and no longer "clipping".</p>
-      <section class="contain11">
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-         <div class="item">1</div>
-         <div class="item">2</div>
-         <div class="item">3</div>
-         <div class="item">4</div>
-         <div class="item">5</div>
-      </section>
-      <br>
-      <hr>
-
-      <section id="textWindow3" style="padding: 0 40px;">
-         <h4>Final Thoughts on Parent Element Properties</h4>
-         <p>All of the examples above we based on the property <b>flex</b>, which assumes the
-            <b>flex-direction: row;</b> property, which is the default direction property for flex.
-         </p>
-         <p>However, we could have just as easily used the property <b>flex-direction: column;</b>
-            and all of the other flex properties would work exactly the same. The <i>ONLY</i> thing that
-            changes are the MAIN and Cross axis's.</p>
+         <!-- Make it a flex container -->
+         <h4>Make it a flex container</h4>
          <div class="lists">
-            <ul><b>The Key points to remember are,</b>
-               <li>In flex properties, you are not thinking vertical or horizontal.
+            <ul>add the following line(s) to the parent container
+               <li>display: flex; - or -</li>
+               <li>display: flex;<br>
+                  flex-direction: row</li>
+            </ul>
+         </div>
+         <p><i>*it is not necessary to define flex direction as row because "ROW" is the<br>
+               default "MAIN" axis, however, it doesn't hurt anything to make that designation</i></p>
+         <section class="contain2">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <br>
+         <hr>
+
+         <!-- Align the items to center -->
+         <h4>Lets "align" the boxes inside of the workspace</h4>
+         <p><i>We use <b>justify-content</b> to affect the "MAIN" axis for single line containers.</i></p>
+         <div class="lists">
+            <ul>Let's <b>center</b> the boxes in the parent.
+               <li>add the following line(s) to the parent container
                   <ul>
-                     <li>you are thinking <b>Main Axis</b> and <b>Cross Axis.</b></li>
-                     <li>these are set by <b>flex-direction</b> (row or column).</li>
+                     <li><b>justify-content: center;</b></li>
                   </ul>
                </li>
-               <li><b>justify-content</b>: effects "MAIN" axis alignment.</li>
-               <li><b>align-items</b>: effects "CROSS" axis alignment.</li>
             </ul>
          </div>
-      </section>
+         <section class="contain3">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <br>
 
-      <p><a href="#top">Back to Top</a><br><br></p>
+         <!-- Using Space Between -->
+         <p>We can use <b>space-between</b>, and <b>space-around</b> to evenly distribute the extra spacing within the
+            container.</p>
+         <p>Lets distribute the extra spacing evenly <b>between</b> the content</p>
+         <div class="lists">
+            <ul>We do this by replacing
+               <li><b>justify-content: center;</b> with</li>
+               <li><b>justify-content: space-between;</b></li>
+            </ul>
+         </div>
+         <section class="contain4">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <br>
 
-   </div>
+         <!-- Using Space around -->
+         <p>Lets distribute the extra spacing evenly <b>around</b> the content</p>
+         <div class="lists">
+            <ul>We do this by replacing
+               <li><b>justify-content: center;</b> with</li>
+               <li><b>justify-content: space-around;</b></li>
+            </ul>
+         </div>
+         <section class="contain5">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <br>
+         <hr>
+
+         <!-- aligning items to left -->
+         <p>Lets align the items to the Left or Right sides</p>
+         <p>First we'll align to the left side.</p>
+         <div class="lists">
+            <ul>We do this by replacing
+               <li><b>justify-content: center;</b> with</li>
+               <li><b>justify-content: flex-start;</b></li>
+            </ul>
+         </div>
+         <section class="contain6">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <br>
+
+         <!-- aligning items to right -->
+         <p>and now align to the right side.</p>
+         <div class="lists">
+            <ul>We do this by replacing
+               <li><b>justify-content: center;</b> with</li>
+               <li><b>justify-content: flex-end;</b></li>
+            </ul>
+         </div>
+         <section class="contain7">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <br>
+
+         <!-- row reverse -->
+         <p>*Remember, you can "reverse" the items using <b>flex-direction: row-reverse;</b></p>
+         <div class="lists">
+            <ul>Add the line
+               <li><b>flex-direction: row-reverse;</b></li>
+            </ul>
+         </div>
+         <section class="contain8">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <br>
+         <hr>
+
+         <!-- using align items -->
+         <p><b>justify-content</b> affects the MAIN AXIS, and</p>
+         <p><b>align-items</b> affects the CROSS AXIS</p>
+         <p>So we can align items on the CROSS AXIS, the same way we do on the MAIN AXIS, by using <b>align-items</b>
+         </p>
+         <section class="contain9">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <p>so we centered the items on the MAIN axis using <b>justify-content: center;</b><br>and we centered the items
+            in
+            the CROSS axis using <b>align-items: center;</b></p>
+         <br>
+         <hr>
+
+         <!-- using flex-wrap -->
+         <p>If we have too many items for the space allocated, then we can use an interesting little property<br>called
+            <b>flex-wrap</b>, which works essentially like "Word Wrap" in other applications.
+         </p>
+         <p><b>nowrap</b> is the default and disables the wrap feature, but you can use <b>flex-wrap: wrap;</b> to
+            enable
+            it</p>
+         <p>As you can see below, we have too many items for the allocated space.<br>
+            You can see that the boxes are "clipping".</p>
+         <section class="contain10">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <br>
+         <p>We can fix this using <b>flex-wrap: wrap;</b>.<br>
+            and now the boxes are "wrapping" to the next line and no longer "clipping".</p>
+         <section class="contain11">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+         </section>
+         <br>
+         <hr>
+
+         <section id="textWindow3" style="padding: 0 40px;">
+            <h4>Final Thoughts on Parent Element Properties</h4>
+            <p>All of the examples above we based on the property <b>flex</b>, which assumes the
+               <b>flex-direction: row;</b> property, which is the default direction property for flex.
+            </p>
+            <p>However, we could have just as easily used the property <b>flex-direction: column;</b>
+               and all of the other flex properties would work exactly the same. The <i>ONLY</i> thing that
+               changes are the MAIN and Cross axis's.</p>
+            <div class="lists">
+               <ul><b>The Key points to remember are,</b>
+                  <li>In flex properties, you are not thinking vertical or horizontal.
+                     <ul>
+                        <li>you are thinking <b>Main Axis</b> and <b>Cross Axis.</b></li>
+                        <li>these are set by <b>flex-direction</b> (row or column).</li>
+                     </ul>
+                  </li>
+                  <li><b>justify-content</b>: effects "MAIN" axis alignment.</li>
+                  <li><b>align-items</b>: effects "CROSS" axis alignment.</li>
+               </ul>
+            </div>
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
    <footer>
       <div>Website created by badDoggy</div>
       <div>|</div>

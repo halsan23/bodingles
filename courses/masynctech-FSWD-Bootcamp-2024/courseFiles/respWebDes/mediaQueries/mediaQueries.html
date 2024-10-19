@@ -25,86 +25,88 @@
          Ideas&nbsp;&nbsp;&nbsp;- -</span>
    </header>
 
-   <div class="content">
-      <!-- Title -->
-      <section>
-         <h2>Full Stack MERN Web Development</h2>
-         <h3>Responsive Web Design (RWD)</h3>
-         <p><a href="../respDesIndex.html">Back to RWD Index</a></p>
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2>Full Stack MERN Web Development</h2>
+            <h3>Responsive Web Design (RWD)</h3>
+            <p><a href="../respDesIndex.html">Back to RWD Index</a></p>
+            <hr>
+            <h4>RWD Media Queries</h4>
+         </section>
+
+         <section id="textWindow2">
+            <div class="lists">
+               <ul>
+                  <li>It is crucial for RWD to adapt to device characteristics</li>
+                  <li>Media Queries inspect output device type and characteristics</li>
+                  <li>then conditionally apply styles based on this information</li>
+                  <li>Most commonly used for viewport, but can also be used for orientation, resolution, etc.</li>
+               </ul>
+            </div>
+         </section>
          <hr>
-         <h4>RWD Media Queries</h4>
-      </section>
 
-      <section id="textWindow2">
-         <div class="lists">
-            <ul>
-               <li>It is crucial for RWD to adapt to device characteristics</li>
-               <li>Media Queries inspect output device type and characteristics</li>
-               <li>then conditionally apply styles based on this information</li>
-               <li>Most commonly used for viewport, but can also be used for orientation, resolution, etc.</li>
-            </ul>
-         </div>
-      </section>
-      <hr>
+         <section id="textWindow3">
+            <div class="lists" style="padding: 0 40px;">
+               <ul><i>defines CSS rules for screens with a max-width of 600px</i>
+                  <li><b>@media (max-width: 600px) {<br>
+                     </b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* css rules */</i><br>
+                     <b>}</b>
+                  </li>
+                  <li><b>@media screen and (max-width: 600px) {<br>
+                     </b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* css rules */</i><br>
+                     <b>}</b>
+                     <ul>
+                        <li><b>@media</b>: defines a "Media Query" rule to begin conditional styling</li>
+                        <li><b>screen</b>: Media type (this rule <i>applies</i> to screens)
+                           <ul>
+                              <li>Use the <b>screen and</b> designation to make a more specific query to target output
+                                 types of "screen"</li>
+                              <li>Omit the <b>screen and</b> designation, to include a broad range of output types, such
+                                 as
+                                 print or screen.</li>
+                              <li>*see info on <b>@media screen</b> specificity <a
+                                    href="../screenMediaQueries/screenMediaQueries.html" target="_blank">here</a></li>
+                           </ul>
+                        </li>
+                        <li><b>and</b>: Logical operator to combine conditions</li>
+                        <li><b>(max-width: 600px)</b>: sets the conditions for the max width</li>
+                        <li><b>{ <i>css rules</i> }</b>: set the css rules to apply to this style</li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </section>
+         <hr>
 
-      <section id="textWindow3">
-         <div class="lists" style="padding: 0 40px;">
-            <ul><i>defines CSS rules for screens with a max-width of 600px</i>
-               <li><b>@media (max-width: 600px) {<br>
-                  </b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* css rules */</i><br>
-                  <b>}</b>
-               </li>
-               <li><b>@media screen and (max-width: 600px) {<br>
-                  </b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* css rules */</i><br>
-                  <b>}</b>
-                  <ul>
-                     <li><b>@media</b>: defines a "Media Query" rule to begin conditional styling</li>
-                     <li><b>screen</b>: Media type (this rule <i>applies</i> to screens)
-                        <ul>
-                           <li>Use the <b>screen and</b> designation to make a more specific query to target output
-                              types of "screen"</li>
-                           <li>Omit the <b>screen and</b> designation, to include a broad range of output types, such as
-                              print or screen.</li>
-                           <li>*see info on <b>@media screen</b> specificity <a
-                                 href="../screenMediaQueries/screenMediaQueries.html" target="_blank">here</a></li>
-                        </ul>
-                     </li>
-                     <li><b>and</b>: Logical operator to combine conditions</li>
-                     <li><b>(max-width: 600px)</b>: sets the conditions for the max width</li>
-                     <li><b>{ <i>css rules</i> }</b>: set the css rules to apply to this style</li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-      </section>
-      <hr>
+         <section id="textWindow2">
+            <div class="lists">
+               <ul><b>Important Rules</b>
+                  <li>Use clear, simple conditions for Media Queries</li>
+                  <li>Begin with "broader" queries, and refine them gradually for manageability</li>
+                  <li>Test across different devices and sizes for correct functionality</li>
+               </ul>
+            </div>
+         </section>
+         <hr style="width: 40%;">
 
-      <section id="textWindow2">
-         <div class="lists">
-            <ul><b>Important Rules</b>
-               <li>Use clear, simple conditions for Media Queries</li>
-               <li>Begin with "broader" queries, and refine them gradually for manageability</li>
-               <li>Test across different devices and sizes for correct functionality</li>
-            </ul>
-         </div>
-      </section>
-      <hr style="width: 40%;">
+         <section id="textWindow2">
+            <div class="lists">
+               <ul><b>These are the universal media queries</b>
+                  <li><b>Mobile devices</b>: 480 pixels or less</li>
+                  <li><b>Tablets and iPads</b>: 481 to 768 pixels</li>
+                  <li><b>Small screens and laptops</b>: 769 to 1024 pixels</li>
+                  <li><b>Desktops and large screens</b>: 1025 to 1200 pixels</li>
+                  <li><b>Extra large screens and TVs</b>: 1201 pixels and greater </li>
+               </ul>
+            </div>
+         </section>
 
-      <section id="textWindow2">
-         <div class="lists">
-            <ul><b>These are the universal media queries</b>
-               <li><b>Mobile devices</b>: 480 pixels or less</li>
-               <li><b>Tablets and iPads</b>: 481 to 768 pixels</li>
-               <li><b>Small screens and laptops</b>: 769 to 1024 pixels</li>
-               <li><b>Desktops and large screens</b>: 1025 to 1200 pixels</li>
-               <li><b>Extra large screens and TVs</b>: 1201 pixels and greater </li>
-            </ul>
-         </div>
-      </section>
-
-      <p><a href="#top">Back to Top</a><br><br></p>
-
-   </div>
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
    <footer>
       <div>Website created by badDoggy</div>
       <div>|</div>

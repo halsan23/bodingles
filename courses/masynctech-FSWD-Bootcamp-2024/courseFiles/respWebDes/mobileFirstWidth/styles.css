@@ -14,12 +14,12 @@ dl  {
 /* Default Styles - not setting a @media query makes it the default*/
 
 /* Smaller Phones (default) */
-.header {
+.head {
    background-color: yellow;
    height: 50vh;
 }
 
-.header p {
+.head p {
    color: white;
    font-size: 2rem;
 }
@@ -37,10 +37,10 @@ dl  {
 
 /* This is the same query as above, only more specific in scope, targeting output types of screen for styling */
 @media screen and (min-width: 375px) {
-   .header {
+   .head {
       background-color: blue;
    }
-   .header p {
+   .head p {
       color: yellow;
       font-size: 5rem;
    }
@@ -48,10 +48,10 @@ dl  {
 
 /* Tablets */
 @media (min-width: 768px) {
-   .header {
+   .head {
       background-color: green;
    }
-   .header p {
+   .head p {
       color: orange;
       font-size: 8rem;
    }
@@ -59,10 +59,10 @@ dl  {
 
 /* Small Desktops */
 @media (min-width: 1280px) {
-   .header {
+   .head {
       background-color: purple;
    }
-   .header p {
+   .head p {
       color: black;
       font-size: 10rem;
    }
@@ -70,10 +70,10 @@ dl  {
 
 /* Large Desktops */
 @media (min-width: 1440px) {
-   .header {
+   .head {
       background-color: red;
    }
-   .header p {
+   .head p {
       color: blue;
       font-size: 12rem;
    }
