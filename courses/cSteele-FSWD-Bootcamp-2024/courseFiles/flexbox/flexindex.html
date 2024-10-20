@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="../../../../css/root.css">
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span>
+      <span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headScroll"><img src="../../../../images/scroll.png" alt=""></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright<a href="temp/temp.html">
+            <img class="sloganBulb" src="../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+            <hr style="width: 40%;">
+         </section>
+
+         <!-- Projects Portfolio -->
+         <h3>Flexbox</h3>
+         <section id="textWindow3" style="text-align: left;">
+            <p><b>Flexbox</b> is a one-dimensional layout method for arranging items in rows or columns.
+               Items will expand to fill additional space, or shrink to fit into smaller spaces making it a
+               <B>flexible</B> way of displaying content.
+            </p>
+            <p class="tlinks">
+               <a href="https://www.w3schools.com/cssref/css3_pr_flex.php" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">W3Schools | CSS Flexbox and Its Properties</a>
+               <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank"
+                  crossorigin="anonymous" referrerpolicy="no-referrer">MDN | Flexbox</a>
+               <a href="https://www.geeksforgeeks.org/css-flexbox-and-its-properties/" target="_blank"
+                  crossorigin="anonymous" referrerpolicy="no-referrer">Geeks4Geeks | CSS Flexbox and Its Properties</a>
+            </p>
+            <hr>
+            <div class="lists">
+               <h5>Why flexbox?</h5>
+               CSS flexible box layout enables you to:
+               <ul>
+                  <li>Center a block of content inside its parent.</li>
+                  <li>Make all the children of a container take up an equal amount of the available width/height,
+                     regardless of how much width/height is available.</li>
+                  <li>Make all columns in a multiple-column layout adopt the same height even if they contain a
+                     different
+                     amount of content.</li>
+               </ul>
+            </div>
+            <hr>
+            <p>Flexbox consists of a <b>parent</b> container that is designated as a <b>flex container</b>, and the
+               <b>child</b> elements that become the <b>flex items.</b>
+            </p>
+            <p><b>Parent Properties:</b></p>
+            <ul>
+               <li><b>display:</b> Defines a flex container.</li>
+               <li><b>flex-direction:</b> Defines the main axis direction.</li>
+               <li><b>flex-wrap:</b> Allows items to wrap onto multiple lines.</li>
+               <li><b>flex-flow:</b> Shorthand for flex-direction and flex-wrap.</li>
+               <li><b>justify-content:</b> Aligns items along the main axis.</li>
+               <li><b>align-content:</b> Aligns items along the cross axis.</li>
+               <li><b>align-items:</b> Aligns multiple lines of items on the cross axis.</li>
+            </ul>
+            <p><b>Children/Flex-items Properties:</b></p>
+            <ul>
+               <li><b>order</b>: Changes the order of items without altering the source order.</li>
+               <li><b>flex-grow:</b> Allows an item to grow to fill available space.</li>
+               <li><b>flex-shrink:</b> Allows an item to shrink if there’s insufficient space.</li>
+               <li><b>flex-basis:</b> Defines the initial size of an item.</li>
+               <li><b>flex:</b> Shorthand for flex-grow , flex-shrink , and flex-basis.</li>
+               <li><b>align-self:</b> Aligns a single item within the flex container.</li>
+            </ul>
+            <hr>
+            <p>Flex also works off of the premise of a <b>MAIN</b> and <b>CROSS</b> axis. These are determined
+               by the flex designation, <b>row</b> or <b>column</b>, with <b>row</b> being the default.</p>
+            <ul>
+               <li><b>flex-direction: row;</b> - gives you a left to right horizontal <b>main</b> axis and a vertical
+                  <b>cross</b> axis.
+                  <ul>
+                     <li><b>*note</b>: this is the <b>default</b> axis setup for flex, so if you want a left to right
+                        main axis with a vertical cross axis, you can omit this statement.</li>
+                  </ul>
+               </li>
+               <li><b>flex-direction: row-reverse;</b> - gives you a right to left horizontal <b>main</b> axis and a
+                  vertical <b>cross</b> axis
+               </li>
+               <li><b>flex-direction: column;</b> - gives you a top to bottom vertical <b>main</b> axis and a
+                  horizontal <b>cross</b> axis
+               </li>
+               <li><b>flex-direction: column-reverse;</b> - gives you a bottom to top vertical <b>main</b> axis and
+                  a horizontal <b>cross</b> axis
+               </li>
+            </ul>
+            <hr>
+            <p>Once you have designated a container as a <b>flex container</b>, and determined which are the <b>main</b>
+               and <b>cross</b> axises, you can now use several <b>flex properties</b> to effect the layout of the
+               content within the flex container such as,</p>
+            <ul>
+               <li><b>justify-content:</b> defines how the browser distributes space between, and around content items,
+                  along the <b>main axis</b> of a flex container and the inline axis of grid and multicol containers |
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content#syntax" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">MDN justify-content</a>.
+               </li>
+            </ul>
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+
+</body>
+
+</html>
