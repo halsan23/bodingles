@@ -8,3 +8,8 @@
 hr {
    width: 100%;
 }
+
+.s_word {
+   font-size: 1.2rem;
+   font-weight: 600;
+}
