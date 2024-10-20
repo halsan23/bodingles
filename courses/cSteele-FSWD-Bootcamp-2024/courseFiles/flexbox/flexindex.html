@@ -93,7 +93,9 @@
             <hr>
             <p>Once you have designated a container as a <b>flex container</b>, AND determined which are the <b>main</b>
                and <b>cross</b> axises, you can then use <b>flex properties</b> to effect the layout of the content,
-               within the flex container. Properties such as,</p>
+               <i>within</i> the flex container. Below is a partial list of <i>some</i> of these properties.
+               <b><i>Consult the documentation for more information</i></b>.
+            </p>
             <p><b>Parent Properties:</b></p>
             <ul>
                <li><b>display:</b> Defines a parent container as a <b>flex</b> container.</li>
@@ -101,32 +103,53 @@
                   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction" target="_blank"
                      crossorigin="anonymous" referrerpolicy="no-referrer">flex-direction</a>
                   : Defines the main axis direction.
+                  <ul>
+                     <li><b>row | row-reverse | column | column-reverse</b></li>
+                  </ul>
                </li>
                <li>
                   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap" target="_blank"
                      crossorigin="anonymous" referrerpolicy="no-referrer">flex-wrap</a>
-                  : allows items to wrap onto multiple lines.
+                  : allows child items to wrap onto multiple lines.
+                  <ul>
+                     <li><b>wrap | nowrap | wrap-reverse</b></li>
+                  </ul>
                </li>
 
                <li>
                   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow" target="_blank"
                      crossorigin="anonymous" referrerpolicy="no-referrer">flex-flow</a>
                   : shorthand for flex-direction and flex-wrap.
+                  <ul>
+                     <li><b>row wrap | row-reverse nowrap | column wrap-reverse | column wrap</b></li>
+                  </ul>
                </li>
                <li>
                   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content" target="_blank"
                      crossorigin="anonymous" referrerpolicy="no-referrer">justify-content</a>
-                  : aligns items along the main axis.
+                  : aligns child items along the main axis.
+                  <ul>
+                     <li><b>start | center | end | flex-start | flex-end | space-between | space-around | space-evenly |
+                           stretch</b></li>
+                  </ul>
                </li>
                <li>
                   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content" target="_blank"
                      crossorigin="anonymous" referrerpolicy="no-referrer">align-content</a>
-                  : aligns items along the cross axis.
+                  : aligns child items along the cross axis.
+                  <ul>
+                     <li>
+                        same as justify-content plus <b>baseline | first baseline | last baseline |</b> and others
+                     </li>
+                  </ul>
                </li>
                <li>
                   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items" target="_blank"
                      crossorigin="anonymous" referrerpolicy="no-referrer">align-items</a>
-                  : aligns multiple lines of items on the cross axis.
+                  : aligns multiple lines of child items on the cross axis.
+                  <ul>
+                     <li>Too many to list - consult the documentation</li>
+                  </ul>
                </li>
             </ul>
             <p><b>Children/Flex-items Properties:</b></p>

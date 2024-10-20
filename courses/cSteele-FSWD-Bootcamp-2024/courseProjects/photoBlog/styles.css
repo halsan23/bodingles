@@ -5,6 +5,7 @@
    display: flex;
    flex-wrap: wrap;
    justify-content: space-evenly;
+   align-content: space-evenly;
 }
 
 .classCode img {
@@ -12,7 +13,7 @@ width: 28%;
 margin-top: 4%;
 /* margin: calc(10%/6); */
 border: 1px solid black;
-box-shadow: 2px 2px 8px #86ebd9, -2px -2px 8px #86ebd9;
+box-shadow: 2px 2px 8px #c2f4ea, -2px -2px 8px #c2f4ea;
 }
 
 h6 {
