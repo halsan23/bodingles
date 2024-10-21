@@ -1,0 +1,15 @@
+.tlinks {
+   margin: 0 auto;
+   padding: 15px;
+   display: flex;
+   justify-content: space-evenly;
+}
+
+hr {
+   width: 100%;
+}
+
+.s_word {
+   font-size: 1.2rem;
+   font-weight: 600;
+}
