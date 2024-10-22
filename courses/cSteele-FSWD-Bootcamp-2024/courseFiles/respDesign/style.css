@@ -1,4 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.cCode {
+   font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+   font-size: 6em;
+}
+
+nav {
+   font-size: 1.5em;
+}
+
+nav ul,nav li {
+   display: inline;
+   margin: 0;
+   padding: 0;
+}
+
+nav ul {
+   margin: 0 auto;
+   border: 1px solid red;
+   max-width: 50%;
+   display: flex;
+   justify-content: space-evenly;
+   flex: 1;
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  h1 {
+     color: purple;
+  }
+}
+
 .tlinks {
+   width: 100%;
    margin: 0 auto;
    padding: 15px;
    display: flex;
