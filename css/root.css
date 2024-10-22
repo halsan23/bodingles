@@ -56,11 +56,6 @@
 }
 
 body {
-   /* set defaults for cross-browser control */
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-
    /* set my page defaults */
    height: 100%;
    width: 100%;
@@ -296,14 +291,14 @@ li {
 /* text Boxes */
 #textWindow {
    margin: 35px auto;
-   padding: 0 40px;
+   padding: 20px 40px;
    width: 65%;
 }
 
 #textWindow2 {
    width: 35%;
    margin: 35px auto;
-   padding: 0 40px;
+   padding: 20px 40px;
    background-color: #ebebeb;
    border-radius: 1.1rem;
    border: 1px solid #3e4b2b;
@@ -313,7 +308,7 @@ li {
 #textWindow3 {
    width: 60%;
    margin: 35px auto;
-   padding: 0 40px;
+   padding: 20px 40px;
    background-color: #ebebeb;
    border-radius: 1.1rem;
    border: 1px solid #3e4b2b;
@@ -323,7 +318,7 @@ li {
 #textWindow4 {
    width: 75%;
    margin: 35px auto;
-   padding: 0 40px;
+   padding: 20px 40px;
    background-color: #ebebeb;
    border-radius: 1.1rem;
    border: 1px solid #3e4b2b;
@@ -374,10 +369,10 @@ li {
 }
 
 .contactWindow {
-   background: center/cover url("../images/email.png");
+   background: center/85% url("../images/email.png");
    width: 30%;
    margin: 0 auto;
-   padding: 10px 10px;
+   padding: 20px 20px;
    border-radius: 10px;
    border: 1px solid #3e4b2b;
    box-shadow: 1px 1px 5px #c9c9c9;
@@ -387,9 +382,9 @@ li {
    font-size: 16px;
    font-weight: 500;
    margin: 0;
-   padding: 10px;
+   padding: 20px 40px;
    border-radius: 10px;
-   background-color: rgba(255, 255, 255, .4);
+   background-color: rgba(255, 255, 255, .5);
 }
 
 .contMe {
