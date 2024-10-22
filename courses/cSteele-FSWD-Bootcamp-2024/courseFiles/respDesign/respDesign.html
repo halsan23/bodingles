@@ -38,14 +38,19 @@
 
          <!-- Projects Portfolio -->
          <h3>Responsive Web Design</h3>
-         <section id="textWindow4" style="text-align: left;">
-            <p><span class="s_word">Media queries</span> allow you to apply CSS styles depending on a device's media type (such as print vs. screen) or other features or characteristics such as screen resolution or orientation, aspect ratio, browser viewport width or height, user preferences such as preferring reduced motion, data usage, or transparency.
-               <div class="tlinks">
-                  <a href="https://www.w3schools.com/css/css3_mediaqueries.asp" target="_blank"
-                     crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools CSS Media Queries</a>
-                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries" target="_blank" crossorigin="anonymous"  referrerpolicy="no-referrer">MDN Media Queries</a>
-                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features"    target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN Media features</a>
-               </div>
+         <section id="textWindow3" style="text-align: left;">
+            <p><span class="s_word">Media queries</span> allow you to apply CSS styles depending on a device's media
+               type (such as print vs. screen) or other features or characteristics such as screen resolution or
+               orientation, aspect ratio, browser viewport width or height, user preferences such as preferring reduced
+               motion, data usage, or transparency.
+            <div class="tlinks">
+               <a href="https://www.w3schools.com/css/css3_mediaqueries.asp" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">W3Schools CSS Media Queries</a>
+               <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries" target="_blank"
+                  crossorigin="anonymous" referrerpolicy="no-referrer">MDN Media Queries</a>
+               <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features" target="_blank"
+                  crossorigin="anonymous" referrerpolicy="no-referrer">MDN Media features</a>
+            </div>
             </p>
             <hr>
             <p>Media queries are used for the following:
@@ -63,18 +68,55 @@
             </ul>
             </p>
             <p>The most commonly used properties are based on
-               <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts"
-                     target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">viewport</a> size:
-               <ul>
-                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-width"
-                     target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">min-width</a></li>
-                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width"
-                     target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">max-width</a></li>
-               </ul>
+               <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts" target="_blank"
+                  crossorigin="anonymous" referrerpolicy="no-referrer">viewport</a> size:
+            <ul>
+               <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-width" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">min-width</a></li>
+               <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">max-width</a></li>
+            </ul>
             </p>
+            <hr>
+            <p><span class="s_word">To</span> use <b>media queries</b>, you must fist add the following to the <b>
+                  < head>
+               </b> section of your webpage:
+            <ul>
+               <li><b>
+                     < meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  </b></li>
+            </ul>
+            </p>
+            <hr>
+            <p>Then in CSS you would make a statement like :
+            <ul>
+               <li><b>@media (min-width: 600px) {</b>
+                  <ul>
+                     <li>enter styling code blocks here</li>
+                  </ul>
+               </li>
+               <li><b>}</b>
+               </li>
+            </ul>
+            which means, if a viewport size is at least 600px wide, do the formatting.
+            </p>
+            <hr>
+            <p>
+               You can also <i>combine</i> queries, like so:
+            <ul>
+               <li><b>@media (min-width: 600px) and (max-width: 1000px) {</b>
+                  <ul>
+                     <li>enter styling code blocks here</li>
+                  </ul>
+               </li>
+               <li><b>}</b></li>
+            </ul>
+            which means, if a viewport size is at least 600px wide, and less than 1000px wide, do the formatting.
+            </p>
+            <h5>Typical Device Breakpoints</h5>
+            <p>
+            </p>
+            <p><br></p>
          </section>
 
          <!-- Class Code -->
