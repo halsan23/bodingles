@@ -27,18 +27,21 @@
    </header>
 
    <section id="main">
-      <div class="content">
+      <p class="content">
          <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
-            <hr style="width: 40%;">
-         </section>
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+         <hr style="width: 40%;">
+      </section>
 
-         <!-- Projects Portfolio -->
-         <h3>Responsive Web Design</h3>
-         <section id="textWindow3" style="text-align: left;">
+      <!-- Projects Portfolio -->
+      <h3>Responsive Web Design</h3>
+      <a href="../../assets/files/Flexbox_&_Responsive.pdf" target="_blank">Flexbox & Responsive Web Design Course
+         PDF</a>
+      <section id="textWindow3" style="text-align: left;">
+         <article>
             <p><span class="s_word">Media queries</span> allow you to apply CSS styles depending on a device's media
                type (such as print vs. screen) or other features or characteristics such as screen resolution or
                orientation, aspect ratio, browser viewport width or height, user preferences such as preferring reduced
@@ -52,7 +55,9 @@
                   crossorigin="anonymous" referrerpolicy="no-referrer">MDN Media features</a>
             </div>
             </p>
-            <hr>
+         </article>
+         <hr>
+         <article>
             <p>Media queries are used for the following:
             <ul>
                <li>To conditionally apply styles with the CSS @media and @import at-rules.</li>
@@ -67,6 +72,8 @@
                </li>
             </ul>
             </p>
+         </article>
+         <article>
             <p>The most commonly used properties are based on
                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts" target="_blank"
                   crossorigin="anonymous" referrerpolicy="no-referrer">viewport</a> size:
@@ -77,7 +84,9 @@
                      crossorigin="anonymous" referrerpolicy="no-referrer">max-width</a></li>
             </ul>
             </p>
-            <hr>
+         </article>
+         <hr>
+         <article>
             <p><span class="s_word">To</span> use <b>media queries</b>, you must fist add the following to the <b>
                   < head>
                </b> section of your webpage:
@@ -113,27 +122,272 @@
             </ul>
             which means, if a viewport size is at least 600px wide, and less than 1000px wide, do the formatting.
             </p>
-            <h5>Typical Device Breakpoints</h5>
-            <p>
+         </article>
+         <hr>
+         <article>
+            <h5>Device Breakpoints</h5>
+            <p style="padding-left: 25px;">
+               <a href="https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp" target="_blank"
+                  crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools Typical Device Breakpoints</a>
             </p>
-            <p><br></p>
-         </section>
+            <p style="padding-left: 25px;">
+               <a href="https://devfacts.com/media-query-breakpoints-for-lightning-component/" target="_blank"
+                  crossorigin="anonymous" referrerpolicy="no-referrer">Dev Facts Device Breakpoints</a>
+            </p>
+            <p>At this time in 2024, there are no set standards for "Typical Device Breakpoints", there are a few
+               general observations.</p>
+            <hr>
+            <p>
+            <ul>
+               <li><b>Extra small devices (phones, 600px and down)</b><br>
+                  @media only screen and (max-width: 600px)<br><br>
+               </li>
+               <li><b>Small devices (portrait tablets and large phones, 600px and up)</b><br>
+                  @media only screen and (min-width: 600px)<br><br>
+               </li>
+               <li><b>Medium devices (landscape tablets, 768px and up)</b><br>
+                  @media only screen and (min-width: 768px)<br><br>
+               </li>
+               <li><b>Large devices (laptops/desktops, 992px and up)</b><br>
+                  @media only screen and (min-width: 992px)<br><br>
+               </li>
+               <li><b>Extra large devices (large laptops and desktops, 1200px and up)</b><br>
+                  @media only screen and (min-width: 1200px)
+               </li>
+            </ul>
+            </p>
+            <hr>
+            <p class="lists">
+               From the <a href="../../../masynctech-FSWD-Bootcamp-2024/courseFiles/respWebDes/respDesIndex.html"
+                  target="_blank">Masyntech
+                  class</a>:
+            <ul>
+               <li><b>Mobile devices</b>: 480 pixels or less</li>
+               <li><b>Tablets and iPads</b>: 481 to 768 pixels</li>
+               <li><b>Small screens and laptops</b>: 769 to 1024 pixels</li>
+               <li><b>Desktops and large screens</b>: 1025 to 1200 pixels</li>
+               <li><b>Extra large screens and TVs</b>: 1201 pixels and greater </li>
+            </ul>
+            </p>
+         </article>
+         <p><br></p>
+      </section>
 
-         <!-- Class Code -->
-         <section class="cCode">
-            <nav>
+      <!-- Class Code -->
+      <section class="cCode">
+         <pre>
+
+         </pre>
+         <p><span class="s_word">Change</span> the size of the browser window to see the effect.<br></p>
+         <p><br></p>
+         <nav class="navbar">
+            <a href="#home">Home</a>
+            <ul>
+               <li><a href="#Home">Learn More</a></li>
+               <li><a href="#Home">About</a></li>
+               <li><a href="#Home">Contact</a></li>
+            </ul>
+            <a href="#signup">Sign Up</a>
+         </nav>
+         <h1>Media Queries</h1>
+      </section>
+
+      <section id="textWindow3">
+         <p><b>Here's the code:</b></p>
+         <p><b>HTML</b></p>
+         <div>
+            <ul>
+               <li>
+                  < nav class="navbar">
+                     <ul>
+                        <li>
+                           < a href="#home">Home< /a>
+                        </li>
+                        <li>
+                           < ul>
+                              <ul>
+                                 <li>
+                                    < li>
+                                       < a href="#Home">Learn More< /a>
+                                             < /li>
+                                 </li>
+                                 <li>
+                                    < li>
+                                       < a href="#Home">About< /a>
+                                             < /li>
+                                 </li>
+                                 <li>
+                                    < a href="#signup">Sign Up< /a>
+                                 </li>
+                              </ul>
+                        </li>
+                        <li>
+                           < /ul>
+                        </li>
+                        <li>
+                           < a href="#Home">Contact< /a>
+                        </li>
+                     </ul>
+               </li>
+               <li>
+                  < /nav>
+               </li>
+               <li>
+                  < h1>Media Queries< /h1>
+               </li>
+            </ul>
+         </div>
+         <hr>
+         <p><b>CSS</b></p>
+         <ul>
+            <li>h1 {
                <ul>
-                  <li><a href="#home">Home</a></li>
-                  <li><a href="#Home">Learn More</a></li>
-                  <li><a href="#Home">About</a></li>
-                  <li><a href="#Home">Contact</a></li>
-                  <li><a href="#signup">Sign Up</a></li>
+                  <li>font-size: 6em;</li>
                </ul>
-            </nav>
-            <h1>Media Queries</h1>
-         </section>
+            </li>
+            <li>}</li>
+            <li>.navbar {
+               <ul>
+                  <li>font-size: 1.5em;</li>
+                  <li>display: flex;</li>
+                  <li>justify-content: space-around;</li>
+               </ul>
+            </li>
+            <li>}</li>
+            <li>.navbar ul,<br>
+               .navbar li {
+               <ul>
+                  <li>display: inline-block;</li>
+                  <li>margin: 0;</li>
+                  <li>padding: 0;</li>
+               </ul>
+            </li>
+            <li>}</li>
+            <li>.navbar ul {
+               <ul>
+                  <li>flex: 1; - /* makes the "nav" part of the navbar take up all the extra space in the navbar */</li>
+                  <li>max-width: 50%; - /* Limits that extra space to 50% of the available space */</li>
+                  <li>display: flex; - /* makes it it's own flex container to control it's spacing */</li>
+                  <li>justify-content: space-evenly; - /* space the content in it's own flex container */</li>
+               </ul>
+            </li>
+            <li>}</li>
+            <li>@media only screen and (max-width: 1600px) {
+               <ul>
+                  <li>h1 {
+                     <ul>
+                        <li>font-size: 4em;</li>
+                        <li>color: blue;</li>
+                     </ul>
+                  </li>
+                  <li> }</li>
+               </ul>
+               <ul>
+                  <li>.navbar,<br>
+                     .navbar ul {
+                     <ul>
+                        <li>font-size: 16px;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </li>
+            <li>}</li>
+            <li>@media only screen and (max-width: 1200px) {
+               <ul>
+                  <li>h1 {
+                     <ul>
+                        <li>font-size: 3em;</li>
+                        <li>color: green;</li>
+                     </ul>
+                  </li>
+                  <li> }</li>
+               </ul>
+               <ul>
+                  <li>.navbar,<br>
+                     .navbar ul {
+                     <ul>
+                        <li>font-size: 14px;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </li>
+            <li>}</li>
+            <li>@media only screen and (max-width: 992px) {
+               <ul>
+                  <li>h1 {
+                     <ul>
+                        <li>font-size: 2.5em;</li>
+                        <li>color: yellow;</li>
+                     </ul>
+                  </li>
+                  <li> }</li>
+               </ul>
+               <ul>
+                  <li>.navbar,<br>
+                     .navbar ul {
+                     <ul>
+                        <li>font-size: 12px;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </li>
+            <li>}</li>
+            <li>@media only screen and (max-width: 768px) {
+               <ul>
+                  <li>h1 {
+                     <ul>
+                        <li>font-size: 2em;</li>
+                        <li>color: orange;</li>
+                     </ul>
+                  </li>
+                  <li> }</li>
+               </ul>
+               <ul>
+                  <li>.navbar,<br>
+                     .navbar ul {
+                     <ul>
+                        <li>flex-direction: column;</li>
+                        <li>align-items: center;</li>
+                        <li>font-size: 10px;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </li>
+            <li>}</li>
+            <li>@media only screen and (max-width: 600px) {
+               <ul>
+                  <li>h1 {
+                     <ul>
+                        <li>font-size: 1.2em;</li>
+                        <li>color: red;</li>
+                     </ul>
+                  </li>
+                  <li> }</li>
+               </ul>
+               <ul>
+                  <li>.navbar,<br>
+                     .navbar ul {
+                     <ul>
+                        <li>flex-direction: column;</li>
+                        <li>align-items: center;</li>
+                        <li>font-size: 8px;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </li>
+            <li>}</li>
+         </ul>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
+      </section>
+
+      <p><br></p>
+      <p><a href="#top">Back to Top</a><br></p>
+      <p><br></p>
       </div>
    </section>
 
