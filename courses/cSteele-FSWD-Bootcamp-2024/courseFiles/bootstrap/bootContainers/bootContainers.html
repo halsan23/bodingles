@@ -39,7 +39,7 @@
             <hr style="width: 40%;">
          </section>
 
-         <h3>Including Bootstrap and Containers</h3>
+         <h3>Installing and Bootstrap Containers</h3>
          <!-- Class Notes -->
          <section id="textWindow3">
             <h5>Installing Bootstrap</h5>
@@ -82,11 +82,11 @@
             <h5>Containers</h5>
             <hr>
             <div class="just">
-               <p><a href="https://getbootstrap.com/docs/5.0/layout/containers/" target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">Containers</a> are the most basic layout element in Bootstrap and are
-                  <b>required when using our default grid system</b>. Containers are used to contain, pad, and
-                  (sometimes) center the content within them. While containers can be nested, most layouts do not
-                  require a nested container.
+               <p>The Bootstrap <a href="https://getbootstrap.com/docs/5.3/layout/containers/" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">Container Class</a> is the most basic layout
+                  element in Bootstrap and is <b>required when using our default grid system</b>. Containers are used
+                  to contain, pad, and (sometimes) center the content within them. While containers can be nested, most
+                  layouts do not require a nested container.
                </p>
                <p>Bootstrap comes with three different containers:
                <ul>
@@ -95,22 +95,51 @@
                   <li><b>.container-{breakpoint}</b>, which is <b>width: 100%</b> until the specified breakpoint</li>
                </ul>
                </p>
+               <p>There are many different types of Bootstrap Containers and more information can be found on the
+                  <a href="https://getbootstrap.com/docs/5.3/layout/containers/" target="_blank" crossorigin="anonymous"
+                     referrerpolicy="no-referrer">Containers Website</a>. Another important point is that the Bootstrap
+                  <b>container class</b> automatically adds <b>breakpoints</b> that
+                  take effect as the viewport size changes.
+               </p>
             </div>
          </section>
 
          <section>
-            <h5>No Container Example</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae dignissimos autem ab veniam deserunt
-               nostrum quibusdam eaque iure pariatur nesciunt provident, nobis, maiores assumenda accusamus suscipit
-               culpa? Deserunt, expedita tempora.
-               Tempore, sequi! Minus repudiandae aliquid debitis obcaecati ipsam inventore cum eum? Consequatur autem
-               aliquid sed molestiae officiis expedita nihil rem in rerum! Quas, alias porro excepturi minus ratione
-               quidem accusantium.
-               Optio aliquid repellat autem ipsa mollitia eius modi harum recusandae illum? Doloribus autem voluptatum
-               molestiae minima, non suscipit, eligendi laborum minus ut nostrum excepturi quibusdam? Quod laudantium
-               aperiam totam quae!</p>
+            <div>
+               <h5>No Container Example</h5>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae dignissimos autem ab veniam
+                  deserunt
+                  nostrum quibusdam eaque iure pariatur nesciunt provident, nobis, maiores assumenda accusamus suscipit
+                  culpa? Deserunt, expedita tempora.
+                  Tempore, sequi! Minus repudiandae aliquid debitis obcaecati ipsam inventore cum eum? Consequatur autem
+                  aliquid sed molestiae officiis expedita nihil rem in rerum! Quas, alias porro excepturi minus ratione
+                  quidem accusantium.
+                  Optio aliquid repellat autem ipsa mollitia eius modi harum recusandae illum? Doloribus autem
+                  voluptatum
+                  molestiae minima, non suscipit, eligendi laborum minus ut nostrum excepturi quibusdam? Quod laudantium
+                  aperiam totam quae!</p>
+            </div>
+            <hr>
             <div class="container">
                <h5>With < div class="container"> Example</h5>
+               <p>The container immediately adds padding, and maintains the padding as the page is resized.</p>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae dignissimos autem ab veniam
+                  deserunt
+                  nostrum quibusdam eaque iure pariatur nesciunt provident, nobis, maiores assumenda accusamus suscipit
+                  culpa? Deserunt, expedita tempora.
+                  Tempore, sequi! Minus repudiandae aliquid debitis obcaecati ipsam inventore cum eum? Consequatur autem
+                  aliquid sed molestiae officiis expedita nihil rem in rerum! Quas, alias porro excepturi minus ratione
+                  quidem accusantium.
+                  Optio aliquid repellat autem ipsa mollitia eius modi harum recusandae illum? Doloribus autem
+                  voluptatum
+                  molestiae minima, non suscipit, eligendi laborum minus ut nostrum excepturi quibusdam? Quod laudantium
+                  aperiam totam quae!</p>
+            </div>
+            <hr>
+            <div class="container-fliud">
+               <p>By adding <b>-fluid</b> to the container <b>class</b>, it makes the container fill the width of the
+                  viewport, with a small amount of left/right padding.</p>
+               <h5>With < div class="container-fluid"> Example</h5>
                <p>The container immediately adds padding, and maintains the padding as the page is resized.</p>
                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae dignissimos autem ab veniam
                   deserunt
