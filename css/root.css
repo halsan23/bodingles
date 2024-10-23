@@ -287,6 +287,12 @@ li {
    margin-top: 8px;
 }
 
+/* Larger First Word in a paragraph */
+.firstWord {
+   font-size: 1.2rem;
+   font-weight: 600;
+}
+
 /* text Boxes */
 #textWindow {
    margin: 35px auto;
@@ -402,4 +408,12 @@ li {
    border: 2px solid #3e4b2b;
    border-radius: 100px;
    box-shadow: 3px 3px 13px #747474;
+}
+
+
+/* Bootstrap Repairs */
+hr {
+   margin: 0 auto;
+   border: 1px solid black;
+   margin-bottom: 10px;
 }
