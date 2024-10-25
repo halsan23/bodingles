@@ -1,0 +1,41 @@
+.just p {
+   text-align: left;
+}
+
+.just h1 {
+   text-align: left;
+}
+
+.just h2 {
+   text-align: left;
+}
+
+.just h3 {
+   text-align: left;
+}
+
+.just h4 {
+   text-align: left;
+}
+
+.just h5 {
+   text-align: left;
+}
+
+.just h6 {
+   text-align: left;
+}
+
+ul {
+   text-align: left;
+}
+
+.just hr {
+   width: 95%;
+}
+
+.colorExamples {
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+}
