@@ -1,0 +1,19 @@
+.just {
+   text-align: justify;
+}
+
+ul {
+   text-align: left;
+}
+
+th,
+td {
+   padding: 5px 30px;
+   text-align: center;
+   border-bottom: 1px solid black;
+}
+
+li {
+   font-weight: bold;
+   list-style: none;
+}

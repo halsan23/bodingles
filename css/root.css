@@ -215,8 +215,8 @@ h1 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   font-size: 3.75rem;
-   margin: 15px;
+   /* font-size: 3.75rem;
+   margin: 15px; */
 }
 
 h2 {
@@ -224,8 +224,8 @@ h2 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   font-size: 2.75rem;
-   margin: 15px;
+   /* font-size: 2.75rem;
+   margin: 15px; */
 }
 
 h3 {
@@ -233,8 +233,8 @@ h3 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   font-size: 2.25rem;
-   margin: 15px;
+   /* font-size: 2.25rem;
+   margin: 15px; */
 }
 
 h4 {
@@ -242,8 +242,8 @@ h4 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   font-size: 1.75rem;
-   margin: 15px;
+   /* font-size: 1.75rem;
+   margin: 15px; */
 }
 
 h5 {
@@ -251,8 +251,8 @@ h5 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   font-size: 1.5rem;
-   margin: 15px;
+   /* font-size: 1.5rem;
+   margin: 15px; */
 }
 
 h6 {
@@ -260,8 +260,8 @@ h6 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   font-size: 1.2rem;
-   margin: 15px;
+   /* font-size: 1.2rem;
+   margin: 15px; */
 }
 
 hr {
@@ -290,7 +290,7 @@ li {
 /* Larger First Word in a paragraph */
 .firstWord {
    font-size: 1.2rem;
-   font-weight: 600;
+   font-weight: 500;
 }
 
 /* text Boxes */
