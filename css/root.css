@@ -94,11 +94,11 @@ header {
 
 .headTitle {
    position: absolute;
-   top: 13px;
-   left: 100px;
+   top: 15px;
+   left: 124px;
    color: #404d1e;
    font-size: 3.25rem;
-   font-family: "Cinzel", serif;
+   font-family: "SUSE", sans-serif;
    font-optical-sizing: auto;
    font-weight: 600;
    font-style: normal;
@@ -108,11 +108,11 @@ header {
 
 .headTitleb {
    position: absolute;
-   top: 13px;
-   left: 180px;
+   top: 15px;
+   left: 192px;
    color: #927b50;
    font-size: 3.25rem;
-   font-family: "Cinzel", serif;
+   font-family: "SUSE", sans-serif;
    font-optical-sizing: auto;
    font-weight: 600;
    font-style: normal;
@@ -177,7 +177,7 @@ footer div {
 /* set main container to start below header */
 #main {
    margin: 0 auto;
-   padding-top: 120px;
+   padding-top: 130px;
    /* border: 1px solid #bcbcbc;
    border-radius: 10px;
    box-shadow: 3px 0 8px inset #838383; */
@@ -215,8 +215,8 @@ h1 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   /* font-size: 3.75rem;
-   margin: 15px; */
+   font-size: 3.4rem;
+   margin: 10px;
 }
 
 h2 {
@@ -224,8 +224,8 @@ h2 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   /* font-size: 2.75rem;
-   margin: 15px; */
+   font-size: 3rem;
+   margin: 10px;
 }
 
 h3 {
@@ -233,8 +233,8 @@ h3 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   /* font-size: 2.25rem;
-   margin: 15px; */
+   font-size: 2.6rem;
+   margin: 10px;
 }
 
 h4 {
@@ -242,8 +242,8 @@ h4 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   /* font-size: 1.75rem;
-   margin: 15px; */
+   font-size: 2.2rem;
+   margin: 10px;
 }
 
 h5 {
@@ -251,8 +251,8 @@ h5 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   /* font-size: 1.5rem;
-   margin: 15px; */
+   font-size: 1.8rem;
+   margin: 10px;
 }
 
 h6 {
@@ -260,8 +260,8 @@ h6 {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   /* font-size: 1.2rem;
-   margin: 15px; */
+   font-size: 1.4rem;
+   margin: 0;
 }
 
 hr {
@@ -404,7 +404,7 @@ li {
 }
 
 .instructor {
-   margin-top: 25px;
+   margin-top: 15px;
    border: 2px solid #3e4b2b;
    border-radius: 100px;
    box-shadow: 3px 3px 13px #747474;

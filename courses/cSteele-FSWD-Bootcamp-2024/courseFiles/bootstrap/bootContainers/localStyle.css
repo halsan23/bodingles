@@ -5,3 +5,20 @@
 ul {
    text-align: left;
 }
+
+li {
+   font-weight: bold;
+   list-style: none;
+}
+
+table {
+   width: 90%;
+   margin: 0 auto;
+}
+
+th,
+td {
+   padding: 5px 30px;
+   text-align: center;
+   border-bottom: 1px solid black;
+}
