@@ -43,51 +43,27 @@
             <p>
                <a href="../bootstrapIndex.html">Back to Bootstrap Index Page</a>
             </p>
-            <hr style="width: 40%" />
+            <hr style="width: 50%" />
          </section>
 
-         <h3>Bootstrap Basics</h3>
-         <h4>Typography | Buttons | Utilities</h4>
+         <h5>Bootstrap Basics</h5>
          <!-- Class Notes -->
          <section id="textWindow3">
             <div class="just">
-               <p><span class="firstWord">Bootstrap </span>
+               <h6>Typography</h6>
+               <p>Bootstrap
                   <a href="https://getbootstrap.com/docs/5.3/content/typography/" target="_blank"
-                     crossorigin="anonymous" referrerpolicy="no-referrer">Typography</a>
-                  sets basic global display, typography, and link styles. Bootstrap styles and formats text, providing
-                  customized headings, subheadings, lists, paragraphs, and font styles. It supports global settings for
-                  font stack, headings, link styles, ensuring consistency across devices.
+                     crossorigin="anonymous" referrerpolicy="no-referrer">Typography</a> is used to
+                  set basic global display, typography, and link styles. Bootstrap styles and formats text, providing customized headings, subheadings, lists, paragraphs, and font styles. It supports global settings for font stack, headings, link styles, ensuring consistency across devices.
                </p>
                <p>
                   When more control is needed, check out the
-                  <a href="https://getbootstrap.com/docs/5.3/utilities/text/" target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">text utility classes</a>.
+                  <a href="https://getbootstrap.com/docs/5.3/utilities/text/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">text utility classes</a>.
                </p>
-               <p>There are too many typography properties available in Bootstrap to list them all here so please refer
-                  to the docs page for more information. Here are a few examples:</p>
+               <p>There are too many typography properties available in Bootstrap to list them all here so please refer to the docs page for more information. Here are a few examples:</p>
                <h4>Headings</h4>
-               <p><span class="firstWord">You</span> still have all of the Headings but the format changes: < hx>hx.
-                     Bootstrap heading< /hx>, so
+               <p><span class="firstWord">You</span> still have use of all of the HTML Headings (h1 to h6) but the format changes to<br><b>< hx>hx.Bootstrap heading< /hx></b>
                </p>
-               <h1>
-                  < h1>h1. Bootstrap heading< /h1>
-               </h1>
-               <h2>
-                  < h2>h2. Bootstrap heading< /h2>
-               </h2>
-               <h3>
-                  < h3>h3. Bootstrap heading< /h3>
-               </h3>
-               <h4>
-                  < h4>h4. Bootstrap heading< /h4>
-               </h4>
-               <h5>
-                  < h5>h5. Bootstrap heading< /h5>
-               </h5>
-               <h6>
-                  < h6>h6. Bootstrap heading< /h6>
-               </h6>
-               <hr>
                <p>or you can use the format: < p class="h1">h1. Bootstrap heading< /p>, like so:</p>
                <p class="h1">h1. Bootstrap heading</p>
                <p class="h2">h2. Bootstrap heading</p>
@@ -96,20 +72,77 @@
                <p class="h5">h5. Bootstrap heading</p>
                <p class="h6">h6. Bootstrap heading</p>
                <hr>
-               <h4>Lead</h4>
-               <div>Make a paragraph stand out by adding <b>.lead</b> : < p class="lead">
-                     </p>
-                     <p class="lead">
-                        This is a lead paragraph. It stands out from regular paragraphs.
-                     </p>
+               <div><p>Lead:<br>
+                  Make a paragraph stand out by adding .lead : <b>< p class="lead">< /p></b><br>
+                  <p class="lead">
+                     This is a lead paragraph. It stands out from regular paragraphs.
+                  </p>
                </div>
+               <hr>
+               <p>There are many more typography elements available for use. Refer to the Bootstrap
+                  <a href="https://getbootstrap.com/docs/5.3/content/typography/" target="_blank"
+                  crossorigin="anonymous" referrerpolicy="no-referrer">Typography</a>,
+                  <a href="https://getbootstrap.com/docs/5.3/utilities/text/" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">Text Utilities</a>, and
+                  <a href="https://getbootstrap.com/docs/5.3/utilities/colors/" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">Colors</a> pages for more information.</p>
          </section>
-         <hr>
+
+         <!-- Text Utilities -->
+         <section id="textWindow3">
+            <div class="just">
+               <h6>Text Colors & Utilities</h6>
+               <p><span class="firstWord">You</span> can change text alignment, transform, style, weight, line-height,
+                  decoration and color with our
+                  <a href="https://getbootstrap.com/docs/5.3/utilities/text/" target="_blank" crossorigin="anonymous"
+                     referrerpolicy="no-referrer">text utilities</a> and
+                  <a href="https://getbootstrap.com/docs/5.3/utilities/colors/" target="_blank" crossorigin="anonymous"
+                     referrerpolicy="no-referrer">color utilities</a>. Text utilities are NOT properties, they are
+                  <b>elements</b> that can be added to a property, to change or enhance the property. A text utility
+                  might add a shadow, or change the color, etc.
+               </p>
+               <p>Bootstrap uses it's own color scheme which designates a color, based on it's bootstrap name. These
+                  colors can be overwritten at any time by including a local stylesheet that in "linked" <b>after</b>
+                  any bootstrap links. Some of those colors are:</p>
+               <p>
+                  <b>
+                     < span class="p-3 mb-3 text-bg-primary rounded-3">Primary< /span>
+                  </b>
+               </p>
+               <hr>
+               <p class="colorExamples"><br>
+                  <span class="p-3 mb-3 text-bg-primary rounded-3">Primary</span>
+                  <span class="p-3 mb-3 text-bg-secondary rounded-3">Secondary</span>
+                  <span class="p-3 mb-3 text-bg-success rounded-3">Success</span>
+                  <span class="p-3 mb-3 text-bg-danger rounded-3">Danger</span>
+                  <span class="p-3 mb-3 text-bg-warning rounded-3">Warning</span>
+                  <span class="p-3 mb-3 text-bg-info rounded-3">Info</span>
+                  <span class="p-3 mb-3 text-bg-light rounded-3">Light</span>
+                  <span class="p-3 mb-3 text-bg-dark rounded-3">Dark</span>
+               </p>
+               <hr>
+               <h5>Some Text Colors</h5>
+               <p><b>
+                     < p class="text-primary">.text-primary< /p>
+                  </b></p>
+               <p class="text-primary">.text-primary</p>
+               <p class="text-primary-emphasis">.text-primary-emphasis</p>
+               <p class="text-secondary">.text-secondary</p>
+               <p class="text-secondary-emphasis">.text-secondary-emphasis</p>
+               <p class="text-success">.text-success</p>
+               <p class="text-success-emphasis">.text-success-emphasis</p>
+               <p class="text-danger">.text-danger</p>
+               <p class="text-danger-emphasis">.text-danger-emphasis</p>
+               <p class="text-warning bg-dark">.text-warning</p>
+               <p>There are many more possibilities. These are but just a few. Consult the bootstrap docs for more
+                  info and examples.</p>
+            </div>
+         </section>
 
          <!-- Bootstrap Buttons -->
          <section id="textWindow3">
             <div class="just">
-               <h4>Bootstrap Buttons</h4>
+               <h6>Bootstrap Buttons</h6>
                <p><span class="firstWord">Bootstrap </span>
                   <a href="https://getbootstrap.com/docs/5.3/components/buttons/" target="_blank"
                      crossorigin="anonymous" referrerpolicy="no-referrer"> Buttons</a>
@@ -160,57 +193,6 @@
          </section>
          <hr>
 
-         <!-- Text Utilities -->
-         <section id="textWindow3">
-            <div class="just">
-               <h4>Text Colors & Utilities</h4>
-               <p><span class="firstWord">You</span> can change text alignment, transform, style, weight, line-height,
-                  decoration and color with our
-                  <a href="https://getbootstrap.com/docs/5.3/utilities/text/" target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">text utilities</a> and
-                  <a href="https://getbootstrap.com/docs/5.3/utilities/colors/" target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">color utilities</a>. Text utilities are NOT properties, they are
-                  <b>elements</b> that can be added to a property, to change or enhance the property. A text utility
-                  might add a shadow, or change the color, etc.
-               </p>
-               <p>Bootstrap uses it's own color scheme which designates a color, based on it's bootstrap name. These
-                  colors can be overwritten at any time by including a local stylesheet that in "linked" <b>after</b>
-                  any bootstrap links. Some of those colors are:</p>
-               <p>
-                  <b>
-                     < span class="p-3 mb-3 text-bg-primary rounded-3">Primary< /span>
-                  </b>
-               </p>
-               <hr>
-               <p class="colorExamples"><br>
-                  <span class="p-3 mb-3 text-bg-primary rounded-3">Primary</span>
-                  <span class="p-3 mb-3 text-bg-secondary rounded-3">Secondary</span>
-                  <span class="p-3 mb-3 text-bg-success rounded-3">Success</span>
-                  <span class="p-3 mb-3 text-bg-danger rounded-3">Danger</span>
-                  <span class="p-3 mb-3 text-bg-warning rounded-3">Warning</span>
-                  <span class="p-3 mb-3 text-bg-info rounded-3">Info</span>
-                  <span class="p-3 mb-3 text-bg-light rounded-3">Light</span>
-                  <span class="p-3 mb-3 text-bg-dark rounded-3">Dark</span>
-               </p>
-               <hr>
-               <h5>Some Text Colors</h5>
-               <p><b>
-                     < p class="text-primary">.text-primary< /p>
-                  </b></p>
-               <p class="text-primary">.text-primary</p>
-               <p class="text-primary-emphasis">.text-primary-emphasis</p>
-               <p class="text-secondary">.text-secondary</p>
-               <p class="text-secondary-emphasis">.text-secondary-emphasis</p>
-               <p class="text-success">.text-success</p>
-               <p class="text-success-emphasis">.text-success-emphasis</p>
-               <p class="text-danger">.text-danger</p>
-               <p class="text-danger-emphasis">.text-danger-emphasis</p>
-               <p class="text-warning bg-dark">.text-warning</p>
-               <p>There are many more possibilities. These are but just a few. Consult the bootstrap docs for more
-                  info and examples.</p>
-            </div>
-         </section>
-
          <!-- Code Example from Class -->
          <div class="container">
             <p class="h1 text-primary">Code Example from Class</p>
@@ -256,7 +238,7 @@
             </div>
          </div>
 
-
+         <p><br></p>
          <p><a href="#top">Back to Top</a><br /><br /></p>
       </div>
    </section>

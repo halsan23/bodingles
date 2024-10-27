@@ -409,11 +409,3 @@ li {
    border-radius: 100px;
    box-shadow: 3px 3px 13px #747474;
 }
-
-
-/* Bootstrap Overwrites */
-hr {
-   margin: 0 auto;
-   border: 1px solid black;
-   margin-bottom: 10px;
-}

@@ -22,3 +22,9 @@ td {
    text-align: center;
    border-bottom: 1px solid black;
 }
+
+hr {
+   width: 85%;
+   margin: 5px auto;
+   border-bottom: 1px solid black;
+}

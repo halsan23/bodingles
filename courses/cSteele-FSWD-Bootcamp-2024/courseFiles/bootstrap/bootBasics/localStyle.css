@@ -43,3 +43,9 @@ ul {
 .container {
    text-align: left;
 }
+
+hr {
+   width: 85%;
+   margin: 5px auto;
+   border-bottom: 1px solid black;
+}
