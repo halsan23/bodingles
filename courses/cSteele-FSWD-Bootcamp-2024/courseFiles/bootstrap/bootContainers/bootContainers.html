@@ -43,49 +43,12 @@
             <hr style="width: 40%;">
          </section>
 
-         <h3>Installing and Bootstrap Containers</h3>
+         <h3>Bootstrap Containers & Grid System</h3>
          <!-- Class Notes -->
          <section id="textWindow3">
-            <h5>Installing Bootstrap</h5>
-            <hr>
-            <div class="just">
-               <p>You can utilize bootstrap by three methods:
-               <ul>
-                  <li>Use a "stylesheet" link in your < head> section of your webpage.
-                        <ul>
-                           <li><i>called the CDN method</i></li>
-                           <li><i>If you install via this method, put the stylesheet link <b>before</b> any of your
-                                 local stylesheets for local, custom, stylesheet control.</i></li>
-                           <li><a href="https://getbootstrap.com/docs/5.3/getting-started/download/#cdn-via-jsdelivr"
-                                 target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Link Here</a></li>
-                        </ul>
-                  </li>
-                  <li>You can download bootstrap and incorporate it into your web files.
-                     <ul>
-                        <li><a href="https://getbootstrap.com/docs/5.3/getting-started/download/" target="_blank"
-                              crossorigin="anonymous" referrerpolicy="no-referrer">Link Here</a></li>
-                     </ul>
-                  </li>
-                  <li>You use npm to install Bootstrap into your VsCode environment
-                     <ul>
-                        <li><b>*note</b>: <i>you must have <b>Node.js</b> installed prior to installing via npm</i></li>
-                        <li><a href="https://getbootstrap.com/docs/5.3/getting-started/download/#npm" target="_blank"
-                              crossorigin="anonymous" referrerpolicy="no-referrer">Link Here</a></li>
-                     </ul>
-                  </li>
-               </ul>
-               </p>
+            <div class="just lists">
+               <h5>Containers</h5>
                <hr>
-               <p>Some Bootstrap elements require JavaScript be utilized for the elements to work properly. The
-                  JavaScript link can be found under the CDN < head> link, and <b>must be placed at the bottom of the
-                        HTML page as the last line of code in the < body> tag</b>.</p>
-            </div>
-         </section>
-
-         <section id="textWindow3">
-            <h5>Containers</h5>
-            <hr>
-            <div class="just">
                <p>The Bootstrap <a href="https://getbootstrap.com/docs/5.3/layout/containers/" target="_blank"
                      crossorigin="anonymous" referrerpolicy="no-referrer">Container Class</a> is the most basic layout
                   element in Bootstrap and is <b>required when using our default grid system</b>. Containers are used
@@ -102,9 +65,60 @@
                <p>There are many different types of Bootstrap Containers and more information can be found on the
                   <a href="https://getbootstrap.com/docs/5.3/layout/containers/" target="_blank" crossorigin="anonymous"
                      referrerpolicy="no-referrer">Containers Website</a>. Another important point is that the Bootstrap
-                  <b>container class</b> automatically adds <b>breakpoints</b> that
-                  take effect as the viewport size changes.
-               </p>
+                  <b>container class</b> automatically adds <b>breakpoints</b> which restructure the grid, based on viewport size.</P>
+               <table>
+                  <thead>
+                     <tr>
+                        <td colspan="4">
+                           <h5>Bootstrap Container Breakpoints</h5>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th>Device</th>
+                        <th>Size</th>
+                        <th>pixels</th>
+                        <th>Breakpoint</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Small Moblie Devices</td>
+                        <td>Xtra Small (xs)</td>
+                        <td>&lt; 576px</td>
+                        <td>None</td>
+                     </tr>
+                     <tr>
+                        <td>Moblie Devices</td>
+                        <td>Small (sm)</td>
+                        <td>>= 576px</td>
+                        <td>540px</td>
+                     </tr>
+                     <tr>
+                        <td>Tablets & Ipads</td>
+                        <td>Medium (md)</td>
+                        <td>>= 768px</td>
+                        <td>720px</td>
+                     </tr>
+                     <tr>
+                        <td>Small Screens & Laptops</td>
+                        <td>Large (lg)</td>
+                        <td>>= 992px</td>
+                        <td>960px</td>
+                     </tr>
+                     <tr>
+                        <td>Desktops and Large Screens</td>
+                        <td>Xtra Large (xl)</td>
+                        <td>>= 1200px</td>
+                        <td>1140px</td>
+                     </tr>
+                     <tr>
+                        <td>Extra Large Screens (TV's)</td>
+                        <td>Xtra Xtra Large (xxl)</td>
+                        <td>>= 1400px</td>
+                        <td>1320px</td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
          </section>
 
@@ -139,25 +153,68 @@
                   molestiae minima, non suscipit, eligendi laborum minus ut nostrum excepturi quibusdam? Quod laudantium
                   aperiam totam quae!</p>
             </div>
-            <hr>
-            <div class="container-fliud">
-               <p>By adding <b>-fluid</b> to the container <b>class</b>, it makes the container fill the width of the
-                  viewport, with a small amount of left/right padding.</p>
-               <h5>With < div class="container-fluid"> Example</h5>
-               <p>The container immediately adds padding, and maintains the padding as the page is resized.</p>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae dignissimos autem ab veniam
-                  deserunt
-                  nostrum quibusdam eaque iure pariatur nesciunt provident, nobis, maiores assumenda accusamus suscipit
-                  culpa? Deserunt, expedita tempora.
-                  Tempore, sequi! Minus repudiandae aliquid debitis obcaecati ipsam inventore cum eum? Consequatur autem
-                  aliquid sed molestiae officiis expedita nihil rem in rerum! Quas, alias porro excepturi minus ratione
-                  quidem accusantium.
-                  Optio aliquid repellat autem ipsa mollitia eius modi harum recusandae illum? Doloribus autem
-                  voluptatum
-                  molestiae minima, non suscipit, eligendi laborum minus ut nostrum excepturi quibusdam? Quod laudantium
-                  aperiam totam quae!</p>
-            </div>
          </section>
+
+            <section id="textWindow3">
+               <div class="lists">
+                  <h4>Bootstrap Grid System</h4>
+                  <p>So the grid system is set inside a bootstrap container with a series or rows and columns. Each row is twelve (12) columns wide. These 12 columns can be mixed into many different combinations of the 12 columns by combining columns in the same manner as a table <b>colspan</b> works.</p>
+                  <p>
+                  <div class="container text-center">
+                     <div class="row">
+                        <div class="col bg-primary">1</div>
+                        <div class="col bg-secondary">2</div>
+                        <div class="col bg-success">3</div>
+                        <div class="col bg-danger">4</div>
+                        <div class="col bg-warning">5</div>
+                        <div class="col bg-info">6</div>
+                        <div class="col bg-light">7</div>
+                        <div class="col bg-dark text-white">8</div>
+                        <div class="col bg-primary">9</div>
+                        <div class="col bg-secondary">10</div>
+                        <div class="col bg-success">11</div>
+                        <div class="col bg-danger">12</div>
+                     </div>
+                  </div>
+                  </p>
+                  <p>the basic syntax is:
+                  <ul>
+                     <li>< div class="container">
+                        <ul>
+                           <li>< div class="row">
+                              <ul>
+                                 <li>< div class="col">Column 1< /div></li>
+                                 <li>< div class="col">Column 2< /div></li>
+                                 <li>< div class="col">Column 3< /div></li>
+                              </ul>
+                           </li>
+                           <li>< /div></li>
+                        </ul>
+                     <li>< /div></li>
+                  </ul>
+                  </p>
+                  <p>This example is defining a grid with one row and three columns. Since no column width has been set, the three columns will split the 12 available, EQUALLY between them. So each column is <b>4 wide</b>.</p>
+                  <p>
+                  <div class="container">
+                     <div class="row">
+                        <div class="col bg-primary">Column 1</div>
+                        <div class="col bg-warning">Column 2</div>
+                        <div class="col bg-success">Column 3</div>
+                     </div>
+                  </div>
+                  </p>
+                  <p>If we set column 2 to be 6 wide like so, <b>< div class="col-6"></b>, then columns 1 and 3 would split the remaining 6 columns to be 3 wide each.</p>
+                  <p>
+                  <div class="container">
+                     <div class="row">
+                        <div class="col bg-primary">Column 1</div>
+                        <div class="col-6 bg-warning">Column 2</div>
+                        <div class="col bg-success">Column 3</div>
+                     </div>
+                  </div>
+                  </p>
+               </div>
+            </section>
 
          <p><a href="#top">Back to Top</a><br><br></p>
       </div>
