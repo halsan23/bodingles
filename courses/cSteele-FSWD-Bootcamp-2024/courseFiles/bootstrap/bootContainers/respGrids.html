@@ -89,33 +89,33 @@
                   <thead>
                      <tr>
                         <th></th>
-                        <th>Sm Mobile Devices</th>
-                        <th>Mobile Devices</th>
-                        <th>Tablets & Ipads</th>
-                        <th>Laptops & Sm Screens</th>
-                        <th>Desktops & Lg Screens</th>
-                        <th>Xtra Lg Screens (TV's)</th>
+                        <th>Sm Phones</th>
+                        <th>Lg Phones</th>
+                        <th>Tablets</th>
+                        <th>Laptops</th>
+                        <th>Desktops</th>
+                        <th>TV's</th>
                      </tr>
                   </thead>
                   <tbody>
                      <tr>
                         <td></td>
-                        <td>Xtra Small (xs)<br>
+                        <td>(xs)<br>
                            <span style="font-size: small;">&lt; 576px</span>
                         </td>
-                        <td>Small (sm)<br>
+                        <td>(sm)<br>
                            <span style="font-size: small;">>= 576px</span>
                         </td>
-                        <td>Medium (md)<br>
+                        <td>(md)<br>
                            <span style="font-size: small;">>= 768px</span>
                         </td>
-                        <td>Large (lg)<br>
+                        <td>(lg)<br>
                            <span style="font-size: small;">>= 992px</span>
                         </td>
-                        <td>Xtra Large (xl)<br>
+                        <td>Large (xl)<br>
                            <span style="font-size: small;">>= 1200px</span>
                         </td>
-                        <td>XXLarge (xxl)<br>
+                        <td>(xxl)<br>
                            <span style="font-size: small;">>= 1400px</span>
                         </td>
                      </tr>
@@ -165,32 +165,82 @@
                <p><b>*also</b>, you can add multiple calls in a column to set multiple breakpoint widths.</p>
             </div>
          </section>
-         <section id="textWindow">
+         <section id="textWindow4">
             <div class="just lists">
-               <p>In the following example, there are no column widths designated initially, so the four columns split the 12 available evenly, making the original columns 3-wide each. Then we set the following:<br><b>col-xxl-3 col-xl-6 col-lg-12</b> for <b>EACH</b> column.
-               <p>With our <b>col</b> class, we have told it:<br>
-                  If the viewport size is <b>< lg</b> : make the columns in each row take up 12-wide<br>
-                  but if the viewport size is <b>< xl</b> : make the columns in each row take up 6-wide<br>
-                  but if the viewport size is <b>< xxl</b> : make the columns in each row take up 3-wide<br>
+               <p>In the following example, there are no column widths designated initially, so the four columns split the 12 available evenly, making the original columns 3-wide each. Then we set the following:</p>
+               <p><b>col-xl-3 col-lg-6 col-md-12</b> for <b>EACH</b> column.
+               <p>With our <b>col</b> class, we set it to:</p>
+               <p>If the viewport size is <b>(xl)</b> : make the columns in each row take up 3-wide<br>
+                  but if the viewport size is <b>(lg)</b> : make the columns in each row take up 6-wide<br>
+                  but if the viewport size is <b>(md)</b> : make the columns in each row take up 12-wide</p>
                </p>
                <div class="row text-center">
-                  <div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary p-2">Column 1</div>
-                  <div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-warning p-2">Column 2</div>
-                  <div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-success p-2">Column 3</div>
-                  <div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-danger p-2">Column 4</div>
+                  <div class="col-xl-3 col-lg-6 col-md-12 text-bg-primary p-2">Column 1</div>
+                  <div class="col-xl-3 col-lg-6 col-md-12 text-bg-warning p-2">Column 2</div>
+                  <div class="col-xl-3 col-lg-6 col-md-12 text-bg-success p-2">Column 3</div>
+                  <div class="col-xl-3 col-lg-6 col-md-12 text-bg-danger p-2">Column 4</div>
                </div>
                <p><br></p>
                <ul><b>Heres the code:</b>
                   <li>< div class="row text-center">
                      <ul>
-                        <li>< div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary p-2">Column 1< /div></li>
-                        <li>< div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-warning p-2">Column 2< /div></li>
-                        <li>< div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-success p-2">Column 3< /div></li>
-                        <li>< div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-danger p-2">Column 4< /div></li>
+                        <li>< div class="col-xl-3 col-lg-6 col-md-12 text-bg-primary p-2">Column 1< /div></li>
+                        <li>< div class="col-xl-3 col-lg-6 col-md-12 text-bg-warning p-2">Column 2< /div></li>
+                        <li>< div class="col-xl-3 col-lg-6 col-md-12 text-bg-success p-2">Column 3< /div></li>
+                        <li>< div class="col-xl-3 col-lg-6 col-md-12 text-bg-danger p-2">Column 4< /div></li>
                      </ul>
                   </li>
                   <li>< /div></li>
                </ul>
+            </div>
+         </section>
+         <p class="h5">Responsive Images</p>
+         <section id="textWindow4">
+            <div class="just lists">
+               <p><a href="https://getbootstrap.com/docs/5.3/content/images/#responsive-images" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Responsive Images</a></p>
+               <p><span class="firstWord">Images</span> in Bootstrap are made responsive with <b>.img-fluid</b>. This applies <b>max-width: 100%;</b> and <b>height: auto;</b> to the image so that it scales with the parent width.</p>
+               <p>Lets start with three images, which have no <b>scaling</b>.</p>
+
+               <div class="row">
+                  <div>
+                     <img class="img-fluid" src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                  </div>
+                  <div>
+                     <img class="img-fluid" src="https://images.unsplash.com/photo-1720884413532-59289875c3e1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                  </div>
+                  <div>
+                     <img class="img-fluid" src="https://images.unsplash.com/photo-1710609942195-b9dab8f48fc6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                  </div>
+               </div>
+
+               <p><br><span class="firstWord">So</span>, three images that don't scale with the viewport.</p>
+               <p>However, if we set the images <b>inside</b> a container row and column, and add the class <b>class="img-fluid"</b> to the <b>img</b> tags, then they become <b>fluid</b> images and change size based on the viewport size.</p>
+
+               <div class="row">
+                  <div class="col-4">
+                     <img class="img-fluid" src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                  </div>
+                  <div class="col-4">
+                     <img class="img-fluid" src="https://images.unsplash.com/photo-1720884413532-59289875c3e1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                  </div>
+                  <div class="col-4">
+                     <img class="img-fluid" src="https://images.unsplash.com/photo-1710609942195-b9dab8f48fc6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                  </div>
+               </div>
+               <p><br>You can also use all of the column Breakpoint styling that we used above on the colored boxes. For example:</p>
+               <p><b>col-xl-4 col-lg-8 col-md-12</b></p>
+
+               <div class="row">
+                  <div class="col-lg-4 col-md-6 col-sm-12">
+                     <img class="img-fluid" src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-12">
+                     <img class="img-fluid" src="https://images.unsplash.com/photo-1720884413532-59289875c3e1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-12">
+                     <img class="img-fluid" src="https://images.unsplash.com/photo-1710609942195-b9dab8f48fc6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                  </div>
+               </div>
             </div>
          </section>
 

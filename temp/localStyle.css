@@ -1,0 +1,9 @@
+[class*="conta"] {
+   background-color: darkcyan;
+   border: 1px solid black;
+}
+[class*="col"] {
+   background-color: burlywood;
+   border: 1px solid black;
+}
+
