@@ -46,7 +46,10 @@
          <!-- Class Notes -->
          <section id="textWindow4">
             <div class="just lists">
-               <p><span class="firstWord">We</span> now know that the Bootstrap grid system is a system that is built <i>inside</i> of a container, and is made up of rows, and a combination of up to twelve columns, very similar to how a table is constructed. And because of the nature of how this <b>Grid System</b> is built, we can control it's responsiveness behaviors.</p>
+               <p><span class="firstWord">We</span> now know that the Bootstrap grid system is a system that is built <i>inside</i> of a
+                  <a href="https://getbootstrap.com/docs/5.3/layout/containers/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">container</a>,
+                  and is made up of rows, and a combination of up to twelve columns, very similar to how a table is constructed. And because of the nature of how this
+                  <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Grid System</a> is built, we can control it's responsiveness behaviors.</p>
                <p>the basic Grid System  syntax is:
                   <ul>
                      <li>< div class="container">
@@ -75,60 +78,115 @@
                   </div>
                </div>
                </p>
-               <p><br><span class="firstWord">Bootstrap</span> comes pre-configured with some predefined <b>breakpoints</b> as shown in the table below, which allow us to control the responsiveness of the grid columns.</p>
+            </div>
+         </section>
+         <section id="textWindow" style="width: 80%;">
+            <div class="just lists">
+               <h5>Breakpoints</h5>
+               <p><br><span class="firstWord">Bootstrap</span> comes pre-configured with some predefined
+                  <a href="https://getbootstrap.com/docs/5.3/layout/grid/#grid-options" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">breakpoints</a> as shown in the table below, which allow us to control the responsiveness of the grid columns.</p>
                <table>
-                     <thead>
-                        <tr>
-                           <td colspan="4" style="text-align: left;">
-                              <h5>Bootstrap Container Breakpoints</h5>
-                           </td>
-                        </tr>
-                        <tr>
-                           <th>Device</th>
-                           <th>Size</th>
-                           <th>pixels</th>
-                           <th>Breakpoint</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>Small Moblie Devices</td>
-                           <td>Xtra Small (xs)</td>
-                           <td>&lt; 576px</td>
-                           <td>None</td>
-                        </tr>
-                        <tr>
-                           <td>Moblie Devices</td>
-                           <td>Small (sm)</td>
-                           <td>>= 576px</td>
-                           <td>540px</td>
-                        </tr>
-                        <tr>
-                           <td>Tablets & Ipads</td>
-                           <td>Medium (md)</td>
-                           <td>>= 768px</td>
-                           <td>720px</td>
-                        </tr>
-                        <tr>
-                           <td>Small Screens & Laptops</td>
-                           <td>Large (lg)</td>
-                           <td>>= 992px</td>
-                           <td>960px</td>
-                        </tr>
-                        <tr>
-                           <td>Desktops and Large Screens</td>
-                           <td>Xtra Large (xl)</td>
-                           <td>>= 1200px</td>
-                           <td>1140px</td>
-                        </tr>
-                        <tr>
-                           <td>Extra Large Screens (TV's)</td>
-                           <td>Xtra Xtra Large (xxl)</td>
-                           <td>>= 1400px</td>
-                           <td>1320px</td>
-                        </tr>
-                     </tbody>
+                  <thead>
+                     <tr>
+                        <th></th>
+                        <th>Sm Mobile Devices</th>
+                        <th>Mobile Devices</th>
+                        <th>Tablets & Ipads</th>
+                        <th>Laptops & Sm Screens</th>
+                        <th>Desktops & Lg Screens</th>
+                        <th>Xtra Lg Screens (TV's)</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td></td>
+                        <td>Xtra Small (xs)<br>
+                           <span style="font-size: small;">&lt; 576px</span>
+                        </td>
+                        <td>Small (sm)<br>
+                           <span style="font-size: small;">>= 576px</span>
+                        </td>
+                        <td>Medium (md)<br>
+                           <span style="font-size: small;">>= 768px</span>
+                        </td>
+                        <td>Large (lg)<br>
+                           <span style="font-size: small;">>= 992px</span>
+                        </td>
+                        <td>Xtra Large (xl)<br>
+                           <span style="font-size: small;">>= 1200px</span>
+                        </td>
+                        <td>XXLarge (xxl)<br>
+                           <span style="font-size: small;">>= 1400px</span>
+                        </td>
+                     </tr>
+                     <tr>
+                     <tr>
+                        <td><b>Max Container Width</b></td>
+                        <td>None <span style="font-size: small;">(auto)</span></td>
+                        <td>540px</td>
+                        <td>720px</td>
+                        <td>960px</td>
+                        <td>1140px</td>
+                        <td>1320px</td>
+                     </tr>
+                     <tr>
+                        <td><b>Class Prefix</b></td>
+                        <td>.col-</td>
+                        <td>.col-sm-</td>
+                        <td>.col-md-</td>
+                        <td>.col-lg-</td>
+                        <td>.col-xl</td>
+                        <td>.col-xxl-</td>
+                     </tr>
+                     <tr>
+                        <td><b># of Columns</b></td>
+                        <td colspan="6" style="text-align: left;">12</td>
+                     </tr>
+                     <tr>
+                        <td><b>Gutter Width</b></td>
+                        <td colspan="6" style="text-align: left;">1.5rem (.75rem on left and right)</td>
+                     </tr>
+                     <tr>
+                        <td><b>Custom gutters<</b>/td>
+                        <td colspan="6" style="text-align: left;">YES</td>
+                     </tr>
+                     <tr>
+                        <td><b>Nestable</b></td>
+                        <td colspan="6" style="text-align: left;">YES</td>
+                     </tr>
+                     <tr>
+                        <td><b>Column ordering</b></td>
+                        <td colspan="6" style="text-align: left;">YES</td>
+                     </tr>
+                  </tbody>
                </table>
+               <p><br>This shows that bootstrap can automatically create a breakpoint at 540px, 720px, 960px, 1140px, and 1320px depending on the viewport width.</p>
+               <p>So when the viewport reaches the breakpoint, and the column stacks, this creates a new row. It is <b>important</b> to understand that this new row still has available <b>12 columns wide</b>, so the number (col-md-<b>3</b>) is setting how many of those 12-columns-wide you want the new row to contain, after it stacks. The basic format is <b>.col-md-3</b>, which means, <b>below</b> the <b>medium</b> breakpoint, the columns should stack and on the new row your columns should be <b>3-wide</b>.</p>
+               <p><b>*also</b>, you can add multiple calls in a column to set multiple breakpoint widths.</p>
+               <p>In the following example, there are no column widths designated initially, so the four columns split the 12 available evenly, making the original columns 3-wide each. Then we set the following:<br><b>col-xxl-3 col-xl-6 col-lg-12</b> for <b>EACH</b> column.
+               <p>With our <b>col</b> class, we have told it:<br>
+                  If the viewport size is <b>< lg</b> : make the columns in each row take up 12-wide<br>
+                  but if the viewport size is <b>< xl</b> : make the columns in each row take up 6-wide<br>
+                  but if the viewport size is <b>< xxl</b> : make the columns in each row take up 3-wide<br>
+               </p>
+               <div class="row text-center">
+                  <div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary p-2">Column 1</div>
+                  <div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-warning p-2">Column 2</div>
+                  <div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-success p-2">Column 3</div>
+                  <div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-danger p-2">Column 4</div>
+               </div>
+               <p><br></p>
+               <ul><b>Heres the code:</b>
+                  <li>< div class="row text-center">
+                     <ul>
+                        <li>< div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary p-2">Column 1< /div></li>
+                        <li>< div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-warning p-2">Column 2< /div></li>
+                        <li>< div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-success p-2">Column 3< /div></li>
+                        <li>< div class="col-xxl-3 col-xl-6 col-lg-12 text-bg-primary text-bg-danger p-2">Column 4< /div></li>
+                     </ul>
+                  </li>
+                  <li>< /div></li>
+               </ul>
             </div>
          </section>
 
