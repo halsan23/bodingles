@@ -29,6 +29,10 @@ hr {
    border-bottom: 1px solid black;
 }
 
+[class*="contai"] {
+   text-align: left;
+}
+
 [class*="col"] {
    padding: 5px 10px;
 }

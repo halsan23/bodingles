@@ -46,8 +46,104 @@
          <h5>Useful Grid Utilities</h5>
          <!-- Class Notes -->
          <section id="textWindow4">
-            <div class="just lists">
-               <p><span class="firstWord"></span></p>
+            <div class="just">
+               <p><span class="firstWord">Bootstrap</span> now includes Flexbox functionality which means we can use flex commands such as <b>align-items</b>, and <b>justify-content</b>.</p>
+               <p>More Info on
+                  <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank" crossorigin="anonymous"
+                     referrerpolicy="no-referrer">Bootstrap Grids</a>,
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox" target="_blank" crossorigin="anonymous"
+                     referrerpolicy="no-referrer">Flexbox</a> and
+                  <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background" target="_blank" crossorigin="anonymous"
+                     referrerpolicy="no-referrer">CSS Flexbox Layout Guide</a>.
+               </p>
+               <p class="h5">Grid Alignment</p>
+               <p>So we start with a basic grid, one row and four columns of 3-wide each, with the text content being aligned to top and left. Remember that Flexbox works off of a main and cross axis. Since nothing has been defined, the default would be applied making the <b>Main Axis</b> on this page being Left to Right, and the <b>Cross Axis</b> being Top to Bottom</p>
+               <!-- Code Snippet-->
+               <ul>
+                  <li>< div class="container">
+                     <ul>
+                        <li>< div class="row">
+                        </li>
+                        <li>
+                           <ul>
+                              <li>< div class="col text-bg-primary">1< /div></li>
+                              <li>< div class="col text-bg-warning">2< /div></li>
+                              <li>< div class="col text-bg-success">3< /div></li>
+                              <li>< div class="col text-bg-info">4< /div></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>< /div></li>
+               </ul>
+
+               <!-- Bootstrap Container -->
+               <div class="container">
+                  <div class="row">
+                     <div class="col-3 text-bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                     <div class="col-3 text-bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ab quibusdam sunt assumenda vel facilis incidunt quidem saepe obcaecati excepturi praesentium sequi. Error nulla eveniet, maxime nemo a soluta sit?</div>
+                     <div class="col-3 text-bg-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                  </div>
+               </div>
+               <p><br></p>
+
+               <p>So we can use <b>justify-content</b> on the <b>row</b> to align the columns to the <b>main-axis</b> which in this case is horizontally.<br>
+               <b>*note</b>: if your container is taking up 100% of the available row space, some properties such as <b>space-around</b>, and <b>space-between</b> will have no effect.</p>
+               <p><b>< div class="row justify-content-end"></b></p>
+               <!-- Bootstrap Container -->
+               <div class="container">
+                  <div class="row justify-content-end">
+                     <div class="col-3 text-bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                     <div class="col-3 text-bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ab quibusdam sunt assumenda vel facilis incidunt quidem saepe obcaecati excepturi praesentium sequi. Error nulla eveniet, maxime nemo a soluta sit?</div>
+                     <div class="col-3 text-bg-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                  </div>
+               </div>
+               <p><br></p>
+
+               <p>or <b>< div class="row justify-content-center"></b></p>
+               <!-- Bootstrap Container -->
+               <div class="container">
+                  <div class="row justify-content-center">
+                     <div class="col-3 text-bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                     <div class="col-3 text-bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ab quibusdam sunt assumenda vel facilis incidunt quidem saepe obcaecati excepturi praesentium sequi. Error nulla eveniet, maxime nemo a soluta sit?</div>
+                     <div class="col-3 text-bg-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                  </div>
+               </div>
+               <p><br></p>
+               <p><br></p>
+
+               <p>or <b>< div class="row justify-content-around"></b></p>
+               <!-- Bootstrap Container -->
+               <div class="container">
+                  <div class="row justify-content-around">
+                     <div class="col-3 text-bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                     <div class="col-3 text-bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ab quibusdam sunt assumenda vel facilis incidunt quidem saepe obcaecati excepturi praesentium sequi. Error nulla eveniet, maxime nemo a soluta sit?</div>
+                     <div class="col-3 text-bg-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                  </div>
+               </div>
+               <p><br></p>
+
+               <p><span class="firstWord">And</span> since we can align columns horizontally, we can also align them vertically (cross axis) using <b>align-items</b> on the <b>row</b>.</p>
+               <p><b>< div class="row align-items-end"></b></p>
+               <!-- Bootstrap Container -->
+               <div class="container">
+                  <div class="row align-items-end">
+                     <div class="col-3 text-bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                     <div class="col-3 text-bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ab quibusdam sunt assumenda vel facilis incidunt quidem saepe obcaecati excepturi praesentium sequi. Error nulla eveniet, maxime nemo a soluta sit?</div>
+                     <div class="col-3 text-bg-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                  </div>
+               </div>
+               <p><br></p>
+
+               <p>or <b>< div class="row align-items-center"></b></p>
+               <!-- Bootstrap Container -->
+               <div class="container">
+                  <div class="row align-items-center">
+                     <div class="col-3 text-bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                     <div class="col-3 text-bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ab quibusdam sunt assumenda vel facilis incidunt quidem saepe obcaecati excepturi praesentium sequi. Error nulla eveniet, maxime nemo a soluta sit?</div>
+                     <div class="col-3 text-bg-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quae consequatur velit reiciendis quisquam laborum impedit commodi rerum a saepe, deleniti praesentium suscipit error dolore doloremque quaerat libero repellendus quo!</div>
+                  </div>
+               </div>
             </div>
          </section>
 
