@@ -1,13 +1,3 @@
-Auto Close Tag
-Auto Rename Tag
-Bracket Pair Color
-Code Runner
 Code Spell Checker
-Color Highlight
-Color Picker
-CSS peek
-IntelliCode
-Live Server
-Material Theme - Free - 34.7.7 - by Equinusocio
-vscode-icons
+
 vscode-pdf
