@@ -1,0 +1,18 @@
+.just {
+	text-align: justify;
+}
+
+ul {
+	text-align: left;
+}
+
+li {
+	font-weight: bold;
+	list-style: none;
+}
+
+hr {
+	width: 85%;
+	margin: 5px auto;
+	border-bottom: 1px solid black;
+}
