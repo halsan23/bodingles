@@ -184,7 +184,6 @@ footer div {
 
 /* set main container to start below header */
 #main {
-   margin: 0 auto;
    padding-top: 130px;
    /* border: 1px solid #bcbcbc;
    border-radius: 10px;
@@ -211,11 +210,6 @@ a {
 
 a:hover {
    color: #aa9042;
-}
-
-form {
-   display: inline-block;
-   text-align: left;
 }
 
 h1 {
