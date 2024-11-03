@@ -52,20 +52,15 @@
 			<section id="textWindow4">
 				<div class="just">
 					<p><span class="firstWord">Bootstrap</span>
-						<a href="https://getbootstrap.com/docs/5.3/forms/overview/" target="_blank" crossorigin="anonymous"
-							referrerpolicy="no-referrer">forms</a> have several form options to make your forms more stylish,
-						and have better sizing control for responsive web sites.
+						<a href="https://getbootstrap.com/docs/5.3/forms/overview/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">forms</a>
+						have several form options to make your forms more stylish, and have better sizing control for responsive web sites.
 					</p>
 					<p>Bootstrap’s form controls expand on
 						<a href="https://getbootstrap.com/docs/5.3/content/reboot/#forms" target="_blank"
-							crossorigin="anonymous" referrerpolicy="no-referrer">our Rebooted form styles</a> with classes. Use
-						these classes to opt
-						into their customized displays for a more consistent rendering across browsers and devices.
+							crossorigin="anonymous" referrerpolicy="no-referrer">our Rebooted form styles</a>
+							 with classes. Use these classes to opt into their customized displays for a more consistent rendering across browsers and devices.
 					</p>
-					<p><b>*note</b>: be sure to use an appropriate type attribute on all inputs (e.g., email for email
-						address or number for numerical information) to take advantage of newer input controls like email
-						verification, number
-						selection, and more.</p>
+					<p><b>*note</b>: be sure to use an appropriate type attribute on all inputs (e.g., email for email address or number for numerical information) to take advantage of newer input controls like email verification, number selection, and more.</p>
 					<p><b>Lets start with a basic form:</b></p>
 					<!-- Default Form -->
 					<form action="">
@@ -108,54 +103,25 @@
 			<!-- My Bootstrap Form -->
 			<section id="textWindow4" class="just">
 				<article>
-					<p><span class="firstWord">The</span> most important requirement of any Bootstrap structure is that it
-						<b>must be contained within a container</b>, and Bootstrap forms are no different.
-					</p>
-					<p>So first off, we create the container, <b>
-							< div class="container">
-						</b>, and within this container, we create the form. <b>
-							< form action="">
-						</b>.</p>
-					<p>And because of the nature of Bootstrap we know it is built using rows and columns (12). So next we
-						create a row, <b>
-							< div class="row">
-						</b>.</p>
-					<p>In bootstrap forms, we can group together form labels, and form inputs. This is called a
-						<b>form-group</b>. And in the <b>Input</b> field, we use a bootstrap class called <b>form-control</b>,
-						to tell bootstrap how to format this form element. So we create our columns in form-groups like so:
+					<p><span class="firstWord">The</span> most important requirement of any Bootstrap structure is that it <b>must be contained within a container</b>, and Bootstrap forms are no different.</p>
+					<p>So first off, we create the container, <b>< div class="container"></b>, and within this container, we create the form. <b>< form action=""></b>.</p>
+					<p>And because of the nature of Bootstrap we know it is built using rows and columns (12). So next we create a row, <b>< div class="row"></b>.</p>
+					<p>In bootstrap forms, we can group together form labels, and form inputs. This is called a <b>form-group</b>. And in the <b>Input</b> field, we use a bootstrap class called  <b>form-control</b>, to tell bootstrap how to format this form element. So we create our columns in form-groups like so:
 					<ul>
-						<li>
-							< div class="<b>form-group</b>">
+						<li>< div class="<b>form-group</b>">
 								<ul>
-									<li>
-										< label for=" fname">First Name</>
-									</li>
-									<li>
-										< input type="text" class="<b>form-control</b>" id="fname">
-									</li>
+									<li>< label for=" fname">First Name</></li>
+									<li>< input type="text" class="<b>form-control</b>" id="fname"></li>
 								</ul>
 						</li>
-						<li>
-							< /div>
-						</li>
+						<li>< /div></li>
 					</ul>
-					This creates our <b>form columns</b>. In the example below, we have the First and Last name inputs on the
-					same <b>row</b>. And because no colum width is specified, each column is <b>6-wide</b>. The same is true
-					for
-					the City, State, Zip row. Because no column width is defined, each of theses three columns in
-					<b>4-wide</b>,
-					because they share the same <b>row</b>.</p>
-					<p>We can now add our <b>breakpoint styling</b> code for our responsive web design. This code goes inside
-						the <b>column</b> control. In our example the <b>column</b> control is created with the
-						<b>form-group</b> div. So the First/Last Name column code would be something like, <b>
-							< div class="form-group mb-3 col-md-6">
-						</b>. Here we are adding a <b>margin-bottom</b> of 3 and if the viewport is larger than <b>medium</b>
-						(md) then make each column <b>6-wide</b>.
+					This creates our <b>form columns</b>. In the example below, we have the First and Last name inputs on the same <b>row</b>. And because no colum width is specified, each column is  <b>6-wide</b>. The same is true for the City, State, Zip row. Because no column width is defined, each of theses three columns in <b>4-wide</b>, because they share the same <b>row</b>.</p>
+					<p>We can now add our <b>breakpoint styling</b> code for our responsive web design. This code goes inside the <b>column</b> control. In our example the <b>column</b> control is created with the <b>form-group</b> div. So the First/Last Name column code would be something like,
+					<b>< div class="form-group mb-3 col-md-6"></b>. Here we are adding a <b>margin-bottom</b> of 3 and if the viewport is larger than <b>medium</b> (md) then make each column <b>6-wide</b>.
 					</p>
-					<p><b>*note</b>: one other thing of importance to mention is that different form elements have different
-						bootstrap code to style the elements properly. Refer to the
-						<a href="https://getbootstrap.com/docs/5.3/forms/overview/" target="_blank" crossorigin="anonymous"
-							referrerpolicy="no-referrer">Bootstrap Forms</a> page for more information.
+					<p><b>*note</b>: one other thing of importance to mention is that different form elements have different bootstrap code to style the elements properly. Refer to the
+						<a href="https://getbootstrap.com/docs/5.3/forms/overview/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Bootstrap Forms</a> page for more information.
 					</p>
 				</article>
 
@@ -216,210 +182,120 @@
 				<article>
 					<p><span class="firstWord">Here</span> is the final code for this form:</p>
 					<b>
-						<ul>
-							<li>
-								< div class="container">
+					<ul>
+						<li>< div class="container">
+							<ul>
+								<li>< form action="">
 									<ul>
-										<li>
-											< form action="">
-												<ul>
-													<li>
-														< div class="row">
-															<ul>
-																<li>
-																	< div class="form-group mb-3 col-md-6">
-																		<ul>
-																			<li>
-																				< label for="fname">First Name< /label>
-																			</li>
-																			<li>
-																				< input type="text" class="form-control" id="fname"
-																					placeholder="First Name" required>
-																			</li>
-																		</ul>
-																</li>
-																<li>
-																	< /div>
-																</li>
-																<li>
-																	< div class="form-group mb-3 col-md-6">
-																		<ul>
-																			<li>
-																				< label for="lname">Last Name< /label>
-																			</li>
-																			<li>
-																				< input type="text" class="form-control" id="lname"
-																					placeholder="Last Name" required>
-																			</li>
-																		</ul>
-																</li>
-																<li>
-																	< /div>
-																</li>
-															</ul>
-													</li>
-													<li>
-														< /div>
-													</li>
-													<li>
-														< div class="row">
-															<ul>
-																<li>
-																	< div class="form-group mb-3">
-																		< /div>
-																			<ul>
-																				<li>
-																					< label for="address">Address< /label>
-																				</li>
-																				<li>
-																					< input type="text" class="form-control" id="address"
-																						placeholder="Address">
-																				</li>
-																			</ul>
-																</li>
-																<li>
-																	< /div>
-																</li>
-															</ul>
-													</li>
-													<li>
-														< /div>
-													</li>
-													<li>
-														< div class="row">
-															<ul>
-																<li>
-																	< div class="form-group mb-3 col-lg-4 col-md-6">
-																		<ul>
-																			<li>
-																				< label for="city">City< /label>
-																			</li>
-																			<li>
-																				< input type="text" class="form-control" id="city"
-																					placeholder="City">
-																			</li>
-																		</ul>
-																</li>
-																<li>
-																	< /div>
-																</li>
-															</ul>
-															<ul>
-																<li>
-																	< div class="form-group mb-3 col-lg-4 col-md-6">
-																		<ul>
-																			<li>
-																				< label for="state">State< /label>
-																			</li>
-																			<li>
-																				< input type="text" class="form-control" id="state"
-																					placeholder="State">
-																			</li>
-																		</ul>
-																</li>
-																<li>
-																	< /div>
-																</li>
-															</ul>
-															<ul>
-																<li>
-																	< div class="form-group mb-3 col-lg-4 col-md-6">
-																		<ul>
-																			<li>
-																				< label for="zip">Zip< /label>
-																			</li>
-																			<li>
-																				< input type="text" class="form-control" id="zip"
-																					placeholder="Zip">
-																			</li>
-																		</ul>
-																</li>
-																<li>
-																	< /div>
-																</li>
-															</ul>
-													</li>
-													<li>
-														< /div>
-													</li>
-													<li>
-														< div class="row">
-															<ul>
-																<li>
-																	< div class="form-group mb-3 col-md-6">
-																		<ul>
-																			<li>
-																				< label for="email">Email Address< /label>
-																			</li>
-																			<li>
-																				< input type="email" class="form-control" id="email"
-																					placeholder="email@domain.com" required>
-																			</li>
-																		</ul>
-																</li>
-																<li>
-																	< /div>
-																</li>
-															</ul>
-															<ul>
-																<li>
-																	< div class="form-group mb-3 col-md-6">
-																		<ul>
-																			<li>
-																				< label for="pswd">Password< /label>
-																			</li>
-																			<li>
-																				< input type="password" class="form-control" id="pswd"
-																					placeholder="Password" required>
-																			</li>
-																		</ul>
-																</li>
-																<li>
-																	< /div>
-																</li>
-															</ul>
-													</li>
-													<li>
-														< /div>
-													</li>
-													<li>
-														< div class="row">
-															<ul>
-																<li>
-																	< div class="form-check mb-3">
-																		<ul>
-																			<li>
-																				< input class="form-check-input" type="checkbox" value=""
-																					id="tos" required>
-																			</li>
-																			<li>
-																				< label class="form-check-label" for="tos">I agree to the
-																					Terms of Service.< /label>
-																			</li>
-																		</ul>
-																</li>
-																<li>
-																	< /div>
-																</li>
-															</ul>
-													</li>
-													<li>
-														< /div>
-													</li>
-													<li>
-														< button class="btn btn-success mb-5">Submit< /button>
-													</li>
-												</ul>
+										<li>< div class="row">
+											<ul>
+												<li>< div class="form-group mb-3 col-md-6">
+													<ul>
+														<li>< label for="fname">First Name< /label></li>
+														<li>< input type="text" class="form-control" id="fname"
+																placeholder="First Name" required></li>
+													</ul>
+												</li>
+												<li>< /div></li>
+												<li>< div class="form-group mb-3 col-md-6">
+													<ul>
+														<li>< label for="lname">Last Name< /label></li>
+														<li>< input type="text" class="form-control" id="lname"
+																placeholder="Last Name" required></li>
+													</ul>
+												</li>
+												<li>< /div></li>
+											</ul>
 										</li>
-										<li>
-											< /form>
+										<li>< /div></li>
+										<li>< div class="row">
+											<ul>
+												<li>< div class="form-group mb-3">
+													<ul>
+														<li>< label for="address">Address< /label></li>
+														<li>< input type="text" class="form-control" id="address" placeholder="Address"></li>
+													</ul>
+												</li>
+												<li>< /div></li>
+											</ul>
 										</li>
+										<li>< /div></li>
+										<li>< div class="row">
+											<ul>
+												<li>< div class="form-group mb-3 col-lg-4 col-md-6">
+													<ul>
+														<li>< label for="city">City< /label></li>
+														<li>< input type="text" class="form-control" id="city"
+																placeholder="City"></li>
+													</ul>
+												</li>
+												<li>< /div></li>
+											</ul>
+											<ul>
+												<li>< div class="form-group mb-3 col-lg-4 col-md-6">
+													<ul>
+														<li>< label for="state">State< /label></li>
+														<li>< input type="text" class="form-control" id="state"
+																placeholder="State"></li>
+													</ul>
+												</li>
+												<li>< /div></li>
+											</ul>
+											<ul>
+												<li>< div class="form-group mb-3 col-lg-4 col-md-6">
+													<ul>
+														<li>< label for="zip">Zip< /label></li>
+														<li>< input type="text" class="form-control" id="zip"
+																placeholder="Zip"></li>
+													</ul>
+												</li>
+												<li>< /div></li>
+											</ul>
+										</li>
+										<li>< /div></li>
+										<li>< div class="row">
+											<ul>
+												<li>< div class="form-group mb-3 col-md-6">
+													<ul>
+														<li>< label for="email">Email Address< /label></li>
+														<li>< input type="email" class="form-control" id="email"
+																placeholder="email@domain.com" required></li>
+													</ul>
+												</li>
+												<li>< /div></li>
+											</ul>
+											<ul>
+												<li>< div class="form-group mb-3 col-md-6">
+													<ul>
+														<li>< label for="pswd">Password< /label></li>
+														<li>< input type="password" class="form-control" id="pswd"
+																placeholder="Password" required></li>
+													</ul>
+												</li>
+												<li>< /div></li>
+											</ul>
+										</li>
+										<li>< /div></li>
+										<li>< div class="row">
+											<ul>
+												<li>< div class="form-check mb-3">
+													<ul>
+														<li>< input class="form-check-input" type="checkbox" value="" id="tos" required></li>
+														<li>< label class="form-check-label" for="tos">I agree to the Terms of Service.< /label></li>
+													</ul>
+												</li>
+												<li>< /div></li>
+											</ul>
+										</li>
+										<li>< /div></li>
+										<li>< button class="btn btn-success mb-5">Submit< /button></li>
 									</ul>
-							</li>
-							<li>
-								< /div>
-							</li>
-						</ul>
+								</li>
+								<li>< /form></li>
+							</ul>
+						</li>
+						<li>< /div></li>
+					</ul>
 					</b>
 				</article>
 			</section>
