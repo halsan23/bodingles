@@ -37,93 +37,147 @@
 		</span>
 	</header>
 
-	<section id="main">
-		<div class="content">
-			<!-- Title -->
-			<section>
-				<h2><i>The Web Developer Bootcamp 2024</i></h2>
-				<p>Colt Steele</p>
-				<p><a href="../bootstrapIndex.html">Back to Bootstrap Index Page</a></p>
-				<hr style="width: 50%" />
-			</section>
-
+	<section id="main" class="content">
+		<!-- Title -->
+		<section>
+			<h2><i>The Web Developer Bootcamp 2024</i></h2>
+			<p>Colt Steele</p>
+			<p><a href="../bootstrapIndex.html">Back to Bootstrap Index Page</a></p>
+			<hr style="width: 50%" />
 			<h5>Bootstrap Navbars</h5>
-			<!-- Class Notes -->
-			<section id="textWindow4">
-				<div class="just">
-					<p><span class="firstWord">There</span> is a lot of variation and complexity involved in making Bootstrap Navbars, so be sure to review the documentation for more information and examples. Information on Bootstrap Navbars can be
-						<a href="https://getbootstrap.com/docs/5.3/components/navbar/" target="_blank"
-						crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>. The very basic concept is :
-					</p>
+		</section>
+
+		<!-- Class Notes -->
+		<section id="textWindow4" class="just">
+			<p><span class="firstWord">There</span> is a lot of variation and complexity involved in making Bootstrap Navbars, so be sure to review the documentation for more information and examples. Information on Bootstrap Navbars can be
+				<a href="https://getbootstrap.com/docs/5.3/components/navbar/" target="_blank"
+				crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>.
+				The very basic concept is :
+			</p>
+			<ul>
+				<li>< nav class="navbar navbar-light bg-success">
 					<ul>
-						<li>< nav class="navbar navbar-light bg-success">
+						<li>< a href="#" class="navbar-brand">Navbar< /a></li>
+					</ul>
+				</li>
+				<li>< /nav></li>
+			</ul>
+			<p>The code <b>bg-success</b> is for the BACKGROUND color and <b>navbar-light</b> is for the TEXT color, but it should be noted that the code <b>navbar-light</b> is refering to a light or dark THEME. If you call for a "Light" theme you are going to get DARK text and if you call for a "Dark" theme, you are going to get LIGHT text</p>
+
+			<!-- Code Example 1 -->
+			<nav class="navbar navbar-light bg-success">
+				<a href="#" class="navbar-brand">navbar-light</a>
+			</nav><br>
+			<!-- Code Example 2 -->
+			<nav class="navbar navbar-dark bg-success">
+				<a href="#" class="navbar-brand">navbar-dark</a>
+			</nav><br>
+
+			<p><span class="firstWord">You</span> can create your "nav" items by all the normal means of creating links such as using List's or straight up Anchor tags. You can also include Buttoms, Images, or Form elements into your navbar.</p>
+
+			<!-- Code Example 3 -->
+			<h6>Bootstrap "Fluid" Navbar Example</h6>
+			<!-- Set Initial Navbar Container -->
+			<!--expand and show links below if large or greater Viewport -->
+			<nav class="navbar navbar-expand-lg bg-dark my-3" data-bs-theme="dark">
+
+				<!-- Make the navbar "fluid" (use bootstrap breakpoints) -->
+				<div class="container-fluid">
+
+					<!-- Set the Navbar Brand (Title and/or Logo) -->
+					<a class="navbar-brand" href="#">Navbar</a>
+
+					<!-- add "Hamburger" icon for links when they are hidden (navbar-toggler) -->
+					<!-- (data-bs-toggle="collapse") means the button is initially collapsed -->
+					<!-- (data-bs-target) is the link to "which data should opened in the hamburger menu" -->
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<!--set navbar-collapse as default behaviour (hides the links below if smaller than the lg defined above) -->
+					<!-- (id="navbarNav") are the links that will show on the hamburger menu" -->
+					<div class="collapse navbar-collapse" id="navbarNav">
+
+						<!-- These are the actual Navbar Links -->
+						<div class="navbar-nav">
+							<a class="nav-link active" href="#">Home</a>
+							<a class="nav-link" href="#">Features</a>
+							<a class="nav-link" href="#">Pricing</a>
+							<a class="nav-link disabled">Disabled</a>
+						</div>
+
+						<!-- (d-flex) makes the form a flex item -->
+						<!-- (ms-auto) aligns the search form to the right of the container -->
+						<!-- mx-auto | align items to the center of the navbar -->
+						<!-- me-auto | align items to the left of the navbar -->
+						<form class="d-flex ms-auto p-1" role="search">
+							<input class="form-control me-2" type="search" placeholder="Search">
+							<button class="btn btn-outline-success" type="submit">Search</button>
+						</form>
+					</div>
+				</div>
+			</nav>
+
+			<p>The <b>Home</b> link is brighter because it is an "Active" link. The <b>Features/Pricing</b> links are dimmer because they are NOT "Active" links. The <b>Disabled</b> link is greyed out because it is a "Disabled" Link.</p>
+			<p>Here is the code:</p>
+			<ul>
+				<li>- - Set Initial Navbar Container - -</li>
+				<li>- - expand and show links below if large or greater Viewport - -</li>
+				<li><b>< nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark"></b>
+					<ul>
+						<li><br>-- Make the navbar "fluid" (use bootstrap breakpoints) --</li>
+						<li><b>< div class="container-fluid"></b>
 							<ul>
-								<li>< a href="#" class="navbar-brand">Navbar< /a></li>
+								<li><br>-- Set the Navbar Brand (Title and/or Logo) --</li>
+								<li><b>< a class="navbar-brand" href="#">Navbar< /a></b></li>
+								<li><br></li>
+								<li>-- add "Hamburger" icon for links when they are hidden (navbar-toggler) --</li>
+								<li>-- (data-bs-toggle="collapse") means the button is initially collapsed --</li>
+								<li>-- (data-bs-target) is the link to "which data should opened in the hamburger menu" --</li>
+								<li><b>< button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"></b>
+									<ul>
+										<li><b>< span class="navbar-toggler-icon"></b></li>
+									</ul>
+								</li>
+								<li><b>< /button></b></li>
+								<li><br>--set navbar-collapse as default behaviour (hides the links below if smaller than the lg defined above) --</li>
+								<li>-- (id="navbarNav") are the links that will show on the hamburger menu" --</li>
+								<li><b>< div class="collapse navbar-collapse" id="navbarNav"></></b>
+									<ul>
+										<li><br>-- These are the actual Navbar Links --</li>
+										<li><b>< div class="navbar-nav"></div></b>
+											<ul>
+												<li><b>< a class="nav-link active" href="#">Home< /a></b></li>
+												<li><b>< a class="nav-link" href="#">Features< /a></b></li>
+												<li><b>< a class="nav-link" href="#">Pricing< /a></b></li>
+												<li><b>< a class="nav-link disabled" aria-disabled="true">Disabled< /a></b></li>
+											</ul>
+										</li>
+										<li><b>< /div></b></li>
+										<li><br>-- (d-flex) makes the form a flex item --</li>
+										<li>-- (ms-auto) aligns the search form to the right of the container --</li>
+										<li>-- mx-auto | align items to the center of the navbar --</li>
+										<li>-- me-auto | align items to the left of the navbar --</li>
+										<li><b>< form class="d-flex ms-auto p-1" role="search"></form></b>
+											<ul>
+												<li><b>< input class="form-control me-2" type="search" placeholder="Search"></b></li>
+												<li><b>< button class="btn btn-outline-success" type="submit">Search< /button></b></li>
+											</ul>
+										</li>
+										<li><b>< /form></b></li>
+									</ul>
+								</li>
+								<li><b>< /div></b></li>
 							</ul>
 						</li>
-						<li>< /nav></li>
+						<li><b>< /div></b></li>
 					</ul>
-					<p>The code <b>bg-success</b> is for the BACKGROUND color and <b>navbar-light</b> is for the TEXT color, but it should be noted that the code <b>navbar-light</b> is refering to a light or dark THEME. If you call for a "Light" theme you are going to get DARK text and if you call for a "Dark" theme, you are going to get LIGHT text</p>
+				</li>
+				<li><b>< /nav></b></li>
+			</ul>
+		</section>
 
-					<nav class="navbar navbar-light bg-success">
-						<a href="#" class="navbar-brand">navbar-light</a>
-					</nav><br>
-					<nav class="navbar navbar-dark bg-success">
-						<a href="#" class="navbar-brand">navbar-dark</a>
-					</nav><br>
-
-					<p><span class="firstWord">You</span> can create your "nav" items by all the normal means of creating links such as using List's or straight up Anchor tags. You can also include Buttoms, Images, or Form elements into your navbar.</p>
-
-					<!-- Set Initial Navbar Container -->
-					<!--expand and show links below if larger than lg Viewport -->
-					<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark"">
-						<!-- Make the navbar "fluid" (uses bootstrap breakpoints) -->
-						<div class="container-fluid">
-
-							<!-- Set the Navbar Brand (Title and/or Logo) -->
-						  	<a class="navbar-brand" href="#">Navbar</a>
-
-							<!-- add "Hamburger" icon for links when they are hidden (navbar-toggler) -->
-							 <!-- (data-bs-toggle="collapse") means the button is initially collapsed -->
-							<!-- (data-bs-target) is the link to "which data should open in the hamburger menu" -->
-							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-								<span class="navbar-toggler-icon"></span>
-							</button>
-
-							<!--set navbar-collapse as default behaviour (hides the links below if smaller than the lg defined above) -->
-							<!-- (id="navbarNav") are the links that will show on the hamburger menu" -->
-						  	<div class="collapse navbar-collapse" id="navbarNav">
-
-								<!-- These are the actual Navbar Links -->
-								<div class="navbar-nav">
-									<a class="nav-link active" aria-current="page" href="#">Home</a>
-									<a class="nav-link" href="#">Features</a>
-									<a class="nav-link" href="#">Pricing</a>
-									<a class="nav-link disabled" aria-disabled="true">Disabled</a>
-								</div>
-
-								<!-- (d-flex) makes the form a flex item -->
-								<!-- (ms-auto) aligns the for to the right of the container -->
-								<!-- mx-auto | align items to the center of the navbar -->
-								<!-- ms-auto | align items to the right of the navbar -->
-								<!-- me-auto | align items to the left of the navbar -->
-								<form class="d-flex ms-auto" role="search">
-									<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-									<button class="btn btn-outline-success" type="submit">Search</button>
-								</form>
-							</div>
-						</div>
-					</nav>
-					<p>Example Navbar Code
-						<a href="https://getbootstrap.com/docs/5.3/components/navbar/#nav" target="_blank"
-						crossorigin="anonymous" referrerpolicy="no-referrer">HERE</a>
-					</p>
-
-				</div>
-			</section>
-
-			<p><a href="#top">Back to Top</a><br /><br /></p>
-		</div>
+		<p><a href="#top">Back to Top</a><br /><br /></p>
 	</section>
 
 	<footer>
