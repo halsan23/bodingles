@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bodingles | Colt Steele</title>
+
+	<!-- Link Favicon -->
+	<link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon">
+
+	<!-- link stylesheets -->
+	<!-- Basic Reset for different browsers support -->
+	<link rel="stylesheet" href="../../../../../css/cssReset.css">
+
+	<!-- Bootstrap Stylesheet -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+	<!-- My local Stylesheets -->
+	<link rel="stylesheet" href="../../../../../css/root.css">
+	<link rel="stylesheet" href="localStyle.css">
+</head>
+
+<body>
+	<!-- Header -->
+	<header>
+		<span class="headLogo"></span>
+		<span class="headTitle headBoot">Bo</span>
+		<span class="headTitleb headBootb">dingles<sub>TM</sub></span>
+		<span class="headScroll">
+			<img src="../../../../../images/scroll.png" alt="">
+		</span>
+		<span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+			<img class="sloganBulb" src="../../../../../images/logos/lightbulb.png"
+				alt="Lightbulb Graphic">Ideas&nbsp;&nbsp;&nbsp;- -
+		</span>
+	</header>
+
+	<section id="main">
+		<div class="content">
+			<!-- Title -->
+			<section>
+				<h2><i>The Web Developer Bootcamp 2024</i></h2>
+				<p>Colt Steele</p>
+				<p><a href="../bootstrapIndex.html">Back to Bootstrap Index Page</a></p>
+				<hr style="width: 50%" />
+			</section>
+
+			<h5>Bootstrap Navbars</h5>
+			<!-- Class Notes -->
+			<section id="textWindow4">
+				<div class="just">
+					<p><span class="firstWord">There</span> is a lot of variation and complexity involved in making Bootstrap Navbars, so be sure to review the documentation for more information and examples. Information on Bootstrap Navbars can be
+						<a href="https://getbootstrap.com/docs/5.3/components/navbar/" target="_blank"
+						crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>. The very basic concept is :
+					</p>
+					<ul>
+						<li>< nav class="navbar navbar-light bg-success">
+							<ul>
+								<li>< a href="#" class="navbar-brand">Navbar< /a></li>
+							</ul>
+						</li>
+						<li>< /nav></li>
+					</ul>
+					<p>The code <b>bg-success</b> is for the BACKGROUND color and <b>navbar-light</b> is for the TEXT color, but it should be noted that the code <b>navbar-light</b> is refering to a light or dark THEME. If you call for a "Light" theme you are going to get DARK text and if you call for a "Dark" theme, you are going to get LIGHT text</p>
+
+					<nav class="navbar navbar-light bg-success">
+						<a href="#" class="navbar-brand">navbar-light</a>
+					</nav><br>
+					<nav class="navbar navbar-dark bg-success">
+						<a href="#" class="navbar-brand">navbar-dark</a>
+					</nav><br>
+
+					<p><span class="firstWord">You</span> can create your "nav" items by all the normal means of creating links such as using List's or straight up Anchor tags. You can also include Buttoms, Images, or Form elements into your navbar.</p>
+
+					<!-- Set Initial Navbar Container -->
+					<!--expand and show links below if larger than lg Viewport -->
+					<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark"">
+						<!-- Make the navbar "fluid" (uses bootstrap breakpoints) -->
+						<div class="container-fluid">
+
+							<!-- Set the Navbar Brand (Title and/or Logo) -->
+						  	<a class="navbar-brand" href="#">Navbar</a>
+
+							<!-- add "Hamburger" icon for links when they are hidden (navbar-toggler) -->
+							 <!-- (data-bs-toggle="collapse") means the button is initially collapsed -->
+							<!-- (data-bs-target) is the link to "which data should open in the hamburger menu" -->
+							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+
+							<!--set navbar-collapse as default behaviour (hides the links below if smaller than the lg defined above) -->
+							<!-- (id="navbarNav") are the links that will show on the hamburger menu" -->
+						  	<div class="collapse navbar-collapse" id="navbarNav">
+
+								<!-- These are the actual Navbar Links -->
+								<div class="navbar-nav">
+									<a class="nav-link active" aria-current="page" href="#">Home</a>
+									<a class="nav-link" href="#">Features</a>
+									<a class="nav-link" href="#">Pricing</a>
+									<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+								</div>
+
+								<!-- (d-flex) makes the form a flex item -->
+								<!-- (ms-auto) aligns the for to the right of the container -->
+								<!-- mx-auto | align items to the center of the navbar -->
+								<!-- ms-auto | align items to the right of the navbar -->
+								<!-- me-auto | align items to the left of the navbar -->
+								<form class="d-flex ms-auto" role="search">
+									<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+									<button class="btn btn-outline-success" type="submit">Search</button>
+								</form>
+							</div>
+						</div>
+					</nav>
+					<p>Example Navbar Code
+						<a href="https://getbootstrap.com/docs/5.3/components/navbar/#nav" target="_blank"
+						crossorigin="anonymous" referrerpolicy="no-referrer">HERE</a>
+					</p>
+
+				</div>
+			</section>
+
+			<p><a href="#top">Back to Top</a><br /><br /></p>
+		</div>
+	</section>
+
+	<footer>
+		<div>Website created by badDoggy</div>
+		<div>|</div>
+		<div>2024</div>
+		<div>|</div>
+		<div>&copy; All Rights Reserved</div>
+	</footer>
+
+	<!-- bootstrap js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
