@@ -5,3 +5,8 @@
 li {
 	list-style: none;
 }
+
+hr {
+	margin: 0 auto;
+	border-bottom: 1px solid black;
+}
