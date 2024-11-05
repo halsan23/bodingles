@@ -1,0 +1,26 @@
+.museumBody {
+   background-color: #f5ebe0;
+   padding: 0 20px;
+   position: absolute;
+}
+
+#topNavbar {
+   position: relative;
+   top: 0;
+
+}
+
+#topNavbar .nav-link {
+   color: #525252;
+   font-size: 1.35rem;
+   font-weight: 200;
+}
+
+#topNavbar .nav-link:hover {
+   color: brown;
+}
+#topNavbar .navbar-brand {
+   color: brown;
+   font-size: 1.5rem;
+   font-weight: 300;
+}
