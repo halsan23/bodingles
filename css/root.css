@@ -375,7 +375,7 @@ li {
 }
 
 .contactWindow {
-   background: center/75% url("../images/email.png");
+   background: center/100% url("../images/email.png");
    width: 30%;
    margin: 0 auto;
    padding: 20px 20px;
@@ -411,3 +411,9 @@ li {
    border-radius: 100px;
    box-shadow: 3px 3px 13px #747474;
 }
+
+@media screen and (max-width:700px) {
+   .headSlogan {
+      display: none;
+   }
+ }

@@ -5,6 +5,7 @@
 }
 
 #topNavbar {
+   background-color: #f0e1d0;
    text-align: left;
    padding-left: 15px;
 }
@@ -18,7 +19,7 @@
 #topNavbar .nav-link:hover {
    color: #f5ebe0;
    background-color: brown;
-   border-radius: 20px;
+   border-radius: 10px;
 }
 
 #topNavbar .navbar-brand {
@@ -27,12 +28,66 @@
    font-weight: 300;
 }
 
-h1, .h1 {
-   font-size: calc(20px + 2vw);
- }
+#headingGroup .h1 {
+   margin-bottom: 35px;
+   color: #7a7a7a;
+   font-size: 4rem;
+   font-weight: 200;
+   letter-spacing: 2.5px;
+}
 
- @media screen and (min-width:1600px) {
-   h1, .h1 {
-     font-size: 80px;
+#row2 .h2 {
+   margin-bottom: 35px;
+   color: brown;
+   font-size: 2.5rem;
+   font-weight: 200;
+   letter-spacing: 2.5px;
+}
+
+.lead {
+   color: #7a7a7a;
+}
+
+.row p {
+   line-height: 2;
+}
+
+#headingGroup span {
+   color: brown;
+}
+
+@media screen and (max-width:1400px) {
+   #headingGroup .h1 {
+      font-size: 3rem;
    }
- }
+}
+
+@media screen and (max-width:1200px) {
+   #headingGroup .h1 {
+      font-size: 2.5rem;
+   }
+   #row2 .h2 {
+      font-size: 2rem;
+   }
+}
+
+@media screen and (max-width:992px) {
+   #headingGroup .h1 {
+      font-size: 2rem;
+   }
+   #row2 .h2 {
+      font-size: 1.25rem;
+   }
+}
+
+@media screen and (max-width:768px) {
+   #row2 .h2 {
+      font-size: 1.75rem;
+   }
+}
+
+@media screen and (max-width:576px) {
+   #row2 .h2 {
+      font-size: 1.5rem;
+   }
+}
