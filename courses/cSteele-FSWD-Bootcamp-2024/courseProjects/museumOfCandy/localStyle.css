@@ -1,13 +1,11 @@
 .museumBody {
    background-color: #f5ebe0;
-   padding: 0 20px;
-   position: absolute;
+   margin: 0 auto;
+   padding: 0;
 }
 
 #topNavbar {
-   position: relative;
-   top: 0;
-
+   padding-left: 15px;
 }
 
 #topNavbar .nav-link {
@@ -17,10 +15,21 @@
 }
 
 #topNavbar .nav-link:hover {
-   color: brown;
+   color: #f5ebe0;
+   background-color: brown;
 }
+
 #topNavbar .navbar-brand {
    color: brown;
    font-size: 1.5rem;
    font-weight: 300;
+}
+
+#meseumHeading {
+   color: #aaaaaa;
+}
+
+img {
+   width: 865px;
+   height: auto;
 }
