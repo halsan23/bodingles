@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="../../../../../css/cssReset.css" />
+
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="localStyle.css" />
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle headBoot">Bo</span>
+      <span class="headTitleb headBootb">dingles<sub>TM</sub></span>
+      <span class="headScroll"><img src="../../../../../images/scroll.png" alt="" /></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p>
+               <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+            </p>
+            <hr style="width: 50%" />
+            <h5>JavaScript Basics</h5>
+         </section>
+
+         <!-- Class Notes -->
+         <section id="textWindow4" class="just lists">
+            <h6>Primitive Type Variables</h6>
+            <p>The Basic JavaScript Building Blocks. JavaScript has 7 primitive data types:</p>
+            <ul>
+               <li><b>Numbers</b>
+                  <ul>
+                     <li>Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point etc. <b>JavaScript numbers are always stored as double precision floating point numbers</b>, following the international IEEE 754 standard. This format
+                        stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 to 51, the exponent in bits 52 to 62, and the sign in bit 63:
+                     </li>
+                     <li><b>Modulus</b>
+                        <ul>
+                           <li>The modulus operator (%) returns the division remainder.
+                              <ul>
+                                 <li>x = 5, y = 2 : z = x % y : z = 1 (remainder of 5 divided by 2)</li>
+                              </ul>
+                           </li>
+                           <li><b>*note</b>: The "MOD" operator with 2 is a good way to find out if any number is ODD or EVEN.
+                              <ul>
+                                 <li>if the mod operation returns <b>1</b>, the number is <b>ODD</b> | 13 % 2 = 1 | 13 is an Odd number.</li>
+                                 <li>if the mod operation returns <b>0</b>, the number is <b>EVEN</b> | 14 % 2 = 0 | 14 is an Even number.</li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><b>Incrementing ++</b>
+                        <ul>
+                           <li>The increment operator (++) increments numbers.
+                              <ul>
+                                 <li>x = 5 : y = x ++ : y = 6 (5 incremented by 1)</li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><b>Decrementing --</b>
+                        <ul>
+                           <li>The decrement operator (--) decrements numbers.
+                              <ul>
+                                 <li>x = 5 : y = x -- : y = 4 (5 decremented by 1)</li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><b>Powers **</b>
+                        <ul>
+                           <li>The power operator (**) returns the power of a number.
+                              <ul>
+                                 <li>x = 2 | y = 4 -- : 2 ** 4 = 16 : 2 to the 4th power returns 16 (2 * 2 * 2 * 2)</li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><b>NaN</b>: Not a Number
+                        <ul>
+                           <li>In JavaScript, NaN is a number that is not a legal number. Any mathematical operation involving NaN, returns <b>NaN</b>. There are five different types of operations that return NaN:
+                              <ul>
+                                 <li>- Failed number conversion such as (e.g. 0 / 0)</li>
+                                 <li>- Math operation where the result is not a real number (e.g. Math.sqrt(-1))</li>
+                                 <li>- Indeterminate form (e.g. 0 * Infinity, 1 ** Infinity, Infinity / Infinity, Infinity - Infinity)</li>
+                                 <li>- A method or expression whose operand is or gets coerced to NaN (e.g. 7 ** NaN, 7 * "blabla") — this means NaN is contagious</li>
+                                 <li>- Other cases where an invalid value is to be represented as a number (e.g. an invalid Date new Date("blabla").getTime(), "".charCodeAt(1))</li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li><b>String</b>
+                  <ul>
+                     <li>Strings are for storing text. A JavaScript string is zero or more characters written inside
+                        quotes. You can use single or double quotes. You can use quotes inside a string, as long as they
+                        don't match the quotes surrounding the string.</li>
+                  </ul>
+               </li>
+               <li><b>Boolean</b>
+                  <ul>
+                     <li>A JavaScript Boolean represents one of two values: <b>True</b> or <b>False</b>. Boolean(10 > 9)
+                        evaluates to <b>True</b> because 10 IS greater than 9. Boolean(10 > 11) evaluates to
+                        <b>False</b> because 10 IS NOT greater than 11.</li>
+                  </ul>
+               </li>
+               <li><b>Null</b>
+                  <ul>
+                     <li>The null keyword represents an intentionally defined absence of value. null is a primitive,
+                        although the typeof operator returns that null is an object. You might define a variable as null
+                        with the expectation that it reflects either a value assigned to it at some point in a script or
+                        an explicitly absent value. You can also assign the null value to an existing reference to clear
+                        a previous value.</li>
+                  </ul>
+               </li>
+               <li><b>Undefined</b>
+                  <ul>
+                     <li>A primitive value assigned to variables that have just been declared, or to the resulting value
+                        of an operation that doesn't return a meaningful value. For example, this can happen when you
+                        declare a function in a browser's developer console. A function explicitly returns undefined
+                        when its return statement returns no value.</li>
+                  </ul>
+               </li>
+               <li><b>Bigint</b>
+                  <ul>
+                     <li>JavaScript BigInt variables are used to store big integer values that are too big to be represented by a normal JavaScript Number. JavaScript integers are only accurate up to 15 digits. To create a BigInt, append n to the end of an integer or call BigInt()</li>
+                  </ul>
+               </li>
+               <li><b>Symbol</b>
+                  <ul>
+                     <li><i>unknown at this time</i></li>
+                  </ul>
+               </li>
+            </ul>
+            <p>Order of Mathmatical Operations (<b>PEMDAS</b>)</p>
+            <ul>
+               <li><b>P</b>arentheses</li>
+               <li><b>E</b>xponents</li>
+               <li><b>M</b>ultiplication</li>
+               <li><b>D</b>ivision</li>
+               <li><b>A</b>ddition</li>
+               <li><b>S</b>untraction</li>
+            </ul>
+            <p><b>typeof</b>
+               <ul>
+                  <li>The typeof operator returns the data type of a JavaScript variable. for example:
+                     <ul>
+                        <li>typeof "John" || Returns string</li>
+                        <li>typeof 33 || Returns number</li>
+                        <li>typeof true || Returns boolean</li>
+                        <li>typeof x || Returns undefined</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>Comments</p>
+            <ul>
+               <li>JavaScript has comments just like HTML and CSS. The format is <b>//</b> and there is NO closing
+                  comment tag.</li>
+               <li>// I am a javascript comment</li>
+            </ul>
+         </section>
+
+         <p><br></p>
+         <p><a href="#top">Back to Top</a><br /><br /></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+</body>
+
+</html>
