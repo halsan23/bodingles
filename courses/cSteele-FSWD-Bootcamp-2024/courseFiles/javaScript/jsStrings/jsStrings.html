@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="../../../../../css/cssReset.css" />
+
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="../localStyle.css" />
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span>
+      <span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headScroll"><img src="../../../../../images/scroll.png" alt="" /></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p>
+               <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+            </p>
+            <hr style="width: 50%" />
+            <h5>JavaScript Strings</h5>
+         </section>
+
+         <!-- Class Notes -->
+         <section id="textWindow4" class="just lists">
+            <p><span class="firstWord">JavaScript Strings</span> are sequences of characters that can contain any sequence of numbers, letters and symbols. Strings are useful for holding data that can be represented in text form. Some of the most-used operations on strings are to check their <b>length</b>, to build and concatenate them using the <b>+ and +=</b> string operators, checking for the existence or location of substrings with the <b>indexOf()</b> method, or extracting substrings with the <b>substring()</b> method.</p>
+            <p>Strings can be created as primitives, from string literals, or as objects, using the <b>String()</b> constructor.</p>
+            <p>When assigning strings to variables, you <b>must</b> enclose them in quotes. In Javascript you can use either single quotes, or double quotes, but you <b>can not</b> mix different quote types (opening and closing). You can however, <b>nest</b> quote types within other qoute types. For example:
+               <ul>
+                  <li><b>"</b>I am a <b>'</b>nested<b>'</b> string.<b>"</b> is valid</li>
+                  <li><b>'</b>I am a <b>"</b>nested<b>"</b> string.<b>'</b> is also valid</li>
+                  <li><b>'</b>I am an invalid string.<b>"</b> is <b>not</b> valid</li>
+               </ul>
+            </p>
+            <hr style="width: 95%;">
+            <h6>Strings Are Indexed</h6>
+            <br>
+            <table style="width: 300px; height: 70px;">
+               <tr style="background-color: black; color: white; text-align: center; font-size: 20px;">
+                  <td>r</td>
+                  <td>o</td>
+                  <td>c</td>
+                  <td>k</td>
+                  <td>e</td>
+                  <td>t</td>
+                  <td>s</td>
+                  <td>h</td>
+                  <td>i</td>
+                  <td>p</td>
+               </tr>
+               <tr>
+               <tr style="text-align: center;">
+                  <td>0</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                  <td>7</td>
+                  <td>8</td>
+                  <td>9</td>
+               </tr>
+            </table>
+            <p>Each character has a corresponding index, a positional number, that references it's position within the string. You access individual characters in the  <b>string</b> br referencing their positional number with square brackets. For example:
+               <ul>
+                  <li>let word = "spaceship" : (assigns the characters to a <b>string</b> variable called <b>word</b>)</li>
+                  <li><b>word[2]</b> would be <b>c</b></li>
+                  <li><b>word[5]</b> would be <b>t</b></li>
+               </ul>
+               Referencing a position in the string that does not exist such as <b>word[99]</b>, will return <b>undefined</b>, which is javascripts way of saying word[99] does not exist.
+            </p>
+            <p>You can aslo reference part of a string with <b>.substr()</b>
+               <ul>
+                  <li>syntax is : <b>.substr(start, how many</b> (optional)<b>)</b></li>
+                  <li><b>word.substr(6)</b> would return <b>ship</b></li>
+                  <li><b>word.substr(0, 4)</b> would return <b>rock</b></li>
+               </ul>
+            </p>
+            <hr style="width: 95%;">
+            <h6>String Length</h6>
+            <p>The length of the string, which is to say, the number of charecter in the string can be determind by <b>string.length</b>. So for our example:
+            <ul>
+               <li><b>word.length</b> would be 10 (0 to 9).</li>
+            </ul></p>
+            <hr style="width: 95%;">
+            <h6>String Concatenation (+)</h6>
+            <p>You can concatenate or add strings together.
+               <ul>
+                  <li>word1 = "rocket"</li>
+                  <li>word2 = "ship"</li>
+                  <li>word = word1 + word2 = rocketship</li>
+               </ul>
+            </p>
+            <p>If you try to add a number to a string, javascript will convert the number to a <b>string</b> and then concatenate the strings. So,
+               <ul>
+                  <li>variable1 = 1</li>
+                  <li>variable2 = "rocketship"</li>
+                  <li>variable1 + variable2 = "1rocketship" <b>as a string</b>.</li>
+               </ul>
+            </p>
+         </section>
+
+         <p><br></p>
+         <p><a href="#top">Back to Top</a><br /><br /></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+</body>
+
+</html>
