@@ -66,6 +66,7 @@ body {
    font-style: normal;
    font-size: 1em;
    text-align: center;
+   letter-spacing: .03em;
 }
 
 /* Set up Header and Footer */
@@ -375,22 +376,28 @@ li {
 }
 
 .contactWindow {
-   background: center/cover url("../images/email.png");
-   width: 30%;
+   background-color: #5b78a2;
+   width: 35%;
    margin: 0 auto;
-   padding: 20px 20px;
    border-radius: 10px;
    border: 1px solid #3e4b2b;
-   box-shadow: 1px 1px 5px #c9c9c9;
+   box-shadow: 2px 2px 7px #c9c9c9;
 }
 
 .contact {
+   background: center url("/images/email.png");
+   background-size: 70%;
+   background-repeat: no-repeat;
+   margin: 0 auto;
+   padding: 25px 20px;
+}
+
+.contactTop {
+   background-color: rgba(255, 255, 255, .5);
+   padding: 25px 35px;
    font-size: 16px;
    font-weight: 500;
-   margin: 0;
-   padding: 20px 40px;
    border-radius: 10px;
-   background-color: rgba(255, 255, 255, .5);
 }
 
 .contMe {
