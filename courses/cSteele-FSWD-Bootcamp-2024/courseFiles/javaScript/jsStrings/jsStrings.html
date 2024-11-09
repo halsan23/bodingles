@@ -173,6 +173,32 @@
                </p>
                <p>If for example our variable word was equal to <b>rocketshiprocket</b>, <b>word.indexOf('rock')</b> would still return a <b>0</b> because this method only returns the <b>first instance</b> of the argument.</p>
             </article>
+            <hr style="width: 95%;">
+            <!-- String Template Literals -->
+            <article>
+               <h6>String  Template Literals</h6>
+               <p><span class="firstWord">String</span> Template Literals are like a shortcut for creating a string with a combination of text and expresions. String Literals MUST be enclosed in <b>back tickmarks</b>. Back Tickmarks are the reverse apostraphe key normally located right above the TAB key on a US keyboard.</p>
+               <p>The way it works is the <b>string</b> (text) part goes inside the back ticks <b>``</b>, and the expresions go inside curly braces {} with a leading dollar sign <b>${}</b>.</p>
+               <p>Example, let's say:
+                  <ul>
+                     <li><b>let item = "pickles";</b></li>
+                     <li><b>let price = 1.25;</b></li>
+                     <li><b>let qty = 5;</b></li>
+                  </ul>
+               </p>
+               <p>We could say : <b>"You bought " + qty + " " + item + " for $" + price + "each. Your Total is: $" + qty * price + "."</b></p>
+               <p>and the output would be: <b>"You bought 5 pickles for $1.25 each. Your Total is: $6.25.</b></p>
+               <p>We could simplify this by using String Template Literals, like this:<br>
+               <b>`You bought ${qty} ${item} for $${price} each. Your Total is: $${qty * price}.`</b> which would ouput the same thing.</p>
+               <p>String Template Literals simplify the coding, perform the math, and convert everything to a string output.</p>
+               <p><b>*sideNote</b>: You could also include methods if you wanted to. Example:
+                  <ul>
+                     <li>`You bought ${qty} ${item<b>.toUpperCase()</b>} for $${price} each. Your Total is: $${qty * price}.`</li>
+                     <li>would output</li>
+                     <li>You bought 5 <b>PICKLES</b> for $1.25 each. Your Total is: $6.25.</li>
+                  </ul>
+               </p>
+            </article>
          </section>
 
          <p><br></p>

@@ -135,19 +135,22 @@
                </li>
                <li><b>Null</b>
                   <ul>
-                     <li>The null keyword represents an intentionally defined absence of value. null is a primitive,
+                     <li>- The null keyword represents an intentionally defined absence of value. null is a primitive,
                         although the typeof operator returns that null is an object. You might define a variable as null
                         with the expectation that it reflects either a value assigned to it at some point in a script or
                         an explicitly absent value. You can also assign the null value to an existing reference to clear
                         a previous value.</li>
+                     <li>- The intentional absence of any value</li>
+                     <li>- Null MUST be assigned</li>
                   </ul>
                </li>
                <li><b>Undefined</b>
                   <ul>
-                     <li>A primitive value assigned to variables that have just been declared, or to the resulting value
+                     <li>- A primitive value assigned to variables that have just been declared, or to the resulting value
                         of an operation that doesn't return a meaningful value. For example, this can happen when you
                         declare a function in a browser's developer console. A function explicitly returns undefined
                         when its return statement returns no value.</li>
+                     <li>- Variables that do NOT have an assigned value. (a variable that has been declared, but not assigned).</li>
                   </ul>
                </li>
                <li><b>Bigint</b>
