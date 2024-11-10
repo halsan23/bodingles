@@ -47,11 +47,54 @@
          <section id="textWindow4" class="just lists">
             <!-- -->
             <article>
-               <p><span class="firstWord"></span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-                  quibusdam sequi impedit nemo suscipit, illum odio facere earum ea rem voluptas corrupti repellat
-                  provident illo. Quis accusamus nisi laboriosam debitis!</p>
+               <p><span class="firstWord">JavaScript</span> Decision Making basically involves branching to different code outputs based on some form of logical comparisons that return Boolean Logic values of True or False. If this logic is true then branch to this code, if not then branch to different code. These logical comparisons and done using different Comparison Operators.
+               </p>
+               <p>All letters, numbers, and characters are assign a <b>Unicode</b> number that you can use to compare with. If you are comparing <b>A</b> to <b>a</b>, you are not comparing two letters, instead you are comparing two unicode numbers.
+               </p>
+               <p>For a complete Unicode List,
+               <a href="https://www.unicodepedia.com/" target="_blank" crossorigin="anonymous"
+                     referrerpolicy="no-referrer">Click Here</a></p>
+               <p>So if you are comparing <b>A</b> to <b>a</b> you are actually comparing <b>41</b>(A) to <b>61</b>(a). So if you compare is A > a, you are actually comparing is 41 > 61 which is False. So the comparison is <b>A > a</b> evaluates to <b>False</b>.</p>
+               <p><b>Basic Operators</b>
+                  <ul>
+                     <li><b>></b> : Greater Than</li>
+                     <li><b><</b> : Less Than</li>
+                     <li><b>>=</b> : Greater Than or Equal To</li>
+                     <li><b><=</b> : Less Than or Equal To</li>
+                  </ul>
+               </p>
+               <p><b>Equality Operators</b>
+                  <ul>
+                     <li><b>==</b> : Equal
+                        <ul>
+                           <li>&#8756; Checks for equality of value, not equality of type.</li>
+                           <li>&#8756; This coerses both values to the same type and then compares them.</li>
+                           <li>&#8756; This can possibly lead to some very unexpected results.</li>
+                           <li>&#8756; 1 == "1" would evaluate to TRUE even though they are two different types, 1 is a number and "1" is a string.</li>
+                        </ul>
+                     </li>
+                     <li><b>!=</b> : Not Equal
+                        <ul>
+                           <li>&#8756; Checks for equality of value, not equality of type.</li>
+                        </ul>
+                     </li>
+                     <li><b>===</b> : Strictly Equal
+                        <ul>
+                           <li>&#8756; Checks for equality of value, <b>AND</b> equality of type.</li>
+                           <li>&#8756; 1 === 1 would evaluate to TRUE - They are both equal in value, and equal in type.</li>
+                           <li>&#8756; 1 === "1" would evaluate to FALSE - They are equal value, but not equal in type.</li>
+                        </ul>
+                     </li>
+                     <li><b>!==</b> : Strictly non-Equal
+                        <ul>
+                           <li>&#8756; Checks for equality of value, <b>AND</b> equality of type.</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
             </article>
             <hr style="width: 95%;">
+            <p>The takeaway here is that <b>for most instances, you should use === and !==</b>.</p>
          </section>
 
          <p><br></p>
