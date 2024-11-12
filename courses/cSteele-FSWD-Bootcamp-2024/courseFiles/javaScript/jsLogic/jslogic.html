@@ -128,11 +128,10 @@
                      <li><b>if</b>: specify a block of code to be executed, if a specified condition is <b>true</b></li>
                      <li><b>else</b>: specify a block of code to be executed, if a specified condition is <b>false</b></li>
                      <li><b>else if</b>: specify a new condition to test, if the <i>first condition</i> is <b>false</b></li>
-                     <li><b>then</b>: </li>
                      <li><b>switch</b>: selects one of many code blocks to be executed
                         <ul>
                            <li>- The switch expression is evaluated once</li>
-                           <li>- The value of the expression is compared with the values of each case</li>
+                           <li>- The value of the expression is compared with the values of each <b>case</b></li>
                            <li>- If there is a match, the associated block of code is executed</li>
                            <li>- If there is no match, the default code block is executed</li>
                            <li>- <a href="https://www.w3schools.com/js/js_switch.asp" target="_blank" crossorigin="anonymous"
@@ -145,9 +144,39 @@
             </article>
                <hr style="width: 95%;">
 
-               <!-- Logical Operators -->
+               <!-- Advanced Logical Operators -->
                <article>
-                  <h6>Logical Operators</h6>
+                  <h6>Advanced Logical Operators</h6>
+                  <p><b>and ( && )</b>: both expressions must be true for the entire statement to be true
+                     <ul>
+                        <li>if (var1 === 5 && var2 === 5) : <b>true</b></li>
+                        <li>if (1 < 4 && 'a' === 'a') : <b>true</b></li>
+                        <li>if (9 < 10 && 9 <= 10) : <b>false</b></li>
+                        <li>if ('abc'.length === 3 && 1 + 1 === 4) : <b>false</b></li>
+                     </ul>
+                  </p>
+                  <p><b>or ( || )</b>: if either expression is true, the entire statement is true
+                     <ul>
+                        <li>if (1 < 4 || 'a' === 'b') : <b>true</b></li>
+                        <li>if (9 > 10 || 9 <= 10) : <b>true</b></li>
+                        <li>if ('a' === 'b' || 5 === 6) : <b>false</b></li>
+                        <li>if (0 || undefined) : <b>false</b></li>
+                     </ul>
+                  </p>
+                  <p><span class="firstWord">Order</span> of priority ::  <b>and ( && )</b> always has priority over <b>or ( || )</b> and will be evaluated first.</p>
+                  <hr style="width: 95%;">
+
+                  <!-- NOT -->
+                  <article>
+                     <h6>Not</h6>
+                     <p><b>not ( ! )</b>: !expression returns true, if expression is false. Essentially returns the opposite of how an expression evaluates. In the following examples,
+                        <ul>
+                           <li><b>!</b>null : <b>true</b> : null is false, so <b>not</b> null returns true</li>
+                           <li><b>!</b>(0 === 0) : <b>false</b> : 0 does equal 0 (true) so <b>not</b> (0 = 0) returns false</li>
+                           <li><b>!</b>(3 <= 4) : <b>false</b> : 3 is less than 4 , so true but <b>not</b> is 3 <= 4 returns false</li>
+                        </ul>
+                     </p>
+                  </article>
                </article>
          </section>
 
