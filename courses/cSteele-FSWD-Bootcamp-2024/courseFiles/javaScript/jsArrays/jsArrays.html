@@ -48,14 +48,24 @@
             <!-- Arrays Defined -->
             <article>
                <p><a href="../../../assets/files/JavaScript_Arrays.pdf" target="_blank">JavaScript Arrays PDF</a></p>
-               <p><span class="firstWord">An</span> array is a special variable, which can hold more than one value, such as a list of cars, or a list different colors. Arrays are an <b>ordered</b> collection of data. The <b>order</b> starts from the left and arrays are indexed from left to right, starting at index[0].</p>
-               <p>The Array object, as with arrays in other programming languages, enables storing a collection of multiple items under a single variable name, and has members for performing common array operations.</p>
-               <p>In JavaScript, arrays aren't primitives but are instead Array objects with the following core characteristics:
-                  <ul>
-                     <li>- JavaScript arrays are resizable and can contain a mix of different data types.</li>
-                     <li>- JavaScript arrays are not associative arrays and so, array elements cannot be accessed using arbitrary strings as indexes, but must be accessed using nonnegative integers (or their respective string form) as indexes.</li>
-                     <li>- JavaScript arrays are zero-indexed: the first element of an array is at index 0, the second is at index 1, and so on — and the last element is at the value of the array's length property minus 1.</li>
-                  </ul>
+               <p><span class="firstWord">An</span> array is a special variable, which can hold more than one value,
+                  such as a list of cars, or a list different colors. Arrays are an <b>ordered</b> collection of data.
+                  The <b>order</b> starts from the left and arrays are indexed from left to right, starting at index[0].
+               </p>
+               <p>The Array object, as with arrays in other programming languages, enables storing a collection of
+                  multiple items under a single variable name, and has members for performing common array operations.
+               </p>
+               <p>In JavaScript, arrays aren't primitives but are instead Array objects with the following core
+                  characteristics:
+               <ul>
+                  <li>- JavaScript arrays are resizable and can contain a mix of different data types.</li>
+                  <li>- JavaScript arrays are not associative arrays and so, array elements cannot be accessed using
+                     arbitrary strings as indexes, but must be accessed using nonnegative integers (or their respective
+                     string form) as indexes.</li>
+                  <li>- JavaScript arrays are zero-indexed: the first element of an array is at index 0, the second is
+                     at index 1, and so on — and the last element is at the value of the array's length property minus
+                     1.</li>
+               </ul>
                </p>
             </article>
             <hr style="width: 95%;">
@@ -64,13 +74,142 @@
             <article>
                <h6>Creating Arrays</h6>
                <p><span class="firstWord">Arrays</span> are created using the Squeare Brackets <b>[]</b>.
+               <ul>
+                  <li><b>let students = [];</b> // an empty array</li>
+                  <li><b>let colors = ['red', 'orange', 'yellow'];</b> // an array of strings</li>
+                  <li><b>let nums = [19, 22, 56, 12, 21];</b> // an array of numbers</li>
+                  <li><b>let stuff = [true, 'cat', 68, null];</b> // a mixed array</li>
+               </ul>
+               </p>
+            </article>
+            <hr style="width: 95%;">
+
+            <!-- Accessing Array Items -->
+            <article>
+               <h6>Accessing Array Items</h6>
+               <p><span class="firstWord">Arrays</span> are indexed in the same way that strings are. The indexing
+                  starts at 0 (zero) and end at the last array item (array.length -1). You can access any array
+                  datapoint by using the square brackets <b>[]</b> and referencing the data index within the array.
+               <table style="height: 70px;">
+                  <tr style="background-color: #303030; color: white; text-align: center; font-size: 20px;">
+                     <td>Doc</td>
+                     <td>Dopey</td>
+                     <td>Bashful</td>
+                     <td>Grumpy</td>
+                  </tr>
+                  <tr>
+                  <tr style="text-align: center;">
+                     <td>0</td>
+                     <td>1</td>
+                     <td>2</td>
+                     <td>3</td>
+                  </tr>
+               </table>
+               </p>
+               <p>So array.length = 4 and the complete array = Doc, Dopey, Bashful, & Grumpy. You can access individual
+                  elements of the array using the square brackets <b>[]</b>. <br>example:
+               <ul>
+                  <li><b>array[0] = Doc</b></li>
+                  <li><b>array[3] = Grumpy</b></li>
+                  <li><b>array[4] = undefined // no item exists at array[8]</b></li>
+               </ul>
+               </p>
+               <p>You can edit items in the array by referencing their index number. You can change both the data, AND
+                  the data type.
+                  <br>example:
+               <ul>
+                  <li><b>array[2] = 27;</b></li>
+               </ul>
+               So the array.length is still 4 but now consists of:
+               <table style="height: 70px;">
+                  <tr style="background-color: #303030; color: white; text-align: center; font-size: 20px;">
+                     <td>Doc</td>
+                     <td>Dopey</td>
+                     <td style="background-color: rgb(119, 149, 65);">27</td>
+                     <td>Grumpy</td>
+                  </tr>
+                  <tr>
+                  <tr style="text-align: center;">
+                     <td>0</td>
+                     <td>1</td>
+                     <td>2</td>
+                     <td>3</td>
+                  </tr>
+               </table>
+               </p>
+            </article>
+            <hr style="width: 95%;">
+
+            <!-- Adding Array Items -->
+            <article>
+               <h6>Adding Array Items</h6>
+               <p>You can ADD new items to the array by referencing a NEW index number. Right now our indexes are 0, 1,
+                  2, & 3.<br>
+                  example:
+               <ul>
+                  <li><b>array[4] = 'Sneezy';</b></li>
+               </ul>
+               So now our array.length = 5 and is:
+               <table style="height: 70px;">
+                  <tr style="background-color: #303030; color: white; text-align: center; font-size: 20px;">
+                     <td>Doc</td>
+                     <td>Dopey</td>
+                     <td>Bashful</td>
+                     <td>Grumpy</td>
+                     <td style="background-color: rgb(119, 149, 65);">Sneezy</td>
+                  </tr>
+                  <tr>
+                  <tr style="text-align: center;">
+                     <td>0</td>
+                     <td>1</td>
+                     <td>2</td>
+                     <td>3</td>
+                     <td>4</td>
+                  </tr>
+               </table>
+               </p>
+               <p>Interestingly enough, when you add a new item, it does not have to be at the end of the array. You
+                  could add say,<br>
                   <ul>
-                     <li><b>let students = [];</b> // an empty array</li>
-                     <li><b>let colors = ['red', 'orange', 'yellow'];</b> // an array of strings</li>
-                     <li><b>let nums = [19, 22, 56, 12, 21];</b> // an array of numbers</li>
-                     <li><b>let stuff = [true, 'cat', 68, null];</b> // a mixed array</li>
+                     <li><b>array[7] = 'Rudolph';</b></li>
+                  </ul>
+                  So now our array.length = 8 and is:
+                  <table style="height: 70px;">
+                     <tr style="background-color: #303030; color: white; text-align: center; font-size: 20px;">
+                        <td>Doc</td>
+                        <td>Dopey</td>
+                        <td>Bashful</td>
+                        <td>Grumpy</td>
+                        <td>Sneezy</td>
+                        <td style="background-color: rgb(119, 149, 65);">empty</td>
+                        <td style="background-color: rgb(119, 149, 65);">empty</td>
+                        <td style="background-color: rgb(119, 149, 65);">Rudolph</td>
+                     </tr>
+                     <tr>
+                     <tr style="text-align: center;">
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                     </tr>
+                  </table>
+               </p>
+               <p>When you add items that are not on the end of the existing array items, those <b>empty</b> indexes become <b>undefined</b> items.</p>
+               <p>If you don't know how many items are in the array you could use <b>array[array.length] = 'newItem';</b>. Since array indexes start at <b>0</b>(zero), and the length of the array starts counting at <b>1</b>(one), the length of the array will also reference the next new item index.
+               </p>
+               <p>But, a better way to insert new items is to use:
+                  <ul>
+                     <li><b>Unshift('newItem')</b>: Add a new item to the start</li>
+                     <li><b>Push('newItem')</b>: Add new item at the end</li>
+                     <li><b>Shift()</b>: Remove the item from the start</li>
+                     <li><b>Pop()</b>: Remove the item at the end</li>
                   </ul>
                </p>
+               <p><b>pop()</b> and <b>shift()</b> do NOT require arguments.</p>
             </article>
             <hr style="width: 95%;">
          </section>
