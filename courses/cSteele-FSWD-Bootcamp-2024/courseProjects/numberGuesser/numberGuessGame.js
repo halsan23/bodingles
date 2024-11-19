@@ -1,10 +1,6 @@
-let maximum = parseInt(prompt("Enter the maximum number!"));
-while (!maximum) {
-    maximum = parseInt(prompt("Enter a valid number!"));
-}
+const targetNum = Math.floor(Math.random() * 75) + 1;
 
-const targetNum = Math.floor(Math.random() * maximum) + 1;
-
+alert("I'm thinking of a number between 1 and 75. Can you guess my number?");
 let guess = prompt("Enter your first guess! (Type 'q' to quit)");
 let attempts = 1;
 
