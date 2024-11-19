@@ -1,34 +1,25 @@
-let maximum = parseInt(prompt("Enter the maximum number!"));
-while (!maximum) {
-    maximum = parseInt(prompt("Enter a valid number!"));
+const scores = {
+    keenan: 80,
+    damon: 67,
+    kim: 89,
+    shawn: 91,
+    marlon: 72,
+    dwayne: 77,
+    nadia: 83,
+    elvira: 97,
+    diedra: 81,
+    vonnie:  60
 }
 
-const targetNum = Math.floor(Math.random() * maximum) + 1;
-
-let guess = prompt("Enter your first guess! (Type 'q' to quit)");
-let attempts = 1;
-
-while (parseInt(guess) !== targetNum) {
-    if (guess === 'q') break;
-    guess = parseInt(guess);
-    if (guess > targetNum) {
-        guess = prompt("Too high! Enter a new guess:");
-        attempts++;
-    } else if (guess < targetNum) {
-        guess = prompt("Too low! Enter a new guess:");
-        attempts++;
-    } else {
-        guess = prompt("Invalid guess. Please enter a number or 'q' to quit");
-    }
+for (let person in scores) {
+    console.log(`${person} scored a ${scores[person]}`);
 }
 
-if (guess === 'q') {
-    console.log("OK, YOU QUIT!")
-} else {
-    console.log("CONGRATS YOU WIN!")
-    if (attempts === 1) {
-      console.log(`It took you ${attempts} guess`);
-    } else {
-      console.log(`It took you ${attempts} guesses`);
-    }
+console.log(Object.keys(scores));
+console.log(Object.values(scores));
+console.log(Object.entries(scores));
+
+
+for (let person of Object.keys(scores)) {
+    console.log(`${person} scored a ${scores[person]}`);
 }

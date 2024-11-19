@@ -310,7 +310,7 @@ li {
    background-color: #f3f3f3;
    border-radius: 1.1rem;
    border: 1px solid #3e4b2b;
-   box-shadow: 1px 1px 5px #c9c9c9;
+   box-shadow: 10px 10px 15px #c9c9c9;
 }
 
 #textWindow3 {
@@ -320,7 +320,7 @@ li {
    background-color: #f3f3f3;
    border-radius: 1.1rem;
    border: 1px solid #3e4b2b;
-   box-shadow: 1px 1px 5px #c9c9c9;
+   box-shadow: 10px 10px 15px #c9c9c9;
 }
 
 #textWindow4 {
@@ -330,7 +330,7 @@ li {
    background-color: #f3f3f3;
    border-radius: 1.1rem;
    border: 1px solid #3e4b2b;
-   box-shadow: 1px 1px 5px #c9c9c9;
+   box-shadow: 10px 10px 15px #c9c9c9;
 }
 
 .splitWindow {
@@ -347,7 +347,7 @@ li {
    background-color: #f3f3f3;
    border-radius: 1.1rem;
    border: 1px solid #3e4b2b;
-   box-shadow: 1px 1px 5px #c9c9c9;
+   box-shadow: 10px 10px 15px #c9c9c9;
 }
 
 #splitWindowRt {
@@ -358,7 +358,7 @@ li {
    background-color: #f3f3f3;
    border-radius: 1.1rem;
    border: 1px solid #3e4b2b;
-   box-shadow: 1px 1px 5px #c9c9c9;
+   box-shadow: 10px 10px 15px #c9c9c9;
 }
 
 #splitWindowLt img {
@@ -380,8 +380,8 @@ li {
    width: 35%;
    margin: 0 auto;
    border-radius: 10px;
-   border: 1px solid #3e4b2b;
-   box-shadow: 2px 2px 7px #c9c9c9;
+   border: 3px solid #8dbcff;
+   box-shadow: 10px 10px 15px #c9c9c9;
 }
 
 .contact {

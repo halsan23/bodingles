@@ -44,7 +44,8 @@
          </section>
 
          <!-- JavaScript Objects Reference Links -->
-         <section id="textWindow2" style="background-color: #fff; border: none;">
+         <section id="textWindow2" style="background-color: #fff;">
+            <h6>JavaScript Loops References</h6>
             <p><a href="../../../assets/files/JavaScript_Loops.pdf" target="_blank">JavaScript Loops PDF</a></p>
             <p><a href="https://www.w3schools.com/js/js_loop_for.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Loops</a></p>
             <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" target="_blank" rel="noopener noreferrer">MDN JavaScript Loops</a></p>
@@ -85,7 +86,7 @@
                <!-- while loop -->
                <p>
                   <ul>
-                     <li><b>while</b>: statement executes its statements as long as a specified condition evaluates to true.
+                     <li><b>while</b>: statement executes its statements as long as a specified condition evaluates to <b>true</b>.
                         <ul>
                            <b><li>let n = 0;</li>
                            <li>let x = 0;</li>
@@ -106,7 +107,7 @@
                <!-- do ... while loop -->
                <p>
                   <ul>
-                     <li><b>do ... while</b>: statement repeats until a specified condition evaluates to false.
+                     <li><b>do ... while</b>: statement repeats until a specified condition evaluates to <b>false</b>.
                         <ul><b>
                            <li>let i = 0;</li>
                            <li>do {
@@ -122,43 +123,117 @@
                </p>
                <hr style="width: 50%; margin-left: 20px;">
 
-               <!-- for ... in loop -->
-               <p>
-                  <ul>
-                     <li><b>for ... in</b>: statement iterates a specified variable over all the enumerable properties of an object. For each distinct property, JavaScript executes the specified statements.
-                        <b><ul>
-                           <li>const person = {fname:"John", lname:"Doe", age:25};</li>
-                           <li><br></li>
-                           <li>let text = "";</li>
-                           <li>for (let x in person) {
-                              <ul>
-                                 <li>text += person[x];</li>
-                              </ul>
-                           </li>
-                           <li>}</li>
-                        </ul></b>
-                     </li>
-                  </ul>
-               </p>
-               <hr style="width: 50%; margin-left: 20px;">
 
                <!-- for ... of loop -->
                <p>
                   <ul>
-                     <li><b>for ... of</b>: statement creates a loop Iterating over iterable objects (including Array, Map, Set, arguments object and so on), invoking a custom iteration hook with statements to be executed for the value of each distinct property.<br>
-                     <b>*note: For/of</b> is not supported in Internet Explorer.
+                     <li><b>for ... of</b>: statement creates a loop <b>Iterating over iterable objects</b> (including Array, Map, Set, arguments object and so on), invoking a custom iteration hook with statements to be executed for the value of each distinct property.</li>
+                     <li>Since arrays <b>are</b> Iterable Objects, we can use the <b>for ... of</b> loop to isolate and use the object data.</li>
+                     <li><b>*note: For/of</b> is not supported in Internet Explorer<br><br>
                         <ul><b>
-                           <li>const cars = ["BMW", "Volvo", "Mini"];</li>
-                           <li>let text = "";</li>
+                           <li>let numbers = [1, 2, 3, 4, 5];</li>
                            <li><br></li>
-                           <li>for (let x of cars) {
+                           <li>for (let num of numbers) {
                               <ul>
-                                 <li>text += x;</li>
+                                 <li>console.log(num);</li>
                               </ul>
                            </li>
                            <li>}</li>
                         </ul></b>
                      </li>
+                     <li>so the loop assigns a variable (num) to the property at the array index, each time through the loop, which you can then manipulate. In this case, just display the [num] variable.</li>
+                  </ul>
+               </p>
+               <hr style="width: 50%; margin-left: 20px;">
+
+               <!-- for ... in loop -->
+               <p>
+                  <ul>
+                     <li>For <b>objects that are NOT iterable</b>, we can use the <b>for ... in</b> loop to isolate and use the object data.</li>
+                     <li><b>for ... in</b>: statement iterates a specified variable over all the enumerable properties of an object. For each distinct property, JavaScript executes the specified statements.
+                        <b><ul>
+                           <li>const scores = {
+                              <ul>
+                                 <li>keenan: 80,</li>
+                                 <li>damon: 67,</li>
+                                 <li>kim: 89,</li>
+                                 <li>shawn: 91,</li>
+                                 <li>marlon: 72,</li>
+                                 <li>dwayne: 77,</li>
+                                 <li>nadia: 83,</li>
+                                 <li>elvira: 97,</li>
+                                 <li>diedra: 81,</li>
+                                 <li>vonnie:  60</li>
+                              </ul>
+                           </li>
+                           <li>}</li>
+                           <li><br></li>
+                           <li>for (let person in scores) {
+                              <ul>
+                                 <li>console.log(`${person} scored a ${scores[person]}`);</li>
+                              </ul>
+                           </li>
+                           <li>}</li>
+                        </ul></b>
+                     </li>
+                     <li>so again, the loop assigns a variable (person) to each object property as it loops through, which you can then manipulate. In this case, just display "[person] scored a score[person]"<br><br></li>
+                  </ul>
+               </p>
+               <hr style="width: 50%; margin-left: 20px;">
+
+               <!-- Using the OBJECT method -->
+                <h6>The Object method</h6>
+               <p>
+                  <ul>
+                     <li>Another option to the <b>for ... in</b> loop is to use the <b>Object</b> method.<br><br></li>
+                     <li>Using the <b>Object</b> method <i>converts</i> the <b>non-iterable</b> object into an ARRAY, which <b>is iterable</b>. Once you have the array you can use the <b>for ... of</b> loop listed above to then manipulte the object data.<br><br></li>
+                     <li>if we use <b>Object.keys(scores)</b>, we get:
+                        <ul>
+                           <li>'keenan', 'damon', 'kim', 'shawn', 'marlon', 'dwayne', 'nadia', 'elvira', 'diedra', 'vonnie'</li>
+                        </ul>
+                     </li>
+                     <li>if we use <b>Object.values(scores)</b>, we get:
+                        <ul>
+                           <li>80, 67, 89, 91, 72, 77, 83, 97, 81, 60</li>
+                        </ul>
+                     </li>
+                     <li>and, if we use <b>Object.entries(scores)</b>, we get:
+                        <ul>
+                           <li>['keenan', 80], ['damon', 67], ['kim', 89], ['shawn', 91], ['marlon', 72], ['dwayne', 77], ['nadia', 83],
+                              ['elvira', 97], ['diedra', 81], ['vonnie', 60]<br><br>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>so for the previous example:
+                        <b><ul>
+                           <li>const scores = {
+                              <ul>
+                                 <li>keenan: 80,</li>
+                                 <li>damon: 67,</li>
+                                 <li>kim: 89,</li>
+                                 <li>shawn: 91,</li>
+                                 <li>marlon: 72,</li>
+                                 <li>dwayne: 77,</li>
+                                 <li>nadia: 83,</li>
+                                 <li>elvira: 97,</li>
+                                 <li>diedra: 81,</li>
+                                 <li>vonnie:  60</li>
+                              </ul>
+                           </li>
+                           <li>}</li>
+                        </ul></b>
+                     </li>
+                     <li>we could use:
+                        <b><ul>
+                           <li>for (let person of Object.keys(scores)) {
+                              <ul>
+                                 <li>console.log(`${person} scored a ${scores[person]}`);</li>
+                              </ul>
+                           </li>
+                           <li>}</li>
+                        </ul></b>
+                     </li>
+                     <li>and we are now able to iterate through a non-iterable object.</li>
                   </ul>
                </p>
             </article>
