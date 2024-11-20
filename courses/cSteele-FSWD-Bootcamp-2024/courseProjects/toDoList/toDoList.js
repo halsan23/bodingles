@@ -36,7 +36,7 @@ while (choice !== "q" && choice !== "quit") {
    }
 
    // Delete Items
-   if (choice.toLowerCase() === "d" || choice.toLowerCase() === "delete") {
+   if (choice === "d" || choice === "delete") {
       if (toDoList.length < 1) {
          alert('The ToDo List is Empty : No Items to Delete!');
          choice = "";
@@ -48,10 +48,13 @@ while (choice !== "q" && choice !== "quit") {
                   toDoList.splice(i, 1);
                   arrCheck = 1;
                }
-               if (arrCheck === 0) {
-                  alert(`${delItem} not Found : Check spelling and try again:`)
-               }
             }
+            if (arrCheck === 0) {
+               alert(`${delItem} not Found : Check spelling and try again:`)
+            }
+         } else {
+            choice = "";
+            arrCheck = 0;
          }
       }
    }
