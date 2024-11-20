@@ -1,7 +1,7 @@
 // JavaScript ToDo List
 
 // Initialize Vriables
-let toDoList = [];
+const toDoList = [];
 let choice = "";
 let addNew = "";
 let arrCheck = 0;
@@ -27,7 +27,7 @@ while (choice !== "q" && choice !== "quit") {
       } else {
          console.log('ToDo List');
          console.log('===============');
-         for (i = 0; i < toDoList.length; i++) {
+         for (let i = 0; i < toDoList.length; i++) {
             console.log(`ToDo #${i + 1}: ${toDoList[i]}`);
          }
          console.log('---------------');
@@ -43,8 +43,13 @@ while (choice !== "q" && choice !== "quit") {
       } else {
          delItem = prompt("Delete an Existing ToDo Item or C)ancel?");
          if (delItem.toLowerCase() !== "c" && delItem.toLowerCase() !== "cancel") {
-            for (i = 0; i < toDoList.length; i++) {
+            for (let i = 0; i < toDoList.length; i++) {
                if (toDoList[i] === delItem) {
+                  console.log(`Deleted List Item ${i + 1} : ${toDoList[i]}`);
+                  toDoList.splice(i, 1);
+                  arrCheck = 1;
+               } else if (parseInt(delItem-1) === i) {
+                  console.log(`Deleted List Item ${i + 1} : ${toDoList[i]}`);
                   toDoList.splice(i, 1);
                   arrCheck = 1;
                }
