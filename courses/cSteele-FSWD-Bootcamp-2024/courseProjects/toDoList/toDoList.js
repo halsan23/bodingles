@@ -1,27 +1,60 @@
-let myList = [];
-let inp = "";
-let del = "";
+// JavaScript ToDo List
 
-while (inp.toLowerCase() !== "q" && inp.toLowerCase() !== "quit") {
-   inp = prompt("To Do List : A)dd, D)elete, L)ist, Q)uit?");
+// Initialize Vriables
+let toDoList = [];
+let choice = "";
+let addNew = "";
+let arrCheck = 0;
 
-   if (inp.toLowerCase() === "a" || inp.toLowerCase() === "add") {
-      let add = prompt("Add a new To Do List Item: (C to cancel)");
-      if (add.toLowerCase !== "c") {
-         myList.push(add);
-      }
-   } else if (inp.toLowerCase() === "d" || inp.toLowerCase() === "delete") {
-      while (del.toLowerCase !== "c")
-      del = prompt("Delete which To Do List Item? (C to cancel)");
-      for (let i = 0; i < myList.length; i++) {
-         while (myList[i] === del) {
-            prompt(`${del} was not found, please check the spelling.`)
-         }
+while (choice !== "q" && choice !== "quit") {
+   choice = prompt("ToDo List: A)dd a New Item, L)ist Items, D)elete an Item, or  Q)uit?").toLowerCase();
+
+   // Add a new item
+   while (choice === "a" || choice === "add") {
+      addNew = prompt("Add a New Item or C)ancel?");
+      if (addNew.toLowerCase() !== "c" && addNew.toLowerCase() !== "cancel") {
+         toDoList.push(addNew);
+      } else {
+         choice = "";
       }
    }
 
+   // List Items
+   if (choice.toLowerCase() === "l" || choice.toLowerCase() === "list") {
+      if (toDoList.length < 1) {
+         console.log('No Items in ToDo List');
+         alert('ToDo List is Empty');
+      } else {
+         console.log('ToDo List');
+         console.log('===============');
+         for (i = 0; i < toDoList.length; i++) {
+            console.log(`ToDo #${i + 1}: ${toDoList[i]}`);
+         }
+         console.log('---------------');
+         choice = "";
+      }
+   }
+
+   // Delete Items
+   if (choice.toLowerCase() === "d" || choice.toLowerCase() === "delete") {
+      if (toDoList.length < 1) {
+         alert('The ToDo List is Empty : No Items to Delete!');
+         choice = "";
+      } else {
+         delItem = prompt("Delete an Existing ToDo Item or C)ancel?");
+         if (delItem.toLowerCase() !== "c" && delItem.toLowerCase() !== "cancel") {
+            for (i = 0; i < toDoList.length; i++) {
+               if (toDoList[i] === delItem) {
+                  toDoList.splice(i, 1);
+                  arrCheck = 1;
+               }
+               if (arrCheck === 0) {
+                  alert(`${delItem} not Found : Check spelling and try again:`)
+               }
+            }
+         }
+      }
+   }
 }
-console.log(`My List length = ${myList.length}`)
-console.log(`My List = ${myList}`);
-console.log(`inp = ${inp}`);
-console.log("All Done :)");
+
+console.log('All Done');
