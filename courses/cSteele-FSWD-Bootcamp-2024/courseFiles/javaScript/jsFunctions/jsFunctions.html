@@ -54,7 +54,7 @@
 
          <!-- Class Notes -->
          <section id="textWindow4" class="just lists">
-            <!-- Loops Defined -->
+            <!-- Functions Defined -->
             <article>
                <p><span class="firstWord">Functions</span> are one of the fundamental building blocks in JavaScript. Functions are reusable blocks of code that perform a specific task. You define it once, and then you can run (or “call”) it whenever you need that task done in your program.</p>
                <p>For a procedure to qualify as a function, it should take some input and return an output, where there is some obvious relationship between the input and the output.</p>
@@ -91,6 +91,56 @@
                   </ul>
                </b></p>
                <p>and everytime we <b>call</b> this function <b>getRandomNum()</b> it would <b>return</b> a random number between 1 and 10.</p>
+            </article>
+            <hr style="width: 95%;">
+
+            <!-- Function Arguments -->
+            <article>
+               <h6>Arguments</h6>
+               <p>With function, you can pass in <b>arguments</b> which are variables that are used within the function. Let's create a new function called <b>name</b>:
+                  <ul>
+                     <li>function name(<b>fname</b>) {
+                        <ul>
+                           <li>console.log(`First Name: ${<b>fname</b>}`);</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </p>
+               <p>We are using <b>fname</b> as a variable for use within the function,and if we paass in a name for the argument
+                  <ul>
+                     <li><b>name('Ben')</b></li>
+                  </ul>
+               the ouput would be: <b>First Name: Ben</b>
+               </p>
+               <hr style="width: 50%; margin-left: 0;">
+               <p>We can also pass multiple arguments into a function like so:
+                  <ul>
+                     <li>function name(<b>fName</b>, <b>lName</b>) {
+                        <ul>
+                           <li>console.log(`Your name is ${<b>fName</b>} ${<b>lName</b>}`);</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </p>
+               <p>and if we pass in the arguments:
+                  <ul>
+                     <li><b>name('Ben', 'Franklin')</b></li>
+                  </ul>
+                  the ouput would be: <b>Your name is Ben Franklin</b>
+               </p>
+               <hr style="width: 50%; margin-left: 0;">
+               <h6>return</h6>
+               <p>We have been using <b>console.log()</b> to send our ouput to the screen, but what if we wanted to send the results of the function back to the code for use within the code. We would do this with the <b>return</b> statement.</p>
+               <p>I the prevous example instead of outputting <b>Ben Franklin</b> to the screen, we could return it to the code as a variable <b>return `Your name is ${<b>fName</b>} ${<b>lName</b>}`;</b></p>
+               <p>You can assign this variable within the function:
+                  <b><ul>
+                     <li>let wholeName = `fName lName';</li>
+                     <li>return wholeName;</li>
+                  </ul></b>
+                  <b>note*</b>: the RETURN statement terminates the function so it should be the last statement in the function.
+               </p>
             </article>
             <hr style="width: 95%;">
 
