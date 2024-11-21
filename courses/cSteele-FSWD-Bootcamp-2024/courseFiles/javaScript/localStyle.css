@@ -5,3 +5,7 @@ li {
 td {
    padding: 0 15px;
 }
+
+article {
+   text-align: justify;
+}

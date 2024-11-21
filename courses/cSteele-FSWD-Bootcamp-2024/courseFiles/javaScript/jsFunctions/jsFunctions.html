@@ -44,7 +44,7 @@
          </section>
 
          <!-- JavaScript Objects Reference Links -->
-         <section id="textWindow2" style="background-color: #fff;">
+         <section id="textWindow2">
             <h6>JavaScript Functions References</h6>
             <p><a href="../../../assets/files/JavaScript_Functions_Intro.pdf" target="_blank">JavaScript Functions PDF</a></p>
             <p><a href="https://www.w3schools.com/js/js_functions.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Functions</a></p>
@@ -56,7 +56,41 @@
          <section id="textWindow4" class="just lists">
             <!-- Loops Defined -->
             <article>
-               <p><span class="firstWord">Functions</span> </p>
+               <p><span class="firstWord">Functions</span> are one of the fundamental building blocks in JavaScript. Functions are reusable blocks of code that perform a specific task. You define it once, and then you can run (or “call”) it whenever you need that task done in your program.</p>
+               <p>For a procedure to qualify as a function, it should take some input and return an output, where there is some obvious relationship between the input and the output.</p>
+               <hr style="width: 50%; margin-left: 0;">
+               <h6>Basic Syntax</h6>
+               <p>A JavaScript function is defined with the <b>function</b> keyword, followed by a <b>name</b>, followed by parentheses <b>()</b>. Function names can contain letters, digits, underscores, and dollar signs (same rules as variables). The parentheses may include parameter names separated by commas: (parameter1, parameter2, ...). The code to be executed, by the function, is placed inside curly brackets: <b>{}</b></p>
+               <p><b>
+                  <ul>
+                     <li>function funcName(parameter1, parameter2, parameter3) {
+                        <ul>
+                           <li>code to be executed</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </b></p>
+               <p>For example, if we wanted we could write a function to return a random number, say between 1 and 10. Remember:
+                  <ul>
+                     <li><b>Math.random()</b> returns a decimal number between 0 and 1 (not including 1)</li>
+                     <li><b>Math.random() * 10</b> returns a decimal number between 0 and 10 (not including 10)</li>
+                     <li><b>Math.floor()</b> would return only integers so, 0 to 10 (not including 10)</li>
+                     <li>if you want to start at 1 instead of 0, and include 10: you <b>add 1</b></li>
+                     <li>so our needed formula is <b>Math.floor(Math.random() * 10) + 1</b></li>
+                  </ul>
+               </p>
+               <p>So the function would be:<b>
+                  <ul>
+                     <li>function getRandomNum() {
+                        <ul>
+                           <li>Math.floor(Math.random() * 10) + 1</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </b></p>
+               <p>and everytime we <b>call</b> this function <b>getRandomNum()</b> it would <b>return</b> a random number between 1 and 10.</p>
             </article>
             <hr style="width: 95%;">
 
