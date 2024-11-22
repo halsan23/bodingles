@@ -46,7 +46,8 @@
          <!-- JavaScript Objects Reference Links -->
          <section id="textWindow2">
             <h6>JavaScript Functions References</h6>
-            <p><a href="../../../assets/files/JavaScript_Functions_Intro.pdf" target="_blank">JavaScript Functions PDF</a></p>
+            <p><a href="../../../assets/files/JavaScript_Functions_Intro.pdf" target="_blank">JavaScript Functions Intro PDF</a></p>
+            <p><a href="../../../assets/files/JavaScript_Functions_pt.2.pdf" target="_blank">JavaScript Functions Part 2 PDF</a></p>
             <p><a href="https://www.w3schools.com/js/js_functions.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Functions</a></p>
             <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank" rel="noopener noreferrer">MDN JavaScript Functions</a></p>
             <p><a href="https://www.geeksforgeeks.org/functions-in-javascript/" target="_blank" rel="noopener noreferrer">Geeks4Geeks JavaScript Functions</a></p>
@@ -140,6 +141,33 @@
                      <li>return wholeName;</li>
                   </ul></b>
                   <b>note*</b>: the RETURN statement terminates the function so it should be the last statement in the function.
+               </p>
+            </article>
+            <hr style="width: 95%;">
+
+            <article>
+               <h6>Scope</h6>
+               <p><a href="https://www.w3schools.com/js/js_scope.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Scope</a></p>
+               <p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" target="_blank" rel="noopener noreferrer">MDN JavaScript Scope</a></p>
+               <p><span class="firstWord">Scope</span> refers to <b>where</b> a variable is defined and what parts of the code will have access to that variable. JavaScript variables have 3 types of scope:
+                  <ul>
+                     <li><b>Block scope</b></li>
+                     <li><b>Function scope</b></li>
+                     <li><b>Global scope</b></li>
+                  </ul>
+               </p>
+               <p>When you assign variables <i>inside of brackets <b>{}</b></i>, using <b>const</b> and <b>let</b> the scope is inside the curly brackets ONLY, and the variables will NOT be available outside of the curly brackets. For example:
+                  <ul>
+                     <li>function fullName() {
+                        <ul>
+                           <li><b>const</b> fname = 'Benny';</li>
+                           <li><b>let</b> lname = 'Hill';</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                     <li>console.log(fname + lname);</li>
+                  </ul>
+                  This code snippet will output NOTHING because the variables <b>fname</b> and <b>lname</b> are NOT accessible outside of the curly brackets <b>{}</b>.
                </p>
             </article>
             <hr style="width: 95%;">

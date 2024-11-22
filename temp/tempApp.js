@@ -1,9 +1,8 @@
 // Functions
 
-function getRandomNum(limit) {
-    console.log(Math.floor(Math.random() * limit) + 1);
-}
+function fullName() {
+    const fname = 'Benny';
+    let lname = 'Hill';
+    }
 
-getRandomNum(5)
-getRandomNum(10)
-getRandomNum(20)
+console.log(fname + lname);
