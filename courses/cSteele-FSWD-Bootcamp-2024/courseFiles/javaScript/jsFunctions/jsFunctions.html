@@ -151,12 +151,14 @@
                <p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" target="_blank" rel="noopener noreferrer">MDN JavaScript Scope</a></p>
                <p><span class="firstWord">Scope</span> refers to <b>where</b> a variable is defined and what parts of the code will have access to that variable. JavaScript variables have 3 types of scope:
                   <ul>
-                     <li><b>Block scope</b></li>
-                     <li><b>Function scope</b></li>
-                     <li><b>Global scope</b></li>
+                     <li><b>Block scope</b> refers to a variable that is created inside of a block of code, and <b>is only useable inside that block of code</b>.</li>
+                     <li><b>Function scope</b> refers to a variable that is created inside a function, and <b>is only useable inside the function</b>.</li>
+                     <li><b>Global scope</b> refers to a variable that is declared <b>outside</b> of a function. This variable is <b>global</b> in nature and would be available everywhere int he code.</li>
                   </ul>
                </p>
-               <p>When you assign variables <i>inside of brackets <b>{}</b></i>, using <b>const</b> and <b>let</b> the scope is inside the curly brackets ONLY, and the variables will NOT be available outside of the curly brackets. For example:
+               <hr style="width: 50%; margin-left: 0;">
+               <p><span class="firstWord">*Notes:</span> Block and Function Scope</p>
+               <p>When you assign variables <i>inside of brackets <b>{}</b></i>, using <b>const</b> or <b>let</b>, the scope is inside the curly brackets <b>ONLY</b>, and the variables will <b>NOT</b> be available outside of the curly brackets. For example:
                   <ul>
                      <li>function fullName() {
                         <ul>
@@ -169,8 +171,47 @@
                   </ul>
                   This code snippet will output NOTHING because the variables <b>fname</b> and <b>lname</b> are NOT accessible outside of the curly brackets <b>{}</b>.
                </p>
+               <hr style="width: 50%; margin-left: 0;">
+               <p>However, when you use <b>var</b> to define the variable, this would make the variable accessable <b>outside</b> of the curly bvrackets <b>{}</b>. For example:
+                  <ul>
+                     <li>function fullName() {
+                        <ul>
+                           <li><b>var</b> fname = 'Benny';</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                     <li>console.log(fname);</li>
+                  </ul>
+                  would output <b>Benny</b> because the <b>var</b> designation make the variable available <b>outside</b> of the curly brackets <b>{}</b>.
+               </p>
+               <hr style="width: 50%; margin-left: 0;">
+               <p><span class="firstWord">In Summary</span>, <b>var</b> is an older keyword and is not used much anymore. <b>const</b> and <b>let</b> were created specifically for "SCOPING" purposes and are used most of the time.</p>
             </article>
             <hr style="width: 95%;">
+
+            <article>
+               <h6>Function Expressions</h6>
+               <p>are a way of <b>assigning a function to a variable</b>. If we have a basic function like:
+                  <ul>
+                     <li>function add(x, y) {
+                        <ul>
+                           <li>return x + y;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  when you call the function <b>add(3, 4);</b> it would return 7. but we can rewrite the function and assign it to a variable, like so:
+                  <ul>
+                     <li><b>const add = function</b>(x, y) {
+                        <ul>
+                           <li>return x + y;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  which would run exactly the same and return <b>7</b>, but <b>add</b> is NOW a variable and can be used as such.
+               </p>
+            </article>
 
          </section>
 
