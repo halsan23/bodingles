@@ -212,6 +212,79 @@
                   which would run exactly the same and return <b>7</b>, but <b>add</b> is NOW a variable and can be used as such.
                </p>
             </article>
+            <hr style="width: 95%;">
+
+            <article>
+               <h6>this</h6>
+               <p><span class="firstWord">this</span> is a keyword and it refers to the context where a piece of code, such as a function's body, is supposed to run. Most typically, it is used in object methods, where this refers to the object that the method is attached to, thus allowing the same method to be reused on different objects. For example, if you tried to run this object:
+                  <ul>
+                     <li>const hen = {
+                        <ul>
+                           <li>name: 'Helen',</li>
+                           <li>eggCount: 0,</li>
+                           <li>layAnEgg() {
+                              <ul>
+                                 <li>eggCount += 1;</li>
+                                 <li>return eggCount</li>
+                              </ul>
+                           </li>
+                           <li>}</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               it would return an error because <b>eggCount</b> was defined before the layAnEgg function and is limited by scope to only be accessable <b>outside</b> of that function, so the function is trying to use a variable that has not been defined within the function (limited by scope).
+               </p>
+               <p>This error can be overcome by using the keyword <b>this</b>. If we modify our object like so:
+                  <ul>
+                     <li>const hen = {
+                        <ul>
+                           <li>name: 'Helen',</li>
+                           <li>eggCount: 0,</li>
+                           <li>layAnEgg() {
+                              <ul>
+                                 <li><b>this</b>.eggCount += 1;</li>
+                                 <li>return eggCount</li>
+                              </ul>
+                           </li>
+                           <li>}</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               then everything works because <b>this</b> refers to <b>this object</b> and all of the variables available to the object are available to the entire object contents.</b>
+               </p>
+               <p><span class="firstWord">However</span>, the <b>this</b> keyword has to be very specific in nature. It refers soley to the object. In our example, <b>this</b> refers only to the object <b>hen</b>, and is called using <b>hen.this</b>. The "scope" of <b>this</b> always refers to the object name to the left of <b>this</b>. So if a object name is omitted, then <b>this</b> is refering to the <b>root</b> of the DOM and can produce unecpected results.</p>
+               <p>More information at
+                  <a href="https://www.w3schools.com/js/js_this.asp" target="_blank" rel="noopener noreferrer">W3Schools this</a> and
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener noreferrer">MDN this</a>.
+               </p>
+            </article>
+            <hr style="width: 95%;">
+
+            <article>
+               <h6>try/catch</h6>
+               <p><span class="firstWord">try/catch</span> is a method of "trapping for Errors" and determining how to respond to the error to prevent your code from "breaking" and your script to stop running. Try/catch is <b>not</b> specific to functions, but is very useful in all aspects of JavaScript coding.</p>
+               <p>The basic format is:<b>
+                  <ul>
+                     <li>try {
+                        <ul>
+                           <li>block of code</li>
+                        </ul>
+                     </li>
+                     <li>} catch {
+                        <ul>
+                           <li>code to deal with error</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul></b>
+               </p>
+               <p>More information at
+                  <a href="https://www.w3schools.com/jsref/jsref_try_catch.asp" target="_blank" rel="noopener noreferrer">W3Schools try/catch</a> and
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch" target="_blank" rel="noopener noreferrer">MDN try/catch</a>.
+               </p>
+            </article>
 
          </section>
 

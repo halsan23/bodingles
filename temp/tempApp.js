@@ -1,8 +1,16 @@
 // Functions
 
-function fullName() {
-    const fname = 'Benny';
-    let lname = 'Hill';
+const hen = {
+    name: 'Helen',
+    eggCount: 0,
+    layAnEgg() {
+        eggCount += 1;
+        return 'EGG'
     }
+}
 
-console.log(fname + lname);
+console.log(hen.name);
+console.log(hen.eggCount);
+console.log(hen.layAnEgg());
+console.log(hen.layAnEgg());
+console.log(hen.eggCount);
