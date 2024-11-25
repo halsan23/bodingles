@@ -4,7 +4,7 @@ const hen = {
     name: 'Helen',
     eggCount: 0,
     layAnEgg() {
-        eggCount += 1;
+        this.eggCount += 1;
         return 'EGG'
     }
 }
