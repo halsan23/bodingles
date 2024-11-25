@@ -1,16 +1,7 @@
 // Functions
 
-const hen = {
-    name: 'Helen',
-    eggCount: 0,
-    layAnEgg() {
-        this.eggCount += 1;
-        return 'EGG'
-    }
-}
+let nums = [1, 2, 3, 4, 5];
 
-console.log(hen.name);
-console.log(hen.eggCount);
-console.log(hen.layAnEgg());
-console.log(hen.layAnEgg());
-console.log(hen.eggCount);
+nums.forEach(function (number) {
+    console.log(number);
+})
