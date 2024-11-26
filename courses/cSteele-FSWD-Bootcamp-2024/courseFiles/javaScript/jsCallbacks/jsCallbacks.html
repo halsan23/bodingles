@@ -47,6 +47,7 @@
          <section id="textWindow2">
             <h6>Array Callback Methods References</h6>
             <p><a href="../../../assets/files/JavaScript_Array_Callback_Methods.pdf" target="_blank">JavaScript Array Callback Methods PDF</a></p>
+            <p><a href="../arrowFunctions/arrowFunctions.html" target="_blank">JavaScript Arrow Functions</a></p>
          </section>
 
          <!-- Class Notes -->
@@ -54,30 +55,12 @@
             <!-- Callback Methods Defined -->
             <article>
                <p><span class="firstWord">Array Callback Methods</span> are methods that are built specifically to works with arrays. These methods use the <b>arrow function syntax</b>.</p>
-               <p>Here are some of these methods:
-                  <ul>
-                     <li><a href="https://www.w3schools.com/jsref/jsref_forEach.asp" target="_blank" rel="noopener noreferrer">forEach()</a>: calls a function for each element in an array. The forEach() method is not executed for empty elements.</li>
-                     <li><br></li>
-                     <li><a href="https://www.w3schools.com/jsref/jsref_map.asp" target="_blank" rel="noopener noreferrer">map()</a>: creates a <b>new</b> array from calling a function for every array element. <b>map()</b> does not execute the function for empty elements. <b>map() does not</b> change the original array.</li>
-                     <li><br></li>
-                     <li><a href="https://www.w3schools.com/jsref/jsref_filter.asp" target="_blank" rel="noopener noreferrer">filter()</a>: method creates a <b>new</b> array filled with elements that pass a test provided by a function. The <b>filter()</b> method does not execute the function for empty elements. The <b>filter()</b> method <b>does not</b> change the original array.</li>
-                     <li><br></li>
-                     <li><a href="https://www.w3schools.com/jsref/jsref_find.asp" target="_blank" rel="noopener noreferrer">find()</a>: method returns the value of the <b>first</b> element that passes a test. The <b>find()</b> method executes a function for each array element. The <b>find()</b> method returns undefined if no elements are found. The <b>find()</b> method does not execute the function for empty elements. The <b>find()</b> method <b>does not</b> change the original array.</li>
-                     <li><br></li>
-                     <li><a href="https://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="noopener noreferrer">reduce()</a>: method executes a reducer function for array element. The <b>reduce()</b> method returns a single value: the function's accumulated result. The <b>reduce()</b> method does not execute the function for empty array elements. The <b>reduce()</b> method <b>does not</b> change the original array.</li>
-                     <li><br></li>
-                     <li><a href="https://www.w3schools.com/jsref/jsref_some.asp" target="_blank" rel="noopener noreferrer">some()</a>: method checks if any array elements pass a test <i>(provided as a callback function)</i>. The <b>some()</b> method executes the callback function once for each array element. The <b>some()</b> method returns true (<b>and stops</b>) if the function returns true for one of the array elements. The <b>some()</b> method returns false if the function returns false for all of the array elements. The <b>some()</b> method does not execute the function for empty array elements. The <b>some()</b> method <b>does not</b> change the original array.</li>
-                     <li><br></li>
-                     <li><a href="https://www.w3schools.com/jsref/jsref_every.asp" target="_blank" rel="noopener noreferrer">every()</a>: method executes a function for each array element. The <b>every()</b> method <b>returns true</b> if the function returns <b>true for all elements</b>. The <b>every()</b> method <b>returns false</b> if the function returns <b>false for one element</b>. The <b>every()</b> method does not execute the function for empty elements. The <b></b> method <b>does not</b> change the original array</li>
-                  </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
+               <p>Here are some of these methods:</p>
 
             <!-- forEach Defined -->
             <article>
                <h6>forEach</h6>
-               <p><b>forEach()</b> expects a function as an argument, then runs that function, for each element in an array. The <b>forEach()</b> method does not run if the array is empty. Example:
+               <p><a href="https://www.w3schools.com/jsref/jsref_forEach.asp" target="_blank" rel="noopener noreferrer">forEach()</a> expects a function as an argument, then runs that function, for each element in an array. The <b>forEach()</b> method does not run if the array is empty. Example:
                   <ul>
                      <li>// create an array</li>
                      <li>let <b>nums</b> = [1, 2, 3, 4, 5];</li>
@@ -109,6 +92,42 @@
                   <a href="https://www.w3schools.com/js/js_loop_forof.asp" target="_blank" rel="noopener noreferrer">for Of</a>.</p>
             </article>
             <hr style="width: 95%;">
+
+            <!-- map Defined -->
+            <article>
+               <h6>map</h6>
+               <p><a href="https://www.w3schools.com/jsref/jsref_map.asp" target="_blank" rel="noopener noreferrer">map()</a> creates a <b>new</b> array with the results of running a "callback function" on <b>every</b> element in the original array. <b>map()</b> does not execute the function for empty elements. <b>map() does not</b> change the original array.</p>
+               <p>So <b>map()</b>, takes the original array, changes it in a "callback" function, and returns the results as a <b>new</b> array. Example:
+                  <ul>
+                     <li>// create original array</li>
+                     <li>const <b>texts</b> = ['rofl', 'lol', 'omg', 'yeppers'];</li>
+                     <li><br></li>
+                     <li>// run the callback function to change the original array data and output it to a <b>new array</b></li>
+                     <li>const <b>caps</b> = texts.<b>map(</b>function(change) {
+                        <ul>
+                           <li>return change.toUpperCase();</li>
+                        </ul>
+                     </li>
+                     <li>)}</li>
+                  </ul>
+                  console.log(<b>texts</b>); will return ['rofl', 'lol', 'omg', 'yeppers'] and,<br>
+                  console.log(<b>caps</b>); will return ['ROFL', LOL', 'OMG', 'YEPPERS']
+               </p>
+               <p>So <b>map()</b> is generally used when you want to change every element of an array, in some fashion. Map creates a new array when run but will not run on an empty array.</p>
+            </article>
+            <hr style="width: 95%;">
+
+            <article>
+               <p></p><a href="https://www.w3schools.com/jsref/jsref_filter.asp" target="_blank" rel="noopener noreferrer">filter()</a>: method creates a <b>new</b> array filled with elements that pass a test provided by a function. The <b>filter()</b> method does not execute the function for empty elements. The <b>filter()</b> method <b>does not</b> change the original array.</p>
+
+               <p><a href="https://www.w3schools.com/jsref/jsref_find.asp" target="_blank" rel="noopener noreferrer">find()</a>: method returns the value of the <b>first</b> element that passes a test. The <b>find()</b> method executes a function for each array element. The <b>find()</b> method returns undefined if no elements are found. The <b>find()</b> method does not execute the function for empty elements. The <b>find()</b> method <b>does not</b> change the original array.</p>
+
+               <p><a href="https://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="noopener noreferrer">reduce()</a>: method executes a reducer function for array element. The <b>reduce()</b> method returns a single value: the function's accumulated result. The <b>reduce()</b> method does not execute the function for empty array elements. The <b>reduce()</b> method <b>does not</b> change the original array.</p>
+
+               <p><a href="https://www.w3schools.com/jsref/jsref_some.asp" target="_blank" rel="noopener noreferrer">some()</a>: method checks if any array elements pass a test <i>(provided as a callback function)</i>. The <b>some()</b> method executes the callback function once for each array element. The <b>some()</b> method returns true (<b>and stops</b>) if the function returns true for one of the array elements. The <b>some()</b> method returns false if the function returns false for all of the array elements. The <b>some()</b> method does not execute the function for empty array elements. The <b>some()</b> method <b>does not</b> change the original array.</p>
+
+               <p><a href="https://www.w3schools.com/jsref/jsref_every.asp" target="_blank" rel="noopener noreferrer">every()</a>: method executes a function for each array element. The <b>every()</b> method <b>returns true</b> if the function returns <b>true for all elements</b>. The <b>every()</b> method <b>returns false</b> if the function returns <b>false for one element</b>. The <b>every()</b> method does not execute the function for empty elements. The <b></b> method <b>does not</b> change the original array</p>
+            </article>
 
          </section>
 

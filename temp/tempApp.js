@@ -1,7 +1,8 @@
 // Functions
 
-let nums = [1, 2, 3, 4, 5];
+const greet = name => {
+    return `Hey ${name}!`;
+}
 
-nums.forEach(function (number) {
-    console.log(number);
-})
+console.log(greet('Hagrid'));
+console.log(greet('Luna'));
