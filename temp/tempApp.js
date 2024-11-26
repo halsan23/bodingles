@@ -1,8 +1,5 @@
 // Functions
 
-const greet = name => {
-    return `Hey ${name}!`;
-}
+const isEven = num => num % 2 === 0;
 
-console.log(greet('Hagrid'));
-console.log(greet('Luna'));
+console.log(isEven(6));

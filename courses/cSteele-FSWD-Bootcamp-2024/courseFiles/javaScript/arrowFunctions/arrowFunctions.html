@@ -63,6 +63,7 @@
                   </ul>
                </p>
             </article>
+            <hr style="width: 95%;">
 
             <!-- examples with further description -->
             <article>
@@ -76,6 +77,7 @@
                      <li>}</li>
                   </ul>
                </p>
+               <hr style="width: 50%; margin-left: 0;">
                <p>we could simplify it with the <b>arrow function</b> like so:
                   <ul>
                      <li>const add = (x, y) <b>=></b> {
@@ -87,6 +89,7 @@
                   </ul>
                </p>
                <p>The <b>=></b> Arrow Function is telling us that <b>add = (x, y)</b> is a <b>function</b>, simplifying the code.</p>
+               <hr style="width: 50%; margin-left: 0;">
                <p><b>Also</b>, you can use the <b>Arrow Function</b> without any parameters passed in by using empty parenthesis <b>()</b>, like so:
                   <ul>
                      <li>const rollDie = <b>()</b> => {
@@ -97,6 +100,7 @@
                      <li>}</li>
                   </ul>
                </p>
+               <hr style="width: 50%; margin-left: 0;">
                <p><b>Also</b>, if you <b>only have one parameter</b> to pass in to the function, you can eliminate the perenthesis <b>()</b>, like so:
                   <ul>
                      <li>const square = <b>num</b> => {
@@ -109,6 +113,77 @@
                </p>
             </article>
             <hr style="width: 95%;">
+
+            <!-- Implicit Returns -->
+            <article>
+               <h6>Implicit Returns</h6>
+               <p>Implicit Returns are a way of compacting the callback code even further. If your callback code only has ONE process to return such as in the previous example:
+                  <ul>
+                     <li>const rollDie = <b>()</b> => {
+                        <ul>
+                           <li>return math.floor(math.random() * 6) + 1;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </p>
+            </article>
+            <hr style="width: 95%;">
+
+
+            <!-- Implicit Returns -->
+            <article>
+               <h6>Summary with Example</h6>
+               <p>The function call is : <b>isEven(x)</b>.</p>
+               <p>We pass in a number and the "Callback Function" determines if the number is an even number, then returns true or false.</p>
+               <p><b>*note</b>: <i>(All of the following functions do the same thing)</i>.</p>
+               <hr style="width: 50%; margin-left: 0;">
+               <p>Regular function expression:</p>
+               <ul>
+                  <li><b>const isEven = function(num) {</b>
+                     <ul>
+                        <li>return num % 2 === 0;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               <hr style="width: 50%; margin-left: 0;">
+               <p>Arrow function with parenthesis around the parameter:</p>
+               <ul>
+                  <li><b>const isEven = (num) => {</b>
+                     <ul>
+                        <li>return num % 2 === 0;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               <hr style="width: 50%; margin-left: 0;">
+               <p>No parenthesis around the parameter:</p>
+               <ul>
+                  <li><b>const isEven = num => {</b>
+                     <ul>
+                        <li>return num % 2 === 0;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               <hr style="width: 50%; margin-left: 0;">
+               <p>Since the callback function only contains one line of code (the return line)</p>
+               <p>We can use an <b>Implicit Return</b> which eliminates the <b>return</b> keyword.</p>
+               <ul>
+                  <li>const isEven = num => {
+                     <ul>
+                        <li><b>num % 2 === 0;</b></li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               <hr style="width: 50%; margin-left: 0;">
+               <p>With an <b>Implicit Return</b> we can simplify this even more to one line of code.</p>
+               <ul>
+                  <li><b>const isEven = num => num % 2 === 0;</b></li>
+               </ul>
+            </article>
 
          </section>
 
