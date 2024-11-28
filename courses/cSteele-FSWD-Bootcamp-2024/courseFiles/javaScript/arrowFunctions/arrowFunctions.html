@@ -78,7 +78,7 @@
                   </ul>
                </p>
                <hr style="width: 50%; margin-left: 0;">
-               <p>we could simplify it with the <b>arrow function</b> like so:
+               <p>we could simplify it with the <b>arrow function</b> and remove the <b>function</b> keyword, like so:
                   <ul>
                      <li>const add = (x, y) <b>=></b> {
                         <ul>
@@ -90,7 +90,7 @@
                </p>
                <p>The <b>=></b> Arrow Function is telling us that <b>add = (x, y)</b> is a <b>function</b>, simplifying the code.</p>
                <hr style="width: 50%; margin-left: 0;">
-               <p><b>Also</b>, you can use the <b>Arrow Function</b> without any parameters passed in by using empty parenthesis <b>()</b>, like so:
+               <p><b>Also</b>, if you have a function that does not have any parameters passed in,you can use the <b>Arrow Function</b> with empty parenthesis <b>()</b>, like so:
                   <ul>
                      <li>const rollDie = <b>()</b> => {
                         <ul>
@@ -101,7 +101,7 @@
                   </ul>
                </p>
                <hr style="width: 50%; margin-left: 0;">
-               <p><b>Also</b>, if you <b>only have one parameter</b> to pass in to the function, you can eliminate the perenthesis <b>()</b>, like so:
+               <p><b>Also</b>, if you <b>only have one parameter</b> to pass in to the function, you can eliminate the perenthesis <b>()</b> altogether, like so:
                   <ul>
                      <li>const square = <b>num</b> => {
                         <ul>
@@ -127,13 +127,35 @@
                      <li>}</li>
                   </ul>
                </p>
+               <p>We can use an Implicit Return to simplify this code by <b>removing the return</b> keyword.</p>
+               <p><b>*note</b>: When you use Implicit Returns, you <b>must replace the curly braces {} with parenthesis ()</b>, like so:
+                  <ul>
+                     <li>const rollDie = <b>()</b> => (
+                        <ul>
+                           <li>math.floor(math.random() * 6) + 1;</li>
+                        </ul>
+                     </li>
+                     <li>)</li>
+                  </ul>
+               </p>
+               <p>We can simplify this even more by removing the parenthesis <b>()</b> and putting everything on one line:
+                  <ul>
+                     <li>const rollDie = <b>()</b> => math.floor(math.random() * 6) + 1;</li>
+                  </ul>
+               </p>
+               <p><span class="firstWord">Remember</span>, Implicit Returns
+                  <ul>
+                     <li><b>must contain ONLY one line of code to process</b></li>
+                     <li><b>must use parenthesis instead of curly braces</b> if you are using a multi-line format.<br>
+                     <i>(if you are using single-line format, curly braces can be omitted)</i></li>
+                  </ul>
+               </p>
             </article>
             <hr style="width: 95%;">
 
-
             <!-- Implicit Returns -->
             <article>
-               <h6>Summary with Example</h6>
+               <h6>Summary with Examples</h6>
                <p>The function call is : <b>isEven(x)</b>.</p>
                <p>We pass in a number and the "Callback Function" determines if the number is an even number, then returns true or false.</p>
                <p><b>*note</b>: <i>(All of the following functions do the same thing)</i>.</p>
@@ -148,7 +170,7 @@
                   <li>}</li>
                </ul>
                <hr style="width: 50%; margin-left: 0;">
-               <p>Arrow function with parenthesis around the parameter:</p>
+               <p>Arrow function with parenthesis around the parameter. This removes the <b>function</b> keyword:</p>
                <ul>
                   <li><b>const isEven = (num) => {</b>
                      <ul>
@@ -158,7 +180,7 @@
                   <li>}</li>
                </ul>
                <hr style="width: 50%; margin-left: 0;">
-               <p>No parenthesis around the parameter:</p>
+               <p>No parenthesis around the parameter <i>(or just empty parenthesis <b>()</b> if no parameters are passed in)</i>:</p>
                <ul>
                   <li><b>const isEven = num => {</b>
                      <ul>
@@ -169,19 +191,30 @@
                </ul>
                <hr style="width: 50%; margin-left: 0;">
                <p>Since the callback function only contains one line of code (the return line)</p>
-               <p>We can use an <b>Implicit Return</b> which eliminates the <b>return</b> keyword.</p>
+               <p>We can use an <b>Implicit Return</b> which eliminates the <b>return</b> keyword, but we must use parenthesis <b>()</b> instead of curly braces <b>{}</b>.</p>
                <ul>
-                  <li>const isEven = num => {
+                  <li>const isEven = num => (
                      <ul>
                         <li><b>num % 2 === 0;</b></li>
                      </ul>
                   </li>
-                  <li>}</li>
+                  <li>)</li>
                </ul>
                <hr style="width: 50%; margin-left: 0;">
                <p>With an <b>Implicit Return</b> we can simplify this even more to one line of code.</p>
                <ul>
-                  <li><b>const isEven = num => num % 2 === 0;</b></li>
+                  <li><b>const isEven = num => num % 2 === 0;</b>
+                     <ul>
+                        <li><b>isEven</b>: is the name given for the callback function</li>
+                        <li><b>num</b>: is the parameter being passed in to the function
+                           <ul>
+                              <li><i>this could also be empty parenthesis <b>()</b> if we were not passing any parameters into the function</i></li>
+                           </ul>
+                        </li>
+                        <li><b>=></b>: is saying that this is a function</li>
+                        <li><b>num % 2 === 0</b>: is the <b>single</b> line of code that we are processing and returning</li>
+                     </ul>
+                  </li>
                </ul>
             </article>
 
