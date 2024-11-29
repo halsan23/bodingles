@@ -118,9 +118,39 @@
             </article>
             <hr style="width: 95%;">
 
+            <!-- filter defined -->
             <article>
-               <p></p><a href="https://www.w3schools.com/jsref/jsref_filter.asp" target="_blank" rel="noopener noreferrer">filter()</a>: method creates a <b>new</b> array filled with elements that pass a test provided by a function. The <b>filter()</b> method does not execute the function for empty elements. The <b>filter()</b> method <b>does not</b> change the original array.</p>
+               <h6>filter</h6>
+               <p><a href="https://www.w3schools.com/jsref/jsref_filter.asp" target="_blank" rel="noopener noreferrer">filter()</a>: method creates a <b>new</b> array filled with elements that pass a test provided by a function. This will test <b>every</b> element in the array and return either <b>true</b> or <b>false</b>. If the element returns true, it is added to the new array.
+                  <ul>
+                     <li>The <b>filter()</b> method <b>does not</b> change the original array.</li>
+                     <li>The <b>filter()</b> method does not execute the function for empty elements.</li>
+                  </ul>
+               </p>
+               <p>lets create an array to work with:
+                  <ul>
+                     <li><b>const nums = [9, 8, 7, 6, 5, 4, 3, 2, 1];</b></li>
+                  </ul>
+               </p>
+               <p>If we create a filter method to return the numbers in the array that are odd, it could look like this:
+                  <ul>
+                     <li><b>const odds = nums.filter(n => n % 2 === 1)</b></li>
+                     <li><b>%</b> is the mod operator. it determines the remainder, of <b>n divided by</b> (in this case) <b>2</b>.</li>
+                     <li>if <b>n</b> is an even number this will return 0 <i>(false)</i></li>
+                     <li>if <b>n</b> is an odd number this will return 1 <i>(true)</i></li>
+                     <li>the callback function returns the numbers where <b>n % 2 = 1</b> and stores them in the new array, <b>odds</b></li>
+                  </ul>
+               </p>
+               <p>and if we print out <b>odds</b>, it would return:
+                  <ul>
+                     <li><b>[9, 7, 5, 3, 1]</b></li>
+                  </ul>
+               </p>
+               <p><b>*note</b> that this <b>does not</b> change the original array. <b>nums</b> is still equal to [9, 8, 7, 6, 5, 4, 3, 2, 1]. Instead, <b>filter</b> creates a <b>new</b> array, <b><i>odds</i></b> that holds the returns from the callback function [9, 7, 5, 3, 1].</p>
+            </article>
+            <hr style="width: 95%;">
 
+            <article>
                <p><a href="https://www.w3schools.com/jsref/jsref_find.asp" target="_blank" rel="noopener noreferrer">find()</a>: method returns the value of the <b>first</b> element that passes a test. The <b>find()</b> method executes a function for each array element. The <b>find()</b> method returns undefined if no elements are found. The <b>find()</b> method does not execute the function for empty elements. The <b>find()</b> method <b>does not</b> change the original array.</p>
 
                <p><a href="https://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="noopener noreferrer">reduce()</a>: method executes a reducer function for array element. The <b>reduce()</b> method returns a single value: the function's accumulated result. The <b>reduce()</b> method does not execute the function for empty array elements. The <b>reduce()</b> method <b>does not</b> change the original array.</p>

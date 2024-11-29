@@ -1,5 +1,7 @@
 // Functions
 
-const isEven = num => num % 2 === 0;
+const userNames = ['mark', 'staceysmom1978', 'q29832128238983', 'carrie98', 'MoanaFan'];
 
-console.log(isEven(6));
+const validUserNames = userNames.filter(userNames => userNames.length < 10);
+
+ console.log(validUserNames);
