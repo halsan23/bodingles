@@ -1,11 +1,12 @@
 // Functions
 
-// const allEvens = function(num) {
-//    return num % 2 === 0;
-// }
+const prices = [9.99, 1.49, 19.99, 49.99, 34.99];
 
-const allEvens = arr => arr.every(num => num % 2 === 0);
+let minimum = prices.reduce((min, price) => {
+   if (price < min) {
+      return price;
+   }
+   return min;
+})
 
-console.log(allEvens([2,4,6,8]));
-console.log(allEvens([1,4,6,8]));
-console.log(allEvens([1,2,3]));
+console.log(minimum);

@@ -16,6 +16,11 @@
    <!-- My local Stylesheets -->
    <link rel="stylesheet" href="../../../../../css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
+   <style>
+      hr {
+         width: 95%;
+      }
+   </style>
 </head>
 
 <body>
@@ -57,7 +62,7 @@
                <p><span class="firstWord">Array Callback Methods</span> are methods that are built specifically to works with arrays. These methods use the <b>arrow function syntax</b>.</p>
                <p>Here are some of these methods:</p>
             </article>
-            <p><br></p>
+            <br><hr><br>
 
             <!-- forEach -->
             <article>
@@ -93,7 +98,7 @@
                <p><b>*note</b>: forEach() is not used that much anymore, now we use
                   <a href="https://www.w3schools.com/js/js_loop_forof.asp" target="_blank" rel="noopener noreferrer">for Of</a>.</p>
             </article>
-            <p><br></p>
+            <br><hr><br>
 
             <!-- map -->
             <article>
@@ -117,7 +122,7 @@
                </p>
                <p>So <b>map()</b> is generally used when you want to change every element of an array, in some fashion. Map creates a new array when run but will not run on an empty array.</p>
             </article>
-            <p><br></p>
+            <br><hr><br>
 
             <!-- filter -->
             <article>
@@ -149,7 +154,7 @@
                </p>
                <p><b>*note</b> that this <b>does not</b> change the original array. <b>nums</b> is still equal to [9, 8, 7, 6, 5, 4, 3, 2, 1]. Instead, <b>filter</b> creates a <b>new</b> array, <b><i>odds</i></b> that holds the returns from the callback function [9, 7, 5, 3, 1].</p>
             </article>
-            <p><br></p>
+            <br><hr><br>
 
             <!-- Some -->
             <article>
@@ -170,7 +175,7 @@
                   we get <b>false</b> because <b>none</b> of the exam scores are < 65.
                </p>
             </article>
-            <p><br></p>
+            <br><hr><br>
 
             <!-- Every -->
             <article>
@@ -246,14 +251,85 @@
                   </td></tr></table>
                </p>
             </article>
-            <p><br></p>
+            <br><hr><br>
 
             <!-- Reduce -->
             <article>
                <h6>reduce</h6>
-               <p><a href="https://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="noopener noreferrer">reduce()</a>: method executes a reducer function for array element. The <b>reduce()</b> method returns a single value: the function's accumulated result. The <b>reduce()</b> method does not execute the function for empty array elements. The <b>reduce()</b> method <b>does not</b> change the original array.</p>
+               <p><a href="https://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="noopener noreferrer">reduce()</a>: method executes a reducer function for array element and returns a single value, the function's accumulated result. Essentially, this method reduces an array down to a single value. The <b>reduce()</b> method does not execute the function for empty array elements. The <b>reduce()</b> method <b>does not</b> change the original array.</p>
+               <p>The basic syntax is:
+                  <ul>
+                     <li><b>array.reduce(function(total, currentValue, currentIndex, arr), initialValue)</b>
+                        <ul style="background-color: #ddd;">
+                           <li><br></li>
+                           <li><b>function()</b>: A function to be run for each element in the array <i>(<b>required</b>)</i></li>
+                           <li><br></li>
+                           <li><b>total</b>: the initialValue, or the previously returned value of the function <i>(<b>required</b>)</i></li>
+                           <li><b>currentValue</b>: the value of the current element <i>(<b>required</b>)</i></li>
+                           <li><b>currentIndex</b>: the index of the current elemen <i>(optional)</i></li>
+                           <li><b>arr</b>: the array the current element belongs to <i>(optional)</i></li>
+                           <li><br></li>
+                           <li><b>initialValue</b>: a value to be passed to the function as the initial value <i>(optional)</i></li>
+                           <li><br></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+               <p>This works extremely well if want to add an array full of numbers. For example:</p>
+               <ul>
+                  <li><b>const nums = [3, 5, 7, 9, 11];</li>
+                  <li><br></li>
+                  <li>nums.reduce((total, currentValue) => {
+                     <ul>
+                        <li>return total + currentValue;</li>
+                     </ul>
+                  </li>
+                  <li>});</li>
+               </ul></b>
+               <p>This returns <b>35</b> because 3 + 5 = <b>8</b> + 7 = <b>15</b> + 9 = <b>24</b> + 11 = <b>35</b>, thus reducing the array down to a single element which is the sum of all of the elements.</p>
+               <p><b>*note</b> that this does <b>not</b> change the <b>original</b> array.</p>
+               <p>You can also shorten and simplify the code with an <b>Implicit Return</b> and an <b>Arrow Function</b>:</p>
+               <p><b>nums.reduce((total, currentValue) => total + currentValue);</b> returns the same result <b>35</b>.</p>
+
+               <p>You are not limited to addition, you could perform <b>any</b> mathematical function:
+                  <ul>
+                     <li><b>const nums = [3, 5, 7, 9, 11];</b></li>
+                     <li><b>nums.reduce((total, currentValue) => total - currentValue);</b> returns <b>-29</b></li>
+                  </ul>
+               </p>
+
+               <p><br>You could aslo add the <i>optional</i> <b>initialValue</b> paramater to alter the reduce, like so:
+                  <ul style="background-color: #ddd;"><br>
+                     <li>nums.reduce((total, currentValue) => total - currentValue<b>, 100</b>); would return <b>71</b> because you are telling the reduce method to start at 100.</li>
+                     <br></ul>
+               </p><br>
+
+               <p>You are also not limited to mathematical functions. You could do anything that would return a single value such as find the lowest, or highest number.</p>
+               <p>
+                  <ul style="background-color: #ddd;"><b>
+                     <li><br></li>
+                     <li>num.reduce((min, val) => {
+                        <ul>
+                           <li>if (val < min) {
+                              <ul>
+                                 <li>return val;</li>
+                              </ul>
+                           </li>
+                           <li>} else {
+                              <ul>
+                                 <li>return min;</li>
+                              </ul>
+                           </li>
+                           <li>}</li>
+                        </ul>
+                     </li>
+                  <li>})</li>
+                  <li><br></li>
+                  </ul></b>
+               </p>
+               <p>This will obviously return <b>3</b>. It runs through the Callback Function starting with <b>3</b> and compares it to the next number in the list until it reduces the entire array down to a single return, in this case, the lowest number.</p>
             </article>
-            <p><br></p>
+            <br><hr><br>
 
             <!-- Find -->
             <article>
