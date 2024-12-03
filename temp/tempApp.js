@@ -1,12 +1,8 @@
 // Functions
 
-const prices = [9.99, 1.49, 19.99, 49.99, 34.99];
-
-let minimum = prices.reduce((min, price) => {
-   if (price < min) {
-      return price;
+// let randNum = getRandomNum => Math.floor(Math.random() * 6) + 1;
+function getRandomNum(num) {
+   return Math.floor(Math.random() * num) + 1;
    }
-   return min;
-})
 
-console.log(minimum);
+console.log(getRandomNum());
