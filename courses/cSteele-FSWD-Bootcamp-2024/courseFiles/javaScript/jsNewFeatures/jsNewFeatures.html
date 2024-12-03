@@ -99,6 +99,40 @@
                   </ul>
                </p>
                <p>You could still insert any number you wish to feed the random number generator, but if you do <b>not</b> include the argument when you call the function, it would default to 6 and produce a random number between 1 and 6.</p>
+               <p><span class="firstWord">Important</span>: the order in which you place the <b>default parameters</b> matters. They are processed in the order the code encounters them, left to right. Lets explain with the following function:
+                  <ul>
+                     <li>function greet(msg, name) {
+                        <ul>
+                           <li>console.log(`${msg}, ${name} !!`)</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  if we call this function, <b>greet('Hello', 'Bob');</b> we would get <b>Hello, Bob !!</b>
+               </p>
+               <p>Everything is good so far, but what if we give the message parameter a "default", like so:
+                  <ul>
+                     <li>function greet(<b>msg = 'Hey There'</b>, name) {</li>
+                  </ul>
+                  if we call this function with the same parameters, <b>greet('Hello', 'Bob');</b> we would get the same result: <b>Hello, Bob !!</b>.
+               </p>
+               <p>But what if we call the function using,
+                  <ul>
+                     <li><b>greet('Bob');</b></li>
+                  </ul>
+                  we would get <b>Bob, undefined !!</b>, because <b>Bob</b> is passed in as the first parameter {<b>msg</b>}, and the second parameter, {<b>name</b>} is undefined. This is because the order of the default parameters matters. Always put the default parameters <b>after</b> any non-default parameters.
+               </p>
+               <p>So if we change our function so that the default parameter is last like so:
+                  <ul>
+                     <li>function greet(name, <b>msg = 'Hey There'</b>) {</li>
+                  </ul>
+                  and we call the function in the same way:
+                  <ul>
+                     <li><b>greet('Bob');</b></li>
+                  </ul>
+                  we would now get <b>Hey There, Bob !!</b>. <i>remember, the function output was <b>console.log(`${msg}, ${name} !!`);</b></i>
+               </p>
+               <p>So, always remember that the order in which you place the default parameters, matters.</p>
             </article>
             <br><hr><br>
 

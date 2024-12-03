@@ -1,8 +1,8 @@
 // Functions
 
 // let randNum = getRandomNum => Math.floor(Math.random() * 6) + 1;
-function getRandomNum(num) {
-   return Math.floor(Math.random() * num) + 1;
-   }
+function greet(msg = 'Hey There', name) {
+   console.log(`${msg}, ${name} !!`)
+}
 
-console.log(getRandomNum());
+greet('Hal');
