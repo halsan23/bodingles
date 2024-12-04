@@ -142,8 +142,30 @@
             <!-- Spread -->
             <article>
                <h6>Spread</h6>
+               <p>The spread (<b>...</b>) syntax allows an iterable, such as an array or string, to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected. In an object literal, the spread syntax enumerates the properties of an object and adds the key-value pairs to the object being created.</p>
+               <p>Essentially, <p>spread (<b>...</b>) allows you to expand iterable objects such as arrays and strings to use the individual elements when a method is looking for seperate arguments. A good example of the is <b>Math.max()</b> which expects seperate arguments.
+               </p>
+               <p>If we call <b>Math.max(4, 7, 2, 9, 5, 1, 8);</b> this will return the largest number <b>9</b> because this is a list of <b>individual numbers</b> <i>(seperate arguments)</i>.</p><br>
+
+               <p>But what if we call <b>Math.max()</b> with an array of numbers:
+                  <ul>
+                     <li><b>let nums = [4, 7, 2, 9, 5, 1, 8];</b></li>
+                     <li><b>Math.max(nums);</b></li>
+                  </ul>
+                  If we try, we get <b>NaN</b> because Math.max() will see the entire array as one single argument. It will not know how to process the individual numbers. This is where <b>spread</b> comes in. It will <i>expand</i> the array into individual arguments so that Math.max() can process it. So if you run:
+                  <ul>
+                     <li><b>Math.max(...nums);</b></li>
+                  </ul>
+                  it returns <b>9</b>.
+               </p>
+               <p>This also works with strings. if we console.log('Hello'); we get: <b>Hello</b>. But if we console.log(<b>...</b>'Hello'); we get: <b>H&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;o</b>. Each letter in the string becomes a <i>(seperate argument)</i></p>
             </article>
             <br><hr><br>
+
+            <!-- rest -->
+            <article>
+               <h6>Rest</h6>
+            </article>
 
          </section>
 

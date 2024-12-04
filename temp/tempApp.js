@@ -1,8 +1,5 @@
 // Functions
 
 // let randNum = getRandomNum => Math.floor(Math.random() * 6) + 1;
-function greet(msg = 'Hey There', name) {
-   console.log(`${msg}, ${name} !!`)
-}
-
-greet('Hal');
+let nums = [4, 7, 2, 9, 5, 1, 8];
+console.log(Math.max(...nums));
