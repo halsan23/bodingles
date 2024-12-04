@@ -63,6 +63,79 @@
             </article>
             <br><hr><br>
 
+            <!-- Default Parameters -->
+            <article>
+               <h6>Default Parameters</h6>
+               <p><span class="firstWord">In</span> JavaScript you can specify <b>Default Parameters</b>. This is used in instances where a needed parameter is <b>not</b> passed in to a function. Example:</p>
+               <p>If we take our random number generator,
+                  <ul><b>
+                     <li>function getRandomNum() {
+                        <ul>
+                           <li>return Math.floor(Math.random() * 6) + 1;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </b></ul>
+                  this will return a random number between 1 and 6, <b>because 6 is specified in the function</b>. What if we wanted a random number between 1 and 10, or 1 and 20, or 1 and any number we may want to specify? We know we can specify any number if we add an argument to pass in to the function like so:
+                  <ul>
+                     <li>function getRandomNum(<b>num</b>) {
+                        <ul>
+                           <li>return Math.floor(Math.random() * <b>num</b>>) + 1;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  we could then feed the random number generator with any number we want by passing in an argument when we call the function:
+                  <ul>
+                     <li>console.log(getRandomNum(<b>10</b>));</li>
+                  </ul>
+                  This would generate a number between 1 and 10. But what if we do not include the argument when we call the function:
+                  <ul>
+                     <li><b>console.log(getRandomNum());</b></li>
+                  </ul>
+                  This would return <b>NaN</b> because we are trying to find a random number between 1 and <b>NaN</b>. We can avoid this by simply adding a <b>default parameter</b> into the function argument like so:
+                  <ul>
+                     <li>function getRandomNum(<b>num = 6</b>) {</li>
+                  </ul>
+               </p>
+               <p>You could still insert any number you wish to feed the random number generator, but if you do <b>not</b> include the argument when you call the function, it would default to 6 and produce a random number between 1 and 6.</p>
+               <p><span class="firstWord">Important</span>: the order in which you place the <b>default parameters</b> matters. They are processed in the order the code encounters them, left to right. Lets explain with the following function:
+                  <ul>
+                     <li>function greet(msg, name) {
+                        <ul>
+                           <li>console.log(`${msg}, ${name} !!`)</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  if we call this function, <b>greet('Hello', 'Bob');</b> we would get <b>Hello, Bob !!</b>
+               </p>
+               <p>Everything is good so far, but what if we give the message parameter a "default", like so:
+                  <ul>
+                     <li>function greet(<b>msg = 'Hey There'</b>, name) {</li>
+                  </ul>
+                  if we call this function with the same parameters, <b>greet('Hello', 'Bob');</b> we would get the same result: <b>Hello, Bob !!</b>.
+               </p>
+               <p>But what if we call the function using,
+                  <ul>
+                     <li><b>greet('Bob');</b></li>
+                  </ul>
+                  we would get <b>Bob, undefined !!</b>, because <b>Bob</b> is passed in as the first parameter {<b>msg</b>}, and the second parameter, {<b>name</b>} is undefined. This is because the order of the default parameters matters. Always put the default parameters <b>after</b> any non-default parameters.
+               </p>
+               <p>So if we change our function so that the default parameter is last like so:
+                  <ul>
+                     <li>function greet(name, <b>msg = 'Hey There'</b>) {</li>
+                  </ul>
+                  and we call the function in the same way:
+                  <ul>
+                     <li><b>greet('Bob');</b></li>
+                  </ul>
+                  we would now get <b>Hey There, Bob !!</b>. <i>remember, the function output was <b>console.log(`${msg}, ${name} !!`);</b></i>
+               </p>
+               <p>So, always remember that the order in which you place the default parameters, matters.</p>
+            </article>
+            <br><hr><br>
+
          </section>
 
          <p><br></p>
