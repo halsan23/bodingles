@@ -141,7 +141,7 @@
 
             <!-- Spread -->
             <article>
-               <h6>Spread</h6>
+               <h6>Spread (...)</h6>
                <p>The spread (<b>...</b>) syntax allows an iterable, such as an array or string, to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected. In an object literal, the spread syntax enumerates the properties of an object and adds the key-value pairs to the object being created.</p>
                <p>Essentially, <p>spread (<b>...</b>) allows you to expand iterable objects such as arrays and strings to use the individual elements when a method is looking for seperate arguments. A good example of the is <b>Math.max()</b> which expects seperate arguments.
                </p>
@@ -164,7 +164,86 @@
 
             <!-- rest -->
             <article>
-               <h6>Rest</h6>
+               <h6>Rest (...)</h6>
+               <p>While <b>rest</b> use the 3-dot notation (<b>...</b>) like <b>spread</b>, it essentially has the opposite functionality. Spread allows you to expand an array into individual elements for processing, where rest will group items for processing.
+               </p>
+               <p>For example, if we have the following function:
+                  <ul>
+                     <li><b>function sum() {</b>
+                        <ul>
+                           <li><b>return sum.reduce((total, number) => total + number);</b></li>
+                        </ul>
+                     </li>
+                     <li><b>}</b></li>
+                  </ul>
+                  we would want this to return the total of a list of numbers.
+               </p>
+               <p>but if we called the function <b>sum(3)</b>, this would return a <b>TypeError</b> because sum is not a valid function <i>(reduce is looking fo an array of numbers)</i>. We would also get the same error if we tried to call the function with multiple numbers, <b>sum(3, 6, 2)</b>. Same problem, reduce is looking for an array of numbers.</p>
+               <p>We can resolve this by using <b>rest</b>. So if we define the same function using rest like so:
+                  <ul>
+                     <li>function sum(<b>...nums</b>) {
+                        <ul>
+                           <li>return <b>nums</b>.reduce((total, number) => total + number);</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  and now we can call the function <b>sum()</b> using as many numbers as we like, the <b>rest (...)</b> method will convert the numbers into an array and now <b>reduce()</b> can process the array and return a total.
+                  <ul>
+                     <li><b>sum(3);</b> // returns 3</li>
+                     <li><b>sum(3, 6, 2);</b> // returns 11</li>
+                  </ul><br>
+               </p>
+               <p>Now this can be used with multiple function elements like so:
+                  <ul>
+                     <li>function raceResults(gold, silver, ...everyoneElse) {
+                        <ul>
+                           <li>console.log(`The Gold Medal goes to : ${gold}`);</li>
+                           <li>console.log(`The Silver Medal goes to : ${silver}`);</li>
+                           <li>console.log(`and thanks to everyone else : ${everyoneElse}`);</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  now lets call this function:
+                  <ul>
+                     <li>raceResults('Sandy', 'Jasper', 'Chico', 'Addie', 'Sadie');</li>
+                  </ul>
+               </p>
+               <p>and for the output we get:
+                  <ul>
+                     <li>The Gold Medal goes to : Sandy</li>
+                     <li>The Silver Medal goes to : Jasper</li>
+                     <li>and thanks to everyone else : Chico, Addie, Sadie</li>
+                  </ul>
+                  We can see that Sandy was processed first because she was called first. Like wise Jasper was processed second, and everyone else was processed third.
+               </p>
+            </article>
+            <br><hr><br>
+
+            <!-- Destructing Arrays -->
+            <article>
+               <h6>Destructing</h6>
+               <p><span class="firstWord">Destructing Arrays</span> is a simplified way of pulling out individual elements of an array.</p>
+               <p>For example, if we have an array
+                  <ul>
+                     <li><b>const scores = [96840, 65465, 51496, 64824, 16982];</b></li>
+                  </ul>
+                  and we wanted to pull out individual elements we could do this like so:
+                  <ul>
+                     <li>const high = scores[0];</li>
+                     <li>const second = scores[1];</li>
+                  </ul>
+                  We can destruct this array and specify it in one line like so:
+                  <ul>
+                     <li><b>const [high, second] = scores;</b></li>
+                  </ul>
+                  <b>*note</b> that this is <b>position</b> based. the first element called will return the first element of the array, the second will return the second, and so on. Also, you could use this with the <b>rest (..)</b> method like so:
+                  <ul>
+                     <li><b>const [high, second, ...others] = scores;</b></li>
+                     <li>would return <b>96840</b>, <b>65465</b>, and <b>[ 51496, 64824, 16982 ]</b> as an array</li>
+                  </ul>
+               </p>
             </article>
 
          </section>
