@@ -279,21 +279,15 @@
                   </ul>
                   This will pull the data from <b>user.born</b> and assign it to the variable <b>yearBorn</b> which would output 2000.
                </p><br>
-               <p>But what if we had a second user who did not fillout ALL of the information? Say <b>user2</b> is still alive so they left the <b>died</b> field blank. If you try to assign that to a viriable, you will get <b>undefined</b> because user2.died would equal nothing (undefined). We can resolve this by <b>assigning a defaul value</b>. Instead of this:
+               <p>But what if we had a second user who did not fill out ALL of the information? Say <b>user2</b> is still alive so they left the <b>died</b> field blank. If you try to assign that to a viriable, you will get <b>undefined</b> because user2.died would equal nothing (undefined). We can resolve this by <b>assigning a defaul value</b>. Instead of this:
                   <ul>
-                     <li>const {died: yearDied} = <b>user2;</b> <i>which would return UNDEFINED</i></li>
+                     <li>const {died: yearDied} = <b>user2;</b> <i>// would return UNDEFINED</i></li>
                   </ul>
                   we could use:
                   <ul>
-                     <li>const {died: yearDied<b> = 'N/A'</b>} = user2; <i>which would return N/A instead of UNDEFINED</i></li>
+                     <li>const {died: yearDied<b> = 'N/A'</b>} = user2; <i>// would return N/A instead of UNDEFINED</i></li>
                   </ul>
                </p>
-            </article>
-            <hr style="width: 60%; margin-left: 35px;">
-
-            <!-- Destructing Parameters -->
-            <article>
-               <p><span class="firstWord">Destructing Parameters</span> </p>
             </article>
          </section>
 
