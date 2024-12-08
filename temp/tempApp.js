@@ -2,9 +2,19 @@
 
 // let randNum = getRandomNum => Math.floor(Math.random() * 6) + 1;
 
-const scores = [96840, 85465, 71496, 64824, 56982];
+const user = {
+   firstName: 'Harvey',
+   lastName: 'Wallbanger',
+   password: '47F78djxdh$x',
+   email: 'harvy@email.com',
+   birthdate: '2000',
+   city: 'Somewhere',
+   state: 'Texas'
+}
 
-const [high, second] = scores;
+const {firstName, lastName, email, birthdate: bday} = user;
 
-console.log(high);
-console.log(second);
+console.log(firstName);
+console.log(lastName);
+console.log(email);
+console.log(bday);

@@ -223,7 +223,7 @@
 
             <!-- Destructing Arrays -->
             <article>
-               <h6>Destructing</h6>
+               <h5>Destructing</h5>
                <p><span class="firstWord">Destructing Arrays</span> is a simplified way of pulling out individual elements of an array.</p>
                <p>For example, if we have an array
                   <ul>
@@ -245,7 +245,56 @@
                   </ul>
                </p>
             </article>
+            <hr style="width: 60%; margin-left: 35px;">
 
+            <!-- Destructing Objects -->
+            <article>
+               <p><span class="firstWord">Destructing Objects</span> works like <b>Destructing Arrays</b> but is used much more commonly. To show this, lets build an object to store user information.
+                  <ul>
+                     <li>const user = {
+                        <ul>
+                           <li>firstName: 'Harvey',</li>
+                           <li>lastName: 'Wallbanger',</li>
+                           <li>password: '47F78djxdh$x',</li>
+                           <li>email: 'harvy@email.com',</li>
+                           <li>born: '2000',</li>
+                           <li>died: '2020',</li>
+                           <li>city: 'Somewhere',</li>
+                           <li>state: 'Texas'</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </p>
+               <p>And if we wanted to pull out individual pieces of information we could use: <b>const fname  = user.firstname;</b></p><br>
+               <p>But what if we wanted to pullout <b>several</b> pieces of data and assign them to variables, in one call? We could use multiple lines assigning <b>variable = user.data</b>, or we could simplify the process by <b>deconstructing</b> the object, like so:
+                  <ul>
+                     <li><b>const {firstName, lastName, email} = user;</b></li>
+                  </ul>
+                  This will deconstruct the object <b>user</b>, pull out the individual pieces of data (<b>Harvey, Wallbanger, and harvy@email.com</b>), and assign them to the variables (<b>firstName, lastName & email</b>).
+               </p>
+               <p>Also, you can rename the variable to anything you want. Lets pull out the born but assign it to a variable called <b>yearBorn</b>. We would use
+                  <ul>
+                     <li>const {born<b>: yearBorn</b>} = user;</li>
+                  </ul>
+                  This will pull the data from <b>user.born</b> and assign it to the variable <b>yearBorn</b> which would output 2000.
+               </p><br>
+               <p>But what if we had a second user who did not fillout ALL of the information? Say <b>user2</b> is still alive so they left the <b>died</b> field blank. If you try to assign that to a viriable, you will get <b>undefined</b> because user2.died would equal nothing (undefined). We can resolve this by <b>assigning a defaul value</b>. Instead of this:
+                  <ul>
+                     <li>const {died: yearDied} = <b>user2;</b> <i>which would return UNDEFINED</i></li>
+                  </ul>
+                  we could use:
+                  <ul>
+                     <li>const {died: yearDied<b> = 'N/A'</b>} = user2; <i>which would return N/A instead of UNDEFINED</i></li>
+                  </ul>
+               </p>
+            </article>
+            <hr style="width: 60%; margin-left: 35px;">
+
+            <!-- Destructing Parameters -->
+            <article>
+               <p><span class="firstWord">Destructing Parameters</span> </p>
+            </article>
          </section>
 
          <p><a href="#top">Back to Top</a><br/><br/></p>
