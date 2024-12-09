@@ -173,6 +173,7 @@ footer {
    font-style: italic;
    font-weight: 400;
    box-shadow: 0 -3px 7px #888888;
+   border-bottom: 1px solid #000;
    /* background-image: url("../images/footBack.png"); */
    /* border-radius: 7px; */
 }
