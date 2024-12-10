@@ -46,8 +46,23 @@
             <!-- Get Element by ID -->
             <article>
                <h6>get Element</h6>
-               <p>Get Element allows you to manipulate specific objects by their specific name or type.</p>
+               <p>The <b>get</b> method allows you to manipulate specific objects by their specific name or type.</p>
+
+               <!-- getElementById() -->
                <p>
+                  <ul>
+                     <li>- <b>document.getElementById()</b> allows you to select the DOM Objects by ID Name.
+                        <ul>
+                           <li>- selects a single element with a specific ID</li>
+                           <li>- <a href="https://www.w3schools.com/jsref/met_document_getelementbyid.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools</a></li>
+                           <li>- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+
+               <!-- getElementsByTagName() -->
+                <p>
                   <ul>
                      <li>- <b>document.getElementsByTagName()</b> allows you to select the DOM Objects by the TAG Name.
                         <ul>
@@ -56,15 +71,12 @@
                            <li>- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a></li>
                         </ul>
                      </li>
-                     <li><br></li>
-                     <li>- <b>document.getElementById()</b> allows you to select the DOM Objects by ID Name.
-                        <ul>
-                           <li>- selects a single element with a specific ID</li>
-                           <li>- <a href="https://www.w3schools.com/jsref/met_document_getelementbyid.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools</a></li>
-                           <li>- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a></li>
-                        </ul>
-                     </li>
-                     <li><br></li>
+                  </ul>
+               </p>
+
+               <!-- getElementsByClassName() -->
+                <p>
+                  <ul>
                      <li>- <b>document.getElementsByClassName()</b> allows you to select the DOM Objects by CLASS Name.
                         <ul>
                            <li>- selects all elements with a specific CLASS</li>
@@ -74,6 +86,13 @@
                      </li>
                   </ul>
                </p>
+
+               <p>Because <b>getElementsByTagName()</b> and <b>getElementsByClassName()</b> can return multiple elements, they return what is called an <b>HTML Collection.</b>. For example if you have a webpage with three images <i>(img tag)</i> and from the console, you call:
+                  <ul>
+                     <li><b>getElementsByTagName('img');</b></li>
+                  </ul>
+                  it would return <b>HTML Collection (3) [img, img, img]</b>.</p>
+               <p>This is telling you that THIS specific collection contains three items. And because of the square brackets, an HTML Collection looks like an array, BUT IT ISN'T. You can NOT perform array functions on it. But it DOES have a length (3 in this case) and each individual img can be targeted by it's index just like an array.</p>
             </article>
          </section>
 
