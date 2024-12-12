@@ -97,13 +97,80 @@
             </article>
             <hr style="width: 90%" />
 
-            <!-- querySelector -->
-             <article id="qs">
+            <!-- querySelector() -->
+             <article>
                <h6>querySelector()</h6>
-               <p><b>While</b> querySelector() works similarly to <b>getElement()</b>, it differs in the following ways:
-
+               <p><b>getElement()</b> is the <i>OLDER</i> way of selecting elements for manipulation and is seldom used anymore. You will however see it in older code. The <i>NEW</i> way of accomplishing this is by using <b>querySelector()</b>. querySelector() is a newer, all-in-one method to select a <b>single</b> element. This method works similarly to <b>getElement()</b>, but it differs in the following ways:
+                  <ul>
+                     <li>- document.querySelector() can be used to select ALL types of elements <i>(HTML tags, ID's, and classes)</i></li>
+                     <li>- document.querySelector() can <b>only pick out the first</b> item of a specific elements type
+                        <ul>
+                           <li><i>eg. if you have 2 <b>[p]</b> tags, document.querySelector() will only return the first tag.</i></li>
+                           <li><i>this FIRST TAG limitation can be overridden. See Overriding the first element below</i></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+               <p>document.querySelector() uses the following syntax:
+                  <ul>
+                     <li>document.querySelector(<b>'html tag name'</b>)</li>
+                     <li>document.querySelector(<b>'#idName'</b>)</li>
+                     <li>document.querySelector(<b>'.(period)className'</b>)</li>
+                  </ul>
+               </p><br>
+               <p><b>Overriding the first element.</b> Since document.querySelector() by default, will only return the FIRST element, we override this using <b>:nth-of-type(x)</b>, for example: If we wanted to select the second [p] tag from above we would use
+                  <ul>
+                     <li>document.querySelector('<b>p:nth-of-type(2)</b>');</li>
+                  </ul>
+               </p><br>
+               <p>We can also select <b>multiple attributes of an element</b>. Suppose we have an anchor tag like so:
+                  <ul>
+                     <li>< a href="/wiki/Java" title="Java">Java< /a></a></li>
+                  </ul>
+                  Since there will probably be multiple anchor tags on a page, we can target only the one with the <b>title = "Java"</b> by designating <i>multiple attributes</i> within the query selection, like so:
+                  <ul>
+                     <li>document.querySelector('<b>a[title="Java"]</b>')</li>
+                     <li><i>we are selecting an <b>a</b> tag that contains a <b>title = Java</b></i></li>
+                  </ul>
                </p>
              </article>
+             <hr style="width: 90%" />
+
+             <!-- querySelectorAll() -->
+              <article id="qs">
+                <h6>querySelectorAll()</h6>
+                <p><b>querySelectorAll()</b> essentially works the same as querySelector(), but <b>returns <i>a collection</i></b> of all matching elements. So if we call querySelectorAll() on our <b>[p]</b> tags from above, like so:
+                  <ul>
+                     <li><b>document.querySelectorAll('p');</b></li>
+                  </ul>
+                  we would return:
+                  <ul>
+                     <li><b>NodeList(2) [p, p]</b></li>
+                  </ul>
+                  So, similar to <b>getElements()</b>, this returns a <i>collection</i>. And while it looks like an array <i>(because of the square brackets)</i>, it is not. But it does have a length <b>(2)</b> and individual elements can be targeted <i>like an array</i>.
+               </p><br>
+               <p>We can also narrow our queries down by adding multiple queries within the selector. Say we a have a webpage with 10 <b>[a]</b> tags, 5 of which reside within a <b>[p]</b> tag. If we query the <b>[a]</b> tags:
+                  <ul>
+                     <li><b>document.querySelectAll('a');</b></li>
+                  </ul>
+                  we would return:
+                  <ul>
+                     <li>NodeList(10) [a, a, a, a, a, a, a, a, a, a]</li>
+                  </ul>
+                  because there are 10 <b>[a]</b>tags. But if we want to select only the <b>[a]</b> tags that reside within a <b>[p]</b> tag, we use the <i>CSS Descendant Selector (space)</i>:
+                  <ul>
+                     <li><b>document.querySelectAll('p a');</b></li>
+                  </ul>
+                  this would return:
+                  <ul>
+                     <li>NodeList(5) [a, a, a, a, a]</li>
+                  </ul>
+                  because there are only 5 <b>[a]</b> tags that reside within <b>[p]</b> tags.
+               </p>
+               <p><b>*note</b> that you can use <b>all of the CSS Selectors</b> to define how your query selects elements for processing.</p><br>
+               <hr style="width: 90%" /><br>
+               <p><span class="firstWord">Remember</span>, getElement(s) and query's return <b>objects</b> because the DOM is Javascript converting everything into an object. So because they are objects, we can open each object in the console and see it's properties.</p>
+               </article>
          </section>
 
          <p><a href="#top">Back to Top</a><br/><br/></p>

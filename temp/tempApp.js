@@ -2,19 +2,8 @@
 
 // let randNum = getRandomNum => Math.floor(Math.random() * 6) + 1;
 
-const user = {
-   firstName: 'Harvey',
-   lastName: 'Wallbanger',
-   password: '47F78djxdh$x',
-   email: 'harvy@email.com',
-   birthdate: '2000',
-   city: 'Somewhere',
-   state: 'Texas'
-}
+const doneTodos = document.querySelectorAll(".done");
+const checkbox = document.querySelector('input[type="checkbox"]');
 
-const {firstName, lastName, email, birthdate: bday} = user;
-
-console.log(firstName);
-console.log(lastName);
-console.log(email);
-console.log(bday);
+console.log(doneTodos);
+console.log(checkbox);
