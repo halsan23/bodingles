@@ -48,13 +48,13 @@
             <article>
                <p><span class="firstWord">If</span> we recall, JavaScript converts <i>ALL</i> HTML elements into objects, so it can then manipulate these objects in some way. From the console, we can call
                   <ul>
-                     <li><b>console.dir(document.queryselector<i>(HTML Element))</i></b></li>
+                     <li>console.<b>dir</b>(document.queryselector<i>(HTML Element))</i></li>
                   </ul>
                   to see a list of all of the properties for a specific object <i>(HTML Element)</i>. So <b>innerText</b>, <b>innerHTML</b>, and <b>textContent</b> are all <i>properties</i> of a JavaScript Object, which represents an HTML Element.</p>
-                  <p>In the following discussion we'll be using this paragraph (<b>[p]</b> tag) for explanation purposes</p>
+                  <p>In the following discussions we'll be using this paragraph (<b>[p]</b> tag) for explanation purposes</p>
                   <div style="background-color: #d8fcdf; padding: 3px 20px; border: 1px solid black;">
-                     <p>The <b>Silkie</b> (sometimes spelled <b>Silky</b>) is a <a href="/wiki/List_of_chicken_breeds" title="List of chicken breeds" target="_blank">breed</a> of <a href="/wiki/Chicken" title="Chicken" target="_blank">chicken</a> named for its atypically fluffy <a href="/wiki/Plumage" title="Plumage" target="_blank">plumage</a>, which is said to feel like <a href="/wiki/Silk" title="Silk" target="_blank">silk</a> and satin. The breed has <i>several</i> other unusual qualities, such as
-                     black skin and bones, blue earlobes, and five toes on each foot, whereas most chickens only have four.
+                     <p><b>< p></b> The <b>Silkie</b> (sometimes spelled <b>Silky</b>) is a <a href="/wiki/List_of_chicken_breeds" title="List of chicken breeds" target="_blank">breed</a> of <a href="/wiki/Chicken" title="Chicken" target="_blank">chicken</a> named for its atypically fluffy <a href="/wiki/Plumage" title="Plumage" target="_blank">plumage</a>, which is said to feel like <a href="/wiki/Silk" title="Silk" target="_blank">silk</a> and satin. The breed has <i>several</i> other unusual qualities, such as
+                     black skin and bones, blue earlobes, and five toes on each foot, whereas most chickens only have four. <b>< /p></b>
                      </p>
                   </div>
                   <p>Nested inside this <b>[p]</b> tag we have some <b>[b], [i], and [a]</b> tags. Note that the <b>[a]</b> tags are "broken links" and are for demonstration purposes only.</p>
@@ -68,12 +68,13 @@
                   <li><a href="https://www.w3schools.com/Jsref/prop_node_innertext.asp" target="_blank" rel="noopener noreferrer">W3Schools innerText</a></li>
                   <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText" target="_blank" rel="noopener noreferrer">MDN innerText</a></li>
                </ul>
-               <p>The <b>innerText</b> property sets or returns <b>just</b> the text content of the element AND ALL its children, without any CSS hidden text spacing and tags, EXCEPT <b>script</b> and <b>style</b> elements.</p>
+               <p>The <b>innerText</b> property sets or returns <b>just the text content of the element</b> AND ALL of its children, <b>without</b> any CSS hidden text spacing and tags, EXCEPT <b>script</b> and <b>style</b> elements.</p>
                <p>So if we apply <b>innerText</b> to the above paragraph, the call would be:
                <ul>
                   <li>document.querySelector('p')<b>.innerText;</b></li>
                </ul>
-               <i>we are using querySelect() as opposed to querySelectAll() to return data from the <b>first</b> [p] tag only</i>, and we would get:</p>
+               <i>we are using querySelect() as opposed to querySelectAll() to return data from the <b>first</b> [p] tag only</i>,<br>
+               and we would get:</p>
                <div style="background-color: #e7e7e7; padding: 2px 20px; border: 1px solid black;">
                   <p>The Silkie (sometimes spelled Silky) is a breed of chicken named for its atypically fluffy plumage, which is said to feel like silk and satin. The breed has several other unusual qualities, such as black skin and bones, blue earlobes, and five toes on each foot, whereas most chickens only have four.
                   </p>
