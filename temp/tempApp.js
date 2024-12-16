@@ -2,8 +2,4 @@
 
 // let randNum = getRandomNum => Math.floor(Math.random() * 6) + 1;
 
-const doneTodos = document.querySelectorAll(".done");
-const checkbox = document.querySelector('input[type="checkbox"]');
-
-console.log(doneTodos);
-console.log(checkbox);
+document.querySelector('article').innerHTML = "The <i>Silkie</i> (sometimes spelled Silky) is a ...";

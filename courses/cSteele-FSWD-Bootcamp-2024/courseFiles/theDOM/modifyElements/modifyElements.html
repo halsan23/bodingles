@@ -52,7 +52,7 @@
                   </ul>
                   to see a list of all of the properties for a specific object <i>(HTML Element)</i>. So <b>innerText</b>, <b>innerHTML</b>, and <b>textContent</b> are all <i>properties</i> of a JavaScript Object, which represents an HTML Element.</p>
                   <p>In the following discussions we'll be using this paragraph (<b>[p]</b> tag) for explanation purposes</p>
-                  <div style="background-color: #d8fcdf; padding: 3px 20px; border: 1px solid black;">
+                  <div style="background-color: #effff2; padding: 3px 20px; border: 1px solid black;">
                      <p><b>< p></b> The <b>Silkie</b> (sometimes spelled <b>Silky</b>) is a <a href="/wiki/List_of_chicken_breeds" title="List of chicken breeds" target="_blank">breed</a> of <a href="/wiki/Chicken" title="Chicken" target="_blank">chicken</a> named for its atypically fluffy <a href="/wiki/Plumage" title="Plumage" target="_blank">plumage</a>, which is said to feel like <a href="/wiki/Silk" title="Silk" target="_blank">silk</a> and satin. The breed has <i>several</i> other unusual qualities, such as
                      black skin and bones, blue earlobes, and five toes on each foot, whereas most chickens only have four. <b>< /p></b>
                      </p>
@@ -68,25 +68,45 @@
                   <li><a href="https://www.w3schools.com/Jsref/prop_node_innertext.asp" target="_blank" rel="noopener noreferrer">W3Schools innerText</a></li>
                   <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText" target="_blank" rel="noopener noreferrer">MDN innerText</a></li>
                </ul>
-               <p>The <b>innerText</b> property sets or returns <b>just the text content of the element</b> AND ALL of its children, <b>without</b> any CSS hidden text spacing and tags, EXCEPT <b>script</b> and <b>style</b> elements.</p>
+               <p>The <b>innerText</b> property sets or returns <b>just the text content of the element</b> AND ALL of its children, <b>without any CSS hidden text spacing and tags</b>, EXCEPT <b>script</b> and <b>style</b> elements. This means that it returns ALL of the text of an element, EXCEPT for hidden elements.</p>
                <p>So if we apply <b>innerText</b> to the above paragraph, the call would be:
                <ul>
                   <li>document.querySelector('p')<b>.innerText;</b></li>
                </ul>
-               <i>we are using querySelect() as opposed to querySelectAll() to return data from the <b>first</b> [p] tag only</i>,<br>
-               and we would get:</p>
-               <div style="background-color: #e7e7e7; padding: 2px 20px; border: 1px solid black;">
+               <i>we are using querySelect() as opposed to querySelectAll() to return data from the <b>first</b> [p] tag only</i>,</p>
+               <p>and we would get:</p>
+               <div style="background-color: #effff2; padding: 2px 20px; border: 1px solid black;">
                   <p>The Silkie (sometimes spelled Silky) is a breed of chicken named for its atypically fluffy plumage, which is said to feel like silk and satin. The breed has several other unusual qualities, such as black skin and bones, blue earlobes, and five toes on each foot, whereas most chickens only have four.
                   </p>
                </div>
                <p>Notice that it returned <b>just the text content of the element</b> AND ALL its children, <b>without</b> any CSS hidden text spacing and tags</p>
-               <p>Also notice that you can <b>set or return</b> the data which means returning the data for use in the programming somewhere, OR setting the data, which creates a means by which we can change the data.</p>
-               <p>for example:
+               <p>Also notice that you can <b>set OR return</b> the data which means returning the data for use in the programming somewhere, <B>OR</B> setting the data, which creates a means by which we can change the data.</p>
+               <p id="tc">for example:
                   <ul>
                      <li>document.querySelector('p')<b>.innerText;</b>&nbsp;&nbsp;&nbsp;// returns the data</li>
                      <li>document.querySelector('p').innerText<b> = 'My new paragraph.';</b>&nbsp;&nbsp;&nbsp;// changes the data</li>
                   </ul>
                </p>
+            </article>
+            <br><hr style="width: 90%;"><br>
+
+            <!-- textContent -->
+            <article>
+               <h6>textContent</h6>
+               <ul>
+                  <li><a href="https://www.w3schools.com/jsref/prop_node_textcontent.asp" target="_blank" rel="noopener noreferrer">W3Schools textContent</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent" target="_blank" rel="noopener noreferrer">MDN textContent</a></li>
+               </ul>
+               <p>The <b>textContent</b> property returns the text content of the element and <b>all</b> descendants, with spacing <B>and CSS hidden text</B>, but without tags. textContent works similarly to innerText but it <b>returns hidden elements</b>.</p>
+               <p>So in our paragraph above, if he first bolded word <b>Silkie</b> was hidden, say through a style tag such as <b>display: none</b>,</p>
+               <p>innerText would return:</p>
+               <div style="background-color: #effff2; padding: 2px 20px; border: 1px solid black;">
+                  <p>The (sometimes spelled Silky) is a ...</p>
+               </div>
+               <p>but innerContent would return:</p>
+               <div style="background-color: #effff2; padding: 2px 20px; border: 1px solid black;">
+                  <p>The Silkie (sometimes spelled Silky) is a ...</p>
+               </div>
             </article>
             <br><hr style="width: 90%;"><br>
 
@@ -97,18 +117,30 @@
                   <li><a href="https://www.w3schools.com/jsref/prop_html_innerhtml.asp" target="_blank" rel="noopener noreferrer">W3Schools innerHTML</a></li>
                   <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML" target="_blank" rel="noopener noreferrer">MDN innerHTML</a></li>
                </ul>
-               <p>The <b>innerHTML</b> property returns the text content of the element, including <b>all</b> spacing and inner HTML tags.</p>
-            </article>
-            <hr style="width: 90%">
-
-            <!-- textContent -->
-            <article id="tc">
-               <h6>textContent</h6>
-               <ul>
-                  <li><a href="https://www.w3schools.com/jsref/prop_node_textcontent.asp" target="_blank" rel="noopener noreferrer">W3Schools textContent</a></li>
-                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent" target="_blank" rel="noopener noreferrer">MDN textContent</a></li>
-               </ul>
-               <p>The <b>textContent</b> property returns the text content of the element and <b>all</b> descendaces, with spacing and CSS hidden text, but without tags.</p>
+               <p>The <b>innerHTML</b> property returns the text content of the element, including <b>all</b> spacing <b>and inner HTML tags</b>. What this does is allows us to change the HTML markup.</p>
+               <p>So in out paragraph example above, the first "Silkie" is <b>bold</b>. But what if we wanted to change this to <i>italic</i> instead of <b>bold</b>? We use innerHTML for this.</p>
+               <p>The original markup is:</p>
+               <div style="background-color: #effff2; padding: 2px 20px; border: 1px solid black;">
+                  <p>The < b><b>Silkie</b>< /b> (sometimes spelled Silky) is a ...</p>
+               </div>
+               <p>and by using innerHTML, we change the <b>[b]</b> tag to an <b>[i]</b> tag:
+                  <ul>
+                     <li><b>document.querySelector('p').innerHTML = "The < i>Silkie< /i> (sometimes spelled Silky) is a ...";</b></li>
+                  </ul>
+               </p>
+               <p>and now we get:</p>
+               <div style="background-color: #effff2; padding: 2px 20px; border: 1px solid black;">
+                  <p>The < i><i>Silkie</i>< /i> (sometimes spelled Silky) is a ...</p>
+               </div>
+               <p>So <b>innerHTML</b> returns the text AND the original HTML Markup, but it also allows us to CHANGE that markup. Not only does it allow us to <i>change</i> the markup, it also allows us to ADD or DELETE markup.</p>
+               <p>You can use <b>+=</b> (plus equals) to add new markup to existing markup.</p>
+               <p>for example, if we if we have a heading tag <b>[h5]</b> and we want to add a <b>subscript</b> to the end, we would use the <b>+=</b>.</p>
+               <h5>Heading</h5>
+               <p>so, an <b>[h5]</b> tag, we modify it like so:</p>
+                  <ul>
+                     <li><b>document.querySelector('h5').innerHTML += '< sub>subscript< /sub>';</b></li>
+                  </ul>
+               <p>and we would get <h5>Heading<sub>subscript</sub></h5></p>
             </article>
          </section>
 
