@@ -50,7 +50,7 @@
                   <ul>
                      <li>< input type="text" value="Name:"></li>
                   </ul>
-               has 2 attributes (<b>type</b> and <b>value</b>>). Once the browser parses this code, a HTMLInputElement object will be created, and this object will contain dozens of properties. With JavaScript you can target these properties.
+               has two attributes (<b>type</b> and <b>value</b>>). Once the browser parses this code, an HTMLInputElement object will be created, and this object will contain dozens of properties. With JavaScript you can target these properties.
                </p>
                <p>We know we can use <b>getElement()</b> and <b>querySelector()</b> to return an element, or <b>querySelectorAll()</b> to return multiple elements. For example, if we call <b>document.querySelector('p');</b> on this webpage, it would return:
                   <ul>
@@ -60,12 +60,12 @@
                </p>
                <p>However, if we call <b>querySelectorAll('p');</b> on this page, it would return:
                   <ul>
-                     <li><b><i>NodeList(7)</b> [p, p, p, p, p, p, p]</i></li>
+                     <li><b><i>NodeList(11)</b> [p, p, p, p, p, p, p, p, p, p, p]</i></li>
                   </ul>
-               because there are seven [p] tags on this page. We can also <i>expand</i> the node list by clicking the down arrow (in the console) and it will list all of the [p] tags. We can then further expand each individual [p] tag to see it's own properties.
+               because there are eleven [p] tags on this page. We can also <i>expand</i> the node list by clicking the down arrow (in the console) and it will list all of the [p] tags. We can then further expand each individual [p] tag to see it's own properties.
                </p>
                <p>We can also call <b>querySelectorAll('p')[5];</b> to list the the 4<sup>th</sup> [p] tag <i>(because it starts counting at 0)</i> where you can then expand it to see all of the individual properties of that <b>[p]</b> object.</p>
-               <p>In JavaScript we can change these properties of the attributes for an HTML element.</p>
+               <p>In JavaScript we can change these properties, which are attributes for an HTML element.</p>
             </article>
             <hr style="width: 90%">
          </section>
