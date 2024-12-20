@@ -47,6 +47,18 @@
             <!-- class notes -->
             <article>
                <p><span class="firstWord">Most</span> elements on a webpage will have some attributes associated with them. An <b>[a]</b> tag for example will have a <b>src</b> attribute. Other elements may have attributes such as <b>id</b>, <b>class</b>, <b>title</b>, or <b>style</b>. With JavaScript you can target these attributes.</p>
+            <p>We know we can use <b>getElement()</b> and <b>querySelector()</b> to return an element, or <b>querySelectorAll()</b> to return multiple elements. For example, if we call <b>document.querySelector('p');</b> on this webpage, it would return:
+               <ul>
+                  <li><b>< p>Colt Steele< /p></b></li>
+               </ul>
+               because querySelector() will return the 1<sup>st</sup> instance of the element (<i>[p] in this example</i>) and "Colt Steele" is the 1<sup>st</sup> <b>[p]</b> on this page.
+            </p>
+            <p>However, if we call <b>querySelectorAll('p');</b> on this page, it would return:
+               <ul>
+                  <li><b><i>NodeList(7)</b> [p, p, p, p, p, p, p]</i></li>
+               </ul>
+               because there are seven [p] tags on this page. We can also <i>expand</i> the node list by clicking the down arrow and it list's all of the [p] tags. We can then further expand each individual [p] tag to see it's own properties and attributes.
+            </p>
             </article>
             <hr style="width: 90%">
          </section>
