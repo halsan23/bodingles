@@ -38,20 +38,27 @@
             <p>Colt Steele</p>
             <p><a href="../domIndex.html">Back to DOM Index Page</a></p>
             <hr style="width: 50%" />
-            <h5>Element Attributes</h5>
+            <h5>Attributes & Properties</h5>
          </section>
 
          <!-- Class Notes -->
          <section id="textWindow4" class="just lists">
-
             <!-- class notes -->
             <article>
-               <p><span class="firstWord">Most</span> elements on a webpage will have some attributes associated with them. An <b>[a]</b> tag for example will have a <b>src</b> attribute. Other elements may have attributes such as <b>id</b>, <b>class</b>, <b>title</b>, or <b>style</b>. Once the browser parses your HTML code, a corresponding DOM node will be created. This node is an <b>object</b>, and therefore it has properties. For instance, this HTML element:
+               <p><span class="firstWord">Most</span> elements on a webpage will have some attributes associated with them. An <b>[a]</b> tag for example will have a <b>src</b> attribute. Other elements may have attributes such as <b>id</b>, <b>class</b>, <b>title</b>, or <b>style</b>.</p>
+               <p>Once the browser parses your HTML code, a corresponding DOM node will be created. This node is an <b>object</b>, and therefore it has properties. In JavaScript we can change these properties, which are attributes for an HTML element. In other words, <b>attributes</b> refer to an HTML element, and <b>properties</b> refer to the <b>Node Object</b> of an HTML element.</p>
+               <p>For instance, this HTML element:
                   <ul>
                      <li>< input type="text" value="Name:"></li>
                   </ul>
-               has two attributes (<b>type</b> and <b>value</b>>). Once the browser parses this code, an HTMLInputElement object will be created, and this object will contain dozens of properties. With JavaScript you can target these properties.
+               has two attributes (<b>type</b> and <b>value</b>>). Once the browser parses this code, an HTML <b>Object</b> will be created, and this object will contain dozens of properties. With JavaScript you can target these properties.
                </p>
+            </article>
+            <hr style="width: 90%">
+
+            <!-- Selecting Elements -->
+             <article>
+               <h6>Selecting Elements</h6>
                <p>We know we can use <b>getElement()</b> and <b>querySelector()</b> to return an element, or <b>querySelectorAll()</b> to return multiple elements. For example, if we call <b>document.querySelector('p');</b> on this webpage, it would return:
                   <ul>
                      <li><b>< p>Colt Steele< /p></b></li>
@@ -62,12 +69,49 @@
                   <ul>
                      <li><b><i>NodeList(11)</b> [p, p, p, p, p, p, p, p, p, p, p]</i></li>
                   </ul>
-               because there are eleven [p] tags on this page. We can also <i>expand</i> the node list by clicking the down arrow (in the console) and it will list all of the [p] tags. We can then further expand each individual [p] tag to see it's own properties.
+               because there are eleven [p] tags on this page. We can also <i>expand</i> the node list by clicking the down arrow (in the console) and it will list all of the [p] tags. We can then further expand each individual [p] tag to see it's own <b>Object</b> properties.
                </p>
-               <p>We can also call <b>querySelectorAll('p')[5];</b> to list the the 4<sup>th</sup> [p] tag <i>(because it starts counting at 0)</i> where you can then expand it to see all of the individual properties of that <b>[p]</b> object.</p>
-               <p>In JavaScript we can change these properties, which are attributes for an HTML element.</p>
+               <p>We can also call <b>querySelectorAll('p')[x];</b> to list a specific element. if we call <b>querySelectorAll('p')[3];</b> we will target the 4<sup>th</sup> [p] tag <i>(because it starts counting at 0)</i> which you can then expand to see all of the individual properties for that <b>[p]</b> object.</p>
             </article>
             <hr style="width: 90%">
+
+            <!-- getAttribute() -->
+             <article>
+               <h6>getAttribute()</h6>
+               <ul>
+                  <li><a href="https://www.w3schools.com/jsref/met_element_getattribute.asp" target="_blank" rel="noopener noreferrer">- W3Schools getAttribute()</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute" target="_blank" rel="noopener noreferrer">- MDN getAttribute()</a></li>
+               </ul>
+               <p><b>getAttribute()</b> is another way of selecting an element. getAttribute() returns the value of a specified attribute of an element. If the given attribute does not exist, the value returned will either be null or "" <i>(an empty string)</i>.</p>
+               <p><b>Example</b>: if we have the following HTML code,
+                  <ul>
+                     <li>< div id="div1">Hi Champ!< /div></li>
+                  </ul>
+                  <div id="div1">Hi Champ!</div><br>
+                  in the console, if we call:
+                  <ul>
+                     <li>const <b>divAttr</b> = document.getElementById("div1");</li>
+                     <li>console.log(<b>divAttr</b>);</li>
+                  </ul>
+                  we get:
+                  <ul>
+                     <li><b>< div id="div1">Hi Champ!< /div></b></li>
+                  </ul>
+                  because it returns the entire element of the <i>only</i> element that has an id = div1.
+               </p>
+               <p>and then if we console.log(<b>divAttr</b>.getAttribute("id")); we get:
+                  <ul>
+                     <li><b>div1</b></li>
+                  </ul>
+                  because it is returning the value of the attribute "<b>id</b>" of the variable <b>divAttr</b>.
+               </p>
+               <p>and finally, if we console.log(<b>divAttr</b>.getAttribute("align")); this will return
+                  <ul>
+                     <li><b>null</b></li>
+                  </ul>
+                  because there is no attribute <b>align</b> within the <b>divAttr</b> variable, which represents the [<b>div</b>] element.
+               </p>
+             </article>
          </section>
 
          <p><a href="#top">Back to Top</a><br><br></p>
