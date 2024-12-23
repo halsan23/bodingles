@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="../localStyle.css" />
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span>
+      <span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../domIndex.html">Back to DOM Index Page</a></p>
+            <hr style="width: 50%" />
+            <h5>Changing Styles</h5>
+         </section>
+
+         <!-- Class Notes -->
+         <section id="textWindow4" class="just lists">
+            <!-- Basic Information on Changing Styles -->
+            <article>
+               <h6>Information</h6>
+               <p><span class="firstWord">In</span> order to change styles thru JavaScript, we're going to need some basic information.</p>
+               <p>Let's assume we want to change some styling for an [<b>h6</b>] tag on a webpage. We would first need to select it with:
+                  <ul>
+                     <li>document.querySelector('<b>h6</b>');&nbsp;&nbsp;&nbsp;// if there is only one [<b>h6</b>] tag on the page, or</li>
+                     <li>document.querySelectorAll('<b>h6</b>')[<b>x</b>];&nbsp;&nbsp;&nbsp;// where [<b>x</b>] represents the Node Object number of the specific [<b>h6</b>] element that you are targeting, if there are multiple [<b>h6</b>] tags on the page.</li>
+                  </ul>
+                  For the purposes of this discussion, we are going to assume that we are dealing with a webpage that only has one [<b>h6</b>] tag. Also, we can assign this [<b>h6</b>] tag to a variable to simplify the coding, like so:
+                  <ul>
+                     <li>const <b>head6</b> = document.querySelector('h6');</li>
+                  </ul>
+               </p>
+               <p>We will use the [<b>h6</b>] tag at the beginning of this section for reference [<b>< h6>Information< /h6></b>].</p>
+               <p>So, from the console, if we call <b>head6</b>, it would return
+                  <ul>
+                     <li><b>< h6>Information< /h6></b></li>
+                  </ul>
+               </p>
+               <p style="background-color: #ecfff1; padding: 10px 20px; border: 1px solid black;"><i><b>*We</b> also need to understand that when you change HTML STYLES with JavaScript, you are adding, or changing <b>Inline</b> styles ONLY. While it is not normally considered "<b>good practice</b>" to use inline styles, JavaScript has no way of determining if there are multiple style sheets applied to a webpage, or what ALL of the styles might be. So it is forced to use the Inline Styles for changes, which would overwrite any styles created by any external style sheets.</i></p>
+            </article>
+            <hr style="width: 90%">
+
+            <!-- Getting current Style info -->
+            <article>
+               <h6>Retrieving Current Styles</h6>
+               <p>At some point, we may need to know what the current styling is. Now, if we call:
+                  <ul>
+                     <li><b>head6</b>.style</li>
+                  </ul>
+                  it would return a <b>CSSStyleDeclaration {}</b>, which is an object list of ALL of the <b><i>Inline</i></b> style properties applied to the <b>head6</b> element. You would notice that most, if not all of these styles consist of <b>""</b> empty strings, because any styling has been done through an external style sheet, and not through Inline Styles.
+               </p>
+               <p>What this means is, if we had applied a color, say <b>olive</b> to our [<b>h6</b>] element through a separate style sheet, and we called:
+                  <ul>
+                     <li><b>head6</b>.style.color</li>
+                  </ul>
+                  it would return <b>""</b> <i>(empty string)</i> because the color was applied by an external style sheet and not locally through an <i>Inline Style</i>. But if we applied the <b>olive</b> color through an <i>Inline Style</i> and made the same call:
+                  <ul>
+                     <li><b>head6</b>.style.color</li>
+                  </ul>
+                  it would return <b>"olive"</b> because this style was created through an <i>Inline Style</i>.
+               </p>
+               <p>Another note of importance is <b>camelCase</b>. In CSS we write calls such as <i>text-decoration</i>, or <i>font-size</i> with a hyphen. But in JavaScript, we don't use a hyphen, we use camelCase, such as <i>textDecoration</i>, or <i>fontSize</i>. So in the <b>CSSStyleDeclaration {}</b>, you will see all of the styles listed, in <b>camelCase</b>.</p>
+               <p>Since the <b>CSSStyleDeclaration {}</b> does NOT contain ALL of the styles that may be applied to an element, (it only list's the <i>"inline"</i> styles), we must use a different method to <b>list all of the styles</b> that are currently applied to an element.</p>
+               <hr style="width: 90%">
+               <p><span class="firstWord">The Only</span> way to list what ALL of the currently used styles, that are being used for this HTML Element, is to use the <b>Window Method</b>. The syntax would be:
+                  <ul>
+                     <li><b>window.getComputedStyle(head6);</b></li>
+                  </ul>
+                  this will also return a <b>CSSStyleDeclaration {}</b>, but this object will list <b>ALL</b> of the currently applied properties for this HTML Element.
+               </p>
+               <p><b>*note</b> you can also look for specific properties of the window.getComputedStyle(head6) object, like so:
+                  <ul>
+                     <li>window.getComputedStyle(head6).<b>color</b>,&nbsp;&nbsp;&nbsp;or</li>
+                     <li>window.getComputedStyle(head6).<b>fontSize</b></li>
+                  </ul>
+               </p>
+            </article>
+            <hr style="width: 90%">
+
+            <!-- Changing Styles -->
+            <article>
+               <h6>Changing Styles</h6>
+               <p>Now, changing styles is fairly straight forward, but we need to remember that <b>we are changing or adding <i>Inline Styles Only</i></b>.</p>
+               <p>Previously we used the example:
+                  <ul>
+                     <li>const <b>head6</b> = document.querySelector('h6');</li>
+                  </ul>
+                  but we now have several [<b>h6</b>] elements on the page, so we need to modify our variable assignment to be more specific, like so:
+                  <ul>
+                     <li>const <b>head6</b> = document.querySelector('h6')[<b>2</b>];</li>
+                  </ul>
+                  This will target the [<b>h6</b>] element which is <b>< h6>Changing Styles< /h6></b>
+               </p>
+               <p>If we look up the current <b>color</b>:
+                  <ul>
+                     <li>head6.<b>style.color</b></li>
+                  </ul>
+                  it would return <b>""</b> an empty string because there are <b>no</b> <i>Inline Styles</i> applied to this element.
+                  but if we call:
+                  <ul>
+                     <li><b>head6</b>.style.color <b>= 'olive';</b></li>
+                  </ul>
+                  you can see that the text color for this [<b>h6</b>] element has changed to <i>olive</i>, and if we call <b>head6</b>, it would return:
+                  <ul>
+                     <li><b>< h6 style="color: olive;">Changing Styles< /h6></b></li>
+                  </ul>
+                  showing that it did indeed add the inline style.</p>
+                  <p>and now if we call:
+                  <ul>
+                     <li><b>head6.style.color</b>, it would return:
+                        <ul>
+                           <li><b>'olive'</b></li>
+                        </ul>
+                  </ul>
+                  And finally, if we use <b>window.getComputedStyle(head6).color;</b> to list the <b>color</b> Object Property for this element we see:
+                  <ul>
+                     <li><b>color: "rgb(128, 128, 0)"</b></li>
+                  </ul>
+                  which is the <i>RGB</i> designation for <b>'olive'</b>.
+               </p>
+            </article>
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+   <script>
+      const head6 = document.querySelectorAll('h6')[2];
+      head6.style.color = 'olive';
+   </script>
+</body>
+
+</html>
