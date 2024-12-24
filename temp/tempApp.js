@@ -8,15 +8,8 @@
 // document.querySelectorAll('img')[2].src = 'https://images.unsplash.com/photo-1581061090142-c2cd0ec9f021?w=200';
 
 
-const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-const letter = document.querySelectorAll('span');
-let count = 5;
+const items = document.querySelectorAll('li');
 
-console.log(colors);
-console.log(letter);
-
-for (let color of colors) {
-   letter[count].style.color = color;
-   console.log(count);
-   count++
+for (let i = 0; i < items.length; i++) {
+   items[i].classList.toggle('highlight');
 }
