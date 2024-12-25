@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="../localStyle.css" />
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span>
+      <span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../domIndex.html">Back to DOM Index Page</a></p>
+            <hr style="width: 50%" />
+            <h5>Parent | Child | Sibling</h5>
+         </section>
+
+         <section id="textWindow4" class="just lists">
+            <!-- Traversing DOM Elements -->
+            <article>
+               <h6>Traversing DOM Elements</h6>
+               <p><span class="firstWord">Because</span> of the DOM's hierarchal structure, elements can be navigated through their parent, child, and sibling relationships. <b>parentElement</b> allows us to navigate up one level to an element's <b>parent</b> element. Let's demonstrate this by using the [<b>b</b>] tags from this paragraph. Since there are several [<b>b</b>] tags, we will use <b>querySelector('b')</b> to select the first one. We are also going to assign it to a variable for easier coding:
+                  <ul>
+                     <li><b>const firstBold = document.querySelector('b');</b></li>
+                     <li>firstBold now returns <b>< b>parentElement< /b></b>
+                        <ul>
+                           <li><i>because the first [<b>b</b>] tag of the paragraph is <b>< b>parentElement< /b></b>.</i></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  We can use <b>parentElement</b> to navigate up one level of the DOM to return the "parent Element" of the [<b>b</b>] tag:
+                  <ul>
+                     <li>firstBold.<b>parentElement</b> &nbsp;&nbsp;&nbsp;// <i>returns <b>< p>...< /p></b></i>
+                        <ul>
+                           <li>because we have <i>"navigated"</i> up one level to the [<b>p</b>] tag that contains the [<b>b</b>] tag.</li>
+                        </ul>
+                     </li>
+                  </ul>
+                  And if we continued:
+                  <ul>
+                     <li>firstBold.parentElement.<b>parentElement</b> &nbsp;&nbsp;&nbsp;// <i>returns <b>< article>...< /article></b></i>
+                        <ul>
+                           <li><i>because the [<b>article</b>] tag is the <b>parent</b> of the [<b>p</b>] tag</i></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  and so on, and so on. We could continue "stringing" <b>parentElement</b>'s util we get to the very top element which would be the <b>HTML</b> tag itself.
+               </p>
+               <p>So we can see that <b>parentElement</b> gives us a way to navigate <b>up</b> the DOM structure so that we can then affect some change on an element such as appending, or removing an element.</p>
+            </article>
+            <hr style="width: 90%">
+
+         <!-- Append & AppendChild -->
+            <article>
+               <h6>append & appendChild</h6>
+               <p></p>
+            </article>
+            <hr style="width: 90%">
+
+         <!--Remove & RemoveChild -->
+            <article>
+               <h6>remove & removeChild</h6>
+               <p></p>
+            </article>
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+
+</body>
+
+</html>
