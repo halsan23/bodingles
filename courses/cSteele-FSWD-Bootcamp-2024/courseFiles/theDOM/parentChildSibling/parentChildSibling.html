@@ -92,12 +92,12 @@
                         </ul>
                      </li>
                   </ul>
-                  because the parent element of the 1<sup>st</sup> [<b>p</b>] tag is a [<b>article</b>] element.
+                  because the <b>parent element</b> of the 1<sup>st</sup> [<b>p</b>] tag is an [<b>article</b>] element.
                </p>
                <hr style="width: 90%">
                <p><span class="firstWord">Before</span> we start using <b>children</b> elements, we may want to find out how many child elements an element actually has. <b>childElementCount</b> can be used for this. For example:
                   <ul>
-                     <li><b>firstPara.childElementCount</b> returns <b>6</b>,
+                     <li>firstPara<b>.childElementCount</b> would return <b>6</b>,
                         <ul>
                            <li>because there are 6 child elements in the first [<b>p</b>] element.
                               <ul>
@@ -108,14 +108,14 @@
                      </li>
                   </ul>
                </p>
-               <p>We can also build an <b>HTML Collection</b> of the child elements by calling:
+               <p>We can also build an <b><i>HTML Collection</i></b> of the child elements by calling:
                   <ul>
                      <li>firstPara.<b>children</b>
                         <ul>
                            <li>which would return (for our 1<sup>st</sup> paragraph)
                               <ul>
-                                 <li><b><i>HTML Collection(6) [span.firstWord, b, b, b, b, b]</i></b></li>
-                                 <li>showing us the children of the [<b>p</b>] element.</li>
+                                 <li><i>HTML Collection(6) [span.firstWord, b, b, b, b, b]</i></li>
+                                 <li>showing us all of the children for the 1<sup>st</sup> [<b>p</b>] element.</li>
                               </ul>
                            </li>
                         </ul>
@@ -139,7 +139,7 @@
                   and we could further expand each individual item in the collection to see ALL of the DOM Object properties for each child element.
                </p>
                <hr style="width: 90%">
-               <p>while this HTML Collection looks like an ARRAY, it is not. But it IS iterable like an array. So we could call:
+               <p>while this HTML Collection looks like an ARRAY, it is not. It is an HTML Collection. But it IS iterable like an array. So we could call:
                   <ul>
                      <li>firstPara.children<b>[0]</b>;
                         <ul>
@@ -154,6 +154,30 @@
                      <li>and so on.</li>
                   </ul>
                </p>
+            </article>
+            <hr style="width: 90%">
+
+            <!-- prev/next element sibling -->
+            <article>
+               <h6>prev/next element sibling</h6>
+               <p><span class="firstWord">If</span> a parent element has multiple child elements, <i>AND</i> we have selected a child element, we can then navigate back and forth within the child elements using <b>previousElementSibling</b> and <b>nextElementSibling</b>.</p>
+               <p>From our previous example, if we select firstPara.children[1]; and assign it to a variable:
+                  <ul>
+                     <li>const <b>child</b> = <b>firstPara</b>.children[1];</li>
+                     <li><b>child</b> would = < b>firstElement< /b> &nbsp;&nbsp;&nbsp;//<i>the 2<sup>nd</sup> child of the 1<sup>st</sup> paragraph.</i>
+                        <ul>
+                           <li><i>remember, the HTML Collection indexes start counting at 0 so index[1] would be the second element</i></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  and if we call:
+                  <ul>
+                     <li><b>child</b>.previousElementSibling</li>
+                     <li>we would return < span class="firstWord">Because< /span></li>
+                  </ul>
+                  because the previous child element (to firstPara.Element[1]) would be firstPara.Element[0] which would be the [span] element.
+               </p>
+               <p>And by the same means as <b>previousElementSibling</b>, we could also use <b>nextElementSibling</b> to select the <i>next</i> child element which would be firstPara.Element[2] which is another [<b>b</b>] tag < b>parent< /b>.</p>
             </article>
             <hr style="width: 90%">
 
