@@ -47,8 +47,8 @@
                <h6>parentElement</h6>
                <p><span class="firstWord">Because</span> of the DOM's hierarchal structure, elements can be navigated through their parent, child, and sibling relationships. <b>parentElement</b> allows us to navigate up one level to an element's <b>parent</b> element. Let's demonstrate this by using the [<b>b</b>] tags from this paragraph. Since there are several [<b>b</b>] tags, we will use <b>querySelector('b')</b> to select the first one. We are also going to assign it to a variable for easier coding:
                   <ul>
-                     <li><b>const firstBold = document.querySelector('b');</b></li>
-                     <li>firstBold now returns <b>< b>parentElement< /b></b>
+                     <li><b>const <span class="colorHighlight">firstBold</span> = document.querySelector('b');</b></li>
+                     <li><span class="colorHighlight">firstBold</span> now returns <b>< b>parentElement< /b></b>
                         <ul>
                            <li><i>because the 1<sup>st</sup> [<b>b</b>] tag of the paragraph is <b>parentElement</b>.</i></li>
                         </ul>
@@ -56,7 +56,7 @@
                   </ul>
                   We can use <b>parentElement</b> to navigate up one level of the DOM to return the "parent Element" of the [<b>b</b>] tag:
                   <ul>
-                     <li>firstBold.<b>parentElement</b> &nbsp;&nbsp;&nbsp;// <i>returns <b>< p>...< /p></b></i>
+                     <li><span class="colorHighlight">firstBold</span>.<b>parentElement</b> &nbsp;&nbsp;&nbsp;// <i>returns <b>< p>...< /p></b></i>
                         <ul>
                            <li>because we have <i>"navigated"</i> up one level to the [<b>p</b>] tag that contains the [<b>b</b>] tag.</li>
                         </ul>
@@ -64,7 +64,7 @@
                   </ul>
                   And if we continued:
                   <ul>
-                     <li>firstBold.parentElement.<b>parentElement</b> &nbsp;&nbsp;&nbsp;// <i>returns <b>< article>...< /article></b></i>
+                     <li><span class="colorHighlight">firstBold</span>.parentElement.<b>parentElement</b> &nbsp;&nbsp;&nbsp;// <i>returns <b>< article>...< /article></b></i>
                         <ul>
                            <li><i>because the [<b>article</b>] tag is the <b>parent</b> of the [<b>p</b>] tag</i></li>
                         </ul>
@@ -82,11 +82,11 @@
                <p><span class="firstWord">While</span> parentElement allows us to navigate <b>up</b> one level of a DOM structure, navigating through <b>children elements</b> is a little different because, while each element will only have one parent element, it could possible have many children elements.</p>
                <p>For example, if we select the 1<sup>st</sup> paragraph on this page (the 1<sup>st</sup> [<b>p</b>] tag), and assign it to a variable like so:
                   <ul>
-                     <li>const <b>firstPara</b> = document.querySelector('p');</li>
+                     <li>const <span class="colorHighlight">firstPara</span> = document.querySelector('<b>p</b>');</li>
                   </ul>
                   and then call:
                   <ul>
-                     <li><b>firstPara</b>.parentElement it would return
+                     <li><span class="colorHighlight">firstPara</span>.<b>parentElement</b> it would return
                         <ul>
                            <li><b>< article>...< /article></b></li>
                         </ul>
@@ -97,7 +97,7 @@
                <hr style="width: 90%">
                <p><span class="firstWord">Before</span> we start using <b>children</b> elements, we may want to find out how many child elements an element actually has. <b>childElementCount</b> can be used for this. For example:
                   <ul>
-                     <li>firstPara<b>.childElementCount</b> would return <b>6</b>,
+                     <li><span class="colorHighlight">firstPara</span>.<b>childElementCount</b> would return <b>6</b>,
                         <ul>
                            <li>because there are 6 child elements in the first [<b>p</b>] element.
                               <ul>
@@ -110,7 +110,7 @@
                </p>
                <p>We can also build an <b><i>HTML Collection</i></b> of the child elements by calling:
                   <ul>
-                     <li>firstPara.<b>children</b>
+                     <li><span class="colorHighlight">firstPara</span>.<b>children</b>
                         <ul>
                            <li>which would return (for our 1<sup>st</sup> paragraph)
                               <ul>
@@ -141,12 +141,12 @@
                <hr style="width: 90%">
                <p>while this HTML Collection looks like an ARRAY, it is not. It is an HTML Collection. But it IS iterable like an array. So we could call:
                   <ul>
-                     <li>firstPara.children<b>[0]</b>;
+                     <li><span class="colorHighlight">firstPara</span>.children<b>[0]</b>;
                         <ul>
                            <li>returns <i>< span class="firstWord">Because< /span></i></li>
                         </ul>
                      </li>
-                     <li> or firstPara.children<b>[1]</b>;
+                     <li> or <span class="colorHighlight">firstPara</span>.children<b>[1]</b>;
                         <ul>
                            <li>returns <i>< b>firstElement< /b></i></li>
                         </ul>
@@ -163,8 +163,8 @@
                <p><span class="firstWord">If</span> a parent element has multiple child elements, <i>AND</i> we have selected one of these child elements, we can then navigate back and forth within the child elements using <b>previousElementSibling</b> and <b>nextElementSibling</b>.</p>
                <p>From our previous example, if we select firstPara.children[1]; and assign it to a variable:
                   <ul>
-                     <li>const <b>child</b> = <b>firstPara</b>.children[<b>1</b>];</li>
-                     <li><b>child</b> would = < b><b>parentElement</b>< /b> &nbsp;&nbsp;&nbsp;//<i>the 2<sup>nd</sup> child of the 1<sup>st</sup> paragraph.</i>
+                     <li>const <span class="colorHighlight">child</span> = <span class="colorHighlight">firstPara</span>.children[<b>1</b>];</li>
+                     <li><span class="colorHighlight">child</span> would = < b><b>parentElement</b>< /b> &nbsp;&nbsp;&nbsp;//<i>the 2<sup>nd</sup> child of the 1<sup>st</sup> paragraph.</i>
                         <ul>
                            <li><i>remember, the HTML Collection indexes start counting at 0 so index[1] would be the second element</i></li>
                         </ul>
@@ -172,37 +172,23 @@
                   </ul>
                   and if we call:
                   <ul>
-                     <li>child.<b>previousElementSibling</b></li>
+                     <li><span class="colorHighlight">child</span>.<b>previousElementSibling</b></li>
                      <li>we would return < span class="firstWord"><b>Because</b>< /span> &nbsp;&nbsp;&nbsp;//<i>the 1<sup>st</sup> child of the 1<sup>st</sup> paragraph.</i>
                         <ul>
-                           <li>because the previous child element (to firstPara.Element[1]) would be firstPara.Element[0] which would be the [<b>span</b>] element.</li>
+                           <li>because the previous child element (to <span class="colorHighlight">firstPara</span>.Element[1]) would be <span class="colorHighlight">firstPara</span>.Element[0] which would be the [<b>span</b>] element.</li>
                         </ul>
                      </li>
                   </ul>
                   but if we call:
                   <ul>
-                     <li>child.<b>nextElementSibling</b></li>
+                     <li><span class="colorHighlight">child</span>.<b>nextElementSibling</b></li>
                      <li>we would return < b><b>parent</b>< /b> &nbsp;&nbsp;&nbsp;//<i>the 3<sup>rd</sup> child of the 1<sup>st</sup> paragraph.</i>
                         <ul>
-                           <li>because the next child element (to firstPara.Element[1]) would be firstPara.Element[2] which would be another [<b>b</b>] element.</li>
+                           <li>because the next child element (to <span class="colorHighlight">firstPara</span>.Element[1]) would be <span class="colorHighlight">firstPara</span>.Element[2] which would be another [<b>b</b>] element.</li>
                         </ul>
                      </li>
                   </ul>
                </p>
-            </article>
-            <hr style="width: 90%">
-
-         <!-- Append & AppendChild -->
-            <article>
-               <h6>append & appendChild</h6>
-               <p></p>
-            </article>
-            <hr style="width: 90%">
-
-         <!--Remove & RemoveChild -->
-            <article>
-               <h6>remove & removeChild</h6>
-               <p></p>
             </article>
          </section>
 
