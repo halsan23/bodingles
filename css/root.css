@@ -297,6 +297,11 @@ li {
    font-weight: 500;
 }
 
+.colorHighlight {
+   color: #227441;
+   font-weight: bold;
+}
+
 /* text Boxes */
 #textWindow {
    margin: 35px auto;

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="../localStyle.css" />
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span>
+      <span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../domIndex.html">Back to DOM Index Page</a></p>
+            <hr style="width: 50%" />
+            <h5>Parent | Child | Sibling</h5>
+         </section>
+
+         <section id="textWindow4" class="just lists">
+
+         <!-- Append & AppendChild -->
+            <article>
+               <h6>Adding HTML Items</h6>
+               <p><span class="firstWord">Adding</span> new HTML elements is pretty straight forward, but there are multiple steps.</p>
+               <p>We want to add a NEW H6 element to this webpage, but we want to add it to the end of THIS paragraph, which is contained within an [<b>article</b>] element. So we need to select the 1<sup>st</sup> [<b>article</b>] element and assign it to a variable:
+                  <ul>
+                     <li>const <span class="colorHighlight">paragh</span> = document.querySelector('<b>article</b>');
+                        <ul>
+                           <li><i>selects the 1<sup>st</sup> <b>article</b> element on the page and assigns it to the variable <span class="colorHighlight">paragh</span></i></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  Now we can create the <i>NEW</i> h6 element:
+                  <ol>
+                     <li style="list-style: decimal;"><b>create</b> a new element and assign it to a variable
+                        <ul>
+                           <li>const <span class="colorHighlight">newEle</span> = document.<b>createElement(</b>'h6'<b>)</b>;
+                              <ul>
+                                 <li><i>creates a new <b>empty</b> H6 element.</i></li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li style="list-style: decimal;"><b>add</b> info to the new element, such as text, src, etc.
+                        <ul>
+                           <li><span class="colorHighlight">newEle</span>.<b>innerText</b> = 'I am the New H6 Element';
+                              <ul>
+                                 <li><i>the new empty H6 element now has some text.</i></li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li style="list-style: decimal;"><b>append</b> the new element to the end of the specified document location, in this case, to the end of the 1<sup>st</sup> <b>article</b> element of the page.
+                        <ul>
+                           <li><span class="colorHighlight">paragh</span>.<b>appendChild(<span class="colorHighlight">newEle</span>)</b>;</li>
+                        </ul>
+                     </li>
+                  </ol>
+               </p>
+               <p>And there we go. We have now added the following <b>H6</b> element to the end of the 1<sup>st</sup> <b>article</b> element on this page. <i>(remember that the following H6 element is NOT part of the original HTML)</i>. We're also going to change the <i>font</i> color of our new <b>h6</b> element using <span class="colorHighlight">newEle</span><b>.style.color</b> = '<span style="color: #961d1d">#961d1d</span>'; to make it stand out on the page.</p>
+            </article>
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+
+   <script>
+      const paragh = document.querySelector('article');
+      const newEle = document.createElement('h6');
+      newEle.innerText = 'I am the New H6 Element';
+      paragh.appendChild(newEle);
+      newEle.style.color = '#961d1d';
+   </script>
+
+</body>
+
+</html>

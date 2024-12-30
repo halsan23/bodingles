@@ -160,11 +160,11 @@
             <!-- prev/next element sibling -->
             <article>
                <h6>prev/next element sibling</h6>
-               <p><span class="firstWord">If</span> a parent element has multiple child elements, <i>AND</i> we have selected a child element, we can then navigate back and forth within the child elements using <b>previousElementSibling</b> and <b>nextElementSibling</b>.</p>
+               <p><span class="firstWord">If</span> a parent element has multiple child elements, <i>AND</i> we have selected one of these child elements, we can then navigate back and forth within the child elements using <b>previousElementSibling</b> and <b>nextElementSibling</b>.</p>
                <p>From our previous example, if we select firstPara.children[1]; and assign it to a variable:
                   <ul>
-                     <li>const <b>child</b> = <b>firstPara</b>.children[1];</li>
-                     <li><b>child</b> would = < b>firstElement< /b> &nbsp;&nbsp;&nbsp;//<i>the 2<sup>nd</sup> child of the 1<sup>st</sup> paragraph.</i>
+                     <li>const <b>child</b> = <b>firstPara</b>.children[<b>1</b>];</li>
+                     <li><b>child</b> would = < b><b>parentElement</b>< /b> &nbsp;&nbsp;&nbsp;//<i>the 2<sup>nd</sup> child of the 1<sup>st</sup> paragraph.</i>
                         <ul>
                            <li><i>remember, the HTML Collection indexes start counting at 0 so index[1] would be the second element</i></li>
                         </ul>
@@ -172,12 +172,23 @@
                   </ul>
                   and if we call:
                   <ul>
-                     <li><b>child</b>.previousElementSibling</li>
-                     <li>we would return < span class="firstWord">Because< /span></li>
+                     <li>child.<b>previousElementSibling</b></li>
+                     <li>we would return < span class="firstWord"><b>Because</b>< /span> &nbsp;&nbsp;&nbsp;//<i>the 1<sup>st</sup> child of the 1<sup>st</sup> paragraph.</i>
+                        <ul>
+                           <li>because the previous child element (to firstPara.Element[1]) would be firstPara.Element[0] which would be the [<b>span</b>] element.</li>
+                        </ul>
+                     </li>
                   </ul>
-                  because the previous child element (to firstPara.Element[1]) would be firstPara.Element[0] which would be the [span] element.
+                  but if we call:
+                  <ul>
+                     <li>child.<b>nextElementSibling</b></li>
+                     <li>we would return < b><b>parent</b>< /b> &nbsp;&nbsp;&nbsp;//<i>the 3<sup>rd</sup> child of the 1<sup>st</sup> paragraph.</i>
+                        <ul>
+                           <li>because the next child element (to firstPara.Element[1]) would be firstPara.Element[2] which would be another [<b>b</b>] element.</li>
+                        </ul>
+                     </li>
+                  </ul>
                </p>
-               <p>And by the same means as <b>previousElementSibling</b>, we could also use <b>nextElementSibling</b> to select the <i>next</i> child element which would be firstPara.Element[2] which is another [<b>b</b>] tag < b>parent< /b>.</p>
             </article>
             <hr style="width: 90%">
 
