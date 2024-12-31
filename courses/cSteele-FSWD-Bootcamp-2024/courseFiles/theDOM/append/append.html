@@ -48,7 +48,7 @@
                <h6>Adding HTML Items</h6>
                <p><span class="firstWord">Adding</span> new HTML elements is pretty straight forward, but there are multiple steps. There are a couple of different ways to accomplish this, so first we'll start with <b>appendChild()</b>.</p>
             </article>
-            <hr style="width: 90%">
+            <br><hr style="width: 90%"><br>
 
             <!-- appendChild -->
             <article>
@@ -96,8 +96,7 @@
                </p>
                <p>And there we go. We have now added the following <b>H6</b> element to the end of the 2<sup>nd</sup> <b>article</b> element on this page. <i>(remember that the following H6 element is NOT part of the original HTML)</i>. Also, we changed the <i>font</i> color of our new <b>h6</b> element just to make it stand out on the page.</p>
             </article>
-            <br>
-            <hr style="width: 90%">
+            <br><hr style="width: 90%"><br>
 
             <!-- append -->
             <article>
@@ -117,21 +116,52 @@
                   <ul>
                      <li>1. const <span class="colorHighlight">para</span> = document.querySelectorAll('<b>p</b>')[8];</li>
                   </ul>
-                  next we need to create the NEW element
+                  next we need to create the NEW <b>empty</b> element
                   <ul>
                      <li>2. const <span class="colorHighlight">newB</span> = document.createElement('<b>b</b>');</li>
                   </ul>
                   next, we need to add the text to the new [<b>b</b>] element. Note that we could use either <b>append()</b> or <b>innerText()</b> for this, but append would allow you to add multiple text strings at one time.
                   <ul>
-                     <li>3. <span class="colorHighlight">newB</span>.<b>append</b>('I am the new Bold element.');</li>
+                     <li>3. <span class="colorHighlight">newB</span>.<b>append</b>('I am the new Bold element', ' ', 'Some more text too');&nbsp;&nbsp;&nbsp;//<i>here we added 3 text items</i>
+                        <ul>
+                           <li>- <i>I am the new Bold element</i></li>
+                           <li>- <i>" " (a space)</i></li>
+                           <li>- <i>Some more text too</i></li>
+                        </ul>
+                     </li>
                   </ul>
-                  and finally to change the color of the new element and add it to the paragraph
+                  and finally, change the color of the new element and <b>append</b> <i>(add)</i> it to the end of the paragraph
                   <ul>
                      <li>4. <span class="colorHighlight">newB</span>.style.color = '<span style="color: #961d1d;">#961d1d</span>';&nbsp;&nbsp;&nbsp;<i>(optional)</i></li>
                      <li>5. <span class="colorHighlight">para</span>.<b>append</b>(newB);</li>
                   </ul>
                </p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!-- prepend -->
+            <article>
                <p></p>
+               <h6>prepend</h6>
+               <p><span class="firstWord">prepend()</span>  works the same as <b>append()</b> but it inserts the new text or element at the beginning of the element specified.</p>
+               <p>First we must determine an element we want to <i>prepend</i>. In this example we want to add <i>(prepend)</i> a bold [<b>b</b>] element to the beginning of this section, which is contained within the 4<sup>th</sup> <b>article</b> element on this page. So first, we need to select this [<b>article</b>] tag:
+                  <ul>
+                     <li>1. const <span class="colorHighlight">art2</span> = document.querySelectorAll('<b>article</b>')[3];</li>
+                  </ul>
+                  next we need to create the NEW <b>empty</b> element
+                  <ul>
+                     <li>2. const <span class="colorHighlight">newB2</span> = document.createElement('<b>b</b>');</li>
+                  </ul>
+                  next, we need to add the text to the new [<b>b</b>] element. Note that we could use either <b>append()</b> or <b>innerText()</b> for this, but append would allow you to add multiple text strings at one time.
+                  <ul>
+                     <li>3. <span class="colorHighlight">newB2</span>.<b>append</b>('I am the second new Bold element');</li>
+                  </ul>
+                  and finally, change the color of the new element and <b>prepend</b> <i>(add)</i> it to the beginning of this article element.
+                  <ul>
+                     <li>4. <span class="colorHighlight">newB2</span>.style.color = '<span style="color: #961d1d;">#961d1d</span>';&nbsp;&nbsp;&nbsp;<i>(optional)</i></li>
+                     <li>5. <span class="colorHighlight">art2</span>.<b>prepend</b>(newB2);</li>
+                  </ul>
+               </p>
             </article>
          </section>
 
@@ -158,9 +188,16 @@
       // append NEW B element
       const para = document.querySelectorAll('p')[9];
       const newB = document.createElement('b');
-      newB.append('I am the new Bold element.');
+      newB.append('I am the new Bold element.', ' ', 'Some more text too');
       newB.style.color = '#961d1d';
       para.append(newB);
+
+      // prepend NEW B element
+      const art2 = document.querySelectorAll('article')[3];
+      const newB2 = document.createElement('b');
+      newB2.append('I am the second new Bold element');
+      newB2.style.color = '#961d1d';
+      art2.prepend(newB2);
    </script>
 
 </body>
