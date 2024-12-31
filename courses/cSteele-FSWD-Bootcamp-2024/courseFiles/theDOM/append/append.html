@@ -46,17 +46,24 @@
          <!-- Append & AppendChild -->
             <article>
                <h6>Adding HTML Items</h6>
-               <p><span class="firstWord">Adding</span> new HTML elements is pretty straight forward, but there are multiple steps.</p>
-               <p>We want to add a NEW H6 element to this webpage, but we want to add it to the end of THIS paragraph, which is contained within an [<b>article</b>] element. So we need to select the 1<sup>st</sup> [<b>article</b>] element and assign it to a variable:
-                  <ul>
-                     <li>const <span class="colorHighlight">paragh</span> = document.querySelector('<b>article</b>');
+               <p><span class="firstWord">Adding</span> new HTML elements is pretty straight forward, but there are multiple steps. There are a couple of different ways to accomplish this, so first we'll start with <b>appendChild()</b>.</p>
+            </article>
+            <hr style="width: 90%">
+
+            <!-- appendChild -->
+            <article>
+               <h6>Using appendChild</h6>
+               <p><span class="firstWord">Let's</span> add a NEW element to the page using <b>appendChild()</b>. We're going' to add a NEW H6 element to this webpage, but we want to add it to the end of THIS paragraph. Since this paragraph is <i>actually</i> contained within the 2<sup>nd</sup> [<b>article</b>] element on this page, we will need to use <b>querySelectorAll('article')[1];</b> to select it. So lets select the 2<sup>nd</sup> [<b>article</b>] element and assign it to a variable:
+                  <ol>
+                     <li style="list-style: decimal;"><b>select</b> the <b>article</b> element and assign it to a variable
                         <ul>
-                           <li><i>selects the 1<sup>st</sup> <b>article</b> element on the page and assigns it to the variable <span class="colorHighlight">paragh</span></i></li>
+                           <li>const <span class="colorHighlight">art</span> = document.querySelectorAll('<b>article</b>')[1];
+                              <ul>
+                                 <li><i>selects the 2<sup>nd</sup> <b>article</b> element on the page and assigns it to the variable <span class="colorHighlight">art</span></i></li>
+                              </ul>
+                           </li>
                         </ul>
                      </li>
-                  </ul>
-                  Now we can create the <i>NEW</i> h6 element:
-                  <ol>
                      <li style="list-style: decimal;"><b>create</b> a new element and assign it to a variable
                         <ul>
                            <li>const <span class="colorHighlight">newEle</span> = document.<b>createElement(</b>'h6'<b>)</b>;
@@ -75,14 +82,56 @@
                            </li>
                         </ul>
                      </li>
-                     <li style="list-style: decimal;"><b>append</b> the new element to the end of the specified document location, in this case, to the end of the 1<sup>st</sup> <b>article</b> element of the page.
+                     <li style="list-style: decimal;"><b>change</b> the font color to make the new element stand out on the page <i>(optional)</i>
                         <ul>
-                           <li><span class="colorHighlight">paragh</span>.<b>appendChild(<span class="colorHighlight">newEle</span>)</b>;</li>
+                           <li><span class="colorHighlight">newEle</span>.<b>style.color</b> = '<span style="color: #961d1d;">#961d1d</span>';</li>
+                        </ul>
+                     </li>
+                     <li style="list-style: decimal;"><b>append</b> the new element to the end of the specified document location, in this case, to the end of the 2<sup>nd</sup> <b>article</b> element of the page.
+                        <ul>
+                           <li><span class="colorHighlight">art</span>.<b>appendChild(<span class="colorHighlight">newEle</span>)</b>;</li>
                         </ul>
                      </li>
                   </ol>
                </p>
-               <p>And there we go. We have now added the following <b>H6</b> element to the end of the 1<sup>st</sup> <b>article</b> element on this page. <i>(remember that the following H6 element is NOT part of the original HTML)</i>. We're also going to change the <i>font</i> color of our new <b>h6</b> element using <span class="colorHighlight">newEle</span><b>.style.color</b> = '<span style="color: #961d1d">#961d1d</span>'; to make it stand out on the page.</p>
+               <p>And there we go. We have now added the following <b>H6</b> element to the end of the 2<sup>nd</sup> <b>article</b> element on this page. <i>(remember that the following H6 element is NOT part of the original HTML)</i>. Also, we changed the <i>font</i> color of our new <b>h6</b> element just to make it stand out on the page.</p>
+            </article>
+            <br>
+            <hr style="width: 90%">
+
+            <!-- append -->
+            <article>
+               <h6>Using append</h6>
+               <p><span class="firstWord">We</span> can also add to a webpage by using the <b>append()</b> method. Using <b>append()</b> is very similar to <b>appendChild()</b>, but is different in the following ways.
+                  <ul>
+                     <li><b>append()</b> allows you to also append strings, whereas Node.appendChild() only accepts Node objects.</li>
+                     <li><b>append()</b> has no return value, whereas Node.appendChild() returns the appended Node object.</li>
+                     <li><b>append()</b> can append several nodes and strings, whereas Node.appendChild() can only append one node.
+                        <ul>
+                           <li>meaning you can <i>append</i> several elements or strings at one time.</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+               <p>The process is very similar to using <b>appendChild()</b>. First we must determine an element we want to <i>append</i>. In this example we want to add <i>(append)</i> a bold [<b>b</b>] element to the end of this paragraph. So first, we need to select this [<b>p</b>] tag:
+                  <ul>
+                     <li>1. const <span class="colorHighlight">para</span> = document.querySelectorAll('<b>p</b>')[8];</li>
+                  </ul>
+                  next we need to create the NEW element
+                  <ul>
+                     <li>2. const <span class="colorHighlight">newB</span> = document.createElement('<b>b</b>');</li>
+                  </ul>
+                  next, we need to add the text to the new [<b>b</b>] element. Note that we could use either <b>append()</b> or <b>innerText()</b> for this, but append would allow you to add multiple text strings at one time.
+                  <ul>
+                     <li>3. <span class="colorHighlight">newB</span>.<b>append</b>('I am the new Bold element.');</li>
+                  </ul>
+                  and finally to change the color of the new element and add it to the paragraph
+                  <ul>
+                     <li>4. <span class="colorHighlight">newB</span>.style.color = '<span style="color: #961d1d;">#961d1d</span>';&nbsp;&nbsp;&nbsp;<i>(optional)</i></li>
+                     <li>5. <span class="colorHighlight">para</span>.<b>append</b>(newB);</li>
+                  </ul>
+               </p>
+               <p></p>
             </article>
          </section>
 
@@ -99,11 +148,19 @@
    </footer>
 
    <script>
-      const paragh = document.querySelector('article');
+      // appendChild NEW H6 element
+      const art = document.querySelectorAll('article')[1];
       const newEle = document.createElement('h6');
       newEle.innerText = 'I am the New H6 Element';
       newEle.style.color = '#961d1d';
-      paragh.appendChild(newEle);
+      art.appendChild(newEle);
+
+      // append NEW B element
+      const para = document.querySelectorAll('p')[9];
+      const newB = document.createElement('b');
+      newB.append('I am the new Bold element.');
+      newB.style.color = '#961d1d';
+      para.append(newB);
    </script>
 
 </body>
