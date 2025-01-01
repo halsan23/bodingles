@@ -8,8 +8,9 @@
 // document.querySelectorAll('img')[2].src = 'https://images.unsplash.com/photo-1581061090142-c2cd0ec9f021?w=200';
 
 
-const items = document.querySelectorAll('li');
-
-for (let i = 0; i < items.length; i++) {
-   items[i].classList.toggle('highlight');
+for (let i = 0; i < 100; i++) {
+   const tarId = document.querySelector('#contain')
+   const newEle = document.createElement('button');
+   newEle.innerText = 'Button';
+   tarId.append(newEle);
 }

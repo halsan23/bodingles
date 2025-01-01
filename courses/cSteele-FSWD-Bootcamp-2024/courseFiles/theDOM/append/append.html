@@ -55,7 +55,7 @@
                <h6>Using appendChild</h6>
                <p><span class="firstWord">Let's</span> add a NEW element to the page using <b>appendChild()</b>. We're going' to add a NEW H6 element to this webpage, but we want to add it to the end of THIS paragraph. Since this paragraph is <i>actually</i> contained within the 2<sup>nd</sup> [<b>article</b>] element on this page, we will need to use <b>querySelectorAll('article')[1];</b> to select it. So lets select the 2<sup>nd</sup> [<b>article</b>] element and assign it to a variable:
                   <ol>
-                     <li style="list-style: decimal;"><b>select</b> the <b>article</b> element and assign it to a variable
+                     <li>1. <b>select</b> the <b>article</b> element and assign it to a variable
                         <ul>
                            <li>const <span class="colorHighlight">art</span> = document.querySelectorAll('<b>article</b>')[1];
                               <ul>
@@ -64,7 +64,7 @@
                            </li>
                         </ul>
                      </li>
-                     <li style="list-style: decimal;"><b>create</b> a new element and assign it to a variable
+                     <li>2. <b>create</b> a new element and assign it to a variable
                         <ul>
                            <li>const <span class="colorHighlight">newEle</span> = document.<b>createElement(</b>'h6'<b>)</b>;
                               <ul>
@@ -73,7 +73,7 @@
                            </li>
                         </ul>
                      </li>
-                     <li style="list-style: decimal;"><b>add</b> info to the new element, such as text, src, etc.
+                     <li>3. <b>add</b> info to the new element, such as text, src, etc.
                         <ul>
                            <li><span class="colorHighlight">newEle</span>.<b>innerText</b> = 'I am the New H6 Element';
                               <ul>
@@ -82,12 +82,12 @@
                            </li>
                         </ul>
                      </li>
-                     <li style="list-style: decimal;"><b>change</b> the font color to make the new element stand out on the page <i>(optional)</i>
+                     <li>4. <b>change</b> the font color to make the new element stand out on the page <i>(optional)</i>
                         <ul>
                            <li><span class="colorHighlight">newEle</span>.<b>style.color</b> = '<span style="color: #961d1d;">#961d1d</span>';</li>
                         </ul>
                      </li>
-                     <li style="list-style: decimal;"><b>append</b> the new element to the end of the specified document location, in this case, to the end of the 2<sup>nd</sup> <b>article</b> element of the page.
+                     <li>5. <b>append</b> the new element to the end of the specified document location, in this case, to the end of the 2<sup>nd</sup> <b>article</b> element of the page.
                         <ul>
                            <li><span class="colorHighlight">art</span>.<b>appendChild(<span class="colorHighlight">newEle</span>)</b>;</li>
                         </ul>
@@ -143,23 +143,75 @@
             <article>
                <p></p>
                <h6>prepend</h6>
-               <p><span class="firstWord">prepend()</span>  works the same as <b>append()</b> but it inserts the new text or element at the beginning of the element specified.</p>
-               <p>First we must determine an element we want to <i>prepend</i>. In this example we want to add <i>(prepend)</i> a bold [<b>b</b>] element to the beginning of this section, which is contained within the 4<sup>th</sup> <b>article</b> element on this page. So first, we need to select this [<b>article</b>] tag:
+               <p><span class="firstWord">prepend()</span>  works the same as <b>append()</b> but it inserts the new text or element at the <b>beginning</b> of the element specified.</p>
+               <p>First we must determine an element we want to <i>prepend</i>. In this example we want to add (prepend) an <i>italic</i> [<b>i</b>] element to the beginning of this section, which is contained within the 4<sup>th</sup> <b>article</b> element on this page. So first, we need to select this [<b>article</b>] tag:
                   <ul>
                      <li>1. const <span class="colorHighlight">art2</span> = document.querySelectorAll('<b>article</b>')[3];</li>
                   </ul>
-                  next we need to create the NEW <b>empty</b> element
+                  next we need to create the NEW <b>empty</b> <i>italic</i> element,
                   <ul>
-                     <li>2. const <span class="colorHighlight">newB2</span> = document.createElement('<b>b</b>');</li>
+                     <li>2. const <span class="colorHighlight">newI</span> = document.createElement('<b>i</b>');</li>
                   </ul>
-                  next, we need to add the text to the new [<b>b</b>] element. Note that we could use either <b>append()</b> or <b>innerText()</b> for this, but append would allow you to add multiple text strings at one time.
+                  next, we need to add the text to the new [<b>i</b>] element. Note that we could use either <b>append()</b> or <b>innerText()</b> for this, but append would allow you to add multiple text strings at one time.
                   <ul>
-                     <li>3. <span class="colorHighlight">newB2</span>.<b>append</b>('I am the second new Bold element');</li>
+                     <li>3. <span class="colorHighlight">newI</span>.<b>append</b>('I am a new Italic element');</li>
                   </ul>
                   and finally, change the color of the new element and <b>prepend</b> <i>(add)</i> it to the beginning of this article element.
                   <ul>
-                     <li>4. <span class="colorHighlight">newB2</span>.style.color = '<span style="color: #961d1d;">#961d1d</span>';&nbsp;&nbsp;&nbsp;<i>(optional)</i></li>
-                     <li>5. <span class="colorHighlight">art2</span>.<b>prepend</b>(newB2);</li>
+                     <li>4. <span class="colorHighlight">newI</span>.style.color = '<span style="color: #961d1d;">#961d1d</span>';&nbsp;&nbsp;&nbsp;<i>(optional)</i></li>
+                     <li>5. <span class="colorHighlight">art2</span>.<b>prepend</b>(newI);</li>
+                  </ul>
+               </p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!-- Adjacent Element -->
+            <article id="iae">
+               <p></p>
+               <h6>insertAdjacentElement</h6>
+               <p><span class="firstWord">Instead</span> of inserting a new element into an existing element structure, such as prepending or appending an element as we have demonstrated, we can also insert a new element <b>adjacent</b> to an existing element. You could not, for example, prepend or append a heading element because a heading element has no children to prepend or append to. But you could add an element <b>adjacent</b> to it.</p>
+               <p>In order to utilize <b>insertAdjacentElement</b>, you must specify the <i>position</i> where you want the new element to be placed, and the new <i>element itself.</i> here is the syntax:
+                  <ul>
+                     <li><b><i><span class="colorHighlight">targetElement</span></i>.insertAdjacentElement(position, newElement);</b>
+                        <ul>
+                           <li><br></li>
+                           <li><b><span class="colorHighlight">targetElement</span></b> - the element you wish to place the <i>New</i> element adjacent to</li>
+                           <li><br></li>
+                           <li><b>position</b> - where to place the <i>New</i> element in relation to the <i><span class="colorHighlight">targetElement</span></i>
+                              <ul>
+                                 <li>beforebegin - before the <i><span class="colorHighlight">targetElement</span></i> itself</li>
+                                 <li>afterbegin - just inside the <i><span class="colorHighlight">targetElement</span></i>, before its 1<sup>st</sup> child</li>
+                                 <li>beforeend - just inside the <i><span class="colorHighlight">targetElement</span></i>, after its last child</li>
+                                 <li>afterend - after the <i><span class="colorHighlight">targetElement</span></i> itself</li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+               <p>Let's demonstrate. At the beginning of this section is the <b>h6</b> element, <b>insertAdjacentElement</b>. We're going to add a <i>NEW</i> [<b>p</b>] element <i>after</i> this h6 element.
+                  <ul>
+                     <li>1. <b>select</b> the [<b>h6</b>] targetElement
+                        <ul>
+                           <li>const <span class="colorHighlight">tarEle</span> = document.querySelectorAll('<b>h6</b>')[<b>5</b>];</li>
+                        </ul>
+                     </li>
+                     <li>2. <b>create</b> the <i>new</i> element
+                        <ul>
+                           <li>const <span class="colorHighlight">newP</span> = document.createElement('<b>p</b>');</li>
+                        </ul>
+                     </li>
+                     <li>3. <b>insert</b> text into the <i>new</i> element
+                        <ul>
+                           <li><span class="colorHighlight">newP</span>.append('I am the New Paragraph');</li>
+                        </ul>
+                     </li>
+                     <li>4. <b>place</b> the new element <span class="colorHighlight">newP</span> after the existing [<b>h6</b>] element
+                        <ul>
+                           <li><span class="colorHighlight">newP</span>.style.color = '<span style="color: #961d1d;">#961d1d</span>'&nbsp;&nbsp;&nbsp;// <i>optional</i></li>
+                           <li><span class="colorHighlight">tarEle</span>.insertAdjacentElement('<b>afterend</b>', <span class="colorHighlight">newP</span>);</li>
+                        </ul>
+                     </li>
                   </ul>
                </p>
             </article>
@@ -194,10 +246,17 @@
 
       // prepend NEW B element
       const art2 = document.querySelectorAll('article')[3];
-      const newB2 = document.createElement('b');
-      newB2.append('I am the second new Bold element');
-      newB2.style.color = '#961d1d';
-      art2.prepend(newB2);
+      const newI = document.createElement('i');
+      newI.append('I am a new Italic element');
+      newI.style.color = '#961d1d';
+      art2.prepend(newI);
+
+      // add new P element after <h6>insertAdjacentElement</h6>
+      const tarEle = document.querySelectorAll('h6')[5];
+      const newP = document.createElement('p');
+      newP.append('I am the New Paragraph');
+      newP.style.color = '#961d1d';
+      tarEle.insertAdjacentElement('afterend', newP);
    </script>
 
 </body>
