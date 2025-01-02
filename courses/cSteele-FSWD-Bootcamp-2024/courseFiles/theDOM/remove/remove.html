@@ -16,6 +16,12 @@
    <!-- My local Stylesheets -->
    <link rel="stylesheet" href="../../../../../../css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
+
+   <style>
+      li {
+         list-style: disc;
+      }
+   </style>
 </head>
 
 <body>
@@ -42,10 +48,90 @@
          </section>
 
          <section id="textWindow4" class="just lists">
-         <!--Remove & RemoveChild -->
+         <!--RemoveChild -->
             <article>
-               <h6>remove & removeChild</h6>
-               <p></p>
+               <h6>removeChild</h6>
+               <p><span class="firstWord">removeChild()</span> works similar to <b>appendChild()</b> except that we are <i>removing</i> as opposed to <i>adding</i> a child element. When using appendChild, we are <i>adding</i> a new element to an existing <b>parent</b> element and removeChild works the same way. We are not just creating a NEW element on the webpage, we are <i>removing</i> a child element from an existing <b>parent</b> element.</p>
+               <p>Let's create an unordered list to demonstrate:</p>
+               <p>This is an unordered List [<b>ul</b>]
+                  <ul>
+                     <li>Item One</li>
+                     <li>Item Two</li>
+                     <li>Item Three
+                        <ul>
+                           <li>Sub-Item One</li>
+                           <li>Sub-Item Two</li>
+                        </ul>
+                     </li>
+                     <li>Item Four</li>
+                     <li>Item Five</li>
+                  </ul>
+               </p>
+               <p>and in an unordered List [<b>ul</b>], all of [<b>li</b>]'s are <b>children</b> of the parent [<b>ul</b>] element.</p>
+
+               1. first off, we need to define the <b>child</b> element we want to remove, in this example we are going to remove <i>Item Two</i> from the list:
+                  <ol>
+                     <li>const <span class="colorHighlight">remItem</span> = document.querySelectorAll('<b>li</b>')[<b>1</b>];
+                        <ol>
+                           <li><i>selects the 2<sup>nd</sup> list item [Item Two]</i></li>
+                        </ol>
+                     </li>
+                  </ol>
+
+               2. next, we need to define the <b>parent</b> element that we are removing a <b>child</b> from:
+                  <ol>
+                     <li>const <span class="colorHighlight">unordList</span> = <span class="colorHighlight">remItem</span>.parentElement;
+                        <ol>
+                           <li><i>selects the <b>parent</b> element for <span class="colorHighlight">remItem</span>, which is the [<b>ul</b>] unordered list element</i></li>
+                        </ol>
+                     </li>
+                  </ol>
+
+               3. and now remove the <b>child</b> item from the <b>parent</b>:
+                  <ol>
+                     <li><span class="colorHighlight">unordList</span>.<b>removeChild</b>(<span class="colorHighlight">remItem</span>);
+                        <ol>
+                           <li><i>removes the line item [<b>li</b>], <span class="colorHighlight">remItem</span> from the parent unordered list [<b>ul</b>] <span class="colorHighlight">unordList</span></i></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </p>
+               <p>and we are left with:
+                  <ul>
+                     <li>Item One</li>
+                     <li>Item Two</li>
+                     <li>Item Three
+                        <ul>
+                           <li>Sub-Item One</li>
+                           <li>Sub-Item Two</li>
+                        </ul>
+                     </li>
+                     <li>Item Four</li>
+                     <li>Item Five</li>
+                  </ul>
+                  notice that the [li] <b>Item Two</b> has now been removed.
+               </p>
+               <p><b>*note</b> that you could also <i>simplify</i> the code by eliminating step 2, and changing step 3, like so:
+                  <ul>
+                     <li><span class="colorHighlight">remItem</span>.parentElement.removeChild(<span class="colorHighlight">remItem</span>);</li>
+                  </ul>
+               </p>
+            </article>
+         <br><hr style="width: 90%"><br>
+
+         <!--Remove -->
+            <article>
+               <h6>remove</h6>
+               <p><span class="firstWord">remove</span> is a <i>newer</i> method that allows us to <b>remove</b> an element. But what's nice with remove is that with this method, we no longer have to define the <b>parent</b> element.</p>
+               <p>The syntax is very simple:
+                  <ul>
+                     <li><i>element</i>.remove()</li>
+                  </ul>
+                  You simply define the element you wish to remove (usually as a variable), and remove it. No parent involved. If we use this on our <i>unordered List</i> example from above, in which we selected the 2<sup>nd</sup> list item for removal, and assigned it to the variable <span class="colorHighlight">remItem</span>, the code would be:
+                  <ul>
+                     <li><span class="colorHighlight">remItem</span>.<b>remove()</b>;</li>
+                  </ul>
+               </p>
             </article>
          </section>
 
@@ -60,6 +146,14 @@
       <div>|</div>
       <div>&copy; All Rights Reserved</div>
    </footer>
+
+   <script>
+      const remItem = document.querySelectorAll('li')[14];
+      const unordList = remItem.parentElement;
+      // unordList.removeChild(remItem);    // Option One - defining the parent
+      // remItem.parentElement.removeChild(remItem);    // OptionTwo - removing th item directly, not defining the parent
+      remItem.remove();    // Option Three - using remove() instead of removeChild()
+   </script>
 
 </body>
 
