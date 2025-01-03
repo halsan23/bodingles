@@ -1,0 +1,9 @@
+.butt {
+   background-color: #cbe4e5;
+   padding: 5px 8px;
+   border: 1px solid black;
+}
+
+li {
+   list-style: none;
+}

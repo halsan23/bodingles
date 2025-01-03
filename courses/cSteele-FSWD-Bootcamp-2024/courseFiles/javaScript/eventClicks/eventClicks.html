@@ -1,0 +1,104 @@
+span<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="localStyle.css" />
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span>
+      <span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
+            <hr style="width: 50%" />
+            <h5>JavaScript Events Trapping</h5>
+         </section>
+
+         <section id="textWindow4" class="just lists">
+         <!--RemoveChild -->
+            <article>
+               <h6>Click Events</h6>
+               <p><span class="firstWord">Click</span> events are a way of "trapping" for mouse clicks. Once the JavaScript detects the mouse click, it can then enact some kind of code procedure. There are basically three ways of doing click events.
+                  <ul>
+                     <li>1. <b>inline</b>: event code written <i>within</i> the HTML element itself
+                        <ul>
+                           <li>make an element and from <i>within</i> that element, process the code that will run when the element is clicked.
+                              <ul>
+                                 <li>eg. <span class="butt">&nbsp;< button <b>onclick</b>="alert('You Clicked the Button')";>Click Me< /button>&nbsp;</span>
+                                    &nbsp;&nbsp;<button onclick="alert('You Clicked the Button')";>Click Me</button></li>
+                                 <li>so this button element will open an <b>alert</b> window when the button is clicked.</li>
+                              </ul>
+                           </li>
+                           <li>for several reasons, it is normally not considered a good idea to use this method</li>
+                           <li>&nbsp;</li>
+                        </ul>
+                     </li>
+                     <li>2. <b>external Js</b>: create a [<b>script</b>] link within your HTML file, and process the click event in an <b>external</b> Js file.
+                        <ul>
+                           <li>create a new button: <span class="butt">&nbsp;< button <b>id="b2"</b>>Button 2< /button>&nbsp;</span>&nbsp;&nbsp;
+                              <button id="b2">Button 2</button></li>
+                           <li>&nbsp;</li>
+                           <li>now we can write our Js code in the external Js file (eventClicks.js)
+                              <ul>
+                                 <li>const <span class="colorHighlight">btn</span> = document.querySelector('<b>#b2</b>');</li>
+                                 <li>&nbsp;</li>
+                                 <li><span class="colorHighlight">btn</span>.onclick = <i>function</i> () {
+                                    <ul>
+                                       <li>console.log('You Clicked the 2<sup>nd</sup> button');</li>
+                                    </ul>
+                                 </li>
+                                 <li>}</li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+            </article>
+         <br><hr style="width: 90%"><br>
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+
+   <script src="eventClicks.js"></script>
+
+</body>
+
+</html>
