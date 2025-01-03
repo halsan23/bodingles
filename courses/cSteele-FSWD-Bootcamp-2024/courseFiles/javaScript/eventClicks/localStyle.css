@@ -1,9 +1,29 @@
-.butt {
-   background-color: #cbe4e5;
-   padding: 5px 8px;
-   border: 1px solid black;
+table {
+   width: 70%;
+   margin: 10px auto;
+   border: 1px double black;
+}
+
+th {
+   padding: 10px;
+}
+
+td {
+   text-align: center;
+   padding: 10px;
+   border-top: 1px solid black;
 }
 
 li {
    list-style: none;
+}
+
+.event {
+   list-style: disc;
+}
+
+.butt {
+   background-color: #cbe4e5;
+   padding: 5px 8px;
+   border: 1px solid black;
 }
