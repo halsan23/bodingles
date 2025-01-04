@@ -1,7 +1,12 @@
 const btn = document.querySelector('#b2');
-console.log(btn);
-
 
 btn.onclick = function () {
-   alert('You Clicked the 2nd button');
+   alert('You Clicked Button 2');
 }
+
+
+const btn2 = document.querySelector('h4');
+
+btn2.addEventListener('click', () => {
+   alert('You clicked the Heading 4');
+})
