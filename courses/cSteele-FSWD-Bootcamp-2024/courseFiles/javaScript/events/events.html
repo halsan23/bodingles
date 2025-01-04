@@ -102,65 +102,68 @@ span<!DOCTYPE html>
             <article>
                <h6>Processing Events</h6>
                <p><span class="firstWord">Once</span> JavaScript detects that an event has occurred, we need a way to process the code and enact some kind of procedure. There are basically three different ways of accomplishing this:</p>
-               <p>1. <b>inline</b>: event code written <i>within</i> the HTML element itself:
-                  <ul>
-                     <li>make an element and from <i>within</i> that element, process the code and perform the action that will run when the event is triggered.</li>
-                     <li>&nbsp;
-                        <ul>
-                           <li>eg. <span class="butt">&nbsp;< button <b>onclick</b>="alert('You Clicked Me')";>Click Me< /button>&nbsp;</span>
-                              &nbsp;&nbsp;<button onclick="alert('You Clicked Me')";>Click Me</button></li>
-                              <li>&nbsp;</li>
-                        </ul>
-                     </li>
-                     <li>this is a <b>click event</b> and the button element will open an <b>alert</b> window when the button is <i>clicked</i></li>
-                     <li>for several reasons, it is normally not considered good practice to use the <b>inline</b> method</li>
-                  </ul>
-               </p>
-               <br><hr style="width: 90%"><br>
-               <p>2. <b>external</b> Js: processes the click event <i>externally</i>, from the <i>element</i>, meaning not <i>inline</i>. This refers to processing the event either in a [<b>script</b>] running within the HTML file, or from an <b>external</b> Js file.
-                  <ul>
-                     <li>&nbsp;
-                        <ul>
-                           <li>create a new button: <span class="butt">&nbsp;< button <b>id="b2"</b>>Button 2< /button>&nbsp;</span>&nbsp;&nbsp;
-                              <button id="b2">Button 2</button></li>
-                           <li>&nbsp;</li>
-                           <li>now we can write our Js code externally from the <i>element</i></li>
-                           <li>&nbsp;</li>
-                           <li class="butt">const <span class="colorHighlight">btn</span> = document.querySelector('<b>#b2</b>');</li>
-                           <li>&nbsp;
-                              <ul class="butt">
-                                 <li><span class="colorHighlight">btn</span>.onclick = <i>function</i> () {</li>
-                                 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('You Clicked the 2<sup>nd</sup> button');</li>
-                                 <li>}</li>
-                              </ul>
-                           </li><li>&nbsp;</li>
-                           <li>this is also a <b>click event</b> and this button element will likewise open an <b>alert</b> window when the button is <i>clicked</i></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-               <br><hr style="width: 90%"><br>
-               <p>3. <b>addEventListener</b>: is generally considered to be the best option for listening and "trapping" of events. It is generally used with <b>external</b> Js coding, processing the event either in a [<b>script</b>] running within the HTML file, or from an <b>external</b> Js file.</p>
+            </article>
+
+            <!--Method 1 -->
+            <article>
+               <p>1. <b>inline</b>: event code written <i>within</i> the HTML element itself. For example:</p>
+               <ul>
+                  <li>make an element and from <i>within</i> that element, process the code and perform the action that will run when the event is triggered.
+                     <ul class="butt">
+                        <li>< button <b>onclick</b>="alert('You Clicked Me')";>Click Me< /button>&nbsp;&nbsp;&nbsp;
+                        <button onclick="alert('You Clicked Me')";>Click Me</button></li>
+                     </ul>
+                  </li>
+                  <li>this is a <b>click event</b> and the button element will open an <b>alert</b> window when the button is <i>clicked</i></li>
+               </ul>
+               <p><i><b>*note</b>: it is generally considered not good practice to use the <b>inline</b> method.</i></p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!--Method 2 -->
+            <article>
+               <p>2. <b>external</b>: processes the click event <i>externally</i>, from the <i>element</i>, meaning not <i>inline</i>. This refers to processing the event either in a [<b>script</b>] running within the HTML file, or from an <b>external</b> Js file.</p>
+               <p>For example, let's create a <i>NEW</i> button with another <b>click event</b>:</p>
+               <ul class="butt">
+                  <li>< button <b>id="b2"</b>>Button 2< /button>&nbsp;&nbsp;&nbsp;
+                     <button id="b2">Button 2</button></li>
+               </ul>
+               <ul>
+                  <li>creates a new button with an <b>ID="b2"</b></li>
+               </ul>
+               <p>now we can write our Js code externally from the <i>element</i><br></p>
+               <ul class="butt">
+                  <li>const <span class="colorHighlight">btn</span> = document.querySelector('<b>#b2</b>');</li>
+               </ul>
+               <ul>
+                  <li>assigns the variable <span class="colorHighlight">btn</span> to the new button, using querySelector for the ID <b>#b2</b></li>
+               </ul>
+               <ul class="butt">
+                  <li><span class="colorHighlight">btn</span>.onclick = <i>function</i> () {</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('You Clicked the 2<sup>nd</sup> button');</li>
+                  <li>}</li>
+               </ul>
+               <ul>
+                  <li>we then assign a <b>click</b> event to the variable <span class="colorHighlight">btn</span> and process the event with the <b>callback function</b> that opens an <b>alert</b> window</li>
+               </ul>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!--Method 3 -->
+            <article>
+               <p>3. <b>addEventListener</b>: is generally considered to be the best option for listening and "trapping" of events. It is generally used with <b>external</b> Js coding for processing of the event in either a [<b>script</b>] running within the HTML file, or from an <b>external</b> Js file.</p>
                <p>The basic syntax is:
-                  <ul>
-                     <li>&nbsp;
-                        <ul class="butt">
-                           <li><i>variable</i>.<b>addEventListener</b>('<i>typeOfEvent</i>', <i>callbackFunction</i>)</li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-               <p><br>so a practical application would look like:
-               <h4>This is an H4 element</h4>
                   <ul class="butt">
-                     <li>const <span class="colorHighlight">btn2</span> = document.querySelector('<b>h4</b>');
-                        <ul>
-                           <li>this would select the 1<sup>st</sup> [<b>h4</b>] element on the page and assign it to the variable <span class="colorHighlight">btn2</span></li>
-                        </ul>
-                     </li>
+                     <li><i>variable</i>.<b>addEventListener</b>('<i>typeOfEvent</i>', <i>callbackFunction</i>)</li>
                   </ul>
                </p>
-               <p><br>and the processing Js code would be:
+               <p><br>so a practical application would look like:</p>
+               <h4>This is an H4 element</h4>
+               <ul class="butt">
+                  <li>const <span class="colorHighlight">btn2</span> = document.querySelector('<b>h4</b>');</li>
+               </ul>
+               <p>this would select the 1<sup>st</sup> [<b>h4</b>] element on the page and assign it to the variable <span class="colorHighlight">btn2</span></p>
+               <p>and the processing Js code would be:
                   <ul class="butt">
                      <li><span class="colorHighlight">btn2</span>.addEventListener('<b>click</b>', () => {
                         <ul>
@@ -170,7 +173,11 @@ span<!DOCTYPE html>
                      <li>})</li>
                   </ul>
                </p>
-               <p>This is also a <b>click event</b> but we're processing the <b>variable</b> <span class="colorHighlight">btn2</span> by using <b>addEventListener()</b> to <i>"trap"</i> the event. We then add an event type of <b>click</b>, so the event will be triggered by a <b>mouse click</b>. And finally,  the <i>callback function</i> will open an <b>alert</b> window (<i>once the <b>h4</b> is clicked</i>) showing that the H4 <i>was</i> actually clicked.</p>
+               <ul>
+                  <li>&nbsp;&nbsp;i. We are processing the <b>variable</b> <span class="colorHighlight">btn2</span> by using <b>addEventListener()</b> to <i>"trap"</i> the event</li>
+                  <li>&nbsp;ii. We then add an event type of <b>click</b>, so the event will be triggered by a <b>mouse click</b>.</li>
+                  <li>iii. And finally,  the <i>callback function</i> will open an <b>alert</b> window (<i>once the <b>h4</b> is clicked</i>) showing that the H4 <i>was</i> actually clicked.</li>
+               </ul>
                <p>We are also showing that events can be used an <b>any</b> HTML element.</p>
             </article>
          </section>
@@ -187,7 +194,7 @@ span<!DOCTYPE html>
       <div>&copy; All Rights Reserved</div>
    </footer>
 
-   <script src="eventClicks.js"></script>
+   <script src="events.js"></script>
 
 </body>
 
