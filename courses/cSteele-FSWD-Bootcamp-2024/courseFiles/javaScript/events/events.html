@@ -158,11 +158,13 @@ span<!DOCTYPE html>
                   </ul>
                </p>
                <p><br>so a practical application would look like:</p>
-               <h4>This is an H4 element</h4>
+               <h4 id="h4">This is an H4 element</h4>
                <ul class="butt">
                   <li>const <span class="colorHighlight">btn2</span> = document.querySelector('<b>h4</b>');</li>
                </ul>
-               <p>this would select the 1<sup>st</sup> [<b>h4</b>] element on the page and assign it to the variable <span class="colorHighlight">btn2</span></p>
+               <ul>
+                  <li>selects the 1<sup>st</sup> [<b>h4</b>] element on the page and assign it to the variable <span class="colorHighlight">btn2</span></li>
+               </ul>
                <p>and the processing Js code would be:
                   <ul class="butt">
                      <li><span class="colorHighlight">btn2</span>.addEventListener('<b>click</b>', () => {
@@ -178,7 +180,35 @@ span<!DOCTYPE html>
                   <li>&nbsp;ii. We then add an event type of <b>click</b>, so the event will be triggered by a <b>mouse click</b>.</li>
                   <li>iii. And finally,  the <i>callback function</i> will open an <b>alert</b> window (<i>once the <b>h4</b> is clicked</i>) showing that the H4 <i>was</i> actually clicked.</li>
                </ul>
-               <p>We are also showing that events can be used an <b>any</b> HTML element.</p>
+               <p>We can also skip assigning a variable, and shorten the coding in the following way:
+                  <ul class="butt">
+                     <li>document.querySelector('<b>h4</b>').<b>onclick</b> = () => {
+                        <ul>
+                           <li><b>alert</b>('You clicked the Heading 4');</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  However, the first example of using <b>addEventListener()</b> is generally considered to be the better way of coding.
+               </p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!--removeEventListener -->
+            <article>
+               <h6>removeEventListener</h6>
+               <p><span class="firstWord">Sometimes</span> in larger applications, with many event listeners, it can potentially become a "load" on the system and has the potential to create problems within the execution of the code. To solve this problem, there is a process called <b><i>removeEventListener</i></b>, whereby you can remove any event listeners that you wish.</p>
+               <p>The syntax would be the same as <i>addEventListener</i>:
+                  <ul class="butt">
+                     <li><i>variable</i>.<b>removeEventListener</b>('<i>typeOfEvent</i>', <i>callbackFunction</i>)</li>
+                  </ul>
+               </p>
+               <p>ref:
+                  <ul>
+                     <li><a href="https://www.w3schools.com/jsref/met_element_removeeventlistener.asp" target="_blank" rel="noopener noreferrer">W3Schools removeEventListener</a></li>
+                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener" target="_blank" rel="noopener noreferrer">MDN removeEventListener</a></li>
+                  </ul>
+               </p>
             </article>
          </section>
 
