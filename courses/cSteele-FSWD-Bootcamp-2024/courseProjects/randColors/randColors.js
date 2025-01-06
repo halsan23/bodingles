@@ -1,82 +1,113 @@
-// changing Foreground / Background Colors
-// const button = document.querySelector('button');
-// const head4 = document.querySelector('h4');
-// const head6 = document.querySelector('h6');
+// ================================================================================
+// Generate random background colors
+// set foreground color to either white or black depending on how dark the
+//     random background is
+// ================================================================================
 
+// assigning variables
 
-// button.addEventListener('click', function () {
-//     const [foreColor, backColor] = makeRandColor();
-//     head4.style.color = foreColor;
-//     head6.style.color = foreColor;
-//     document.body.style.backgroundColor = backColor;
-//     head6.innerText = `New Background Color is: ${backColor}`;
-// })
+// button that changes background color when clicked
+const button = document.querySelector('button');
 
-// const makeRandColor = () => {
-//     const r = Math.floor(Math.random() * 255);
-//     const g = Math.floor(Math.random() * 255);
-//     const b = Math.floor(Math.random() * 255);
+// the two heading tags that change foreground color
+const head4 = document.querySelector('h4');
+const head6 = document.querySelector('h6');
 
-//     let fc = '#000000';
-//     const bc = `rgb(${r}, ${g}, ${b})`;
+// define addEventListener
+//     Event type is "Click"
+button.addEventListener('click', function () {
 
-//     const numbs = r + g + b;
+    // run the makeRandomColor function to get our colors
+    const [foreColor, backColor] = makeRandColor();
 
-//     if (numbs < 275) {
-//         fc = '#ffffff';
-//     }
+    // assign the foreground colors to our two heading elements
+    head4.style.color = foreColor;
+    head6.style.color = foreColor;
 
-//     console.log(`${fc} / ${bc}`);
+    // set the newrandom  background color
+    document.body.style.backgroundColor = backColor;
 
-//     return [fc, bc];
-// }
+    // update the text for the Heading 6 element
+    head6.innerText = `New Background Color is: ${backColor}`;
+})
 
-// =============================================================
-// Rainbow Colors
-const letters = ['R', 'A', 'I', 'N', 'B', 'O', 'W', ' ', 'C', 'O', 'L', 'O', 'R', 'S'];
-console.log(letters);
+// function to set our foreground / background colors
+// we're using random RGB colors for the background color
+// we're using either white of black for the foreground color
+const makeRandColor = () => {
 
+    // get random r/g/b values
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
 
-const getColor = () => {
-    const colorNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
-    let color = '#';
+    // assign foreground color a default of black
+    let fc = '#000000';
+    // assign random background rgb color
+    const bc = `rgb(${r}, ${g}, ${b})`;
 
+    // add the current background color values to determine overall darkness
+    const numbs = r + g + b;
 
-    thisColorNum = Math.floor(Math.random() * 15);
-    console.log(`Random Number Picked ${thisColorNum}`);
+    // if the overall darkness is lees that 275
+    // set foreground color to white
+    if (numbs < 275) {
+        fc = '#ffffff';
+    }
 
-    pickedColorNum = colorNums[thisColorNum];
-    console.log(`Color Number Picked ${pickedColorNum}`);
-
-    color.append(pickedColorNum);
-    console.log(`Color ${color}`);
-
-
-    // for (let i = 0; i < 6; i++) {
-
-    //     thisColorNum = Math.floor(Math.random() * 15);
-    //     console.log(thisColorNum);
-
-    //     pickedColorNum = colorNums[thisColorNum];
-    //     console.log(pickedColorNum);
-
-    //     // color.append(pickedColorNum);
-    //     console.log(color);
-    // }
-
+    // return the new foreground / background colors
+    return [fc, bc];
 }
 
-thisColor = getColor();
-console.log(thisColor);
 
+// ================================================================================
+// Rainbow Text - random text colors
+// ================================================================================
 
+// Create the text for the rainbow effect
+const text = 'Rainbow Text';
+const letters = text.split("");
 
-// const letter = letters[0];
-// console.log(letter);
+// function to pick random "hex" color
+const colorPick = () => {
+    // define the possible choices for individual color values
+    const colorNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
 
+    // set the basic hex color format
+    let color = '#';
 
+     // run loop to pick 6 individual color values
+    for (let i = 0; i < 6; i++) {
 
-// const word = document.querySelector('.rainbow');
-// letter.style.color = "#3cc964";
-// word.append(letter);
-// console.log(word);
+        // pick one single value from the 16 possibilities
+        const thisColorNum = Math.floor(Math.random() * 15);
+        const pickedColorNum = colorNums[thisColorNum];
+
+        // add the ned color value to the end of the current color
+        // we repeat 6 times to build a full hex color value
+        color = color + pickedColorNum;
+    }
+    // return the final random hex color
+    return color;
+}
+
+// target the paragraph with the ID of Rainbow
+const para = document.querySelector('#rainbow');
+
+// run the loop for each letter in the original text
+for (i = 0; i < letters.length; i++) {
+
+    // run the colorPick function to get a random hex color value
+    let color = colorPick();
+
+    // add a new [span] element to the exiting [p] element (id = #rainbow)
+    const newSpan = document.createElement('span');
+
+    // add each individual letter of the text to the [span]
+    //     and set the random hex color
+    newSpan.append(letters[i]);
+    newSpan.style.color = color;
+
+    // append the new "colored" letter to the #rainbow [p] element
+    para.append(newSpan);
+}
