@@ -12,6 +12,7 @@ const button = document.querySelector('button');
 // the two heading tags that change foreground color
 const head4 = document.querySelector('h4');
 const head6 = document.querySelector('h6');
+const subH6 = document.querySelector('#subH6');
 
 // define addEventListener
 //     Event type is "Click"
@@ -23,8 +24,9 @@ button.addEventListener('click', function () {
     // assign the foreground colors to our two heading elements
     head4.style.color = foreColor;
     head6.style.color = foreColor;
+    subH6.style.color = foreColor;
 
-    // set the newrandom  background color
+    // set the new random  background color
     document.body.style.backgroundColor = backColor;
 
     // update the text for the Heading 6 element
