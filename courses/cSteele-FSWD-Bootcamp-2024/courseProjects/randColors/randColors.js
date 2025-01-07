@@ -100,14 +100,29 @@ for (i = 0; i < letters.length; i++) {
     // run the colorPick function to get a random hex color value
     let color = colorPick();
 
-    // add a new [span] element to the exiting [p] element (id = #rainbow)
-    const newSpan = document.createElement('span');
+    // add a new [div] element to the exiting [p] element (id = #rainbow)
+    const newDiv = document.createElement('div');
+
+    // add a label to display the hex color
+    const label = document.createElement('span');
+    label.innerText = color;
+
+    // create the [newDiv] class and assign it to the [div] {newDiv}
+    // create the [label] class and assign it to the [label] {label}
+    // the [style] for this class is defined in the app.css
+    // this styling allows us to display the hex color number underneath the text
+    newDiv.classList.add('newDiv');
+    label.classList.add('label');
+
 
     // add each individual letter of the text to the [span]
     //     and set the random hex color
-    newSpan.append(letters[i]);
-    newSpan.style.color = color;
+    newDiv.append(letters[i]);
+    newDiv.style.color = color;
+
+    // append the [label] (hex color number) to the [newDiv] div
+    newDiv.appendChild(label);
 
     // append the new "colored" letter to the #rainbow [p] element
-    para.append(newSpan);
+    para.append(newDiv);
 }

@@ -14,3 +14,16 @@ button {
    font-size: 3.5rem;
    margin: 10px;
 }
+
+.newDiv {
+   display: inline-block;
+   text-align: center;
+}
+
+.label {
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   display: block;
+   padding: 12px 8px;
+   font-size: .75rem;
+   color: black;
+}
