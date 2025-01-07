@@ -104,8 +104,11 @@ for (i = 0; i < letters.length; i++) {
     const newDiv = document.createElement('div');
 
     // add a label to display the hex color
+    // only if the current letter is NOT a space
     const label = document.createElement('span');
-    label.innerText = color;
+    if (letters[i] != " ") {
+        label.innerText = color;
+    }
 
     // create the [newDiv] class and assign it to the [div] {newDiv}
     // create the [label] class and assign it to the [label] {label}
