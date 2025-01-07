@@ -97,8 +97,13 @@ const para = document.querySelector('#rainbow');
 // run the loop for each letter in the original text
 for (i = 0; i < letters.length; i++) {
 
-    // run the colorPick function to get a random hex color value
-    let color = colorPick();
+    // if the current letter is NOT a 'space', run the
+    // colorPick function to get a random hex color value
+    if (letters[i] != ' ') {
+        color = colorPick();
+    } else {
+        color = '       ';
+    }
 
     // add a new [div] element to the exiting [p] element (id = #rainbow)
     const newDiv = document.createElement('div');
@@ -106,9 +111,7 @@ for (i = 0; i < letters.length; i++) {
     // add a label to display the hex color
     // only if the current letter is NOT a space
     const label = document.createElement('span');
-    if (letters[i] != " ") {
         label.innerText = color;
-    }
 
     // create the [newDiv] class and assign it to the [div] {newDiv}
     // create the [label] class and assign it to the [label] {label}
