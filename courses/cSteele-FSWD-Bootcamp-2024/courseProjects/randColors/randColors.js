@@ -1,12 +1,70 @@
 // ================================================================================
-// Generate random background colors
-// set foreground color to either white or black depending on how dark the
-//     random background is
+// Generate random colors
 // ================================================================================
 
-// assigning variables
 
-// button that changes background color when clicked
+// ================================================================================
+// DEFINE THE RANDOM COLOR FUNCTIONS
+// ================================================================================
+
+// function to return ONE random "hex" color
+const colorPick = () => {
+    // define the possible choices for individual color values
+    const colorNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+
+    // set the basic hex color format
+    let color = '#';
+
+     // run loop to pick 6 individual color values
+    for (let i = 0; i < 6; i++) {
+
+        // pick one single value from the 16 possibilities
+        const thisColorNum = Math.floor(Math.random() * 15);
+        const pickedColorNum = colorNums[thisColorNum];
+
+        // add the ned color value to the end of the current color
+        // we repeat 6 times to build a full hex color value
+        color = color + pickedColorNum;
+    }
+    // return the final random hex color
+    return color;
+}
+
+// function to return a foreground & background RGB color
+// use random RGB colors for the background color
+// use either white of black for the foreground color
+const makeRandColor = () => {
+
+    // get random r/g/b values
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+
+    // assign foreground color a default of black
+    let fc = '#000000';
+    // assign random background rgb color
+    const bc = `rgb(${r}, ${g}, ${b})`;
+
+    // add the current background color values to determine overall darkness
+    const numbs = r + g + b;
+
+    // if the overall darkness is lees that 275
+    // set foreground color to white
+    if (numbs < 350) {
+        fc = '#ffffff';
+    }
+
+    // return the new foreground / background colors
+    return [fc, bc];
+}
+
+
+// ================================================================================
+// button that changes page background color when clicked
+//      changes foreground color to white if background is dark
+// ================================================================================
+
+// assigning the variables
 const button = document.querySelector('button');
 
 // the two heading tags that change foreground color
@@ -33,32 +91,27 @@ button.addEventListener('click', function () {
     head6.innerText = `New Background Color is: ${backColor}`;
 })
 
-// function to set our foreground / background colors
-// we're using random RGB colors for the background color
-// we're using either white of black for the foreground color
-const makeRandColor = () => {
 
-    // get random r/g/b values
-    const r = Math.floor(Math.random() * 255);
-    const g = Math.floor(Math.random() * 255);
-    const b = Math.floor(Math.random() * 255);
+// ================================================================================
+// Button Boxes - change colors
+// ================================================================================
 
-    // assign foreground color a default of black
-    let fc = '#000000';
-    // assign random background rgb color
-    const bc = `rgb(${r}, ${g}, ${b})`;
+// define the button objects
+const buttons = document.querySelectorAll('.butt');
 
-    // add the current background color values to determine overall darkness
-    const numbs = r + g + b;
+for (let button of buttons) {
+    button.addEventListener('click', colorize)
+}
 
-    // if the overall darkness is lees that 275
-    // set foreground color to white
-    if (numbs < 275) {
-        fc = '#ffffff';
-    }
+const h1s = document.querySelectorAll('h1');
+for (let h1 of h1s) {
+    h1.addEventListener('click', colorize)
+}
 
-    // return the new foreground / background colors
-    return [fc, bc];
+function colorize() {
+    const [fc, bc] = makeRandColor();
+    this.style.backgroundColor = bc;
+    this.style.color = fc;
 }
 
 
@@ -69,29 +122,6 @@ const makeRandColor = () => {
 // Create the text for the rainbow effect
 const text = 'Rainbow Text';
 const letters = text.split("");
-
-// function to pick random "hex" color
-const colorPick = () => {
-    // define the possible choices for individual color values
-    const colorNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
-
-    // set the basic hex color format
-    let color = '#';
-
-     // run loop to pick 6 individual color values
-    for (let i = 0; i < 6; i++) {
-
-        // pick one single value from the 16 possibilities
-        const thisColorNum = Math.floor(Math.random() * 15);
-        const pickedColorNum = colorNums[thisColorNum];
-
-        // add the ned color value to the end of the current color
-        // we repeat 6 times to build a full hex color value
-        color = color + pickedColorNum;
-    }
-    // return the final random hex color
-    return color;
-}
 
 // target the paragraph with the ID of Rainbow
 const para = document.querySelector('#rainbow');

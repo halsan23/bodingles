@@ -4,7 +4,14 @@ button {
    font-size: 1.25em;
    border: 2px solid black;
    border-radius: 20px;
-   box-shadow: 4px 5px 10px gray;
+   box-shadow: 2px 3px 8px gray;
+}
+
+.butt {
+   margin: 15px;
+   padding: 17px 10px;
+   font-size: 1em;
+   border-radius: 0;
 }
 
 #rainbow {
