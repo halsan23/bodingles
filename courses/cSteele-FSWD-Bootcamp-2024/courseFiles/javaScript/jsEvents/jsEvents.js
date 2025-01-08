@@ -10,8 +10,3 @@ const btn2 = document.querySelector('h4');
 btn2.addEventListener('click', () => {
    alert('You clicked the Heading H4');
 })
-
-
-// document.querySelector('#h4').onclick = () => {
-//    alert('You clicked the H4 Heading');
-// }

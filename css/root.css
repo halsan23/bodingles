@@ -302,6 +302,11 @@ li {
    font-weight: bold;
 }
 
+.colorHighlight2 {
+   color: #682274;
+   font-weight: bold;
+}
+
 /* text Boxes */
 #textWindow {
    margin: 35px auto;

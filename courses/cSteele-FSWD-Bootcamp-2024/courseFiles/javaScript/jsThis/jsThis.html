@@ -1,0 +1,204 @@
+span<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="localStyle.css" />
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span>
+      <span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
+            <hr style="width: 50%" />
+            <h5>JavaScript Events & This</h5>
+         </section>
+
+         <section id="textWindow4" class="just lists">
+            <!--Events & This-->
+            <article>
+               <h6>Events & <i>this</i></h6>
+               <p><a href="https://www.w3schools.com/js/js_this.asp" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">W3Schools <i>this</i></a><br>
+               <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">MDN <i>this</i></a></p>
+               <p><span class="firstWord"><i>this</i></span> is a keyword that essentially lets us process several different types of elements with one universal section of code. In JavaScript, the <b>this</b> keyword refers to an object.</p>
+               <p>The <b>this</b> keyword refers to different objects depending on how it is used:
+                  <ul>
+                     <li>In an object method, <i>this</i> refers to the <b>object</b>.</li>
+                     <li>Alone, <i>this</i> refers to the <b>global object</b>.</li>
+                     <li>In a function, <i>this</i> refers to the <b>global object</b>.</li>
+                     <li>In a function, in strict mode, <i>this</i> is <b>undefined</b>.</li>
+                     <li>In an event, <i>this</i> refers to the <b>element</b> that received the event.</li>
+                  </ul>
+                  Methods like <i>call()</i>, <i>apply()</i>, and <i>bind()</i> can refer <b>this</b> to any object.</p>
+               <p><b>*Note</b>: <i>this</i> is NOT a variable. It is a keyword. You cannot change the value of <i>this</i>.</p>
+               <p>The <i>this</i> keyword refers to the context where a piece of code, such as a function's body, is supposed to run. Most typically, it is used in object methods, where <i>this</i> refers to the object that the method is attached to, thus allowing the same method to be reused on different objects.</p>
+               <p><b>Arrow functions</b> differ in their handling of <i>this</i>: they inherit <i>this</i> from the parent scope at the time they are defined. This behavior makes arrow functions particularly useful for callbacks and preserving context. However, arrow functions do not have their own <i>this</i> binding. Therefore, their <i>this</i> value cannot be set by <i>call()</i>, <i>apply()</i> or <i>bind()</i> methods, nor does it point to the current object in object methods.</p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!-- explaining the Js code for 'this' -->
+            <!-- and how it applies to the boxes -->
+             <article class="just lists">
+               <p><span class="firstWord">In</span> the following example, we have a section set up with several boxes. These <i>boxes</i> are just simple HTML <b>button</b>s with some CSS styling,
+                  <ul>
+                     <li>&lt;button&gt;CLICK&lt;/button&gt;</li>
+                  </ul>
+               </p>
+               <p>Now for the JavaScript.</p>
+               <p>1). First we need to define a function to create the random foreground and background colors:
+                  <ul>
+                     <li>const <span class="colorHighlight2">makeRandColor</span> = () => {
+                        <ul>
+                           <li>//<i> picks random r/g/b colors and assigns them to <span class="colorHighlight">fc</span> (foreground color)</i></li>
+                           <li>let r = Math.floor(Math.random() * 255);</li>
+                           <li>let g = Math.floor(Math.random() * 255);</li>
+                           <li>let b = Math.floor(Math.random() * 255);</li>
+                           <li>const <span class="colorHighlight">fc</span> = `rgb(${r}, ${g}, ${b})`;</li>
+                           <li>&nbsp;</li>
+                           <li>//<i> picks random r/g/b colors and assigns them to <span class="colorHighlight">bc</span> (background color)</i></li>
+                           <li>r = Math.floor(Math.random() * 255);</li>
+                           <li>g = Math.floor(Math.random() * 255);</li>
+                           <li>b = Math.floor(Math.random() * 255);</li>
+                           <li>const <span class="colorHighlight">bc</span> = `rgb(${r}, ${g}, ${b})`;</li>
+                           <li>&nbsp;</li>
+                           <li>//<i> returns the random <span class="colorHighlight">fc</span> and <span class="colorHighlight">bc</span> colors</i></li>
+                           <li>return [<span class="colorHighlight">fc</span>, <span class="colorHighlight">bc</span>];</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </p>
+               <p>2). Next we need to define the button objects:
+                  <ul>
+                     <li>const <span class="colorHighlight">buttons</span> = document.querySelectorAll('<b>button</b>');
+                        <ul>
+                           <li>so <span class="colorHighlight">buttons</span> becomes an object that represents all of the buttons.</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+               <p>3). Next we need to create a <i>for</i> loop so that we can assign a <b>click</b> event to each individual button.
+                  <ul>
+                     <li>for (let <b>button</b> of <span class="colorHighlight">buttons</span>) {
+                        <ul>
+                           <li><b>button</b>.addEventListener('<b>click</b>', <span class="colorHighlight2">colorize</span>)</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  <ul>
+                     <li>
+                        <ul>
+                           <li>since we know that the <b>addEventListener()</b> syntax is:
+                              <ul>
+                                 <li><i>variable</i>.addEventListener('<i>typeOfEvent</i>', <span class="colorHighlight2">callbackFunction</span>)
+                                    <ul>
+                                       <li><span class="colorHighlight2">colorize</span> becomes our <i>callbackFunction</i> for our addEventListener</li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+               <p>4). So next we need to define the <i>callbackFunction</i> <span class="colorHighlight2">colorize</span>
+                  <ul>
+                     <li>function <span class="colorHighlight2">colorize()</span> {
+                        <ul>
+                           <li>const [<span class="colorHighlight">fc</span>, <span class="colorHighlight">bc</span>] = <span class="colorHighlight2">makeRandColor()</span>;</li>
+                           <li><b><i>this</i></b>.style.color = <span class="colorHighlight">fc</span>;</li>
+                           <li><b><i>this</i></b>.style.backgroundColor = <span class="colorHighlight">bc</span>;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  <ul>
+                     <li>So <span class="colorHighlight2">colorize()</span> will run the imbedded function <span class="colorHighlight2">makeRandColor()</span> which actually creates the random foreground (<span class="colorHighlight">fc</span>) and background (<span class="colorHighlight">bc</span>) colors.</li>
+                     <li>Instead of applying these colors to the <b>button</b> variable, we are applying them to the keyword <b><i>this</i></b>.</li>
+                     <li>Because in this instance,  <b><i>this</i></b> is called <b>in an <i>Object Method</i></b>, it will refer TO the object <b>button</b>.</li>
+                  </ul>
+               </p>
+             </article>
+             <br><hr style="width: 90%"><br>
+
+         </section>
+
+         <section id="textWindow4">
+            <!-- Change Color Boxes Section -->
+            <div>
+               <h6>Change the Box Colors</h6>
+               <p id="subH6"><b><i>(using RGB colors)</i></b></p>
+               <button>CLICK</button>
+               <button>CLICK</button>
+               <button>CLICK</button>
+               <button>CLICK</button>
+               <button>CLICK</button>
+               <button>CLICK</button>
+               <button>CLICK</button>
+               <button>CLICK</button>
+               <button>CLICK</button>
+               <button>CLICK</button>
+               <p><i>Click a Box to change the colors</i></p>
+               <br><hr style="width: 90%"><br>
+               <p>
+                  <span class="meToo">Click Me Too</span>
+                  <span class="meToo">Click Me Too</span>
+                  <span class="meToo">Click Me Too</span>
+                  <span class="meToo">Click Me Too</span>
+                  <span class="meToo">Click Me Too</span>
+                  <span class="meToo">Click Me Too</span>
+                  <span class="meToo">Click Me Too</span>
+               </p>
+               <p><i>Click the text to change the colors</i></p>
+               <p><br></p>
+            </div>
+
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+
+   <script src="jsThis.js"></script>
+
+</body>
+
+</html>
