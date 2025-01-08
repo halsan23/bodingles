@@ -28,13 +28,13 @@ const makeRandColor = () => {
 // Button Boxes - change colors
 // ================================================================================
 
-// define the button objects
+// define the button objects & click event
 const buttons = document.querySelectorAll('button');
-
 for (let button of buttons) {
    button.addEventListener('click', colorize)
 }
 
+// define the span objects & click event
 const items = document.querySelectorAll('.meToo');
 for (let item of items) {
    item.addEventListener('click', colorize)

@@ -67,28 +67,30 @@ span<!DOCTYPE html>
 
             <!-- explaining the Js code for 'this' -->
             <!-- and how it applies to the boxes -->
-             <article class="just lists">
-               <p><span class="firstWord">In</span> the following example, we have a section set up with several boxes. These <i>boxes</i> are just simple HTML <b>button</b>s with some CSS styling,
+            <article class="just lists">
+               <p><span class="firstWord">In</span> the example at the bottom of this page, we have a section set up with several boxes. These <i>boxes</i> are just simple HTML <b>button</b>s with some CSS styling,
                   <ul>
                      <li>&lt;button&gt;CLICK&lt;/button&gt;</li>
                   </ul>
                </p>
-               <p>Now for the JavaScript.</p>
+               <p>We want be able to click on any button and have it change both the foreground and background colors of that individual button. For this we need some JavaScript.</p>
                <p>1). First we need to define a function to create the random foreground and background colors:
                   <ul>
                      <li>const <span class="colorHighlight2">makeRandColor</span> = () => {
                         <ul>
                            <li>//<i> picks random r/g/b colors and assigns them to <span class="colorHighlight">fc</span> (foreground color)</i></li>
-                           <li>let r = Math.floor(Math.random() * 255);</li>
-                           <li>let g = Math.floor(Math.random() * 255);</li>
-                           <li>let b = Math.floor(Math.random() * 255);</li>
-                           <li>const <span class="colorHighlight">fc</span> = `rgb(${r}, ${g}, ${b})`;</li>
+                           <li>let <span class="colorHighlight">r</span> = Math.floor(Math.random() * 255);</li>
+                           <li>let <span class="colorHighlight">g</span> = Math.floor(Math.random() * 255);</li>
+                           <li>let <span class="colorHighlight">b</span> = Math.floor(Math.random() * 255);</li>
+                           <li>const <span class="colorHighlight">fc</span> = `rgb(${<span class="colorHighlight">r</span>}, ${<span class="colorHighlight">g</span>}, ${<span class="colorHighlight">b</span>})`;</li>
                            <li>&nbsp;</li>
                            <li>//<i> picks random r/g/b colors and assigns them to <span class="colorHighlight">bc</span> (background color)</i></li>
-                           <li>r = Math.floor(Math.random() * 255);</li>
-                           <li>g = Math.floor(Math.random() * 255);</li>
-                           <li>b = Math.floor(Math.random() * 255);</li>
-                           <li>const <span class="colorHighlight">bc</span> = `rgb(${r}, ${g}, ${b})`;</li>
+                           <li>let <span class="colorHighlight">r</span> = Math.floor(Math.random() * 255);</li>
+                           <li>let <span class="colorHighlight">g</span> = Math.floor(Math.random() * 255);</li>
+                           <li>let <span class="colorHighlight">b</span> = Math.floor(Math.random() * 255);</li>
+                           <li>const <span class="colorHighlight">bc</span> = `rgb(${<span class="colorHighlight">r</span>}, ${<span class="colorHighlight">g</span>}, ${<span class="colorHighlight">b</span>})`;</li>
+                           <li>&nbsp;</li>
+                           <li>//<i> we run the color randomization twice to get two different random colors, one for foreground and the other for background</i></li>
                            <li>&nbsp;</li>
                            <li>//<i> returns the random <span class="colorHighlight">fc</span> and <span class="colorHighlight">bc</span> colors</i></li>
                            <li>return [<span class="colorHighlight">fc</span>, <span class="colorHighlight">bc</span>];</li>
@@ -106,51 +108,103 @@ span<!DOCTYPE html>
                      </li>
                   </ul>
                </p>
-               <p>3). Next we need to create a <i>for</i> loop so that we can assign a <b>click</b> event to each individual button.
+               <p>3). Next we need to create a <b><i>for</i></b> loop, so that we can assign a <b>click</b> event to each individual button.
                   <ul>
                      <li>for (let <b>button</b> of <span class="colorHighlight">buttons</span>) {
                         <ul>
-                           <li><b>button</b>.addEventListener('<b>click</b>', <span class="colorHighlight2">colorize</span>)</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-                  <ul>
-                     <li>
-                        <ul>
-                           <li>since we know that the <b>addEventListener()</b> syntax is:
+                           <li><b>button</b>.addEventListener('<b>click</b>', <span class="colorHighlight2">colorize</span>)
                               <ul>
-                                 <li><i>variable</i>.addEventListener('<i>typeOfEvent</i>', <span class="colorHighlight2">callbackFunction</span>)
-                                    <ul>
-                                       <li><span class="colorHighlight2">colorize</span> becomes our <i>callbackFunction</i> for our addEventListener</li>
-                                    </ul>
-                                 </li>
+                                 <li>// <i>adds a <b>click</b> event to each <b>button</b> of the object <span class="colorHighlight">buttons</span></i></li>
+                                 <li>// when clicked, it runs the <b>callback function</b> <span class="colorHighlight2">colorize</span></li>
                               </ul>
                            </li>
                         </ul>
                      </li>
+                     <li>}</li>
                   </ul>
                </p>
-               <p>4). So next we need to define the <i>callbackFunction</i> <span class="colorHighlight2">colorize</span>
+               <p>4). And finally, we need to define the <i>callbackFunction</i> <span class="colorHighlight2">colorize</span>
                   <ul>
                      <li>function <span class="colorHighlight2">colorize()</span> {
                         <ul>
-                           <li>const [<span class="colorHighlight">fc</span>, <span class="colorHighlight">bc</span>] = <span class="colorHighlight2">makeRandColor()</span>;</li>
-                           <li><b><i>this</i></b>.style.color = <span class="colorHighlight">fc</span>;</li>
-                           <li><b><i>this</i></b>.style.backgroundColor = <span class="colorHighlight">bc</span>;</li>
+                           <li>const [<span class="colorHighlight">fc</span>, <span class="colorHighlight">bc</span>] = <span class="colorHighlight2">makeRandColor()</span>;
+                              <ul>
+                                 <li>// <i>returns random <span class="colorHighlight">fc</span> and <span class="colorHighlight">bc</span> colors</i></li>
+                              </ul>
+                           </li>
+                           <li><b><i>this</i></b>.style.color = <span class="colorHighlight">fc</span>;
+                              <ul>
+                                 <li>// <i>assigns the foreground color</i></li>
+                              </ul>
+                           </li>
+                           <li><b><i>this</i></b>.style.backgroundColor = <span class="colorHighlight">bc</span>;
+                              <ul>
+                                 <li>// <i>assigns the background color</i></li>
+                              </ul>
+                           </li>
                         </ul>
                      </li>
                      <li>}</li>
                   </ul>
                   <ul>
-                     <li>So <span class="colorHighlight2">colorize()</span> will run the imbedded function <span class="colorHighlight2">makeRandColor()</span> which actually creates the random foreground (<span class="colorHighlight">fc</span>) and background (<span class="colorHighlight">bc</span>) colors.</li>
-                     <li>Instead of applying these colors to the <b>button</b> variable, we are applying them to the keyword <b><i>this</i></b>.</li>
-                     <li>Because in this instance,  <b><i>this</i></b> is called <b>in an <i>Object Method</i></b>, it will refer TO the object <b>button</b>.</li>
+                     <li>So <span class="colorHighlight2">colorize()</span> will run the imbedded function <span class="colorHighlight2">makeRandColor()</span> which will create the random foreground (<span class="colorHighlight">fc</span>) and background (<span class="colorHighlight">bc</span>) colors.</li>
                   </ul>
                </p>
-             </article>
-             <br><hr style="width: 90%"><br>
+               <p>Instead of applying these colors to the variable <b>button</b>, we are applying them to the keyword <b><i>this</i></b>. Because in this instance, <b><i>this</i></b> was assigned within the <i>parent Object</i> <span class="colorHighlight">buttons</span>, so <b><i>this</i></b> refers TO the child object, <b>button</b>.</li></p>
+               <p>So instead of saying
+                  <ul>
+                     <li><b>button</b>.style.backgroundColor = <span class="colorHighlight">bc</span>;</li>
+                  </ul>
+                  we are saying
+                  <ul>
+                     <li><b><i>this</i></b>.style.backgroundColor = <span class="colorHighlight">bc</span>;</li>
+                  </ul>
+               </p>
+            </article>
+            <br><hr style="width: 90%">
 
+            <!-- why to use 'this' -->
+            <article>
+               <p><span class="firstWord">Now</span> we can really discuss the usefulness of <b><i>this</i></b>.</p>
+               <p>If we we are only dealing with one <b><i>element type</i></b> such as our <b><i>buttons</i></b>, we could have just used a variable in our <b><i>callback function</i></b>, and assigned the random color to that:
+                  <ul>
+                     <li><b>button</b>.style.foregroundColor = <span class="colorHighlight">fc</span>;</li>
+                     <li><b>button</b>.style.backgroundColor = <span class="colorHighlight">bc</span>;</li>
+                  </ul>
+               </p>
+               <p>But what if we are dealing with more than one <b><i>element type</i></b>? After our row of buttons below, is another row of <b>span</b> elements.
+                  <ul>
+                     <li>&lt'span&gt;Click Me Too&lt;/span&gt;</li>
+                  </ul>
+               And now we want to apply the same changing color effect as we did with the buttons, which shows us a prime example, of why we want to use <b><i>this</i></b>.
+               </p>
+               <p>If we didn't utilize <b><i>this</i></b>, we would have to duplicate the entire section of the <b><i>callback function</i></b> for the <b>click event</b> <i>(step 4 from above)</i> using <b>variables</b> instead of <b><i>this</i></b>.
+                  <ul>
+                     <li><b>span</b>.style.foregroundColor = <span class="colorHighlight">fc</span>;</li>
+                     <li><b>span</b>.style.backgroundColor = <span class="colorHighlight">bc</span>;</li>
+                  </ul></p>
+               <p>But since we are using the keyword <b><i>this</i></b> in our <b><i>callback function</i></b>, all we have to do is define a <b><i>new</i> object</b> for the span elements.
+                  <ul>
+                     <li>const <span class="colorHighlight">spans</span> = document.querySelectorAll('<b>span</b>');</li>
+                     <li>for (let <span class="colorHighlight">span</span> of <span class="colorHighlight">spans</span>) {
+                        <ul>
+                           <li><span class="colorHighlight">span</span>.addEventListener('<b>click</b>', <span class="colorHighlight2">colorize</span>)</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </p>
+               <p>So now that we have created the <b>span object</b>, <i>AND</i> because we are using <b><i>this</i></b> in our <i>callback function</i> <span class="colorHighlight2">colorize</span>:
+                  <ul>
+                     <li><b><i>this</i></b>.style.foregroundColor = <span class="colorHighlight">fc</span>;</li>
+                     <li><b><i>this</i></b>.style.backgroundColor = <span class="colorHighlight">bc</span>;</li>
+                  </ul>
+                  we get exactly the same changing color effect as we got with the buttons, <i>without having to completely rewrite and duplicate the callback function.</i></p>
+                  <p>In this instance, <b><i>this</i></b> was assigned within the <i>parent Object</i> <span class="colorHighlight">spans</span>, so it  refers TO the child object, <b>span</b>.
+               </p>
+               <p>And Therein lies the beauty of using <b><i>this</i></b>. We can process multiple <i>object types</i> with the same function, using the <b><i>this</i></b> keyword.</p>
+               <p>This was a very simple example with only two objects, and a very simple <i>callback function</i>. But at times our functions can be much longer and more comlicated, so if we can only use one function to process multiple objects, it greatly simplifies our coding.</p>
+            </article>
          </section>
 
          <section id="textWindow4">
