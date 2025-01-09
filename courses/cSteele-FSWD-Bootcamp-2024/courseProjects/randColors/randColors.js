@@ -4,10 +4,7 @@
 
 
 // ================================================================================
-// DEFINE THE RANDOM COLOR FUNCTIONS
-// ================================================================================
-
-// function to return ONE random "hex" color
+// Define random HRX Colors
 const colorPick = () => {
     // define the possible choices for individual color values
     const colorNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
@@ -30,9 +27,9 @@ const colorPick = () => {
     return color;
 }
 
-// function to return a foreground & background RGB color
-// use random RGB colors for the background color
-// use either white of black for the foreground color
+// ================================================================================
+// define random RGB colors for the background color
+// define either white of black for the foreground color
 const makeRandColor = () => {
 
     // get random r/g/b values
@@ -62,30 +59,25 @@ const makeRandColor = () => {
 // ================================================================================
 // button that changes page background color when clicked
 //      changes foreground color to white if background is dark
-// ================================================================================
 
 // assigning the variables
+// the button we will add a click event to
 const button = document.querySelector('button');
+// the div we will change the colors in
+const div = document.querySelector('#backColor');
+// this text will show the new background color value
+const head6 = document.querySelector('#subH6');
 
-// the two heading tags that change foreground color
-const head4 = document.querySelector('h4');
-const head6 = document.querySelector('h6');
-const subH6 = document.querySelector('#subH6');
 
-// define addEventListener
-//     Event type is "Click"
+// define addEventListener, Event type is "Click"
 button.addEventListener('click', function () {
 
     // run the makeRandomColor function to get our colors
     const [foreColor, backColor] = makeRandColor();
 
-    // assign the foreground colors to our two heading elements
-    head4.style.color = foreColor;
-    head6.style.color = foreColor;
-    subH6.style.color = foreColor;
-
-    // set the new random  background color
-    document.body.style.backgroundColor = backColor;
+    // assign the colors to our div
+    div.style.color = foreColor;
+    div.style.backgroundColor = backColor;
 
     // update the text for the Heading 6 element
     head6.innerText = `New Background Color is: ${backColor}`;
@@ -103,9 +95,9 @@ for (let button of buttons) {
     button.addEventListener('click', colorize)
 }
 
-const h1s = document.querySelectorAll('h1');
-for (let h1 of h1s) {
-    h1.addEventListener('click', colorize)
+const spans = document.querySelectorAll('.spans');
+for (let span of spans) {
+    span.addEventListener('click', colorize)
 }
 
 function colorize() {

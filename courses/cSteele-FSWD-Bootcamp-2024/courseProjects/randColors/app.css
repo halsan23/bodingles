@@ -35,3 +35,7 @@ button {
    font-size: .75rem;
    color: black;
 }
+
+.spans {
+   padding: 5px 10px;
+}
