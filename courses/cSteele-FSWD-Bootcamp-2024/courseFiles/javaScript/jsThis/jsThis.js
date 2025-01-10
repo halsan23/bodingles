@@ -2,22 +2,29 @@
 // DEFINE THE RANDOM COLOR FUNCTION
 // ================================================================================
 
-// function to return a foreground & background RGB color
+// function to return a foreground & background color
 // use random RGB colors for the background color
 // use either white of black for the foreground color
 const makeRandColor = () => {
 
+   // get random r/g/b values
+   const r = Math.floor(Math.random() * 255);
+   const g = Math.floor(Math.random() * 255);
+   const b = Math.floor(Math.random() * 255);
    // assign random background rgb color
-   let r = Math.floor(Math.random() * 255);
-   let g = Math.floor(Math.random() * 255);
-   let b = Math.floor(Math.random() * 255);
    const bc = `rgb(${r}, ${g}, ${b})`;
 
-   // assign random background rgb color
-   r = Math.floor(Math.random() * 255);
-   g = Math.floor(Math.random() * 255);
-   b = Math.floor(Math.random() * 255);
-   const fc = `rgb(${r}, ${g}, ${b})`;
+   // add the current background color values to determine overall darkness
+   const numbs = r + g + b;
+
+
+   // assign foreground color a default of black
+   let fc = '#000000';
+   // if the overall darkness is lees that 275
+   // set foreground color to white
+   if (numbs < 350) {
+       fc = '#ffffff';
+   }
 
    // return the new foreground / background colors
    return [fc, bc];

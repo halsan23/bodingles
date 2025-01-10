@@ -36,20 +36,21 @@ const makeRandColor = () => {
     const r = Math.floor(Math.random() * 255);
     const g = Math.floor(Math.random() * 255);
     const b = Math.floor(Math.random() * 255);
-
-    // assign foreground color a default of black
-    let fc = '#000000';
     // assign random background rgb color
     const bc = `rgb(${r}, ${g}, ${b})`;
 
     // add the current background color values to determine overall darkness
     const numbs = r + g + b;
 
-    // if the overall darkness is lees that 275
-    // set foreground color to white
-    if (numbs < 350) {
-        fc = '#ffffff';
-    }
+
+   // assign foreground color a default of black
+   let fc = '#000000';
+   // if the overall darkness is lees that 275
+   // set foreground color to white
+   if (numbs < 350) {
+       fc = '#ffffff';
+   }
+
 
     // return the new foreground / background colors
     return [fc, bc];
