@@ -70,7 +70,7 @@ span<!DOCTYPE html>
             <article class="just lists">
                <p><span class="firstWord">In</span> the example at the bottom of this page, we have a section set up with several boxes. These <i>boxes</i> are just simple HTML <b>button</b>s with some CSS styling,
                   <ul>
-                     <li>&lt;button&gt;CLICK&lt;/button&gt;</li>
+                     <li><b>&lt;button&gt;</b>CLICK<b>&lt;/button&gt;</b></li>
                   </ul>
                </p>
                <p>We want be able to click on any button and have it change both the foreground and background colors of that individual button. For this we need some JavaScript.</p>
@@ -123,7 +123,7 @@ span<!DOCTYPE html>
                      <li>}</li>
                   </ul>
                </p>
-               <p>4). And finally, we need to define the <i>callbackFunction</i> <span class="colorHighlight2">colorize</span>
+               <p>4). And finally, we need to define the <b><i>callbackFunction</i></b> <span class="colorHighlight2">colorize</span>
                   <ul class="sectHighlight">
                      <li>function <span class="colorHighlight2">colorize()</span> {
                         <ul>
@@ -188,7 +188,7 @@ span<!DOCTYPE html>
                      </li>
                      <li>}</li>
                   </ul>
-                  because <b><i>this</i></b> was called by the object <b>button</b>, it is referring to the individual <b>button</b>.
+                  Because <b><i>this</i></b> was called by the object <b>button</b>, it is referring to the individual <b>button</b>.
                </p>
             </article>
             <br><hr style="width: 90%">
@@ -202,13 +202,14 @@ span<!DOCTYPE html>
                      <li><b>button</b>.style.backgroundColor = <span class="colorHighlight">bc</span>;</li>
                   </ul>
                </p>
-               <p>But what if we are dealing with more than one <b><i>element type</i></b>? After our row of buttons below, is another row of <b>span</b> elements.
+               <p>But what if we are dealing with more than one element type?</p>
+               <p>After our row of buttons below, is another row of <b>span</b> elements,
                   <ul>
-                     <li>&lt'span&gt;Click Me Too&lt;/span&gt;</li>
+                     <li><b>&lt;span&gt;</b>Click Me Too<b>&lt;/span&gt;</b></li>
                   </ul>
-               And now we want to apply the same changing color effect as we did with the buttons, which shows us a prime example, of why we want to use <b><i>this</i></b>.
+               and now we want to apply the same changing color effect as we did with the buttons, to the <b>&lt;span&gt;</b> elements. This scenario shows us a prime example, of why we want to use the <b><i>this</i></b> keyword.
                </p>
-               <p>If we didn't utilize <b><i>this</i></b>, we would have to duplicate the entire section of the <b><i>callback function</i></b> for the <b>click event</b> <i>(step 4 from above)</i> using <b>variables</b> instead of <b><i>this</i></b>.
+               <p>If we didn't utilize the <b><i>this</i></b> keyword, we would have to duplicate the entire section of the <b><i>callback function</i></b> <span class="colorHighlight2">colorize</span>, for the <b>click event</b> <i>(step 4 from above)</i> using <b>variables</b> instead of <b><i>this</i></b>.
                   <ul>
                      <li><b>span</b>.style.foregroundColor = <span class="colorHighlight">fc</span>;</li>
                      <li><b>span</b>.style.backgroundColor = <span class="colorHighlight">bc</span>;</li>
@@ -224,16 +225,15 @@ span<!DOCTYPE html>
                      <li>}</li>
                   </ul>
                </p>
-               <p>So now that we have created the <b>span object</b>, <i>AND</i> because we are using <b><i>this</i></b> in our <i>callback function</i> <span class="colorHighlight2">colorize</span>:
+               <p>and now that we have created the <b>span object</b>, <i>AND</i> because we are using <b><i>this</i></b> in our <i>callback function</i> <span class="colorHighlight2">colorize</span>:
                   <ul>
                      <li><b><i>this</i></b>.style.foregroundColor = <span class="colorHighlight">fc</span>;</li>
                      <li><b><i>this</i></b>.style.backgroundColor = <span class="colorHighlight">bc</span>;</li>
                   </ul>
-                  <b><i>this</i></b> is now referring to the individual <b>span</b> object. So we get exactly the same changing color effect with the &lt;span&gt; elements, as we got with the &lt;button&gt; elements, <i>without having to completely rewrite and duplicate the callback function.</i></p>
-                  <p>In this instance, <b><i>this</i></b> was assigned within the <i>parent Object</i> <span class="colorHighlight">spans</span>, so it  refers to the individual object, <b>span</b>.
+                  <b><i>this</i></b> is now referring to the individual <b>span</b> object, just lik it did with the individual <b>button</b> object. So we get exactly the same changing color effect with the <b>&lt;span&gt;</b> elements, as we got with the <b>&lt;button&gt;</b> elements, <i>without having to completely rewrite and duplicate the <b>callback function</b></i> <span class="colorHighlight2">colorize</span>.</p>
                </p>
                <p>And Therein lies the beauty of using <b><i>this</i></b>. We can process multiple <i>object types</i> with the same function, using the <b><i>this</i></b> keyword.</p>
-               <p>This was a very simple example with only two objects, and a very simple <i>callback function</i>. But at times our functions can be much longer and more comlicated, so if we can only use one function to process multiple objects, it greatly simplifies our coding.</p>
+               <p>This was a very simple example with only two objects, and a very simple <i>callback function</i>. But at times our functions can be much longer and more complicated, so if we can only use one function to process multiple objects, it greatly simplifies our coding.</p>
             </article>
          </section>
 
