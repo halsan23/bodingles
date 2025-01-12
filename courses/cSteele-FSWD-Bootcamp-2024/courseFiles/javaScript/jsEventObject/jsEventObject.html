@@ -115,32 +115,57 @@ span<!DOCTYPE html>
             </article>
             <br><hr style="width: 90%"><br>
 
-            <!--Using Event Objects-->
+            <!--Getting Event Object Properties-->
             <article>
-               <h6>Using Events Objects</h6>
-               <p><span class="firstWord">Now</span> that we know what <b>event objects</b> are, what can we do with them? Let's start by creating a button:
+               <h6>Getting Event Object Properties</h6>
+               <p><span class="firstWord">Now</span> that we know what <b>event objects</b> are, how can we see the <i>properties</i> for an <b>event object</b>?</p>
+               <p>Let's start by creating a button:
                   <ul>
                      <li><b>&lt;button&gt;</b>Click Here<b>&lt;/button&gt;</b></li>
                   </ul>
-                  <button>Click Here</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>Click Here</button>
                </p>
-               <p>Now we need to create the JavaScript <b>object</b>. We will also assign a <b><i>click</i> event</b> that will <b>console.log</b> the <b>event object</b>, when the <b>button</b> is <i>clicked</i>.
+               <p>Now we need to create a JavaScript <b>object</b>. We will also assign a <b><i>click</i> event</b> that will <b>console.log</b> the <b>event object</b>, when the <b>button</b> is <i>clicked</i>.
                   <ul class="sectHighlight">
                      <li>const <span class="colorHighlight">button</span> = document.QuerySelector('<b>button</b>');
                         <ul>
-                           <li>// <i>create the object <b>button</b></i></li>
+                           <li>// <i>create the <b>button</b> object</i></li>
                         </ul>
                         <li><span class="colorHighlight">button</span>.addEventListener('<b><i>click</i></b>', <i>function<span class="colorHighlight2">(evt)</span></i> {
                            <ul>
-                              <li>console.log(<span class="colorHighlight2"><i>evt</i>);</li>
+                              <li>// <i>assigns a <b>click event</b> to the <b>button</b> object</i>, and assigns the variable <span class="colorHighlight2">(evt)</span> to the <b>callback <i>function</i></b>, which represents the <b>event object</b></li>
+                           </ul>
+                        </li>
+                        <li>&nbsp;</li>
+                        <li>
+                           <ul>
+                              <li><b>console.log(<span class="colorHighlight2"><i>evt</i>);</b>
+                                 <ul>
+                                    <li>// <i>outputs the <b>event object</b> variable <span class="colorHighlight2">(evt)</span> to the console, so we can view it's properties</i></li>
+                                 </ul>
+                              </li>
                            </ul>
                         </li>
                         <li>})</li>
                      </li>
                   </ul>
                   You will notice that we have actually assigned the <b>event object</b> to the variable <span class="colorHighlight2"><i>evt</i></span>.</p>
-                  <p>And when you click the button, the console will <i>log</i> the <b>object event</b>, <span class="colorHighlight2"><i>evt</i></span>, which you can then expand, to see ALL of the properties, for this <b>object event</b> (<span class="colorHighlight2"><i>evt</i></span>).</p>
-                  <p>Remember that we did NOT create the <b>object event</b>. It was created, by <b>JavaScript</b>, when we created the <b>object <i>click</i> event</b>. All we did, was to assign the <b>object event</b> to a variable (<span class="colorHighlight2"><i>evt</i></span>), so that we could view it's properties in the console.</p>
+                  <p>And when you click the button, the console will <i>log</i> the <b>event object</b> <i>properties</i>, <span class="colorHighlight2">(<i>evt</i>)</span>, which you can then expand, to see <i>ALL</i> of the properties, for this <b>event object</b> (<span class="colorHighlight2"><i>evt</i></span>).</p>
+                  <p>Remember that we did NOT create the <b>event object</b>. It was created, by <b>JavaScript</b>, when we created the <b>object <i>click</i> event</b>. All we did, was to assign the <b>event object</b> to a variable (<span class="colorHighlight2"><i>evt</i></span>), so that we could view it's properties in the console.</p>
+                  <p>To Summarize:
+                     <ul class="sectHighlight">
+                        <li>1). create the <b>object</b></li>
+                        <li>2). create an <b>event</b> and assign it to the <b>object</b></li>
+                        <li>3). <i>JavaScript</i> will create the <b>event object</b> and assign it to the <b>callback <i>function</i></b></li>
+                     </ul>
+                  </p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!--Using Event Object Properties-->
+            <article>
+               <h6>Using Events Object Properties</h6>
+               <p><span class="firstWord"></span> </p>
             </article>
             <br><hr style="width: 90%"><br>
          </section>
