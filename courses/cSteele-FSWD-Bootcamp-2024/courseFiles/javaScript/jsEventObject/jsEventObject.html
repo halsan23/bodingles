@@ -42,7 +42,7 @@ span<!DOCTYPE html>
          </section>
 
          <section id="textWindow4" class="just lists">
-            <!--Events & This-->
+            <!--Defining Event Objects-->
             <article>
                <h6>Events Objects</h6>
                <p><a href="https://www.w3schools.com/jsreF/obj_event.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools Event Objects</a><br>
@@ -50,7 +50,7 @@ span<!DOCTYPE html>
                <p><span class="firstWord">What</span> are Event Objects.</p>
                <p>As we learned from the
                   <a href="../jsEvents/jsEvents.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">JavaScript Events</a>
-                  lesson, when an <b>event</b> occurs on a given target, its corresponding registered handler function, if there is any, is invoked with a single argument of type <b>object</b>.
+                  lesson, when an <b>event</b> occurs on a given target, its corresponding registered handler function, if there is any, is invoked with a <b>single argument</b> of <b>type <i>object</i></b>.
                </p>
                <p>This argument is referred to as an <b>event object</b>.</p>
                <p>For example, when we define a <b>click</b> event, it might look something like this:
@@ -61,7 +61,7 @@ span<!DOCTYPE html>
                   <ul class="sectHighlight">
                      <li><span class="colorHighlight2"><i>clickHandler()</i></span>;</li>
                   </ul>
-                  Residing <i>inside</i> the parenthesis of this <b><i>callback function</i></b> <span class="colorHighlight2"><i>clickHandler</i></span> is the <i>hidden</i> <b><i>event object</i></b>
+                  Residing <i>inside</i> the parenthesis of this <b><i>callback function</i></b> <span class="colorHighlight2"><i>clickHandler</i></span> is the hidden <b><i>event object</i>.</b>
                </p>
                <p>So to restate it:
                   <ul class="sectHighlight">
@@ -72,7 +72,7 @@ span<!DOCTYPE html>
                      </li>
                   </ul>
                </p>
-               <p>An event object simply <i>represents</i> an event. It contains contextual information regarding the event that caused a given handler to be invoked.</p>
+               <p>An <b>event object</b> simply <i>represents</i> an <b>event</b>. It contains contextual information regarding the event that caused a given handler to be invoked.</p>
                <p>This can include things like the time at which the event occurred, or maybe the name of the event <i>(such as 'click')</i>, or maybe the target on which the event occurred, and so on and so forth.</p>
                <p>In the case of <b>event-handling properties</b> and the <b>addEventListener()</b> method, since we define a function ourselves to act as an event's handler, we could name the parameter any way we like and then use it inside the function.</p>
                <p>Conventional names are <b>e</b>, <b>event</b>, or even <b>evt</b>, following the fact that the parameter represents an event. It's almost always good to stick to conventions.</p>
@@ -114,6 +114,35 @@ span<!DOCTYPE html>
                </p>
             </article>
             <br><hr style="width: 90%"><br>
+
+            <!--Using Event Objects-->
+            <article>
+               <h6>Using Events Objects</h6>
+               <p><span class="firstWord">Now</span> that we know what <b>event objects</b> are, what can we do with them? Let's start by creating a button:
+                  <ul>
+                     <li><b>&lt;button&gt;</b>Click Here<b>&lt;/button&gt;</b></li>
+                  </ul>
+                  <button>Click Here</button>
+               </p>
+               <p>Now we need to create the JavaScript <b>object</b>. We will also assign a <b><i>click</i> event</b> that will <b>console.log</b> the <b>event object</b>, when the <b>button</b> is <i>clicked</i>.
+                  <ul class="sectHighlight">
+                     <li>const <span class="colorHighlight">button</span> = document.QuerySelector('<b>button</b>');
+                        <ul>
+                           <li>// <i>create the object <b>button</b></i></li>
+                        </ul>
+                        <li><span class="colorHighlight">button</span>.addEventListener('<b><i>click</i></b>', <i>function<span class="colorHighlight2">(evt)</span></i> {
+                           <ul>
+                              <li>console.log(<span class="colorHighlight2"><i>evt</i>);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                     </li>
+                  </ul>
+                  You will notice that we have actually assigned the <b>event object</b> to the variable <span class="colorHighlight2"><i>evt</i></span>.</p>
+                  <p>And when you click the button, the console will <i>log</i> the <b>object event</b>, <span class="colorHighlight2"><i>evt</i></span>, which you can then expand, to see ALL of the properties, for this <b>object event</b> (<span class="colorHighlight2"><i>evt</i></span>).</p>
+                  <p>Remember that we did NOT create the <b>object event</b>. It was created, by <b>JavaScript</b>, when we created the <b>object <i>click</i> event</b>. All we did, was to assign the <b>object event</b> to a variable (<span class="colorHighlight2"><i>evt</i></span>), so that we could view it's properties in the console.</p>
+            </article>
+            <br><hr style="width: 90%"><br>
          </section>
 
          <p><a href="#top">Back to Top</a><br><br></p>
@@ -128,7 +157,7 @@ span<!DOCTYPE html>
       <div>&copy; All Rights Reserved</div>
    </footer>
 
-   <script src="jsThis.js"></script>
+   <script src="jsEventObject.js"></script>
 
 </body>
 
