@@ -120,10 +120,10 @@ span<!DOCTYPE html>
                <h6>Getting Event Object Properties</h6>
                <p><span class="firstWord">Now</span> that we know what <b>event objects</b> are, how can we see the <i>properties</i> for an <b>event object</b>?</p>
                <p>Let's start by creating a button:
-                  <ul>
-                     <li><b>&lt;button&gt;</b>Click Here<b>&lt;/button&gt;</b></li>
+                  <ul class="sectHighlight">
+                     <li>&lt;button&gt;Click Here&lt;/button&gt;</li>
                   </ul>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>Click Here</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>Click Here</button>
                </p>
                <p>Now we need to create a JavaScript <b>object</b>. We will also assign a <b><i>click</i> event</b> that will <b>console.log</b> the <b>event object</b>, when the <b>button</b> is <i>clicked</i>.
                   <ul class="sectHighlight">
@@ -165,7 +165,54 @@ span<!DOCTYPE html>
             <!--Using Event Object Properties-->
             <article>
                <h6>Using Events Object Properties</h6>
-               <p><span class="firstWord"></span> </p>
+               <p><span class="firstWord">Why</span> would we need to know any of these event object <i>properties</i>?</p>
+               <p>Well, if you look at some of these <i>properties</i>, you see entries such as, <b>clientx</b>, and <b>clienty</b>. These show the exact position on the page where the mouse was actually clicked. This could be useful if you were for example, writing a program, where if you click on a certain portion of the page you want a popup or some other form of page interaction.</p>
+               <p>Another reason is that often, we need to rely on <b>event objects</b> when we are working with <b><i>keyboard events</i></b>. Because frequently we want to know what key was pressed, and that information is located in the <i>keyboard event</i> <b>object.</b>.</p>
+               <p>For example, let's us a regular <i>form input</i> to display key inputs. First (<i>in HTML</i>) create the form element:
+                  <ul class="sectHighlight">
+                     <li>&lt;input type="text"&gt;</li>
+                  </ul>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<input type="text">
+               </p>
+               <p>and now the <b>JavaScript</b>:
+                  <ul class="sectHighlight">
+                     <li>const <span class="colorHighlight">input</span> = document.querySelector('<b>input</b>');</li>
+                     <li><span class="colorHighlight">input</span>.addEventListener('<b>keydown</b>', <i>function(<span class="colorHighlight2">event</span>)</i> {
+                        <ul>
+                           <li>console.log(<span class="colorHighlight2">event</span>);</li>
+                        </ul>
+                     </li>
+                     <li>})</li>
+                  </ul>
+               </p>
+               <p>Now we've done several things here,
+                  <ul>
+                     <li>- We created a <i>form input <b>object</b></i> called <span class="colorHighlight">input</span></li>
+                     <li>- We assigned a <i>keyboard event</i> (<b>"keydown"</b>) to our <i>form input <b>object</b></i> (<span class="colorHighlight">input</span>)</li>
+                     <li>- We assigned a variable <span class="colorHighlight2"><i>event</i></span> to the <b>event object</b></li>
+                     <li>- and finally, we output the <i>properties</i> of the <b>event object</b>, (<span class="colorHighlight2"><i>event</i></span>), to the console, when the <b>event</b> is activated <i>(by a keydown press)</i></li>
+                  </ul>
+                  And if we review our output in the console log we find:
+                  <ul>
+                     <li><b>key: "f"</b></li>
+                  </ul>
+                  or which ever key was pressed, <i>(among othr properties in the log)</i>.
+               </p>
+               <p><b>Also</b>, interestingly enough, you could create a "<b>global</b>" scope and not be tied to an element such as a vutton or form element, by using the <b><i>"window"</i></b> as the <b>object</b> for the <b>event</b>.</p>
+               <p>If we write:
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight">window</span>.addEventListener('<b>keydown</b>', <i>function (<span class="colorHighlight2">e</span>)</i> {
+                        <ul>
+                           <li>console.log(<span class="colorHighlight2">e</span>.<b>code</b>);</li>
+                        </ul>
+                     </li>
+                     <li>})</li>
+                  </ul>
+                  we are now targeting <span class="colorHighlight">window</span>, which targets the page window as the <b>object</b>, and <b>keydown</b> becomes the <b>event</b>.
+               </p>
+               <p>We then <i>console.log</i> the <b>event object</b> (<span class="colorHighlight2">e</span>) and it's property <b>code</b>, which is the <b><i>key code</i></b> for the key being pressed.
+               </p>
+               <p>So we can now press a key anywhere on the page and the code will track which key was pressed.</p>
             </article>
             <br><hr style="width: 90%"><br>
          </section>
