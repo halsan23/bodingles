@@ -43,11 +43,74 @@ span<!DOCTYPE html>
 
          <section id="textWindow4" class="just lists">
             <!--Js Form Events-->
+            <!-- Creating an HTML Form -->
             <article>
                <h6>Form Events</h6>
-               <p><span class="firstWord"></span> </p>
+               <p><span class="firstWord">In</span> order to understand how JavaScript can process forms, we need to rewind a little and remind ourselves how a basic HTML form is processed.</p>
+               <p>The basics of an HTML form is the <b>form</b> element which is used to define a form. One the form is defined you then have some <b>form <i>inputs</i></b> for user to input data into the form. Once the data is entered, the form is by default, processed by the <b>action</b> attribute of the form. This <b>action</b> attribute tells the form where to go, usually a separate web page, to process the form data.</p>
+               <p>For example:
+                  <ul class="sectHighlight">
+                     <li>&lt;form <b>action</b>="/<span class="colorHighlight">formProcess</span>" id="tweetForm"&gt;
+                        <ul>
+                           <li>&lt;input <b>type</b>="text" name="<span class="colorHighlight">userName</span>" placeholder="User Name"&gt;</li>
+                           <li>&lt;input <b>type</b>="text" name="<span class="colorHighlight">tweet</span>" placeholder="Tweet"&gt;</li>
+                           <li>&lt;button&gt;Submit&lt;/button&gt;</li>
+                        </ul>
+                     </li>
+                     <li>&lt;/form&gt;</li>
+                  </ul>
+                  Let's dissect this form:
+                  <ul>
+                     <li>form <b>action</b>="<span class="colorHighlight">formProcess</span>" directs the form to open a webpage called <b>formProcess</b> to <i>process</i> the form data.
+                        <ul>
+                           <li><i>(if we actually ran this form you would get the dreaded <b>404</b> error, page not found, because the web page <b>formProcess</b> doesn't actually exist).</i></li>
+                           <li>it also assign an id of <b>tweetForm</b> which we will use for the JavaScript processing</li>
+                        </ul>
+                     </li>
+                     <li>next we have two basic <i>inputs</i>, one for a <span class="colorHighlight">userName</span> input and the other one for a <span class="colorHighlight">tweet</span> input.</li>
+                     <li>and finally, a <b>submit</b> button to submit this form.</li>
+                  </ul>
+               </p>
+               <p>And here is the form as defined:
+                  <form action="/formProcess" id="tweetForm">
+                     <input type="text" name="userName" placeholder="User Name">
+                     <input type="text" name="tweet" placeholder="Tweet">
+                     <button>Submit</button>
+                  </form>
+               </p>
             </article>
             <br><hr style="width: 90%"><br>
+
+            <!-- Processing the Form -->
+            <article>
+               <h6>Processing the Form</h6>
+               <p><span class="firstWord">Now</span> that we have a form to work with, let's talk about the <b>action</b> attribute. By default, the form element will got to wherever the <b>action</b> attribute sends it for <i>processing</i>. Now in some instances this may be desirable. If you have a form to create a new login, once you verify the data you might redirect this to a separate we page to process that data and update a database.</p>
+               <p>But what if you don't want any kind of redirection. What if you want to stay on a page and just update some comments, or tweets? This is where JavaScript processing comes in very handy.</p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!-- The JavaScript Processing -->
+            <article>
+               <p><b>1).</b> we need to provide a way for JavaScript to utilize the form elements:
+                  <ul class="sectHighlight">
+                     <li>const <span class="colorHighlight">form</span> = document.querySelector('<b>#tweetForm</b>');
+                        <ul>
+                           <li>// <i>assigns the form with the id of <b>tweetForm</b> to the variable <span class="colorHighlight">form</span></i></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+               <p><b>2).</b> we need to assign an <b>event listener</b> to the form <b>submit</b> button so we know when the form is submitted.
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight">form</span>.addEventListener('<b>submit</b>', <i>function (<span class="colorHighlight2">evt</span>)</i> {
+                        <ul>
+                           <li>// <i>assigns an <b>event</b> <i>(button)</i> to <span class="colorHighlight">form</span> to listen for when the form is submitted.</i></li>
+                           <li>// <i>notice also the we are using the <b>event object</b> variable <span class="colorHighlight2">evt</span></i></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+            </article>
          </section>
 
          <p><a href="#top">Back to Top</a><br><br></p>
