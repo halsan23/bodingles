@@ -3,14 +3,19 @@
 // let randNum = getRandomNum => Math.floor(Math.random() * 6) + 1;
 
 
-// document.querySelectorAll('img')[2].setAttribute('src', "https://images.unsplash.com/photo-1581061090142-c2cd0ec9f021?w=200");
+const form = document.querySelector('form');
+const addList = document.querySelector('#list');
+const product = document.querySelector('#product');
+const quantity = document.querySelector('#qty');
 
-// document.querySelectorAll('img')[2].src = 'https://images.unsplash.com/photo-1581061090142-c2cd0ec9f021?w=200';
-
-
-for (let i = 0; i < 100; i++) {
-   const tarId = document.querySelector('#contain')
-   const newEle = document.createElement('button');
-   newEle.innerText = 'Button';
-   tarId.append(newEle);
-}
+form.addEventListener('submit', function(evt) {
+   evt.preventDefault();
+   if (product.value != "" && qty.value != "") {
+      const newLi = document.createElement('li');
+      const order = `You ordered ${quantity.value} ${product.value}(s)`;
+      newLi.innerText = order;
+      addList.append(newLi);
+   }
+   product.value = '';
+   quantity.value = '';
+})
