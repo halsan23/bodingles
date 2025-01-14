@@ -24,22 +24,20 @@ tweetForm.addEventListener('submit', function(evt) {
 // create the addTweet function that will create the
 // new HTML elements and append with the user input data
 const addTweet = (userName, tweet) => {
-   console.log(userName);
-   console.log(tweet);
 
    // create the new <li> element as a new tweet container
    // create a <b> element for the username
    const newTweet = document.createElement('li');
+   const italElement = document.createElement('i');
    const boldElement = document.createElement('b');
-   const breakElement = document.createElement('br');
 
    // add the userName to the boldElement
-   boldElement.append(userName);
+   italElement.append(userName);
+   boldElement.append(italElement);
    newTweet.append(boldElement);
-   newTweet.append(breakElement);
 
    // add the New Tweet data to the end of newTweet
-   newTweet.append(tweet);
+   newTweet.append(` - ${tweet}`)
 
    // add the newTweet to the tweetsContainer
    tweetsContainer.append(newTweet);

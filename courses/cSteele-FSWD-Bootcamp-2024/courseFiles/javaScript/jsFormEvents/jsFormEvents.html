@@ -50,10 +50,10 @@ span<!DOCTYPE html>
                <p>The basics of an HTML form is the <b>form</b> element which is used to define a form. Once the form is defined you then have some <b>form <i>inputs</i></b> for user to input data into the form. Once the data is entered, the form is by default, processed by the <b>action</b> attribute of the form. This <b>action</b> attribute tells the form where to go, usually a separate web page, to process the form data.</p>
                <p>For example:
                   <ul class="sectHighlight">
-                     <li>&lt;form <b>action</b>="/<span class="colorHighlight">formProcess</span>" id="tweetForm"&gt;
+                     <li>&lt;form <b>action</b>="/<span class="colorHighlight">formProcess</span>" <b>id</b>="<span class="colorHighlight">tweetForm</span>"&gt;
                         <ul>
-                           <li>&lt;input <b>type</b>="text" name="<span class="colorHighlight">userName</span>" placeholder="User Name"&gt;</li>
-                           <li>&lt;input <b>type</b>="text" name="<span class="colorHighlight">tweet</span>" placeholder="Tweet"&gt;</li>
+                           <li>&lt;input type="text" <b>name</b>="<span class="colorHighlight">userName</span>" placeholder="User Name"&gt;</li>
+                           <li>&lt;input type="text" <b>name</b>="<span class="colorHighlight">tweet</span>" placeholder="Tweet"&gt;</li>
                            <li>&lt;button&gt;Submit&lt;/button&gt;</li>
                         </ul>
                      </li>
@@ -91,9 +91,9 @@ span<!DOCTYPE html>
             <!-- Processing the Form -->
             <article>
                <h6>Processing the Form</h6>
-               <p><span class="firstWord">Now</span> that we have a form to work with, let's talk about the <b>action</b> attribute. By default, the form element will got to wherever the <b>action</b> attribute sends it for <i>processing</i>. Now in some instances this may be desirable. If you have a form to create a new login, once you verify the data you might redirect this to a separate web page to process that data and update a database.</p>
+               <p><span class="firstWord">Now</span> that we have a form to work with, let's talk about the <b>action</b> attribute. By default, the form element will got to wherever the <b>action</b> attribute sends it for <i>processing</i>. Now in some instances this may be desirable. If you have a form to create a new login, once you verify the data you might redirect this to a separate web page to process that data and upload it to a database.</p>
                <p>But what if you don't want any kind of redirection. What if you want to stay on a page and just update some comments, or tweets? This is where JavaScript processing comes in very handy.</p>
-            </article>newTweet
+            </article>
 
             <!-- The JavaScript Processing -->
             <article>
@@ -102,7 +102,7 @@ span<!DOCTYPE html>
                   <ul class="sectHighlight">
                      <li>const <span class="colorHighlight">tweetForm</span> = document.querySelector('<b>#tweetForm</b>');
                         <ul>
-                           <li>// <i>assigns the form with the id of <b>tweetForm</b> to the variable <span class="colorHighlight">tweetForm</span></i></li>
+                           <li>// <i>assigns the variable <span class="colorHighlight">tweetForm</span> to the form element with the id of <b>tweetForm</b>, which is the HTML Form element, itself</i></li>
                         </ul>
                      </li>
                   </ul>
@@ -127,12 +127,13 @@ span<!DOCTYPE html>
                      <li><i><span class="colorHighlight2">evt</span></i>.preventDefault();</li>
                   </ul>
                </p>
-               <p><b>4).</b> Next we need to assign variables for our <b><i>useName</i></b> and <b><i>Tweet</i></b> inputs. To accomplish this we are utilizing a property of the form object which is called <b><i>element</i></b>. This will return the form element <b><i>value</i></b> that matches with the form attribute <b>name</b>.</p>
+               <p><b>4).</b> Next we need to assign variables for our <i>useName</i> and <i>Tweet</i> <b>inputs</b>. To accomplish this we are utilizing a property of the form object called <b><i>element</i></b>. This will pull the <b>user entered data</b> from the <b>elements</b> property of the form object <span class="colorHighlight">tweetForm</span> that matches with the form attribute <b>name=</b>.</p>
                <p>In our form designation, our text input fields called <b><i>name="userName"</i></b>, and <b><i>name="tweet"</i></b> respectively. So we target these <b><i>names</i></b> here with the <b>element</b> property:
                   <ul class="sectHighlight">
                      <li>const <span class="colorHighlight">userNameInput</span> = <span class="colorHighlight">tweetForm</span>.element.<b>userName</b>;</li>
                      <li>const <span class="colorHighlight">tweetInput</span> = <span class="colorHighlight">tweetForm</span>.element.<b>tweet</b>;</li>
                   </ul>
+               This will assign the actual data entered into the form by the user, to their corresponding variable.
                </p>
                <p><b>5).</b> Next we need to actually process the form inputs <i>(userName and tweet)</i> and add them to <b><i>new</i></b> list items (<b>li</b>) that we will have to create. There are several steps for this, so we will set this aside for now and create this step as a separate function which we will call here:
                   <ul class="sectHighlight">
@@ -248,18 +249,20 @@ span<!DOCTYPE html>
                         <li>&nbsp;</li>
                         <li>// <i>create the new <b>&lt;li&gt;</b> element as a <b>new tweet</b> container</i></li>
                         <li>const <span class="colorHighlight">newTweet</span> = document.createElement('<b>li</b>');</li>
+                        <li>// <i>create a <b>&lt;i&gt;</b> element for the username</i></li>
+                        <li> const <span class="colorHighlight">italElement</span> = document.createElement('<b>i</b>');</li>
                         <li>// <i>create a <b>&lt;b&gt;</b> element for the username</i></li>
                         <li> const <span class="colorHighlight">boldElement</span> = document.createElement('<b>b</b>');</li>
-                        <li>// <i>create a <b>&lt;br&gt;</b> element to put the tweet on a new line below the username</i></li>
-                        <li> const <span class="colorHighlight">breakElement</span> = document.createElement('<b>br</b>');</li>
                         <li>&nbsp;</li>
-                        <li>// <i>add the <span class="colorHighlight">userName</span> to the <span class="colorHighlight">boldElement</span></i></li>
-                        <li><span class="colorHighlight">boldElement</span>.<b>append</b>(<span class="colorHighlight">userName</span>)</li>
+                        <li>// <i>add the <span class="colorHighlight">userName</span> to the <span class="colorHighlight">italElement</span></i></li>
+                        <li><span class="colorHighlight">italElement</span>.<b>append</b>(<span class="colorHighlight">userName</span>)</li>
+                        <li>// <i>add the <i>italicized</i> <span class="colorHighlight">userName</span> to the <span class="colorHighlight">boldElement</span></i></li>
+                        <li><span class="colorHighlight">boldElement</span>.<b>append</b>(<span class="colorHighlight">italElement</span>)</li>
+                        <li>// <i>add the now <b>bold & italic</b> <span class="colorHighlight">userName</span> to the <span class="colorHighlight">newTweet</span></i></li>
                         <li><span class="colorHighlight">newTweet</span>.<b>append</b>(<span class="colorHighlight">boldElement</span>);</li>
-                        <li><span class="colorHighlight">newTweet</span>.<b>append</b>(<span class="colorHighlight">breakElement</span>);</li>
                         <li>&nbsp;</li>
                         <li>// <i>add the <b>New Tweet</b> data to the end of <span class="colorHighlight">newTweet</span></i></li>
-                        <li><span class="colorHighlight">newTweet</span>.<b>append</b>(<span class="colorHighlight">tweet</span>)</li>
+                        <li><span class="colorHighlight">newTweet</span>.<b>append</b>(` - ${<span class="colorHighlight">tweet</span>}`)</li>
                         <li>&nbsp;</li>
                         <li>// <i>add the <span class="colorHighlight">newTweet</span> to the <span class="colorHighlight">tweetsContainer</span></i></li>
                         <li><span class="colorHighlight">tweetsContainer</span>.<b>append</b>(<span class="colorHighlight">newTweet</span>);</li>
