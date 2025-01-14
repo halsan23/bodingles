@@ -71,6 +71,8 @@ span<!DOCTYPE html>
                      <li>and finally, a <b>submit</b> button to submit this form.</li>
                   </ul>
                </p>
+
+
                <p>And here is the form as defined:
                   <form action="/formProcess">
                      <input type="text" name="user" placeholder="User Name">
@@ -79,6 +81,9 @@ span<!DOCTYPE html>
                   </form>
                   <b>*note</b>: this form is a template for discussion purposes only. It does NOT work but there is a fully functional "working" form at the end of the page, <a href="#workingForm">here</a>.
                </p>
+
+
+
                <p>One more page addition needs to go after the form itself. We need to create a space for our <b><i>new</i></b> tweets to reside. So, after the form element, we will create an empty unordered list with an <b>id</b> that we can reference within our JavaScript. We'll use an id of <span class="colorHighlight">tweets</span>. The code is simply:
                   <ul class="sectHighlight">
                      <li>&lt;ul class="<span class="colorHighlight">tweets</span>"&gt;&lt;/ul&gt;</li>
@@ -232,8 +237,20 @@ span<!DOCTYPE html>
                         <li>const <span class="colorHighlight">usernameInput</span> = <span class="colorHighlight">tweetForm</span>.<b>elements</b>.<span class="colorHighlight">username</span>;&nbsp;&nbsp;&nbsp;// pulls the HTML text input element with the <b>name=userName</b></li>
                         <li>const <span class="colorHighlight">tweetInput</span> = <span class="colorHighlight">tweetForm</span>.<b>elements</b>.<span class="colorHighlight">tweet</span>;&nbsp;&nbsp;&nbsp;// pulls the HTML text input element with the <b>name=tweet</b></li>
                         <li>&nbsp;</li>
+
+
+
                         <li>// <i>call the function <span class="colorHighlight2">addTweet</span> and pass in the <b>values</b> for <span class="colorHighlight">usernameInput</span> and <span class="colorHighlight">tweetInput</span></i></li>
-                        <li><span class="colorHighlight2">addTweet</span>(<span class="colorHighlight">usernameInput</span>.<b>value</b>, <span class="colorHighlight">tweetInput</span>.<b>value</b>)</li>
+                        <li><b>// <i>wrap this in a for loop that does not allow for blank entries</i></b></li>
+
+                        <li>if (<span class="colorHighlight">usernameInput</span>.<b>value</b> != "" && <span class="colorHighlight">tweetInput</span>.<b>value</b> != "") {
+                           <ul>
+                              <li><span class="colorHighlight2">addTweet</span>(<span class="colorHighlight">usernameInput</span>.<b>value</b>, <span class="colorHighlight">tweetInput</span>.<b>value</b>)</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+
+
                         <li>&nbsp;</li>
                         <li>// <i>clear the HTML form fields for new input</i></li>
                         <li><span class="colorHighlight">usernameInput</span>.<b>value</b> = '';&nbsp;&nbsp;&nbsp;// <i>empty string</i></li>
@@ -282,9 +299,7 @@ span<!DOCTYPE html>
                   <input type="text" name="tweet" placeholder="Tweet">
                   <button>Submit</button>
                </form>
-               <ul id="tweets">
-
-               </ul>
+               <ul id="tweets"></ul>
             </article>
          </section>
 

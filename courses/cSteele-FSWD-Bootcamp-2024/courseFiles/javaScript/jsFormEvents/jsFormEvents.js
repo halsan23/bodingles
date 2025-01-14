@@ -13,7 +13,10 @@ tweetForm.addEventListener('submit', function(evt) {
       const tweetInput = tweetForm.elements.tweet;
 
       // call the function addTweet and pass in the values for usernameInput and tweetInput
-      addTweet(usernameInput.value, tweetInput.value);
+      // wrap this in a for loop that does not allow for blank entries
+      if (usernameInput.value != "" && tweetInput.value != "") {
+            addTweet(usernameInput.value, tweetInput.value);
+      }
 
       // clear the HTML form fields for new input
       usernameInput.value = '';   // <i>empty string</i></li>
