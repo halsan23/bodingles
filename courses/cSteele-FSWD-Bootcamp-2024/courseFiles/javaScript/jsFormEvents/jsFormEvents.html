@@ -237,20 +237,15 @@ span<!DOCTYPE html>
                         <li>const <span class="colorHighlight">usernameInput</span> = <span class="colorHighlight">tweetForm</span>.<b>elements</b>.<span class="colorHighlight">username</span>;&nbsp;&nbsp;&nbsp;// pulls the HTML text input element with the <b>name=userName</b></li>
                         <li>const <span class="colorHighlight">tweetInput</span> = <span class="colorHighlight">tweetForm</span>.<b>elements</b>.<span class="colorHighlight">tweet</span>;&nbsp;&nbsp;&nbsp;// pulls the HTML text input element with the <b>name=tweet</b></li>
                         <li>&nbsp;</li>
-
-
-
                         <li>// <i>call the function <span class="colorHighlight2">addTweet</span> and pass in the <b>values</b> for <span class="colorHighlight">usernameInput</span> and <span class="colorHighlight">tweetInput</span></i></li>
                         <li><b>// <i>wrap this in a for loop that does not allow for blank entries</i></b></li>
-
                         <li>if (<span class="colorHighlight">usernameInput</span>.<b>value</b> != "" && <span class="colorHighlight">tweetInput</span>.<b>value</b> != "") {
                            <ul>
                               <li><span class="colorHighlight2">addTweet</span>(<span class="colorHighlight">usernameInput</span>.<b>value</b>, <span class="colorHighlight">tweetInput</span>.<b>value</b>)</li>
                            </ul>
                         </li>
                         <li>}</li>
-
-
+                        <li><i>This error check works very well. If either input field is left blank, it does NOT add a new tweet entry, and it resets the form fields.</i></li>
                         <li>&nbsp;</li>
                         <li>// <i>clear the HTML form fields for new input</i></li>
                         <li><span class="colorHighlight">usernameInput</span>.<b>value</b> = '';&nbsp;&nbsp;&nbsp;// <i>empty string</i></li>
