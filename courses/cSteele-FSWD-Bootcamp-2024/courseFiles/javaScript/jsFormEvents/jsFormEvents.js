@@ -1,6 +1,8 @@
 // define the variables
 const tweetForm = document.querySelector('#tweetForm');
 const tweetsContainer = document.querySelector('#tweets');
+const userName = document.querySelector('#userName');
+const tweet = document.querySelector('#tweet');
 
 // assign a submit event to the tweetForm object
 tweetForm.addEventListener('submit', function(evt) {
@@ -8,19 +10,15 @@ tweetForm.addEventListener('submit', function(evt) {
       // override page reload or redirect
       evt.preventDefault();
 
-      // pull the user entered data from the elements property of the form object tweetForm
-      const usernameInput = tweetForm.elements.userName;
-      const tweetInput = tweetForm.elements.tweet;
-
-      // call the function addTweet and pass in the values for usernameInput and tweetInput
+      // call the function addTweet and pass in the user input values for userName and tweet
       // wrap this in a for loop that does not allow for blank entries
-      if (usernameInput.value != "" && tweetInput.value != "") {
-            addTweet(usernameInput.value, tweetInput.value);
+      if (userName.value != "" && tweet.value != "") {
+            addTweet(userName.value, tweet.value);
       }
 
       // clear the HTML form fields for new input
-      usernameInput.value = '';   // <i>empty string</i></li>
-      tweetInput.value = '';   // <i>empty string</i></li>
+      userName.value = '';   // <i>empty string</i></li>
+      tweet.value = '';   // <i>empty string</i></li>
 })
 
 

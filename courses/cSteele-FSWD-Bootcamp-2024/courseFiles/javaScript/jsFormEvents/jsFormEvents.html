@@ -50,10 +50,10 @@ span<!DOCTYPE html>
                <p>The basics of an HTML form is the <b>form</b> element which is used to define a form. Once the form is defined you then have some <b>form <i>inputs</i></b> for user to input data into the form. Once the data is entered, the form is by default, processed by the <b>action</b> attribute of the form. This <b>action</b> attribute tells the form where to go, usually a separate web page, to process the form data.</p>
                <p>For example:
                   <ul class="sectHighlight">
-                     <li>&lt;form <b>action</b>="/<span class="colorHighlight">formProcess</span>" <b>id</b>="<span class="colorHighlight">tweetForm</span>"&gt;
+                     <li>&lt;form <b>action</b>="/formProcess" <b>id</b>="<span class="colorHighlight">tweetForm</span>"&gt;
                         <ul>
-                           <li>&lt;input type="text" <b>name</b>="<span class="colorHighlight">userName</span>" placeholder="User Name"&gt;</li>
-                           <li>&lt;input type="text" <b>name</b>="<span class="colorHighlight">tweet</span>" placeholder="Tweet"&gt;</li>
+                           <li>&lt;input type="text" <b>id</b>="<span class="colorHighlight">userName</span>" placeholder="User Name"&gt;</li>
+                           <li>&lt;input type="text" <b>id</b>="<span class="colorHighlight">tweet</span>" placeholder="Tweet"&gt;</li>
                            <li>&lt;button&gt;Submit&lt;/button&gt;</li>
                         </ul>
                      </li>
@@ -61,7 +61,7 @@ span<!DOCTYPE html>
                   </ul>
                   Let's dissect this form:
                   <ul>
-                     <li>form <b>action</b>="<span class="colorHighlight">formProcess</span>" directs the form to open a webpage called <b>formProcess</b> to <i>process</i> the form data.
+                     <li>form <b>action</b>="/formProcess" directs the form to open a webpage called <b>formProcess</b> to <i>process</i> the form data.
                         <ul>
                            <li><i>(if we actually ran this form you would get the dreaded <b>404</b> error, page not found, because the web page <b>formProcess</b> doesn't actually exist).</i></li>
                            <li>it also assign an id of <b>tweetForm</b> which we will use for the JavaScript processing</li>
@@ -71,8 +71,6 @@ span<!DOCTYPE html>
                      <li>and finally, a <b>submit</b> button to submit this form.</li>
                   </ul>
                </p>
-
-
                <p>And here is the form as defined:
                   <form action="/formProcess">
                      <input type="text" name="user" placeholder="User Name">
@@ -81,12 +79,9 @@ span<!DOCTYPE html>
                   </form>
                   <b>*note</b>: this form is a template for discussion purposes only. It does NOT work but there is a fully functional "working" form at the end of the page, <a href="#workingForm">here</a>.
                </p>
-
-
-
                <p>One more page addition needs to go after the form itself. We need to create a space for our <b><i>new</i></b> tweets to reside. So, after the form element, we will create an empty unordered list with an <b>id</b> that we can reference within our JavaScript. We'll use an id of <span class="colorHighlight">tweets</span>. The code is simply:
                   <ul class="sectHighlight">
-                     <li>&lt;ul class="<span class="colorHighlight">tweets</span>"&gt;&lt;/ul&gt;</li>
+                     <li>&lt;ul <b>id</b>="<span class="colorHighlight">tweets</span>"&gt;&lt;/ul&gt;</li>
                   </ul>
                   This will give us an empty container where we can add line items <b>&lt;li&gt;</b> for each new tweet.
                </p>
@@ -103,7 +98,7 @@ span<!DOCTYPE html>
             <!-- The JavaScript Processing -->
             <article>
                <p><span class="firstWord">There</span> are a few steps involved for the processing of the form with JavaScript.</p>
-               <p><b>1).</b> we need to provide a way for JavaScript to utilize the form elements. We do this by creating a variable to reference the form. In this example, we are referencing the form by <b>ID</b>. While this is not necessary on this page <i>(because we only have one form on the page)</i>, we show the process here to demonstrate how to handle multiple forms on a page.
+               <p><b>1).</b> We need to provide a way for JavaScript to utilize the form elements. We do this by creating a variable to reference the form. In this example, we are referencing the form by <b>ID</b>. While this is not necessary on this page <i>(because we only have one form on the page)</i>, we show the process here to demonstrate how to handle multiple forms on a page.
                   <ul class="sectHighlight">
                      <li>const <span class="colorHighlight">tweetForm</span> = document.querySelector('<b>#tweetForm</b>');
                         <ul>
@@ -111,12 +106,14 @@ span<!DOCTYPE html>
                         </ul>
                      </li>
                   </ul>
-               While we are assigning variables, we can also assign the variable we need for our empty <b>ul</b> we created to contain out tweets:
+               While we are assigning variables, we can also assign the variable we need for our empty <b>ul</b> we created to contain our tweets, and also the variables for our <span class="colorHighlight">userName</span> and <span class="colorHighlight">tweet</span> inputs.
                   <ul class="sectHighlight">
                      <li>const <span class="colorHighlight">tweetsContainer</span> = document.querySelector('<b>#tweets</b>');</li>
+                     <li>const <span class="colorHighlight">userName</span> = document.querySelector('<b>#userName</b>');</li>
+                     <li>const <span class="colorHighlight">tweet</span> = document.querySelector('<b>#tweet</b>');</li>
                   </ul>
                </p>
-               <p><b>2).</b> we need to assign an <b>event listener</b> to the form via a form <b>submit</b> event, to detect when the form is submitted.
+               <p><b>2).</b> Next we need to assign an <b>event listener</b> to the form via a form <b>submit</b> event, to detect when the form is submitted.
                   <ul class="sectHighlight">
                      <li><span class="colorHighlight">tweetForm</span>.addEventListener('<b>submit</b>', <i>function (<span class="colorHighlight2">evt</span>)</i> {
                         <ul>
@@ -132,32 +129,24 @@ span<!DOCTYPE html>
                      <li><i><span class="colorHighlight2">evt</span></i>.preventDefault();</li>
                   </ul>
                </p>
-               <p><b>4).</b> Next we need to assign variables for our <i>useName</i> and <i>Tweet</i> <b>inputs</b>. To accomplish this we are utilizing a property of the form object called <b><i>element</i></b>. This will pull the <b>user entered data</b> from the <b>elements</b> property of the form object <span class="colorHighlight">tweetForm</span> that matches with the form attribute <b>name=</b>.</p>
-               <p>In our form designation, our text input fields called <b><i>name="userName"</i></b>, and <b><i>name="tweet"</i></b> respectively. So we target these <b><i>names</i></b> here with the <b>element</b> property:
+               <p><b>4).</b> Next we need to actually process the form inputs <span class="colorHighlight">userName</span> and <span class="colorHighlight">tweet</span> and add them to <b><i>new</i></b> list items (<b>li</b>) that we will have to create. There are several steps for this, so we will create a separate function for this below, but we will go ahead and <b><i>call</i></b> this function now:
                   <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight">userNameInput</span> = <span class="colorHighlight">tweetForm</span>.element.<b>userName</b>;</li>
-                     <li>const <span class="colorHighlight">tweetInput</span> = <span class="colorHighlight">tweetForm</span>.element.<b>tweet</b>;</li>
+                     <li><span class="colorHighlight2">addTweet</span>(<span class="colorHighlight">userName</span>.<b>value</b>, <span class="colorHighlight2">tweet</span>.<b>value</b>)</li>
                   </ul>
-               This will assign the actual data entered into the form by the user, to their corresponding variable.
+                  This will call the <span class="colorHighlight2">addTweet</span> function passing in the <b>value</b> of the variables that represent the <span class="colorHighlight">userName</span> and <span class="colorHighlight">tweet</span> values that the user entered into our form.
                </p>
-               <p><b>5).</b> Next we need to actually process the form inputs <i>(userName and tweet)</i> and add them to <b><i>new</i></b> list items (<b>li</b>) that we will have to create. There are several steps for this, so we will set this aside for now and create this step as a separate function which we will call here:
+               <p><b>5).</b> and finally, we need to clear out the form fields of any data, so we can add a new entry, if desired.
                   <ul class="sectHighlight">
-                     <li><span class="colorHighlight2">addTweet</span>(<span class="colorHighlight">usernameInput</span>.<b>value</b>, <span class="colorHighlight2">tweetInput</span>.<b>value</b>)</li>
-                  </ul>
-                  This will call the <span class="colorHighlight2">addTweet</span> function passing in the variables that represent the userName and tweet values that the user entered into our form.
-               </p>
-               <p><b>6).</b> and finally, we need to clear out the form fields of any data, so we can add a new entry, if desired.
-                  <ul class="sectHighlight">
-                     <li><span class="colorHighlight">usernameInput</span>.<b>value</b> = '';&nbsp;&nbsp;&nbsp;// <i>empty string</i></li>
-                     <li><span class="colorHighlight">tweetInput</span>.<b>value</b> = '';&nbsp;&nbsp;&nbsp;// <i>empty string</i></li>
+                     <li><span class="colorHighlight">userName</span>.<b>value</b> = '';&nbsp;&nbsp;&nbsp;// <i>empty string</i></li>
+                     <li><span class="colorHighlight">tweet</span>.<b>value</b> = '';&nbsp;&nbsp;&nbsp;// <i>empty string</i></li>
                   </ul>
                </p>
-               <p><span class="firstWord">And now</span>, let's create the function to take our form data and and our new <b>&lt;li&gt;</b>'s. Remember, we called this function <span class="colorHighlight2">addTweet</span> in section 5 above.</p>
+               <p><span class="firstWord">And now</span>, let's write the function to take our form data and create our new <b>&lt;li&gt;</b>'s. Remember, we called this function <span class="colorHighlight2">addTweet</span> in step 4 above.</p>
                <p><b>1).</b> First, we'll create the <i>processing function</i>. We'll start by defining the <i>function</i> itself:
                   <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight2">addTweet</span> = (<span class="colorHighlight">username</span>, <span class="colorHighlight">tweet</span>) => {
+                     <li>const <span class="colorHighlight2">addTweet</span> = (<span class="colorHighlight">userName</span>, <span class="colorHighlight">tweet</span>) => {
                         <ul>
-                           <li>// <i>creates the <span class="colorHighlight2">addTweet</span> function that receives two variables, <span class="colorHighlight">username</span> and<span class="colorHighlight">tweet</span></i></li>
+                           <li>// <i>creates the <span class="colorHighlight2">addTweet</span> function that receives two variables, <span class="colorHighlight">userName</span> and<span class="colorHighlight">tweet</span></i></li>
                         </ul>
                      </li>
                   </ul>
@@ -210,14 +199,14 @@ span<!DOCTYPE html>
                   <li>// <i>create the form element</i></li>
                   <li>&lt;form action="/formProcess" <b>id</b>="<span class="colorHighlight">tweetForm</span>"&gt;
                      <ul>
-                        <li>&lt;input type="text" <b>name</b>="<span class="colorHighlight">userName</span>" placeholder="User Name"&gt;</li>
-                        <li>&lt;input type="text" <b>name</b>="<span class="colorHighlight">tweet</span>" placeholder="Tweet"&gt;</li>
+                        <li>&lt;input type="text" <b>id</b>="<span class="colorHighlight">userName</span>" placeholder="User Name"&gt;</li>
+                        <li>&lt;input type="text" <b>id</b>="<span class="colorHighlight">tweet</span>" placeholder="Tweet"&gt;</li>
                         <li>&lt;button&gt;Submit&lt;/button&gt;</li>
                      </ul>
                   </li>
                   <li>&lt;/form&gt;</li>
                   <li>&nbsp;</li>
-                  <li>// <i>create the empty ul element</i></li>
+                  <li>// <i>create the empty ul element which will be the tweet container</i></li>
                   <li>&lt;ul <b>id</b>="<span class="colorHighlight">tweets</span>"&gt;&lt;/ul&gt;</li>
                   <li>&nbsp;</li>
 
@@ -225,31 +214,37 @@ span<!DOCTYPE html>
                   <li>// <i>define the variables</i></li>
                   <li>const <span class="colorHighlight">tweetForm</span> = document.querySelector('<b>#tweetForm</b>');</li>
                   <li>const <span class="colorHighlight">tweetsContainer</span> = document.querySelector('<b>#tweets</b>');</li>
+                  <li>const <span class="colorHighlight">userName</span> = document.querySelector('<b>#userName</b>');</li>
+                  <li>const <span class="colorHighlight">tweet</span> = document.querySelector('<b>#tweet</b>');</li>
                   <li>&nbsp;</li>
+
+
                   <li>// <i>add the event listener assigned to a <b>submit</b> event</i></li>
                   <li><span class="colorHighlight">tweetForm</span>.addEventListener('<b>submit</b>', <i>function (<span class="colorHighlight2">evt</span>)</i> {
                      <ul>
                         <li>&nbsp;</li>
+
+
                         <li>// <i>override page reload or redirect</i></li>
                         <li><span class="colorHighlight2">evt</span>.<b>preventDefault()</b>;</li>
                         <li>&nbsp;</li>
-                        <li>// <i>pull the text input data from the <b>elements</b> property of the form object <span class="colorHighlight">tweetForm</span></i></li>
-                        <li>const <span class="colorHighlight">usernameInput</span> = <span class="colorHighlight">tweetForm</span>.<b>elements</b>.<span class="colorHighlight">username</span>;&nbsp;&nbsp;&nbsp;// pulls the HTML text input element with the <b>name=userName</b></li>
-                        <li>const <span class="colorHighlight">tweetInput</span> = <span class="colorHighlight">tweetForm</span>.<b>elements</b>.<span class="colorHighlight">tweet</span>;&nbsp;&nbsp;&nbsp;// pulls the HTML text input element with the <b>name=tweet</b></li>
-                        <li>&nbsp;</li>
-                        <li>// <i>call the function <span class="colorHighlight2">addTweet</span> and pass in the <b>values</b> for <span class="colorHighlight">usernameInput</span> and <span class="colorHighlight">tweetInput</span></i></li>
+
+
+
+                        <li>// <i>call the function <span class="colorHighlight2">addTweet</span> and pass in the user input values for <span class="colorHighlight">userName</span> and <span class="colorHighlight">tweet</span></i></li>
+
                         <li><b>// <i>wrap this in a for loop that does not allow for blank entries</i></b></li>
-                        <li>if (<span class="colorHighlight">usernameInput</span>.<b>value</b> != "" && <span class="colorHighlight">tweetInput</span>.<b>value</b> != "") {
+                        <li>if (<span class="colorHighlight">userName</span>.<b>value</b> != "" && <span class="colorHighlight">tweet</span>.<b>value</b> != "") {
                            <ul>
-                              <li><span class="colorHighlight2">addTweet</span>(<span class="colorHighlight">usernameInput</span>.<b>value</b>, <span class="colorHighlight">tweetInput</span>.<b>value</b>)</li>
+                              <li><span class="colorHighlight2">addTweet</span>(<span class="colorHighlight">userName</span>.<b>value</b>, <span class="colorHighlight">tweet</span>.<b>value</b>)</li>
                            </ul>
                         </li>
                         <li>}</li>
                         <li><i>This error check works very well. If either input field is left blank, it does NOT add a new tweet entry, and it resets the form fields.</i></li>
                         <li>&nbsp;</li>
                         <li>// <i>clear the HTML form fields for new input</i></li>
-                        <li><span class="colorHighlight">usernameInput</span>.<b>value</b> = '';&nbsp;&nbsp;&nbsp;// <i>empty string</i></li>
-                        <li><span class="colorHighlight">tweetInput</span>.<b>value</b> = '';&nbsp;&nbsp;&nbsp;// <i>empty string</i></li>
+                        <li><span class="colorHighlight">userName</span>.<b>value</b> = '';&nbsp;&nbsp;&nbsp;// <i>empty string</i></li>
+                        <li><span class="colorHighlight">tweet</span>.<b>value</b> = '';&nbsp;&nbsp;&nbsp;// <i>empty string</i></li>
                      </ul>
                   </li>
                   <li>});</li>
@@ -290,8 +285,8 @@ span<!DOCTYPE html>
                <h6>Final Product</h6>
                <p id="workingForm"><span class="firstWord">And</span> here is the final product:</p>
                <form action="/formProcess" id="tweetForm">
-                  <input type="text" name="userName" placeholder="User Name">
-                  <input type="text" name="tweet" placeholder="Tweet">
+                  <input type="text" id="userName" placeholder="User Name">
+                  <input type="text" id="tweet" placeholder="Tweet">
                   <button>Submit</button>
                </form>
                <ul id="tweets"></ul>
