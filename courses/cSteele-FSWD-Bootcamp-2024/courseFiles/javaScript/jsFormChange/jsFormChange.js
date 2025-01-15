@@ -12,5 +12,9 @@ const head2 = document.querySelector('#h62');
 
 
 inp2.addEventListener('input', function (evt) {
-   head2.innerText = inp2.value;
+   if (inp2.value === "") {
+      head2.innerText = 'Default Heading Text';
+   } else {
+      head2.innerText = inp2.value;
+   }
 })
