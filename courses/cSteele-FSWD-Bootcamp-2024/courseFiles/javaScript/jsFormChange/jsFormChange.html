@@ -1,0 +1,107 @@
+span<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="localStyle.css" />
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span>
+      <span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
+            <hr style="width: 50%" />
+            <h5>JavaScript Form Events</h5>
+         </section>
+
+         <section id="textWindow4" class="just lists">
+            <!-- Js Form Events-->
+            <!-- Change Events -->
+            <article>
+               <h6>Change Events</h6>
+               <p><span class="firstWord">A</span> <b><i>change</b> event</i> is a way of entering and passing data thru a form <i>without</i> using a <b>submit</b> button. The change event occurs when the element has <i>completed changing</i>, or when an element <i>looses focus</i> in some way. The <b><i>change</b> event</i> will produce a different result depending on the <b><i>type</i> of element</b> that the <b><i>change</b> event</i> is being applied to.</p>
+               <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event" target="_blank" rel="noopener noreferrer">MDN Change Event</a><br>
+               <a href="https://www.javascripttutorial.net/javascript-dom/javascript-change-event/" target="_blank" rel="noopener noreferrer">JavaScript Tutorial Change Event</a></p>
+               <p>Let's start with a simple <i>text <b>input</b></i>. The change event of an <b>&lt;input&gt;</b> element fires when the &lt;input&gt; element loses focus <i>(when you "click" out of the &lt;input&gt; element)</i>. The change event does not fire when you’re typing. So, let's add the &lt;input&gt; element:
+                  <ul class="sectHighlight">
+                     <li>&lt;input type="text"&gt;</li>
+                  </ul>
+               We will also add an <b>&lt;h6&gt;</b> element that we can use to display the text, that is entered in our &lt;input&gt; element.
+                  <ul class="sectHighlight">
+                     <li>&lt;h6&gt;Default Heading Text&lt;/h6&gt;</li>
+                  </ul>
+               This will give us:</p>
+               <p>
+                  <h6 id="h61">Default Heading Text</h6><br>
+                  <input type="text" id="inp1">
+               </p>
+               <p>Remember, we are using the <b><i>change</b> event</i> on this <i>text <b>input</b></i>,
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight">input</span>.addEventListener('<b>change</b>', <i>function ()</i> {</li>
+                  </ul>
+                  So we can see that as we type data into the <i>text <b>input</b></i>, nothing changes. But as soon as we hit <i>[ENTER]</i>, click off</i> of the <i>&lt;input&gt;</i> field, or in some way, cause the <i>text <b>input</b></i> to loose <i>focus</i>, then the <b>&lt;h6&gt;</b> will update with the new text.</p>
+               <p></p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!-- Direct Inputs -->
+            <article>
+               <h6>Direct Inputs</h6>
+               <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/input_event" target="_blank" rel="noopener noreferrer">MDN Input Event</a><br><a href="https://www.javascripttutorial.net/javascript-dom/javascript-input-event/" target="_blank" rel="noopener noreferrer">JavaScript Tutorial Input Event</a>
+               <p><span class="firstWord">But</span> what if we wanted a more <i>direct</i> way of updating our <b>&lt;h6&gt;</b> element? We can use a different type of form event called <i>"<b>input</b>"</i>. Unlike the <b><i>change</b> event</i> that only fires when the value is committed <i>(looses focus)</i>, the input event fires whenever the value changes, live, and in real time. We'll create a new <b>h6</b> and <b>text input</b> to demonstrate.</p>
+               <p>But instead of using a <b><i>change</b> event</i> like above, we are going to use an <b><i>input</b> event</i>:
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight">input</span>.addEventListener('<b>input</b>', <i>function ()</i> {</li>
+                  </ul>
+               </p>
+               <p>
+                  <h6 id="h62">Default Heading Text</h6><br>
+                  <input type="text" id="inp2">
+               </p>
+               <p>So <b><i>now</i></b> when we change data in the <i>text <b>input</b></i>, the <b>&lt;h6&gt;</b> will update automatically, live, and in real time.</p>
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+
+   <script src="jsFormChange.js"></script>
+
+</body>
+
+</html>

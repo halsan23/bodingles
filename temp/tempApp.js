@@ -2,20 +2,19 @@
 
 // let randNum = getRandomNum => Math.floor(Math.random() * 6) + 1;
 
+const user = document.querySelector('#username');
+const h1 = document.querySelector('#h61');
 
-const form = document.querySelector('form');
-const addList = document.querySelector('#list');
-const product = document.querySelector('#product');
-const quantity = document.querySelector('#qty');
+// user.addEventListener('change', function() {
+//    h61.innerText = 'Enter Your Username';
+//    user.value = '';
+// })
 
-form.addEventListener('submit', function(evt) {
-   evt.preventDefault();
-   if (product.value != "" && qty.value != "") {
-      const newLi = document.createElement('li');
-      const order = `You ordered ${quantity.value} ${product.value}(s)`;
-      newLi.innerText = order;
-      addList.append(newLi);
+
+user.addEventListener('input', function() {
+   if (user.value != '') {
+      h1.innerText = `Welcome, ${user.value}`;
+   } else {
+      h1.innerText = 'Enter Your Username';
    }
-   product.value = '';
-   quantity.value = '';
 })
