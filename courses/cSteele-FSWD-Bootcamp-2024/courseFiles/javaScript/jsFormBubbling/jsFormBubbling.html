@@ -38,14 +38,14 @@ span<!DOCTYPE html>
             <p>Colt Steele</p>
             <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
             <hr style="width: 50%" />
-            <h5>JavaScript Form Bubbling</h5>
+            <h5>JavaScript Event Bubbling</h5>
          </section>
 
          <section id="textWindow4" class="just lists">
             <!-- Js Form Bubbling-->
             <article>
-               <h6>Form Bubbling</h6>
-               <p><b><i>Form Bubbling</i></b> is essentially a means to stack events. The term <i>bubbling</i> derives from the fact that the <i>stacked events</i> would <i>"bubble"</i> up from the inside out.</p>
+               <h6>Event Bubbling</h6>
+               <p><b><i>Event Bubbling</i></b> is essentially a means to stack events. The term <i>bubbling</i> derives from the fact that the <i>stacked events</i> would <i>"bubble"</i> up from the inside out.</p>
                <p>Let's explain. If we had a <b>&lt;button&gt;</b>, and it was nested inside of a paragraph <b>&lt;p&gt;</b>, and it in turn was nested inside of a <b>&lt;section&gt;</b>. The code would look something like this:
                   <ul class="sectHighlight">
                      <li><b>&lt;section&gt;</b>
@@ -157,7 +157,7 @@ span<!DOCTYPE html>
                   <button id="divButton2">Click Me</button>
                   It has some text in it
                </div>
-               <p>And when you click the <b>&lt;button&gt;</b> it hides the parent <b>&lt;div&gt;</b> element. But what about the background color change? It should have changed the background color for the Parent <b>&lt;div&gt;</b>, before it hid it> But did it <i>actually</i> do that? Everything happened so fast, kinda hard to tell :/ Actually, the only way to tell is by looking in the <b><i>Page Inspector</i></b>, finding the Parent <b>&lt;div&gt;</b> and seeing if it has a background color assigned as an <b><i>inline style</i></b>.</p>
+               <p>And when you click the <b>&lt;button&gt;</b> it hides the parent <b>&lt;div&gt;</b> element. But what about the background color change? It should have changed the background color for the Parent <b>&lt;div&gt;</b>, before it hid it. But did it <i>actually</i> do that? Everything happened so fast, kinda hard to tell :/ Actually, the only way to tell is by looking in the <b><i>Page Inspector</i></b>, finding the Parent <b>&lt;div&gt;</b> and seeing if it has a background color assigned as an <b><i>inline style</i></b>.</p>
                <p>And when we look, we see that it did in fact, change the background color.
                   <ul>
                      <li><i><b>*note</b>: once an element's display property is set to <b>none</b>, it is gone from for the webpage, so there is nothing to <b>click</b> on to return it to display. There are some coding workarounds for this but they are beyond the scope of this discussion. For now, simply refresh the page to bring everything back.</i></li>
