@@ -1,0 +1,102 @@
+span<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="localStyle.css" />
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <span class="headLogo"></span>
+      <span class="headTitle">Bo</span>
+      <span class="headTitleb">dingles<sub>TM</sub></span>
+      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
+      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
+         Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
+            <hr style="width: 50%" />
+            <h5>JavaScript Event Delegation</h5>
+         </section>
+
+         <section id="textWindow4" class="just lists">
+            <!-- Event Delegation Definition -->
+            <article>
+               <h6>Event Delegation</h6>
+               <p><a href="https://www.w3schools.in/javascript/event-delegation" target="_blank" rel="noopener noreferrer">W3Schools Event Delegation</a><br>
+               <a href="https://www.javascripttutorial.net/javascript-dom/javascript-event-delegation/" target="_blank" rel="noopener noreferrer">JavaScript Tutorial Event Delegation</a></p>
+               <p><span class="firstWord">Event</span> delegation is based on the concept of <i><b>event bubbling</b></i>.</p>
+               <p>As we recall, <i>"event bubbling"</i> happens within a <i><b>nested</b> element environment</i>, where you may have separate events assigned to both the parent element, and the child element(s). The <i><b>event bubbling</b></i> effect comes when the child event fires, and then the process "bubbles" up to the parent event, which then fires. Refer to my <i><a href="../jsFormBubbling/jsFormBubbling.html" target="_blank">Event Page</a></i> for more information.</p>
+               <p>With <i><b>Event Delegation</b></i>, we can attach a single <b>listener</b> to the parent element. This <b>listener</b>, can then manage all of the events that bubble up from its child elements. <i><b>Event Delegation</b></i> is basically a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add an event listener to a parent element and call an event on a particular <i><b>target</b></i> using the <b>.target</b> property of the event object.</p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!-- Event Delegation Definition -->
+            <article>
+               <p>Let's use our <i><a href="../jsFormEvents/jsFormEvents.html" target="_blank">Tweet Form</a></i> form our JavaScripts Form Events Lesson to explain.</p>
+               <div>
+                  <h6>Tweet Form</h6>
+                  <form action="/formProcess" id="tweetForm">
+                     <input type="text" id="userName" placeholder="User Name">
+                     <input type="text" id="tweet" placeholder="Tweet">
+                     <button>Submit</button>
+                  </form>
+                  <p>New Tweets</p>
+                  <ul id="tweets">
+                     <li>1</li>
+                     <li>2</li>
+                  </ul>
+               </div>
+               <p>We just enter our "User Name" and a "Tweet", and Js processes the form and adds a new tweet.</p>
+               <p>But what if we made a mistake and needed to "<i>delete</i>" a tweet we had posted? Because we added the new tweet as a list item (<b>&lt;li&gt;</b>), we can add the following "<b>event</b>" to our parent <b>ul</b> container to <i>remove</i> it. Notice that we are using the property <i><b>remove()</b></i> to remove an existing tweet.
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight">tweetsContainer</span>.addEventListener('<b>click</b>', <i>function (<span class="colorHighlight2">e</span>)</i> {
+                        <ul>
+                           <li><span class="colorHighlight2">e</span>.<b>target</b>.nodeName === 'LI' <b>&&</b> <span class="colorHighlight2">e</span>.<b>target</b>.remove();</li>
+                        </ul>
+                     </li>
+                     <li>})</li>
+                  </ul>
+               </p>
+            </article>
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+
+   <script src="jsEventDeleg.js"></script>
+
+</body>
+
+</html>
