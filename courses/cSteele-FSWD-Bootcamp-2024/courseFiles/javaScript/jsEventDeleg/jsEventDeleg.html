@@ -55,22 +55,23 @@ span<!DOCTYPE html>
 
             <!-- Event Delegation Definition -->
             <article>
-               <p>Let's use our <i><a href="../jsFormEvents/jsFormEvents.html" target="_blank">Tweet Form</a></i> form our JavaScripts Form Events Lesson to explain.</p>
+               <p>Let's use our <i><b>Tweet Form</b></i> form our JavaScript <i><a href="../jsFormEvents/jsFormEvents.html" target="_blank">Form Events Lesson</a></i> to explain.</p>
                <div>
                   <h6>Tweet Form</h6>
+                  <p><i>add a New Tweet, or click on an Existing Tweet to DELETE it</i></p>
                   <form action="/formProcess" id="tweetForm">
                      <input type="text" id="userName" placeholder="User Name">
                      <input type="text" id="tweet" placeholder="Tweet">
                      <button>Submit</button>
                   </form>
-                  <p>New Tweets</p>
+                  <p><b>New Tweets</b></p>
                   <ul id="tweets">
-                     <li>1</li>
-                     <li>2</li>
                   </ul>
                </div>
                <p>We just enter our "User Name" and a "Tweet", and Js processes the form and adds a new tweet.</p>
-               <p>But what if we made a mistake and needed to "<i>delete</i>" a tweet we had posted? Because we added the new tweet as a list item (<b>&lt;li&gt;</b>), we can add the following "<b>event</b>" to our parent <b>ul</b> container to <i>remove</i> it. Notice that we are using the property <i><b>remove()</b></i> to remove an existing tweet.
+               <hr style="width: 90%">
+               <p>But what if we made a mistake and needed to "<i>delete</i>" a tweet we had posted? Because we added the new tweet as a list item (<b>&lt;li&gt;</b>), we can add the following "<b>event</b>" to our parent <b>ul</b> container to <i>remove</i> it. <i>(identified by the <b>id</b>=<span class="colorHighlight">tweetsContainer</span>)</i>.</p>
+               <p>Notice that we are using the property <i><b>remove()</b></i> to remove an existing tweet.
                   <ul class="sectHighlight">
                      <li><span class="colorHighlight">tweetsContainer</span>.addEventListener('<b>click</b>', <i>function (<span class="colorHighlight2">e</span>)</i> {
                         <ul>
@@ -80,6 +81,8 @@ span<!DOCTYPE html>
                      <li>})</li>
                   </ul>
                </p>
+               <p>This is a very good example of how <i>event<b> propagation</b></i> works. Our <b>event</b> is a <i>click</i> event on the parent <b>&lt;ul&gt;</b> element, with the <i><b>id</b>=<span class="colorHighlight">tweetsContainer</span></i>. And from there, we <i><b>target</b></i> the child <i><b>&lt;li&gt;</b></i> that we <i><b>click</b>ed</i> on for removal.</p>
+               <p>So we only need <b>one</b> event to target the parent and we can <i><b>target</b></i><i> any</i> of it's children.</p>
             </article>
          </section>
 

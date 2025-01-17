@@ -1,4 +1,3 @@
-// ADD A NEW TWEET
 // define the variables
 const tweetForm = document.querySelector('#tweetForm');
 const tweetsContainer = document.querySelector('#tweets');
@@ -28,39 +27,25 @@ tweetForm.addEventListener('submit', function(evt) {
 const addTweet = (userName, tweet) => {
 
    // create the new <li> element as a new tweet container
+   // create a <b> element for the username
    const newTweet = document.createElement('li');
-   newTweet.innerText = `${userName} - ${tweet}`;
-   console.log(newTweet);
+   const italElement = document.createElement('i');
+   const boldElement = document.createElement('b');
 
-   // // create a <i> element to contain the username
-   // // add the userName to the italic Element
-   // const italElement = document.createElement('i');
-   // italElement.append(userName);
+   // add the userName to the boldElement
+   italElement.append(userName);
+   boldElement.append(italElement);
+   newTweet.append(boldElement);
 
-   // // create a <b> element for the italicized username
-   // // add the italic userName to the bold Element
-   // const boldElement = document.createElement('b');
-   // boldElement.append(italElement);
+   // add the New Tweet data to the end of newTweet
+   newTweet.append(` - ${tweet}`)
 
-   // // add the bold/italic userName to the newTweet
-   // newTweet.innerText = `${boldElement} - ${tweet}`;
-
-   // // add the newTweet to the tweetsContainer
+   // add the newTweet to the tweetsContainer
    tweetsContainer.append(newTweet);
 }
 
 
 // DELETE AN EXISTING TWEET
-const lis = document.querySelectorAll('li');
-
-for (let li of lis) {
-   li.addEventListener('click', function () {
-      li.remove();
-   })
-}
-
-
-// DELETE AN EXISTING TWEET
-// tweetsContainer.addEventListener('click', function (e) {
-//    e.target.nodeName === 'LI' && e.target.remove();
-// })
+tweetsContainer.addEventListener('click', function (e) {
+   (e.target.nodeName === 'LI' || e.target.nodeName === 'B' || e.target.nodeName === 'I') && e.target.closest('LI').remove();
+})
