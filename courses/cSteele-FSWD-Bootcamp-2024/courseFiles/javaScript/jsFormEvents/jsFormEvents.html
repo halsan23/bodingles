@@ -256,16 +256,18 @@ span<!DOCTYPE html>
                         <li>&nbsp;</li>
                         <li>// <i>create the new <b>&lt;li&gt;</b> element as a <b>new tweet</b> container</i></li>
                         <li>const <span class="colorHighlight">newTweet</span> = document.createElement('<b>li</b>');</li>
-                        <li>// <i>create a <b>&lt;i&gt;</b> element for the username</i></li>
-                        <li> const <span class="colorHighlight">italElement</span> = document.createElement('<b>i</b>');</li>
-                        <li>// <i>create a <b>&lt;b&gt;</b> element for the username</i></li>
-                        <li> const <span class="colorHighlight">boldElement</span> = document.createElement('<b>b</b>');</li>
                         <li>&nbsp;</li>
-                        <li>// <i>add the <span class="colorHighlight">userName</span> to the <span class="colorHighlight">italElement</span></i></li>
+                        <li>// <i>create a <b>&lt;i&gt;</b> element to italicize the username</i></li>
+                        <li> const <span class="colorHighlight">italElement</span> = document.createElement('<b>i</b>');</li>
+                        <li>// <i>place the <span class="colorHighlight">userName</span> inside the <span class="colorHighlight">italElement</span></i></li>
                         <li><span class="colorHighlight">italElement</span>.<b>append</b>(<span class="colorHighlight">userName</span>)</li>
-                        <li>// <i>add the <i>italicized</i> <span class="colorHighlight">userName</span> to the <span class="colorHighlight">boldElement</span></i></li>
+                        <li>&nbsp;</li>
+                        <li>// <i>create a <b>&lt;b&gt;</b> element to make the italicized username, bold</i></li>
+                        <li> const <span class="colorHighlight">boldElement</span> = document.createElement('<b>b</b>');</li>
+                        <li>// <i>place the <i>italicized</i> <span class="colorHighlight">userName</span> inside the <span class="colorHighlight">boldElement</span></i></li>
                         <li><span class="colorHighlight">boldElement</span>.<b>append</b>(<span class="colorHighlight">italElement</span>)</li>
-                        <li>// <i>add the now <b>bold & italic</b> <span class="colorHighlight">userName</span> to the <span class="colorHighlight">newTweet</span></i></li>
+                        <li>&nbsp;</li>
+                        <li>// <i>place the now <b>bold & italic</b> <span class="colorHighlight">userName</span> inside the <span class="colorHighlight">newTweet</span> <b>&lt;li&gt;</b></i></li>
                         <li><span class="colorHighlight">newTweet</span>.<b>append</b>(<span class="colorHighlight">boldElement</span>);</li>
                         <li>&nbsp;</li>
                         <li>// <i>add the <b>New Tweet</b> data to the end of <span class="colorHighlight">newTweet</span></i></li>

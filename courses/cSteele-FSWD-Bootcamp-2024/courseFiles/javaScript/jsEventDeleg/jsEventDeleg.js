@@ -27,14 +27,19 @@ tweetForm.addEventListener('submit', function(evt) {
 const addTweet = (userName, tweet) => {
 
    // create the new <li> element as a new tweet container
-   // create a <b> element for the username
    const newTweet = document.createElement('li');
-   const italElement = document.createElement('i');
-   const boldElement = document.createElement('b');
 
-   // add the userName to the boldElement
+   // create a <i> element to make the username italic
+   const italElement = document.createElement('i');
+   // place the userName inside the italic element
    italElement.append(userName);
+
+   // create a <b> element to make the italicized username bold
+   const boldElement = document.createElement('b');
+   // place the italicized userName inside the bold element
    boldElement.append(italElement);
+
+   // place the now bold & italic userName inside the newTweet <li>
    newTweet.append(boldElement);
 
    // add the New Tweet data to the end of newTweet
@@ -46,6 +51,6 @@ const addTweet = (userName, tweet) => {
 
 
 // DELETE AN EXISTING TWEET
-tweetsContainer.addEventListener('click', function (e) {
-   (e.target.nodeName === 'LI' || e.target.nodeName === 'B' || e.target.nodeName === 'I') && e.target.closest('LI').remove();
+tweetsContainer.addEventListener('click', function (evt) {
+   (evt.target.nodeName === 'LI' || evt.target.nodeName === 'B' || evt.target.nodeName === 'I') && evt.target.closest('LI').remove();
 })
