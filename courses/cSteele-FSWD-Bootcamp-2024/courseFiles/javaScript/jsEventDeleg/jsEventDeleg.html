@@ -66,7 +66,7 @@ span<!DOCTYPE html>
                      <input type="text" id="tweet" placeholder="Tweet">
                      <button>Submit</button>
                   </form>
-                  <p><b>New Tweets</b>
+                  <p><b>Current Tweets:</b>
                      <ul id="tweets"></ul>
                   </p>
                </div>
@@ -84,7 +84,8 @@ span<!DOCTYPE html>
                   </ul>
                </p>
                <p>This is a very good example of how <i>event <b>propagation</b></i> works. Our <b>event</b> is a <i>click</i> event on the <b>parent &lt;ul&gt;</b> element <i>(with the <b>id</b>=<span class="colorHighlight">tweetsContainer</span>)</i>. And from there, we <i><b>target</b></i> the child <i><b>&lt;li&gt;</b></i> that we <i><b>click</b>ed</i> on for removal.</p>
-               <p>So we only need <b>one event</b> attached to the <b>parent element</b>, and we can <i><b>target</b></i> <i>any</i> of it's children.</p>
+               <p>So we only need <b>one event</b> attached to the <b>parent element</b>, and we can <i><b>target</b></i> <i>any</i> of it's children for processing.</p>
+               <p>Like we stated earlier, with <i><b>Event Delegation</b></i>, we can attach a single <b>listener</b> to the parent element. This <b>listener</b>, can then manage all of the events that bubble up from its child elements. Instead of adding an event listener to each and every similar <i>child</i> element, we can add an event listener to the parent element and call an event on a particular <i><b>target</b></i> using the <b>.target</b> property of the event object.</p>
             </article>
             <br><hr style="width: 90%"><br>
 
@@ -113,6 +114,19 @@ span<!DOCTYPE html>
                   but if <i><b>where</b></i> you click is actually on the <b>&lt;b&gt;</b> or <b>&lt;i&gt;</b> element, then the code does not recognize that you clicked on the <b>&lt;li&gt;</b> element, so the tweet does not delete. This is referencing the <i><b>userName</b></i> only because if you click on the "tweet text", it will delete the tweet, as it was defined in the code.</p>
                   <p>So when we factor in our <b>bold</b> and <i>italic</i> userName, <i><b>with the modified code</b>, we are saying</i> <i>"if we click anywhere within the <b>parent &lt;li&gt;</b>, (either the userName or the tweet text), REGARDLESS of whether we clicked on an <b>&lt;li&gt;</b>, <b>&lt;b&gt;</b> or <b>&lti&gt;</b> portion of the userName, then delete the entire <b>parent &lt;li&gt;</b>, which contains the entire tweet data.</i></p>
                   <p>And now our delete function works properly, irregardless of where we click on the tweet.
+               </p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!-- interesting side notes -->
+            <article>
+               <h6>Interesting Side Notes</h6>
+               <p><span class="firstWord">Some</span></p>
+                  <p><span class="firstWord">Some</span> interesting side notes here. If you console.log() the event object <span class="colorHighlight2">evt</span>, it will show the properties that you clicked on. So if we clicked on a tweet for deletion, it would show the event properties for that tweet.</p>
+               <p>Now if we look down the list of properties, we will see one called "target". And when we see the <i>value</i> for the target property, we see i (italic).
+                  <ul>
+                     <li>If </li>
+                  </ul>
                </p>
             </article>
          </section>

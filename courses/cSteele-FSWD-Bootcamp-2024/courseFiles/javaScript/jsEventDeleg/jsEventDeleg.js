@@ -52,5 +52,7 @@ const addTweet = (userName, tweet) => {
 
 // DELETE AN EXISTING TWEET
 tweetsContainer.addEventListener('click', function (evt) {
-   (evt.target.nodeName === 'LI' || evt.target.nodeName === 'B' || evt.target.nodeName === 'I') && evt.target.closest('LI').remove();
+      console.log(evt);
+      // evt.target.remove();
+//    (evt.target.nodeName === 'LI' || evt.target.nodeName === 'B' || evt.target.nodeName === 'I') && evt.target.closest('LI').remove();
 })
