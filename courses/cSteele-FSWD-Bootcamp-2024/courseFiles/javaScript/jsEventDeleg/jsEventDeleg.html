@@ -53,26 +53,89 @@ span<!DOCTYPE html>
             </article>
             <br><hr style="width: 90%"><br>
 
-            <!-- Event Delegation Definition -->
+            <!-- Tweet Form Refresher -->
             <article>
-               <p>Let's use our <i><b>Tweet Form</b></i> form our JavaScript <i><a href="../jsFormEvents/jsFormEvents.html" target="_blank">Form Events Lesson</a></i> to explain.</p>
-               <p>Just enter a "User Name" and "Tweet", and Js processes the form and adds a new tweet.</p>
-               <p>Once you have some new tweets, you can click on an any existing Tweet to DELETE it.</p>
-               <hr style="width: 95%">
-               <div>
-                  <h6>Tweet Form</h6><br>
-                  <form action="/formProcess" id="tweetForm">
-                     <input type="text" id="userName" placeholder="User Name">
-                     <input type="text" id="tweet" placeholder="Tweet">
-                     <button>Submit</button>
-                  </form>
-                  <p><b>Current Tweets:</b>
-                     <ul id="tweets"></ul>
-                  </p>
-               </div>
-               <hr style="width: 95%">
-               <p>But what if we made a mistake and needed to "<i>delete</i>" a tweet we had posted?</p>
-               <p>Because we added the new tweet as a list item (<b>&lt;li&gt;</b>), we can add the following "<b>event</b>" to our <b>parent container <i>(&lt;ul&gt;)</i></b> <i>(identified by the <b>id</b>=<span class="colorHighlight">tweetsContainer</span>)</i>  to <i>remove</i> it.</p>
+               <p>Let's use our <i><b>Tweet Form</b></i> from our JavaScript <i><a href="../jsFormEvents/jsFormEvents.html" target="_blank">Form Events Lesson</a></i> to explain. As we recall, the user just enters a "<b>User Name</b>" and "<b>Tweet</b>" into the form. <b>Js</b> then processes the data and adds the new tweet to the page. The Tweet Form is comprised of an HTML form element with an <b>id</b> of <span class="colorHighlight">tweetForm</span>.</p>
+               <p><input type="text" placeholder="User Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Tweet">
+               </p>
+               <p>
+                  <ul class="sectHighlight">
+                     <li><b>HTML</b></li>
+                     <li>&lt;form action=" <b>id</b>="<span class="colorHighlight">tweetForm</span>"&gt;&lt;/form&gt;
+                        <ul>
+                           <li>&lt;input type="text" <b>id</b>="<span class="colorHighlight">userName</span>" placeholder="User Name"&gt;</li>
+                           <li>&lt;input type="text" <b>id</b>="<span class="colorHighlight">tweet</span>" placeholder="Tweet"&gt;</li>
+                           <li>&lt;button&gt;Submit&lt;/button&gt;</li>
+                        </ul>
+                     </li>
+                     <li>&lt;/form&gt;</li>
+                  </ul>
+               </p>
+               <p>Notice we have also assigned the <i>text inputs</i> with <b>id</b>'s, <i><span class="colorHighlight">userName</span></i> and <i><span class="colorHighlight">tweet</span></i> respectively. These three <b>id</b>'s are used in the <b>Js</b> to create the <b>objects</b> for the processing of these elements:
+                  <ul class="sectHighlight">
+                     <li><b>JavaScript</b></li>
+                     <li>const <span class="colorHighlight">tweetForm</span> = document.querySelector('<span class="colorHighlight">#tweetForm</span>');</li>
+                     <li>const <span class="colorHighlight">userName</span> = document.querySelector('<span class="colorHighlight">#userName</span>');</li>
+                     <li>const <span class="colorHighlight">tweet</span> = document.querySelector('<span class="colorHighlight">#tweet</span>');</li>
+                  </ul>
+               </p>
+               </p>
+               <p>Once the user inputs the data for the new tweet, <b>Js</b> will process the data and insert the new tweet into a list item (<b>&lt;li&gt;</b>) that it will have to create, within the <b>Js</b> processing. What this means is that we will need an <i>empty</i> unordered list (<b>&lt;ul&gt;</b>) to provide a place for the new tweet <b>&lt;li&gt;</b> to be inserted.
+                  <ul class="sectHighlight">
+                     <li><b>HTML</b></li>
+                     <li>&lt;ul <b>id</b>="<span class="colorHighlight">tweets</span>">&lt;/ul></li>
+                  </ul>
+                  and we will also have to create an <b>object</b> in our <b>js</b> to reference this <b>&lt;ul></b>:
+                  <ul class="sectHighlight">
+                     <li><b>JavaScript</b></li>
+                     <li>const <span class="colorHighlight">tweetsContainer</span> = document.querySelector('<span class="colorHighlight">#tweets</span>');</li>
+                  </ul>
+               </p>
+               <p>We now have the four <b>objects</b> needed to process the user inputs.
+                  <ul>
+                     <li><span class="colorHighlight">tweetForm</span> &nbsp;&nbsp;&nbsp;// <i>represents the original HTML form</i></li>
+                     <li><span class="colorHighlight">userName</span> &nbsp;&nbsp;&nbsp;// <i>represents user name input</i></li>
+                     <li> and <span class="colorHighlight">tweet</span> &nbsp;&nbsp;&nbsp;// <i>represents user tweet input</i></li>
+                  </ul>
+                  are the <b>objects</b> that represent the user input data. It is beyond the scope of this discussion to explain in detail how this user data is converted into an <b>&lt;li></b> but you can reference the <i><a href="../jsFormEvents/jsFormEvents.html" target="_blank">Form Events Lesson</a></i> for the details. The result of the <b>Js</b> processing for this user data is:
+                  <ul class="sectHighlight">
+                     <li>&lt;li>userName - tweet>&lt;/li></li>
+                  </ul>
+               </p>
+               <p></p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!--  -->
+            <article>
+               <p><span class="firstWord">And finally</span>, the most important part, for the point of <b><i>this</i></b> discussion.</p>
+               <p>Our last <b>object</b> that we created:
+                  <ul>
+                     <li><span class="colorHighlight">tweetsContainer</span>&nbsp;&nbsp;&nbsp;// <i>represents the &lt;ul> <b>parent</b> container</i>, that will contain the new tweet &lt;li></li>
+                  </ul>
+                  What this means is that we have created a clearly defined <b><i>parent container</i></b> where we can now use <i><b>event delegation</b></i> to effect the child elements, (<i>the individual child <b>&lt;li></b>'s contained within the parent <b>&lt;ul></b></i>).
+               </p>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!-- Tweet Form -->
+            <article>
+               <h6>Tweet Form</h6>
+               <p style="font-size: small;"><i>click on an any existing Tweet to DELETE it.</i></p>
+               <form action="" id="tweetForm">
+                  <input type="text" id="userName" placeholder="User Name">
+                  <input type="text" id="tweet" placeholder="Tweet">
+                  <button>Submit</button>
+               </form>
+               <b>Current Tweets:</b>
+               <ul id="tweets"></ul>
+            </article>
+            <br><hr style="width: 90%"><br>
+
+            <!-- Using Event Delegation -->
+            <article>
+               <p>So we stated in our tweet form that you could <i>"click on an existing tweet to <b>delete</b> it"</i>. But how do we accomplish this?</p>
+               <p>Easy, Peasy. We're going to use <b><i>event delegation</i></b>. Since we have a clearly defined <i><b>parent</b></i> container, we can use it to propagate events down to the child elements, <i>(the <b>child</b> &lt;li>'s</i>). Because we add a new tweet as a list item (<b>&lt;li&gt;</b>), we can add the following "<b>event</b>" to our <b>parent container <i>(&lt;ul&gt;)</i></b> <i>(identified by the <b>id</b>=<span class="colorHighlight">tweetsContainer</span>)</i>  to <i>remove</i> it.</p>
                <p><b>*Notice</b> that we are using the property <b>remove()</b> to remove an existing tweet, and that <i><b>target</b> is a property of the <span class="colorHighlight2">evt</span> <b>event object</b></i>.
                   <ul class="sectHighlight">
                      <li><span class="colorHighlight">tweetsContainer</span>.addEventListener('<b>click</b>', <i>function (<span class="colorHighlight2">evt</span>)</i> {
@@ -83,11 +146,33 @@ span<!DOCTYPE html>
                      <li>})</li>
                   </ul>
                </p>
-               <p>This is a very good example of how <i>event <b>propagation</b></i> works. Our <b>event</b> is a <i>click</i> event on the <b>parent &lt;ul&gt;</b> element <i>(with the <b>id</b>=<span class="colorHighlight">tweetsContainer</span>)</i>. And from there, we <i><b>target</b></i> the child <i><b>&lt;li&gt;</b></i> that we <i><b>click</b>ed</i> on for removal.</p>
-               <p>So we only need <b>one event</b> attached to the <b>parent element</b>, and we can <i><b>target</b></i> <i>any</i> of it's children for processing.</p>
-               <p>Like we stated earlier, with <i><b>Event Delegation</b></i>, we can attach a single <b>listener</b> to the parent element. This <b>listener</b>, can then manage all of the events that bubble up from its child elements. Instead of adding an event listener to each and every similar <i>child</i> element, we can add an event listener to the parent element and call an event on a particular <i><b>target</b></i> using the <b>.target</b> property of the event object.</p>
+               <p>This is a very good example of how <i>event <b>propagation</b></i> works.</p>
+               <p>Our <b>event</b> is a <i>click</i> event on the <b>parent &lt;ul&gt;</b> element <i>(with the <b>id</b>=<span class="colorHighlight">tweetsContainer</span>)</i>. And from there, we <i><b>target</b></i> the child <i><b>&lt;li&gt;</b></i> that we <i><b>click</b>ed</i> on for removal. So we only need <b>one event</b> attached to the <b>parent element</b>, and we can <i><b>target</b></i> <i>any</i> of it's children for processing.</p>
+               <p>so the line:
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === 'LI' <b>&&</b> <span class="colorHighlight2">evt</span>.<b>target</b>.remove();</li>
+                  </ul>
+                  performs the removal of the &lt;li> that the user clicked on.
+               </p>
+               <p>What this is saying is that if the <i><b>target</b></i> we <i>clicked</i> on is a <i><b>&lt;li></b></i>, then <i><b>remove</b></i> that target.</p>
+               <p><span class="firstWord">But</span> what does <i><b>target</b></i> mean and what is a <i><b>nodeName</b></i>?</p>
+               <p>Let's start with this. Notice that we are using the <i><b>event object</b></i> of the <i><b>callback function.</b></i> and that we have assigned it an <i>identifier</i> of <span class="colorHighlight2">evt</span>.</p>
             </article>
             <br><hr style="width: 90%"><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <!-- codefix for formatting update -->
             <article>

@@ -1,8 +1,8 @@
 // define the variables
 const tweetForm = document.querySelector('#tweetForm');
-const tweetsContainer = document.querySelector('#tweets');
 const userName = document.querySelector('#userName');
 const tweet = document.querySelector('#tweet');
+const tweetsContainer = document.querySelector('#tweets');
 
 // assign a submit event to the tweetForm object
 tweetForm.addEventListener('submit', function(evt) {
