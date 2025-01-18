@@ -48,20 +48,20 @@ span<!DOCTYPE html>
                <p><a href="https://www.w3schools.in/javascript/event-delegation" target="_blank" rel="noopener noreferrer">W3Schools Event Delegation</a><br>
                <a href="https://www.javascripttutorial.net/javascript-dom/javascript-event-delegation/" target="_blank" rel="noopener noreferrer">JavaScript Tutorial Event Delegation</a></p>
                <p><span class="firstWord">Event</span> delegation is based on the concept of <i><b>event bubbling</b></i>.</p>
-               <p>As we recall, <i>"event bubbling"</i> happens within a <i><b>nested</b> element environment</i>, where you may have separate events assigned to both the parent element, and the child element(s). The <i><b>event bubbling</b></i> effect comes when the child event fires, and then the process "bubbles" up to the parent event, which then fires. Refer to my <i><a href="../jsFormBubbling/jsFormBubbling.html" target="_blank">Event Page</a></i> for more information.</p>
-               <p>With <i><b>Event Delegation</b></i>, we can attach a single <b>listener</b> to the parent element. This <b>listener</b>, can then manage all of the events that bubble up from its child elements. <i><b>Event Delegation</b></i> is basically a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add an event listener to a parent element and call an event on a particular <i><b>target</b></i> using the <b>.target</b> property of the event object.</p>
+               <p>As we recall, <i>"event bubbling"</i> happens within a <i><b>nested</b> element environment</i>, where you may have separate events assigned to both the parent element, and the child element(s). The <i><b>event bubbling</b></i> effect comes when the child event fires, and then the process "bubbles" up to the parent event, which then fires. Refer to my <i><a href="../jsFormBubbling/jsFormBubbling.html" target="_blank">Event Bubbling</a></i> page for more information.</p>
+               <p>With <i><b>Event Delegation</b></i>, instead of attaching an event to the <i><b>parent</b></i> element, and then one to every <i><b>child</b></i> element, we can attach a single <b>listener</b> to the <i><b>parent</b></i> element. This <b>listener</b>, can then manage all of the events that bubble up from its child elements. <i><b>Event Delegation</b></i> is basically a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add one event listener to a <i><b>parent</b></i> element and call an event on a particular <i><b>child</b></i> target using the <b>.target</b> property of the event object.</p>
             </article>
             <br><hr style="width: 90%"><br>
 
             <!-- Tweet Form Refresher -->
             <article>
-               <p>Let's use our <i><b>Tweet Form</b></i> from our JavaScript <i><a href="../jsFormEvents/jsFormEvents.html" target="_blank">Form Events Lesson</a></i> to explain. As we recall, the user just enters a "<b>User Name</b>" and "<b>Tweet</b>" into the form. <b>Js</b> then processes the data and adds the new tweet to the page. The Tweet Form is comprised of an HTML form element with an <b>id</b> of <span class="colorHighlight">tweetForm</span>.</p>
+               <p><span class="firstWord">Let's</span> use our <i><b>Tweet Form</b></i> from our JavaScript <i><a href="../jsFormEvents/jsFormEvents.html" target="_blank">Form Events Lesson</a></i> to explain. As we recall, the user just enters a "<b>User Name</b>" and "<b>Tweet</b>" into the form. <b>Js</b> then processes the data and adds the new tweet to the page. The Tweet Form is comprised of an HTML form element with an <b>id</b> of <span class="colorHighlight">tweetForm</span>.</p>
                <p><input type="text" placeholder="User Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Tweet">
                </p>
                <p>
                   <ul class="sectHighlight">
                      <li><b>HTML</b></li>
-                     <li>&lt;form action=" <b>id</b>="<span class="colorHighlight">tweetForm</span>"&gt;&lt;/form&gt;
+                     <li>&lt;form action="" <b>id</b>="<span class="colorHighlight">tweetForm</span>"&gt;&lt;/form&gt;
                         <ul>
                            <li>&lt;input type="text" <b>id</b>="<span class="colorHighlight">userName</span>" placeholder="User Name"&gt;</li>
                            <li>&lt;input type="text" <b>id</b>="<span class="colorHighlight">tweet</span>" placeholder="Tweet"&gt;</li>
@@ -83,7 +83,12 @@ span<!DOCTYPE html>
                <p>Once the user inputs the data for the new tweet, <b>Js</b> will process the data and insert the new tweet into a list item (<b>&lt;li&gt;</b>) that it will have to create, within the <b>Js</b> processing. What this means is that we will need an <i>empty</i> unordered list (<b>&lt;ul&gt;</b>) to provide a place for the new tweet <b>&lt;li&gt;</b> to be inserted.
                   <ul class="sectHighlight">
                      <li><b>HTML</b></li>
-                     <li>&lt;ul <b>id</b>="<span class="colorHighlight">tweets</span>">&lt;/ul></li>
+                     <li>&lt;ul <b>id</b>="<span class="colorHighlight">tweets</span>">
+                        <ul>
+                           <li>&lt;p>click on an any existing Tweet to DELETE it.&lt;/p></li>
+                        </ul>
+                     </li>
+                     <li>&lt;/ul></li>
                   </ul>
                   and we will also have to create an <b>object</b> in our <b>js</b> to reference this <b>&lt;ul></b>:
                   <ul class="sectHighlight">
@@ -91,11 +96,10 @@ span<!DOCTYPE html>
                      <li>const <span class="colorHighlight">tweetsContainer</span> = document.querySelector('<span class="colorHighlight">#tweets</span>');</li>
                   </ul>
                </p>
-               <p>We now have the four <b>objects</b> needed to process the user inputs.
+               <p>We now have the four <b>objects</b> needed to process the user inputs, insert that data into an <b>&lt;li></b>, and then insert the &lt;li> into the <span class="colorHighlight">#tweets</span> <b>&lt;ul></b>.
                   <ul>
-                     <li><span class="colorHighlight">tweetForm</span> &nbsp;&nbsp;&nbsp;// <i>represents the original HTML form</i></li>
                      <li><span class="colorHighlight">userName</span> &nbsp;&nbsp;&nbsp;// <i>represents user name input</i></li>
-                     <li> and <span class="colorHighlight">tweet</span> &nbsp;&nbsp;&nbsp;// <i>represents user tweet input</i></li>
+                     <li>and <span class="colorHighlight">tweet</span> &nbsp;&nbsp;&nbsp;// <i>represents user tweet input</i></li>
                   </ul>
                   are the <b>objects</b> that represent the user input data. It is beyond the scope of this discussion to explain in detail how this user data is converted into an <b>&lt;li></b> but you can reference the <i><a href="../jsFormEvents/jsFormEvents.html" target="_blank">Form Events Lesson</a></i> for the details. The result of the <b>Js</b> processing for this user data is:
                   <ul class="sectHighlight">
@@ -106,73 +110,86 @@ span<!DOCTYPE html>
             </article>
             <br><hr style="width: 90%"><br>
 
-            <!--  -->
+            <!-- Why use Event Delegation -->
             <article>
                <p><span class="firstWord">And finally</span>, the most important part, for the point of <b><i>this</i></b> discussion.</p>
                <p>Our last <b>object</b> that we created:
                   <ul>
                      <li><span class="colorHighlight">tweetsContainer</span>&nbsp;&nbsp;&nbsp;// <i>represents the &lt;ul> <b>parent</b> container</i>, that will contain the new tweet &lt;li></li>
                   </ul>
-                  What this means is that we have created a clearly defined <b><i>parent container</i></b> where we can now use <i><b>event delegation</b></i> to effect the child elements, (<i>the individual child <b>&lt;li></b>'s contained within the parent <b>&lt;ul></b></i>).
+                  becomes a clearly defined <b><i>parent container</i></b> where we can now use <i><b>event delegation</b></i> to effect the child elements, (<i>the individual child <b>&lt;li></b>'s contained within the parent <b>&lt;ul></b></i>).
                </p>
             </article>
             <br><hr style="width: 90%"><br>
 
             <!-- Tweet Form -->
             <article>
-               <h6>Tweet Form</h6>
-               <p style="font-size: small;"><i>click on an any existing Tweet to DELETE it.</i></p>
+               <h6>Tweet Form</h6><br>
                <form action="" id="tweetForm">
                   <input type="text" id="userName" placeholder="User Name">
                   <input type="text" id="tweet" placeholder="Tweet">
                   <button>Submit</button>
                </form>
                <b>Current Tweets:</b>
-               <ul id="tweets"></ul>
+               <ul id="tweets">
+                  <p style="font-size: small;">click on an any existing Tweet to DELETE it.</p>
+               </ul>
             </article>
-            <br><hr style="width: 90%"><br>
+            <hr style="width: 90%"><br>
 
             <!-- Using Event Delegation -->
             <article>
-               <p>So we stated in our tweet form that you could <i>"click on an existing tweet to <b>delete</b> it"</i>. But how do we accomplish this?</p>
+               <p>As stated in our tweet form, you can <i>"click on an existing tweet to <b>delete</b> it"</i>. But how do we accomplish this?</p>
                <p>Easy, Peasy. We're going to use <b><i>event delegation</i></b>. Since we have a clearly defined <i><b>parent</b></i> container, we can use it to propagate events down to the child elements, <i>(the <b>child</b> &lt;li>'s</i>). Because we add a new tweet as a list item (<b>&lt;li&gt;</b>), we can add the following "<b>event</b>" to our <b>parent container <i>(&lt;ul&gt;)</i></b> <i>(identified by the <b>id</b>=<span class="colorHighlight">tweetsContainer</span>)</i>  to <i>remove</i> it.</p>
                <p><b>*Notice</b> that we are using the property <b>remove()</b> to remove an existing tweet, and that <i><b>target</b> is a property of the <span class="colorHighlight2">evt</span> <b>event object</b></i>.
                   <ul class="sectHighlight">
                      <li><span class="colorHighlight">tweetsContainer</span>.addEventListener('<b>click</b>', <i>function (<span class="colorHighlight2">evt</span>)</i> {
                         <ul>
+                           <li style="color: #343434;"><i>console.log(<span class="colorHighlight2">evt</span>);</i></li>
                            <li><span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === 'LI' <b>&&</b> <span class="colorHighlight2">evt</span>.<b>target</b>.remove();</li>
                         </ul>
                      </li>
                      <li>})</li>
                   </ul>
                </p>
-               <p>This is a very good example of how <i>event <b>propagation</b></i> works.</p>
-               <p>Our <b>event</b> is a <i>click</i> event on the <b>parent &lt;ul&gt;</b> element <i>(with the <b>id</b>=<span class="colorHighlight">tweetsContainer</span>)</i>. And from there, we <i><b>target</b></i> the child <i><b>&lt;li&gt;</b></i> that we <i><b>click</b>ed</i> on for removal. So we only need <b>one event</b> attached to the <b>parent element</b>, and we can <i><b>target</b></i> <i>any</i> of it's children for processing.</p>
+               <p>This is a very good example of how <i>event <b>propagation</b></i> works. We are assigning the <i>click event</i> to the <i><b>parent</b></i> object <span class="colorHighlight">tweetsContainer</span>, and by <b><i>targeting</i></b> the <i><b>child</b></i> object, we can effect our change.</p>
+               <p>So our <b>event</b> is a <i>click</i> event on the <b>parent &lt;ul&gt;</b> element <i>(with the <b>id</b>=<span class="colorHighlight">tweetsContainer</span>)</i>. And from there, we <i><b>target</b></i> the child <i><b>&lt;li&gt;</b></i> that we <i><b>click</b>ed</i> on for removal. So we only need <b>one event</b> attached to the <b>parent element</b>, and we can <i><b>target</b></i> <i>any</i> of it's children for processing.</p>
                <p>so the line:
                   <ul class="sectHighlight">
                      <li><span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === 'LI' <b>&&</b> <span class="colorHighlight2">evt</span>.<b>target</b>.remove();</li>
                   </ul>
-                  performs the removal of the &lt;li> that the user clicked on.
-               </p>
-               <p>What this is saying is that if the <i><b>target</b></i> we <i>clicked</i> on is a <i><b>&lt;li></b></i>, then <i><b>remove</b></i> that target.</p>
-               <p><span class="firstWord">But</span> what does <i><b>target</b></i> mean and what is a <i><b>nodeName</b></i>?</p>
-               <p>Let's start with this. Notice that we are using the <i><b>event object</b></i> of the <i><b>callback function.</b></i> and that we have assigned it an <i>identifier</i> of <span class="colorHighlight2">evt</span>.</p>
+                  performs the removal of the &lt;li> that the user clicked on.</p>
+                  <p>What this is saying is that <i><b>if</b></i> the <i><b>target</b></i> we <i>clicked</i> on is an <i><b>&lt;li></b></i>, then <i><b>remove</b></i> that target.</p>
+                  <p>Notice that we are using the <i><b>event object</b></i> of the <i><b>callback function.</b></i> and that we have assigned it an <i>identifier</i> of <span class="colorHighlight2">evt</span>.</p>
+                  <p>But what does <i><b>target</b></i> mean? What is a <i><b>nodeName</b></i>? And why do we need them? And why don't we just use:
+                     <ul class="sectHighlight">
+                        <li><b><span class="colorHighlight2">evt</span>.target.remove();</b></li>
+                     </ul>
+                  </p>
+                  <p>Well, if we use:
+                     <ul>
+                        <li><span class="colorHighlight2">evt</span>.target.remove();</li>
+                     </ul>
+                     we will remove <b><i>any</i></b> child element that we click on, from within the parent <b>&lt;ul></b> element. As you may have noticed, our <i><b>blank &lt;ul></b></i> "<span class="colorHighlight">tweets</span>" that we created in the HTML markup is not entirely blank. We also included one <b>&lt;p></b> element which gives notice that the user can click on a tweet to delete it. If we use:
+                     <ul>
+                        <li><span class="colorHighlight2">evt</span>.target.remove();</li>
+                     </ul>
+                     then the user could delete our <i>instructional</i> paragraph, and we don't want that. So we need to be more specific in our child targeting.
+                  </p>
+                  <p>Because we added <i><b>console.log(<span class="colorHighlight2">evt</span>);</b></i> to the event <i>callback function</i> <i>(as shown above)</i>, when we click on a tweet for deletion, we could then look in the console to see the properties for <span class="colorHighlight2">evt</span>, (the <i>event object</i>) of the <i><b>child</b> element</i> that we are targeting <i>(clicked on)</i>.</p>
+                  <p>And what the console shows is a <i>mouse event</i>. And as we look though the properties of this event, we find a property called <i><b>target</b></i> and this <i>target</i> will have a value. If you click on our paragraph to delete it, you will see a <b>target</b> value of <b>p</b> and if you expand the target properties you will find that this target has a <b>nodeName</b> of <b>"P"</b>. And using the <b>nodeName</b> is a very specific way of doing the targeting.</p>
+                  <p>So, instead of using:
+                     <ul class="sectHighlight">
+                        <li><b><span class="colorHighlight2">evt</span>.target.remove();</b></li>
+                     </ul>
+                     we are using:
+                     <ul class="sectHighlight">
+                        <li><span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === 'LI' <b>&&</b> <span class="colorHighlight2">evt</span>.<b>target</b>.remove();</li>
+                     </ul>
+                     and with that, if we click on any child target where <b>target</b>.nodeName === 'LI', the the child will delete, but any other <b>target</b>.nodeName will not. So we can delete any current tweet that we may want to, but not the <i>informative</i> paragraph that we added in the HTML Markup.
+                  </p>
             </article>
             <br><hr style="width: 90%"><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <!-- codefix for formatting update -->
             <article>
@@ -181,37 +198,24 @@ span<!DOCTYPE html>
                   <ul class="sectHighlight">
                      <li><i><b>User Name</b></i> - Tweet</li>
                   </ul>
-               we now need to modify our JavaScript processing as follows"
-               <ul class="sectHighlight">
-                  <li><span class="colorHighlight">tweetsContainer</span>.addEventListener('<b>click</b>', <i>function (<span class="colorHighlight2">evt</span>)</i> {
-                     <ul>
-                        <li>(<span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === '<b>LI</b>' || <span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === '<b>B</b>' || <span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === '<b>I</b>') <b>&&</b> <span class="colorHighlight2">evt</span>.<b>target</b>.closest('<b>LI</b>').remove();</li>
-                     </ul>
-                  </li>
-                  <li>})</li>
-               </ul>
-               The reason for this is because once we made our userName reside within <b>bold</b> and <i>italic</i> elements, if you click on the <i><b>userName</b></i> to delete the tweet, as opposed to clicking on the tweet itself, JavaScript could assign the <b>target</b>.nodeName of the click event to either an <b>&lt;li&gt;</b>, <b>&lt;b&gt;</b>, or <b>&lt;i&gt;</b> element.
-               </p>
-               <p>Remember that we are assigning the "click event" to the parent <span class="colorHighlight">tweetsContainer</span>, which is an <b>&lt;li&gt;</b>. So in the <i><b>initial</b></i> code processing, we are saying <i>"if we click anywhere within the <b>parent &lt;li&gt;</b>, (either the userName or the tweet text), then delete the entire <b>parent &lt;li&gt;</b>, which contains the entire tweet data:</i>
+               we have now inadvertently added a bug where if you click on the user name for deletion, the tweet <b>will not</b> delete. If however, you click on the tweet itself, then it <b>will</b> delete.</p>
+               <p>The reason is that if you open the console and look at the properties for the event when you click on a tweet <i><b>userName</b></i>, you will see that the <b>target</b> value is <b>i</b>, and the <b>target</b>.nodeName is <b>"I"</b>. So we are trying to target an <b>&lt;li></b> for deletion, but when you click on the bolded, italicized <i><b>userName</b></i>, you are actually targeting an <b>&lt;i></b> element. And since there is also a <b>&lt;b></b> element involved, you might actually be targeting that, instead of th <b>&lt;li></b> that we want to be targeting.</p>
+               <p>So, we now need to slightly modify our JavaScript processing as follows:
                   <ul class="sectHighlight">
-                     <li><span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === 'LI' <b>&&</b> <span class="colorHighlight2">evt</span>.<b>target</b>.remove();</li>
+                     <li><span class="colorHighlight">tweetsContainer</span>.addEventListener('<b>click</b>', <i>function (<span class="colorHighlight2">evt</span>)</i> {
+                        <ul>
+                           <li>(<span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === '<b>LI</b>' || <span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === '<b>B</b>' || <span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === '<b>I</b>') <b>&&</b> <span class="colorHighlight2">evt</span>.<b>target</b>.closest('<b>LI</b>').remove();</li>
+                        </ul>
+                     </li>
+                     <li>})</li>
                   </ul>
-                  but if <i><b>where</b></i> you click is actually on the <b>&lt;b&gt;</b> or <b>&lt;i&gt;</b> element, then the code does not recognize that you clicked on the <b>&lt;li&gt;</b> element, so the tweet does not delete. This is referencing the <i><b>userName</b></i> only because if you click on the "tweet text", it will delete the tweet, as it was defined in the code.</p>
-                  <p>So when we factor in our <b>bold</b> and <i>italic</i> userName, <i><b>with the modified code</b>, we are saying</i> <i>"if we click anywhere within the <b>parent &lt;li&gt;</b>, (either the userName or the tweet text), REGARDLESS of whether we clicked on an <b>&lt;li&gt;</b>, <b>&lt;b&gt;</b> or <b>&lti&gt;</b> portion of the userName, then delete the entire <b>parent &lt;li&gt;</b>, which contains the entire tweet data.</i></p>
-                  <p>And now our delete function works properly, irregardless of where we click on the tweet.
                </p>
-            </article>
-            <br><hr style="width: 90%"><br>
-
-            <!-- interesting side notes -->
-            <article>
-               <h6>Interesting Side Notes</h6>
-               <p><span class="firstWord">Some</span></p>
-                  <p><span class="firstWord">Some</span> interesting side notes here. If you console.log() the event object <span class="colorHighlight2">evt</span>, it will show the properties that you clicked on. So if we clicked on a tweet for deletion, it would show the event properties for that tweet.</p>
-               <p>Now if we look down the list of properties, we will see one called "target". And when we see the <i>value</i> for the target property, we see i (italic).
+               <p>So when we factor in our <b>bold</b> and <i>italic</i> userName, <i><b>with the modified code</b>, we are saying</i>:
                   <ul>
-                     <li>If </li>
+                     <li><i>"if we click anywhere within the <b>child &lt;li&gt;</b>, (either the userName or the tweet text), REGARDLESS of whether we clicked on an <b>&lt;li&gt;</b>, <b>&lt;b&gt;</b> or <b>&lti&gt;</b> portion of the userName, then delete the entire <b>child &lt;li&gt;</b>, which contains the entire tweet data.</i></li>
+                     <li><i><b>*note</b>: this will also NOT delete anything other than the <b>closest</b> &lt;li>, so the user can not delete the informative &lt;p> element we add into the "<span class="colorHighlight">tweets</span>" &lt;ul>.</i></li>
                   </ul>
+                  And now our delete function works properly, irregardless of where we click on the tweet.
                </p>
             </article>
          </section>

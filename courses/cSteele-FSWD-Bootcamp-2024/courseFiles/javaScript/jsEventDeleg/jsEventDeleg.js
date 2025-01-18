@@ -54,5 +54,6 @@ const addTweet = (userName, tweet) => {
 tweetsContainer.addEventListener('click', function (evt) {
       console.log(evt);
       // evt.target.remove();
-//    (evt.target.nodeName === 'LI' || evt.target.nodeName === 'B' || evt.target.nodeName === 'I') && evt.target.closest('LI').remove();
+      // evt.target.nodeName === 'LI' && evt.target.remove();
+      (evt.target.nodeName === 'LI' || evt.target.nodeName === 'B' || evt.target.nodeName === 'I') && evt.target.closest('LI').remove();
 })
