@@ -1,41 +1,75 @@
-button {
-   margin: 15px auto;
-   padding: 7px 15px;
-   font-size: 1.25em;
-   border: 2px solid black;
-   border-radius: 20px;
-   box-shadow: 2px 3px 8px gray;
+#mainDiv {
+   margin: 25px auto;
+   width: 700px;
+   border: 1px solid #a2a2a2;
 }
 
-.butt {
-   margin: 15px;
-   padding: 17px 10px;
-   font-size: 1em;
-   border-radius: 0;
+#imageRow {
+   width: 700px;
+   height: 400px;
+   background-image: url(pingPong.avif);
+   /* background-size: contain; */
 }
 
-#rainbow {
-   font-family: "Akaya Telivigala", system-ui;
-   font-optical-sizing: auto;
-   font-weight: 400;
-   font-style: normal;
-   font-size: 3.5rem;
-   margin: 10px;
+#titleRow {
+   padding: 10px 25px;
+   text-align: left;
+   border: 1px solid #a2a2a2;
 }
 
-.newDiv {
-   display: inline-block;
-   text-align: center;
+#scoreRow {
+   padding: 10px 25px;
+   text-align: left;
 }
 
-.label {
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   display: block;
-   padding: 12px 8px;
-   font-size: .75rem;
-   color: black;
+#scoreRowTop {
+   font-size: 2.75rem;
+   font-weight: 500;
 }
 
-.spans {
-   padding: 5px 10px;
+#scoreRowMid {
+   padding: 10px 0;
+   font-size: 1.25rem;
+   font-weight: 600;
+}
+
+#scoreRowBot {
+   padding: 10px 0;
+}
+
+#buttons {
+   width: 100%;
+   padding: 0;
+   border: 1px solid #a2a2a2;
+   font-size: 1.15rem;
+   font-weight: bold;;
+   display: flex;
+   justify-content: space-evenly;
+}
+
+#buttonOne {
+   width: 33%;
+   margin: 0px auto;
+   padding: 15px;
+   color: white;
+   background-color: #47b076;
+   border: 1px solid #a2a2a2;
+}
+
+#buttonTwo {
+   width: 34%;
+   margin: 0px auto;
+   padding: 15px;
+   color: white;
+   background-color: #4778b0;
+   border: 1px solid #a2a2a2;
+}
+
+#buttonReset {
+   width: 33%;
+   margin: 0px auto;
+   padding: 15px;
+   color: white;
+   background-color: #b04761;
+   border: 1px solid #a2a2a2;
 }
