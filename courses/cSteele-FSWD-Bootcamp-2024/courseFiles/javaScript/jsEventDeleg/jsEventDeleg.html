@@ -49,7 +49,7 @@ span<!DOCTYPE html>
                <a href="https://www.javascripttutorial.net/javascript-dom/javascript-event-delegation/" target="_blank" rel="noopener noreferrer">JavaScript Tutorial Event Delegation</a></p>
                <p><span class="firstWord">Event</span> delegation is based on the concept of <i><b>event bubbling</b></i>.</p>
                <p>As we recall, <i>"event bubbling"</i> happens within a <i><b>nested</b> element environment</i>, where you may have separate events assigned to both the parent element, and the child element(s). The <i><b>event bubbling</b></i> effect comes when the child event fires, and then the process "bubbles" up to the parent event, which then fires. Refer to my <i><a href="../jsFormBubbling/jsFormBubbling.html" target="_blank">Event Bubbling</a></i> page for more information.</p>
-               <p>With <i><b>Event Delegation</b></i>, instead of attaching an event to the <i><b>parent</b></i> element, and then one to every <i><b>child</b></i> element, we can attach a single <b>listener</b> to the <i><b>parent</b></i> element. This <b>listener</b>, can then manage all of the events that bubble up from its child elements. <i><b>Event Delegation</b></i> is basically a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add one event listener to a <i><b>parent</b></i> element and call an event on a particular <i><b>child</b></i> target using the <b>.target</b> property of the event object.</p>
+               <p>With <i><b>Event Delegation</b></i>, instead of attaching an event to the <i><b>parent</b></i> element, and then one to every <i><b>child</b></i> element, we can attach a single <b>listener</b> to the <i><b>parent</b></i> element. This <b>listener</b>, can then manage all of the events that bubble up from its child elements. <i><b>Event Delegation</b></i> is basically a pattern to handle events efficiently.</p>
             </article>
             <br><hr style="width: 90%"><br>
 
@@ -177,7 +177,7 @@ span<!DOCTYPE html>
                      then the user could delete our <i>instructional</i> paragraph, and we don't want that. So we need to be more specific in our child targeting.
                   </p>
                   <p>Because we added <i><b>console.log(<span class="colorHighlight2">evt</span>);</b></i> to the event <i>callback function</i> <i>(as shown above)</i>, when we click on a tweet for deletion, we could then look in the console to see the properties for <span class="colorHighlight2">evt</span>, (the <i>event object</i>) of the <i><b>child</b> element</i> that we are targeting <i>(clicked on)</i>.</p>
-                  <p>And what the console shows is a <i>mouse event</i>. And as we look though the properties of this event, we find a property called <i><b>target</b></i> and this <i>target</i> will have a value. If you click on our paragraph to delete it, you will see a <b>target</b> value of <b>p</b> and if you expand the target properties you will find that this target has a <b>nodeName</b> of <b>"P"</b>. And using the <b>nodeName</b> is a very specific way of doing the targeting.</p>
+                  <p>And what the console shows is a <i>mouse event</i>. And as we look though the properties of this event, we find a property called <i><b>target</b></i> and this <i>target</i> will have a value. If you click on our paragraph to delete it, you will see a <b>target</b> value of <b>p</b> and if you expand the <b>target</b> properties, you will find that this target has a <b>nodeName</b> of <b>"P"</b>. And using the <b>nodeName</b> is a very specific way of doing the targeting.</p>
                   <p>So, instead of using:
                      <ul class="sectHighlight">
                         <li><b><span class="colorHighlight2">evt</span>.target.remove();</b></li>
@@ -186,7 +186,7 @@ span<!DOCTYPE html>
                      <ul class="sectHighlight">
                         <li><span class="colorHighlight2">evt</span>.<b>target</b>.nodeName === 'LI' <b>&&</b> <span class="colorHighlight2">evt</span>.<b>target</b>.remove();</li>
                      </ul>
-                     and with that, if we click on any child target where <b>target</b>.nodeName === 'LI', the the child will delete, but any other <b>target</b>.nodeName will not. So we can delete any current tweet that we may want to, but not the <i>informative</i> paragraph that we added in the HTML Markup.
+                     and with that, if we click on any child target where <span style="background-color: #f8f8b8;">&nbsp;<b>target</b>.nodeName === 'LI',&nbsp;</span> the the child will delete, but any other <b>target</b>.nodeName will not. So we can delete any current tweet that we may want to, but <i>not the informative paragraph</i> that we added in the HTML Markup.
                   </p>
             </article>
             <br><hr style="width: 90%"><br>
@@ -199,7 +199,7 @@ span<!DOCTYPE html>
                      <li><i><b>User Name</b></i> - Tweet</li>
                   </ul>
                we have now inadvertently added a bug where if you click on the user name for deletion, the tweet <b>will not</b> delete. If however, you click on the tweet itself, then it <b>will</b> delete.</p>
-               <p>The reason is that if you open the console and look at the properties for the event when you click on a tweet <i><b>userName</b></i>, you will see that the <b>target</b> value is <b>i</b>, and the <b>target</b>.nodeName is <b>"I"</b>. So we are trying to target an <b>&lt;li></b> for deletion, but when you click on the bolded, italicized <i><b>userName</b></i>, you are actually targeting an <b>&lt;i></b> element. And since there is also a <b>&lt;b></b> element involved, you might actually be targeting that, instead of th <b>&lt;li></b> that we want to be targeting.</p>
+               <p>The reason for this is, that if you open the console and look at the properties for the event, <i><b>when you click on a tweet userName</b></i>, you will see that the <b>target</b> value is <b>i</b>, and the <b>target</b>.nodeName is <b>"I"</b>. So we are trying to target an <b>&lt;li></b> for deletion, but when you click on the bolded, italicized <i><b>userName</b></i>, you are actually targeting an <b>&lt;i></b> element. And since there is also a <b>&lt;b></b> element involved, you might actually be targeting that, instead of th <b>&lt;li></b> that we want to be targeting.</p>
                <p>So, we now need to slightly modify our JavaScript processing as follows:
                   <ul class="sectHighlight">
                      <li><span class="colorHighlight">tweetsContainer</span>.addEventListener('<b>click</b>', <i>function (<span class="colorHighlight2">evt</span>)</i> {
