@@ -1,0 +1,41 @@
+button {
+   margin: 15px auto;
+   padding: 7px 15px;
+   font-size: 1.25em;
+   border: 2px solid black;
+   border-radius: 20px;
+   box-shadow: 2px 3px 8px gray;
+}
+
+.butt {
+   margin: 15px;
+   padding: 17px 10px;
+   font-size: 1em;
+   border-radius: 0;
+}
+
+#rainbow {
+   font-family: "Akaya Telivigala", system-ui;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 3.5rem;
+   margin: 10px;
+}
+
+.newDiv {
+   display: inline-block;
+   text-align: center;
+}
+
+.label {
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   display: block;
+   padding: 12px 8px;
+   font-size: .75rem;
+   color: black;
+}
+
+.spans {
+   padding: 5px 10px;
+}
