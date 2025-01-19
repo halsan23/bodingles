@@ -199,6 +199,7 @@ span<!DOCTYPE html>
                      <li><i><b>User Name</b></i> - Tweet</li>
                   </ul>
                we have now inadvertently added a bug where if you click on the user name for deletion, the tweet <b>will not</b> delete. If however, you click on the tweet itself, then it <b>will</b> delete.</p>
+
                <p>The reason for this is, that if you open the console and look at the properties for the event, <i><b>when you click on a tweet userName</b></i>, you will see that the <b>target</b> value is <b>i</b>, and the <b>target</b>.nodeName is <b>"I"</b>. So we are trying to target an <b>&lt;li></b> for deletion, but when you click on the bolded, italicized <i><b>userName</b></i>, you are actually targeting an <b>&lt;i></b> element. And since there is also a <b>&lt;b></b> element involved, you might actually be targeting that, instead of th <b>&lt;li></b> that we want to be targeting.</p>
                <p>So, we now need to slightly modify our JavaScript processing as follows:
                   <ul class="sectHighlight">

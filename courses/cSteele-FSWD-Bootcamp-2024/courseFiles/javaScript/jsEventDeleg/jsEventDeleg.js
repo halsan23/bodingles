@@ -13,7 +13,7 @@ tweetForm.addEventListener('submit', function(evt) {
       // call the function addTweet and pass in the user input values for userName and tweet
       // wrap this in a for loop that does not allow for blank entries
       if (userName.value != "" && tweet.value != "") {
-            addTweet(userName.value, tweet.value);
+      addTweet(userName.value, tweet.value);
       }
 
       // clear the HTML form fields for new input
@@ -26,27 +26,35 @@ tweetForm.addEventListener('submit', function(evt) {
 // new HTML elements and append with the user input data
 const addTweet = (userName, tweet) => {
 
-   // create the new <li> element as a new tweet container
-   const newTweet = document.createElement('li');
+      // add a trash icon for tweet deletion
+      const img = document.createElement('img');
+      img.src ='../../../assets/images/trashCan.ico';
 
-   // create a <i> element to make the username italic
-   const italElement = document.createElement('i');
-   // place the userName inside the italic element
-   italElement.append(userName);
+      // create the new <li> element as a new tweet container
+      const newTweet = document.createElement('li');
 
-   // create a <b> element to make the italicized username bold
-   const boldElement = document.createElement('b');
-   // place the italicized userName inside the bold element
-   boldElement.append(italElement);
+      // create a <i> element to make the username italic
+      const italElement = document.createElement('i');
+      // place the userName inside the italic element
+      italElement.append(userName);
 
-   // place the now bold & italic userName inside the newTweet <li>
-   newTweet.append(boldElement);
+      // create a <b> element to make the italicized username bold
+      const boldElement = document.createElement('b');
+      // place the italicized userName inside the bold element
+      boldElement.append(italElement);
 
-   // add the New Tweet data to the end of newTweet
-   newTweet.append(` - ${tweet}`)
+      // place the trash icon into the newTweet
+      newTweet.append(img);
 
-   // add the newTweet to the tweetsContainer
-   tweetsContainer.append(newTweet);
+      // place the now bold & italic userName inside the newTweet <li>
+      newTweet.append('   ');
+      newTweet.append(boldElement);
+
+      // add the New Tweet data to the end of newTweet
+      newTweet.append(` - ${tweet}`);
+
+      // add the newTweet to the tweetsContainer
+      tweetsContainer.append(newTweet);
 }
 
 
@@ -55,5 +63,6 @@ tweetsContainer.addEventListener('click', function (evt) {
       console.log(evt);
       // evt.target.remove();
       // evt.target.nodeName === 'LI' && evt.target.remove();
-      (evt.target.nodeName === 'LI' || evt.target.nodeName === 'B' || evt.target.nodeName === 'I') && evt.target.closest('LI').remove();
+      evt.target.nodeName === 'IMG' && evt.target.closest('LI').remove();
+// (evt.target.nodeName === 'LI' || evt.target.nodeName === 'B' || evt.target.nodeName === 'I') && evt.target.closest('LI').remove();
 })
