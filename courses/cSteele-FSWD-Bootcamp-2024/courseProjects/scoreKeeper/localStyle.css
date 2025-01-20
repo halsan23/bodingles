@@ -12,14 +12,40 @@
 }
 
 #titleRow {
-   padding: 10px 25px;
-   text-align: left;
+   width: 100%;
    border: 1px solid #a2a2a2;
+   font-size: 1.25rem;
+   font-weight: bold;
+}
+
+#title {
+   width: 50%;
+   margin: 0 auto;
+   padding: 10px 0;
+   text-align: center;
+   background-color: #caa7a7;
+}
+
+#winLoss {
+   width: 50%;
+   margin: 0 auto;
+   padding: 10px 0;
+   text-align: center;
+   background-color: #abcaa7;
 }
 
 #scoreRow {
    padding: 10px 25px;
+}
+
+#scoreDisplay {
+   width: 50%;
    text-align: left;
+}
+
+#resetAnnounce {
+   width: 50%;
+   text-align: center;
 }
 
 #scoreRowTop {

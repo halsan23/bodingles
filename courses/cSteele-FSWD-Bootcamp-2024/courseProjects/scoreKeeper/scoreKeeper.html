@@ -55,23 +55,29 @@
                <div id="imageRow"></div>
 
                <!-- Title Row -->
-               <div id="titleRow"><span class="firstWord">Ping Pong Score Keeper</span></div>
+               <div id="titleRow">
+                  <span id="title">Ping Pong Scorekeeper</span>
+                  <span id="winLoss"></span>
+               </div>
 
                <!-- Scoring Row -->
                <div id="scoreRow">
-                  <!-- Score Numbers -->
-                  <div id="scoreRowTop">
-                     <span id="leftNum"></span>
-                     <span>-</span>
-                     <span id="rightNum"></span>
-                  </div>
-                  <!-- Rules -->
-                  <div id="scoreRowMid">
-                     <span>Playing to:&nbsp;&nbsp;&nbsp;</span>
-                     <span><input name="numbSel" type="number" min="3" max="10" value="3" placeholder="3"></span>
-                  </div>
-                  <!-- Press to Play -->
-                  <div id="scoreRowBot">Use the buttons below to play.</div>
+                  <span id="scoreDisplay">
+                     <!-- Score Numbers -->
+                     <div id="scoreRowTop">
+                        <span id="leftNum"></span>
+                        <span>-</span>
+                        <span id="rightNum"></span>
+                     </div>
+                     <!-- Rules -->
+                     <div id="scoreRowMid">
+                        <span>Playing to:&nbsp;&nbsp;&nbsp;</span>
+                        <span><input id="numbSel" type="number" min="3" max="10"></span>
+                     </div>
+                     <!-- Press to Play -->
+                     <div id="scoreRowBot">Use the buttons below to play.</div>
+                  </span>
+                  <span id="resetAnnounce"></span>
                </div>
 
                <!-- Buttons Row -->
