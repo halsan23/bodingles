@@ -1,76 +1,73 @@
-// ===============================================
-// Scorekeeper  Game
-// 01/25
-// ===============================================
+// PingPong ScoreKeeper Project - 01/25 - badDoggy
+// ===================================================
 
-// Define the variables
-let leftNum = document.querySelector('#leftNum'); // Left Score Number
-let rightNum = document.querySelector('#rightNum'); // Right Score Number
-const numbSel = document.getElementById('numbSel'); // Number of Rounds Select
-
-const buttonOne = document.querySelector('#buttonOne'); // Player 1 Button
-const buttonTwo = document.querySelector('#buttonTwo'); // Player 2 Button
-const reset = document.querySelector('#buttonReset'); // Reset Button
-
-// Win/Loss Space to Announce Winner
-let winLose = document.getElementById('winLoss');
-let resetDisp = document.getElementById('resetAnnounce');
-
-// det default values
-winLose.innerText = '';
-resetDisp.innerText = '';
-let win = false;
-let numOne = 0;
-let numTwo = 0;
-let numbSelVal = 3;
-leftNum.innerText = numOne;
-rightNum.innerText = numTwo;
-numbSel.value = numbSelVal;
+// Define Variables
+// Buttons
+const p1Button = document.getElementById('p1Button');
+const p2Button = document.getElementById('p2Button');
+const resetButton = document.getElementById('reset');
+// Score Display
+const p1Display = document.getElementById('p1Display');
+const p2Display = document.getElementById('p2Display');
+// Score Values
+let p1Score = 0;
+let p2Score = 0;
+// is Game Over
+let gameOver = false;
+// Play To Selection
+const playTo = document.getElementById('playTo');
+let winScore = 3;
+// Text to announce Winner
+const winLose = document.getElementById('winLoss');
 
 
-// CLICK EVENTS
-// ===============================================
-// Click Event to set Number of Rounds
-numbSel.addEventListener('click', function() {
-   numbSelVal = numbSel.value;
-   numbSel.value = numbSelVal;
-})
-
-// Player One Button Click Event
-buttonOne.addEventListener('click', function() {
-   numOne++;
-   leftNum.innerText = numOne;
-   if (numOne === numbSelVal) {
-      winLose.append('Player One Wins!')
-      resetDisp.append('Press Reset to Play Again');
-   }
-   if (numOne > numbSelVal) {
-      numOne = numbSelVal;
-      leftNum.innerText = numOne;
+// Add Click Events for Buttons
+// Player 1 Button
+p1Button.addEventListener('click', function() {
+   if (!gameOver) {                     // is the game over?
+      p1Score += 1;                     // if not, add 1 to player score
+      if (p1Score === winScore) {       // if player score = winning score,
+         gameOver = true;               // game is over
+         p1Display.classList.add('winner');    // change text color for win
+         p2Display.classList.add('looser');    // change text color for lose
+         winLose.innerText = "Player 1 Wins!";
+      }
+      p1Display.textContent = p1Score;  // display current p1Score
    }
 })
 
-// Player Two Button Click Event
-buttonTwo.addEventListener('click', function() {
-   numTwo++;
-   rightNum.innerText = numTwo;
-   if (numTwo >= numbSelVal) {
-      rightNum.innerText.value = numbSelVal;
-      winLose.append('Player Two Wins!')
-      resetDisp.append('Press Reset to Play Again');
+// Player 2 Button
+p2Button.addEventListener('click', function() {
+   if (!gameOver) {                     // is the game over?
+      p2Score += 1;                     // if not, add 1 to player score
+      if (p2Score === winScore) {       // if player score = winning score,
+         gameOver = true;               // game is over
+         p1Display.classList.add('looser');    // change text color for win
+         p2Display.classList.add('winner');    // change text color for lose
+         winLose.innerText = "Player 2 Wins!";
+      }
+      p2Display.textContent = p2Score;  // display current p1Score
    }
 })
 
-// Reset Button Click Event
-reset.addEventListener('click', function() {
-   winLose.innerText = '';
-   resetDisp.innerText = '';
-   win = false;
-   numOne = 0;
-   numTwo = 0;
-   numbSelVal = 3;
-   leftNum.innerText = numOne;
-   rightNum.innerText = numTwo;
-   numbSel.value = numbSelVal;
-   console.log(numbSel.value);
+// Reset Button
+// When Reset Button is clicked, Run the RESET function
+resetButton.addEventListener('click', reset)
+
+// Click Event for "Play To" Selection
+playTo.addEventListener('change', function() {
+   winScore = parseInt(this.value);   // because "this.value" is a string, change it to an integer
+   reset();                           // reset the game if user changes the "play to" value
 })
+
+// RESET Function
+function reset() {
+   gameOver = false;
+   p1Score = 0;
+   p2Score = 0;
+   p1Display.textContent = p1Score;
+   p2Display.textContent = p2Score;
+   p1Display.classList.remove('winner', 'looser');
+   p2Display.classList.remove('winner', 'looser');
+   winLose.innerText = "";
+}

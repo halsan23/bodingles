@@ -1,45 +1,68 @@
 #mainDiv {
    margin: 25px auto;
    width: 700px;
-   border: 1px solid #a2a2a2;
+   border: 2px solid #a2a2a2;
+   box-shadow: 3px 3px 15px #858585;
 }
 
 #imageRow {
    width: 700px;
    height: 400px;
-   background-image: url(pingPong.avif);
+   background-image: url(pingPong.png);
 }
 
 #titleRow {
    width: 100%;
    padding: 10px 0;
    border: 1px solid #a2a2a2;
-   font-size: 1.25rem;
-   font-weight: bold;
+   background-color: #f8f6dc;
    display: flex;
    justify-content: space-evenly;
 }
 
 #title {
    width: 50%;
+   font-weight: 800;
+   font-size: 1.4rem;
+   letter-spacing: 2px;
 }
 
 #winLoss {
    width: 50%;
+   font-weight:600;
+   font-size: 1.25rem;
+   font-style: italic;
+   letter-spacing: 5px;
+}
+
+#p1Display {
+   padding: 0 8px;
+}
+
+#p2Display {
+   padding: 0 8px;
 }
 
 #scoreRow {
-   padding: 10px 25px;
+   width: 100%;
+   display: flex;
+   justify-content: space-evenly;
 }
 
 #scoreDisplay {
+   padding: 10px 25px;
    width: 50%;
    text-align: left;
 }
 
 #resetAnnounce {
+   padding: 10px 25px;
    width: 50%;
-   text-align: center;
+   font-size: 1.15rem;
+   font-weight: bold;;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 #scoreRowTop {
@@ -67,7 +90,7 @@
    justify-content: space-evenly;
 }
 
-#buttonOne {
+#p1Button {
    width: 33%;
    margin: 0px auto;
    padding: 15px;
@@ -76,7 +99,7 @@
    border: 1px solid #a2a2a2;
 }
 
-#buttonTwo {
+#p2Button {
    width: 34%;
    margin: 0px auto;
    padding: 15px;
@@ -85,11 +108,25 @@
    border: 1px solid #a2a2a2;
 }
 
-#buttonReset {
+#reset {
    width: 33%;
    margin: 0px auto;
    padding: 15px;
    color: white;
    background-color: #b04761;
    border: 1px solid #a2a2a2;
+}
+
+#playTo {
+   border-radius: 6px;
+}
+
+.winner {
+   padding: 0 8px;
+   color: green;
+}
+
+.looser {
+   padding: 0 8px;
+   color: rgb(238, 49, 36);
 }
