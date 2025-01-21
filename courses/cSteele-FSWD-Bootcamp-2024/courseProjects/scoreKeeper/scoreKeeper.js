@@ -14,10 +14,10 @@ let p1Score = 0;
 let p2Score = 0;
 // is Game Over
 let gameOver = false;
-// Play To Selection
+// "Play To" Selection
 const playTo = document.getElementById('playTo');
-let winScore = 3;
-// Text to announce Winner
+let winScore = 3;   // default winning score = default "play to" value (3)
+// Area to announce Winner
 const winLose = document.getElementById('winLoss');
 
 
@@ -28,9 +28,11 @@ p1Button.addEventListener('click', function() {
       p1Score += 1;                     // if not, add 1 to player score
       if (p1Score === winScore) {       // if player score = winning score,
          gameOver = true;               // game is over
-         p1Display.classList.add('winner');    // change text color for win
-         p2Display.classList.add('looser');    // change text color for lose
-         winLose.innerText = "Player 1 Wins!";
+         p1Display.classList.add('winner');   // change text color for win score
+         p2Display.classList.add('looser');   // change text color for lose score
+         p1Button.classList.add('p1Disp');    // change opacity for Player 1 Button
+         p2Button.classList.add('p2Disp');    // change opacity for Player 2 Button
+         winLose.innerText = "Player 1 Wins!";  // Display Winner Text
       }
       p1Display.textContent = p1Score;  // display current p1Score
    }
@@ -42,17 +44,22 @@ p2Button.addEventListener('click', function() {
       p2Score += 1;                     // if not, add 1 to player score
       if (p2Score === winScore) {       // if player score = winning score,
          gameOver = true;               // game is over
-         p1Display.classList.add('looser');    // change text color for win
-         p2Display.classList.add('winner');    // change text color for lose
-         winLose.innerText = "Player 2 Wins!";
+         p1Display.classList.add('looser');  // change text color for win score
+         p2Display.classList.add('winner');  // change text color for lose score
+         p1Button.classList.add('p1Disp');   // change opacity for Player 1 Button
+         p2Button.classList.add('p2Disp');   // change opacity for Player 2 Button
+         winLose.innerText = "Player 2 Wins!";   // Display Winner Text
       }
       p2Display.textContent = p2Score;  // display current p1Score
    }
 })
 
 // Reset Button
-// When Reset Button is clicked, Run the RESET function
-resetButton.addEventListener('click', reset)
+resetButton.addEventListener('click', function() {
+   winScore = 3;             // reset Winning Score
+   playTo.value = winScore;  // reset default "Plat To" value
+   reset();                  // reset the game if user changes the "play to" value
+})
 
 // Click Event for "Play To" Selection
 playTo.addEventListener('change', function() {
@@ -67,7 +74,9 @@ function reset() {
    p2Score = 0;
    p1Display.textContent = p1Score;
    p2Display.textContent = p2Score;
+   winLose.innerText = "";
    p1Display.classList.remove('winner', 'looser');
    p2Display.classList.remove('winner', 'looser');
-   winLose.innerText = "";
+   p1Button.classList.remove('p1Disp');
+   p2Button.classList.remove('p2Disp');
 }
