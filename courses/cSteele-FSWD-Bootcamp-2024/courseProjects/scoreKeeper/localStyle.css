@@ -8,30 +8,24 @@
    width: 700px;
    height: 400px;
    background-image: url(pingPong.avif);
-   /* background-size: contain; */
 }
 
 #titleRow {
    width: 100%;
+   padding: 10px 0;
    border: 1px solid #a2a2a2;
    font-size: 1.25rem;
    font-weight: bold;
+   display: flex;
+   justify-content: space-evenly;
 }
 
 #title {
    width: 50%;
-   margin: 0 auto;
-   padding: 10px 0;
-   text-align: center;
-   background-color: #caa7a7;
 }
 
 #winLoss {
    width: 50%;
-   margin: 0 auto;
-   padding: 10px 0;
-   text-align: center;
-   background-color: #abcaa7;
 }
 
 #scoreRow {

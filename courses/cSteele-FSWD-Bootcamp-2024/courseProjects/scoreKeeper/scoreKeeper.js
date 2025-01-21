@@ -15,48 +15,62 @@ const reset = document.querySelector('#buttonReset'); // Reset Button
 // Win/Loss Space to Announce Winner
 let winLose = document.getElementById('winLoss');
 let resetDisp = document.getElementById('resetAnnounce');
-winLose.append('');
-resetDisp.append('');
 
-// initial setup
+// det default values
+winLose.innerText = '';
+resetDisp.innerText = '';
+let win = false;
 let numOne = 0;
 let numTwo = 0;
 let numbSelVal = 3;
-
 leftNum.innerText = numOne;
 rightNum.innerText = numTwo;
 numbSel.value = numbSelVal;
-console.log(`number select value = ${numbSelVal}`);
-
 
 
 // CLICK EVENTS
+// ===============================================
 // Click Event to set Number of Rounds
-document.getElementById('numbSel').addEventListener('click', function(evt) {
-   numbSelVal = document.getElementById('numbSel').value;
-   console.log(`number select value = ${numbSelVal}`);
+numbSel.addEventListener('click', function() {
+   numbSelVal = numbSel.value;
+   numbSel.value = numbSelVal;
 })
 
-
-
 // Player One Button Click Event
-buttonOne.addEventListener('click', function(evt) {
-   console.log('Player One Button Clicked');
+buttonOne.addEventListener('click', function() {
    numOne++;
    leftNum.innerText = numOne;
    if (numOne === numbSelVal) {
       winLose.append('Player One Wins!')
       resetDisp.append('Press Reset to Play Again');
    }
+   if (numOne > numbSelVal) {
+      numOne = numbSelVal;
+      leftNum.innerText = numOne;
+   }
 })
 
 // Player Two Button Click Event
 buttonTwo.addEventListener('click', function() {
-   console.log('Player Two Button Clicked');
+   numTwo++;
+   rightNum.innerText = numTwo;
+   if (numTwo >= numbSelVal) {
+      rightNum.innerText.value = numbSelVal;
+      winLose.append('Player Two Wins!')
+      resetDisp.append('Press Reset to Play Again');
+   }
 })
 
 // Reset Button Click Event
 reset.addEventListener('click', function() {
-   console.log('Reset Button Clicked');
+   winLose.innerText = '';
+   resetDisp.innerText = '';
+   win = false;
+   numOne = 0;
+   numTwo = 0;
+   numbSelVal = 3;
+   leftNum.innerText = numOne;
+   rightNum.innerText = numTwo;
+   numbSel.value = numbSelVal;
+   console.log(numbSel.value);
 })
-
