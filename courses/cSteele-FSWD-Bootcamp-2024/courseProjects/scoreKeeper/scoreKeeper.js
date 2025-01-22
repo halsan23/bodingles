@@ -2,52 +2,60 @@
 // ===================================================
 
 // Define Variables
-// Buttons
-const p1Button = document.getElementById('p1Button');
-const p2Button = document.getElementById('p2Button');
+// Player One
+const playerOne = {
+   playerNum: 1,
+   score: 0,
+   display: document.getElementById('p1Display'),
+   button: document.getElementById('p1Button')
+}
+
+// Player Two
+const playerTwo = {
+   playerNum: 2,
+   score: 0,
+   display: document.getElementById('p2Display'),
+   button: document.getElementById('p2Button')
+}
+
+// Reset Button
 const resetButton = document.getElementById('reset');
-// Score Display
-const p1Display = document.getElementById('p1Display');
-const p2Display = document.getElementById('p2Display');
-// Score Values
-let p1Score = 0;
-let p2Score = 0;
-// is Game Over
-let gameOver = false;
 // Play To Selection
 const playTo = document.getElementById('playTo');
 let winScore = 3;
+// is Game Over
+let gameOver = false;
 // Text to announce Winner
 const winLose = document.getElementById('winLoss');
+
+
+// Update Scores
+function updateScores (player, opponent) {
+   if (!gameOver) {                       // is the game over?
+      player.score += 1;                  // if not, add 1 to player score
+      if (player.score === winScore) {    // if player score = winning score,
+         gameOver = true;                 // game is over
+         player.display.classList.add('winner');     // change text color for win
+         opponent.display.classList.add('looser');   // change text color for lose
+         player.button.classList.add('opacity');     // change text color for win
+         opponent.button.classList.add('opacity');   // change text color for lose
+         winLose.innerText = `Player ${player.playerNum} Wins!`;
+      }
+      player.display.textContent = player.score;  // display current p1Score
+   }
+}
+
 
 
 // Add Click Events for Buttons
 // Player 1 Button
 p1Button.addEventListener('click', function() {
-   if (!gameOver) {                     // is the game over?
-      p1Score += 1;                     // if not, add 1 to player score
-      if (p1Score === winScore) {       // if player score = winning score,
-         gameOver = true;               // game is over
-         p1Display.classList.add('winner');    // change text color for win
-         p2Display.classList.add('looser');    // change text color for lose
-         winLose.innerText = "Player 1 Wins!";
-      }
-      p1Display.textContent = p1Score;  // display current p1Score
-   }
+   updateScores(playerOne, playerTwo)
 })
 
 // Player 2 Button
 p2Button.addEventListener('click', function() {
-   if (!gameOver) {                     // is the game over?
-      p2Score += 1;                     // if not, add 1 to player score
-      if (p2Score === winScore) {       // if player score = winning score,
-         gameOver = true;               // game is over
-         p1Display.classList.add('looser');    // change text color for win
-         p2Display.classList.add('winner');    // change text color for lose
-         winLose.innerText = "Player 2 Wins!";
-      }
-      p2Display.textContent = p2Score;  // display current p1Score
-   }
+   updateScores(playerTwo, playerOne)
 })
 
 // Reset Button
@@ -63,11 +71,11 @@ playTo.addEventListener('change', function() {
 // RESET Function
 function reset() {
    gameOver = false;
-   p1Score = 0;
-   p2Score = 0;
-   p1Display.textContent = p1Score;
-   p2Display.textContent = p2Score;
-   p1Display.classList.remove('winner', 'looser');
-   p2Display.classList.remove('winner', 'looser');
-   winLose.innerText = "";
+   for (let p of [playerOne, playerTwo]) {
+      p.score = 0;
+      p.display.textContent = 0;
+      p.display.classList.remove('winner', 'looser');
+      p.button.classList.remove('opacity');
+      winLose.innerText = "";
+   }
 }

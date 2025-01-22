@@ -130,3 +130,7 @@
    padding: 0 8px;
    color: rgb(238, 49, 36);
 }
+
+.opacity {
+   opacity: 50%;
+}
