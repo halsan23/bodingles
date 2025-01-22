@@ -59,8 +59,11 @@ p2Button.addEventListener('click', function() {
 })
 
 // Reset Button
-// When Reset Button is clicked, Run the RESET function
-resetButton.addEventListener('click', reset)
+resetButton.addEventListener('click', function() {
+   winScore = 3;             // reset Winning Score
+   playTo.value = winScore;  // reset default "Plat To" value
+   reset();                  // reset the game if user changes the "play to" value
+})
 
 // Click Event for "Play To" Selection
 playTo.addEventListener('change', function() {
