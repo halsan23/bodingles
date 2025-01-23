@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="../../../../css/cssReset.css">
+   <link rel="stylesheet" href="../../../../css/root.css" />
+   <link rel="stylesheet" href="localStyle.css">
+</head>
+
+<body>
+    <!-- Header -->
+   <header>
+        <span class="headLogo"></span>
+        <span class="headTitle">Bo</span>
+        <span class="headTitleb">dingles<sub>TM</sub></span>
+        <span class="headScroll"><img src="../../../../images/scroll.png" alt=""></span>
+        <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+            <img class="sloganBulb" src="../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
+            Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+      <!-- Title -->
+         <article>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+            <h4>Bulma</h4>
+            <h6>the Other Bootstrap</h6>
+            <hr style="width: 50%">
+         </article>
+
+         <!-- Bulma Description -->
+         <article id="textWindow3" class="just lists">
+            <p><span class="firstWord ">As</span> we recall from our <a href="../bootstrap/bootWhatIs/bootWhatIs.html" target="_blank">Bootstrap</a> class, <b>Bootstrap</b> is a framework for building responsive, mobile-first web sites using HTML, CSS, and JavaScript. It has predefined CSS codes, design templates, components and utilities for typography, forms, navigation, and more. Once Bootstrap was released as an open source project, many developers adopted it into their own development process.</p>
+            <p>But some developers we unsatisfied with Bootstrap, for many different reasons, so they set out to develop their own architectures. <b>Bulma</b> is one of the results, of the newer architectures. Like Bootstrap, Bulma is fairly simple to use and is well documented. One of the benefits of Bulma is that it is a standalone platform, and you no longer need external modules, such as Js and Popper.</p>
+            <p>Complete <b>Bulma</b> info can be <a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer">found here</a>.</p>
+         </article>
+
+         <!-- Using Bulma on ScoreKeeper Code -->
+         <article id="textWindow3" class="just lists">
+            <p><span class="firstWord ">We</span> had previously created our <a href="../../courseProjects/scoreKeeper/scoreKeeper.html" target="_blank">PingPong ScoreKeeper</a> project in which we used <b>CSS</b> entirely, for the styling, that was modeled from an image of the class project.</p>
+            <p>In this version of our <b>PingPong ScoreKeeper</b>  project, <i>(shown below)</i>, we are going to using <i><b>Bulma</b></i> for our project styling.</p>
+         </article>
+
+         <!-- Scorekeeper Code -->
+         <section>
+            <h4>Let's Play</h4>
+            <div id="mainDiv">
+               <!-- Row 1 for the ping pong image -->
+               <div id="imageRow"></div>
+
+               <!-- Title Row -->
+               <div id="titleRow">
+                  <span id="title">Ping Pong Scorekeeper</span>
+                  <span id="winLoss"></span>
+               </div>
+
+               <!-- Scoring Row -->
+               <div id="scoreRow">
+                  <span id="scoreDisplay">
+                     <!-- Score Numbers -->
+                     <div id="scoreRowTop">
+                        <span id="p1Display">0</span>
+                        <span> - </span>
+                        <span id="p2Display">0</span>
+                     </div>
+                     <!-- Rules -->
+                     <div id="scoreRowMid">
+                        <span>Playing to:&nbsp;&nbsp;&nbsp;</span>
+                        <span><input id="playTo"  type="number" min="3" max="10" value="3"></span>
+                     </div>
+                     <!-- Press to Play -->
+                     <div id="scoreRowBot">Use the buttons below to play.</div>
+                  </span>
+                  <span id="resetAnnounce"></span>
+               </div>
+
+               <!-- Buttons Row -->
+               <div id="buttons">
+                  <button id="p1Button">+1 Player One</button>
+                  <button id="p2Button">+1 Player  Two</button>
+                  <button id="reset">Reset</button>
+               </div>
+            </div>
+         </section>
+
+         <!-- How to Play the Game -->
+         <article id="textWindow" class="just lists">
+            <h6>How to Play</h6>
+            <p>To play the game, you are to <i>assume</i> that two people are playing Ping Pong. And as each player wins a round <i>(determined by you)</i>, you award one point to that winner by clicking either the &nbsp;<span style="background-color: #47b076; color: white;">&nbsp;Green&nbsp;</span>&nbsp; or &nbsp;<span style="background-color: #4778b0; color: white;">&nbsp;Blue&nbsp;</span> box. You can also <i><b>Reset</b></i> the game by pressing the &nbsp;<span style="background-color: #b04761; color: white;">&nbsp;Red&nbsp;</span> box. You also determine what the <i><b>Winning score</b></i> is by setting the <b>Playing To:</b> amount.</p>
+         </article>
+      </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+
+   <script src="bulma.js"></script>
+</body>
+
+</html>
