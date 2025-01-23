@@ -1,61 +1,72 @@
-#mainDiv {
+
+
+
+
+
+/* Non-Bulma Styling */
+/* ===================================== */
+li {
+   list-style: none;
+}
+
+/* #mainDiv {
    margin: 25px auto;
    width: 700px;
    border: 2px solid #a2a2a2;
    box-shadow: 3px 3px 15px #858585;
-}
+} */
 
-#imageRow {
+/* #imageRow {
    width: 700px;
    height: 400px;
    background-image: url(pingPong.png);
-}
+} */
 
-#titleRow {
+/* #titleRow {
    width: 100%;
    padding: 10px 0;
    border: 1px solid #a2a2a2;
    background-color: #f8f6dc;
    display: flex;
    justify-content: space-evenly;
-}
+} */
 
-#title {
+/* #title {
    width: 50%;
    font-weight: 800;
    font-size: 1.4rem;
    letter-spacing: 2px;
-}
+} */
 
-#winLoss {
+/* #winLoss {
    width: 50%;
    font-weight:600;
    font-size: 1.25rem;
    font-style: italic;
    letter-spacing: 5px;
-}
+} */
 
-#p1Display {
+/* #p1Display {
    padding: 0 8px;
-}
+} */
 
-#p2Display {
+/* #p2Display {
    padding: 0 8px;
-}
+} */
 
-#scoreRow {
+/* #scoreRow {
    width: 100%;
    display: flex;
    justify-content: space-evenly;
-}
+} */
 
-#scoreDisplay {
+/* #scoreDisplay {
    padding: 10px 25px;
    width: 50%;
    text-align: left;
-}
+} */
 
-#resetAnnounce {
+/* #resetAnnounce {
    padding: 10px 25px;
    width: 50%;
    font-size: 1.15rem;
@@ -63,24 +74,24 @@
    display: flex;
    justify-content: center;
    align-items: center;
-}
+} */
 
-#scoreRowTop {
+/* #scoreRowTop {
    font-size: 2.75rem;
    font-weight: 500;
-}
+} */
 
-#scoreRowMid {
+/* #scoreRowMid {
    padding: 10px 0;
    font-size: 1.25rem;
    font-weight: 600;
-}
+} */
 
-#scoreRowBot {
+/* #scoreRowBot {
    padding: 10px 0;
-}
+} */
 
-#buttons {
+/* #buttons {
    width: 100%;
    padding: 0;
    border: 1px solid #a2a2a2;
@@ -88,49 +99,49 @@
    font-weight: bold;;
    display: flex;
    justify-content: space-evenly;
-}
+} */
 
-#p1Button {
+/* #p1Button {
    width: 33%;
    margin: 0px auto;
    padding: 15px;
    color: white;
    background-color: #47b076;
    border: 1px solid #a2a2a2;
-}
+} */
 
-#p2Button {
+/* #p2Button {
    width: 34%;
    margin: 0px auto;
    padding: 15px;
    color: white;
    background-color: #4778b0;
    border: 1px solid #a2a2a2;
-}
+} */
 
-#reset {
+/* #reset {
    width: 33%;
    margin: 0px auto;
    padding: 15px;
    color: white;
    background-color: #b04761;
    border: 1px solid #a2a2a2;
-}
+} */
 
-#playTo {
+/* #playTo {
    border-radius: 6px;
-}
+} */
 
-.winner {
+/* .winner {
    padding: 0 8px;
    color: green;
-}
+} */
 
-.looser {
+/* .looser {
    padding: 0 8px;
    color: rgb(238, 49, 36);
-}
+} */
 
-.opacity {
+/* .opacity {
    opacity: 50%;
-}
+} */
