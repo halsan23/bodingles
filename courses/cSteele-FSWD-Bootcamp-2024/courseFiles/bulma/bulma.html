@@ -75,8 +75,58 @@
             <!-- Create a card -->
             <article>
                <h6>Create a Card</h6>
-               <p>Next we're going to <i><b>create a card</b></i> which becomes a <i>container</i> that holds our project. Go to the <a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer">Bulma website</a> and look under <i><b>Components/Card</b></i> to find a template that is similar to our needs. The <a href="https://bulma.io/documentation/components/card/#examples" target="_blank" rel="noopener noreferrer">link here</a> is for the card we will be using in this project. Just copy the HTML code and paste it into our project HTML page.</p>
-               <p>The first thing we notice is that the card is 100% wide, so it takes up the entire width of the page. Lest's fix that.</p>
+               <p>Next, we need to create a "container" for our web app (widget) to reside in. This is used by Bulma as a <i>"flex container"</i> that is used for cross platform compatibility. In Bulma, this "container" is called a <i><b>card</b></i> and this <i>card</i> will contain our project.</p>
+               <p>There are several <i>"pre-made"</i>templates we can work with, so we are going to go to the <a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer">Bulma website</a> and look under <i><b>Components/Card</b></i> to find one that will fit our needs. The <a href="https://bulma.io/documentation/components/card/#examples" target="_blank" rel="noopener noreferrer">link here</a> is for the card we will be using in this project. Just copy the HTML code and paste it into our project HTML page, which results in the following code:
+                  <!-- Starting Bulma Template Code -->
+                  <ul class="sectHighlight">
+                     <li>&lt;div class="card">
+                        <ul>
+                           <li>&lt;header class="card-header">
+                              <ul>
+                                 <li>&lt;p class="card-header-title">Component&lt;/p></li>
+                                 <li>&lt;button class="card-header-icon" aria-label="more options">
+                                    <ul>
+                                       <li>&lt;span class="icon">
+                                          <ul>
+                                             <li>&lt; class="fas fa-angle-down" aria-hidden="true">&lt;/i></li>
+                                          </ul>
+                                       </li>
+                                       <li>&lt;/span></li>
+                                    </ul>
+                                 </li>
+                                 <li>&lt;/button></li>
+                              </ul>
+                           </li>
+                           <li>&lt;/header></li>
+                           <li>&lt;div class="card-content">
+                              <ul>
+                                 <li>&lt;div class="content">
+                                    <ul>
+                                       <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</li>
+                                       <li>&lt;a href="#">@bulmaio&lt;/a>. &lt;a href="#">#css&lt;/a> &lt;a href="#">#responsive&lt;/a></li>
+                                       <li>&lt;br /></li>
+                                       <li>&lt;time datetime="2016-1-1">11:09 PM - 1 Jan 2016&lt;/time></li>
+                                    </ul>
+                                 </li>
+                                 <li>&lt;/div></li>
+                              </ul>
+                           </li>
+                           <li>&lt;/div></li>
+                           <li>&lt;footer class="card-footer">
+                              <ul>
+                                 <li>&lt;a href="#" class="card-footer-item">Save&lt;/a></li>
+                                 <li>&lt;a href="#" class="card-footer-item">Edit&lt;/a></li>
+                                 <li>&lt;a href="#" class="card-footer-item">Delete&lt;/a></li>
+                              </ul>
+                           </li>
+                           <li>&lt;/footer></li>
+                        </ul>
+                     </li>
+                     <li>&lt;/div></li>
+                  </ul>
+               </p>
+               <p>So, we see that we have a pre-made template contained within the "<i><b>card</b></i>" class created within the first &lt;div> element. Also notice that <i><b>Bulma</b></i> is structured similarly to <i></i><b>Bootstrap</b></i> in that it uses <i>pre-defined <b>class</b></i> names to control the "look and feel" of the page.</p>
+               <p>And when viewing our project below, the first thing we notice is that the card is 100% wide, so it takes up the entire width of the page. Let's fix that.</p>
             </article>
 
           </section>
