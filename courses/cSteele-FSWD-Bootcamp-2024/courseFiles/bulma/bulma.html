@@ -32,53 +32,59 @@
             Ideas&nbsp;&nbsp;&nbsp;- -</span>
    </header>
 
-   <section id="main">
-      <div class="content">
+   <section id="main" class="content">
       <!-- Title -->
-         <article>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
-            <h4>Bulma</h4>
-            <h6>the Other Bootstrap</h6>
-            <hr style="width: 50%">
-         </article>
+      <article>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+         <h4>Bulma</h4>
+         <h6>the Other Bootstrap</h6>
+      </article>
 
-         <!-- Bulma Description -->
-          <section id="textWindow3" class="just lists">
-            <article>
-               <p><span class="firstWord ">As</span> we recall from our <a href="../bootstrap/bootstrapIndex.html" target="_blank">Bootstrap</a> class, <b>Bootstrap</b> is a framework for building responsive, mobile-first web sites using HTML, CSS, and JavaScript. It has predefined CSS codes, design templates, components and utilities for typography, forms, navigation, and more. Once Bootstrap was released as an open source project, many developers adopted it into their own development process.</p>
-               <p>But some developers we unsatisfied with Bootstrap, for many different reasons, so they set out to develop their own architectures. <b>Bulma</b> is one of the results, of the newer architectures. Like Bootstrap, Bulma is fairly simple to use and is well documented. One of the benefits of Bulma is that it is a standalone platform, and you no longer need external modules, such as jQuery and Popper.</p>
-               <p>Complete <b>Bulma</b> info can be <a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer">found here</a>.</p>
-               <p><span class="firstWord ">We</span> had previously created our <a href="../../courseProjects/scoreKeeper/scoreKeeper.html" target="_blank">PingPong ScoreKeeper</a> project in which we used <b>CSS</b> entirely, for the styling, that was modeled from an image of the class project.</p>
-               <p>In this version of our <b>PingPong ScoreKeeper</b>  project, <i>(shown below)</i>, we are going to using <i><b>Bulma</b></i> for our project styling.</p>
-            </article>
-            <hr>
+      <!-- Bulma Description -->
+      <article id="textWindow4" class="just lists">
+         <h6>What is Bulma</h6>
+         <p><span class="firstWord ">As</span> we recall from our <a href="../bootstrap/bootstrapIndex.html" target="_blank">Bootstrap</a> class, <b>Bootstrap</b> is a framework for building responsive, mobile-first web sites using HTML, CSS, and JavaScript. It has predefined CSS codes, design templates, components and utilities for typography, forms, navigation, and more. Once Bootstrap was released as an open source project, many developers adopted it into their own development process.</p>
+         <p>But some developers we unsatisfied with Bootstrap, for many different reasons, so they set out to develop their own architectures. <b>Bulma</b> is one of the results, of the newer architectures. Like Bootstrap, Bulma is fairly simple to use and is well documented. One of the benefits of Bulma is that it is a standalone platform, and you no longer need external modules, such as jQuery and Popper.</p>
+         <p>Complete <b>Bulma</b> info can be <a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer">found here</a>.</p>
+         <p><span class="firstWord ">We</span> had previously created our <a href="../../courseProjects/scoreKeeper/scoreKeeper.html" target="_blank">PingPong ScoreKeeper</a> project in which we used <b>CSS</b> entirely, for the styling, that was modeled from an image of the class project.</p>
+         <p>In this version of our <b>PingPong ScoreKeeper</b>  project, <i>(shown below)</i>, we are going to using <i><b>Bulma</b></i> for our project styling.</p>
+      </article>
 
-            <!-- Install Bulma -->
-            <article>
-               <h6>Install Bulma</h6>
-               <p>The first thing we need to do in our project, is to install the Bulma Framework. The complete installation process can be <a href="https://bulma.io/documentation/start/installation/" target="_blank" rel="noopener noreferrer">found here</a>, but essentially, like <b>Bootstrap</b> you can either install Bulma into your working project folder and <i><b>link</b></i> to it in your HTML, or you can <i><b>link</b></i> to the online version using either a <i><b>CSS @import</b></i> or an <i><b>HTML Link</b></i>.</p>
-               <p>For this project we're going to be using the external HTML Link which goes in the <b>&lt;head></b> section of our webpage.
-                  <ul class="sectHighlight">
-                     <li>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"></li>
-                  </ul>
-               <b>*note</b>: <i>this link actually installed a "DARK" version of Bulma, which conflicts with the "Bodingles" layout. So under <b>alternative installations</b>, there is a <b>non-dark</b> version which I copied and pasted into a blank css file I named <b>bulma.css</b></i>.
-               </p>
-               <p>So my link in the <b>&lt;head></b> section is:
-                  <ul class="sectHighlight">
-                     <li>&lt;link rel="stylesheet" href="bulma.css"></li>
-                  </ul>
-               </p>
-            </article>
+      <!-- Install Bulma -->
+      <article id="textWindow4" class="just lists">
+         <h6>Install Bulma</h6>
+         <p>The first thing we need to do in our project, is to install the Bulma Framework. The complete installation process can be <a href="https://bulma.io/documentation/start/installation/" target="_blank" rel="noopener noreferrer">found here</a>, but essentially, like <b>Bootstrap</b> you can either install Bulma into your working project folder and <i><b>link</b></i> to it in your HTML, or you can <i><b>link</b></i> to the online version using either a <i><b>CSS @import</b></i> or an <i><b>HTML Link</b></i>.</p>
+         <p>For this project we're going to be using the external HTML Link which goes in the <b>&lt;head></b> section of our webpage.
+            <ul class="sectHighlight">
+               <li>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"></li>
+            </ul>
+         <b>*note</b>: <i>this link actually installed a "DARK" version of Bulma, which conflicts with the "Bodingles" layout. So under <b>alternative installations</b>, there is a <b>non-dark</b> version which I copied and pasted into a blank css file I named <b>bulma.css</b></i>.
+         </p>
+         <p>So my link in the <b>&lt;head></b> section is:
+            <ul class="sectHighlight">
+               <li>&lt;link rel="stylesheet" href="bulma.css"></li>
+            </ul>
+         </p>
+      </article>
 
-            <!-- Create a card -->
-            <article>
-               <h6>Create a Card</h6>
-               <p>Next, we need to create a "container" for our web app (widget) to reside in. This is used by Bulma as a <i>"flex container"</i> that is used for cross platform compatibility. In Bulma, this "container" is called a <i><b>card</b></i> and this <i>card</i> will contain our project.</p>
-               <p>There are several <i>"pre-made"</i>templates we can work with, so we are going to go to the <a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer">Bulma website</a> and look under <i><b>Components/Card</b></i> to find one that will fit our needs. The <a href="https://bulma.io/documentation/components/card/#examples" target="_blank" rel="noopener noreferrer">link here</a> is for the card we will be using in this project. Just copy the HTML code and paste it into our project HTML page, which results in the following code:
-                  <!-- Starting Bulma Template Code -->
-                  <ul class="sectHighlight">
+      <!-- Create a card -->
+      <article id="textWindow4" class="just lists">
+         <h6>Create a Card</h6>
+         <p>Bulma works with <i><b>columns</b></i> to maintain it's flex based responsiveness. Building a columns layout with Bulma is very simple:
+            <ul>
+               <li>1). Add a columns container</li>
+               <li>2). Add as many column elements as you want</li>
+            </ul>
+         Unless you specify otherwise, each column will have an equal width, no matter the number of columns.</p>
+         <p>So we need to create a "<i><b>container</b></i>" for our web app (widget) to reside in. In Bulma, this "container" is called a <i><b>card</b></i> and this <i>card</i> will contain our project.</p>
+         <p>There are several <i>"pre-made"</i>templates we can work with, so we are going to go to the <a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer">Bulma website</a> and look under <i><b>Components/Card</b></i> to find one that will fit our needs. The <a href="https://bulma.io/documentation/components/card/#examples" target="_blank" rel="noopener noreferrer">link here</a> is for the card we will be using in this project. Just copy the HTML code and paste it into our project HTML page, which results in the following code:
+
+            <!-- Starting Bulma Template Code -->
+            <ul class="sectHighlight">
+               <li>&lt;div class="columns">
+                  <ul>
                      <li>&lt;div class="card">
                         <ul>
                            <li>&lt;header class="card-header">
@@ -124,92 +130,99 @@
                      </li>
                      <li>&lt;/div></li>
                   </ul>
-               </p>
-               <p>So, we see that we have a pre-made template contained within the "<i><b>card</b></i>" class created within the first &lt;div> element. Also notice that <i><b>Bulma</b></i> is structured similarly to <i></i><b>Bootstrap</b></i> in that it uses <i>pre-defined <b>class</b></i> names to control the "look and feel" of the page.</p>
-               <p>And when viewing our project below, the first thing we notice is that the card is 100% wide, so it takes up the entire width of the page. Let's fix that.</p>
-            </article>
-          </section>
+               </li>
+               <li>&lt;/div></li>
+            </ul>
+         </p>
+         <p>So, we see that we have a pre-made <i><b>card</b></i> as defined by the Bulma <i><b>card</b> class</i>, created within the second <b>&lt;div></b> element. Also notice that <i><b>Bulma</b></i> is structured similarly to <i></i><b>Bootstrap</b></i> in that it uses <i>pre-defined <b>class</b></i> names to control the "look and feel" of the page.</p>
+         <p>And when viewing our project below, the first thing we notice is that the card is 100% wide, so it takes up the entire width of the page, which we don't want. To fix that, we need to change the <i><b>main</b> column width</i>. Remember that the <i><b>main</b> column</i> is a single column that contains our project, as seen in the first <b>&lt;div></b> element.</p>
+         <p>When you start <i>sizing</i> columns, you can either effect a single column, or multiple columns. More info on column sizing can be found <a href="https://bulma.io/documentation/columns/sizes/" target="_blank" rel="noopener noreferrer">here</a>. We are going to be changing the size of a "single" column, our <i>main column</i> which contains our <i>card</i>.</p>
+      </article>
 
 
-         <!-- Bulma Scorekeeper Code -->
-         <section>
-            <div class="card">
-               <header class="card-header">
-                  <p class="card-header-title">Component</p>
-                  <button class="card-header-icon" aria-label="more options">
-                     <span class="icon">
-                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                     </span>
-                  </button>
-               </header>
-               <div class="card-content">
-                  <div class="content">
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
-                     iaculis mauris.
-                     <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                     <br />
-                     <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      <!-- Bulma Scorekeeper Code -->
+    <section class="section">
+      <div class="container">
+            <div class="columns">
+               <div class="column is-half is-offset-one-quarter">
+                  <div class="card">
+                     <header class="card-header">
+                        <p class="card-header-title">Component</p>
+                        <button class="card-header-icon" aria-label="more options">
+                           <span class="icon">
+                              <i class="fas fa-angle-down" aria-hidden="true"></i>
+                           </span>
+                        </button>
+                     </header>
+                     <div class="card-content">
+                        <div class="content">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
+                           iaculis mauris.
+                           <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+                           <br />
+                           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                        </div>
+                     </div>
+                     <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Save</a>
+                        <a href="#" class="card-footer-item">Edit</a>
+                        <a href="#" class="card-footer-item">Delete</a>
+                     </footer>
                   </div>
                </div>
-               <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Save</a>
-                  <a href="#" class="card-footer-item">Edit</a>
-                  <a href="#" class="card-footer-item">Delete</a>
-               </footer>
             </div>
-         </section>
-
-         <!-- Css Scorekeeper Code -->
-         <section>
-            <h4>Let's Play</h4>
-            <div id="mainDiv">
-               <!-- Row 1 for the ping pong image -->
-               <div id="imageRow"></div>
-
-               <!-- Title Row -->
-               <div id="titleRow">
-                  <span id="title">Ping Pong Scorekeeper</span>
-                  <span id="winLoss"></span>
-               </div>
-
-               <!-- Scoring Row -->
-               <div id="scoreRow">
-                  <span id="scoreDisplay">
-                     <!-- Score Numbers -->
-                     <div id="scoreRowTop">
-                        <span id="p1Display">0</span>
-                        <span> - </span>
-                        <span id="p2Display">0</span>
-                     </div>
-                     <!-- Rules -->
-                     <div id="scoreRowMid">
-                        <span>Playing to:&nbsp;&nbsp;&nbsp;</span>
-                        <span><input id="playTo"  type="number" min="3" max="10" value="3"></span>
-                     </div>
-                     <!-- Press to Play -->
-                     <div id="scoreRowBot">Use the buttons below to play.</div>
-                  </span>
-                  <span id="resetAnnounce"></span>
-               </div>
-
-               <!-- Buttons Row -->
-               <div id="buttons">
-                  <button id="p1Button">+1 Player One</button>
-                  <button id="p2Button">+1 Player  Two</button>
-                  <button id="reset">Reset</button>
-               </div>
-            </div>
-         </section>
-
-         <!-- How to Play the Game -->
-         <article id="textWindow" class="just lists">
-            <h6>How to Play</h6>
-            <p>To play the game, you are to <i>assume</i> that two people are playing Ping Pong. And as each player wins a round <i>(determined by you)</i>, you award one point to that winner by clicking either the &nbsp;<span style="background-color: #47b076; color: white;">&nbsp;Green&nbsp;</span>&nbsp; or &nbsp;<span style="background-color: #4778b0; color: white;">&nbsp;Blue&nbsp;</span> box. You can also <i><b>Reset</b></i> the game by pressing the &nbsp;<span style="background-color: #b04761; color: white;">&nbsp;Red&nbsp;</span> box. You also determine what the <i><b>Winning score</b></i> is by setting the <b>Playing To:</b> amount.</p>
-         </article>
+         </div>
       </section>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+      <!-- Css Scorekeeper Code -->
+      <section>
+         <h4>Let's Play</h4>
+         <div id="mainDiv">
+            <!-- Row 1 for the ping pong image -->
+            <div id="imageRow"></div>
+
+            <!-- Title Row -->
+            <div id="titleRow">
+               <span id="title">Ping Pong Scorekeeper</span>
+               <span id="winLoss"></span>
+            </div>
+
+            <!-- Scoring Row -->
+            <div id="scoreRow">
+               <span id="scoreDisplay">
+                  <!-- Score Numbers -->
+                  <div id="scoreRowTop">
+                     <span id="p1Display">0</span>
+                     <span> - </span>
+                     <span id="p2Display">0</span>
+                  </div>
+                  <!-- Rules -->
+                  <div id="scoreRowMid">
+                     <span>Playing to:&nbsp;&nbsp;&nbsp;</span>
+                     <span><input id="playTo"  type="number" min="3" max="10" value="3"></span>
+                  </div>
+                  <!-- Press to Play -->
+                  <div id="scoreRowBot">Use the buttons below to play.</div>
+               </span>
+               <span id="resetAnnounce"></span>
+            </div>
+
+            <!-- Buttons Row -->
+            <div id="buttons">
+               <button id="p1Button">+1 Player One</button>
+               <button id="p2Button">+1 Player  Two</button>
+               <button id="reset">Reset</button>
+            </div>
+         </div>
+      </section>
+
+      <!-- How to Play the Game -->
+      <article id="textWindow" class="just lists">
+         <h6>How to Play</h6>
+         <p>To play the game, you are to <i>assume</i> that two people are playing Ping Pong. And as each player wins a round <i>(determined by you)</i>, you award one point to that winner by clicking either the &nbsp;<span style="background-color: #47b076; color: white;">&nbsp;Green&nbsp;</span>&nbsp; or &nbsp;<span style="background-color: #4778b0; color: white;">&nbsp;Blue&nbsp;</span> box. You can also <i><b>Reset</b></i> the game by pressing the &nbsp;<span style="background-color: #b04761; color: white;">&nbsp;Red&nbsp;</span> box. You also determine what the <i><b>Winning score</b></i> is by setting the <b>Playing To:</b> amount.</p>
+      </article>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
 
    <footer>
