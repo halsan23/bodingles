@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PingPong ScoreKeeper</title>
+   <!-- reset stylesheet -->
+   <link rel="stylesheet" href="../../../../css/cssReset.css">
+   <!-- Bulma Link -->
+   <link rel="stylesheet" href="bulma-no-dark-mode.min.css">
+   <!-- local stylesheet -->
+   <link rel="stylesheet" href="localStyle.css">
+</head>
+
+<body>
+  <h1 class="is-size-1 has-text-centered">PingPong ScoreKeeper</h1>
+      <!-- Bulma Scorekeeper Code -->
+      <section class="section">
+         <div class="container">
+            <div class="columns">
+               <div class="column is-half is-offset-one-quarter">
+                  <div class="card">
+                     <div class="card-image">
+                         <figure class="image is-2by1">
+                             <img src="pingPong.png" alt="">
+                         </figure>
+                     </div>
+                     <header class="card-header">
+                        <p class="card-header-title">PingPong ScoreKeeper</p>
+                     </header>
+                     <div class="card-content">
+                        <div class="content">
+                           <!-- Score Numbers -->
+                           <p class="title is-1">
+                              <span id="p1Display">0</span>
+                              <span> - </span>
+                              <span id="p2Display">0</span>
+                           </p>
+                           <!-- Rules -->
+                           <p class="subtitle" id="winLoss">Use the buttons below to increase each players score.</p>
+                           <div>
+                              <span><b>Playing to:&nbsp;&nbsp;&nbsp;</b></span>
+                              <span><input id="playTo" type="number" min="3" max="10" value="3"></span>
+                           </div>
+                        </div>
+                     </div>
+                     <footer class="card-footer">
+                        <button id="p1Button" class="button card-footer-item is-large is-primary">+1 Player One</button>
+                        <button id="p2Button" class="button card-footer-item is-large is-info">+1 Player  Two</button>
+                        <button id="reset" class="button card-footer-item is-large is-danger">Reset</button>
+                     </footer>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!-- How to Play the Game -->
+      <article id="footer">
+         <p><b>How to Play</b></p>
+         <p>To play the game, you are to <i>assume</i> that two people are playing Ping Pong. And as each player wins a round <i>(determined by you)</i>, you award one point to that winner by clicking either the &nbsp;<span style="background-color: #47b076; color: white;">&nbsp;Green&nbsp;</span>&nbsp; or &nbsp;<span style="background-color: #4778b0; color: white;">&nbsp;Blue&nbsp;</span> box. You can also <i><b>Reset</b></i> the game by pressing the &nbsp;<span style="background-color: #b04761; color: white;">&nbsp;Red&nbsp;</span> box. You also determine what the <i><b>Winning score</b></i> is by setting the <b>Playing To:</b> amount.</p>
+      </article>
+
+   <script src="bulma.js"></script>
+</body>
+
+</html>

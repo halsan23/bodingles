@@ -1,0 +1,10 @@
+/* Non-Bulma Styling */
+li {
+   list-style: none;
+}
+
+#footer {
+  margin: 0 auto;
+  padding: 0;
+  width: 70%;
+}
