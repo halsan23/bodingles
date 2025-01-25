@@ -23,8 +23,6 @@ const resetButton = document.getElementById('reset');
 // Play To Selection
 const playTo = document.getElementById('playTo');
 let winScore = 3;
-console.log(`Playing to : ${playTo.value}`);
-console.log(`Winning Score : ${winScore.value}`);
 // is Game Over
 let gameOver = false;
 // Text to announce Winner
@@ -44,7 +42,6 @@ function updateScores (player, opponent) {
          winLose.innerText = `Player ${player.playerNum} Wins!`;
       }
       player.display.textContent = player.score;  // display current p1Score
-      console.log(`Player Score : ${player.score}`)
    }
 }
 
