@@ -37,8 +37,8 @@ function updateScores (player, opponent) {
          gameOver = true;                 // game is over
          player.display.classList.add('has-text-success');     // change text color for win
          opponent.display.classList.add('has-text-danger');   // change text color for lose
-         player.button.classList.add('opacity');     // change text color for win
-         opponent.button.classList.add('opacity');   // change text color for lose
+         player.button.disabled = true;     // disable Player 1 Button
+         opponent.button.disabled = true;   // disable Player 2 Button
          winLose.innerText = `Player ${player.playerNum} Wins!`;
       }
       player.display.textContent = player.score;  // display current p1Score
@@ -78,7 +78,7 @@ function reset() {
       p.score = 0;
       p.display.textContent = 0;
       p.display.classList.remove('has-text-success', 'has-text-danger');
-      p.button.classList.remove('opacity');
+      p.button.disabled = false;     // re-enable Player Buttons
       winLose.innerText = "Use the buttons below to increase each players score.";
    }
 }
