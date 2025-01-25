@@ -83,13 +83,13 @@
 
             <!-- Starting Bulma Template Code -->
             <ul class="sectHighlight">
-               <li>&lt;div class="columns">
+               <li>&lt;div class="<b>columns</b>>">
                   <ul>
-                     <li>&lt;div class="card">
+                     <li>&lt;div class="<b>card</b>">
                         <ul>
-                           <li>&lt;header class="card-header">
+                           <li>&lt;header class="<b>card-header</b>">
                               <ul>
-                                 <li>&lt;p class="card-header-title">Component&lt;/p></li>
+                                 <li>&lt;p class="card-header-title"><b>Component</b>&lt;/p></li>
                                  <li>&lt;button class="card-header-icon" aria-label="more options">
                                     <ul>
                                        <li>&lt;span class="icon">
@@ -106,7 +106,7 @@
                            <li>&lt;/header></li>
                            <li>&lt;div class="card-content">
                               <ul>
-                                 <li>&lt;div class="content">
+                                 <li>&lt;div class="<b>content</b>">
                                     <ul>
                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</li>
                                        <li>&lt;a href="#">@bulmaio&lt;/a>. &lt;a href="#">#css&lt;/a> &lt;a href="#">#responsive&lt;/a></li>
@@ -134,9 +134,76 @@
                <li>&lt;/div></li>
             </ul>
          </p>
-         <p>So, we see that we have a pre-made <i><b>card</b></i> as defined by the Bulma <i><b>card</b> class</i>, created within the second <b>&lt;div></b> element. Also notice that <i><b>Bulma</b></i> is structured similarly to <i></i><b>Bootstrap</b></i> in that it uses <i>pre-defined <b>class</b></i> names to control the "look and feel" of the page.</p>
-         <p>And when viewing our project below, the first thing we notice is that the card is 100% wide, so it takes up the entire width of the page, which we don't want. To fix that, we need to change the <i><b>main</b> column width</i>. Remember that the <i><b>main</b> column</i> is a single column that contains our project, as seen in the first <b>&lt;div></b> element.</p>
+         <p>So, we see that we have a pre-made <i><b>card</b></i> as defined by the Bulma <i><b>card</b> class</i>, created within the 2<sup>nd</sup> <b>&lt;div></b> element. Also notice that <i><b>Bulma</b></i> is structured similarly to <i></i><b>Bootstrap</b></i> in that it uses <i>pre-defined <b>class</b></i> names to control the "look and feel" of the page.</p>
+         <p>And when viewing our project below, the first thing we notice is that the card is 100% wide, so it takes up the entire width of the page, which we don't want. To fix that, we need to change the <i><b>main</b> column width</i>. Remember that the <i><b>main</b> column</i> is a single column that contains our project, as seen in the 1<sup>st</sup> <b>&lt;div></b> element.</p>
          <p>When you start <i>sizing</i> columns, you can either effect a single column, or multiple columns. More info on column sizing can be found <a href="https://bulma.io/documentation/columns/sizes/" target="_blank" rel="noopener noreferrer">here</a>. We are going to be changing the size of a "single" column, our <i>main column</i> which contains our <i>card</i>.</p>
+      </article>
+
+      <!-- Create a card -->
+      <article id="textWindow4" class="just lists">
+         <h6>Adding Our Data</h6>
+         <p>The next thing we need to do is to add our data from our PingPong ScoreKeeper app, into our Bulma styling.</p>
+         <p>First we'll add the image for our project. We are going to <i>add a <b>new &lt;div></b></i> between the <b>&lt;div class="card"></b> and <b>&lt;header class="card-header"></b> sections. This will be a <i>new <b>&lt;div></b></i> with the <b>class="card-image"</b>, like so:
+            <ul class="sectHighlight">
+               <li>&lt;div class="card">
+                  <ul>
+                     <li>&lt;div class="<b>card-image</b>">
+                        <ul>
+                           <li>&lt;figure class="<b>image is-2by1</b>">
+                              <ul>
+                                 <li>&lt;img src-"pingPong.png" alt="Ping Pong Paddle"></li>
+                              </ul>
+                           </li>
+                           <li>&lt;/figure</li>
+                        </ul>
+                     </li>
+                     <li>&lt;/div></li>
+                  </ul>
+               </li>
+               <li>&lt;/div></li>
+            </ul>
+            <ul>
+               <li>- <b>&lt;div class="card-image">&lt;/div></b>&nbsp;&nbsp;&nbsp;// <i>defines this div to contain a card image</i></li>
+               <li>- <b>&lt;figure class="image is-2by1"></b>&nbsp;&nbsp;&nbsp;// <i>defines this figure as an image, and sets the display size</i></li>
+            </ul>
+         </p>
+         <p>After the <b>image</b>, we have a <i><b>&lt;header></b></i> with a class called <b>card-header</b>. Inside this <i><b>&lt;header></b></i>, we have a <b>&lt;p></b> element with the class <b>"card-header-title"</b>, which currently has the text <i>"Component"</i>. This is where our "App Title" will go so we're going to be replacing "Component" with "PingPong ScoreKeeper", like so:
+            <ul class="sectHighlight">
+               <li>&lt;p class="card-header-title"><b>PingPong ScoreKeeper</b>&lt;/p></li>
+            </ul>
+         </p>
+         <p>Next we're going to add the numbers that display the <b>Player 1</b> and <b>Player 2</b> scores. This will go in the <b>&lt;div class="content"></b> section which is currently occupied with some lorem ipsum text, an anchor tag &lt;a>, and a dateTime element. We are going to be replacing this with:
+            <ul class="sectHighlight">
+               <li>&lt;p class="title is-1">
+                  <ul>
+                     <li>&lt;span id="p1Display">0&lt;/span></li>
+                     <li>&lt;span> - &lt;/span></li>
+                     <li>&lt;span id="p2Display">0&lt;/span></li>
+                  </ul>
+               </li>
+               <li>&lt;/p></li>
+               <li>&lt;p class="subtitle">Use the buttons below to increase each players score.&lt;/p></li>
+               <li>&lt;div>
+                  <ul>
+                     <li>&lt;span>Playing to:&nbsp;&nbsp;&nbsp;&lt;/span></li>
+                     <li>&lt;span>&lt;input id="playTo"  type="number" min="3" max="10" value="3">&lt;/span></li>
+                  </ul>
+               </li>
+               <li>&lt;/div></li>
+            </ul>
+         </p>
+         <p>And finally, we need to add the Player Buttons to the bottom of the Bulma template. If you look at the template code above, you will see a <i><b>footer</b></i> section with three anchor &lt;a> elements. We will replace these with our Button Code. Now Bulma has a class name for <b>buttons</b> and also for their colors. Refer to the <b>button</b> documentation, <a href="https://bulma.io/documentation/elements/button/" target="_blank" rel="noopener noreferrer">here</a>. So the code will be:
+            <ul class="sectHighlight">
+               <li>&lt;footer class="card-footer">
+                  <ul>
+                     <li>&lt;button id="p1Button" class="button card-footer-item is-primary">+1 Player One&lt;/button></li>
+                     <li>&lt;button id="p2Button">+1 Player  Two&lt;/button></li>
+                     <li>&lt;button id="reset">Reset&lt;/button></li>
+                  </ul>
+               </li>
+               <li>&lt;/footer></li>
+            </ul>
+         </p>
       </article>
 
 
@@ -146,72 +213,46 @@
             <div class="columns">
                <div class="column is-half is-offset-one-quarter">
                   <div class="card">
+                     <div class="card-image">
+                         <figure class="image is-2by1">
+                             <img src="pingPong.png" alt="">
+                         </figure>
+                     </div>
                      <header class="card-header">
-                        <p class="card-header-title">Component</p>
-                        <button class="card-header-icon" aria-label="more options">
-                           <span class="icon">
-                              <i class="fas fa-angle-down" aria-hidden="true"></i>
-                           </span>
-                        </button>
+                        <p class="card-header-title">PingPong ScoreKeeper</p>
                      </header>
                      <div class="card-content">
                         <div class="content">
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
-                           iaculis mauris.
-                           <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                           <br />
-                           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+
+
+                           <!-- Score Numbers -->
+                           <p class="title is-1" id="scoreRowTop">
+                              <span id="p1Display">0</span>
+                              <span> - </span>
+                              <span id="p2Display">0</span>
+                           </p>
+
+
+                           <!-- Rules -->
+                           <p class="subtitle" id="winLoss">Use the buttons below to increase each players score.</p>
+
+
+                           <div>
+                              <span><b>Playing to:&nbsp;&nbsp;&nbsp;</b></span>
+                              <span><input id="playTo" type="number" min="3" max="10" value="3"></span>
+                           </div>
+
+
+
                         </div>
                      </div>
                      <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Save</a>
-                        <a href="#" class="card-footer-item">Edit</a>
-                        <a href="#" class="card-footer-item">Delete</a>
+                        <button id="p1Button" class="button card-footer-item is-large is-primary">+1 Player One</button>
+                        <button id="p2Button" class="button card-footer-item is-large is-info">+1 Player  Two</button>
+                        <button id="reset" class="button card-footer-item is-large is-danger">Reset</button>
                      </footer>
                   </div>
                </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- Css Scorekeeper Code -->
-      <section>
-         <h4>Let's Play</h4>
-         <div id="mainDiv">
-            <!-- Row 1 for the ping pong image -->
-            <div id="imageRow"></div>
-
-            <!-- Title Row -->
-            <div id="titleRow">
-               <span id="title">Ping Pong Scorekeeper</span>
-               <span id="winLoss"></span>
-            </div>
-
-            <!-- Scoring Row -->
-            <div id="scoreRow">
-               <span id="scoreDisplay">
-                  <!-- Score Numbers -->
-                  <div id="scoreRowTop">
-                     <span id="p1Display">0</span>
-                     <span> - </span>
-                     <span id="p2Display">0</span>
-                  </div>
-                  <!-- Rules -->
-                  <div id="scoreRowMid">
-                     <span>Playing to:&nbsp;&nbsp;&nbsp;</span>
-                     <span><input id="playTo"  type="number" min="3" max="10" value="3"></span>
-                  </div>
-                  <!-- Press to Play -->
-                  <div id="scoreRowBot">Use the buttons below to play.</div>
-               </span>
-               <span id="resetAnnounce"></span>
-            </div>
-
-            <!-- Buttons Row -->
-            <div id="buttons">
-               <button id="p1Button">+1 Player One</button>
-               <button id="p2Button">+1 Player  Two</button>
-               <button id="reset">Reset</button>
             </div>
          </div>
       </section>

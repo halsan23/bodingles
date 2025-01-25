@@ -23,6 +23,8 @@ const resetButton = document.getElementById('reset');
 // Play To Selection
 const playTo = document.getElementById('playTo');
 let winScore = 3;
+console.log(`Playing to : ${playTo.value}`);
+console.log(`Winning Score : ${winScore.value}`);
 // is Game Over
 let gameOver = false;
 // Text to announce Winner
@@ -35,13 +37,14 @@ function updateScores (player, opponent) {
       player.score += 1;                  // if not, add 1 to player score
       if (player.score === winScore) {    // if player score = winning score,
          gameOver = true;                 // game is over
-         player.display.classList.add('winner');     // change text color for win
-         opponent.display.classList.add('looser');   // change text color for lose
+         player.display.classList.add('has-text-success');     // change text color for win
+         opponent.display.classList.add('has-text-danger');   // change text color for lose
          player.button.classList.add('opacity');     // change text color for win
          opponent.button.classList.add('opacity');   // change text color for lose
          winLose.innerText = `Player ${player.playerNum} Wins!`;
       }
       player.display.textContent = player.score;  // display current p1Score
+      console.log(`Player Score : ${player.score}`)
    }
 }
 
@@ -77,8 +80,8 @@ function reset() {
    for (let p of [playerOne, playerTwo]) {
       p.score = 0;
       p.display.textContent = 0;
-      p.display.classList.remove('winner', 'looser');
+      p.display.classList.remove('has-text-success', 'has-text-danger');
       p.button.classList.remove('opacity');
-      winLose.innerText = "";
+      winLose.innerText = "Use the buttons below to increase each players score.";
    }
 }
