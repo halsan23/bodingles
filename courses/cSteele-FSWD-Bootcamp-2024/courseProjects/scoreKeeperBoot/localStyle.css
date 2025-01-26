@@ -1,0 +1,11 @@
+/* Non-Bootstrap Styling */
+#contain {
+   width: 30%;
+   padding: 20px;
+   border: 1px solid #000;
+   border-radius: 20px;
+}
+
+li {
+   list-style: none;
+}
