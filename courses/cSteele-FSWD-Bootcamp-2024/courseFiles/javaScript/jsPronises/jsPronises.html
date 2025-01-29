@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles - Scorekeeper</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="../../../../../css/cssReset.css">
+   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="localStyle.css">
+</head>
+
+<body>
+    <!-- Header -->
+   <header>
+        <span class="headLogo"></span>
+        <span class="headTitle">Bo</span>
+        <span class="headTitleb">dingles<sub>TM</sub></span>
+        <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
+        <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+            <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
+            Ideas&nbsp;&nbsp;&nbsp;- -</span>
+   </header>
+
+   <section id="main">
+      <div class="content">
+      <!-- Title -->
+         <article>
+            <h2><i> The Web Developer Bootcamp 2024 </i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
+            <h4>JavaScript Promises</h4>
+         </article>
+
+         <section id="textWindow3" class="just lists">
+            <!-- Promises Description -->
+            <article>
+               <p><span class="firstWord ">JavaScript</span> Promises are a means of sending and receiving data to an "external" source, such as a web API. The "promise" is that Js will send a request for the data, and that a response for either a successful retrieval of the data, or a failure in the retrieval, for what ever reason, is received. For example. Say you have a web app that has the current weather displayed on the page. You would send a request to the weather source API to retrieve that data. The coding in the "Promise" would ensure that you would get a response, whether you received the data or not.</p>
+               <p>Here is a technical definition:</p>
+               <p>The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value. A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
+               <p>A Promise is in one of these states:
+                  <ul>
+                     <li><i><b>pending</b></i>: initial state, neither fulfilled nor rejected.</li>
+                     <li><i><b>fulfilled</b></i>: meaning that the operation was completed successfully.</li>
+                     <li><i><b>rejected</b></i>: meaning that the operation failed.</li>
+                  </ul>
+               </p>
+               <p>The eventual state of a pending promise can either be fulfilled with a value or rejected with a reason (error). When either of these options occur, the associated handlers queued up by a promise's then method are called. If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached.</p>
+               <p><b>*</b><i>A promise is said to be <b>settled</b> if it is either <b>fulfilled</b> or <b>rejected</b>, but not <b>pending</b>.</i> More info can be found here:
+                  <ul>
+                     <li><a href="https://www.w3schools.com/Js/js_promise.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Promises</a></li>
+                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener noreferrer">MDN Promise</a></li>
+                  </ul>
+               </p>
+            </article>
+            <hr style="width: 90%;">
+
+            <!-- WritingPromises -->
+            <article>
+               <h6>Writing Promises</h6>
+               <p>Normally when using Ajax and other technologies, we don't write too many Promises ourselves. We just normally write the code that will interact within the promise. But if we did write a Promise, this is <i>commonly</i> how it would be written:
+                  <ul>
+                     <li>new <b>Promise</b>((<i>resolve</i>, <i>reject</i>) => {
+                        <ul>
+                           <li></li>
+                        </ul>
+                     </li>
+                     <li>})</li>
+                  </ul>
+               </p>
+               <p>
+                  <ul>
+                     <li>- notice that the "P" in "Promise" is UpperCase</li>
+                     <li>- the Promise expects us to <i>pass in</i> a function</li>
+                     <li>- the function always expects two parameters
+                        <ul>
+                           <li>- we named ours <i>resolve</i>, and <i>reject</i> but you can name the parameters anything you want</li>
+                        </ul>
+                     </li>
+                     <li>- the two parameters represent the resolution or the rejection of the promise</li>
+                  </ul>
+                  The parameters are <b>functions</b>, that can be executed anywhere within the Promise, so you would write functions that would deal with the resolution or rejection of the Promise.
+               </p>
+            </article>
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </div>
+   </section>
+
+   <footer>
+      <div>Website created by badDoggy</div>
+      <div>|</div>
+      <div>2024</div>
+      <div>|</div>
+      <div>&copy; All Rights Reserved</div>
+   </footer>
+
+   <script src="jsPronises.js"></script>
+</body>
+
+</html>
