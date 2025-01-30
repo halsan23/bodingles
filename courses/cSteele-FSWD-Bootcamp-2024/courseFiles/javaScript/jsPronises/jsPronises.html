@@ -63,17 +63,36 @@
             <!-- WritingPromises -->
             <article>
                <h6>Writing Promises</h6>
-               <p>Normally when using Ajax and other technologies, we don't write too many Promises ourselves. We just normally write the code that will interact within the promise. But if we did write a Promise, this is <i>commonly</i> how it would be written:
-                  <ul>
-                     <li>new <b>Promise</b>((<i>resolve</i>, <i>reject</i>) => {
+               <p>Normally when using Ajax, or other similar technologies, we don't write too many Promises ourselves. We just normally write the code that will interact within the promise. But if we did write a Promise, this is <i>commonly</i> how it would be written:
+                  <ul class="sectHighlight">
+                     <li>const <span class="colorHighlight">fakeRequest</span> = (url) => {
                         <ul>
-                           <li></li>
+                           <li><i>return</i> new <b>Promise</b>((<i>resolve</i>, <i>reject</i>) => {
+                              <ul>
+                                 <li>const <span class="colorHighlight">rand</span> = Math.random();</li>
+                                 <li>setTimeout(() => {
+                                    <ul>
+                                       <li>if (rand < 0.7) {
+                                          <ul>
+                                             <li><i><span class="colorHighlight2">resolve</span>('Fake Data was returned.')</i>;</li>
+                                          </ul>
+                                       </li>
+                                       <li>}</li>
+                                       <li><i><span class="colorHighlight2">reject</span>('Error Retrieving the Fake Data!!');</i></li>
+                                    </ul>
+                                 </li>
+                                 <li>}, 1000)</li>
+                              </ul>
+                           </li>
+                           <li>})</li>
                         </ul>
                      </li>
-                     <li>})</li>
+                     <li>}</li>
                   </ul>
                </p>
-               <p>
+               <p>So we've created a function with a <span class="colorHighlight">Fake Request</span>, which will send a request to a dummy link (<i><b>url</b></i>). Within this function, we have created a <i>new <b>Promise</b></i>, which will <i><b>return</b></i> the results of this <b>Promise</b>.</p>
+               <p>Within the <b>Promise</b> itself, we have set up a <i>Random Number Generator</i>, which will return a random number between 0 and 0.9. We then set up an <i><b>if</b></i> loop. <i><b>if</b></i> the random number is less than 0.7, the Promise will return a <span class="colorHighlight2">resolve</span>(), otherwise it will return a <span class="colorHighlight2">reject</span>().</p>
+               <p>Now within the <b>Promise</b> itself:
                   <ul>
                      <li>- notice that the "P" in "Promise" is UpperCase</li>
                      <li>- the Promise expects us to <i>pass in</i> a function</li>
@@ -83,9 +102,34 @@
                         </ul>
                      </li>
                      <li>- the two parameters represent the resolution or the rejection of the promise</li>
+                     <li>- they can be executed anywhere within the Promise, so you would write functions that would deal with the resolution or rejection of the Promise</li>
                   </ul>
-                  The parameters are <b>functions</b>, that can be executed anywhere within the Promise, so you would write functions that would deal with the resolution or rejection of the Promise.
                </p>
+               <p>And now to call the <span class="colorHighlight">fakeRequest</span> function:
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight">fakeRequest</span>('dogs/1'); &nbsp;&nbsp;// <i>pointing to a fake url : dogs, pg.1</i>
+                        <ul>
+                           <li><b>.then</b>((<span class="colorHighlight2"><i>data</i></span>) => {
+                              <ul>
+                                 <li><span style="background-color: #b8ffa8;">&nbsp;&nbsp;&nbsp;// <i>if the Promise returned <span class="colorHighlight2">resolve</span>()</i>&nbsp;&nbsp;&nbsp;</span></li>
+                                 <li>console.log('Finished With the Request.');</li>
+                                 <li>console.log('Returned Data : ', <span class="colorHighlight2"><i>data</i></span>);</li>
+                              </ul>
+                           </li>
+                           <li>})</li>
+                           <li><b>.catch</b>((<span class="colorHighlight2"><i>err</i></span>) => {
+                              <ul>
+                                 <li><span style="background-color: #b8ffa8;">&nbsp;&nbsp;&nbsp;// <i>if the Promise returned <span class="colorHighlight2">reject</span>()</i>&nbsp;&nbsp;&nbsp;</span></li>
+                                 <li>console.log('Oh No!!', <span class="colorHighlight2"><i>err</i></span>);</li>
+                              </ul>
+                           </li>
+                           <li>})</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </p>
+               <p>So if the <span class="colorHighlight">fakeRequest</span> function returns a <span class="colorHighlight2">resolve</span>()</i>, then the console will log "Finished With the Request." - "Returned Data :  Fake Data was returned."</p>
+               <p>But if the <span class="colorHighlight">fakeRequest</span> function returns a <span class="colorHighlight2">reject</span>()</i>, the the console logs "Oh No!! Error Retrieving the Fake Data!!"</p>
             </article>
          </section>
 
