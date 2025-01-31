@@ -21,3 +21,20 @@ fakeRequest('dogs/1')  // pointing to a fake url : dogs, pg.1
       // if the Promise returned reject()
       console.log('Oh No!!', err);
    })
+
+
+
+
+const login = async (username, password) => {
+   if (!username || !password) throw 'Credentials Incomplete!'
+   if (password === 'pswd') return 'Welcome'
+   throw 'Invalid Password!'
+}
+
+login('MyName', '')
+   .then(msg => {
+   console.log(`${msg}, you have successfully Logged In.`);
+   })
+   .catch(err => {
+   console.log(`ERROR!, ${err}`);
+   })

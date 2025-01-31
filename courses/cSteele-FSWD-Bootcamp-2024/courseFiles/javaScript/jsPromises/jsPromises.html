@@ -40,7 +40,7 @@
          <section id="textWindow3" class="just lists">
             <!-- Promises Description -->
             <article>
-               <p><span class="firstWord ">JavaScript</span> Promises are a means of sending and receiving data to an "external" source, such as a web API. The "promise" is that Js will send a request for the data, and that a response for either a successful retrieval of the data, or a failure in the retrieval, for what ever reason, is received. For example. Say you have a web app that has the current weather displayed on the page. You would send a request to the weather source API to retrieve that data. The coding in the "Promise" would ensure that you would get a response, whether you received the data or not.</p>
+               <p><span class="firstWord">JavaScript</span> Promises are a means of sending and receiving data to an "external" source, such as a web API. The "promise" is that Js will send a request for the data, and that a response for either a successful retrieval of the data, or a failure in the retrieval, for what ever reason, is received. For example. Say you have a web app that has the current weather displayed on the page. You would send a request to the weather source API to retrieve that data. The coding in the "Promise" would ensure that you would get a response, whether you received the data or not.</p>
                <p>Here is a technical definition:</p>
                <p>The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value. A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
                <p>A Promise is in one of these states:
@@ -135,8 +135,86 @@
             <article>
                <h6>In Conclusion</h6>
                <p>We need to understand that this is just a very basic example that is simply showing the "concept" of Promises. The results of a <span class="colorHighlight2">resolve</span>(), or a <span class="colorHighlight2">reject</span>() are dependant on the random number generated.</p>
-               <p>But in reality, these results would be determined by the outcome of the <i><b>data request</b></i>, and that outcome would be set by the <i>resolution</i>, or <i>rejection</i> of the Promise. You would then write the appropriate code to deal with both scenarios, the <i>resolution</i>, and the <i>rejection</i>, so that your program could deal with both outcomes.</p>
+               <p id="asAw">But in reality, these results would be determined by the outcome of the <i><b>data request</b></i>, and that outcome would be set by the <i>resolution</i>, or <i>rejection</i> of the Promise. You would then write the appropriate code to deal with both scenarios, the <i>resolution</i>, and the <i>rejection</i>, so that your program could deal with both outcomes.</p>
             </article>
+         </section>
+
+         <section id="textWindow3" class="just lists">
+            <!-- Async & Await Description -->
+            <article>
+               <h6>Async & Await</h6>
+               <p><i>Async & Await</i> are a <i>"newer"</i> means of working with <b>Promises</b>.</p>
+               <p><i>Async & Await</i> in JavaScript are used to simplify handling asynchronous operations using promises. By enabling asynchronous code to appear synchronous, they enhance code readability and make it easier to manage complex asynchronous flows.
+                  <ul>
+                     <li>a). The keyword <i><b>async</b></i> before a function makes the function return a <b>Promise</b>:
+                        <ul>
+                           <li>- <i>async</i> functions <b>always</b> return a <b>Promise</b>.</li>
+                           <li>- if the function returns a value, the <b>Promise</b> will be resolved with that value</li>
+                           <li>- if the function throws an exception, the <b>Promise</b> will be rejected</li>
+                        </ul>
+                     </li>
+                     <li>b). The <i><b>await</b></i> keyword can only be used <i><b>inside</b></i> an <i><b>async</b></i> function. It makes the function pause the execution, and wait for a <i><b>resolved promise</b></i> before it continues.</li>
+                  </ul>
+               </p>
+               <p>More info can be found here:
+                  <ul>
+                     <li><a href="https://www.w3schools.com/Js/js_async.asp" target="_blank" rel="noopener noreferrer">W3Schools Async & Await</a></li>
+                     <li><a href="https://www.geeksforgeeks.org/async-await-function-in-javascript/" target="_blank" rel="noopener noreferrer">Geeks4Geeks Async and Await</a></li>
+                  </ul>
+               </p>
+            </article>
+            <hr style="width: 90%;">
+
+            <!-- Async Example -->
+             <article>
+               <h6>Async Example</h6>
+               <p>Here is a simple example of using <i><b>async</b></i>:
+                  <ul class="sectHighlight">
+                     <li>const <span class="colorHighlight">login</span> = <span class="colorHighlight2">async</span> (username, password) => {
+                        <ul>
+                           <li>if (!username || !password) <i><b>throw</b></i> 'Credentials Incomplete!'</li>
+                           <li>if (password === 'pswd') return 'Welcome'</li>
+                           <i><b>throw</b></i> 'Invalid Password!'
+                        </ul>
+                     </li>
+                     <li>}</li>
+                     <li>*the <i><b>throw</b></i> statement allows you to create a custom error. The technical term for this is: <i>The throw statement <b>throws an exception</b></i></li>
+                  </ul>
+               </p>
+               <p>So we've created a <i><span class="colorHighlight2">async</span></i> function to parse a login attempt for valid information.
+                  <ul>
+                     <li>- if the <i>username <b>or</b> password</i> is blank ('empty string'), then it <i><b>throws</b></i> an error with the message <i>"Credentials Incomplete!"</i></li>
+                     <li>- if the <i>password</i> is "invalid" then it <i><b>throws</b></i> an error with the message <i>"Invalid Password!"</i></li>
+                     <li>- if the login data is correct, there are no exceptions and it returns the message <i>"Welcome, you have successfully logged in"</i></li>
+                  </ul>
+               </p>
+               <p>And next we would need to <i>call</i> this function:
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight">login</span>('MyName', 'pswd')
+                        <ul>
+                           <li><b>.then</b>(msg => {
+                              <ul>
+                                 <li>console.log(`${msg}, you have successfully Logged In`);</li>
+                              </ul>
+                           </li>
+                           <li>})</li>
+                           <li><b>.catch</b>(err => {
+                              <ul>
+                                 <li>console.log(`ERROR!, ${err}`);</li>
+                              </ul>
+                           </li>
+                           <li>})</li>
+                        </ul>
+                     </li>
+                     <li>&nbsp;</li>
+                     <li>- the <i><b>.then()</b></i> method provides two callbacks, one function to run when a promise is fulfilled, and one function to run when a promise is rejected.</li>
+                     <li>- the <i><b>.catch()</b></i> method provides a callback to run when a promise is rejected.</li>
+                  </ul>
+               </p>
+               <p>So if we leave either the <i>username or password</i> fields blank, then the console logs the message <i>"ERROR!, Credentials Incomplete!"</i></p>
+               <p>If we enter an invalid password, the console logs <i>"ERROR!, Invalid Password"</i></p>
+               <p>And finally, if we enter a <i>correct</i> username and password, then the console logs <i>"Welcome, you have successfully Logged In."</i></p>
+             </article>
          </section>
 
          <p><a href="#top">Back to Top</a><br><br></p>
@@ -151,7 +229,7 @@
       <div>&copy; All Rights Reserved</div>
    </footer>
 
-   <script src="jsPronises.js"></script>
+   <script src="jsPromises.js"></script>
 </body>
 
 </html>
