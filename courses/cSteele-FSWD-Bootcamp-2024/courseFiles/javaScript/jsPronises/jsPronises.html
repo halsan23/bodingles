@@ -112,8 +112,8 @@
                            <li><b>.then</b>((<span class="colorHighlight2"><i>data</i></span>) => {
                               <ul>
                                  <li><span style="background-color: #b8ffa8;">&nbsp;&nbsp;&nbsp;// <i>if the Promise returned <span class="colorHighlight2">resolve</span>()</i>&nbsp;&nbsp;&nbsp;</span></li>
-                                 <li>console.log('Finished With the Request.');</li>
-                                 <li>console.log('Returned Data : ', <span class="colorHighlight2"><i>data</i></span>);</li>
+                                 <li>console.log('Request ');</li>
+                                 <li>console.log('Complete : ', <span class="colorHighlight2"><i>data</i></span>);</li>
                               </ul>
                            </li>
                            <li>})</li>
@@ -128,8 +128,14 @@
                      </li>
                   </ul>
                </p>
-               <p>So if the <span class="colorHighlight">fakeRequest</span> function returns a <span class="colorHighlight2">resolve</span>()</i>, then the console will log "Finished With the Request." - "Returned Data :  Fake Data was returned."</p>
-               <p>But if the <span class="colorHighlight">fakeRequest</span> function returns a <span class="colorHighlight2">reject</span>()</i>, the the console logs "Oh No!! Error Retrieving the Fake Data!!"</p>
+               <p>So if the <span class="colorHighlight">fakeRequest</span> function returns a <span class="colorHighlight2">resolve</span>()</i>, then the console will log <i>"Request Complete : Fake Data was returned."</i> But if the <span class="colorHighlight">fakeRequest</span> function returns a <span class="colorHighlight2">reject</span>()</i>, the console then logs <i>"Oh No!! Error Retrieving the Fake Data!!"</i>.</p>
+            </article>
+
+            <!-- WritingPromises -->
+            <article>
+               <h6>In Conclusion</h6>
+               <p>We need to understand that this is just a very basic example that is simply showing the "concept" of Promises. The results of a <span class="colorHighlight2">resolve</span>(), or a <span class="colorHighlight2">reject</span>() are dependant on the random number generated.</p>
+               <p>But in reality, these results would be determined by the outcome of the <i><b>data request</b></i>, and that outcome would be set by the <i>resolution</i>, or <i>rejection</i> of the Promise. You would then write the appropriate code to deal with both scenarios, the <i>resolution</i>, and the <i>rejection</i>, so that your program could deal with both outcomes.</p>
             </article>
          </section>
 
