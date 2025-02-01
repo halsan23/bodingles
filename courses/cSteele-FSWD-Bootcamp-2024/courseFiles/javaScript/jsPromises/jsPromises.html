@@ -165,56 +165,119 @@
             </article>
             <hr style="width: 90%;">
 
-            <!-- Async Example -->
-             <article>
-               <h6>Async Example</h6>
-               <p>Here is a simple example of using <i><b>async</b></i>:
+         <!-- Async Example -->
+            <article>
+            <h6>Async Example</h6>
+            <p>Here is a simple example of using <i><b>async</b></i>:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">login</span> = <span class="colorHighlight2">async</span> (username, password) => {
+                     <ul>
+                        <li>if (!username || !password) <i><b>throw</b></i> 'Credentials Incomplete!'</li>
+                        <li>if (password === 'pswd') return 'Welcome'</li>
+                        <i><b>throw</b></i> 'Invalid Password!'
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li>*the <i><b>throw</b></i> statement allows you to create a custom error. The technical term for this is: <i>The throw statement <b>throws an exception</b></i></li>
+               </ul>
+            </p>
+            <p>So we've created a <i><span class="colorHighlight2">async</span></i> function to parse a login attempt for valid information.
+               <ul>
+                  <li>- if the <i>username <b>or</b> password</i> is blank ('empty string'), then it <i><b>throws</b></i> an error with the message <i>"Credentials Incomplete!"</i></li>
+                  <li>- if the <i>password</i> is "invalid" then it <i><b>throws</b></i> an error with the message <i>"Invalid Password!"</i></li>
+                  <li>- if the login data is correct, there are no exceptions and it returns the message <i>"Welcome, you have successfully logged in"</i></li>
+               </ul>
+            </p>
+            <p>And next we would need to <i>call</i> this function:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">login</span>('MyName', 'pswd')
+                     <ul>
+                        <li><b>.then</b>(msg => {
+                           <ul>
+                              <li>console.log(`${msg}, you have successfully Logged In`);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                        <li><b>.catch</b>(err => {
+                           <ul>
+                              <li>console.log(`ERROR!, ${err}`);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                     </ul>
+                  </li>
+                  <li>&nbsp;</li>
+                  <li>- the <i><b>.then()</b></i> method provides two callbacks, one function to run when a promise is fulfilled, and one function to run when a promise is rejected.</li>
+                  <li>- the <i><b>.catch()</b></i> method provides a callback to run when a promise is rejected.</li>
+               </ul>
+            </p>
+            <p>So if we leave either the <i>username or password</i> fields blank, then the console logs the message <i>"ERROR!, Credentials Incomplete!"</i></p>
+            <p>If we enter an invalid password, the console logs <i>"ERROR!, Invalid Password"</i></p>
+            <p>And finally, if we enter a <i>correct</i> username and password, then the console logs <i>"Welcome, you have successfully Logged In."</i></p>
+            </article>
+            <hr style="width: 90%;">
+
+            <!-- Await -->
+            <article>
+               <h6>The Await Expression</h6>
+               <p>We now know that placing <i><b>“async”</b> before a function</i>, means one simple thing. This is an <i><b>async function</b></i>, and an <i>async function</i> <i><b>always returns a promise</b></i>. In other words, the keyword <i><b>async</b></i> before a function, <b>always makes</b> the function return a promise</p>
+               <p>The <i><b>await</b></i> expression pauses the execution of its surrounding async functions, until that promise is settled (that is, fulfilled or rejected). When execution resumes, the value of the await expression becomes that of the fulfilled promise.</p>
+               <p>An <i><b>await</b></i> is <b>only valid inside async functions and modules</b>. It wil pause the execution of the <b><i>async function</i></b>, and waits for a promise to resolve, before it continues.</p>
+               <hr style="width: 90%;">
+               <p>Let's start with this example. We're going to add a <b>&lt;div></b> with a width of 400px and a height of 35px <i>(as defined in a css stylesheet)</i>. We're going to giv the &lt;div> and <b>id="colorChange"</b>, so we can reference it within our JavaScript:
                   <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight">login</span> = <span class="colorHighlight2">async</span> (username, password) => {
+                     <li><b>HTML</b></li>
+                     <li>&lt;div <b>id=colorChange"</b>>&lt;/div></li>
+                     <li>
+                        <div id="div1"></div></li>
+                  </ul>
+               </p>
+               <p>Next, we're going to write a function that will create a <i><b>new Promise</b></i> that will change the background color of our div, every 1.5 seconds <i>(1500ms)</i>:
+                  <ul class="sectHighlight">
+                     <li><b>JavaScript</b></li>
+                     <li>const <span class="colorHighlight">colorChange</span> = document.GetElementById('<b>colorChange</b>');</li>
+                     <li>&nbsp;</li>
+                     <li>const <span class="colorHighlight">delayedColorChange</span> = (<i>color</i>) => {
                         <ul>
-                           <li>if (!username || !password) <i><b>throw</b></i> 'Credentials Incomplete!'</li>
-                           <li>if (password === 'pswd') return 'Welcome'</li>
-                           <i><b>throw</b></i> 'Invalid Password!'
+                           <li><i>return <span class="colorHighlight2">new Promise</span></i>((resolve, reject) => {
+                              <ul>
+                                 <li>setTimeout(() => {
+                                    <ul>
+                                       <li><span class="colorHighlight">colorChange</span>.style.backgroundColor = <i>color</i>;</li>
+                                       <li><b>resolve();</b></li>
+                                    </ul>
+                                 </li>
+                                 <li>}, <b>1500</b>)</li>
+                              </ul>
+                           </li>
+                           <li>})</li>
                         </ul>
                      </li>
                      <li>}</li>
-                     <li>*the <i><b>throw</b></i> statement allows you to create a custom error. The technical term for this is: <i>The throw statement <b>throws an exception</b></i></li>
                   </ul>
+                  So this function <b><i>creates</i></b> a <i><span class="colorHighlight2">new Promise</span></i> that will change the background color of our div, to the color <i><b>passed in</b></i> to the function. It will then return a resolution of the <b>Promise</b>, in this case, a <i><b>resolve()</b></i>.
                </p>
-               <p>So we've created a <i><span class="colorHighlight2">async</span></i> function to parse a login attempt for valid information.
-                  <ul>
-                     <li>- if the <i>username <b>or</b> password</i> is blank ('empty string'), then it <i><b>throws</b></i> an error with the message <i>"Credentials Incomplete!"</i></li>
-                     <li>- if the <i>password</i> is "invalid" then it <i><b>throws</b></i> an error with the message <i>"Invalid Password!"</i></li>
-                     <li>- if the login data is correct, there are no exceptions and it returns the message <i>"Welcome, you have successfully logged in"</i></li>
-                  </ul>
-               </p>
-               <p>And next we would need to <i>call</i> this function:
+               <p>Next we need to create our <i><b>async function</b></i> which will pass in all of the colors for the background color changes:
                   <ul class="sectHighlight">
-                     <li><span class="colorHighlight">login</span>('MyName', 'pswd')
+                     <li><b>JavaScript</b></li>
+                     <li><i><b>async</b> function</i> rainbow() {
                         <ul>
-                           <li><b>.then</b>(msg => {
-                              <ul>
-                                 <li>console.log(`${msg}, you have successfully Logged In`);</li>
-                              </ul>
-                           </li>
-                           <li>})</li>
-                           <li><b>.catch</b>(err => {
-                              <ul>
-                                 <li>console.log(`ERROR!, ${err}`);</li>
-                              </ul>
-                           </li>
-                           <li>})</li>
+                           <li>await delayedColorChange('red')</li>
+                           <li>await delayedColorChange('orange')</li>
+                           <li>await delayedColorChange('yellow')</li>
+                           <li>await delayedColorChange('green')</li>
+                           <li>await delayedColorChange('blue')</li>
+                           <li>await delayedColorChange('indigo')</li>
+                           <li>await delayedColorChange('violet')</li>
+                           <li>return "ALL DONE!"</li>
                         </ul>
                      </li>
-                     <li>&nbsp;</li>
-                     <li>- the <i><b>.then()</b></i> method provides two callbacks, one function to run when a promise is fulfilled, and one function to run when a promise is rejected.</li>
-                     <li>- the <i><b>.catch()</b></i> method provides a callback to run when a promise is rejected.</li>
+                     <li>}</li>
                   </ul>
                </p>
-               <p>So if we leave either the <i>username or password</i> fields blank, then the console logs the message <i>"ERROR!, Credentials Incomplete!"</i></p>
-               <p>If we enter an invalid password, the console logs <i>"ERROR!, Invalid Password"</i></p>
-               <p>And finally, if we enter a <i>correct</i> username and password, then the console logs <i>"Welcome, you have successfully Logged In."</i></p>
-             </article>
+
+               <div id="colorChange"></div>
+            </article>
          </section>
 
          <p><a href="#top">Back to Top</a><br><br></p>
