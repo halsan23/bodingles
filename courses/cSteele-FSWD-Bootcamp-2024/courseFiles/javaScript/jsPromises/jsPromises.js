@@ -75,11 +75,5 @@ async function rainbow() {
    return "ALL DONE!"
 }
 
-// run the async function
-async function printRainbow() {
-   await rainbow();
-   console.log("END OF RAINBOW!")
-}
-
-// console log the returned result
-printRainbow();
+// run thr rainbow async function
+rainbow();

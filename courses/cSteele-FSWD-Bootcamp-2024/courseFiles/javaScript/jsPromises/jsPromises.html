@@ -165,7 +165,7 @@
             </article>
             <hr style="width: 90%;">
 
-         <!-- Async Example -->
+            <!-- Async Example -->
             <article>
             <h6>Async Example</h6>
             <p>Here is a simple example of using <i><b>async</b></i>:
@@ -257,26 +257,50 @@
                   </ul>
                   So this function <b><i>creates</i></b> a <i><span class="colorHighlight2">new Promise</span></i> that will change the background color of our div, to the color <i><b>passed in</b></i> to the function. It will then return a resolution of the <b>Promise</b>, in this case, a <i><b>resolve()</b></i>.
                </p>
-               <p>Next we need to create our <i><b>async function</b></i> which will pass in all of the colors for the background color changes:
+               <p>Next we need to create our <i><b>async function</b></i> which will pass in all of the colors for the background color changes. And inside this function will be several calls of the function <b>delayedColorChange()</b>, which if we look at the function, we see that after 1.5 seconds, it changes our &lt;div>'s background-color. But wait... Houston we have a problem.</p>
+               <p>If we call our <i><b>async function</b></i>, and pass in our first two <b>delayedColorChange()</b> functions, like so:
                   <ul class="sectHighlight">
                      <li><b>JavaScript</b></li>
                      <li><i><b>async</b> function</i> rainbow() {
                         <ul>
-                           <li>await delayedColorChange('red')</li>
-                           <li>await delayedColorChange('orange')</li>
-                           <li>await delayedColorChange('yellow')</li>
-                           <li>await delayedColorChange('green')</li>
-                           <li>await delayedColorChange('blue')</li>
-                           <li>await delayedColorChange('indigo')</li>
-                           <li>await delayedColorChange('violet')</li>
-                           <li>return "ALL DONE!"</li>
+                           <li>('red')</li>
+                           <li><span class="colorHighlight">delayedColorChange</span>('orange')</li>
                         </ul>
                      </li>
                      <li>}</li>
                   </ul>
                </p>
-
+               <p>What do you think happens? Do we see a Red background, and then 1.5 seconds later a orange background?</p>
+               <p>Well, actually we don't.</p>
+               <p>Because we've told our <span class="colorHighlight">colorChange</span> function to wait 1500ms (1.5 seconds), but when we call this function a second time for the second color, it actually changes the color <i><b>before</b></i> the 1.5 seconds the <i><b>timeout</b></i> calls for. So it has changed the background color twice, <i><b>before</b> the timeout has finished running</i>. So instead of getting <i>Red</i> to <i>Orange</i>, we just see the <i>Orange</i>.</p>
+               <p>And this is where we find the use for our <i><b>await</b> expression.</i></p>
+               <p>Remember that we can only call <i><b>await</b> inside</i> of an <i>async <b>function</b></i>. And an <i>async <b>function</b></i> always returns a promise. So when we preface our <span class="colorHighlight">colorChange</span> function with <i><b>await</b></i>, it forces the Promise it is working on, <i>to <b>wait </b>until it has finished</i>, before moving on to the next Promise.</p>
+               <p>So our <i><b>async</b> function</i> would be:
+                  <ul class="sectHighlight">
+                     <li><b>JavaScript</b></li>
+                     <li><i><b>async</b></i> function <span class="colorHighlight2"><i>rainbow()</i></span> {
+                        <ul>
+                           <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('red')</li>
+                           <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('orange')</li>
+                           <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('yellow')</li>
+                           <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('green')</li>
+                           <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('blue')</li>
+                           <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('indigo')</li>
+                           <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('violet')</li>
+                           <li><i><b>return</b></i> "ALL DONE!"</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </p>
+               <p>And finally, all that's left to do is to actually <i><b>call</b></i> the <span class="colorHighlight2"><i>rainbow()</i></span> <i><b>async</b> function</i>:
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight2">rainbow()</span>;</li>
+                  </ul>
+               </p>
+               <p>And here is our final result. Our &lt;div> with changing background color.</p>
                <div id="colorChange"></div>
+               <p>So as we can see, the <i><b>await</b></i> expression has paused the execution of its surrounding async functions, until that promise is settled (that is, fulfilled or rejected). And in our example, the end result is that every color change requires a 1.5 second delay before moving on to the next one.</p>
             </article>
          </section>
 
