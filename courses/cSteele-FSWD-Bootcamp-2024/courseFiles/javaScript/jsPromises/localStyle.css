@@ -5,13 +5,13 @@ li {
 #div1 {
    width: 400px;
    height: 35px;
-   background-color: #fff5de;
+   background-color: #fdfaf4;
    border: 2px solid black;
    border-radius: 8px;
 }
 
 #colorChange {
-   width: 100%;
+   width: 400px;
    height: 35px;
    border: 2px solid black;
    border-radius: 8px;

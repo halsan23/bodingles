@@ -75,5 +75,5 @@ async function rainbow() {
    return "ALL DONE!"
 }
 
-// run thr rainbow async function
+// run the rainbow async function
 rainbow();
