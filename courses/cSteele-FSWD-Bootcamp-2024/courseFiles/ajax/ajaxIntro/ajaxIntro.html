@@ -1,8 +1,8 @@
-span<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" id="top">
 
    <head>
-      <meta charset="utf-8" />
+      <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Bodingles | Colt Steele</title>
 
@@ -45,9 +45,53 @@ span<!DOCTYPE html>
                <!--Ajax Introduction-->
                <article>
                   <h6>What is Ajax</h6>
-                  <p><span class="firstWord"></span> </p>
+                  <p><span class="firstWord">AJAX</span> is an acronym for <b>A</b>synchronous <b>J</b>avaScript <b>A</b>nd <b>X</b>ML. AJAX is not a programming language. It is a web development technique in which a web app fetches new content from a server, by making asynchronous HTTP requests. It then uses the new content to update the relevant parts of the page without requiring a full page load. This can make the page more responsive, because only the parts that need to be updated are requested.</p>
+                  <p>AJAX has been called a developer's dream, because you can:
+                     <ul>
+                        <li>- Read data from a web server - after the page has loaded.</li>
+                        <li>- Update a web page without reloading the page.</li>
+                        <li>- Send data to a web server - in the background.</li>
+                     </ul>
+                     AJAX is a bit of a misleading name. AJAX applications might use XML to transport data, but it is equally common to transport data as plain text or JSON text.
+                  </p>
                </article>
-               <br><hr style="width: 90%"><br>
+               <hr style="width: 90%;">
+
+               <!--How Ajax Works-->
+               <article>
+                  <p><span class="firstWord">How AJAX Works:</span>
+                     <ul>
+                        <li><b>1</b>). An event occurs in a web page (the page is loaded, a button is clicked)</li>
+                        <li><b>2</b>). An XMLHttpRequest object is created by JavaScript</li>
+                        <li><b>3</b>). The XMLHttpRequest object sends a request to a web server</li>
+                        <li><b>4</b>). The server processes the request</li>
+                        <li><b>5</b>). The server sends a response back to the web page</li>
+                        <li><b>6</b>). The response is read by JavaScript</li>
+                        <li><b>7</b>). Proper action (like page update) is performed by JavaScript</li>
+                     </ul>
+                  </p>
+                  <p>
+                     <ul class="sectHighlight" style="width: 80%; padding: 15px 15px 25px 25px;">
+                        <li><b>Fetch API</b>: Modern Browsers can use Fetch API instead of the XMLHttpRequest Object. The Fetch API interface allows web browser to make HTTP requests to web servers. If you use the XMLHttpRequest Object, Fetch can do the same in a simpler way.</li>
+                     </ul>
+                  </p>
+               </article>
+
+               <!--Web API's-->
+               <article>
+                  <h6>Web API's</h6>
+                  <p><span class="firstWord">API</span> stands for <b>A</b>pplication <b>P</b>rogramming <b>I</b>nterface. An API is actually <i>some</i> kind of interface which has a set of functions. These functions will allow programmers to acquire some specific features or the data of an application. A list of different Web API functions and objects can be found <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" rel="noopener noreferrer">here</a>.</p>
+                  <p>Most communications between a web Page and a web Server work through a <b>Web API</b>. A Web API is an API as the name suggests, that can be accessed over the web using the HTTP protocol.</p>
+                  <p>Web API's work thru <i><b>endpoints</b></i>. Endpoints are important aspects of interacting with server-side web APIs, as they specify where resources lie that can be accessed by third party software.</p>
+                  <p><b>Endpoints need to be static</b>, otherwise the correct functioning of software that interacts with them cannot be guaranteed. If the location of a resource changes (and with it the endpoint) then previously written software will break, as the required resource can no longer be found at the same place. As API providers still want to update their web APIs, many have introduced a versioning system in the URI that points to an endpoint.</p>
+                  <p>Here are a couple of external resources to find free and public apis:
+                     <ul>
+                        <li><a href="https://publicapis.io/" target="_blank" rel="noopener noreferrer">Public API's</a></li>
+                        <li><a href="https://rapidapi.com/collection/list-of-free-apis" target="_blank" rel="noopener noreferrer">Rapid</a></li>
+                        <li><a href="https://apifinder.com/" target="_blank" rel="noopener noreferrer">API Finder</a></li>
+                     </ul>
+                  </p>
+               </article>
             </section>
 
             <p><a href="#top">Back to Top</a><br><br></p>
