@@ -44,13 +44,48 @@
             <!--JSON Introduction-->
             <article>
                <h6>What is Json</h6>
-               <p><span class="firstWord">Json</span> </p>
+               <p><span class="firstWord">Json</span> is an acronym for <b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation. It is a lightweight data-interchange format which is easy for humans to read and write, and it's easy for machines to parse and generate.</p>
+               <p>JSON is a text format that is completely <i>language independent</i>, but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.</p>
+               <p>JSON is built on two structures:
+                  <ul>
+                     <li>1). A collection of name/value pairs. In various languages, this is realized as an <b>object</b>, record, struct, dictionary, hash table, keyed list, or associative array.</li>
+                     <li>2). An ordered list of values. In most languages, this is realized as an <b>array</b>, vector, list, or sequence.</li>
+                  </ul>
+               </p>
+               <p>The Json format is very similar to JavaScript <i><b>Objects</b></i> and <i><b>Arrays</b></i> with one difference being that the <i>Object <b>keyName</b></i> must be included within <i><b>double quotes</b></i> <i>(single quotes will <b>not</b> work)</i>. For example, if we make a <i>JavaScript Super Hero <b>Object</b></i>, it might look something like this:
+                  <ul class="sectHighlight">
+                     <li><b>JavaScript</b></li>
+                     <li>SuperHeroes {
+                        <ul>
+                           <li>squad: "Super Squad",</li>
+                           <li>home: "Metro",</li>
+                           <li>base: "Secret Tower:,</li>
+                           <li>active: true,</li>
+                           <li>members: ["Molecule Man", Madame Uppercut", Eternal Flame"]</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  and the <i>Super Hero <b>JSON</b></i> would look like this:
+                  <ul class="sectHighlight">
+                     <li><b>JSON</b></li>
+                     <li>superHeroes {
+                        <ul>
+                           <li>"squad": "Super Squad",</li>
+                           <li>"home": "Metro",</li>
+                           <li>"base": "Secret Tower:,</li>
+                           <li>"active": true,</li>
+                           <li>"members": ["Molecule Man", Madame Uppercut", Eternal Flame"]</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+                  Notice the <i><b>double quotes</b></i> around the <i>Object <b>keyNames</b></i>. More <i>JSON</i> information can be found <a href="https://www.json.org/json-en.html" target="_blank" rel="noopener noreferrer">here</a>, and a <i>Json Formatter & Validator</i> can be found <a href="https://jsonformatter.curiousconcept.com/" target="_blank" rel="noopener noreferrer">here</a>.
+               </p>
             </article>
             <hr style="width: 90%;">
 
             <article>
-               <p><a href="https://www.json.org/json-en.html" target="_blank" rel="noopener noreferrer">Introducing Json</a></p>
-               <p><a href="https://jsonformatter.curiousconcept.com/" target="_blank" rel="noopener noreferrer">Json Formatter & Validator</a></p>
             </article>
          </section>
 
