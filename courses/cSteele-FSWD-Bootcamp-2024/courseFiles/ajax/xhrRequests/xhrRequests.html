@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+   <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Bodingles | Colt Steele</title>
+
+      <!-- Link Favicon -->
+      <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+
+      <!-- link stylesheets -->
+      <!-- Basic Reset for different browsers support -->
+      <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+
+      <!-- My local Stylesheets -->
+      <link rel="stylesheet" href="../../../../../../css/root.css" />
+      <link rel="stylesheet" href="localStyle.css" />
+   </head>
+
+   <body>
+      <!-- Header -->
+      <header>
+         <span class="headLogo"></span>
+         <span class="headTitle">Bo</span>
+         <span class="headTitleb">dingles<sub>TM</sub></span>
+         <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
+         <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+            <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
+            Ideas&nbsp;&nbsp;&nbsp;- -</span>
+      </header>
+
+      <section id="main" class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>The Web Developer Bootcamp 2024</i></h2>
+            <p>Colt Steele</p>
+            <p><a href="../ajaxIndex.html">Back to Ajax Index Page</a></p>
+            <hr style="width: 50%" />
+            <h4>XML HttpRequest (XHR)</h4>
+         </section>
+
+         <section id="textWindow4" class="just lists">
+            <!--XHR Introduction-->
+            <article>
+               <h6>XHR</h6>
+               <p><span class="firstWord">What</span> is <b>XHR</b>? XHR stands for <i>XML Http Request</i>. It's an older form of making https requests for data from a Web Server. While not commonly used anymore, we'll discuss it here briefly, for some background on other, newer methods of sending requests to servers.</p>
+               <p>As we stated, this is an older method of sending http data requests to a server API. That being said, all modern browsers have a built-in XMLHttpRequest object to request data from a web server. The XMLHttpRequest object was said to be a developers dream, because you can:
+                  <ul>
+                     <li>Update a web page without reloading the page</li>
+                     <li>Request data from a server - after the page has loaded</li>
+                     <li>Receive data from a server  - after the page has loaded</li>
+                     <li>Send data to a server - in the background</li>
+                  </ul>
+               </p>
+               <p>More Info At : <a href="https://www.w3schools.com/xml/xml_http.asp" target="_blank" rel="noopener noreferrer">W3Schools XML HttpRequest</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener noreferrer">MDN XMLHttpRequest</a></p>
+            </article>
+            <hr style="width: 90%" />
+
+            <!-- XHR Example -->
+            <article>
+               <h6>XHR Example</h6>
+               <p>We're going to be sending a request to the <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars API</a> and requesting data for <i>Person 1</i>, which is Luke Skywalker. The result of our API XHR HTTP Request will be logged to the console.</p>
+               <p>First we need to create a <b>new XHR</b> request:
+                  <ul class="sectHighlight">
+                     <li>const <span class="colorHighlight">req</span> = new <span class="colorHighlight3">XMLHttpRequest</span>();</li>
+                  </ul>
+               </p>
+               <p>Next we need to check for a successful result, and process the returned data:
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight">req</span>.onload = <span class="colorHighlight2">function</span> () {
+                        <ul>
+                           <li>// <i>parse the returned data into JSON data</i></li>
+                           <li>const <span class="colorHighlight">data</span> = JSON.<b>parse</b>(this.responseText);</li>
+                           <li>// <i>log the JSON data to the console</i></li>
+                           <li>console.log(<span class="colorHighlight">data</span>);</li>
+                        </ul>
+                     </li>
+                     <li>};</li>
+                  </ul>
+               </p>
+               <p>If the request returned an error:
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight">req</span>.onerror = <span class="colorHighlight2">function</span> () {
+                        <ul>
+                           <li>// console log the error</li>
+                           <li>console.log("ERROR!!!!");</li>
+                           <li>console.log(this);</li>
+                        </ul>
+                     </li>
+                     <li>};</li>
+                  </ul>
+               </p>
+               <p>And finally, send the <b>GET</b> request:
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight">req</span>.open("GET", "https://swapi.dev/api/people/1/");</li>
+                     <li><span class="colorHighlight">req</span>.send();</li>
+                  </ul>
+               </p>
+               <p>This send a <b>GET</b> request to the <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars API</a>, and we're requesting data on <i><b>Person 1</b></i>, which is Luke Skywalker. The output of the result of this request has been logged to the console.</p>
+            </article>
+            <hr style="width: 90%;">
+
+            <article>
+               <p>Here's the final Code:
+                  <ul class="sectHighlight">
+                     <li><b>JavaScript</b></li>
+                     <li>// <i>create a NEW XHR request</i></li>
+                     <li>const <span class="colorHighlight">req</span> = new <span class="colorHighlight3">XMLHttpRequest</span>();</li>
+                     <li>&nbsp;</li>
+                     <li>// <i>if request was successful</i></li>
+                     <li><span class="colorHighlight">req</span>.onload = <span class="colorHighlight2">function</span> () {
+                        <ul>
+                           <li>// <i>parse the returned data into JSON data</i></li>
+                           <li>const <span class="colorHighlight">data</span> = JSON.<b>parse</b>(this.responseText);</li>
+                           <li>// <i>log the JSON data to the console</i></li>
+                           <li>console.log(<span class="colorHighlight">data</span>);</li>
+                        </ul>
+                     </li>
+                     <li>};</li>
+                     <li>&nbsp;</li>
+                     <li>// <i>if request returned an error</i></li>
+                     <li><span class="colorHighlight">req</span>.onerror = <span class="colorHighlight2">function</span> () {
+                        <ul>
+                           <li>// console log the error</li>
+                           <li>console.log("ERROR!!!!");</li>
+                           <li>console.log(this);</li>
+                        </ul>
+                     </li>
+                     <li>};</li>
+                     <li>&nbsp;</li>
+                     <li> // request the data</li>
+                     <li>// <i>sends a <b>GET</b> request to Star Wars API for "person 1" (Luke Skywalker)</i></li>
+                     <li><span class="colorHighlight">req</span>.open("GET", "https://swapi.dev/api/people/1/");</li>
+                     <li><span class="colorHighlight">req</span>.send();</li>
+                  </ul>
+               </p>
+            </article>
+         </section>
+
+         <p><a href="#top">Back to Top</a><br><br></p>
+      </section>
+
+      <footer>
+         <div>Website created by badDoggy</div>
+         <div>|</div>
+         <div>2024</div>
+         <div>|</div>
+         <div>&copy; All Rights Reserved</div>
+      </footer>
+
+      <!-- JavaScripts -->
+      <script src="xhrRequests.js"></script>
+
+   </body>
+</html>

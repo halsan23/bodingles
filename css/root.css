@@ -297,6 +297,13 @@ li {
    font-weight: 500;
 }
 
+.sectHighlight {
+   background-color: #edede7;
+   padding: 0px 20px 8px;
+   border: 1px solid black;
+   border-radius: 7px;
+}
+
 .colorHighlight {
    color: #227441;
    font-weight: bold;
@@ -304,6 +311,11 @@ li {
 
 .colorHighlight2 {
    color: #682274;
+   font-weight: bold;
+}
+
+.colorHighlight3 {
+   color: #968842;
    font-weight: bold;
 }
 
@@ -428,13 +440,6 @@ li {
    border: 2px solid #3e4b2b;
    border-radius: 100px;
    box-shadow: 3px 3px 13px #747474;
-}
-
-.sectHighlight {
-   background-color: #edede7;
-   padding: 0px 20px 8px;
-   border: 1px solid black;
-   border-radius: 7px;
 }
 
 @media screen and (max-width:700px) {
