@@ -37,27 +37,23 @@
             <p>Colt Steele</p>
             <p><a href="../ajaxIndex.html">Back to Ajax Index Page</a></p>
             <hr style="width: 50%" />
-            <h4>XML HttpRequest (XHR)</h4>
+            <h4>fetch() Http Request</h4>
          </section>
 
          <section id="textWindow4" class="just lists">
-            <!--XHR Introduction-->
+            <!--fetch Introduction-->
             <article>
-               <h6>XHR</h6>
-               <p><span class="firstWord">What</span> is <b>XHR</b>? XHR stands for <i>XML Http Request</i>. It's an older form of making https requests for data from a Web Server. While not commonly used anymore, we'll discuss it here briefly, for some background on other, newer methods of sending requests to servers.</p>
-               <p>As we stated, this is an older method of sending http data requests to a server API. That being said, all modern browsers have a built-in XMLHttpRequest object to request data from a web server. The XMLHttpRequest object was said to be a developers dream, because you can:
+               <p><span class="firstWord">The Fetch API</span> provides a JavaScript interface for making HTTP requests and processing the responses. <i><b>Fetch is the modern replacement for XMLHttpRequest</b></i>:
                   <ul>
-                     <li>Update a web page without reloading the page</li>
-                     <li>Request data from a server - after the page has loaded</li>
-                     <li>Receive data from a server  - after the page has loaded</li>
-                     <li>Send data to a server - in the background</li>
+                     <li>unlike XMLHttpRequest, which uses callbacks, Fetch is promise-based and is integrated with features of the modern web such as service workers and Cross-Origin Resource Sharing (CORS)</li>
                   </ul>
+                  With the Fetch API, you make a request by calling <b>fetch()</b>, which is available as a global function in both window and worker contexts. You pass it a <b>Request object</b> or a <b>string containing the URL to fetch</b>, along with an <i>optional</i> argument to configure the request. The <b>fetch()</b> function returns a <b>Promise</b> which is fulfilled with a Response object representing the server's response. You can then check the request status and extract the body of the response in various formats, including text and JSON, by calling the appropriate method on the response.
                </p>
-               <p>More Info At : <a href="https://www.w3schools.com/xml/xml_http.asp" target="_blank" rel="noopener noreferrer">W3Schools XML HttpRequest</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener noreferrer">MDN XMLHttpRequest</a></p>
+               <p>More Info At : <a href="https://www.w3schools.com/js/js_api_fetch.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Fetch API</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN Using the Fetch API</a></p>
             </article>
             <hr style="width: 90%" />
 
-            <!-- XHR Example -->
+            <!-- fetch Example -->
             <article>
                <h6>XHR Example</h6>
                <p>We're going to be sending a request to the <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars API</a> and requesting data for <i>Person 1</i>, which is Luke Skywalker. The result of our API XHR HTTP Request will be logged to the console.</p>
@@ -98,7 +94,7 @@
                   </ul>
                </p>
                <p>This sends a <b>GET</b> request to the <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars API</a>, and we're requesting data on <i><b>Person 1</b></i>, which is Luke Skywalker. The output of the result of this request has been logged to the console.</p>
-               <p>One of the main problems with XHR HTTP Requests, and one of the reasons it it not used anymore is within the coding. In our Star Wars API example, we sent one request for one data set. But if we wanted to send multiple request for multiple data sets, the code starts to become lengthy and hard to read. This is one of the reasons why XHR HTTP Requests were replaced with <b>fetch</b> requests, which are discussed <a href="../fetch/fetch.html" target="_blank">here</a>.</p>
+               <p>One of the main problems with XHR HTTP Requests, and one of the reasons it it not used anymore is within the coding. In our Star Wars API example, we sent one request for one data set. But if we wanted to send multiple request for multiple data sets, the code starts to become lengthy and hard to read. This is one of the reasons why XHR HTTP Requests were replaced with <b>fetch</b> requests, which are discussed <a href="https://swapi.dev/documentation#base" target="_blank">here</a>.</p>
             </article>
             <hr style="width: 90%;">
 
