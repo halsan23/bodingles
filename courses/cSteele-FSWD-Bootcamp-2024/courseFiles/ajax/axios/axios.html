@@ -76,6 +76,9 @@
                <p>Once again, we are going to be requesting the data for three different Star Wars people. This time we'll using <b>3 / 5 / 7</b> to select our people. We'll then log the results to the console. Here is the code:
                   <ul class="sectHighlight">
                      <li><b>JavaScript</b></li>
+                     <li>// <i>assign a variable to output the results to a &lt;div> at the bottom of the page</i></li>
+                     <li>const <span class="colorHighlight">swPeople</span> = document.<b>getElementById</b>('swPeople');</li>
+                     <li>&nbsp;</li>
                      <li>// <i>async function to send request</i></li>
                      <li>const <span class="colorHighlight">getStarWarsPeople</span> = <span class="colorHighlight3">async</span> (<b>id</b>) <span class="colorHighlight2">=></span> {
                         <ul>
@@ -83,8 +86,8 @@
                            <li><b>try</b> {
                               <ul>
                                  <li>const <span class="colorHighlight">res</span> = <span class="colorHighlight2">await</span> <b>axios.get</b>(`https://swapi.tech/api/people/${id}/`);</li>
-                                 <li>console.log(<span class="colorHighlight">res</span><b>.data.result.properties</b>)</li>
-                                 <li>swPeople.innerHTML +=`Star Wars person #${id} : ${res.data.result.properties.name}<br>`;</li>
+                                 <li>console.log(<span class="colorHighlight">res</span><b>.data.result.properties</b>);</li>
+                                 <li>swPeople.innerHTML +=`Star Wars person #${id} : <b>${res.data.result.properties.name}</b>&lt;br>`;</li>
                               </ul>
                            </li>
                            <li>// <i>log any errors that occurred on the request</i></li>

@@ -5,6 +5,7 @@ const swPeople = document.getElementById('swPeople');
 const getStarWarsPeople = async (id) => {
    try {
       const res = await axios.get(`https://swapi.tech/api/people/${id}/`);
+      console.log(res.data.result.properties);
       swPeople.innerHTML +=`Star Wars person #${id} : <b>${res.data.result.properties.name}</b><br>`;
    } catch (e) {
       console.log("ERROR!!!", e);
