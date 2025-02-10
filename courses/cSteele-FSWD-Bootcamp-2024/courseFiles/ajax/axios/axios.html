@@ -113,7 +113,9 @@
                <p>We can clearly see that this is a much simplified coding, from the previous <b>XHR</b>, and <b>Fetch</b> requests. For starters, Axios returns a Json Object which save us a step right there.</p>
                <p>With <b>Fetch</b>, the initial request returned a Promise. We had to wait for that resolution, then we had to use <b>res.JSON()</b> to break down the <i><b>body: readable stream</b></i> to then log the <b>res.data.result.properties</b>, which gave us the actual data we requested.</p>
                <p>Using <b>Axios</b>, we simply request the data, and axios does the Json conversion for us. All we had to do was log the results of <b>res.data.result.properties</b> to the console. One step and done.</p>
-               <div id="swPeople"><p>And our Results for Star Wars persons <b>3 / 5 / 7</b> is:</p></div>
+               <p>And our Results for Star Wars persons <b>3 / 5 / 7</b> is:
+                  <ul id="swPeople"></ul>
+               </p>
             </article>
          </section>
 
