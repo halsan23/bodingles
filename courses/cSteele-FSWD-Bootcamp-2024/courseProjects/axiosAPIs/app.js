@@ -31,15 +31,14 @@ let starWars = document.getElementById('starWars');
 // Using Axios and a Async function to send multiple requests
 const getStarWarsPeople = async () => {
   try {
-      const res = await axios.get(`https://swapi.tech/api/people/`);
-      console.log(res.data.results);
-      // peopleArray = res.data.results;
-      let people =  res.data.results;
-      people.forEach(item => {
-        let newP = document.createElement('P');
-        newP.innerText = item.name;
-        starWars.append(newP);
-      })
+    const res = await axios.get(`https://swapi.tech/api/people/`);
+    console.log(res.data.results);
+    let people =  res.data.results;
+    people.forEach(item => {
+      let newP = document.createElement('P');
+      newP.innerText = item.name;
+      starWars.append(newP);
+    })
   } catch (e) {
     starWars.innerText = `ERROR!!!, ${e}`;
   }
