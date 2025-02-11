@@ -40,7 +40,7 @@
       <!-- Dad Jokes -->
       <section id="textWindow4" class="just">
          <div>
-            <h5>Dad Jokes API</h5>
+            <h6>Dad Jokes API</h6>
             <br><button>Joke Button</button><br>
             <p id="jokes">Click the Joke Button for a New Dad Joke</p>
          </div>
@@ -48,11 +48,28 @@
 
       <!-- Star Wars API -->
       <section id="textWindow4" class="just">
-         <div>
-            <h5>Star Wars API</h5>
-            <select id="swNames">
-               <option value="">Please Select One</option>
-            </select>
+         <h6>Star Wars Trivia</h6>
+         <div id="wrapper">
+            <div id="names">
+               <ul id="swNames"><span class="firstWord">People</span>
+                  <li><hr></li>
+               </ul>
+            </div>
+            <div id="planets">
+               <ul id="swPlanets"><span class="firstWord">Planets</span>
+                  <li><hr></li>
+               </ul>
+            </div>
+            <div id="ships">
+               <ul id="swShips"><span class="firstWord">Ships</span>
+                  <li><hr></li>
+               </ul>
+            </div>
+            <div id="display">
+               <ul id="swShips"><span class="firstWord">Details</span>
+                  <li><hr></li>
+               </ul>
+            </div>
          </div>
       </section>
       <p><br><a href="#top">Back to Top</a><br><br></p>
@@ -65,11 +82,15 @@
       <div>|</div>
       <div>&copy; All Rights Reserved</div>
    </footer>
+
    <!-- Scripts -->
+    <!-- ------------------------------------------------------------------------ -->
    <!-- Axios JavaScript -->
    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-   <!-- my local JavaScript -->
-   <script src="app.js"></script>
+
+   <!-- my local JavaScripts -->
+   <script src="dadJokes.js"></script>
+   <script src="starWars.js"></script>
 </body>
 
 </html>
