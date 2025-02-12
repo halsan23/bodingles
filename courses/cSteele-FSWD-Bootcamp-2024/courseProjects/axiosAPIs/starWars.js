@@ -1,100 +1,49 @@
 // Star Wars API
 // =====================================================================
-// set variable to print names
-let swNames = document.getElementById('swNames');
-let swPlanets = document.getElementById('swPlanets');
-let swShips = document.getElementById('swShips');
+// set variable for html place holders
+const swNames = document.getElementById('swNames');
+// const swPlanets = document.getElementById('swPlanets');
+// const swShips = document.getElementById('swShips');
+const disp = document.getElementById('disp');
+// set variables for api processing
+let placeHolder = '';
+let lookFor = '';
+
 
 // Using Axios and a Async function to send multiple requests
-// Get Sta Wars People
-const getStarWarsPeople = async () => {
+// Get Star Wars data from API
+const getStarWarsData = async (placeHolder, lookFor) => {
     try {
-        // axios method
+        // get api data
         // -----------------------------------------------------------------
-        const res = await axios.get(`https://swapi.tech/api/people/`);
-        let people =  res.data.results;
-        // -----------------------------------------------------------------
-
-        // fetch method
-        // -----------------------------------------------------------------
-        // const res = await fetch(`https://swapi.tech/api/people/`);
-        // const resData = await res.json();
-        // let people = resData.results;
+        const res = await axios.get(`https://swapi.tech/api/${lookFor}/`);
+        let results =  res.data.results;
         // -----------------------------------------------------------------
 
-        // display EACH item from people
-        people.forEach(item => {
+        for (let result of results) {
             let newLI = document.createElement('LI');
-            newLI.innerText = item.name;
-            swNames.append(newLI);
-      })
+            newLI.innerText = result.name;
+            placeHolder.append(newLI);
+        }
+
+        const person = displayData(lookFor, 4);
+        console.log(`Person is: ${person.properties}`);
+        // let newLI2 = document.createElement('LI');
+        // newLI2.innerText = ``;
+        // disp.append(newLI2);
     } catch (e) {
-        swNames.innerText = `ERROR!!!, ${e}`;
+        placeHolder.innerText = `ERROR!!!, ${e}`;
     }
 };
 
 
-// Get Sta Wars Planets
-const getStarWarsPlanets = async () => {
-   try {
-       // axios method
-       // -----------------------------------------------------------------
-       const res = await axios.get(`https://swapi.tech/api/planets/`);
-       let planets =  res.data.results;
-       // -----------------------------------------------------------------
-
-       // fetch method
-       // -----------------------------------------------------------------
-       // const res = await fetch(`https://swapi.tech/api/people/`);
-       // const resData = await res.json();
-       // let people = resData.results;
-       // -----------------------------------------------------------------
-
-       // display EACH item from people
-       planets.forEach(item => {
-           let newLI = document.createElement('LI');
-           newLI.innerText = item.name;
-           swPlanets.append(newLI);
-     })
-   } catch (e) {
-      swPlanets.innerText = `ERROR!!!, ${e}`;
-   }
-};
-
-
-// Get Sta Wars Ships
-const getStarWarsShips = async () => {
-   try {
-       // axios method
-       // -----------------------------------------------------------------
-       const res = await axios.get(`https://swapi.tech/api/starships/`);
-       let ships =  res.data.results;
-       // -----------------------------------------------------------------
-
-       // fetch method
-       // -----------------------------------------------------------------
-       // const res = await fetch(`https://swapi.tech/api/people/`);
-       // const resData = await res.json();
-       // let people = resData.results;
-       // -----------------------------------------------------------------
-
-       // display EACH item from people
-       ships.forEach(item => {
-           let newLI = document.createElement('LI');
-           newLI.innerText = item.name;
-           swShips.append(newLI);
-     })
-   } catch (e) {
-      swShips.innerText = `ERROR!!!, ${e}`;
-   }
-};
+const displayData = async (lookFor, id) => {
+    const res = await axios.get(`https://swapi.tech/api/${lookFor}/${id}/`);
+    console.log(res.data.result.properties);
+    return res.data.result;
+}
 
 
 // run each function
-getStarWarsPeople();
-getStarWarsPlanets();
-getStarWarsShips();
-
-
-// display the details
-// =====================================================================
+lookFor = 'people';
+getStarWarsData(swNames, lookFor);
