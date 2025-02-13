@@ -1,4 +1,3 @@
-
 const categories = document.getElementById('categories');
 const specific = document.getElementById('specific');
 const display = document.getElementById('display');
