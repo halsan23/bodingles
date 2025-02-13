@@ -1,10 +1,8 @@
 const categories = document.getElementById('categories');
 const specific = document.getElementById('specific');
 const display = document.getElementById('display');
-let htmlPlace = '';
-let lookFor = '';
 
-const dispCategs = async (htmlPlace) => {
+const dispCategs = async (category) => {
     try {
         const res = await axios.get(`https://swapi.dev/api/`);
         const result = Object.keys(res.data);
@@ -12,7 +10,7 @@ const dispCategs = async (htmlPlace) => {
         for (let item of result) {
             let newLI = document.createElement('LI');
             newLI.innerText = item.charAt(0).toUpperCase() + item.slice(1);
-            htmlPlace.append(newLI);
+            category.append(newLI);
         }
 
         categories.addEventListener('click', function(event) {
