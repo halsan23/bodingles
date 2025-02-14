@@ -1,6 +1,8 @@
 // Star Wars API
 
 // Set Base Variables
+const instructions = document.getElementById('instructions');
+const butt = document.getElementById('butt');
 const categories = document.getElementById('categories');
 const selHeader = document.getElementById('selHeader');
 const dispHeader = document.getElementById('dispHeader');
@@ -30,7 +32,7 @@ const dispCategs = async (category) => {
                 specific.innerHTML = '';
                 let text = event.target.textContent
                 selectedItem = text.charAt(0).toLowerCase() + text.slice(1);
-                genDisplay(selectedItem);
+                selectDisplay(selectedItem);
             }
         });
     } catch (e) {
@@ -39,13 +41,16 @@ const dispCategs = async (category) => {
 }
 
 // Display Specific Categories
-const genDisplay = async (item) => {
+const selectDisplay = async (item) => {
     try {
+        let itemText = item.charAt(0).toUpperCase() + item.slice(1);
+
+        // Change Instructions Message
+        instructions.innerText = `Select one of the Star Wars ${itemText} for specific details`;
         // delete any existing header & add new header info
         selHeader.innerHTML = '';
-        let itemText = item.charAt(0).toUpperCase() + item.slice(1);
         let newLI = document.createElement('LI');
-        newLI.innerHTML = `<span class="firstWord">${itemText}</span><br><hr>`;
+        newLI.innerHTML = `<h6>${itemText}</h6><hr>`;
         selHeader.append(newLI);
 
         // create and display specific items
@@ -64,6 +69,18 @@ const genDisplay = async (item) => {
     }
 }
 
+const reset = () => {
+    instructions.innerText = 'Select a Main Category Item to begin';
+    categories.innerHTML = '';
+    specific.innerHTML = '';
+    dispCategs(categories);
+    console.log(specific);
+}
 
-// display the Main Categories
+butt.addEventListener('click', function() {
+    reset();
+})
+
+// Initial Set
+instructions.innerText = 'Select a Main Category Item to begin';
 dispCategs(categories);
