@@ -6,7 +6,6 @@ const selHeader = document.getElementById('selHeader');
 const dispHeader = document.getElementById('dispHeader');
 const selList = document.getElementById('selList');
 const dispItem = document.getElementById('dispItem');
-const instructions = document.getElementById('instructions');
 
 // Display Main Categories
 const dispCategs = async (category) => {
@@ -19,7 +18,7 @@ const dispCategs = async (category) => {
         for (let item of result) {
             if (item != 'films' && item != 'vehicles' && item != 'starships') {
                 let newLI = document.createElement('LI');
-                newLI.innerText = item.charAt(0).toUpperCase() + item.slice(1);
+                newLI.innerText = item;
                 category.append(newLI);
             }
         }
@@ -27,12 +26,9 @@ const dispCategs = async (category) => {
         // add click events for menu LI's
         categories.addEventListener('click', function(event) {
             if (event.target.tagName === 'LI') {
-                // delete LI's & display new data
-                selHeader.innerHTML = '';
-                selList.innerHTML = '';
-                let text = event.target.textContent
-                selectedItem = text.charAt(0).toLowerCase() + text.slice(1);
-                selectDisplay(selectedItem);
+                let selectedCat = '';
+                selectedCat = event.target.textContent
+                selectDisplay(selectedCat);
             }
         });
     } catch (e) {
@@ -41,51 +37,26 @@ const dispCategs = async (category) => {
 }
 
 // Display Specific Categories
-const selectDisplay = async (selectedItem) => {
+const selectDisplay = async (selectedCat) => {
     try {
-        let selectedCat = selectedItem.charAt(0).toUpperCase() + selectedItem.slice(1);
-
-        // Change Instructions Message
-        instructions.innerText = `Select one of the Star Wars ${selectedCat} for specific details`;
-
-        // delete any existing header & add new header info
-        let newLI = document.createElement('LI');
-        newLI.innerHTML = `<h6>${selectedCat}</h6><hr>`;
-        selHeader.append(newLI);
-
         // create and display specific items
-        let res = await axios.get(`https://swapi.dev/api/${selectedItem}/`);
-        let results = res.data.results;
+        let res2 = await axios.get(`https://swapi.dev/api/${selectedCat}/`);
+        let results2 = res2.data.results;
 
-        for (let i = 1; i < results.length + 1; i++) {
-            const itemSel = await axios.get(`https://swapi.dev/api/${selectedItem}/${i}/`);
-            let selName = itemSel.data.name;
+        for (let i = 1; i < results2.length + 1; i++) {
+            const itemSel = await axios.get(`https://swapi.dev/api/${selectedCat}/${i}/`);
             let newLI = document.createElement('LI');
-            newLI.innerText = selName.charAt(0).toUpperCase() + selName.slice(1);
+            newLI.innerText = itemSel.data.name;
             selList.append(newLI);
         }
 
         // add click events for menu LI's
         selList.addEventListener('click', function(event) {
             if (event.target.tagName === 'LI') {
-                let text = event.target.textContent
-                console.log(`text: ${text}`);
-
                 // delete LI's & display new data
-                dispHeader.innerHTML = '';
-                dispItem.innerHTML = '';
-                selectedItem = '';
-
-                let newLI = document.createElement('LI');
-                newLI.innerText = text.charAt(0).toUpperCase() + text.slice(1);
-                console.log(`newLI: ${newLI}`);
-                dispHeader.innerHTML = `<h6>${newLI}</h6>`;
-
-                newLI.innerText = text.charAt(0).toLowerCase() + text.slice(1);
-                console.log(`newLI2: ${newLI}`);
-                dispItem.append(newLI);
-
-                // selectDisplay(selectedItem);
+                let selectedItem = '';
+                selectedItem = event.target.textContent
+                displayDetails(selectedCat, selectedItem);
             }
         });
     } catch (e) {
@@ -93,16 +64,15 @@ const selectDisplay = async (selectedItem) => {
     }
 }
 
-const reset = () => {
-    categories.innerText = '';
-    selHeader.innerHTML = '';
-    dispHeader.innerHTML = '';
-    selList.innerHTML = '';
-    dispItem.innerHTML = '';
-    instructions.innerText = 'Select a Main Category Item to begin';
-    dispCategs(categories);
+const displayDetails = async (selectedCat, selectedItem) => {
+    console.log(`Category: ${selectedCat}`);
+    console.log(`Selected Item: ${selectedItem}`);
+    // const detailSel = await axios.get(`https://swapi.dev/api/${data[0]}/?search=${data[1]}`);
+
+    // output = detailSel.data.results[0];
+    // dispHeader.append(newLI);
 }
 
 // Initial Set
-instructions.innerText = 'Select a Main Category Item to begin';
-dispCategs(categories);
+    instructions.innerText = 'Select a Main Category Item to begin';
+    dispCategs(categories);
