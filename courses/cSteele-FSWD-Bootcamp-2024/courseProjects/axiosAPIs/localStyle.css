@@ -12,23 +12,23 @@ li {
 
 #butt {
    padding: 3px 6px;
-   font-size: 12px;
+   font-size: 11px;
    border-radius: 8px;
    box-shadow: 2px 2px 8px #a7a7a7;
 }
 
-#butt:hover {
+/* #butt:hover {
    box-shadow: 0px 0px;
    color: antiquewhite;
    background-color: #585858;
-}
+} */
 
 .categories {
    margin: 0 auto;
    width: 30%;
 }
 
-.specific {
+.selection {
    margin: 0 auto;
    width: 30%;
 }

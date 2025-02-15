@@ -1,12 +1,12 @@
 // Star Wars API
 
 // Set Base Variables
-const instructions = document.getElementById('instructions');
 const categories = document.getElementById('categories');
 const selHeader = document.getElementById('selHeader');
-const specific = document.getElementById('specific');
 const dispHeader = document.getElementById('dispHeader');
-const display = document.getElementById('display');
+const selList = document.getElementById('selList');
+const dispItem = document.getElementById('dispItem');
+const instructions = document.getElementById('instructions');
 
 // Display Main Categories
 const dispCategs = async (category) => {
@@ -28,7 +28,8 @@ const dispCategs = async (category) => {
         categories.addEventListener('click', function(event) {
             if (event.target.tagName === 'LI') {
                 // delete LI's & display new data
-                specific.innerHTML = '';
+                selHeader.innerHTML = '';
+                selList.innerHTML = '';
                 let text = event.target.textContent
                 selectedItem = text.charAt(0).toLowerCase() + text.slice(1);
                 selectDisplay(selectedItem);
@@ -61,13 +62,22 @@ const selectDisplay = async (selectedItem) => {
             let selName = itemSel.data.name;
             let newLI = document.createElement('LI');
             newLI.innerText = selName.charAt(0).toUpperCase() + selName.slice(1);
-            specific.append(newLI);
+            selList.append(newLI);
         }
     } catch (e) {
         console.log(`ERROR!!!, ${e}`);
     }
 }
 
+const reset = () => {
+    categories.innerText = '';
+    selHeader.innerHTML = '';
+    dispHeader.innerHTML = '';
+    selList.innerHTML = '';
+    dispItem.innerHTML = '';
+    instructions.innerText = 'Select a Main Category Item to begin';
+    dispCategs(categories);
+}
 
 // Initial Set
 instructions.innerText = 'Select a Main Category Item to begin';
