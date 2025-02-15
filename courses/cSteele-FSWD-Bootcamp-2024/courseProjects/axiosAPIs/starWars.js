@@ -64,6 +64,30 @@ const selectDisplay = async (selectedItem) => {
             newLI.innerText = selName.charAt(0).toUpperCase() + selName.slice(1);
             selList.append(newLI);
         }
+
+        // add click events for menu LI's
+        selList.addEventListener('click', function(event) {
+            if (event.target.tagName === 'LI') {
+                let text = event.target.textContent
+                console.log(`text: ${text}`);
+
+                // delete LI's & display new data
+                dispHeader.innerHTML = '';
+                dispItem.innerHTML = '';
+                selectedItem = '';
+
+                let newLI = document.createElement('LI');
+                newLI.innerText = text.charAt(0).toUpperCase() + text.slice(1);
+                console.log(`newLI: ${newLI}`);
+                dispHeader.innerHTML = `<h6>${newLI}</h6>`;
+
+                newLI.innerText = text.charAt(0).toLowerCase() + text.slice(1);
+                console.log(`newLI2: ${newLI}`);
+                dispItem.append(newLI);
+
+                // selectDisplay(selectedItem);
+            }
+        });
     } catch (e) {
         console.log(`ERROR!!!, ${e}`);
     }

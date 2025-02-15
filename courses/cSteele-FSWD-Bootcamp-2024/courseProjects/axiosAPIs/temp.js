@@ -1,75 +1,84 @@
 // Star Wars API
-// =====================================================================
-// set variable for html place holders
-const swNames = document.getElementById('swNames');
-// const swPlanets = document.getElementById('swPlanets');
-// const swShips = document.getElementById('swShips');
-const disp = document.getElementById('disp');
-// set variables for api processing
-let placeHolder = '';
-let lookFor = '';
 
+// Set Base Variables
+const categories = document.getElementById('categories');
+const selHeader = document.getElementById('selHeader');
+const dispHeader = document.getElementById('dispHeader');
+const selList = document.getElementById('selList');
+const dispItem = document.getElementById('dispItem');
+const instructions = document.getElementById('instructions');
 
-// Using Axios and a Async function to send multiple requests
-// Get Star Wars data from API
-const getStarWarsData = async (placeHolder, lookFor) => {
+// Display Main Categories
+const dispCategs = async (category) => {
     try {
-        // axios method
-        // -----------------------------------------------------------------
-        const res = await axios.get(`https://swapi.tech/api/${lookFor}/`);
-        let result =  res.data.results;
-        // -----------------------------------------------------------------
+        // get category names
+        const res = await axios.get(`https://swapi.dev/api/`);
+        const result = Object.keys(res.data);
 
-        // fetch method
-        // -----------------------------------------------------------------
-        // const res = await fetch(`https://swapi.tech/api/people/`);
-        // const resData = await res.json();
-        // let people = resData.results;
-        // -----------------------------------------------------------------
+        // create new list items (exclude films, vehicles, & starships)
+        for (let item of result) {
+            if (item != 'films' && item != 'vehicles' && item != 'starships') {
+                let newLI = document.createElement('LI');
+                newLI.innerText = item.charAt(0).toUpperCase() + item.slice(1);
+                category.append(newLI);
+            }
+        }
 
-        for (let i = 0; i < result.length; i++) {
+        // add click events for menu LI's
+        categories.addEventListener('click', function(event) {
+            if (event.target.tagName === 'LI') {
+                // delete LI's & display new data
+                selHeader.innerHTML = '';
+                selList.innerHTML = '';
+                let text = event.target.textContent
+                selectedItem = text.charAt(0).toLowerCase() + text.slice(1);
+                selectDisplay(selectedItem);
+            }
+        });
+    } catch (e) {
+        console.log(`ERROR!!!, ${e}`);
+    }
+}
+
+// Display Specific Categories
+const selectDisplay = async (selectedItem) => {
+    try {
+        let selectedCat = selectedItem.charAt(0).toUpperCase() + selectedItem.slice(1);
+
+        // Change Instructions Message
+        instructions.innerText = `Select one of the Star Wars ${selectedCat} for specific details`;
+
+        // delete any existing header & add new header info
+        let newLI = document.createElement('LI');
+        newLI.innerHTML = `<h6>${selectedCat}</h6><hr>`;
+        selHeader.append(newLI);
+
+        // create and display specific items
+        let res = await axios.get(`https://swapi.dev/api/${selectedItem}/`);
+        let results = res.data.results;
+
+        for (let i = 1; i < results.length + 1; i++) {
+            const itemSel = await axios.get(`https://swapi.dev/api/${selectedItem}/${i}/`);
+            let selName = itemSel.data.name;
             let newLI = document.createElement('LI');
-            newLI.innerText = result[i].name;
-            placeHolder.append(newLI);
-            // if (lookFor === 'people' && i == 5) {
-            //         displayResults(lookFor, i);
-            //     }
+            newLI.innerText = selName.charAt(0).toUpperCase() + selName.slice(1);
+            selList.append(newLI);
         }
     } catch (e) {
-        placeHolder.innerText = `ERROR!!!, ${e}`;
+        console.log(`ERROR!!!, ${e}`);
     }
-};
+}
 
+const reset = () => {
+    categories.innerText = '';
+    selHeader.innerHTML = '';
+    dispHeader.innerHTML = '';
+    selList.innerHTML = '';
+    dispItem.innerHTML = '';
+    instructions.innerText = 'Select a Main Category Item to begin';
+    dispCategs(categories);
+}
 
-// const displayResults = async (placeHolder, lookFor, id) => {
-//     const res2 = await axios.get(`https://swapi.tech/api/${lookFor}/`);
-//     const result2 = res2.data.result.properties;
-
-//     const keys = Object.keys(result2);
-//     // console.log(keys);
-//     const values = Object.values(result2);
-//     // console.log(values);
-
-//     for (let i = 0; i < keys.length; i++) {
-//         console.log(keys[i]);
-//         console.log(values[i]);
-//         if (keys[i] != 'url' && keys[i] != 'created' && keys[i] != 'edited' && keys[i] != 'homeworld') {
-//             let newLI2 = document.createElement('LI');
-//             newLI2.innerText = `${keys[i]}: ${values[i]}`;
-//             disp.append(newLI2);
-//         }
-//     }
-// }
-
-
-// run each function
-placeHolder = swNames;
-lookFor = 'people';
-getStarWarsData(placeHolder, lookFor);
-// placeHolder = swPlanets;
-// lookFor = 'planets';
-// getStarWarsData(placeHolder, lookFor, uid);
-// placeHolder = swShips;
-// lookFor = 'starships';
-// getStarWarsData(placeHolder, lookFor, uid);
-
+// Initial Set
+instructions.innerText = 'Select a Main Category Item to begin';
+dispCategs(categories);
