@@ -3,32 +3,28 @@
 // Set Base Variables
 const categories = document.getElementById('categories');
 const selHeader = document.getElementById('selHeader');
-const dispHeader = document.getElementById('dispHeader');
 const selList = document.getElementById('selList');
+const dispHeader = document.getElementById('dispHeader');
 const dispItem = document.getElementById('dispItem');
+let output = [];
 
-// Display Main Categories
-const dispCategs = async (category) => {
+async function dispCategs() {
     try {
-        // get category names
-        const res = await axios.get(`https://swapi.dev/api/`);
-        const result = Object.keys(res.data);
+        let res = await axios.get(`https://swapi.dev/api/`);
+        let result = Object.keys(res.data);
 
-        // create new list items (exclude films, vehicles, & starships)
         for (let item of result) {
             if (item != 'films' && item != 'vehicles' && item != 'starships') {
                 let newLI = document.createElement('LI');
                 newLI.innerText = item;
-                category.append(newLI);
+                categories.append(newLI);
             }
         }
 
-        // add click events for menu LI's
-        categories.addEventListener('click', function(event) {
+        categories.addEventListener('click', function (event) {
             if (event.target.tagName === 'LI') {
-                let selectedCat = '';
-                selectedCat = event.target.textContent
-                selectDisplay(selectedCat);
+                let category = event.target.textContent;
+                selectDisplay(category);
             }
         });
     } catch (e) {
@@ -37,26 +33,29 @@ const dispCategs = async (category) => {
 }
 
 // Display Specific Categories
-const selectDisplay = async (selectedCat) => {
+const selectDisplay = async (category) => {
+    selList.innerHTML = '';
     try {
-        // create and display specific items
-        let res2 = await axios.get(`https://swapi.dev/api/${selectedCat}/`);
-        let results2 = res2.data.results;
+        let res2 = await axios.get(`https://swapi.dev/api/${category}/`);
+        let result2 = res2.data.results;
 
-        for (let i = 1; i < results2.length + 1; i++) {
-            const itemSel = await axios.get(`https://swapi.dev/api/${selectedCat}/${i}/`);
+        for (let i = 1; i < result2.length + 1; i++) {
+            let itemSel = await axios.get(`https://swapi.dev/api/${category}/${i}/`);
+            let itemName = itemSel.data.name;
             let newLI = document.createElement('LI');
-            newLI.innerText = itemSel.data.name;
+            newLI.innerText = itemName;
             selList.append(newLI);
         }
 
-        // add click events for menu LI's
+        output = [];
+        output[0] = category;
+        category = '';
+
         selList.addEventListener('click', function(event) {
             if (event.target.tagName === 'LI') {
-                // delete LI's & display new data
-                let selectedItem = '';
+                output[1] = '';
                 selectedItem = event.target.textContent
-                displayDetails(selectedCat, selectedItem);
+                displayDetails(selectedItem);
             }
         });
     } catch (e) {
@@ -64,9 +63,15 @@ const selectDisplay = async (selectedCat) => {
     }
 }
 
-const displayDetails = async (selectedCat, selectedItem) => {
-    console.log(`Category: ${selectedCat}`);
-    console.log(`Selected Item: ${selectedItem}`);
+const displayDetails = async (selectedItem) => {
+    output[1] = selectedItem;
+    console.log(`Cat: ${output[0]}`)
+    console.log(`Sel: ${output[1]}`)
+    console.log(`Output: ${output}`)
+    output = [];
+
+    dispItem.innerHTML = '';
+
     // const detailSel = await axios.get(`https://swapi.dev/api/${data[0]}/?search=${data[1]}`);
 
     // output = detailSel.data.results[0];
@@ -75,4 +80,4 @@ const displayDetails = async (selectedCat, selectedItem) => {
 
 // Initial Set
     instructions.innerText = 'Select a Main Category Item to begin';
-    dispCategs(categories);
+    dispCategs();
