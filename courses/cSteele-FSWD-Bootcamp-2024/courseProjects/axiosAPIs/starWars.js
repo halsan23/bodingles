@@ -51,11 +51,12 @@ const selectDisplay = async (category) => {
     dispItem.innerHTML = '';
 
     // Update the Instructions
-    instructions.innerText = `Select one of the Star Wars ${firstLetterUp(category)} for details:`;
+    let capitolCateg = firstLetterUp(category);
+    instructions.innerText = `Select one of the Star Wars ${capitolCateg} for details:`;
 
     // display the Column Header
     let newLI = document.createElement('LI');
-    newLI.innerHTML = `<h6>${capCat}</h6><hr>`
+    newLI.innerHTML = `<h6>${capitolCateg}</h6><hr>`
     selHeader.append(newLI)
 
     // Build the Selection List
@@ -95,11 +96,12 @@ const displayDetails = async (category, selectedItem) => {
     dispItem.innerHTML = '';
 
     // Update the Instructions
-    instructions.innerText = `Details for ${firstLetterUp(selectedItem)}:`;
+    let capitolItem = firstLetterUp(selectedItem);
+    instructions.innerText = `Details for ${capitolItem}:`;
 
     // display the Column Header
     let newLI = document.createElement('LI');
-    newLI.innerHTML = `<h6>${capItem}</h6><hr>`;
+    newLI.innerHTML = `<h6>${capitolItem}</h6><hr>`;
     dispHeader.append(newLI);
 
     // get the data
