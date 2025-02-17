@@ -10,17 +10,30 @@ li {
    justify-content: space-evenly;
 }
 
-.error {
-   font-weight: bold;
-   color: darkred;
-}
-
 #categories {
    cursor: pointer;
 }
 
 #selList {
    cursor: pointer;
+}
+
+.butt {
+   padding: 4px 10px;
+   border-radius: 7px;
+   box-shadow: 2px 2px 5px #767676;
+}
+
+.butt:hover {
+   cursor: pointer;
+   color: whitesmoke;
+   background-color: #222;
+   box-shadow: none;
+}
+
+.error {
+   font-weight: bold;
+   color: darkred;
 }
 
 .categories {

@@ -8,12 +8,15 @@ const dispHeader = document.getElementById('dispHeader');
 const dispItem = document.getElementById('dispItem');
 const error = document.getElementById('error');
 
+// Display the Main Categories
 async function dispCategs() {
     instructions.innerText = 'Select a Main Category Item to begin:';
     try {
+        // Get the data from the API
         let res = await axios.get(`https://swapi.dev/api/`);
         let result = Object.keys(res.data);
 
+        // List the menu items
         for (let item of result) {
             if (item != 'films' && item != 'vehicles' && item != 'starships') {
                 let newLI = document.createElement('LI');
@@ -23,6 +26,7 @@ async function dispCategs() {
             }
         }
 
+        // Add click event for the menu items
         categories.onclick = (event) => {
             if (event.target.tagName === 'LI') {
                 let cat = event.target.textContent;
@@ -30,9 +34,9 @@ async function dispCategs() {
                 selectDisplay(category);
             }
         };
+    // error display
     } catch (e) {
-        error.innerHTML = '<span class="error">Error Loading Data | Please Refresh the Page!!</span>'
-        console.log(`ERROR!!!, ${e}`);
+        errorDisplay();
     }
 }
 
@@ -69,8 +73,7 @@ const selectDisplay = async (category) => {
             }
         };
     } catch (e) {
-        error.innerHTML = '<span class="error">Error Loading Data | Please Refresh the Page!!</span>'
-        console.log(`ERROR!!!, ${e}`);
+        errorDisplay();
     }
 }
 
@@ -162,6 +165,11 @@ function firstLetterUp(string) {
 // function to LowerCase
 function firstLetterDn(string) {
     return string.charAt(0).toLowerCase() + string.slice(1);
+}
+
+const errorDisplay = (e) => {
+    error.innerHTML = '<span class="error">Error Loading Data | Please Refresh the Page!!</span>'
+    console.log(`ERROR!!!, ${e}`);
 }
 
 // Initial Set
