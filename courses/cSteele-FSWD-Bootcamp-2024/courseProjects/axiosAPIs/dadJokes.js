@@ -14,7 +14,7 @@ const getDadJoke = async () => {
     const res = await axios.get("https://icanhazdadjoke.com/", config);
     return res.data.joke;
   } catch (e) {
-    return "OH NO! :( Is your Ad Blocker on?";
+    return "OH NO! Is your Ad Blocker on?";
   }
 };
 
