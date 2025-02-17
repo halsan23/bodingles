@@ -10,11 +10,9 @@ li {
    justify-content: space-evenly;
 }
 
-#butt {
-   padding: 3px 6px;
-   font-size: 11px;
-   border-radius: 8px;
-   box-shadow: 2px 2px 8px #a7a7a7;
+.error {
+   font-weight: bold;
+   color: darkred;
 }
 
 #categories {

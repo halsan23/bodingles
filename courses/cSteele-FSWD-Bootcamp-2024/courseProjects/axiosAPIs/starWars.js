@@ -6,6 +6,7 @@ const selHeader = document.getElementById('selHeader');
 const selList = document.getElementById('selList');
 const dispHeader = document.getElementById('dispHeader');
 const dispItem = document.getElementById('dispItem');
+const error = document.getElementById('error');
 
 async function dispCategs() {
     instructions.innerText = 'Select a Main Category Item to begin:';
@@ -30,6 +31,7 @@ async function dispCategs() {
             }
         };
     } catch (e) {
+        error.innerHTML = '<span class="error">Error Loading Data | Please Refresh the Page!!</span>'
         console.log(`ERROR!!!, ${e}`);
     }
 }
@@ -67,6 +69,7 @@ const selectDisplay = async (category) => {
             }
         };
     } catch (e) {
+        error.innerHTML = '<span class="error">Error Loading Data | Please Refresh the Page!!</span>'
         console.log(`ERROR!!!, ${e}`);
     }
 }
