@@ -34,6 +34,7 @@ async function dispCategs() {
                 selectDisplay(category);
             }
         };
+
     // error display
     } catch (e) {
         errorDisplay();
@@ -42,22 +43,28 @@ async function dispCategs() {
 
 // Display Specific Categories
 const selectDisplay = async (category) => {
+
+    // reset output displays
     selHeader.innerHTML = '';
     selList.innerHTML = '';
     dispHeader.innerHTML = '';
     dispItem.innerHTML = '';
-    let capCat = firstLetterUp(category);
 
-    instructions.innerText = `Select one of the Star Wars ${capCat} for details:`;
+    // Update the Instructions
+    instructions.innerText = `Select one of the Star Wars ${firstLetterUp(category)} for details:`;
 
+    // display the Column Header
     let newLI = document.createElement('LI');
     newLI.innerHTML = `<h6>${capCat}</h6><hr>`
     selHeader.append(newLI)
 
+    // Build the Selection List
     try {
+        // get the data
         let res2 = await axios.get(`https://swapi.dev/api/${category}/`);
         let result2 = res2.data.results;
 
+        // build the list
         for (let i = 1; i < result2.length + 1; i++) {
             let itemSel = await axios.get(`https://swapi.dev/api/${category}/${i}/`);
             let itemName = itemSel.data.name;
@@ -66,30 +73,40 @@ const selectDisplay = async (category) => {
             selList.append(newLI);
         }
 
+        // add click event for list items
         selList.onclick = (event) => {
             if (event.target.tagName === 'LI') {
                 selectedItem = event.target.textContent
                 displayDetails(category, selectedItem);
             }
         };
+
+    // error display
     } catch (e) {
         errorDisplay();
     }
 }
 
+// Display the details of selected item
 const displayDetails = async (category, selectedItem) => {
+
+    // reset output displays
     dispHeader.innerHTML = '';
     dispItem.innerHTML = '';
-    let capItem = firstLetterUp(selectedItem);
 
-    instructions.innerText = `Details for ${capItem}:`;
+    // Update the Instructions
+    instructions.innerText = `Details for ${firstLetterUp(selectedItem)}:`;
 
+    // display the Column Header
     let newLI = document.createElement('LI');
     newLI.innerHTML = `<h6>${capItem}</h6><hr>`;
     dispHeader.append(newLI);
 
+    // get the data
     const detailSel = await axios.get(`https://swapi.dev/api/${category}/?search=${selectedItem}`);
     let output = detailSel.data.results[0];
+
+    // display the results
     if (category === 'people') {
         person(output);
     }
@@ -101,8 +118,14 @@ const displayDetails = async (category, selectedItem) => {
     }
 }
 
+// display person details
 const person = async (data) => {
+
+    // reset person array
     let personData = [];
+
+    // special handling for "Human" species
+    // (API had empty "Human" species field)
     if (data.species.length == 0) {
         personData.push('Species: Human');
     } else {
@@ -110,6 +133,8 @@ const person = async (data) => {
         let speciesType = res.data.name;
         personData.push(`Species: ${speciesType}`);
     }
+
+    // build the person array
     personData.push(`Gender: ${firstLetterUp(data.gender)}`);
     personData.push(`Birthyear: ${data.birth_year}`);
     personData.push(`Height: ${data.height}cm`);
@@ -120,6 +145,8 @@ const person = async (data) => {
     const res = await axios.get(data.homeworld);
     let home = res.data.name;
     personData.push(`Homeworld: ${home}`);
+
+    // display the person details
     for (let i = 0; i < personData.length; i++) {
         let newLI2 = document.createElement('LI');
         newLI2.innerText = personData[i];
@@ -127,8 +154,13 @@ const person = async (data) => {
     }
 }
 
+// display planet details
 const planet = async (data) => {
+
+    // reset planet array
     let planetData = [];
+
+    // build the planet array
     planetData.push(`Diameter: ${data.diameter}km`);
     planetData.push(`Gravity: ${data.gravity} Gs`);
     planetData.push(`Orbital Period: ${data.orbital_period} Earth Days`);
@@ -137,6 +169,8 @@ const planet = async (data) => {
     planetData.push(`Surface Water: ${data.surface_water}%`);
     planetData.push(`Terrain: ${firstLetterUp(data.terrain)}`);
     planetData.push(`Average Population: ${data.population}`);
+
+    // display the planet details
     for (let i = 0; i < planetData.length; i++) {
         let newLI2 = document.createElement('LI');
         newLI2.innerText = planetData[i];
@@ -144,12 +178,19 @@ const planet = async (data) => {
     }
 }
 
+// display species details
 const species = async (data) => {
+
+    // reset species array
     let speciesData = [];
+
+    // build the species array
     speciesData.push(`Designation: ${data.designation}`);
     speciesData.push(`Average Lifespan: ${data.average_lifespan} Earth Years`);
     speciesData.push(`Average Height: ${data.average_height}cm`);
     speciesData.push(`Language: ${data.language}`);
+
+    // display the species details
     for (let i = 0; i < speciesData.length; i++) {
         let newLI2 = document.createElement('LI');
         newLI2.innerText = speciesData[i];
@@ -157,16 +198,17 @@ const species = async (data) => {
     }
 }
 
-// function to Capitalize
+// function to Capitalize first letter
 function firstLetterUp(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// function to LowerCase
+// function to LowerCase first letter
 function firstLetterDn(string) {
     return string.charAt(0).toLowerCase() + string.slice(1);
 }
 
+// error display
 const errorDisplay = (e) => {
     error.innerHTML = '<span class="error">Error Loading Data | Please Refresh the Page!!</span>'
     console.log(`ERROR!!!, ${e}`);
