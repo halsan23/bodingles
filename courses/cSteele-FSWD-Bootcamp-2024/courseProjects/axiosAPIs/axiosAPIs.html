@@ -76,12 +76,13 @@
          <section id="textWindow4" class="just">
             <div>
                <h5>TV Shows API</h5>
-               <p id="error">Example of multiple API calls for data retrieval from <a href="https://www.tvmaze.com/api" target="_blank" rel="noopener noreferrer">TV Maze APIs</a>.</p>
-               <p>Search for TV Show Information</p>
+               <p>Example of multiple API calls for data retrieval from <a href="https://www.tvmaze.com/api" target="_blank" rel="noopener noreferrer">TV Maze APIs</a>.</p>
+               <p id="error">Search for TV Show Information</p>
                <form id="searchForm" action="">
-                  <input type="text" placeholder="Search for TV Shows">
+                  <input name="showInput" type="text">
                   <button>Search</button>
-               </form>
+               </form><br>
+               <div id="tvShowDisplay"></div>
             </div>
          </section>
 
@@ -93,5 +94,6 @@
       <!-- my local JavaScripts -->
       <script src="dadJokes.js"></script>
       <script src="starWars.js"></script>
+      <script src="tvShows.js"></script>
    </body>
 </html>

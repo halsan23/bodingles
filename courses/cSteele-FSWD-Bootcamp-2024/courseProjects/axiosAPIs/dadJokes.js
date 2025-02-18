@@ -19,6 +19,7 @@ const getDadJoke = async () => {
 
     // if error
   } catch (e) {
+    jokes.setAttribute( 'class', 'error' );
     return "OH NO! Is your Ad Blocker on?";
   }
 };

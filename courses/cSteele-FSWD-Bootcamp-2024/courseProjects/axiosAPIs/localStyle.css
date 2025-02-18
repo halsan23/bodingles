@@ -18,6 +18,26 @@ li {
    cursor: pointer;
 }
 
+#tvShowDisplay {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   font-size: 12px;
+}
+
+#tvShowDisplay span {
+   width: 17.5%;
+}
+
+#tvShowDisplay img {
+   margin: 10px 10px;
+   width: 15%;
+   height: auto;
+   border: 2px solid black;
+   box-shadow: 2px 2px 8px #727272;
+}
+
 .butt {
    padding: 4px 10px;
    border-radius: 7px;
