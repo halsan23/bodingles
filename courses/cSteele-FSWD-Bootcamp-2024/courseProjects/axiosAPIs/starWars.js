@@ -1,4 +1,5 @@
 // Star Wars API
+// https://swapi.dev/documentation#base
 
 // Set Base Variables
 const categories = document.getElementById('categories');

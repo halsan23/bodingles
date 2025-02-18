@@ -1,85 +1,97 @@
 <!DOCTYPE html>
 <html lang="en" id="top">
 
-<head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Bodingles</title>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bodingles</title>
 
-   <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+      <!-- Link Favicon -->
+      <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
 
-   <!-- link stylesheet -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../../css/root.css" />
-   <link rel="stylesheet" href="localStyle.css">
-</head>
+      <!-- link stylesheet -->
+      <link rel="stylesheet" href="../../../../../css/cssReset.css">
+      <link rel="stylesheet" href="../../../../../css/root.css" />
+      <link rel="stylesheet" href="localStyle.css">
+   </head>
 
-<body>
-   <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <body>
+      <!-- Header -->
+      <header>
+         <span class="headLogo"></span>
+         <span class="headTitle">Bo</span>
+         <span class="headTitleb">dingles<sub>TM</sub></span>
+         <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
+         <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
+            <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
+            Ideas&nbsp;&nbsp;&nbsp;- -</span>
+      </header>
 
-   <section id="main" class="content">
-      <!-- Title -->
-      <section>
-         <h2><i>Bodingles.com</i></h2>
-         <p>badDoggy</p>
-         <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
-         <hr>
-         <h4>Axios APIs</h4>
+      <section id="main" class="content">
+         <!-- Title -->
+         <section>
+            <h2><i>Bodingles.com</i></h2>
+            <p>badDoggy</p>
+            <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+            <hr>
+            <h4>Axios APIs</h4>
+         </section>
+
+         <!-- Dad Jokes -->
+         <section id="textWindow4" class="just">
+            <div>
+               <h5>Dad Jokes API</h5>
+               <p>Simple example of a single API call for data retrieval from <a href="https://icanhazdadjoke.com/api#google_vignette" target="_blank" rel="noopener noreferrer">Dad Jokes APIs</a>.<br>
+               <span style="font-size: 13px;"><i>*Sadly, this API will only run with ad blockers disabled!</i></span></p>
+               <br><button class="butt">Joke Button</button><br>
+               <p id="jokes">Click the Joke Button for a New Dad Joke</p>
+            </div>
+         </section>
+
+         <!-- Star Wars API -->
+         <section id="textWindow4" class="just">
+            <h5>Star Wars Info</h5>
+            <p id="error">Example of multiple API calls for data retrieval from <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars APIs</a>.</p>
+            <p id="instructions"></p>
+            <div id="wrapper">
+               <div class="categories">
+                  <ul><h6>Categories</h6>
+                     <li><hr></li>
+                  </ul>
+                  <ul id="categories"></ul>
+               </div>
+               <div class="selection">
+                  <ul id="selHeader"></ul>
+                  <ul id="selList"></ul>
+               </div>
+               <div class="display">
+                  <ul id="dispHeader"></ul>
+                  <ul id="dispItem"></ul>
+               </div>
+            </div>
+            <p>This is by no means meant to be an extensive Star Wars database. It is merely an example of connecting to, and retrieving data from, several API's at <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars APIs</a>. If this was a "production" project, the data would need to be much more extensive, and the app as a whole would need much refinement as to the look and feel. That being said, the app has reached it's intended goal in it's simplicity.</p>
+         </section>
+
+         <!-- TV Shows -->
+         <section id="textWindow4" class="just">
+            <div>
+               <h5>TV Shows API</h5>
+               <p id="error">Example of multiple API calls for data retrieval from <a href="https://www.tvmaze.com/api" target="_blank" rel="noopener noreferrer">TV Maze APIs</a>.</p>
+               <p>Search for TV Show Information</p>
+               <form id="searchForm" action="">
+                  <input type="text" placeholder="Search for TV Shows">
+                  <button>Search</button>
+               </form>
+            </div>
+         </section>
+
+         <p><br><a href="#top">Back to Top</a><br><br></p>
       </section>
 
-      <!-- Dad Jokes -->
-      <section id="textWindow4" class="just">
-         <div>
-            <h5>Dad Jokes API</h5>
-            <p>Simple example of a single API call for data retrieval.<br>
-            <span style="font-size: 13px;"><i>*Sadly, this API will only run with ad blockers disabled!</i></span></p>
-            <br><button class="butt">Joke Button</button><br>
-            <p id="jokes">Click the Joke Button for a New Dad Joke</p>
-         </div>
-      </section>
-
-      <!-- Star Wars API -->
-      <section id="textWindow4" class="just">
-         <h5>Star Wars Info</h5>
-         <p id="error">Example of multiple API calls for data retrieval.</p>
-         <p id="instructions"></p>
-         <div id="wrapper">
-            <div class="categories">
-               <ul><h6>Categories</h6>
-                  <li><hr></li>
-               </ul>
-               <ul id="categories"></ul>
-            </div>
-            <div class="selection">
-               <ul id="selHeader"></ul>
-               <ul id="selList"></ul>
-            </div>
-            <div class="display">
-               <ul id="dispHeader"></ul>
-               <ul id="dispItem"></ul>
-            </div>
-         </div>
-         <p>This is by no means meant to be an extensive Star Wars database. It is merely an example of connecting to, and retrieving data from, several API's at <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars APIs</a>. If this was a "production" project, the data would need to be much more extensive, and the app as a whole would need much refinement as to the look and feel. That being said, the app has reached it's intended goal in it's simplicity.</p>
-      </section>
-      <p><br><a href="#top">Back to Top</a><br><br></p>
-   </section>
-
-
-   <!-- Axios JavaScript -->
-   <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-   <!-- my local JavaScripts -->
-   <script src="dadJokes.js"></script>
-   <script src="starWars.js"></script>
-</body>
-
+      <!-- Axios JavaScript -->
+      <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+      <!-- my local JavaScripts -->
+      <script src="dadJokes.js"></script>
+      <script src="starWars.js"></script>
+   </body>
 </html>
