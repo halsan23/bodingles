@@ -56,7 +56,7 @@ const displayShows = (shows) => {
 
       // if database has no img to display
       if (!thisShow.image) {
-         divImage.innerHTML = `<p>No Image<br>Available</p>`;
+         divImage.innerHTML = `<h6>${thisShow.name}</h6><br><p>No Image<br>Available</p>`;
 
       // if database does have an img to display
       } else {
