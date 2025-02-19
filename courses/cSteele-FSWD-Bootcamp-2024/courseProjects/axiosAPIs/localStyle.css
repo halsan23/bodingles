@@ -26,14 +26,19 @@ li {
    font-size: 12px;
 }
 
-#tvShowDisplay span {
-   width: 17.5%;
+.divParent {
+   margin: 10px 10px;
+   padding: 0;
+   width: 17%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 
-#tvShowDisplay img {
-   margin: 10px 10px;
-   width: 15%;
-   height: auto;
+.divImage img {
+   margin: 0;
+   padding: 0;
+   width: 100%;
    border: 2px solid black;
    box-shadow: 2px 2px 8px #727272;
 }
