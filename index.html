@@ -2,27 +2,25 @@
 <html lang="en" id="top">
 
 <head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <base href="https://halsan23.github.io/bodingles/">
+    <title>Bodingles</title>
 
-   <title>Bodingles</title>
+    <!-- Link Favicon -->
+    <link rel="icon" href="images/logos/favicon.ico" type="image/x-icon" />
 
-   <!-- Link Favicon -->
-   <link rel="icon" href="images/logos/favicon.ico" type="image/x-icon" />
+    <!-- link stylesheet -->
+    <link rel="stylesheet" href="css/cssReset.css">
+    <link rel="stylesheet" href="css/root.css" />
 
-   <!-- link stylesheet -->
-   <link rel="stylesheet" href="css/cssReset.css">
-   <link rel="stylesheet" href="css/root.css" />
-
-   <!-- Font Awesome - Add icons -->
-   <!-- get this link from font awesome cdn -->
-   <!-- then get the icons from font awesome (the free ones) -->
-   <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome - Add icons -->
+    <!-- get this link from font awesome cdn -->
+    <!-- then get the icons from font awesome (the free ones) -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -137,12 +135,20 @@
       <p><br><a href="#top">Back to Top</a><br><br></p>
    </section>
 
-   <!-- footer -->
-   <footer id="app-footer"></footer>
+    <!-- footer -->
+    <footer id="app-footer"></footer>
 
-   <!-- scripts -->
-   <script async src="header.js"></script>
-   <script async src="footer.js"></script>
+    <!-- scripts -->
+    <script>
+        if (window.location.hostname === 'halsan23.github.io') {
+            let rootPath = "halsan23.github.io/bodingles/";
+        } else {
+            let rootPath = "./";
+        }
+    </script>
+
+    <script async src="header.js"></script>
+    <script async src="footer.js"></script>
 </body>
 
 </html>
