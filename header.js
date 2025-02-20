@@ -1,3 +1,4 @@
+let rootPath = '';
 var root = window.location.hostname;
 console.log(`root = ${root}`);
 
