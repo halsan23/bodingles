@@ -14,4 +14,13 @@ let appHeader = `
 document.getElementById("app-header").innerHTML = appHeader;
 
 var root = window.location.hostname;
-console.log(root);
+console.log(`root = ${root}`);
+
+if (root === 'https://halsan23.github.io') {
+  rootPath = 'https://halsan23.github.io/main/';
+} else {
+  rootPath = './';
+}
+
+
+console.log(`rootPath = ${rootPath}`);
