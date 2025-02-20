@@ -9,8 +9,6 @@ const getRoot = () => {
 }
 
 rootPath = getRoot();
-console.log(`rootPath = ${rootPath}`);
-
 
 let appHeader = `
     <nav>
