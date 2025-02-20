@@ -1,7 +1,7 @@
 var root = window.location.hostname;
 console.log(`root = ${root}`);
 
-if (root === 'https://halsan23.github.io') {
+if (root === 'halsan23.github.io') {
   rootPath = 'https://halsan23.github.io/bodingles/';
 } else {
   rootPath = './';
