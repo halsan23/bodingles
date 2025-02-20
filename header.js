@@ -13,6 +13,7 @@ const getRoot = () => {
 rootPath = getRoot();
 
 console.log(`rootPath = ${rootPath}`);
+console.log(`${rootPath}/images/scroll.png`);
 
 
 
