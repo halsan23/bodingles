@@ -12,5 +12,5 @@ let appHeader = `
     </nav>
 `;
 document.getElementById("app-header").innerHTML = appHeader;
-let temp = document.getElementById('temp');
-console.log(window.location.pathname);
+
+console.log(window.location.origin);
