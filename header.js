@@ -13,5 +13,5 @@ let appHeader = `
 `;
 document.getElementById("app-header").innerHTML = appHeader;
 
-var root = location.protocol + '//' + location.host;
+var root = location.protocol + '//' + location.hostname;
 console.log(root);
