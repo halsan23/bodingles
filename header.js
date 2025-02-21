@@ -2,7 +2,8 @@ let rootPath = '';
 
 const getRoot = () => {
   if (window.location.hostname === 'halsan23.github.io') {
-    return 'halsan23.github.io/bodingles/';
+    // return 'halsan23.github.io/bodingles/';
+    return '/';
   } else {
     return '/';
   }
