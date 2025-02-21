@@ -21,8 +21,10 @@ rootPath = getRoot();
 // build first part of header
 head1 = `
     <span class="headLogo"></span>
+    <a href="/index.html">
     <span class="headTitle">Bo</span>
     <span class="headTitleb">dingles<sub>TM</sub></span>
+    </a>
     <span class="headScroll"><img src="${rootPath}images/scroll.png" alt=""></span>
     <span class="headSlogan">
         - -&nbsp;&nbsp;&nbsp;Bright
