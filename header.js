@@ -18,7 +18,7 @@ let appHeader = `
       <span class="headScroll"><img src="${rootPath}images/scroll.png" alt=""></span>
       <span class="headSlogan">
         - -&nbsp;&nbsp;&nbsp;Bright
-        <a href="/temp/temp.html"><img class="sloganBulb" src="${rootPath}images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
+        <a href="${rootPath}temp/temp.html"><img class="sloganBulb" src="${rootPath}images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
          Ideas&nbsp;&nbsp;&nbsp;- -
       </span>
     </nav>
