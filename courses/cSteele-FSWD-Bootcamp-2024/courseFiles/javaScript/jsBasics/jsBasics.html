@@ -7,270 +7,259 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p>
-               <a href="../jsIndex.html">Back to JavaScript Index Page</a>
-            </p>
-            <hr style="width: 50%" />
-            <h5>JavaScript Basics</h5>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p>
+            <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+         </p>
+         <hr style="width: 50%" />
+         <h5>JavaScript Basics</h5>
+      </section>
 
-         <!-- Class Notes -->
-         <sectpion id="textWindow4" class="just lists">
-            <!-- Primitive Type Variables -->
-            <article>
-               <p><a href="../../../assets/files/JavaScript_Introduction.pdf" target="_blank">JavaScript Introduction PDF</a></p>
-               <h6>Primitive Type Variables</h6>
-               <p>The Basic JavaScript Building Blocks. JavaScript has 7 primitive data types:</p>
-                  <ul>
-                     <li><b>Numbers</b>
-                        <ul>
-                           <li>Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point etc. <b>JavaScript numbers are always stored as double precision floating point numbers</b>, following the international IEEE 754 standard. This format stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 to 51, the exponent in bits 52 to 62, and the sign in bit 63:
-                           </li>
-                           <li><b>Modulus (%)</b>
-                              <ul>
-                                 <li>The modulus operator (%) returns the division remainder.
-                                    <ul>
-                                       <li>x = 5, y = 2 : z = x % y : z = 1 (remainder of 5 divided by 2)</li>
-                                    </ul>
-                                 </li>
-                                 <li><b>*note</b>: The "MOD" operator with 2 is a good way to find out if any number is ODD or EVEN.
-                                    <ul>
-                                       <li>if the mod operation returns <b>1</b>, the number is <b>ODD</b> | 13 % 2 = 1 | 13 is an Odd number.</li>
-                                       <li>if the mod operation returns <b>0</b>, the number is <b>EVEN</b> | 14 % 2 = 0 | 14 is an Even number.</li>
-                                    </ul>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li><b>Incrementing (++)</b>
-                              <ul>
-                                 <li>The increment operator (++) increments numbers.
-                                    <ul>
-                                       <li>x = 5 : y = x ++ : y = 6 (5 incremented by 1)</li>
-                                    </ul>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li><b>Decrementing (--)</b>
-                              <ul>
-                                 <li>The decrement operator (--) decrements numbers.
-                                    <ul>
-                                       <li>x = 5 : y = x -- : y = 4 (5 decremented by 1)</li>
-                                    </ul>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li><b>Shortcuts (+= -= *= /=)</b>
-                              <ul>
-                                 <li>Add, Subtract, Multiply, Divide by more than One at a time. Shortcut for operations.
-                                    <ul>
-                                       <li>x = 5 || <b>x += 5</b> is the shorcut version for x = x + 5</li>
-                                       <li>This also works for -= | *= | /=</li>
-                                    </ul>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li><b>Powers **</b>
-                              <ul>
-                                 <li>The power operator (**) returns the power of a number.
-                                    <ul>
-                                       <li>x = 2 | y = 4 -- : 2 ** 4 = 16 : 2 to the 4th power returns 16 (2 * 2 * 2 * 2)</li>
-                                    </ul>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li><b>NaN</b>: Not a Number
-                              <ul>
-                                 <li>In JavaScript, NaN is a number that is not a legal number. Any mathematical operation involving NaN, returns <b>NaN</b>. There are five different types of operations that return NaN:
-                                    <ul>
-                                       <li>- Failed number conversion such as (e.g. 0 / 0)</li>
-                                       <li>- Math operation where the result is not a real number (e.g. Math.sqrt(-1))</li>
-                                       <li>- Indeterminate form (e.g. 0 * Infinity, 1 ** Infinity, Infinity / Infinity, Infinity - Infinity)</li>
-                                       <li>- A method or expression whose operand is or gets coerced to NaN (e.g. 7 ** NaN, 7 * "blabla") — this means NaN is contagious</li>
-                                       <li>- Other cases where an invalid value is to be represented as a number (e.g. an invalid Date new Date("blabla").getTime(), "".charCodeAt(1))</li>
-                                    </ul>
-                                 </li>
-                              </ul>
-                           </li>
-                        </ul>
-                     </li>
-                     <li><b>String</b>
-                        <ul>
-                           <li>Strings are for storing text. A JavaScript string is zero or more characters written inside
-                              quotes. You can use single or double quotes. You can use quotes inside a string, as long as they
-                              don't match the quotes surrounding the string.</li>
-                        </ul>
-                     </li>
-                     <li><b>Boolean</b>
-                        <ul>
-                           <li>A JavaScript Boolean represents one of two values: <b>True</b> or <b>False</b>. Boolean(10 > 9)
-                              evaluates to <b>True</b> because 10 IS greater than 9. Boolean(10 > 11) evaluates to
-                              <b>False</b> because 10 IS NOT greater than 11.</li>
-                        </ul>
-                     </li>
-                     <li><b>Null</b>
-                        <ul>
-                           <li>- The null keyword represents an intentionally defined absence of value. null is a primitive,
-                              although the typeof operator returns that null is an object. You might define a variable as null
-                              with the expectation that it reflects either a value assigned to it at some point in a script or
-                              an explicitly absent value. You can also assign the null value to an existing reference to clear
-                              a previous value.</li>
-                           <li>- The intentional absence of any value</li>
-                           <li>- Null MUST be assigned</li>
-                        </ul>
-                     </li>
-                     <li><b>Undefined</b>
-                        <ul>
-                           <li>- A primitive value assigned to variables that have just been declared, or to the resulting value
-                              of an operation that doesn't return a meaningful value. For example, this can happen when you
-                              declare a function in a browser's developer console. A function explicitly returns undefined
-                              when its return statement returns no value.</li>
-                           <li>- Variables that do NOT have an assigned value. (a variable that has been declared, but not assigned).</li>
-                        </ul>
-                     </li>
-                     <li><b>Bigint</b>
-                        <ul>
-                           <li>JavaScript BigInt variables are used to store big integer values that are too big to be represented by a normal JavaScript Number. JavaScript integers are only accurate up to 15 digits. To create a BigInt, append n to the end of an integer or call BigInt()</li>
-                        </ul>
-                     </li>
-                     <li><b>Symbol</b>
-                        <ul>
-                           <li><i>unknown at this time</i></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- Order of Mathmatical Operations -->
-            <article>
-               <h6>PEMDAS</h6>
-               <p>Order of Mathmatical Operations (<b>PEMDAS</b>)
-                  <ul>
-                     <li><b>P</b>arentheses</li>
-                     <li><b>E</b>xponents</li>
-                     <li><b>M</b>ultiplication</li>
-                     <li><b>D</b>ivision</li>
-                     <li><b>A</b>ddition</li>
-                     <li><b>S</b>untraction</li>
-                  </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- TypeOf() -->
-            <article>
-               <h6>typeof()</h6>
+      <!-- Class Notes -->
+      <section id="textWindow4" class="just lists">
+         <!-- Primitive Type Variables -->
+         <article>
+            <p><a href="../../../assets/files/JavaScript_Introduction.pdf" target="_blank">JavaScript Introduction PDF</a></p>
+            <h6>Primitive Type Variables</h6>
+            <p>The Basic JavaScript Building Blocks. JavaScript has 7 primitive data types:</p>
                <ul>
-                  <li>The typeof operator returns the data type of a JavaScript variable. for example:
+                  <li><b>Numbers</b>
                      <ul>
-                        <li>typeof "John" || Returns string</li>
-                        <li>typeof 33 || Returns number</li>
-                        <li>typeof true || Returns boolean</li>
-                        <li>typeof x || Returns undefined</li>
+                        <li>Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point etc. <b>JavaScript numbers are always stored as double precision floating point numbers</b>, following the international IEEE 754 standard. This format stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 to 51, the exponent in bits 52 to 62, and the sign in bit 63:
+                        </li>
+                        <li><b>Modulus (%)</b>
+                           <ul>
+                              <li>The modulus operator (%) returns the division remainder.
+                                 <ul>
+                                    <li>x = 5, y = 2 : z = x % y : z = 1 (remainder of 5 divided by 2)</li>
+                                 </ul>
+                              </li>
+                              <li><b>*note</b>: The "MOD" operator with 2 is a good way to find out if any number is ODD or EVEN.
+                                 <ul>
+                                    <li>if the mod operation returns <b>1</b>, the number is <b>ODD</b> | 13 % 2 = 1 | 13 is an Odd number.</li>
+                                    <li>if the mod operation returns <b>0</b>, the number is <b>EVEN</b> | 14 % 2 = 0 | 14 is an Even number.</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                        <li><b>Incrementing (++)</b>
+                           <ul>
+                              <li>The increment operator (++) increments numbers.
+                                 <ul>
+                                    <li>x = 5 : y = x ++ : y = 6 (5 incremented by 1)</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                        <li><b>Decrementing (--)</b>
+                           <ul>
+                              <li>The decrement operator (--) decrements numbers.
+                                 <ul>
+                                    <li>x = 5 : y = x -- : y = 4 (5 decremented by 1)</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                        <li><b>Shortcuts (+= -= *= /=)</b>
+                           <ul>
+                              <li>Add, Subtract, Multiply, Divide by more than One at a time. Shortcut for operations.
+                                 <ul>
+                                    <li>x = 5 || <b>x += 5</b> is the shorcut version for x = x + 5</li>
+                                    <li>This also works for -= | *= | /=</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                        <li><b>Powers **</b>
+                           <ul>
+                              <li>The power operator (**) returns the power of a number.
+                                 <ul>
+                                    <li>x = 2 | y = 4 -- : 2 ** 4 = 16 : 2 to the 4th power returns 16 (2 * 2 * 2 * 2)</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                        <li><b>NaN</b>: Not a Number
+                           <ul>
+                              <li>In JavaScript, NaN is a number that is not a legal number. Any mathematical operation involving NaN, returns <b>NaN</b>. There are five different types of operations that return NaN:
+                                 <ul>
+                                    <li>- Failed number conversion such as (e.g. 0 / 0)</li>
+                                    <li>- Math operation where the result is not a real number (e.g. Math.sqrt(-1))</li>
+                                    <li>- Indeterminate form (e.g. 0 * Infinity, 1 ** Infinity, Infinity / Infinity, Infinity - Infinity)</li>
+                                    <li>- A method or expression whose operand is or gets coerced to NaN (e.g. 7 ** NaN, 7 * "blabla") — this means NaN is contagious</li>
+                                    <li>- Other cases where an invalid value is to be represented as a number (e.g. an invalid Date new Date("blabla").getTime(), "".charCodeAt(1))</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li><b>String</b>
+                     <ul>
+                        <li>Strings are for storing text. A JavaScript string is zero or more characters written inside
+                           quotes. You can use single or double quotes. You can use quotes inside a string, as long as they
+                           don't match the quotes surrounding the string.</li>
+                     </ul>
+                  </li>
+                  <li><b>Boolean</b>
+                     <ul>
+                        <li>A JavaScript Boolean represents one of two values: <b>True</b> or <b>False</b>. Boolean(10 > 9)
+                           evaluates to <b>True</b> because 10 IS greater than 9. Boolean(10 > 11) evaluates to
+                           <b>False</b> because 10 IS NOT greater than 11.</li>
+                     </ul>
+                  </li>
+                  <li><b>Null</b>
+                     <ul>
+                        <li>- The null keyword represents an intentionally defined absence of value. null is a primitive,
+                           although the typeof operator returns that null is an object. You might define a variable as null
+                           with the expectation that it reflects either a value assigned to it at some point in a script or
+                           an explicitly absent value. You can also assign the null value to an existing reference to clear
+                           a previous value.</li>
+                        <li>- The intentional absence of any value</li>
+                        <li>- Null MUST be assigned</li>
+                     </ul>
+                  </li>
+                  <li><b>Undefined</b>
+                     <ul>
+                        <li>- A primitive value assigned to variables that have just been declared, or to the resulting value
+                           of an operation that doesn't return a meaningful value. For example, this can happen when you
+                           declare a function in a browser's developer console. A function explicitly returns undefined
+                           when its return statement returns no value.</li>
+                        <li>- Variables that do NOT have an assigned value. (a variable that has been declared, but not assigned).</li>
+                     </ul>
+                  </li>
+                  <li><b>Bigint</b>
+                     <ul>
+                        <li>JavaScript BigInt variables are used to store big integer values that are too big to be represented by a normal JavaScript Number. JavaScript integers are only accurate up to 15 digits. To create a BigInt, append n to the end of an integer or call BigInt()</li>
+                     </ul>
+                  </li>
+                  <li><b>Symbol</b>
+                     <ul>
+                        <li><i>unknown at this time</i></li>
                      </ul>
                   </li>
                </ul>
-            </article>
-            <hr style="width: 95%;">
+            </p>
+         </article>
+         <hr style="width: 95%;">
 
-            <!-- Comments -->
-            <article>
-               <h6>Comments</h6>
+         <!-- Order of Mathmatical Operations -->
+         <article>
+            <h6>PEMDAS</h6>
+            <p>Order of Mathmatical Operations (<b>PEMDAS</b>)
                <ul>
-                  <li>JavaScript has comments just like HTML and CSS. The format is <b>//</b> and there is NO closing
-                     comment tag.</li>
-                  <li>// I am a javascript comment</li>
+                  <li><b>P</b>arentheses</li>
+                  <li><b>E</b>xponents</li>
+                  <li><b>M</b>ultiplication</li>
+                  <li><b>D</b>ivision</li>
+                  <li><b>A</b>ddition</li>
+                  <li><b>S</b>untraction</li>
                </ul>
-            </article>
-            <hr style="width: 95%;">
+            </p>
+         </article>
+         <hr style="width: 95%;">
 
-            <!-- Let vs Const -->
-            <article>
-               <h6>Let vs Const</h6>
-               <p><b>Let</b> and <b>Const</b> are used to assign variables.
+         <!-- TypeOf() -->
+         <article>
+            <h6>typeof()</h6>
+            <ul>
+               <li>The typeof operator returns the data type of a JavaScript variable. for example:
                   <ul>
-                     <li><b>let</b> assigns a data type to a variable, <b>and can be changed</b>
-                        <ul>
-                           <li><b>let</b> x = 5 | x is now equal to 5</li>
-                           <li>x can be changed because it was assigned with <b>let</b> | x += 5 | x now equals 10</li>
-                        </ul>
-                     </li>
-                     <li><b>const</b> assigns a data type to a variable, <b>and can NOT be changed</b>
-                        <ul>
-                           <li><b>const</b> x = 5 | x is now equal to 5</li>
-                           <li>x can NOT be changed because it was assigned with <b>const</b> | x += 5 | returns a JavaScript error</li>
-                        </ul>
-                     </li>
+                     <li>typeof "John" || Returns string</li>
+                     <li>typeof 33 || Returns number</li>
+                     <li>typeof true || Returns boolean</li>
+                     <li>typeof x || Returns undefined</li>
                   </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
+               </li>
+            </ul>
+         </article>
+         <hr style="width: 95%;">
 
-            <!-- Console.log - Alerts - Prompts -->
-            <article>
-               <h6>Console.log - Alerts - Prompts</h6>
-               <p><span  class="firstWord">Colsole.log()</span> allows for output to the screen. examples:
-                  <ul>
-                     <li><b>console.log('Hello World');</b> will output to the screen : Hello World</li>
-                     <li><b>console.log(variablea + variableb);</b> will output to the screen : sum variablea + variableb</li>
-                     <li><b>console.log('I have ' + variable + ' eggs.');</b> will output to the screen : I have xx eggs</li>
-                  </ul>
-               </p><br>
-               <p><span  class="firstWord">The alert()</span> method displays an alert box with a message and an OK button. The alert() method is used when you want information to come through to the user. examples:
-                  <ul>
-                     <li><b>alert("Hello! I am an alert box!!");</b> will open a pop-out dialog saying "Hello! I am an alert box!!"</li>
-                  </ul>
-               </p><br>
-               <p><span  class="firstWord">The prompt()</span> method is similar to the alert() method in that it opens a pop-out box. The difference is that an alert() box is an input asking for the user to input some information. The prompt() method returns the input value if the user clicks "OK", otherwise it returns null. examples:
-                  <ul>
-                     <li><b>prompt("Please enter your name");</b> will open a pop-out dialog, asking for input to, "Please enter your name"</li>
-                  </ul>
-               </p>
-            </article>
-         </section>
+         <!-- Comments -->
+         <article>
+            <h6>Comments</h6>
+            <ul>
+               <li>JavaScript has comments just like HTML and CSS. The format is <b>//</b> and there is NO closing
+                  comment tag.</li>
+               <li>// I am a javascript comment</li>
+            </ul>
+         </article>
+         <hr style="width: 95%;">
 
-         <p><br></p>
-         <p><a href="#top">Back to Top</a><br /><br /></p>
-      </div>
+         <!-- Let vs Const -->
+         <article>
+            <h6>Let vs Const</h6>
+            <p><b>Let</b> and <b>Const</b> are used to assign variables.
+               <ul>
+                  <li><b>let</b> assigns a data type to a variable, <b>and can be changed</b>
+                     <ul>
+                        <li><b>let</b> x = 5 | x is now equal to 5</li>
+                        <li>x can be changed because it was assigned with <b>let</b> | x += 5 | x now equals 10</li>
+                     </ul>
+                  </li>
+                  <li><b>const</b> assigns a data type to a variable, <b>and can NOT be changed</b>
+                     <ul>
+                        <li><b>const</b> x = 5 | x is now equal to 5</li>
+                        <li>x can NOT be changed because it was assigned with <b>const</b> | x += 5 | returns a JavaScript error</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
+
+         <!-- Console.log - Alerts - Prompts -->
+         <article>
+            <h6>Console.log - Alerts - Prompts</h6>
+            <p><span  class="firstWord">Colsole.log()</span> allows for output to the screen. examples:
+               <ul>
+                  <li><b>console.log('Hello World');</b> will output to the screen : Hello World</li>
+                  <li><b>console.log(variablea + variableb);</b> will output to the screen : sum variablea + variableb</li>
+                  <li><b>console.log('I have ' + variable + ' eggs.');</b> will output to the screen : I have xx eggs</li>
+               </ul>
+            </p><br>
+            <p><span  class="firstWord">The alert()</span> method displays an alert box with a message and an OK button. The alert() method is used when you want information to come through to the user. examples:
+               <ul>
+                  <li><b>alert("Hello! I am an alert box!!");</b> will open a pop-out dialog saying "Hello! I am an alert box!!"</li>
+               </ul>
+            </p><br>
+            <p><span  class="firstWord">The prompt()</span> method is similar to the alert() method in that it opens a pop-out box. The difference is that an alert() box is an input asking for the user to input some information. The prompt() method returns the input value if the user clicks "OK", otherwise it returns null. examples:
+               <ul>
+                  <li><b>prompt("Please enter your name");</b> will open a pop-out dialog, asking for input to, "Please enter your name"</li>
+               </ul>
+            </p>
+         </article>
+      </section>
+
+      <p><br></p>
+      <p><a href="#top">Back to Top</a><br /><br /></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>

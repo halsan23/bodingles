@@ -7,231 +7,218 @@ span<!DOCTYPE html>
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
-            <hr style="width: 50%" />
-            <h5>JavaScript Event Objects</h5>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
+         <hr style="width: 50%" />
+         <h5>JavaScript Event Objects</h5>
+      </section>
 
-         <section id="textWindow4" class="just lists">
-            <!--Defining Event Objects-->
-            <article>
-               <h6>Events Objects</h6>
-               <p><a href="https://www.w3schools.com/jsreF/obj_event.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools Event Objects</a><br>
-               <a href="https://www.codeguage.com/courses/js/events-event-objects" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Codeguage Event Objects</a></p>
-               <p><span class="firstWord">What</span> are Event Objects?</p>
-               <p>As we learned from the
-                  <a href="../jsEvents/jsEvents.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">JavaScript Events</a>
-                  lesson, when an <b>event</b> occurs on a given target, its corresponding registered handler function, if there is any, is invoked with a <b>single argument</b> of <b>type <i>object</i></b>.
-               </p>
-               <p>This argument is referred to as an <b>event object</b>.</p>
-               <p>For example, when we define a <b>click</b> event, it might look something like this:
-                  <ul class="sectHighlight">
-                     <li><i>target</i>.addEventListener('<b>click</b>', <span class="colorHighlight2"><i>clickHandler</i></span>);</li>
-                  </ul>
-                  The <span class="colorHighlight2"><i>clickHandler</i></span> is a <b><i>callback function</i></b> that could also be written like:
-                  <ul class="sectHighlight">
-                     <li><span class="colorHighlight2"><i>clickHandler()</i></span>;</li>
-                  </ul>
-                  Residing <i>inside</i> the parenthesis of this <b><i>callback function</i></b> <span class="colorHighlight2"><i>clickHandler</i></span> is the hidden <b><i>event object</i>.</b>
-               </p>
-               <p>So to restate it:
-                  <ul class="sectHighlight">
-                     <li><b>Definition:</b>
-                        <ul>
-                           <li><i>An <b>event object</b> refers to the argument sent into an event handler function.</i></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-               <p>An <b>event object</b> simply <i>represents</i> an <b>event</b>. It contains contextual information regarding the event that caused a given handler to be invoked.</p>
-               <p>This can include things like the time at which the event occurred, or maybe the name of the event <i>(such as 'click')</i>, or maybe the target on which the event occurred, and so on and so forth.</p>
-               <p>In the case of <b>event-handling properties</b> and the <b>addEventListener()</b> method, since we define a function ourselves to act as an event's handler, we could name the parameter any way we like and then use it inside the function.</p>
-               <p>Conventional names are <b>e</b>, <b>event</b>, or even <b>evt</b>, following the fact that the parameter represents an event. It's almost always good to stick to conventions.</p>
-               <p>Here are a few examples:
-                  <ul class="sectHighlight">
-                     <li><b>JavaScript</b>
-                        <ul>
-                           <li><i>// Assume target is already defined.</i></li>
-                           <li>&nbsp;</li>
-                           <li><i>target</i>.onclick = <span class="colorHighlight2">function</span>(<b>e</b>) {
-                              <ul>
-                                 <li><i>// The event object is: <b>e</b></i></li>
-                              </ul>
-                           </li>
-                           <li>}</li>
-                           <li>&nbsp;</li>
-                           <li><i>target</i>.addEventListener('click', <span class="colorHighlight2">function</span>(<b>event</b>) {
-                              <ul>
-                                 <li><i>// The event object is: <b>event</b></i></li>
-                              </ul>
-                           </li>
-                           <li>});</li>
-                           <li>&nbsp;</li>
-                           <li>function <span class="colorHighlight2">clickHandler</span>(<b>nameItAsYouLike</b>) {
-                              <ul>
-                                 <li><i>// The event object is: <b>nameItAsYouLike</b></i></li>
-                              </ul>
-                           </li>
-                           <li>};</li>
-                           <li>&nbsp;</li>
-                           <li><i>target</i>.addEventListener('<b>click</b>', <span class="colorHighlight2">clickHandler</span>);
-                              <ul>
-                                 <li><i>// The event object is not listed, but it is there</i></li>
-                              </ul>
-                           </li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-            </article>
-            <br><hr style="width: 90%"><br>
-
-            <!--Getting Event Object Properties-->
-            <article>
-               <h6>Getting Event Object Properties</h6>
-               <p><span class="firstWord">Now</span> that we know what <b>event objects</b> are, how can we see the <i>properties</i> for an <b>event object</b>?</p>
-               <p>Let's start by creating a button:
-                  <ul class="sectHighlight">
-                     <li>&lt;button&gt;Click Here&lt;/button&gt;</li>
-                  </ul>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>Click Here</button>
-               </p>
-               <p>Now we need to create a JavaScript <b>object</b>. We will also assign a <b><i>click</i> event</b> that will <b>console.log</b> the <b>event object</b>, when the <b>button</b> is <i>clicked</i>.
-                  <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight">button</span> = document.QuerySelector('<b>button</b>');
-                        <ul>
-                           <li>// <i>create the <b>button</b> object</i></li>
-                        </ul>
-                        <li><span class="colorHighlight">button</span>.addEventListener('<b><i>click</i></b>', <i>function<span class="colorHighlight2">(evt)</span></i> {
-                           <ul>
-                              <li>// <i>assigns a <b>click event</b> to the <b>button</b> object</i>, and assigns the variable <span class="colorHighlight2">(evt)</span> to the <b>callback <i>function</i></b>, which represents the <b>event object</b></li>
-                           </ul>
-                        </li>
-                        <li>&nbsp;</li>
-                        <li>
-                           <ul>
-                              <li><b>console.log(<span class="colorHighlight2"><i>evt</i>);</b>
-                                 <ul>
-                                    <li>// <i>outputs the <b>event object</b> variable <span class="colorHighlight2">(evt)</span> to the console, so we can view it's properties</i></li>
-                                 </ul>
-                              </li>
-                           </ul>
-                        </li>
-                        <li>})</li>
-                     </li>
-                  </ul>
-                  You will notice that we have actually assigned the <b>event object</b> to the variable <span class="colorHighlight2"><i>evt</i></span>.</p>
-                  <p>And when you click the button, the console will <i>log</i> the <b>event object</b> <i>properties</i>, <span class="colorHighlight2">(<i>evt</i>)</span>, which you can then expand, to see <i>ALL</i> of the properties, for this <b>event object</b> (<span class="colorHighlight2"><i>evt</i></span>).</p>
-                  <p>Remember that we did NOT create the <b>event object</b>. It was created, by <b>JavaScript</b>, when we created the <b>object <i>click</i> event</b>. All we did, was to assign the <b>event object</b> to a variable (<span class="colorHighlight2"><i>evt</i></span>), so that we could view it's properties in the console.</p>
-                  <p>To Summarize:
-                     <ul class="sectHighlight">
-                        <li>1). create the <b>object</b></li>
-                        <li>2). create an <b>event</b> and assign it to the <b>object</b></li>
-                        <li>3). <i>JavaScript</i> will create the <b>event object</b> and assign it to the <b>callback <i>function</i></b></li>
+      <section id="textWindow4" class="just lists">
+         <!--Defining Event Objects-->
+         <article>
+            <h6>Events Objects</h6>
+            <p><a href="https://www.w3schools.com/jsreF/obj_event.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools Event Objects</a><br>
+            <a href="https://www.codeguage.com/courses/js/events-event-objects" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Codeguage Event Objects</a></p>
+            <p><span class="firstWord">What</span> are Event Objects?</p>
+            <p>As we learned from the
+               <a href="../jsEvents/jsEvents.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">JavaScript Events</a>
+               lesson, when an <b>event</b> occurs on a given target, its corresponding registered handler function, if there is any, is invoked with a <b>single argument</b> of <b>type <i>object</i></b>.
+            </p>
+            <p>This argument is referred to as an <b>event object</b>.</p>
+            <p>For example, when we define a <b>click</b> event, it might look something like this:
+               <ul class="sectHighlight">
+                  <li><i>target</i>.addEventListener('<b>click</b>', <span class="colorHighlight2"><i>clickHandler</i></span>);</li>
+               </ul>
+               The <span class="colorHighlight2"><i>clickHandler</i></span> is a <b><i>callback function</i></b> that could also be written like:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight2"><i>clickHandler()</i></span>;</li>
+               </ul>
+               Residing <i>inside</i> the parenthesis of this <b><i>callback function</i></b> <span class="colorHighlight2"><i>clickHandler</i></span> is the hidden <b><i>event object</i>.</b>
+            </p>
+            <p>So to restate it:
+               <ul class="sectHighlight">
+                  <li><b>Definition:</b>
+                     <ul>
+                        <li><i>An <b>event object</b> refers to the argument sent into an event handler function.</i></li>
                      </ul>
-                  </p>
-            </article>
-            <br><hr style="width: 90%"><br>
+                  </li>
+               </ul>
+            </p>
+            <p>An <b>event object</b> simply <i>represents</i> an <b>event</b>. It contains contextual information regarding the event that caused a given handler to be invoked.</p>
+            <p>This can include things like the time at which the event occurred, or maybe the name of the event <i>(such as 'click')</i>, or maybe the target on which the event occurred, and so on and so forth.</p>
+            <p>In the case of <b>event-handling properties</b> and the <b>addEventListener()</b> method, since we define a function ourselves to act as an event's handler, we could name the parameter any way we like and then use it inside the function.</p>
+            <p>Conventional names are <b>e</b>, <b>event</b>, or even <b>evt</b>, following the fact that the parameter represents an event. It's almost always good to stick to conventions.</p>
+            <p>Here are a few examples:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b>
+                     <ul>
+                        <li><i>// Assume target is already defined.</i></li>
+                        <li>&nbsp;</li>
+                        <li><i>target</i>.onclick = <span class="colorHighlight2">function</span>(<b>e</b>) {
+                           <ul>
+                              <li><i>// The event object is: <b>e</b></i></li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                        <li>&nbsp;</li>
+                        <li><i>target</i>.addEventListener('click', <span class="colorHighlight2">function</span>(<b>event</b>) {
+                           <ul>
+                              <li><i>// The event object is: <b>event</b></i></li>
+                           </ul>
+                        </li>
+                        <li>});</li>
+                        <li>&nbsp;</li>
+                        <li>function <span class="colorHighlight2">clickHandler</span>(<b>nameItAsYouLike</b>) {
+                           <ul>
+                              <li><i>// The event object is: <b>nameItAsYouLike</b></i></li>
+                           </ul>
+                        </li>
+                        <li>};</li>
+                        <li>&nbsp;</li>
+                        <li><i>target</i>.addEventListener('<b>click</b>', <span class="colorHighlight2">clickHandler</span>);
+                           <ul>
+                              <li><i>// The event object is not listed, but it is there</i></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+         </article>
+         <br><hr style="width: 90%"><br>
 
-            <!--Using Event Object Properties-->
-            <article>
-               <h6>Using Events Object Properties</h6>
-               <p><span class="firstWord">Why</span> would we need to know any of these event object <i>properties</i>?</p>
-               <p>Well, if you look at some of these <i>properties</i>, you see entries such as, <b>clientx</b>, and <b>clienty</b>. These show the exact position on the page where the mouse was actually clicked. This could be useful if you were for example, writing a program, where if you click on a certain portion of the page you want a popup or some other form of page interaction.</p>
-               <p>Another reason is that often, we need to rely on <b>event objects</b> when we are working with <b><i>keyboard events</i></b>. Because frequently we want to know what key was pressed, and that information is located in the <i>keyboard event</i> <b>object.</b>.</p>
-               <p>For example, let's us a regular <i>form input</i> to display key inputs. First (<i>in HTML</i>) create the form element:
-                  <ul class="sectHighlight">
-                     <li>&lt;input type="text"&gt;</li>
-                  </ul>
-                  &nbsp;&nbsp;&nbsp;&nbsp;<input type="text">
-               </p>
-               <p>and now the <b>JavaScript</b>:
-                  <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight">input</span> = document.querySelector('<b>input</b>');</li>
-                     <li><span class="colorHighlight">input</span>.addEventListener('<b>keydown</b>', <i>function(<span class="colorHighlight2">event</span>)</i> {
+         <!--Getting Event Object Properties-->
+         <article>
+            <h6>Getting Event Object Properties</h6>
+            <p><span class="firstWord">Now</span> that we know what <b>event objects</b> are, how can we see the <i>properties</i> for an <b>event object</b>?</p>
+            <p>Let's start by creating a button:
+               <ul class="sectHighlight">
+                  <li>&lt;button&gt;Click Here&lt;/button&gt;</li>
+               </ul>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>Click Here</button>
+            </p>
+            <p>Now we need to create a JavaScript <b>object</b>. We will also assign a <b><i>click</i> event</b> that will <b>console.log</b> the <b>event object</b>, when the <b>button</b> is <i>clicked</i>.
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">button</span> = document.QuerySelector('<b>button</b>');
+                     <ul>
+                        <li>// <i>create the <b>button</b> object</i></li>
+                     </ul>
+                     <li><span class="colorHighlight">button</span>.addEventListener('<b><i>click</i></b>', <i>function<span class="colorHighlight2">(evt)</span></i> {
                         <ul>
-                           <li>console.log(<span class="colorHighlight2">event</span>);</li>
+                           <li>// <i>assigns a <b>click event</b> to the <b>button</b> object</i>, and assigns the variable <span class="colorHighlight2">(evt)</span> to the <b>callback <i>function</i></b>, which represents the <b>event object</b></li>
+                        </ul>
+                     </li>
+                     <li>&nbsp;</li>
+                     <li>
+                        <ul>
+                           <li><b>console.log(<span class="colorHighlight2"><i>evt</i>);</b>
+                              <ul>
+                                 <li>// <i>outputs the <b>event object</b> variable <span class="colorHighlight2">(evt)</span> to the console, so we can view it's properties</i></li>
+                              </ul>
+                           </li>
                         </ul>
                      </li>
                      <li>})</li>
-                  </ul>
-               </p>
-               <p>Now we've done several things here,
-                  <ul>
-                     <li>- We created a <i>form input <b>object</b></i> called <span class="colorHighlight">input</span></li>
-                     <li>- We assigned a <i>keyboard event</i> (<b>"keydown"</b>) to our <i>form input <b>object</b></i> (<span class="colorHighlight">input</span>)</li>
-                     <li>- We assigned a variable <span class="colorHighlight2"><i>event</i></span> to the <b>event object</b></li>
-                     <li>- and finally, we output the <i>properties</i> of the <b>event object</b>, (<span class="colorHighlight2"><i>event</i></span>), to the console, when the <b>event</b> is activated <i>(by a keydown press)</i></li>
-                  </ul>
-                  And if we review our output in the console log we find:
-                  <ul>
-                     <li><b>key: "f"</b></li>
-                  </ul>
-                  or which ever key was pressed, <i>(among othr properties in the log)</i>.
-               </p>
-               <p><b>Also</b>, interestingly enough, you could create a "<b>global</b>" scope and not be tied to an element such as a vutton or form element, by using the <b><i>"window"</i></b> as the <b>object</b> for the <b>event</b>.</p>
-               <p>If we write:
+                  </li>
+               </ul>
+               You will notice that we have actually assigned the <b>event object</b> to the variable <span class="colorHighlight2"><i>evt</i></span>.</p>
+               <p>And when you click the button, the console will <i>log</i> the <b>event object</b> <i>properties</i>, <span class="colorHighlight2">(<i>evt</i>)</span>, which you can then expand, to see <i>ALL</i> of the properties, for this <b>event object</b> (<span class="colorHighlight2"><i>evt</i></span>).</p>
+               <p>Remember that we did NOT create the <b>event object</b>. It was created, by <b>JavaScript</b>, when we created the <b>object <i>click</i> event</b>. All we did, was to assign the <b>event object</b> to a variable (<span class="colorHighlight2"><i>evt</i></span>), so that we could view it's properties in the console.</p>
+               <p>To Summarize:
                   <ul class="sectHighlight">
-                     <li><span class="colorHighlight">window</span>.addEventListener('<b>keydown</b>', <i>function (<span class="colorHighlight2">e</span>)</i> {
-                        <ul>
-                           <li>console.log(<span class="colorHighlight2">e</span>.<b>code</b>);</li>
-                        </ul>
-                     </li>
-                     <li>})</li>
+                     <li>1). create the <b>object</b></li>
+                     <li>2). create an <b>event</b> and assign it to the <b>object</b></li>
+                     <li>3). <i>JavaScript</i> will create the <b>event object</b> and assign it to the <b>callback <i>function</i></b></li>
                   </ul>
-                  we are now targeting <span class="colorHighlight">window</span>, which targets the page window as the <b>object</b>, and <b>keydown</b> becomes the <b>event</b>.
                </p>
-               <p>We then <i>console.log</i> the <b>event object</b> (<span class="colorHighlight2">e</span>) and it's property <b>code</b>, which is the <b><i>key code</i></b> for the key being pressed.
-               </p>
-               <p><b>*note</b>: "<b><i>code</i></b>" is but one of several keyboard event <i>properties</i> that can be accessed. Here is
-                  <a href="https://www.w3schools.com/jsref/obj_keyboardevent.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">more information</a>.</p>
-               <p>So we can now press a key anywhere on the page and the code will track which key was pressed.</p>
-            </article>
-         </section>
+         </article>
+         <br><hr style="width: 90%"><br>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+         <!--Using Event Object Properties-->
+         <article>
+            <h6>Using Events Object Properties</h6>
+            <p><span class="firstWord">Why</span> would we need to know any of these event object <i>properties</i>?</p>
+            <p>Well, if you look at some of these <i>properties</i>, you see entries such as, <b>clientx</b>, and <b>clienty</b>. These show the exact position on the page where the mouse was actually clicked. This could be useful if you were for example, writing a program, where if you click on a certain portion of the page you want a popup or some other form of page interaction.</p>
+            <p>Another reason is that often, we need to rely on <b>event objects</b> when we are working with <b><i>keyboard events</i></b>. Because frequently we want to know what key was pressed, and that information is located in the <i>keyboard event</i> <b>object.</b>.</p>
+            <p>For example, let's us a regular <i>form input</i> to display key inputs. First (<i>in HTML</i>) create the form element:
+               <ul class="sectHighlight">
+                  <li>&lt;input type="text"&gt;</li>
+               </ul>
+               &nbsp;&nbsp;&nbsp;&nbsp;<input type="text">
+            </p>
+            <p>and now the <b>JavaScript</b>:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">input</span> = document.querySelector('<b>input</b>');</li>
+                  <li><span class="colorHighlight">input</span>.addEventListener('<b>keydown</b>', <i>function(<span class="colorHighlight2">event</span>)</i> {
+                     <ul>
+                        <li>console.log(<span class="colorHighlight2">event</span>);</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+            <p>Now we've done several things here,
+               <ul>
+                  <li>- We created a <i>form input <b>object</b></i> called <span class="colorHighlight">input</span></li>
+                  <li>- We assigned a <i>keyboard event</i> (<b>"keydown"</b>) to our <i>form input <b>object</b></i> (<span class="colorHighlight">input</span>)</li>
+                  <li>- We assigned a variable <span class="colorHighlight2"><i>event</i></span> to the <b>event object</b></li>
+                  <li>- and finally, we output the <i>properties</i> of the <b>event object</b>, (<span class="colorHighlight2"><i>event</i></span>), to the console, when the <b>event</b> is activated <i>(by a keydown press)</i></li>
+               </ul>
+               And if we review our output in the console log we find:
+               <ul>
+                  <li><b>key: "f"</b></li>
+               </ul>
+               or which ever key was pressed, <i>(among othr properties in the log)</i>.
+            </p>
+            <p><b>Also</b>, interestingly enough, you could create a "<b>global</b>" scope and not be tied to an element such as a vutton or form element, by using the <b><i>"window"</i></b> as the <b>object</b> for the <b>event</b>.</p>
+            <p>If we write:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">window</span>.addEventListener('<b>keydown</b>', <i>function (<span class="colorHighlight2">e</span>)</i> {
+                     <ul>
+                        <li>console.log(<span class="colorHighlight2">e</span>.<b>code</b>);</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+               we are now targeting <span class="colorHighlight">window</span>, which targets the page window as the <b>object</b>, and <b>keydown</b> becomes the <b>event</b>.
+            </p>
+            <p>We then <i>console.log</i> the <b>event object</b> (<span class="colorHighlight2">e</span>) and it's property <b>code</b>, which is the <b><i>key code</i></b> for the key being pressed.
+            </p>
+            <p><b>*note</b>: "<b><i>code</i></b>" is but one of several keyboard event <i>properties</i> that can be accessed. Here is
+               <a href="https://www.w3schools.com/jsref/obj_keyboardevent.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">more information</a>.</p>
+            <p>So we can now press a key anywhere on the page and the code will track which key was pressed.</p>
+         </article>
+      </section>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
    <script src="jsEventObject.js"></script>
-
 </body>
-
 </html>

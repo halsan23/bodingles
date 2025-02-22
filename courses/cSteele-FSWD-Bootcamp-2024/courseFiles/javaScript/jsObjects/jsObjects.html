@@ -7,126 +7,115 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p>
-               <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p>
+            <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+         </p>
+         <hr style="width: 50%" />
+         <h5>JavaScript Objects</h5>
+      </section>
+
+      <!-- JavaScript Objects Reference Links -->
+      <section id="textWindow2">
+         <p><a href="../../../assets/files/JavaScript_Objects.pdf" target="_blank">JavaScript Objects PDF</a></p>
+         <p><a href="https://www.w3schools.com/js/js_objects.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Objects</a></p>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects" target="_blank" rel="noopener noreferrer">MDN JavaScript Objects</a></p>
+      </section>
+
+      <!-- Class Notes -->
+      <section id="textWindow4" class="just lists">
+         <!-- Objects Defined -->
+         <article>
+            <p><span class="firstWord">An object</span> is a collection of properties, and a property is an association between a <b>key</b> and a <b>value</b>.
             </p>
-            <hr style="width: 50%" />
-            <h5>JavaScript Objects</h5>
-         </section>
+            <p>An array is another form of an Object and with an array, you reference a property with an <b>index</b> value. With "Literal" objects, you reference a value by it's <b>key</b>. Arrays are considered "ordered" because they store data in an ordered fashion, starting at index(0), from left to right. Literal objects store data in an unordered fashion, referenced by their key/value as opposed to an index value.
+            </p>
+            <p><i></i><b>*note</b>: A property's value can be a <b>function</b>, in which case the property is known as a <b>method</b>.</i>
+            </p>
+            <p>Objects in JavaScript, just as in many other programming languages, can be compared to objects in real life. In JavaScript, an object is a standalone entity, with properties and type. Compare it with a cup, for example. A cup is an object, with properties. A cup has a color, a design, weight, a material it is made of, etc. The same way, JavaScript objects can have properties, which define their characteristics.</p>
+            <p>In addition to objects that are predefined in the browser, you can define your own objects.
+            </p>
+         </article>
+         <hr style="width: 95%;">
 
-         <!-- JavaScript Objects Reference Links -->
-         <section id="textWindow2">
-            <p><a href="../../../assets/files/JavaScript_Objects.pdf" target="_blank">JavaScript Objects PDF</a></p>
-            <p><a href="https://www.w3schools.com/js/js_objects.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Objects</a></p>
-            <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects" target="_blank" rel="noopener noreferrer">MDN JavaScript Objects</a></p>
-         </section>
+         <!-- Create an Object -->
+         <article>
+            <p><span class="firstWord">The</span> basic syntax is:
+               <ul>
+                  <li>objectName = {
+                     <ul>
+                        <li>key1 : value1,</li>
+                        <li>key2 : value2,</li>
+                        <li>key3 : value3,</li>
+                        <li>key4 : value4</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>To access a value just reference the <b>objectName["key"]</b>, or by using the "dot" notation <b>objectName.key</b>.</p>
+            <p>For example:
+               <ul>
+                  <li><b>objectName["key1"]</b> returns value1</li>
+                  <li><i>(dont forget the square brackets and quotations)</i></li>
+                  <li>or <b>objectNmae.key2</b> returns value2</li>
+               </ul>
+            </p>
+            <p>Let's say we're describing a car, we could build the car object
+               <ul>
+                  <li>const car = {
+                     <ul>
+                        <li>color: 'Red',</li>
+                        <li>doors: 4,</li>
+                        <li>sunroof: false,</li>
+                        <li>cost: '$'' + 20000</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>Now we can access the car properties:
+               <ul>
+                  <li><b>car["color"]</b> returns <b>Red</b></li>
+                  <li><b>car["cost"]</b> returns <b>$20000</b></li>
+                  <li><b>car.doors</b> returns <b>4</b></li>
+                  <li><b>car.sunroof</b> returns <b>false</b></li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
 
-         <!-- Class Notes -->
-         <section id="textWindow4" class="just lists">
-            <!-- Objects Defined -->
-            <article>
-               <p><span class="firstWord">An object</span> is a collection of properties, and a property is an association between a <b>key</b> and a <b>value</b>.
-               </p>
-               <p>An array is another form of an Object and with an array, you reference a property with an <b>index</b> value. With "Literal" objects, you reference a value by it's <b>key</b>. Arrays are considered "ordered" because they store data in an ordered fashion, starting at index(0), from left to right. Literal objects store data in an unordered fashion, referenced by their key/value as opposed to an index value.
-               </p>
-               <p><i></i><b>*note</b>: A property's value can be a <b>function</b>, in which case the property is known as a <b>method</b>.</i>
-               </p>
-               <p>Objects in JavaScript, just as in many other programming languages, can be compared to objects in real life. In JavaScript, an object is a standalone entity, with properties and type. Compare it with a cup, for example. A cup is an object, with properties. A cup has a color, a design, weight, a material it is made of, etc. The same way, JavaScript objects can have properties, which define their characteristics.</p>
-               <p>In addition to objects that are predefined in the browser, you can define your own objects.
-               </p>
-            </article>
-            <hr style="width: 95%;">
+      </section>
 
-            <!-- Create an Object -->
-            <article>
-               <p><span class="firstWord">The</span> basic syntax is:
-                  <ul>
-                     <li>objectName = {
-                        <ul>
-                           <li>key1 : value1,</li>
-                           <li>key2 : value2,</li>
-                           <li>key3 : value3,</li>
-                           <li>key4 : value4</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <p>To access a value just reference the <b>objectName["key"]</b>, or by using the "dot" notation <b>objectName.key</b>.</p>
-               <p>For example:
-                  <ul>
-                     <li><b>objectName["key1"]</b> returns value1</li>
-                     <li><i>(dont forget the square brackets and quotations)</i></li>
-                     <li>or <b>objectNmae.key2</b> returns value2</li>
-                  </ul>
-               </p>
-               <p>Let's say we're describing a car, we could build the car object
-                  <ul>
-                     <li>const car = {
-                        <ul>
-                           <li>color: 'Red',</li>
-                           <li>doors: 4,</li>
-                           <li>sunroof: false,</li>
-                           <li>cost: '$'' + 20000</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <p>Now we can access the car properties:
-                  <ul>
-                     <li><b>car["color"]</b> returns <b>Red</b></li>
-                     <li><b>car["cost"]</b> returns <b>$20000</b></li>
-                     <li><b>car.doors</b> returns <b>4</b></li>
-                     <li><b>car.sunroof</b> returns <b>false</b></li>
-                  </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-         </section>
-
-         <p><br></p>
-         <p><a href="#top">Back to Top</a><br /><br /></p>
-      </div>
+      <p><br></p>
+      <p><a href="#top">Back to Top</a><br /><br /></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>

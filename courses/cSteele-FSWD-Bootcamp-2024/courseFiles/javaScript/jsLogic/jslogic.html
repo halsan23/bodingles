@@ -7,192 +7,181 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p>
-               <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p>
+            <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+         </p>
+         <hr style="width: 50%" />
+         <h5>JavaScript Decision Making</h5>
+      </section>
+
+      <!-- Class Notes -->
+      <section id="textWindow4" class="just lists">
+         <!-- Equality -->
+         <article>
+            <p><a href="../../../assets/files/JavaScript_Boolean_Logic.pdf" target="_blank">JavaScript Decision Making PDF</a></p>
+            <h6>Equality</h6>
+            <p><span class="firstWord">JavaScript</span> decision making basically involves branching to different code outputs based on some form of logical comparisons that return Boolean Logic values of True or False. If this logic is true then branch to this code, if not then branch to different code. These logical comparisons and done using different Comparison Operators.
             </p>
-            <hr style="width: 50%" />
-            <h5>JavaScript Decision Making</h5>
-         </section>
+            <p>All letters, numbers, and characters are assign a <b>Unicode</b> number that you can use to compare with. If you are comparing <b>A</b> to <b>a</b>, you are not comparing two letters, instead you are comparing two unicode numbers.
+            </p>
+            <p>For a complete Unicode List,
+            <a href="https://www.unicodepedia.com/" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">Click Here</a></p>
+            <p>So if you are comparing <b>A</b> to <b>a</b> you are actually comparing <b>41</b>(A) to <b>61</b>(a). So if you compare is A > a, you are actually comparing is 41 > 61 which is False. So the comparison is <b>A > a</b> evaluates to <b>False</b>.</p>
+            <p><b>Basic Operators</b>
+               <ul>
+                  <li><b>></b> : Greater Than</li>
+                  <li><b><</b> : Less Than</li>
+                  <li><b>>=</b> : Greater Than or Equal To</li>
+                  <li><b><=</b> : Less Than or Equal To</li>
+               </ul>
+            </p>
+            <p><b>Equality Operators</b>
+               <ul>
+                  <li><b>==</b> : Equal
+                     <ul>
+                        <li>&#8756; Checks for equality of value, not equality of type.</li>
+                        <li>&#8756; This coerses both values to the same type and then compares them.</li>
+                        <li>&#8756; This can possibly lead to some very unexpected results.</li>
+                        <li>&#8756; 1 == "1" would evaluate to TRUE even though they are two different types, 1 is a number and "1" is a string.</li>
+                     </ul>
+                  </li>
+                  <li><b>!=</b> : Not Equal
+                     <ul>
+                        <li>&#8756; Checks for equality of value, not equality of type.</li>
+                     </ul>
+                  </li>
+                  <li><b>===</b> : Strictly Equal
+                     <ul>
+                        <li>&#8756; Checks for equality of value, <b>AND</b> equality of type.</li>
+                        <li>&#8756; 1 === 1 would evaluate to TRUE - They are both equal in value, and equal in type.</li>
+                        <li>&#8756; 1 === "1" would evaluate to FALSE - They are equal value, but not equal in type.</li>
+                     </ul>
+                  </li>
+                  <li><b>!==</b> : Strictly non-Equal
+                     <ul>
+                        <li>&#8756; Checks for equality of value, <b>AND</b> equality of type.</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>The overall takeaway here is that <b>for most instances, you should use === and !==</b>.</p>
+         </article>
+         <hr style="width: 95%;">
 
-         <!-- Class Notes -->
-         <section id="textWindow4" class="just lists">
-            <!-- Equality -->
-            <article>
-               <p><a href="../../../assets/files/JavaScript_Boolean_Logic.pdf" target="_blank">JavaScript Decision Making PDF</a></p>
-               <h6>Equality</h6>
-               <p><span class="firstWord">JavaScript</span> decision making basically involves branching to different code outputs based on some form of logical comparisons that return Boolean Logic values of True or False. If this logic is true then branch to this code, if not then branch to different code. These logical comparisons and done using different Comparison Operators.
-               </p>
-               <p>All letters, numbers, and characters are assign a <b>Unicode</b> number that you can use to compare with. If you are comparing <b>A</b> to <b>a</b>, you are not comparing two letters, instead you are comparing two unicode numbers.
-               </p>
-               <p>For a complete Unicode List,
-               <a href="https://www.unicodepedia.com/" target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">Click Here</a></p>
-               <p>So if you are comparing <b>A</b> to <b>a</b> you are actually comparing <b>41</b>(A) to <b>61</b>(a). So if you compare is A > a, you are actually comparing is 41 > 61 which is False. So the comparison is <b>A > a</b> evaluates to <b>False</b>.</p>
-               <p><b>Basic Operators</b>
-                  <ul>
-                     <li><b>></b> : Greater Than</li>
-                     <li><b><</b> : Less Than</li>
-                     <li><b>>=</b> : Greater Than or Equal To</li>
-                     <li><b><=</b> : Less Than or Equal To</li>
-                  </ul>
-               </p>
-               <p><b>Equality Operators</b>
-                  <ul>
-                     <li><b>==</b> : Equal
-                        <ul>
-                           <li>&#8756; Checks for equality of value, not equality of type.</li>
-                           <li>&#8756; This coerses both values to the same type and then compares them.</li>
-                           <li>&#8756; This can possibly lead to some very unexpected results.</li>
-                           <li>&#8756; 1 == "1" would evaluate to TRUE even though they are two different types, 1 is a number and "1" is a string.</li>
-                        </ul>
-                     </li>
-                     <li><b>!=</b> : Not Equal
-                        <ul>
-                           <li>&#8756; Checks for equality of value, not equality of type.</li>
-                        </ul>
-                     </li>
-                     <li><b>===</b> : Strictly Equal
-                        <ul>
-                           <li>&#8756; Checks for equality of value, <b>AND</b> equality of type.</li>
-                           <li>&#8756; 1 === 1 would evaluate to TRUE - They are both equal in value, and equal in type.</li>
-                           <li>&#8756; 1 === "1" would evaluate to FALSE - They are equal value, but not equal in type.</li>
-                        </ul>
-                     </li>
-                     <li><b>!==</b> : Strictly non-Equal
-                        <ul>
-                           <li>&#8756; Checks for equality of value, <b>AND</b> equality of type.</li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-               <p>The overall takeaway here is that <b>for most instances, you should use === and !==</b>.</p>
-            </article>
+         <!-- Truth & False -->
+         <article>
+            <h6>Truth & False Values</h6>
+            <p>All JavaScript values have an inherit <b>Truth</b> or <b>False</b> about them</p>
+            <p><b>False Values</b>
+               <ul>
+                  <li>false</li>
+                  <li>0</li>
+                  <li>"" (empty string)</li>
+                  <li>Null</li>
+                  <li>Undefined</li>
+                  <li>NaN</li>
+               </ul>
+            </p>
+            <p><b>True Values</b>
+               <ul>
+                  <li>Everything Else!</li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
+
+         <!-- Conditionals (if - then - else) -->
+         <article>
+            <h6>Conditionals</h6>
+            <p>Conditionals are logic test's that are performed to determine if an argument is true or false. Decisions can then be made that control the flow of the code based of the result of the true/false comparison.</p>
+            <p>The control of the flow of the code rests withing the following <b>Conditional</b> statements:
+               <ul>
+                  <li><b>if</b>: specify a block of code to be executed, if a specified condition is <b>true</b></li>
+                  <li><b>else</b>: specify a block of code to be executed, if a specified condition is <b>false</b></li>
+                  <li><b>else if</b>: specify a new condition to test, if the <i>first condition</i> is <b>false</b></li>
+                  <li><b>switch</b>: selects one of many code blocks to be executed
+                     <ul>
+                        <li>- The switch expression is evaluated once</li>
+                        <li>- The value of the expression is compared with the values of each <b>case</b></li>
+                        <li>- If there is a match, the associated block of code is executed</li>
+                        <li>- If there is no match, the default code block is executed</li>
+                        <li>- <a href="https://www.w3schools.com/js/js_switch.asp" target="_blank" crossorigin="anonymous"
+                           referrerpolicy="no-referrer">W3Schools | Switch Statement</a>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+         </article>
             <hr style="width: 95%;">
 
-            <!-- Truth & False -->
+            <!-- Advanced Logical Operators -->
             <article>
-               <h6>Truth & False Values</h6>
-               <p>All JavaScript values have an inherit <b>Truth</b> or <b>False</b> about them</p>
-               <p><b>False Values</b>
+               <h6>Advanced Logical Operators</h6>
+               <p><b>and ( && )</b>: both expressions must be true for the entire statement to be true
                   <ul>
-                     <li>false</li>
-                     <li>0</li>
-                     <li>"" (empty string)</li>
-                     <li>Null</li>
-                     <li>Undefined</li>
-                     <li>NaN</li>
+                     <li>if (var1 === 5 && var2 === 5) : <b>true</b></li>
+                     <li>if (1 < 4 && 'a' === 'a') : <b>true</b></li>
+                     <li>if (9 < 10 && 9 <= 10) : <b>false</b></li>
+                     <li>if ('abc'.length === 3 && 1 + 1 === 4) : <b>false</b></li>
                   </ul>
                </p>
-               <p><b>True Values</b>
+               <p><b>or ( || )</b>: if either expression is true, the entire statement is true
                   <ul>
-                     <li>Everything Else!</li>
+                     <li>if (1 < 4 || 'a' === 'b') : <b>true</b></li>
+                     <li>if (9 > 10 || 9 <= 10) : <b>true</b></li>
+                     <li>if ('a' === 'b' || 5 === 6) : <b>false</b></li>
+                     <li>if (0 || undefined) : <b>false</b></li>
                   </ul>
                </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- Conditionals (if - then - else) -->
-            <article>
-               <h6>Conditionals</h6>
-               <p>Conditionals are logic test's that are performed to determine if an argument is true or false. Decisions can then be made that control the flow of the code based of the result of the true/false comparison.</p>
-               <p>The control of the flow of the code rests withing the following <b>Conditional</b> statements:
-                  <ul>
-                     <li><b>if</b>: specify a block of code to be executed, if a specified condition is <b>true</b></li>
-                     <li><b>else</b>: specify a block of code to be executed, if a specified condition is <b>false</b></li>
-                     <li><b>else if</b>: specify a new condition to test, if the <i>first condition</i> is <b>false</b></li>
-                     <li><b>switch</b>: selects one of many code blocks to be executed
-                        <ul>
-                           <li>- The switch expression is evaluated once</li>
-                           <li>- The value of the expression is compared with the values of each <b>case</b></li>
-                           <li>- If there is a match, the associated block of code is executed</li>
-                           <li>- If there is no match, the default code block is executed</li>
-                           <li>- <a href="https://www.w3schools.com/js/js_switch.asp" target="_blank" crossorigin="anonymous"
-                              referrerpolicy="no-referrer">W3Schools | Switch Statement</a>
-                           </li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-            </article>
+               <p><span class="firstWord">Order</span> of priority ::  <b>and ( && )</b> always has priority over <b>or ( || )</b> and will be evaluated first.</p>
                <hr style="width: 95%;">
 
-               <!-- Advanced Logical Operators -->
+               <!-- NOT -->
                <article>
-                  <h6>Advanced Logical Operators</h6>
-                  <p><b>and ( && )</b>: both expressions must be true for the entire statement to be true
+                  <h6>Not</h6>
+                  <p><b>not ( ! )</b>: !expression returns true, if expression is false. Essentially returns the opposite of how an expression evaluates. In the following examples,
                      <ul>
-                        <li>if (var1 === 5 && var2 === 5) : <b>true</b></li>
-                        <li>if (1 < 4 && 'a' === 'a') : <b>true</b></li>
-                        <li>if (9 < 10 && 9 <= 10) : <b>false</b></li>
-                        <li>if ('abc'.length === 3 && 1 + 1 === 4) : <b>false</b></li>
+                        <li><b>!</b>null : <b>true</b> : null is false, so <b>not</b> null returns true</li>
+                        <li><b>!</b>(0 === 0) : <b>false</b> : 0 does equal 0 (true) so <b>not</b> (0 = 0) returns false</li>
+                        <li><b>!</b>(3 <= 4) : <b>false</b> : 3 is less than 4 , so true but <b>not</b> is 3 <= 4 returns false</li>
                      </ul>
                   </p>
-                  <p><b>or ( || )</b>: if either expression is true, the entire statement is true
-                     <ul>
-                        <li>if (1 < 4 || 'a' === 'b') : <b>true</b></li>
-                        <li>if (9 > 10 || 9 <= 10) : <b>true</b></li>
-                        <li>if ('a' === 'b' || 5 === 6) : <b>false</b></li>
-                        <li>if (0 || undefined) : <b>false</b></li>
-                     </ul>
-                  </p>
-                  <p><span class="firstWord">Order</span> of priority ::  <b>and ( && )</b> always has priority over <b>or ( || )</b> and will be evaluated first.</p>
-                  <hr style="width: 95%;">
-
-                  <!-- NOT -->
-                  <article>
-                     <h6>Not</h6>
-                     <p><b>not ( ! )</b>: !expression returns true, if expression is false. Essentially returns the opposite of how an expression evaluates. In the following examples,
-                        <ul>
-                           <li><b>!</b>null : <b>true</b> : null is false, so <b>not</b> null returns true</li>
-                           <li><b>!</b>(0 === 0) : <b>false</b> : 0 does equal 0 (true) so <b>not</b> (0 = 0) returns false</li>
-                           <li><b>!</b>(3 <= 4) : <b>false</b> : 3 is less than 4 , so true but <b>not</b> is 3 <= 4 returns false</li>
-                        </ul>
-                     </p>
-                  </article>
                </article>
-         </section>
+            </article>
+      </section>
 
-         <p><br></p>
-         <p><a href="#top">Back to Top</a><br /><br /></p>
-      </div>
+      <p><br></p>
+      <p><a href="#top">Back to Top</a><br /><br /></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>

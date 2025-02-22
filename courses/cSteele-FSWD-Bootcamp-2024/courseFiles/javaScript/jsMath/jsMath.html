@@ -7,151 +7,140 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p>
-               <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p>
+            <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+         </p>
+         <hr style="width: 50%" />
+         <h5>Random Numbers & Math Objects</h5>
+      </section>
+
+      <!-- Class Notes -->
+      <section id="textWindow4" class="just lists">
+         <!-- Math Objects -->
+         <article>
+            <p><span class="firstWord">Math Objects</span> contain several properties and methods for mathematical
+               constants
+               and functions. Math Objects allow you to perform mathematical tasks on numbers. Unlike other objects,
+               the Math object has no constructor. The Math object is static. All methods and properties can be used
+               without creating a Math object first.</p>
+            <p>More info at
+               <a href="https://www.w3schools.com/js/js_math.asp" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">W3Schools</a> and
+               <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math"
+                  target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a>.
             </p>
-            <hr style="width: 50%" />
-            <h5>Random Numbers & Math Objects</h5>
-         </section>
+            <p>some examples:
+            <ul>
+               <li><b>Math.PI</b> returns 3.141592653589793</li>
+               <li><b>Math.round(4.9)</b> returns 5</li>
+               <li><b>Math.abs(-456)</b> returns 456</li>
+               <li><b>Math.pow(2,5)</b> returns 32 (2 to the 5<sup>th</sup> power)</li>
+               <li><b>Math.floor(3.99999)</b> returns 3 (removes the decimal point and everything after it)</li>
+            </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
 
-         <!-- Class Notes -->
-         <section id="textWindow4" class="just lists">
-            <!-- Math Objects -->
-            <article>
-               <p><span class="firstWord">Math Objects</span> contain several properties and methods for mathematical
-                  constants
-                  and functions. Math Objects allow you to perform mathematical tasks on numbers. Unlike other objects,
-                  the Math object has no constructor. The Math object is static. All methods and properties can be used
-                  without creating a Math object first.</p>
-               <p>More info at
-                  <a href="https://www.w3schools.com/js/js_math.asp" target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">W3Schools</a> and
-                  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math"
-                     target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a>.
-               </p>
-               <p>some examples:
-               <ul>
-                  <li><b>Math.PI</b> returns 3.141592653589793</li>
-                  <li><b>Math.round(4.9)</b> returns 5</li>
-                  <li><b>Math.abs(-456)</b> returns 456</li>
-                  <li><b>Math.pow(2,5)</b> returns 32 (2 to the 5<sup>th</sup> power)</li>
-                  <li><b>Math.floor(3.99999)</b> returns 3 (removes the decimal point and everything after it)</li>
-               </ul>
-               </p>
-            </article>
+         <!-- Random Numbers -->
+         <article>
+            <h6>Random Numbers</h6>
+            <p><span class="firstWord">Math.random()</span> gives us a random decimal between 0 and 1
+               (non-inclusive : will not include 1).</p>
+            <p>examples:
+            <ul>
+               <li>Math.random() = 0.34658374517867085</li>
+               <li>Math.random() = 0.17166638184995286</li>
+               <li>Math.random() = 0.12029235693744655</li>
+               <li>Math.random() = 0.3359941706194536</li>
+            </ul>
+            </p>
             <hr style="width: 95%;">
+            <p>So you generate a random number between 0 and 1.
+            <ul>
+               <li><b>Math.random()</b></li>
+               <li>returns a number between 0 and 1, not including 1</li>
+               <li>0.34658374517867085</li>
+            </ul>
+            </p>
+            <p>What if you want a number between 0 and 10?<br>
+               <b>*note:</b> 10 could be any number. It would the higest number for your random range (non-inclusive)
+            <ul>
+               <li>do random number * 10</li>
+               <li><b>Math.random() * 10</b></li>
+               <li>3.4658374517867085</li>
+            </ul>
+            </p>
+            <p>If you don't want the decimal numbers?
+            <ul>
+               <li>do a Math.floor() on random number * 10</li>
+               <li><b>Math.floor(Math.random() * 10)</b></li>
+               <li>3</li>
+            </ul>
+            </p>
+            <p>What if you don't want the 0, just between 1 and 10?
+            <ul>
+               <li>do (random number * 10) + 1</li>
+               <li><b>Math.floor(Math.random() * 10) + 1</b></li>
+               <li>4</li>
+            </ul>
+            </p>
+            <p>What if I want a range of say 20 to 23?<br>
+               - first we figure out how many random numbers we're gonna need<br>
+               - 20, 21, 22, 23 : that's 4 numbers we want to randomize<br>
+               - so our maximum random number is 4
+            <ul>
+               <li>do (random number * 4)</li>
+               <li><b>Math.floor(Math.random() * 4)</b></li>
+               <li>because we want the random process to start at 20, we add 20 to the random number generated</li>
+               <li><b>Math.floor(Math.random() * 4) + 20</b></li>
+               <li>22</li>
+            </ul>
+            </p>
+            <hr style="width: 95%;">
+            <p><span class="firstWord">In summary</span>, the formula is <b>(Math.random() * how many numbers) +
+                  randomization start</b>.<br>
+               - Randomization start determins where the randomization starts<br>
+               - How many numbers determins how many numbers are to be randomized
+            </p>
+            <p>So:<br>
+               a random number between 0 and 1(non-inclusive) would be <b>Math.random()</b><br>
+               a random number between 0 and 10 would be <b>Math.random() * 10</b><br>
+               and a random number between 15 and 25 would be <b>(Math.random() * 10) + 15</b> : <i>(10 numbers to
+                  randomize starting at 15)</i>
+            </p>
+         </article>
+      </section>
 
-            <!-- Random Numbers -->
-            <article>
-               <h6>Random Numbers</h6>
-               <p><span class="firstWord">Math.random()</span> gives us a random decimal between 0 and 1
-                  (non-inclusive : will not include 1).</p>
-               <p>examples:
-               <ul>
-                  <li>Math.random() = 0.34658374517867085</li>
-                  <li>Math.random() = 0.17166638184995286</li>
-                  <li>Math.random() = 0.12029235693744655</li>
-                  <li>Math.random() = 0.3359941706194536</li>
-               </ul>
-               </p>
-               <hr style="width: 95%;">
-               <p>So you generate a random number between 0 and 1.
-               <ul>
-                  <li><b>Math.random()</b></li>
-                  <li>returns a number between 0 and 1, not including 1</li>
-                  <li>0.34658374517867085</li>
-               </ul>
-               </p>
-               <p>What if you want a number between 0 and 10?<br>
-                  <b>*note:</b> 10 could be any number. It would the higest number for your random range (non-inclusive)
-               <ul>
-                  <li>do random number * 10</li>
-                  <li><b>Math.random() * 10</b></li>
-                  <li>3.4658374517867085</li>
-               </ul>
-               </p>
-               <p>If you don't want the decimal numbers?
-               <ul>
-                  <li>do a Math.floor() on random number * 10</li>
-                  <li><b>Math.floor(Math.random() * 10)</b></li>
-                  <li>3</li>
-               </ul>
-               </p>
-               <p>What if you don't want the 0, just between 1 and 10?
-               <ul>
-                  <li>do (random number * 10) + 1</li>
-                  <li><b>Math.floor(Math.random() * 10) + 1</b></li>
-                  <li>4</li>
-               </ul>
-               </p>
-               <p>What if I want a range of say 20 to 23?<br>
-                  - first we figure out how many random numbers we're gonna need<br>
-                  - 20, 21, 22, 23 : that's 4 numbers we want to randomize<br>
-                  - so our maximum random number is 4
-               <ul>
-                  <li>do (random number * 4)</li>
-                  <li><b>Math.floor(Math.random() * 4)</b></li>
-                  <li>because we want the random process to start at 20, we add 20 to the random number generated</li>
-                  <li><b>Math.floor(Math.random() * 4) + 20</b></li>
-                  <li>22</li>
-               </ul>
-               </p>
-               <hr style="width: 95%;">
-               <p><span class="firstWord">In summary</span>, the formula is <b>(Math.random() * how many numbers) +
-                     randomization start</b>.<br>
-                  - Randomization start determins where the randomization starts<br>
-                  - How many numbers determins how many numbers are to be randomized
-               </p>
-               <p>So:<br>
-                  a random number between 0 and 1(non-inclusive) would be <b>Math.random()</b><br>
-                  a random number between 0 and 10 would be <b>Math.random() * 10</b><br>
-                  and a random number between 15 and 25 would be <b>(Math.random() * 10) + 15</b> : <i>(10 numbers to
-                     randomize starting at 15)</i>
-               </p>
-            </article>
-         </section>
-
-         <p><br></p>
-         <p><a href="#top">Back to Top</a><br /><br /></p>
-      </div>
+      <p><br></p>
+      <p><a href="#top">Back to Top</a><br /><br /></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>

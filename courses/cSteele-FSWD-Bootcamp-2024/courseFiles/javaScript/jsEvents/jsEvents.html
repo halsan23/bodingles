@@ -7,225 +7,212 @@ span<!DOCTYPE html>
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
-            <hr style="width: 50%" />
-            <h5>JavaScript Events</h5>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
+         <hr style="width: 50%" />
+         <h5>JavaScript Events</h5>
+      </section>
 
-         <section id="textWindow4" class="just lists">
-            <!--Events Description-->
-            <article>
-               <h6>Events</h6>
-               <p><span class="firstWord">Events</span> are things that happen within the system you are programming. The system produces a signal of some kind when an event occurs, and provides a mechanism by which an action can be automatically taken (that is, some code running) when the event occurs. This process is referred to as <b>event trapping</b>.</p>
-               <p>Events are fired inside the browser window, and tend to be attached to a specific item that resides within it. This might be a single element, a set of elements, the HTML document loaded in the current tab, or the entire browser window. There are many different types of events that can occur, such as:
-                  <ul>
-                     <li class="event">The user selects, clicks, or hovers the cursor over a certain element.</li>
-                     <li class="event">The user presses a key on the keyboard.</li>
-                     <li class="event">The user resizes or closes the browser window.</li>
-                     <li class="event">A web page finishes loading.</li>
-                     <li class="event">A form is submitted.</li>
-                     <li class="event">A video is played, paused, or ends.</li>
-                     <li class="event">An error occurs.</li>
-                  </ul>
-               </p>
-               <p>There is a long list of
-                  <a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank" rel="noopener noreferrer">DOM HTML Events</a>, and
-                  <a href="https://www.w3schools.com/jsref/obj_events.asp" target="_blank" rel="noopener noreferrer">DOM Event Objects</a>
-                   that can be trapped, but here is a short list of some of the more common:</p>
-               <table>
-                  <thead>
-                     <tr>
-                        <th>Event</th>
-                        <th>Description</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td><a href="https://www.w3schools.com/jsref/event_onchange.asp" target="_blank" rel="noopener noreferrer">onchange</a></td>
-                        <td>An HTML element has been changed</td>
-                     </tr>
-                     <tr>
-                        <td><a href="https://www.w3schools.com/jsref/event_onclick.asp" target="_blank" rel="noopener noreferrer">onclick</a></td>
-                        <td>The user clicks an HTML element</td>
-                     </tr>
-                     <tr>
-                        <td><a href="https://www.w3schools.com/jsref/event_onmouseover.asp" target="_blank" rel="noopener noreferrer">onmouseover</a></td>
-                        <td>The user moves the mouse over an HTML element</td>
-                     </tr>
-                     <tr>
-                        <td><a href="https://www.w3schools.com/jsref/event_onmouseout.asp" target="_blank" rel="noopener noreferrer">onmouseout</a></td>
-                        <td>The user moves the mouse away from an HTML element</td>
-                     </tr>
-                     <tr>
-                        <td><a href="https://www.w3schools.com/jsref/event_onkeypress.asp" target="_blank" rel="noopener noreferrer">onkeypress</a></td>
-                        <td>The user pushes a key on the keyboard</td>
-                     </tr>
-                     <tr>
-                        <td><a href="https://www.w3schools.com/jsref/event_onload.asp" target="_blank" rel="noopener noreferrer">onload</a></td>
-                        <td>The browser has finished loading the page</td>
-                     </tr>
-                  </tbody>
-               </table>
-            </article>
-            <br><hr style="width: 90%"><br>
-
-            <!--Processing Events -->
-            <article>
-               <h6>Processing Events</h6>
-               <p><span class="firstWord">Once</span> JavaScript detects that an event has occurred, we need a way to process the code and enact some kind of procedure. There are basically three different ways of accomplishing this:</p>
-            </article>
-
-            <!--Method 1 -->
-            <article>
-               <p>1. <b>inline</b>: event code written <i>within</i> the HTML element itself. For example:</p>
+      <section id="textWindow4" class="just lists">
+         <!--Events Description-->
+         <article>
+            <h6>Events</h6>
+            <p><span class="firstWord">Events</span> are things that happen within the system you are programming. The system produces a signal of some kind when an event occurs, and provides a mechanism by which an action can be automatically taken (that is, some code running) when the event occurs. This process is referred to as <b>event trapping</b>.</p>
+            <p>Events are fired inside the browser window, and tend to be attached to a specific item that resides within it. This might be a single element, a set of elements, the HTML document loaded in the current tab, or the entire browser window. There are many different types of events that can occur, such as:
                <ul>
-                  <li>make an element and from <i>within</i> that element, process the code and perform the action that will run when the event is triggered.
-                     <ul class="butt">
-                        <li>< button <b>onclick</b>="alert('You Clicked Me')";>Click Me< /button>&nbsp;&nbsp;&nbsp;
-                        <button onclick="alert('You Clicked Me')";>Click Me</button></li>
+                  <li class="event">The user selects, clicks, or hovers the cursor over a certain element.</li>
+                  <li class="event">The user presses a key on the keyboard.</li>
+                  <li class="event">The user resizes or closes the browser window.</li>
+                  <li class="event">A web page finishes loading.</li>
+                  <li class="event">A form is submitted.</li>
+                  <li class="event">A video is played, paused, or ends.</li>
+                  <li class="event">An error occurs.</li>
+               </ul>
+            </p>
+            <p>There is a long list of
+               <a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank" rel="noopener noreferrer">DOM HTML Events</a>, and
+               <a href="https://www.w3schools.com/jsref/obj_events.asp" target="_blank" rel="noopener noreferrer">DOM Event Objects</a>
+                  that can be trapped, but here is a short list of some of the more common:</p>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Event</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td><a href="https://www.w3schools.com/jsref/event_onchange.asp" target="_blank" rel="noopener noreferrer">onchange</a></td>
+                     <td>An HTML element has been changed</td>
+                  </tr>
+                  <tr>
+                     <td><a href="https://www.w3schools.com/jsref/event_onclick.asp" target="_blank" rel="noopener noreferrer">onclick</a></td>
+                     <td>The user clicks an HTML element</td>
+                  </tr>
+                  <tr>
+                     <td><a href="https://www.w3schools.com/jsref/event_onmouseover.asp" target="_blank" rel="noopener noreferrer">onmouseover</a></td>
+                     <td>The user moves the mouse over an HTML element</td>
+                  </tr>
+                  <tr>
+                     <td><a href="https://www.w3schools.com/jsref/event_onmouseout.asp" target="_blank" rel="noopener noreferrer">onmouseout</a></td>
+                     <td>The user moves the mouse away from an HTML element</td>
+                  </tr>
+                  <tr>
+                     <td><a href="https://www.w3schools.com/jsref/event_onkeypress.asp" target="_blank" rel="noopener noreferrer">onkeypress</a></td>
+                     <td>The user pushes a key on the keyboard</td>
+                  </tr>
+                  <tr>
+                     <td><a href="https://www.w3schools.com/jsref/event_onload.asp" target="_blank" rel="noopener noreferrer">onload</a></td>
+                     <td>The browser has finished loading the page</td>
+                  </tr>
+               </tbody>
+            </table>
+         </article>
+         <br><hr style="width: 90%"><br>
+
+         <!--Processing Events -->
+         <article>
+            <h6>Processing Events</h6>
+            <p><span class="firstWord">Once</span> JavaScript detects that an event has occurred, we need a way to process the code and enact some kind of procedure. There are basically three different ways of accomplishing this:</p>
+         </article>
+
+         <!--Method 1 -->
+         <article>
+            <p>1. <b>inline</b>: event code written <i>within</i> the HTML element itself. For example:</p>
+            <ul>
+               <li>make an element and from <i>within</i> that element, process the code and perform the action that will run when the event is triggered.
+                  <ul class="butt">
+                     <li>< button <b>onclick</b>="alert('You Clicked Me')";>Click Me< /button>&nbsp;&nbsp;&nbsp;
+                     <button onclick="alert('You Clicked Me')";>Click Me</button></li>
+                  </ul>
+               </li>
+               <li>this is a <b>click event</b> and the button element will open an <b>alert</b> window when the button is <i>clicked</i></li>
+            </ul>
+            <p><i><b>*note</b>: it is generally considered not good practice to use the <b>inline</b> method.</i></p>
+         </article>
+         <br><hr style="width: 90%"><br>
+
+         <!--Method 2 -->
+         <article>
+            <p>2. <b>external</b>: processes the click event <i>externally</i>, from the <i>element</i>, meaning not <i>inline</i>. This refers to processing the event either in a [<b>script</b>] running within the HTML file, or from an <b>external</b> Js file.</p>
+            <p>For example, let's create a <i>NEW</i> button with another <b>click event</b>:</p>
+            <ul class="butt">
+               <li>< button <b>id="b2"</b>>Button 2< /button>&nbsp;&nbsp;&nbsp;
+                  <button id="b2">Button 2</button></li>
+            </ul>
+            <ul>
+               <li>creates a new button with an <b>ID="b2"</b></li>
+            </ul>
+            <p>now we can write our Js code externally from the <i>element</i><br></p>
+            <ul class="butt">
+               <li>const <span class="colorHighlight">btn</span> = document.querySelector('<b>#b2</b>');</li>
+            </ul>
+            <ul>
+               <li>assigns the variable <span class="colorHighlight">btn</span> to the new button, using querySelector for the ID <b>#b2</b></li>
+            </ul>
+            <ul class="butt">
+               <li><span class="colorHighlight">btn</span>.onclick = <i>function</i> () {</li>
+               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('You Clicked the 2<sup>nd</sup> button');</li>
+               <li>}</li>
+            </ul>
+            <ul>
+               <li>we then assign a <b>click</b> event to the variable <span class="colorHighlight">btn</span> and process the event with the <b>callback function</b> that opens an <b>alert</b> window</li>
+            </ul>
+         </article>
+         <br><hr style="width: 90%"><br>
+
+         <!--Method 3 -->
+         <article>
+            <p>3. <b>addEventListener</b>: is generally considered to be the best option for listening and "trapping" of events. It is generally used with <b>external</b> Js coding for processing of the event in either a [<b>script</b>] running within the HTML file, or from an <b>external</b> Js file.</p>
+            <p>The basic syntax is:
+               <ul class="butt">
+                  <li><i>variable</i>.<b>addEventListener</b>('<i>typeOfEvent</i>', <i>callbackFunction</i>)</li>
+               </ul>
+            </p>
+            <p><br>so a practical application would look like:</p>
+            <h4 id="h4">This is an H4 element</h4>
+            <ul class="butt">
+               <li>const <span class="colorHighlight">btn2</span> = document.querySelector('<b>h4</b>');</li>
+            </ul>
+            <ul>
+               <li>selects the 1<sup>st</sup> [<b>h4</b>] element on the page and assign it to the variable <span class="colorHighlight">btn2</span></li>
+            </ul>
+            <p>and the processing Js code would be:
+               <ul class="butt">
+                  <li><span class="colorHighlight">btn2</span>.addEventListener('<b>click</b>', () => {
+                     <ul>
+                        <li><b>alert</b>('You clicked the Heading 4');</li>
                      </ul>
                   </li>
-                  <li>this is a <b>click event</b> and the button element will open an <b>alert</b> window when the button is <i>clicked</i></li>
+                  <li>})</li>
                </ul>
-               <p><i><b>*note</b>: it is generally considered not good practice to use the <b>inline</b> method.</i></p>
-            </article>
-            <br><hr style="width: 90%"><br>
-
-            <!--Method 2 -->
-            <article>
-               <p>2. <b>external</b>: processes the click event <i>externally</i>, from the <i>element</i>, meaning not <i>inline</i>. This refers to processing the event either in a [<b>script</b>] running within the HTML file, or from an <b>external</b> Js file.</p>
-               <p>For example, let's create a <i>NEW</i> button with another <b>click event</b>:</p>
+            </p>
+            <ul>
+               <li>&nbsp;&nbsp;i. We are processing the <b>variable</b> <span class="colorHighlight">btn2</span> by using <b>addEventListener()</b> to <i>"trap"</i> the event</li>
+               <li>&nbsp;ii. We then add an event type of <b>click</b>, so the event will be triggered by a <b>mouse click</b>.</li>
+               <li>iii. And finally,  the <i>callback function</i> will open an <b>alert</b> window (<i>once the <b>h4</b> is clicked</i>) showing that the H4 <i>was</i> actually clicked.</li>
+            </ul>
+            <p>We can also skip assigning a variable, and shorten the coding in the following way:
                <ul class="butt">
-                  <li>< button <b>id="b2"</b>>Button 2< /button>&nbsp;&nbsp;&nbsp;
-                     <button id="b2">Button 2</button></li>
-               </ul>
-               <ul>
-                  <li>creates a new button with an <b>ID="b2"</b></li>
-               </ul>
-               <p>now we can write our Js code externally from the <i>element</i><br></p>
-               <ul class="butt">
-                  <li>const <span class="colorHighlight">btn</span> = document.querySelector('<b>#b2</b>');</li>
-               </ul>
-               <ul>
-                  <li>assigns the variable <span class="colorHighlight">btn</span> to the new button, using querySelector for the ID <b>#b2</b></li>
-               </ul>
-               <ul class="butt">
-                  <li><span class="colorHighlight">btn</span>.onclick = <i>function</i> () {</li>
-                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('You Clicked the 2<sup>nd</sup> button');</li>
+                  <li>document.querySelector('<b>h4</b>').<b>onclick</b> = () => {
+                     <ul>
+                        <li><b>alert</b>('You clicked the Heading 4');</li>
+                     </ul>
+                  </li>
                   <li>}</li>
                </ul>
-               <ul>
-                  <li>we then assign a <b>click</b> event to the variable <span class="colorHighlight">btn</span> and process the event with the <b>callback function</b> that opens an <b>alert</b> window</li>
-               </ul>
-            </article>
-            <br><hr style="width: 90%"><br>
+               However, the first example of using <b>addEventListener()</b> is generally considered to be the better way of coding.
+            </p>
+         </article>
+         <br><hr style="width: 90%"><br>
 
-            <!--Method 3 -->
-            <article>
-               <p>3. <b>addEventListener</b>: is generally considered to be the best option for listening and "trapping" of events. It is generally used with <b>external</b> Js coding for processing of the event in either a [<b>script</b>] running within the HTML file, or from an <b>external</b> Js file.</p>
-               <p>The basic syntax is:
-                  <ul class="butt">
-                     <li><i>variable</i>.<b>addEventListener</b>('<i>typeOfEvent</i>', <i>callbackFunction</i>)</li>
-                  </ul>
-               </p>
-               <p><br>so a practical application would look like:</p>
-               <h4 id="h4">This is an H4 element</h4>
+         <!--removeEventListener -->
+         <article>
+            <h6>removeEventListener</h6>
+            <p><span class="firstWord">Sometimes</span> in larger applications, with many event listeners, it can potentially become a "load" on the system and has the potential to create problems within the execution of the code. To solve this problem, there is a process called <b><i>removeEventListener</i></b>, whereby you can remove any event listeners that you wish.</p>
+            <p>The syntax would be the same as <i>addEventListener</i>:
                <ul class="butt">
-                  <li>const <span class="colorHighlight">btn2</span> = document.querySelector('<b>h4</b>');</li>
+                  <li><i>variable</i>.<b>removeEventListener</b>('<i>typeOfEvent</i>', <i>callbackFunction</i>)</li>
                </ul>
+            </p>
+            <p>ref:
                <ul>
-                  <li>selects the 1<sup>st</sup> [<b>h4</b>] element on the page and assign it to the variable <span class="colorHighlight">btn2</span></li>
+                  <li><a href="https://www.w3schools.com/jsref/met_element_removeeventlistener.asp" target="_blank" rel="noopener noreferrer">W3Schools removeEventListener</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener" target="_blank" rel="noopener noreferrer">MDN removeEventListener</a></li>
                </ul>
-               <p>and the processing Js code would be:
-                  <ul class="butt">
-                     <li><span class="colorHighlight">btn2</span>.addEventListener('<b>click</b>', () => {
-                        <ul>
-                           <li><b>alert</b>('You clicked the Heading 4');</li>
-                        </ul>
-                     </li>
-                     <li>})</li>
-                  </ul>
-               </p>
-               <ul>
-                  <li>&nbsp;&nbsp;i. We are processing the <b>variable</b> <span class="colorHighlight">btn2</span> by using <b>addEventListener()</b> to <i>"trap"</i> the event</li>
-                  <li>&nbsp;ii. We then add an event type of <b>click</b>, so the event will be triggered by a <b>mouse click</b>.</li>
-                  <li>iii. And finally,  the <i>callback function</i> will open an <b>alert</b> window (<i>once the <b>h4</b> is clicked</i>) showing that the H4 <i>was</i> actually clicked.</li>
-               </ul>
-               <p>We can also skip assigning a variable, and shorten the coding in the following way:
-                  <ul class="butt">
-                     <li>document.querySelector('<b>h4</b>').<b>onclick</b> = () => {
-                        <ul>
-                           <li><b>alert</b>('You clicked the Heading 4');</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-                  However, the first example of using <b>addEventListener()</b> is generally considered to be the better way of coding.
-               </p>
-            </article>
-            <br><hr style="width: 90%"><br>
+            </p>
+         </article>
+      </section>
 
-            <!--removeEventListener -->
-            <article>
-               <h6>removeEventListener</h6>
-               <p><span class="firstWord">Sometimes</span> in larger applications, with many event listeners, it can potentially become a "load" on the system and has the potential to create problems within the execution of the code. To solve this problem, there is a process called <b><i>removeEventListener</i></b>, whereby you can remove any event listeners that you wish.</p>
-               <p>The syntax would be the same as <i>addEventListener</i>:
-                  <ul class="butt">
-                     <li><i>variable</i>.<b>removeEventListener</b>('<i>typeOfEvent</i>', <i>callbackFunction</i>)</li>
-                  </ul>
-               </p>
-               <p>ref:
-                  <ul>
-                     <li><a href="https://www.w3schools.com/jsref/met_element_removeeventlistener.asp" target="_blank" rel="noopener noreferrer">W3Schools removeEventListener</a></li>
-                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener" target="_blank" rel="noopener noreferrer">MDN removeEventListener</a></li>
-                  </ul>
-               </p>
-            </article>
-         </section>
-
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
    <script src="jsEvents.js"></script>
-
 </body>
-
 </html>

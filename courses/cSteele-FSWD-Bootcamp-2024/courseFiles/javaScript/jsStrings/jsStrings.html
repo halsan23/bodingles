@@ -7,251 +7,240 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p>
-               <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p>
+            <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+         </p>
+         <hr style="width: 50%" />
+         <h5>JavaScript Strings</h5>
+      </section>
+
+      <!-- Class Notes -->
+      <section id="textWindow4" class="just lists">
+         <!-- Strings Definitions and uses -->
+         <article>
+            <p><a href="../../../assets/files/JavaScript_Strings.pdf" target="_blank">JavaScript Strings PDF</a></p>
+            <p><span class="firstWord">JavaScript Strings</span> are sequences of characters that can contain any
+               sequence of numbers, letters and symbols. Strings are useful for holding data that can be represented
+               in text form. Some of the most-used operations on strings are to check their <b>length</b>, to build
+               and concatenate them using the <b>+ and +=</b> string operators, checking for the existence or
+               location of substrings with the <b>indexOf()</b> method, or extracting substrings with the
+               <b>substring()</b> method.</p>
+            <p>Strings can be created as primitives, from string literals, or as objects, using the <b>String()</b>
+               constructor.</p>
+            <p>When assigning strings to variables, you <b>must</b> enclose them in quotes. In Javascript you can use
+               either single quotes, or double quotes, but you <b>can not</b> mix different quote types (opening and
+               closing). You can however, <b>nest</b> quote types within other qoute types. For example:
+            <ul>
+               <li><b>"</b>I am a <b>'</b>nested<b>'</b> string.<b>"</b> is valid</li>
+               <li><b>'</b>I am a <b>"</b>nested<b>"</b> string.<b>'</b> is also valid</li>
+               <li><b>'</b>I am an invalid string.<b>"</b> is <b>not</b> valid</li>
+            </ul>
             </p>
-            <hr style="width: 50%" />
-            <h5>JavaScript Strings</h5>
-         </section>
+         </article>
+         <hr style="width: 95%;">
+         <!-- string indexing -->
+         <article>
+            <h6>Strings Are Indexed</h6>
+            <br>
+            <table style="width: 300px; height: 70px;">
+               <tr style="background-color: black; color: white; text-align: center; font-size: 20px;">
+                  <td>r</td>
+                  <td>o</td>
+                  <td>c</td>
+                  <td>k</td>
+                  <td>e</td>
+                  <td>t</td>
+                  <td>s</td>
+                  <td>h</td>
+                  <td>i</td>
+                  <td>p</td>
+               </tr>
+               <tr>
+               <tr style="text-align: center;">
+                  <td>0</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                  <td>7</td>
+                  <td>8</td>
+                  <td>9</td>
+               </tr>
+            </table>
+            <p><span class="firstWord">Each</span> character has a corresponding index, a positional number, that
+               references it's position within the string. You access individual characters in the <b>string</b> br
+               referencing their positional number with square brackets. For example:
+            <ul>
+               <li>let word = "spaceship" : (assigns the characters to a <b>string</b> variable called <b>word</b>)
+               </li>
+               <li><b>word[2]</b> would be <b>c</b></li>
+               <li><b>word[5]</b> would be <b>t</b></li>
+            </ul>
+            Referencing a position in the string that does not exist such as <b>word[99]</b>, will return
+            <b>undefined</b>, which is javascripts way of saying word[99] does not exist.
+            </p>
+            <p>You can aslo reference part of a string with <b>.substr()</b>
+            <ul>
+               <li>syntax is : <b>.substr(start, how many</b> (optional)<b>)</b></li>
+               <li><b>word.substr(6)</b> would return <b>ship</b></li>
+               <li><b>word.substr(0, 4)</b> would return <b>rock</b></li>
+            </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
+         <!-- string length -->
+         <article>
+            <h6>String Length</h6>
+            <p><span class="firstWord">The</span> length of the string, which is to say, the number of charecter in
+               the string can be determind by <b>string.length</b>. So for our example:
+            <ul>
+               <li><b>word.length</b> would be 10 (0 to 9).</li>
+            </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
+         <!-- String Concatenation -->
+         <article>
+            <h6>String Concatenation (+)</h6>
+            <p><span class="firstWord">You</span> can concatenate or add strings together.
+            <ul>
+               <li>word1 = "rocket"</li>
+               <li>word2 = "ship"</li>
+               <li>word = word1 + word2 = rocketship</li>
+            </ul>
+            </p>
+            <p>If you try to add a number to a string, javascript will convert the number to a <b>string</b> and then
+               concatenate the strings. So,
+            <ul>
+               <li>variable1 = 1</li>
+               <li>variable2 = "rocketship"</li>
+               <li>variable1 + variable2 = "1rocketship" <b>as a string</b>.</li>
+            </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
+         <!-- String Methods & Properties -->
+         <article>
+            <h6>String Methods & Properties</h6>
+            <p><span class="firstWord">String Methods</span> are built-in actions we can perform with individual
+               strings.
+               They can help us do things like:
+            <ul>
+               <li>- Searching within a string</li>
+               <li>- Replacing part of a string</li>
+               <li>- Changing part of a string</li>
+            </ul>
+            More info and a list of methods and properties can be
+            <a href="https://www.w3schools.com/js/js_string_methods.asp" target="_blank" crossorigin="anonymous"
+               referrerpolicy="no-referrer">found here</a>.
+            </p>
+            <p>
+               the syntax is <b>variable.property(or method)</b>. If you end the statement in parenthesis then you
+               are using a method. If there are no parenthesis, the you are using a property.
+            <ul>
+               <li><b>string.length</b>: length is a <b>property</b></li>
+               <li><b>string.toUpperCase()</b>: toUpperCase is a <b>method</b></li>
+            </ul>
+            </p>
+            <p>Using a Method or Property <b>does not change</b> the original string. Methods such as
+               <b>toUpperCase()</b> create a new version of the original string.</p>
+            <p>You can also <b>combine</b> multiple methods and properties on one line such as:
+               <b>string.trim().toUpperCase()</b>. This particular code will trim any spaces from the beginning and
+               end of a string, and then convert the remaining text to uppercase. Once again, <b>this does not change
+                  the original string</b>. When you combine methods, the order of operations are from left to right,
+               so the left most method will be applied, then the next, and so on down the line.</p>
+         </article>
+         <hr style="width: 95%;">
+         <!-- String Methods & Properties -->
+         <article>
+            <h6>String Methods with Arguments</h6>
+            <p><span class="firstWord">Some</span> string methods accept <b>arguments</b> which allow us to modify
+               the behaviour of them. Think of them as inputs where we can pass data into the method. We place these
+               arguments inside of the method parenthesis.</p>
+            <p><b>indexOf()</b> is an example of a method that uses arguments. indexOf() will return the <b>first</b>
+               instance of the data you are trying to index. From our previous example,<br><b>let word =
+                  "rocketship";</b>
+            <ul>
+               <li><b>word.indexOf('ship')</b> would return <b>6</b> because that is the index # that the string
+                  "ship" starts at</li>
+               <li><b>word.indexOf('rock')</b> would return <b>0</b></li>
+               <li>and <b>word.indexOf('z')</b> would return <b>-1</b> because the argument <b>z</b> was not found in
+                  the string</li>
+            </ul>
+            </p>
+            <p>If for example our variable word was equal to <b>rocketshiprocket</b>, <b>word.indexOf('rock')</b>
+               would still return a <b>0</b> because this method only returns the <b>first instance</b> of the
+               argument.</p>
+         </article>
+         <hr style="width: 95%;">
+         <!-- String Template Literals -->
+         <article>
+            <h6>String Template Literals</h6>
+            <p><span class="firstWord">String</span> Template Literals are like a shortcut for creating a string with
+               a combination of text and expresions. String Literals MUST be enclosed in <b>back tickmarks</b>. Back
+               Tickmarks are the reverse apostraphe key normally located right above the TAB key on a US keyboard.
+            </p>
+            <p>The way it works is the <b>string</b> (text) part goes inside the back ticks <b>``</b>, and the
+               expresions go inside curly braces {} with a leading dollar sign <b>${}</b>.</p>
+            <p>Example, let's say:
+            <ul>
+               <li><b>let item = "pickles";</b></li>
+               <li><b>let price = 1.25;</b></li>
+               <li><b>let qty = 5;</b></li>
+            </ul>
+            </p>
+            <p>We could say : <b>"You bought " + qty + " " + item + " for $" + price + "each. Your Total is: $" + qty
+                  * price + "."</b></p>
+            <p>and the output would be: <b>"You bought 5 pickles for $1.25 each. Your Total is: $6.25.</b></p>
+            <p>We could simplify this by using String Template Literals, like this:<br>
+               <b>`You bought ${qty} ${item} for $${price} each. Your Total is: $${qty * price}.`</b> which would
+               ouput the same thing.
+            </p>
+            <p>String Template Literals simplify the coding, perform the math, and convert everything to a string
+               output.</p>
+            <p><b>*sideNote</b>: You could also include methods if you wanted to. Example:
+            <ul>
+               <li>`You bought ${qty} ${item<b>.toUpperCase()</b>} for $${price} each. Your Total is: $${qty *
+                  price}.`</li>
+               <li>would output</li>
+               <li>You bought 5 <b>PICKLES</b> for $1.25 each. Your Total is: $6.25.</li>
+            </ul>
+            </p>
+         </article>
+      </section>
 
-         <!-- Class Notes -->
-         <section id="textWindow4" class="just lists">
-            <!-- Strings Definitions and uses -->
-            <article>
-               <p><a href="../../../assets/files/JavaScript_Strings.pdf" target="_blank">JavaScript Strings PDF</a></p>
-               <p><span class="firstWord">JavaScript Strings</span> are sequences of characters that can contain any
-                  sequence of numbers, letters and symbols. Strings are useful for holding data that can be represented
-                  in text form. Some of the most-used operations on strings are to check their <b>length</b>, to build
-                  and concatenate them using the <b>+ and +=</b> string operators, checking for the existence or
-                  location of substrings with the <b>indexOf()</b> method, or extracting substrings with the
-                  <b>substring()</b> method.</p>
-               <p>Strings can be created as primitives, from string literals, or as objects, using the <b>String()</b>
-                  constructor.</p>
-               <p>When assigning strings to variables, you <b>must</b> enclose them in quotes. In Javascript you can use
-                  either single quotes, or double quotes, but you <b>can not</b> mix different quote types (opening and
-                  closing). You can however, <b>nest</b> quote types within other qoute types. For example:
-               <ul>
-                  <li><b>"</b>I am a <b>'</b>nested<b>'</b> string.<b>"</b> is valid</li>
-                  <li><b>'</b>I am a <b>"</b>nested<b>"</b> string.<b>'</b> is also valid</li>
-                  <li><b>'</b>I am an invalid string.<b>"</b> is <b>not</b> valid</li>
-               </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-            <!-- string indexing -->
-            <article>
-               <h6>Strings Are Indexed</h6>
-               <br>
-               <table style="width: 300px; height: 70px;">
-                  <tr style="background-color: black; color: white; text-align: center; font-size: 20px;">
-                     <td>r</td>
-                     <td>o</td>
-                     <td>c</td>
-                     <td>k</td>
-                     <td>e</td>
-                     <td>t</td>
-                     <td>s</td>
-                     <td>h</td>
-                     <td>i</td>
-                     <td>p</td>
-                  </tr>
-                  <tr>
-                  <tr style="text-align: center;">
-                     <td>0</td>
-                     <td>1</td>
-                     <td>2</td>
-                     <td>3</td>
-                     <td>4</td>
-                     <td>5</td>
-                     <td>6</td>
-                     <td>7</td>
-                     <td>8</td>
-                     <td>9</td>
-                  </tr>
-               </table>
-               <p><span class="firstWord">Each</span> character has a corresponding index, a positional number, that
-                  references it's position within the string. You access individual characters in the <b>string</b> br
-                  referencing their positional number with square brackets. For example:
-               <ul>
-                  <li>let word = "spaceship" : (assigns the characters to a <b>string</b> variable called <b>word</b>)
-                  </li>
-                  <li><b>word[2]</b> would be <b>c</b></li>
-                  <li><b>word[5]</b> would be <b>t</b></li>
-               </ul>
-               Referencing a position in the string that does not exist such as <b>word[99]</b>, will return
-               <b>undefined</b>, which is javascripts way of saying word[99] does not exist.
-               </p>
-               <p>You can aslo reference part of a string with <b>.substr()</b>
-               <ul>
-                  <li>syntax is : <b>.substr(start, how many</b> (optional)<b>)</b></li>
-                  <li><b>word.substr(6)</b> would return <b>ship</b></li>
-                  <li><b>word.substr(0, 4)</b> would return <b>rock</b></li>
-               </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-            <!-- string length -->
-            <article>
-               <h6>String Length</h6>
-               <p><span class="firstWord">The</span> length of the string, which is to say, the number of charecter in
-                  the string can be determind by <b>string.length</b>. So for our example:
-               <ul>
-                  <li><b>word.length</b> would be 10 (0 to 9).</li>
-               </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-            <!-- String Concatenation -->
-            <article>
-               <h6>String Concatenation (+)</h6>
-               <p><span class="firstWord">You</span> can concatenate or add strings together.
-               <ul>
-                  <li>word1 = "rocket"</li>
-                  <li>word2 = "ship"</li>
-                  <li>word = word1 + word2 = rocketship</li>
-               </ul>
-               </p>
-               <p>If you try to add a number to a string, javascript will convert the number to a <b>string</b> and then
-                  concatenate the strings. So,
-               <ul>
-                  <li>variable1 = 1</li>
-                  <li>variable2 = "rocketship"</li>
-                  <li>variable1 + variable2 = "1rocketship" <b>as a string</b>.</li>
-               </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-            <!-- String Methods & Properties -->
-            <article>
-               <h6>String Methods & Properties</h6>
-               <p><span class="firstWord">String Methods</span> are built-in actions we can perform with individual
-                  strings.
-                  They can help us do things like:
-               <ul>
-                  <li>- Searching within a string</li>
-                  <li>- Replacing part of a string</li>
-                  <li>- Changing part of a string</li>
-               </ul>
-               More info and a list of methods and properties can be
-               <a href="https://www.w3schools.com/js/js_string_methods.asp" target="_blank" crossorigin="anonymous"
-                  referrerpolicy="no-referrer">found here</a>.
-               </p>
-               <p>
-                  the syntax is <b>variable.property(or method)</b>. If you end the statement in parenthesis then you
-                  are using a method. If there are no parenthesis, the you are using a property.
-               <ul>
-                  <li><b>string.length</b>: length is a <b>property</b></li>
-                  <li><b>string.toUpperCase()</b>: toUpperCase is a <b>method</b></li>
-               </ul>
-               </p>
-               <p>Using a Method or Property <b>does not change</b> the original string. Methods such as
-                  <b>toUpperCase()</b> create a new version of the original string.</p>
-               <p>You can also <b>combine</b> multiple methods and properties on one line such as:
-                  <b>string.trim().toUpperCase()</b>. This particular code will trim any spaces from the beginning and
-                  end of a string, and then convert the remaining text to uppercase. Once again, <b>this does not change
-                     the original string</b>. When you combine methods, the order of operations are from left to right,
-                  so the left most method will be applied, then the next, and so on down the line.</p>
-            </article>
-            <hr style="width: 95%;">
-            <!-- String Methods & Properties -->
-            <article>
-               <h6>String Methods with Arguments</h6>
-               <p><span class="firstWord">Some</span> string methods accept <b>arguments</b> which allow us to modify
-                  the behaviour of them. Think of them as inputs where we can pass data into the method. We place these
-                  arguments inside of the method parenthesis.</p>
-               <p><b>indexOf()</b> is an example of a method that uses arguments. indexOf() will return the <b>first</b>
-                  instance of the data you are trying to index. From our previous example,<br><b>let word =
-                     "rocketship";</b>
-               <ul>
-                  <li><b>word.indexOf('ship')</b> would return <b>6</b> because that is the index # that the string
-                     "ship" starts at</li>
-                  <li><b>word.indexOf('rock')</b> would return <b>0</b></li>
-                  <li>and <b>word.indexOf('z')</b> would return <b>-1</b> because the argument <b>z</b> was not found in
-                     the string</li>
-               </ul>
-               </p>
-               <p>If for example our variable word was equal to <b>rocketshiprocket</b>, <b>word.indexOf('rock')</b>
-                  would still return a <b>0</b> because this method only returns the <b>first instance</b> of the
-                  argument.</p>
-            </article>
-            <hr style="width: 95%;">
-            <!-- String Template Literals -->
-            <article>
-               <h6>String Template Literals</h6>
-               <p><span class="firstWord">String</span> Template Literals are like a shortcut for creating a string with
-                  a combination of text and expresions. String Literals MUST be enclosed in <b>back tickmarks</b>. Back
-                  Tickmarks are the reverse apostraphe key normally located right above the TAB key on a US keyboard.
-               </p>
-               <p>The way it works is the <b>string</b> (text) part goes inside the back ticks <b>``</b>, and the
-                  expresions go inside curly braces {} with a leading dollar sign <b>${}</b>.</p>
-               <p>Example, let's say:
-               <ul>
-                  <li><b>let item = "pickles";</b></li>
-                  <li><b>let price = 1.25;</b></li>
-                  <li><b>let qty = 5;</b></li>
-               </ul>
-               </p>
-               <p>We could say : <b>"You bought " + qty + " " + item + " for $" + price + "each. Your Total is: $" + qty
-                     * price + "."</b></p>
-               <p>and the output would be: <b>"You bought 5 pickles for $1.25 each. Your Total is: $6.25.</b></p>
-               <p>We could simplify this by using String Template Literals, like this:<br>
-                  <b>`You bought ${qty} ${item} for $${price} each. Your Total is: $${qty * price}.`</b> which would
-                  ouput the same thing.
-               </p>
-               <p>String Template Literals simplify the coding, perform the math, and convert everything to a string
-                  output.</p>
-               <p><b>*sideNote</b>: You could also include methods if you wanted to. Example:
-               <ul>
-                  <li>`You bought ${qty} ${item<b>.toUpperCase()</b>} for $${price} each. Your Total is: $${qty *
-                     price}.`</li>
-                  <li>would output</li>
-                  <li>You bought 5 <b>PICKLES</b> for $1.25 each. Your Total is: $6.25.</li>
-               </ul>
-               </p>
-            </article>
-         </section>
-
-         <p><br></p>
-         <p><a href="#top">Back to Top</a><br /><br /></p>
-      </div>
+      <p><br></p>
+      <p><a href="#top">Back to Top</a><br /><br /></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>

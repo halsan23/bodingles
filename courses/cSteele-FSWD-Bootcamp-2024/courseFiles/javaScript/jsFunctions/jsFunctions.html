@@ -7,333 +7,322 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p>
-               <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p>
+            <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+         </p>
+         <hr style="width: 50%" />
+         <h5>JavaScript Functions</h5>
+      </section>
+
+      <!-- JavaScript Objects Reference Links -->
+      <section id="textWindow2">
+         <h6>JavaScript Functions References</h6>
+         <p><a href="../../../assets/files/JavaScript_Functions_Intro.pdf" target="_blank">JavaScript Functions Intro PDF</a></p>
+         <p><a href="../../../assets/files/JavaScript_Functions_pt.2.pdf" target="_blank">JavaScript Functions Part 2 PDF</a></p>
+         <p><a href="https://www.w3schools.com/js/js_functions.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Functions</a></p>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank" rel="noopener noreferrer">MDN JavaScript Functions</a></p>
+         <p><a href="https://www.geeksforgeeks.org/functions-in-javascript/" target="_blank" rel="noopener noreferrer">Geeks4Geeks JavaScript Functions</a></p>
+      </section>
+
+      <!-- Class Notes -->
+      <section id="textWindow4" class="just lists">
+         <!-- Functions Defined -->
+         <article>
+            <p><span class="firstWord">Functions</span> are one of the fundamental building blocks in JavaScript. Functions are reusable blocks of code that perform a specific task. You define it once, and then you can run (or “call”) it whenever you need that task done in your program.</p>
+            <p>For a procedure to qualify as a function, it should take some input and return an output, where there is some obvious relationship between the input and the output.</p>
+            <hr style="width: 50%; margin-left: 0;">
+            <h6>Basic Syntax</h6>
+            <p>A JavaScript function is defined with the <b>function</b> keyword, followed by a <b>name</b>, followed by parentheses <b>()</b>. Function names can contain letters, digits, underscores, and dollar signs (same rules as variables). The parentheses may include parameter names separated by commas: (parameter1, parameter2, ...). The code to be executed, by the function, is placed inside curly brackets: <b>{}</b></p>
+            <p><b>
+               <ul>
+                  <li>function funcName(parameter1, parameter2, parameter3) {
+                     <ul>
+                        <li>code to be executed</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </b></p>
+            <p>For example, if we wanted we could write a function to return a random number, say between 1 and 10. Remember:
+               <ul>
+                  <li><b>Math.random()</b> returns a decimal number between 0 and 1 (not including 1)</li>
+                  <li><b>Math.random() * 10</b> returns a decimal number between 0 and 10 (not including 10)</li>
+                  <li><b>Math.floor()</b> would return only integers so, 0 to 10 (not including 10)</li>
+                  <li>if you want to start at 1 instead of 0, and include 10: you <b>add 1</b></li>
+                  <li>so our needed formula is <b>Math.floor(Math.random() * 10) + 1</b></li>
+               </ul>
             </p>
-            <hr style="width: 50%" />
-            <h5>JavaScript Functions</h5>
-         </section>
+            <p>So the function would be:<b>
+               <ul>
+                  <li>function getRandomNum() {
+                     <ul>
+                        <li>Math.floor(Math.random() * 10) + 1</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </b></p>
+            <p>and everytime we <b>call</b> this function <b>getRandomNum()</b> it would <b>return</b> a random number between 1 and 10.</p>
+         </article>
+         <hr style="width: 95%;">
 
-         <!-- JavaScript Objects Reference Links -->
-         <section id="textWindow2">
-            <h6>JavaScript Functions References</h6>
-            <p><a href="../../../assets/files/JavaScript_Functions_Intro.pdf" target="_blank">JavaScript Functions Intro PDF</a></p>
-            <p><a href="../../../assets/files/JavaScript_Functions_pt.2.pdf" target="_blank">JavaScript Functions Part 2 PDF</a></p>
-            <p><a href="https://www.w3schools.com/js/js_functions.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Functions</a></p>
-            <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank" rel="noopener noreferrer">MDN JavaScript Functions</a></p>
-            <p><a href="https://www.geeksforgeeks.org/functions-in-javascript/" target="_blank" rel="noopener noreferrer">Geeks4Geeks JavaScript Functions</a></p>
-         </section>
+         <!-- Function Arguments -->
+         <article>
+            <h6>Arguments</h6>
+            <p>With function, you can pass in <b>arguments</b> which are variables that are used within the function. Let's create a new function called <b>name</b>:
+               <ul>
+                  <li>function name(<b>fname</b>) {
+                     <ul>
+                        <li>console.log(`First Name: ${<b>fname</b>}`);</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>We are using <b>fname</b> as a variable for use within the function,and if we paass in a name for the argument
+               <ul>
+                  <li><b>name('Ben')</b></li>
+               </ul>
+            the ouput would be: <b>First Name: Ben</b>
+            </p>
+            <hr style="width: 50%; margin-left: 0;">
+            <p>We can also pass multiple arguments into a function like so:
+               <ul>
+                  <li>function name(<b>fName</b>, <b>lName</b>) {
+                     <ul>
+                        <li>console.log(`Your name is ${<b>fName</b>} ${<b>lName</b>}`);</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>and if we pass in the arguments:
+               <ul>
+                  <li><b>name('Ben', 'Franklin')</b></li>
+               </ul>
+               the ouput would be: <b>Your name is Ben Franklin</b>
+            </p>
+            <hr style="width: 50%; margin-left: 0;">
+            <h6>return</h6>
+            <p>We have been using <b>console.log()</b> to send our ouput to the screen, but what if we wanted to send the results of the function back to the code for use within the code. We would do this with the <b>return</b> statement.</p>
+            <p>I the prevous example instead of outputting <b>Ben Franklin</b> to the screen, we could return it to the code as a variable <b>return `Your name is ${<b>fName</b>} ${<b>lName</b>}`;</b></p>
+            <p>You can assign this variable within the function:
+               <b><ul>
+                  <li>let wholeName = `fName lName';</li>
+                  <li>return wholeName;</li>
+               </ul></b>
+               <b>note*</b>: the RETURN statement terminates the function so it should be the last statement in the function.
+            </p>
+         </article>
+         <hr style="width: 95%;">
 
-         <!-- Class Notes -->
-         <section id="textWindow4" class="just lists">
-            <!-- Functions Defined -->
-            <article>
-               <p><span class="firstWord">Functions</span> are one of the fundamental building blocks in JavaScript. Functions are reusable blocks of code that perform a specific task. You define it once, and then you can run (or “call”) it whenever you need that task done in your program.</p>
-               <p>For a procedure to qualify as a function, it should take some input and return an output, where there is some obvious relationship between the input and the output.</p>
-               <hr style="width: 50%; margin-left: 0;">
-               <h6>Basic Syntax</h6>
-               <p>A JavaScript function is defined with the <b>function</b> keyword, followed by a <b>name</b>, followed by parentheses <b>()</b>. Function names can contain letters, digits, underscores, and dollar signs (same rules as variables). The parentheses may include parameter names separated by commas: (parameter1, parameter2, ...). The code to be executed, by the function, is placed inside curly brackets: <b>{}</b></p>
-               <p><b>
-                  <ul>
-                     <li>function funcName(parameter1, parameter2, parameter3) {
-                        <ul>
-                           <li>code to be executed</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </b></p>
-               <p>For example, if we wanted we could write a function to return a random number, say between 1 and 10. Remember:
-                  <ul>
-                     <li><b>Math.random()</b> returns a decimal number between 0 and 1 (not including 1)</li>
-                     <li><b>Math.random() * 10</b> returns a decimal number between 0 and 10 (not including 10)</li>
-                     <li><b>Math.floor()</b> would return only integers so, 0 to 10 (not including 10)</li>
-                     <li>if you want to start at 1 instead of 0, and include 10: you <b>add 1</b></li>
-                     <li>so our needed formula is <b>Math.floor(Math.random() * 10) + 1</b></li>
-                  </ul>
-               </p>
-               <p>So the function would be:<b>
-                  <ul>
-                     <li>function getRandomNum() {
-                        <ul>
-                           <li>Math.floor(Math.random() * 10) + 1</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </b></p>
-               <p>and everytime we <b>call</b> this function <b>getRandomNum()</b> it would <b>return</b> a random number between 1 and 10.</p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- Function Arguments -->
-            <article>
-               <h6>Arguments</h6>
-               <p>With function, you can pass in <b>arguments</b> which are variables that are used within the function. Let's create a new function called <b>name</b>:
-                  <ul>
-                     <li>function name(<b>fname</b>) {
-                        <ul>
-                           <li>console.log(`First Name: ${<b>fname</b>}`);</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <p>We are using <b>fname</b> as a variable for use within the function,and if we paass in a name for the argument
-                  <ul>
-                     <li><b>name('Ben')</b></li>
-                  </ul>
-               the ouput would be: <b>First Name: Ben</b>
-               </p>
-               <hr style="width: 50%; margin-left: 0;">
-               <p>We can also pass multiple arguments into a function like so:
-                  <ul>
-                     <li>function name(<b>fName</b>, <b>lName</b>) {
-                        <ul>
-                           <li>console.log(`Your name is ${<b>fName</b>} ${<b>lName</b>}`);</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <p>and if we pass in the arguments:
-                  <ul>
-                     <li><b>name('Ben', 'Franklin')</b></li>
-                  </ul>
-                  the ouput would be: <b>Your name is Ben Franklin</b>
-               </p>
-               <hr style="width: 50%; margin-left: 0;">
-               <h6>return</h6>
-               <p>We have been using <b>console.log()</b> to send our ouput to the screen, but what if we wanted to send the results of the function back to the code for use within the code. We would do this with the <b>return</b> statement.</p>
-               <p>I the prevous example instead of outputting <b>Ben Franklin</b> to the screen, we could return it to the code as a variable <b>return `Your name is ${<b>fName</b>} ${<b>lName</b>}`;</b></p>
-               <p>You can assign this variable within the function:
-                  <b><ul>
-                     <li>let wholeName = `fName lName';</li>
-                     <li>return wholeName;</li>
-                  </ul></b>
-                  <b>note*</b>: the RETURN statement terminates the function so it should be the last statement in the function.
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- Scope -->
-            <article>
-               <h6>Scope</h6>
-               <p><a href="https://www.w3schools.com/js/js_scope.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Scope</a></p>
-               <p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" target="_blank" rel="noopener noreferrer">MDN JavaScript Scope</a></p>
-               <p><span class="firstWord">Scope</span> refers to <b>where</b> a variable is defined and what parts of the code will have access to that variable. JavaScript variables have 3 types of scope:
-                  <ul>
-                     <li><b>Block scope</b> refers to a variable that is created inside of a block of code, and <b>is only useable inside that block of code</b>.</li>
-                     <li><b>Function scope</b> refers to a variable that is created inside a function, and <b>is only useable inside the function</b>.</li>
-                     <li><b>Global scope</b> refers to a variable that is declared <b>outside</b> of a function. This variable is <b>global</b> in nature and would be available everywhere int he code.</li>
-                  </ul>
-               </p>
-               <hr style="width: 50%; margin-left: 0;">
-               <p><span class="firstWord">*Notes:</span> Block and Function Scope</p>
-               <p>When you assign variables <i>inside of brackets <b>{}</b></i>, using <b>const</b> or <b>let</b>, the scope is inside the curly brackets <b>ONLY</b>, and the variables will <b>NOT</b> be available outside of the curly brackets. For example:
-                  <ul>
-                     <li>function fullName() {
-                        <ul>
-                           <li><b>const</b> fname = 'Benny';</li>
-                           <li><b>let</b> lname = 'Hill';</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                     <li>console.log(fname + lname);</li>
-                  </ul>
-                  This code snippet will output NOTHING because the variables <b>fname</b> and <b>lname</b> are NOT accessible outside of the curly brackets <b>{}</b>.
-               </p>
-               <hr style="width: 50%; margin-left: 0;">
-               <p>However, when you use <b>var</b> to define the variable, this would make the variable accessable <b>outside</b> of the curly bvrackets <b>{}</b>. For example:
-                  <ul>
-                     <li>function fullName() {
-                        <ul>
-                           <li><b>var</b> fname = 'Benny';</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                     <li>console.log(fname);</li>
-                  </ul>
-                  would output <b>Benny</b> because the <b>var</b> designation make the variable available <b>outside</b> of the curly brackets <b>{}</b>.
-               </p>
-               <p><br></p>
-               <p><span class="firstWord">In Summary</span>, <b>var</b> is an older keyword and is not used much anymore. <b>const</b> and <b>let</b> were created specifically for "SCOPING" purposes and are used most of the time.</p>
-            </article>
+         <!-- Scope -->
+         <article>
+            <h6>Scope</h6>
+            <p><a href="https://www.w3schools.com/js/js_scope.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Scope</a></p>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" target="_blank" rel="noopener noreferrer">MDN JavaScript Scope</a></p>
+            <p><span class="firstWord">Scope</span> refers to <b>where</b> a variable is defined and what parts of the code will have access to that variable. JavaScript variables have 3 types of scope:
+               <ul>
+                  <li><b>Block scope</b> refers to a variable that is created inside of a block of code, and <b>is only useable inside that block of code</b>.</li>
+                  <li><b>Function scope</b> refers to a variable that is created inside a function, and <b>is only useable inside the function</b>.</li>
+                  <li><b>Global scope</b> refers to a variable that is declared <b>outside</b> of a function. This variable is <b>global</b> in nature and would be available everywhere int he code.</li>
+               </ul>
+            </p>
+            <hr style="width: 50%; margin-left: 0;">
+            <p><span class="firstWord">*Notes:</span> Block and Function Scope</p>
+            <p>When you assign variables <i>inside of brackets <b>{}</b></i>, using <b>const</b> or <b>let</b>, the scope is inside the curly brackets <b>ONLY</b>, and the variables will <b>NOT</b> be available outside of the curly brackets. For example:
+               <ul>
+                  <li>function fullName() {
+                     <ul>
+                        <li><b>const</b> fname = 'Benny';</li>
+                        <li><b>let</b> lname = 'Hill';</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li>console.log(fname + lname);</li>
+               </ul>
+               This code snippet will output NOTHING because the variables <b>fname</b> and <b>lname</b> are NOT accessible outside of the curly brackets <b>{}</b>.
+            </p>
+            <hr style="width: 50%; margin-left: 0;">
+            <p>However, when you use <b>var</b> to define the variable, this would make the variable accessable <b>outside</b> of the curly bvrackets <b>{}</b>. For example:
+               <ul>
+                  <li>function fullName() {
+                     <ul>
+                        <li><b>var</b> fname = 'Benny';</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li>console.log(fname);</li>
+               </ul>
+               would output <b>Benny</b> because the <b>var</b> designation make the variable available <b>outside</b> of the curly brackets <b>{}</b>.
+            </p>
             <p><br></p>
-            <hr style="width: 95%;">
-
-            <!-- Function Expressions -->
-            <article>
-               <h6>Function Expressions</h6>
-               <p>are a way of <b>assigning a function to a variable</b>. If we have a basic function like:
-                  <ul>
-                     <li>function add(x, y) {
-                        <ul>
-                           <li>return x + y;</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-                  when you call the function <b>add(3, 4);</b> it would return 7. but we can rewrite the function and assign it to a variable, like so:
-                  <ul>
-                     <li><b>const add = function</b>(x, y) {
-                        <ul>
-                           <li>return x + y;</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-                  which would run exactly the same and return <b>7</b>, but <b>add</b> is NOW a variable and can be used as such.
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- this -->
-            <article>
-               <h6>this</h6>
-               <p><b>this</b> is a keyword and it refers to the context where a piece of code, such as a function's body, is supposed to run. Most typically, it is used in object methods, where this refers to the object that the method is attached to, thus allowing the same method to be reused on different objects. For example, if you tried to run this object:
-                  <ul>
-                     <li>const hen = {
-                        <ul>
-                           <li>name: 'Helen',</li>
-                           <li>eggCount: 0,</li>
-                           <li>layAnEgg() {
-                              <ul>
-                                 <li>eggCount += 1;</li>
-                                 <li>return eggCount</li>
-                              </ul>
-                           </li>
-                           <li>}</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               it would return an error because <b>eggCount</b> was defined before the layAnEgg function and is limited by scope to only be accessable <b>outside</b> of that function, so the function is trying to use a variable that has not been defined within the function (limited by scope).
-               </p>
-               <p>This error can be overcome by using the keyword <b>this</b>. If we modify our object like so:
-                  <ul>
-                     <li>const hen = {
-                        <ul>
-                           <li>name: 'Helen',</li>
-                           <li>eggCount: 0,</li>
-                           <li>layAnEgg() {
-                              <ul>
-                                 <li><b>this</b>.eggCount += 1;</li>
-                                 <li>return eggCount</li>
-                              </ul>
-                           </li>
-                           <li>}</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               then everything works because <b>this</b> refers to <b>this object</b> and all of the variables available to the object are available to the entire object contents.</b>
-               </p>
-               <p><span class="firstWord">However</span>, the <b>this</b> keyword has to be very specific in nature. It refers soley to the object. In our example, <b>this</b> refers only to the object <b>hen</b>, and is called using <b>hen.this</b>. The "scope" of <b>this</b> always refers to the object name to the left of <b>this</b>. So if a object name is omitted, then <b>this</b> is refering to the <b>root</b> of the DOM and can produce unecpected results.</p>
-               <p>More information at
-                  <a href="https://www.w3schools.com/js/js_this.asp" target="_blank" rel="noopener noreferrer">W3Schools this</a> and
-                  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener noreferrer">MDN this</a>.
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- try / catch -->
-            <article>
-               <h6>try/catch</h6>
-               <p><b>try/catch</b> is a method of "trapping for Errors" and determining how to respond to the error to prevent your code from "breaking" and your script to stop running. Try/catch is <b>not</b> specific to functions, but is very useful in all aspects of JavaScript coding.</p>
-               <p>The basic format is:<b>
-                  <ul>
-                     <li>try {
-                        <ul>
-                           <li>block of code</li>
-                        </ul>
-                     </li>
-                     <li>} catch {
-                        <ul>
-                           <li>code to deal with error</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul></b>
-               </p>
-               <p>More information at
-                  <a href="https://www.w3schools.com/jsref/jsref_try_catch.asp" target="_blank" rel="noopener noreferrer">W3Schools try/catch</a> and
-                  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch" target="_blank" rel="noopener noreferrer">MDN try/catch</a>.
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- setTimeout -->
-            <article>
-               <h6>setTimeout</h6>
-               <p><a href="https://www.w3schools.com/jsref/met_win_settimeout.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript setTimeout</a></p>
-               <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout" target="_blank" rel="noopener noreferrer">MDN JavaScript setTimeout</a></p>
-               <p><b>setTimeout</b> sets a timer which executes a function or specified piece of code once the timer expires.
-                  <ul>
-                     <li>The setTimeout() is executed only once.</li>
-                     <li>Use the <a href="https://www.w3schools.com/jsref/met_win_cleartimeout.asp" target="_blank" rel="noopener noreferrer">clearTimeout()</a> method to prevent the function from starting.</li>
-                  </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- setInterval -->
-            <article>
-               <h6>setInterval</h6>
-               <p><a href="https://www.w3schools.com/jsref/met_win_setinterval.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript setInterval</a></p>
-               <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/setInterval" target="_blank" rel="noopener noreferrer">MDN JavaScript setInterval</a></p>
-               <p><b>setInterval</b> calls a function or executes a code snippet, with a fixed time delay between each call(in milliseconds).
-                  <ul>
-                     <li>The setInterval() method continues calling the function until clearInterval() is called, or the window is closed.</li>
-                     <li>Use the <a href="https://www.w3schools.com/jsref/met_win_clearinterval.asp" target="_blank" rel="noopener noreferrer">clearInterval()</a> method to clear a timer set with the <b>setInterval</b> method.</li>
-                     <li><i>(1000 milliseconds = 1 second)</i></li>
-                  </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-         </section>
-
+            <p><span class="firstWord">In Summary</span>, <b>var</b> is an older keyword and is not used much anymore. <b>const</b> and <b>let</b> were created specifically for "SCOPING" purposes and are used most of the time.</p>
+         </article>
          <p><br></p>
-         <p><a href="#top">Back to Top</a><br /><br /></p>
-      </div>
+         <hr style="width: 95%;">
+
+         <!-- Function Expressions -->
+         <article>
+            <h6>Function Expressions</h6>
+            <p>are a way of <b>assigning a function to a variable</b>. If we have a basic function like:
+               <ul>
+                  <li>function add(x, y) {
+                     <ul>
+                        <li>return x + y;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               when you call the function <b>add(3, 4);</b> it would return 7. but we can rewrite the function and assign it to a variable, like so:
+               <ul>
+                  <li><b>const add = function</b>(x, y) {
+                     <ul>
+                        <li>return x + y;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               which would run exactly the same and return <b>7</b>, but <b>add</b> is NOW a variable and can be used as such.
+            </p>
+         </article>
+         <hr style="width: 95%;">
+
+         <!-- this -->
+         <article>
+            <h6>this</h6>
+            <p><b>this</b> is a keyword and it refers to the context where a piece of code, such as a function's body, is supposed to run. Most typically, it is used in object methods, where this refers to the object that the method is attached to, thus allowing the same method to be reused on different objects. For example, if you tried to run this object:
+               <ul>
+                  <li>const hen = {
+                     <ul>
+                        <li>name: 'Helen',</li>
+                        <li>eggCount: 0,</li>
+                        <li>layAnEgg() {
+                           <ul>
+                              <li>eggCount += 1;</li>
+                              <li>return eggCount</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            it would return an error because <b>eggCount</b> was defined before the layAnEgg function and is limited by scope to only be accessable <b>outside</b> of that function, so the function is trying to use a variable that has not been defined within the function (limited by scope).
+            </p>
+            <p>This error can be overcome by using the keyword <b>this</b>. If we modify our object like so:
+               <ul>
+                  <li>const hen = {
+                     <ul>
+                        <li>name: 'Helen',</li>
+                        <li>eggCount: 0,</li>
+                        <li>layAnEgg() {
+                           <ul>
+                              <li><b>this</b>.eggCount += 1;</li>
+                              <li>return eggCount</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            then everything works because <b>this</b> refers to <b>this object</b> and all of the variables available to the object are available to the entire object contents.</b>
+            </p>
+            <p><span class="firstWord">However</span>, the <b>this</b> keyword has to be very specific in nature. It refers soley to the object. In our example, <b>this</b> refers only to the object <b>hen</b>, and is called using <b>hen.this</b>. The "scope" of <b>this</b> always refers to the object name to the left of <b>this</b>. So if a object name is omitted, then <b>this</b> is refering to the <b>root</b> of the DOM and can produce unecpected results.</p>
+            <p>More information at
+               <a href="https://www.w3schools.com/js/js_this.asp" target="_blank" rel="noopener noreferrer">W3Schools this</a> and
+               <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener noreferrer">MDN this</a>.
+            </p>
+         </article>
+         <hr style="width: 95%;">
+
+         <!-- try / catch -->
+         <article>
+            <h6>try/catch</h6>
+            <p><b>try/catch</b> is a method of "trapping for Errors" and determining how to respond to the error to prevent your code from "breaking" and your script to stop running. Try/catch is <b>not</b> specific to functions, but is very useful in all aspects of JavaScript coding.</p>
+            <p>The basic format is:<b>
+               <ul>
+                  <li>try {
+                     <ul>
+                        <li>block of code</li>
+                     </ul>
+                  </li>
+                  <li>} catch {
+                     <ul>
+                        <li>code to deal with error</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul></b>
+            </p>
+            <p>More information at
+               <a href="https://www.w3schools.com/jsref/jsref_try_catch.asp" target="_blank" rel="noopener noreferrer">W3Schools try/catch</a> and
+               <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch" target="_blank" rel="noopener noreferrer">MDN try/catch</a>.
+            </p>
+         </article>
+         <hr style="width: 95%;">
+
+         <!-- setTimeout -->
+         <article>
+            <h6>setTimeout</h6>
+            <p><a href="https://www.w3schools.com/jsref/met_win_settimeout.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript setTimeout</a></p>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout" target="_blank" rel="noopener noreferrer">MDN JavaScript setTimeout</a></p>
+            <p><b>setTimeout</b> sets a timer which executes a function or specified piece of code once the timer expires.
+               <ul>
+                  <li>The setTimeout() is executed only once.</li>
+                  <li>Use the <a href="https://www.w3schools.com/jsref/met_win_cleartimeout.asp" target="_blank" rel="noopener noreferrer">clearTimeout()</a> method to prevent the function from starting.</li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
+
+         <!-- setInterval -->
+         <article>
+            <h6>setInterval</h6>
+            <p><a href="https://www.w3schools.com/jsref/met_win_setinterval.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript setInterval</a></p>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/setInterval" target="_blank" rel="noopener noreferrer">MDN JavaScript setInterval</a></p>
+            <p><b>setInterval</b> calls a function or executes a code snippet, with a fixed time delay between each call(in milliseconds).
+               <ul>
+                  <li>The setInterval() method continues calling the function until clearInterval() is called, or the window is closed.</li>
+                  <li>Use the <a href="https://www.w3schools.com/jsref/met_win_clearinterval.asp" target="_blank" rel="noopener noreferrer">clearInterval()</a> method to clear a timer set with the <b>setInterval</b> method.</li>
+                  <li><i>(1000 milliseconds = 1 second)</i></li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
+      </section>
+
+      <p><br></p>
+      <p><a href="#top">Back to Top</a><br /><br /></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>

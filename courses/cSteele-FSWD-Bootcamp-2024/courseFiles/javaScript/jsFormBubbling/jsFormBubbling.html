@@ -7,231 +7,218 @@ span<!DOCTYPE html>
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
-            <hr style="width: 50%" />
-            <h5>JavaScript Event Bubbling</h5>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
+         <hr style="width: 50%" />
+         <h5>JavaScript Event Bubbling</h5>
+      </section>
 
-         <section id="textWindow4" class="just lists">
-            <!-- Js Form Bubbling-->
-            <article>
-               <h6>Event Bubbling</h6>
-               <p><b><i>Event Bubbling</i></b> is essentially a means to stack events. The term <i>bubbling</i> derives from the fact that the <i>stacked events</i> would <i>"bubble"</i> up from the inside out.</p>
-               <p>Let's explain. If we had a <b>&lt;button&gt;</b>, and it was nested inside of a paragraph <b>&lt;p&gt;</b>, and it in turn was nested inside of a <b>&lt;section&gt;</b>. The code would look something like this:
-                  <ul class="sectHighlight">
-                     <li><b>&lt;section&gt;</b>
-                        <ul>
-                           <li><b>&lt;p&gt;</b>
-                              <ul>
-                                 <li>I am a paragraph.</li>
-                                 <li><b>&lt;button&gt;</b>Click Me<b>&lt;/button&gt;</b>>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li><b>&lt;/p&gt;</b>
-                           </li>
-                        </ul>
-                     </li>
-                     <li><b>&lt;/section&gt;</b></li>
-                  </ul>
-                  The <b>button</b> is nested inside of a <b>&lt;p&gt;</b> element, which is nested inside of a <b>&lt;section&gt;</b> element.
-               </p>
-               <p>Now let's ad an <i><b>inline</b> click event</i> to <b>each</b> of these HTML elements. <b><i>*Reminder</i></b>: it is generally considered <i>"NOT good programming"</i> to use <b><i>inline events</i></b>. We only use them here to demonstrate the concept.
-                  <ul class="sectHighlight">
-                     <li><b>&lt;section <i>onclick</b>="alert('Section Clicked')"&gt;</i>
-                        <ul>
-                           <li><b>&lt;p <i>onclick</b>="alert('Paragraph Clicked')"&gt;</i>
-                              <ul>
-                                 <li>I am a paragraph.</li>
-                                 <li><b>&lt;button <i>onclick</b>="alert('Button Clicked')"&gt;</i>Click Me<b>&lt;/button&gt;</b>>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li><b>&lt;/p&gt;</b>
-                           </li>
-                        </ul>
-                     </li>
-                     <li><b>&lt;/section&gt;</b></li>
-                  </ul>
-                  And now when you <i>"click"</i> the button you will see the <b><i>bubbling</i></b> effect of cascading, or nested events. You will actually get all three <i>alerts</i> stacked on top of each other. When you click "OK" on the top <i>alert</i>, then next one will show, and so on.
-               </p>
-               <section onclick="alert('Section Clicked')">
-                  <p onclick="alert('Paragraph Clicked')">
-                     I am a paragraph.
-                     <button onclick="alert('Button Clicked')">Click Me</button>
-                  </p>
-               </section>
-            </article>
-            <br><hr style="width: 90%"><br>
-
-            <!-- Stopping the Bubbling effect-->
-            <article>
-               <h6>stopPropagation()</h6>
-               <p><b><i>It's</i></b> not very common to use a <b><i>bubbling effect</i></b>, but if you did, you might want to stop the <i>bubbling</i> process before it <i>bubbles</i> to the top. Fortunately, JavaScript gives you a way to accomplish this.</p>
-               <p>Let's start with a <b>&lt;button&gt;</b> nested inside of a <b>&lt;div&gt;</b>:
-                  <ul class="sectHighlight">
-                     <li>&lt;<b>div</b> id="<b>divContain"</b>&gt;
-                        <ul>
-                           <li>This is my &lt;div&gt; element</li>
-                           <li>&lt;<b>button</b> id="<b>divButton</b>"&gt;Click Me&lt;/button&gt;</li>
-                           <li>It has some text in it</li>
-                        </ul>
-                     </li>
-                     <li>&lt;/div&gt;</li>
-                  </ul>
-               <p>Notice that we have given both the &lt;div&gt; and the &lt;button&gt;, <b>id</b>'s to separate them from the previous button on the page, and also for independent processing in the JavaScript.</p>
-               <p>Now, let's say we want to change the background color of the <b>&lt;div&gt;</b> when we click on the <b>&lt;button&gt;</b>. This is simple with the following JavaScript:
-                  <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight">divContain</span> = document.querySelector('<b>#divContain</b>');</li>
-                     <li>const <span class="colorHighlight">divButton</span> = document.querySelector(<b>'#divButton</b>');</li>
-                     <li>&nbsp;</li>
-                     <li><span class="colorHighlight">divButton</span>.addEventListener('<b>click</b>', <span class="colorHighlight2"><i>function()</i></span> {
-                        <ul>
-                           <li><span class="colorHighlight">divContain</span>.style.backgroundColor = <span class="colorHighlight2"><i>colorPick();</i></span></li>
-                        </ul>
-                     </li>
-                     <li>})</li>
-                  </ul>
-                  <i><b>*</b><span class="colorHighlight2">colorPick();</span> is a previously used function that we wrote to pick a random HEX color in our <b>Random Color Picker</b> project, found <a href="../../../courseProjects/randColors/randColors.html" target="_blank">here</a>.</i>
-               </p>
+      <section id="textWindow4" class="just lists">
+         <!-- Js Form Bubbling-->
+         <article>
+            <h6>Event Bubbling</h6>
+            <p><b><i>Event Bubbling</i></b> is essentially a means to stack events. The term <i>bubbling</i> derives from the fact that the <i>stacked events</i> would <i>"bubble"</i> up from the inside out.</p>
+            <p>Let's explain. If we had a <b>&lt;button&gt;</b>, and it was nested inside of a paragraph <b>&lt;p&gt;</b>, and it in turn was nested inside of a <b>&lt;section&gt;</b>. The code would look something like this:
+               <ul class="sectHighlight">
+                  <li><b>&lt;section&gt;</b>
+                     <ul>
+                        <li><b>&lt;p&gt;</b>
+                           <ul>
+                              <li>I am a paragraph.</li>
+                              <li><b>&lt;button&gt;</b>Click Me<b>&lt;/button&gt;</b>>
+                              </li>
+                           </ul>
+                        </li>
+                        <li><b>&lt;/p&gt;</b>
+                        </li>
+                     </ul>
+                  </li>
+                  <li><b>&lt;/section&gt;</b></li>
+               </ul>
+               The <b>button</b> is nested inside of a <b>&lt;p&gt;</b> element, which is nested inside of a <b>&lt;section&gt;</b> element.
             </p>
-            <p>And with this code, we would get:
-               <div id="divContain">
-                  This is my &lt;div&gt; element
-                  <button id="divButton">Click Me</button>
-                  It has some text in it
-               </div>
+            <p>Now let's ad an <i><b>inline</b> click event</i> to <b>each</b> of these HTML elements. <b><i>*Reminder</i></b>: it is generally considered <i>"NOT good programming"</i> to use <b><i>inline events</i></b>. We only use them here to demonstrate the concept.
+               <ul class="sectHighlight">
+                  <li><b>&lt;section <i>onclick</b>="alert('Section Clicked')"&gt;</i>
+                     <ul>
+                        <li><b>&lt;p <i>onclick</b>="alert('Paragraph Clicked')"&gt;</i>
+                           <ul>
+                              <li>I am a paragraph.</li>
+                              <li><b>&lt;button <i>onclick</b>="alert('Button Clicked')"&gt;</i>Click Me<b>&lt;/button&gt;</b>>
+                              </li>
+                           </ul>
+                        </li>
+                        <li><b>&lt;/p&gt;</b>
+                        </li>
+                     </ul>
+                  </li>
+                  <li><b>&lt;/section&gt;</b></li>
+               </ul>
+               And now when you <i>"click"</i> the button you will see the <b><i>bubbling</i></b> effect of cascading, or nested events. You will actually get all three <i>alerts</i> stacked on top of each other. When you click "OK" on the top <i>alert</i>, then next one will show, and so on.
             </p>
-               <p>And now, every time we click on the <b>&lt;button&gt;</b>, we get a new random background color for the <b>&lt;div&gt;</b> container. As you can see in the code, this was accomplished by adding a <i><b>click</b> event</i> to the <i><b>&lt;button&gt;</b> element</i>, which affects the color change to the <i><b>&lt;div&gt;</b> container</i>.</p>
-               <hr style="width: 90%">
-               <p><span class="firstWord">But</span>, what if we also want to add a separate <i><b>click</b> event</i> to the parent <i><b>&lt;div&gt;</b> element, while maintaining our previously added random color <i><b>click</b> event?</i></i> And in this new <i><b>click</b> event</i>, we want to actually <b><i>hide</i></b> the parent <i><b>&lt;div&gt;</b> element?</i></p>
-               <p>Our JavaScript would look like:
-                  <ul class="sectHighlight">
-                     <li>// <i>same code from above</i></li>
-                     <li><span class="colorHighlight">divButton</span>.addEventListener('<b>click</b>', <span class="colorHighlight2"><i>function()</i></span> {
-                        <ul>
-                           <li><span class="colorHighlight">divContain</span>.style.backgroundColor = <span class="colorHighlight2"><i>colorPick();</i></span></li>
-                        </ul>
-                     </li>
-                     <li>})</li>
-                     <li>// <i>newly added code to hide Parent Container &lt;div&gt;</i></li>
-                     <li><span class="colorHighlight">divContain</span>.addEventListener('<b>click</b>', <span class="colorHighlight2"><i>function()</i></span> {
-                        <ul>
-                           <li><span class="colorHighlight">divContain</span>.style.display = '<b>none</b>';</li>
-                        </ul>
-                     </li>
-                     <li>})</li>
-                  </ul>
+            <section onclick="alert('Section Clicked')">
+               <p onclick="alert('Paragraph Clicked')">
+                  I am a paragraph.
+                  <button onclick="alert('Button Clicked')">Click Me</button>
                </p>
-               <div id="divContain2">
-                  This is my &lt;div&gt; element
-                  <button id="divButton2">Click Me</button>
-                  It has some text in it
-               </div>
-               <p>And when you click the <b>&lt;button&gt;</b> it hides the parent <b>&lt;div&gt;</b> element. But what about the background color change? It should have changed the background color for the Parent <b>&lt;div&gt;</b>, before it hid it. But did it <i>actually</i> do that? Everything happened so fast, kinda hard to tell :/ Actually, the only way to tell is by looking in the <b><i>Page Inspector</i></b>, finding the Parent <b>&lt;div&gt;</b> and seeing if it has a background color assigned as an <b><i>inline style</i></b>.</p>
-               <p>And when we look, we see that it did in fact, change the background color.
-                  <ul>
-                     <li><i><b>*note</b>: once an element's display property is set to <b>none</b>, it is gone from for the webpage, so there is nothing to <b>click</b> on to return it to display. There are some coding workarounds for this but they are beyond the scope of this discussion. For now, simply refresh the page to bring everything back.</i></li>
-                  </ul>
-               </p>
-            </article>
+            </section>
+         </article>
+         <br><hr style="width: 90%"><br>
+
+         <!-- Stopping the Bubbling effect-->
+         <article>
+            <h6>stopPropagation()</h6>
+            <p><b><i>It's</i></b> not very common to use a <b><i>bubbling effect</i></b>, but if you did, you might want to stop the <i>bubbling</i> process before it <i>bubbles</i> to the top. Fortunately, JavaScript gives you a way to accomplish this.</p>
+            <p>Let's start with a <b>&lt;button&gt;</b> nested inside of a <b>&lt;div&gt;</b>:
+               <ul class="sectHighlight">
+                  <li>&lt;<b>div</b> id="<b>divContain"</b>&gt;
+                     <ul>
+                        <li>This is my &lt;div&gt; element</li>
+                        <li>&lt;<b>button</b> id="<b>divButton</b>"&gt;Click Me&lt;/button&gt;</li>
+                        <li>It has some text in it</li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div&gt;</li>
+               </ul>
+            <p>Notice that we have given both the &lt;div&gt; and the &lt;button&gt;, <b>id</b>'s to separate them from the previous button on the page, and also for independent processing in the JavaScript.</p>
+            <p>Now, let's say we want to change the background color of the <b>&lt;div&gt;</b> when we click on the <b>&lt;button&gt;</b>. This is simple with the following JavaScript:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">divContain</span> = document.querySelector('<b>#divContain</b>');</li>
+                  <li>const <span class="colorHighlight">divButton</span> = document.querySelector(<b>'#divButton</b>');</li>
+                  <li>&nbsp;</li>
+                  <li><span class="colorHighlight">divButton</span>.addEventListener('<b>click</b>', <span class="colorHighlight2"><i>function()</i></span> {
+                     <ul>
+                        <li><span class="colorHighlight">divContain</span>.style.backgroundColor = <span class="colorHighlight2"><i>colorPick();</i></span></li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+               <i><b>*</b><span class="colorHighlight2">colorPick();</span> is a previously used function that we wrote to pick a random HEX color in our <b>Random Color Picker</b> project, found <a href="../../../courseProjects/randColors/randColors.html" target="_blank">here</a>.</i>
+            </p>
+         </p>
+         <p>And with this code, we would get:
+            <div id="divContain">
+               This is my &lt;div&gt; element
+               <button id="divButton">Click Me</button>
+               It has some text in it
+            </div>
+         </p>
+            <p>And now, every time we click on the <b>&lt;button&gt;</b>, we get a new random background color for the <b>&lt;div&gt;</b> container. As you can see in the code, this was accomplished by adding a <i><b>click</b> event</i> to the <i><b>&lt;button&gt;</b> element</i>, which affects the color change to the <i><b>&lt;div&gt;</b> container</i>.</p>
             <hr style="width: 90%">
+            <p><span class="firstWord">But</span>, what if we also want to add a separate <i><b>click</b> event</i> to the parent <i><b>&lt;div&gt;</b> element, while maintaining our previously added random color <i><b>click</b> event?</i></i> And in this new <i><b>click</b> event</i>, we want to actually <b><i>hide</i></b> the parent <i><b>&lt;div&gt;</b> element?</i></p>
+            <p>Our JavaScript would look like:
+               <ul class="sectHighlight">
+                  <li>// <i>same code from above</i></li>
+                  <li><span class="colorHighlight">divButton</span>.addEventListener('<b>click</b>', <span class="colorHighlight2"><i>function()</i></span> {
+                     <ul>
+                        <li><span class="colorHighlight">divContain</span>.style.backgroundColor = <span class="colorHighlight2"><i>colorPick();</i></span></li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>// <i>newly added code to hide Parent Container &lt;div&gt;</i></li>
+                  <li><span class="colorHighlight">divContain</span>.addEventListener('<b>click</b>', <span class="colorHighlight2"><i>function()</i></span> {
+                     <ul>
+                        <li><span class="colorHighlight">divContain</span>.style.display = '<b>none</b>';</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+            <div id="divContain2">
+               This is my &lt;div&gt; element
+               <button id="divButton2">Click Me</button>
+               It has some text in it
+            </div>
+            <p>And when you click the <b>&lt;button&gt;</b> it hides the parent <b>&lt;div&gt;</b> element. But what about the background color change? It should have changed the background color for the Parent <b>&lt;div&gt;</b>, before it hid it. But did it <i>actually</i> do that? Everything happened so fast, kinda hard to tell :/ Actually, the only way to tell is by looking in the <b><i>Page Inspector</i></b>, finding the Parent <b>&lt;div&gt;</b> and seeing if it has a background color assigned as an <b><i>inline style</i></b>.</p>
+            <p>And when we look, we see that it did in fact, change the background color.
+               <ul>
+                  <li><i><b>*note</b>: once an element's display property is set to <b>none</b>, it is gone from for the webpage, so there is nothing to <b>click</b> on to return it to display. There are some coding workarounds for this but they are beyond the scope of this discussion. For now, simply refresh the page to bring everything back.</i></li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 90%">
 
-            <!-- Stop the Bubbling continued-->
-            <article>
-               <p><span class="firstWord">And now</span>, here is the point of using <b><i>stopPropagation()</i></b></p>
-               <p>In this instance, even though we have created a <b><i>bubbling effect</i></b> by nesting <i>(what becomes our events)</i> in the HTML markup, we do NOT want the bubbling to propagate <i>beyond</i> the first event, which was to change the background color of the <i>Parent <b>&lt;div&gt;</b></i> element.</p>
-               <p>So after we process the first event and change the background color, we cancel the <i>"bubbling"</i> with the following code:
-                  <ul class="sectHighlight">
-                     <li><i>HTML Markup</i></li>
-                     <li>&lt;<b>div</b> id="<b>divContain"</b>&gt;
-                        <ul>
-                           <li>This is my &lt;div&gt; element</li>
-                           <li>&lt;<b>button</b> id="<b>divButton</b>"&gt;Click Me&lt;/button&gt;</li>
-                           <li>It has some text in it</li>
-                        </ul>
-                     </li>
-                     <li>&lt;/div&gt;</li>
-                     <li>&nbsp;</li>
-                     <li><i>JavaScript</i></li>
-                     <li>const <span class="colorHighlight">divContain</span> = document.querySelector('<b>#divContain</b>');</li>
-                     <li>const <span class="colorHighlight">divButton</span> = document.querySelector(<b>'#divButton</b>');</li>
-                     <li>&nbsp;</li>
-                     <li><span class="colorHighlight">divButton</span>.addEventListener('<b>click</b>', <i>function(<span class="colorHighlight2">evt</span>)</i> {
-                        <ul>
-                           <li><span class="colorHighlight">divContain</span>.style.backgroundColor = <span class="colorHighlight2"><i>colorPick();</i></span></li>
-                           <li style="background-color: #f8f5cb;">// <i>newly added code to <b>stop</b> the event "bubbling" propagation</i></li>
-                           <li style="background-color: #f8f5cb;"><span class="colorHighlight2">evt</span>.<b>stopPropagation()</b>;</li>
-                        </ul>
-                     </li>
-                     <li>})</li>
-                     <li><span class="colorHighlight">divContain</span>.addEventListener('<b>click</b>', <span class="colorHighlight2"><i>function()</i></span> {
-                        <ul>
-                           <li><span class="colorHighlight">divContain</span>.style.display = '<b>none</b>';</li>
-                        </ul>
-                     </li>
-                     <li>})</li>
-                  </ul>
-                  <b>*Notice</b> that we are <i>using</i> the <i><b>object</b> event</i>, <span class="colorHighlight2">evt</span>, to <b><i>stop propagation</i></b> of the <span class="colorHighlight">divButton</span> event. So once this event fires and changes the <i>Parent <b>&lt;div&gt;</b></i> element's background color, the "bubbling" propagation ends and there are no further events firing.
-               </p>
-               <div id="divContain3">
-                  This is my &lt;div&gt; element
-                  <button id="divButton3">Click Me</button>
-                  It has some text in it
-               </div>
-               <p><span class="firstWord">One</span> last thing to understand is that the <b><i>"hide"</i></b> event on the <i>Parent <b>&lt;div&gt;</b></i> element, is <b>still an <i>active event</i></b>. If we click <i>"off"</i> of the &lt;button&gt;, and click on the <i>Parent <b>&lt;div&gt;</b></i> element, it will still hide the <b>&lt;div&gt;</b> element. The reason for this is that, the only thing we stopped propagation on are the "nested events" bubbling up through the "nested" <b>&lt;button&gt;</b> event. Remember, the nested "bubbling" events are:
-                  <ul>
-                     <li>the <span class="colorHighlight">divButton</span> event is nested inside </li>
-                     <li>the <span class="colorHighlight">divContain</span> event,  through the HTML Markup</li>
-                  </ul>
-                  If you click on the <i>Parent <b>&lt;div&gt;</b></i> it only runs the <span class="colorHighlight">divContain</span> event, which hides the &lt;div&gt;. But if you click on the <i><b>&lt;button&gt;</b></i>, it fires the <span class="colorHighlight">divButton</span> event, and <i>then</i> "bubbles up" and fires the <span class="colorHighlight">divContain</span> event. And this propagation, or "bubbling up" is what <b><i>stopPropagation()</i></b> is stopping.
-               </p>
-            </article>
-         </section>
+         <!-- Stop the Bubbling continued-->
+         <article>
+            <p><span class="firstWord">And now</span>, here is the point of using <b><i>stopPropagation()</i></b></p>
+            <p>In this instance, even though we have created a <b><i>bubbling effect</i></b> by nesting <i>(what becomes our events)</i> in the HTML markup, we do NOT want the bubbling to propagate <i>beyond</i> the first event, which was to change the background color of the <i>Parent <b>&lt;div&gt;</b></i> element.</p>
+            <p>So after we process the first event and change the background color, we cancel the <i>"bubbling"</i> with the following code:
+               <ul class="sectHighlight">
+                  <li><i>HTML Markup</i></li>
+                  <li>&lt;<b>div</b> id="<b>divContain"</b>&gt;
+                     <ul>
+                        <li>This is my &lt;div&gt; element</li>
+                        <li>&lt;<b>button</b> id="<b>divButton</b>"&gt;Click Me&lt;/button&gt;</li>
+                        <li>It has some text in it</li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div&gt;</li>
+                  <li>&nbsp;</li>
+                  <li><i>JavaScript</i></li>
+                  <li>const <span class="colorHighlight">divContain</span> = document.querySelector('<b>#divContain</b>');</li>
+                  <li>const <span class="colorHighlight">divButton</span> = document.querySelector(<b>'#divButton</b>');</li>
+                  <li>&nbsp;</li>
+                  <li><span class="colorHighlight">divButton</span>.addEventListener('<b>click</b>', <i>function(<span class="colorHighlight2">evt</span>)</i> {
+                     <ul>
+                        <li><span class="colorHighlight">divContain</span>.style.backgroundColor = <span class="colorHighlight2"><i>colorPick();</i></span></li>
+                        <li style="background-color: #f8f5cb;">// <i>newly added code to <b>stop</b> the event "bubbling" propagation</i></li>
+                        <li style="background-color: #f8f5cb;"><span class="colorHighlight2">evt</span>.<b>stopPropagation()</b>;</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li><span class="colorHighlight">divContain</span>.addEventListener('<b>click</b>', <span class="colorHighlight2"><i>function()</i></span> {
+                     <ul>
+                        <li><span class="colorHighlight">divContain</span>.style.display = '<b>none</b>';</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+               <b>*Notice</b> that we are <i>using</i> the <i><b>object</b> event</i>, <span class="colorHighlight2">evt</span>, to <b><i>stop propagation</i></b> of the <span class="colorHighlight">divButton</span> event. So once this event fires and changes the <i>Parent <b>&lt;div&gt;</b></i> element's background color, the "bubbling" propagation ends and there are no further events firing.
+            </p>
+            <div id="divContain3">
+               This is my &lt;div&gt; element
+               <button id="divButton3">Click Me</button>
+               It has some text in it
+            </div>
+            <p><span class="firstWord">One</span> last thing to understand is that the <b><i>"hide"</i></b> event on the <i>Parent <b>&lt;div&gt;</b></i> element, is <b>still an <i>active event</i></b>. If we click <i>"off"</i> of the &lt;button&gt;, and click on the <i>Parent <b>&lt;div&gt;</b></i> element, it will still hide the <b>&lt;div&gt;</b> element. The reason for this is that, the only thing we stopped propagation on are the "nested events" bubbling up through the "nested" <b>&lt;button&gt;</b> event. Remember, the nested "bubbling" events are:
+               <ul>
+                  <li>the <span class="colorHighlight">divButton</span> event is nested inside </li>
+                  <li>the <span class="colorHighlight">divContain</span> event,  through the HTML Markup</li>
+               </ul>
+               If you click on the <i>Parent <b>&lt;div&gt;</b></i> it only runs the <span class="colorHighlight">divContain</span> event, which hides the &lt;div&gt;. But if you click on the <i><b>&lt;button&gt;</b></i>, it fires the <span class="colorHighlight">divButton</span> event, and <i>then</i> "bubbles up" and fires the <span class="colorHighlight">divContain</span> event. And this propagation, or "bubbling up" is what <b><i>stopPropagation()</i></b> is stopping.
+            </p>
+         </article>
+      </section>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
    <script src="jsFormBubbling.js"></script>
-
 </body>
-
 </html>

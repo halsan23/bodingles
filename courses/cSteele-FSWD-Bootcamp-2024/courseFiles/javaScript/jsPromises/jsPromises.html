@@ -7,245 +7,335 @@
    <title>Bodingles - Scorekeeper</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheet -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="localStyle.css">
 </head>
 
 <body>
-    <!-- Header -->
-   <header>
-        <span class="headLogo"></span>
-        <span class="headTitle">Bo</span>
-        <span class="headTitleb">dingles<sub>TM</sub></span>
-        <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
-        <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-            <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-            Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <!-- Header -->
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
+   <!-- Main Body -->
+   <section id="main" class="content">
       <!-- Title -->
+      <article>
+         <h2><i> The Web Developer Bootcamp 2024 </i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
+         <h4>JavaScript Promises</h4>
+      </article>
+
+      <section id="textWindow3" class="just lists">
+         <!-- Promises Description -->
          <article>
-            <h2><i> The Web Developer Bootcamp 2024 </i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../jsIndex.html">Back to JavaScript Index Page</a></p>
-            <h4>JavaScript Promises</h4>
+            <p><span class="firstWord">JavaScript</span> Promises are a means of sending and receiving data to an "external" source, such as a web API. The "promise" is that Js will send a request for the data, and that a response for either a successful retrieval of the data, or a failure in the retrieval, for what ever reason, is received. For example. Say you have a web app that has the current weather displayed on the page. You would send a request to the weather source API to retrieve that data. The coding in the "Promise" would ensure that you would get a response, whether you received the data or not.</p>
+            <p>Here is a technical definition:</p>
+            <p>The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value. A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
+            <p>A Promise is in one of these states:
+               <ul>
+                  <li><i><b>pending</b></i>: initial state, neither fulfilled nor rejected.</li>
+                  <li><i><b>fulfilled</b></i>: meaning that the operation was completed successfully.</li>
+                  <li><i><b>rejected</b></i>: meaning that the operation failed.</li>
+               </ul>
+            </p>
+            <p>The eventual state of a pending promise can either be fulfilled with a value or rejected with a reason (error). When either of these options occur, the associated handlers queued up by a promise's then method are called. If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached.</p>
+            <p><b>*</b><i>A promise is said to be <b>settled</b> if it is either <b>fulfilled</b> or <b>rejected</b>, but not <b>pending</b>.</i> More info can be found here:
+               <ul>
+                  <li><a href="https://www.w3schools.com/Js/js_promise.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Promises</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener noreferrer">MDN Promise</a></li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 90%;">
+
+         <!-- WritingPromises -->
+         <article>
+            <h6>Writing Promises</h6>
+            <p>Normally when using Ajax, or other similar technologies, we don't write too many Promises ourselves. We just normally write the code that will interact within the promise. But if we did write a Promise, this is <i>commonly</i> how it would be written:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">fakeRequest</span> = (url) => {
+                     <ul>
+                        <li><i>return</i> new <b>Promise</b>((<i>resolve</i>, <i>reject</i>) => {
+                           <ul>
+                              <li>const <span class="colorHighlight">rand</span> = Math.random();</li>
+                              <li>setTimeout(() => {
+                                 <ul>
+                                    <li>if (rand < 0.7) {
+                                       <ul>
+                                          <li><i><span class="colorHighlight2">resolve</span>('Fake Data was returned.')</i>;</li>
+                                       </ul>
+                                    </li>
+                                    <li>}</li>
+                                    <li><i><span class="colorHighlight2">reject</span>('Error Retrieving the Fake Data!!');</i></li>
+                                 </ul>
+                              </li>
+                              <li>}, 1000)</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>So we've created a function with a <span class="colorHighlight">Fake Request</span>, which will send a request to a dummy link (<i><b>url</b></i>). Within this function, we have created a <i>new <b>Promise</b></i>, which will <i><b>return</b></i> the results of this <b>Promise</b>.</p>
+            <p>Within the <b>Promise</b> itself, we have set up a <i>Random Number Generator</i>, which will return a random number between 0 and 0.9. We then set up an <i><b>if</b></i> loop. <i><b>if</b></i> the random number is less than 0.7, the Promise will return a <span class="colorHighlight2">resolve</span>(), otherwise it will return a <span class="colorHighlight2">reject</span>().</p>
+            <p>Now within the <b>Promise</b> itself:
+               <ul>
+                  <li>- notice that the "P" in "Promise" is UpperCase</li>
+                  <li>- the Promise expects us to <i>pass in</i> a function</li>
+                  <li>- the function always expects two parameters
+                     <ul>
+                        <li>- we named ours <i>resolve</i>, and <i>reject</i> but you can name the parameters anything you want</li>
+                     </ul>
+                  </li>
+                  <li>- the two parameters represent the resolution or the rejection of the promise</li>
+                  <li>- they can be executed anywhere within the Promise, so you would write functions that would deal with the resolution or rejection of the Promise</li>
+               </ul>
+            </p>
+            <p>And now to call the <span class="colorHighlight">fakeRequest</span> function:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">fakeRequest</span>('dogs/1'); &nbsp;&nbsp;// <i>pointing to a fake url : dogs, pg.1</i>
+                     <ul>
+                        <li><b>.then</b>((<span class="colorHighlight2"><i>data</i></span>) => {
+                           <ul>
+                              <li><span style="background-color: #b8ffa8;">&nbsp;&nbsp;&nbsp;// <i>if the Promise returned <span class="colorHighlight2">resolve</span>()</i>&nbsp;&nbsp;&nbsp;</span></li>
+                              <li>console.log('Request ');</li>
+                              <li>console.log('Complete : ', <span class="colorHighlight2"><i>data</i></span>);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                        <li><b>.catch</b>((<span class="colorHighlight2"><i>err</i></span>) => {
+                           <ul>
+                              <li><span style="background-color: #b8ffa8;">&nbsp;&nbsp;&nbsp;// <i>if the Promise returned <span class="colorHighlight2">reject</span>()</i>&nbsp;&nbsp;&nbsp;</span></li>
+                              <li>console.log('Oh No!!', <span class="colorHighlight2"><i>err</i></span>);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>So if the <span class="colorHighlight">fakeRequest</span> function returns a <span class="colorHighlight2">resolve</span>()</i>, then the console will log <i>"Request Complete : Fake Data was returned."</i> But if the <span class="colorHighlight">fakeRequest</span> function returns a <span class="colorHighlight2">reject</span>()</i>, the console then logs <i>"Oh No!! Error Retrieving the Fake Data!!"</i>.</p>
          </article>
 
-         <section id="textWindow3" class="just lists">
-            <!-- Promises Description -->
-            <article>
-               <p><span class="firstWord">JavaScript</span> Promises are a means of sending and receiving data to an "external" source, such as a web API. The "promise" is that Js will send a request for the data, and that a response for either a successful retrieval of the data, or a failure in the retrieval, for what ever reason, is received. For example. Say you have a web app that has the current weather displayed on the page. You would send a request to the weather source API to retrieve that data. The coding in the "Promise" would ensure that you would get a response, whether you received the data or not.</p>
-               <p>Here is a technical definition:</p>
-               <p>The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value. A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
-               <p>A Promise is in one of these states:
-                  <ul>
-                     <li><i><b>pending</b></i>: initial state, neither fulfilled nor rejected.</li>
-                     <li><i><b>fulfilled</b></i>: meaning that the operation was completed successfully.</li>
-                     <li><i><b>rejected</b></i>: meaning that the operation failed.</li>
-                  </ul>
-               </p>
-               <p>The eventual state of a pending promise can either be fulfilled with a value or rejected with a reason (error). When either of these options occur, the associated handlers queued up by a promise's then method are called. If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached.</p>
-               <p><b>*</b><i>A promise is said to be <b>settled</b> if it is either <b>fulfilled</b> or <b>rejected</b>, but not <b>pending</b>.</i> More info can be found here:
-                  <ul>
-                     <li><a href="https://www.w3schools.com/Js/js_promise.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Promises</a></li>
-                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener noreferrer">MDN Promise</a></li>
-                  </ul>
-               </p>
-            </article>
+         <!-- WritingPromises -->
+         <article>
+            <h6>In Conclusion</h6>
+            <p>We need to understand that this is just a very basic example that is simply showing the "concept" of Promises. The results of a <span class="colorHighlight2">resolve</span>(), or a <span class="colorHighlight2">reject</span>() are dependant on the random number generated.</p>
+            <p id="asAw">But in reality, these results would be determined by the outcome of the <i><b>data request</b></i>, and that outcome would be set by the <i>resolution</i>, or <i>rejection</i> of the Promise. You would then write the appropriate code to deal with both scenarios, the <i>resolution</i>, and the <i>rejection</i>, so that your program could deal with both outcomes.</p>
+         </article>
+      </section>
+
+      <section id="textWindow3" class="just lists">
+         <!-- Async & Await Description -->
+         <article>
+            <h6>Async & Await</h6>
+            <p><i>Async & Await</i> are a <i>"newer"</i> means of working with <b>Promises</b>.</p>
+            <p><i>Async & Await</i> in JavaScript are used to simplify handling asynchronous operations using promises. By enabling asynchronous code to appear synchronous, they enhance code readability and make it easier to manage complex asynchronous flows.
+               <ul>
+                  <li>a). The keyword <i><b>async</b></i> before a function makes the function return a <b>Promise</b>:
+                     <ul>
+                        <li>- <i>async</i> functions <b>always</b> return a <b>Promise</b>.</li>
+                        <li>- if the function returns a value, the <b>Promise</b> will be resolved with that value</li>
+                        <li>- if the function throws an exception, the <b>Promise</b> will be rejected</li>
+                     </ul>
+                  </li>
+                  <li>b). The <i><b>await</b></i> keyword can only be used <i><b>inside</b></i> an <i><b>async</b></i> function. It makes the function pause the execution, and wait for a <i><b>resolved promise</b></i> before it continues.</li>
+               </ul>
+            </p>
+            <p>More info can be found here:
+               <ul>
+                  <li><a href="https://www.w3schools.com/Js/js_async.asp" target="_blank" rel="noopener noreferrer">W3Schools Async & Await</a></li>
+                  <li><a href="https://www.geeksforgeeks.org/async-await-function-in-javascript/" target="_blank" rel="noopener noreferrer">Geeks4Geeks Async and Await</a></li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 90%;">
+
+         <!-- Async Example -->
+         <article>
+            <h6>Async Example</h6>
+            <p>Here is a simple example of using <i><b>async</b></i>:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">login</span> = <span class="colorHighlight2">async</span> (username, password) => {
+                     <ul>
+                        <li>if (!username || !password) <i><b>throw</b></i> 'Credentials Incomplete!'</li>
+                        <li>if (password === 'pswd') return 'Welcome'</li>
+                        <i><b>throw</b></i> 'Invalid Password!'
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li>*the <i><b>throw</b></i> statement allows you to create a custom error. The technical term for this is: <i>The throw statement <b>throws an exception</b></i></li>
+               </ul>
+            </p>
+            <p>So we've created a <i><span class="colorHighlight2">async</span></i> function to parse a login attempt for valid information.
+               <ul>
+                  <li>- if the <i>username <b>or</b> password</i> is blank ('empty string'), then it <i><b>throws</b></i> an error with the message <i>"Credentials Incomplete!"</i></li>
+                  <li>- if the <i>password</i> is "invalid" then it <i><b>throws</b></i> an error with the message <i>"Invalid Password!"</i></li>
+                  <li>- if the login data is correct, there are no exceptions and it returns the message <i>"Welcome, you have successfully logged in"</i></li>
+               </ul>
+            </p>
+            <p>And next we would need to <i>call</i> this function:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">login</span>('MyName', 'pswd')
+                     <ul>
+                        <li><b>.then</b>(msg => {
+                           <ul>
+                              <li>console.log(`${msg}, you have successfully Logged In`);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                        <li><b>.catch</b>(err => {
+                           <ul>
+                              <li>console.log(`ERROR!, ${err}`);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                     </ul>
+                  </li>
+                  <li>&nbsp;</li>
+                  <li>- the <i><b>.then()</b></i> method provides two callbacks, one function to run when a promise is fulfilled, and one function to run when a promise is rejected.</li>
+                  <li>- the <i><b>.catch()</b></i> method provides a callback to run when a promise is rejected.</li>
+               </ul>
+            </p>
+            <p>So if we leave either the <i>username or password</i> fields blank, then the console logs the message <i>"ERROR!, Credentials Incomplete!"</i></p>
+            <p>If we enter an invalid password, the console logs <i>"ERROR!, Invalid Password"</i></p>
+            <p>And finally, if we enter a <i>correct</i> username and password, then the console logs <i>"Welcome, you have successfully Logged In."</i></p>
+         </article>
+         <hr style="width: 90%;">
+
+         <!-- Await -->
+         <article>
+            <h6>The Await Expression</h6>
+            <p>We now know that placing <i><b>“async”</b> before a function</i>, means one simple thing. This is an <i><b>async function</b></i>, and an <i>async function</i> <i><b>always returns a promise</b></i>. In other words, the keyword <i><b>async</b></i> before a function, <b>always makes</b> the function return a promise</p>
+            <p>The <i><b>await</b></i> expression pauses the execution of its surrounding async functions, until that promise is settled (that is, fulfilled or rejected). When execution resumes, the value of the await expression becomes that of the fulfilled promise.</p>
+            <p>An <i><b>await</b></i> is <b>only valid inside async functions and modules</b>. It wil pause the execution of the <b><i>async function</i></b>, and waits for a promise to resolve, before it continues.</p>
             <hr style="width: 90%;">
+            <p>Let's start with this example. We're going to add a <b>&lt;div></b> with a width of 400px and a height of 35px <i>(as defined in a css stylesheet)</i>. We're going to give the &lt;div> and <b>id="colorChange"</b>, so we can reference it within our JavaScript:
+               <ul class="sectHighlight">
+                  <li><b>HTML</b></li>
+                  <li>&lt;div <b>id=colorChange"</b>>&lt;/div></li>
+                  <li>
+                     <div id="div1"></div>
+                  </li>
+                  <li><b>JavaScript</b></li>
+                  <li>const <span class="colorHighlight">colorChange</span> = document.GetElementById('<b>colorChange</b>');</li>
+               </ul>
+            </p>
+            <p>Next, we're going to write a function that will create a <i><b>new Promise</b></i> that will change the background color of our div, every 1.5 seconds <i>(1500ms)</i>:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li>const <span class="colorHighlight">delayedColorChange</span> = (<i>color</i>) => {
+                     <ul>
+                        <li><i>return <span class="colorHighlight2">new Promise</span></i>((resolve, reject) => {
+                           <ul>
+                              <li>setTimeout(() => {
+                                 <ul>
+                                    <li><span class="colorHighlight">colorChange</span>.style.backgroundColor = <i>color</i>;</li>
+                                    <li><b>resolve();</b></li>
+                                 </ul>
+                              </li>
+                              <li>}, <b>1500</b>)</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               So this function <b><i>creates</i></b> a <i><span class="colorHighlight2">new Promise</span></i> that will change the background color of our div, to the color <i><b>passed in</b></i> to the function. It will then return a resolution of the <b>Promise</b>, in this case, a <i><b>resolve()</b></i>.
+            </p>
+            <p>Next we need to create our <i><b>async function</b></i> which will pass in all of the colors for the background color changes. And inside this function will be several calls of the function <b>delayedColorChange()</b>, which if we look at the function, we see that after 1.5 seconds, it changes our &lt;div>'s background-color. But wait Houston... we have a problem.</p>
+            <p>If we call our <i><b>async function</b></i>, and pass in our first two <b>delayedColorChange()</b> functions, like so:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li><i><b>async</b> function</i> rainbow() {
+                     <ul>
+                        <li><span class="colorHighlight">delayedColorChange</span>('red')</li>
+                        <li><span class="colorHighlight">delayedColorChange</span>('orange')</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>What do you think happens? Do we see a Red background, and then 1.5 seconds later a orange background?</p>
+            <p>Well, actually we don't.</p>
+            <p>Because we've told our <span class="colorHighlight">colorChange</span> function to wait 1500ms (1.5 seconds), but when we call this function a second time for the second color, it actually changes the color <i><b>before</b></i> the 1.5 seconds the <i><b>timeout</b></i> calls for. So it has changed the background color twice, <i><b>before</b> the timeout has finished running</i>. So instead of getting <i>Red</i> to <i>Orange</i>, we just see the <i>Orange</i>.</p>
+            <p>And this is where we find the use for our <i><b>await</b> expression.</i></p>
+            <p>Remember that we can only call <i><b>await</b> inside</i> of an <i>async <b>function</b></i>. And an <i>async <b>function</b></i> always returns a promise. So when we preface our <span class="colorHighlight">colorChange</span> function with <i><b>await</b></i>, it forces the Promise it is working on, <i>to <b>wait </b>until it has finished</i>, before moving on to the next Promise.</p>
+            <p>So our <i><b>async</b> function</i> would be:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li><i><b>async</b></i> function <span class="colorHighlight2"><i>rainbow()</i></span> {
+                     <ul>
+                        <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('red')</li>
+                        <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('orange')</li>
+                        <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('yellow')</li>
+                        <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('green')</li>
+                        <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('blue')</li>
+                        <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('indigo')</li>
+                        <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('violet')</li>
+                        <li><i><b>return</b></i> "ALL DONE!"</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>And finally, all that's left to do is to actually <i><b>call</b></i> the <span class="colorHighlight2"><i>rainbow()</i></span> <i><b>async</b> function</i>:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight2">rainbow()</span>;</li>
+               </ul>
+            </p>
+            <p>And here is our final result. Our &lt;div> with changing background color.</p>
+            <div id="colorChange"></div>
+            <p>So as we can see, the <i><b>await</b></i> expression has paused the execution of its surrounding async functions, until that promise is settled (that is, fulfilled or rejected). And in our example, the end result is that every color change requires a 1.5 second delay before moving on to the next one.</p>
+         </article>
+         <hr style="width: 90%;">
 
-            <!-- WritingPromises -->
-            <article>
-               <h6>Writing Promises</h6>
-               <p>Normally when using Ajax, or other similar technologies, we don't write too many Promises ourselves. We just normally write the code that will interact within the promise. But if we did write a Promise, this is <i>commonly</i> how it would be written:
-                  <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight">fakeRequest</span> = (url) => {
-                        <ul>
-                           <li><i>return</i> new <b>Promise</b>((<i>resolve</i>, <i>reject</i>) => {
-                              <ul>
-                                 <li>const <span class="colorHighlight">rand</span> = Math.random();</li>
-                                 <li>setTimeout(() => {
-                                    <ul>
-                                       <li>if (rand < 0.7) {
-                                          <ul>
-                                             <li><i><span class="colorHighlight2">resolve</span>('Fake Data was returned.')</i>;</li>
-                                          </ul>
-                                       </li>
-                                       <li>}</li>
-                                       <li><i><span class="colorHighlight2">reject</span>('Error Retrieving the Fake Data!!');</i></li>
-                                    </ul>
-                                 </li>
-                                 <li>}, 1000)</li>
-                              </ul>
-                           </li>
-                           <li>})</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <p>So we've created a function with a <span class="colorHighlight">Fake Request</span>, which will send a request to a dummy link (<i><b>url</b></i>). Within this function, we have created a <i>new <b>Promise</b></i>, which will <i><b>return</b></i> the results of this <b>Promise</b>.</p>
-               <p>Within the <b>Promise</b> itself, we have set up a <i>Random Number Generator</i>, which will return a random number between 0 and 0.9. We then set up an <i><b>if</b></i> loop. <i><b>if</b></i> the random number is less than 0.7, the Promise will return a <span class="colorHighlight2">resolve</span>(), otherwise it will return a <span class="colorHighlight2">reject</span>().</p>
-               <p>Now within the <b>Promise</b> itself:
+         <!-- Final Code -->
+         <article>
+            <h6>Final Code</h6>
+            <ul class="sectHighlight">
+               <li><b>HTML</b>
                   <ul>
-                     <li>- notice that the "P" in "Promise" is UpperCase</li>
-                     <li>- the Promise expects us to <i>pass in</i> a function</li>
-                     <li>- the function always expects two parameters
-                        <ul>
-                           <li>- we named ours <i>resolve</i>, and <i>reject</i> but you can name the parameters anything you want</li>
-                        </ul>
-                     </li>
-                     <li>- the two parameters represent the resolution or the rejection of the promise</li>
-                     <li>- they can be executed anywhere within the Promise, so you would write functions that would deal with the resolution or rejection of the Promise</li>
-                  </ul>
-               </p>
-               <p>And now to call the <span class="colorHighlight">fakeRequest</span> function:
-                  <ul class="sectHighlight">
-                     <li><span class="colorHighlight">fakeRequest</span>('dogs/1'); &nbsp;&nbsp;// <i>pointing to a fake url : dogs, pg.1</i>
-                        <ul>
-                           <li><b>.then</b>((<span class="colorHighlight2"><i>data</i></span>) => {
-                              <ul>
-                                 <li><span style="background-color: #b8ffa8;">&nbsp;&nbsp;&nbsp;// <i>if the Promise returned <span class="colorHighlight2">resolve</span>()</i>&nbsp;&nbsp;&nbsp;</span></li>
-                                 <li>console.log('Request ');</li>
-                                 <li>console.log('Complete : ', <span class="colorHighlight2"><i>data</i></span>);</li>
-                              </ul>
-                           </li>
-                           <li>})</li>
-                           <li><b>.catch</b>((<span class="colorHighlight2"><i>err</i></span>) => {
-                              <ul>
-                                 <li><span style="background-color: #b8ffa8;">&nbsp;&nbsp;&nbsp;// <i>if the Promise returned <span class="colorHighlight2">reject</span>()</i>&nbsp;&nbsp;&nbsp;</span></li>
-                                 <li>console.log('Oh No!!', <span class="colorHighlight2"><i>err</i></span>);</li>
-                              </ul>
-                           </li>
-                           <li>})</li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-               <p>So if the <span class="colorHighlight">fakeRequest</span> function returns a <span class="colorHighlight2">resolve</span>()</i>, then the console will log <i>"Request Complete : Fake Data was returned."</i> But if the <span class="colorHighlight">fakeRequest</span> function returns a <span class="colorHighlight2">reject</span>()</i>, the console then logs <i>"Oh No!! Error Retrieving the Fake Data!!"</i>.</p>
-            </article>
-
-            <!-- WritingPromises -->
-            <article>
-               <h6>In Conclusion</h6>
-               <p>We need to understand that this is just a very basic example that is simply showing the "concept" of Promises. The results of a <span class="colorHighlight2">resolve</span>(), or a <span class="colorHighlight2">reject</span>() are dependant on the random number generated.</p>
-               <p id="asAw">But in reality, these results would be determined by the outcome of the <i><b>data request</b></i>, and that outcome would be set by the <i>resolution</i>, or <i>rejection</i> of the Promise. You would then write the appropriate code to deal with both scenarios, the <i>resolution</i>, and the <i>rejection</i>, so that your program could deal with both outcomes.</p>
-            </article>
-         </section>
-
-         <section id="textWindow3" class="just lists">
-            <!-- Async & Await Description -->
-            <article>
-               <h6>Async & Await</h6>
-               <p><i>Async & Await</i> are a <i>"newer"</i> means of working with <b>Promises</b>.</p>
-               <p><i>Async & Await</i> in JavaScript are used to simplify handling asynchronous operations using promises. By enabling asynchronous code to appear synchronous, they enhance code readability and make it easier to manage complex asynchronous flows.
-                  <ul>
-                     <li>a). The keyword <i><b>async</b></i> before a function makes the function return a <b>Promise</b>:
-                        <ul>
-                           <li>- <i>async</i> functions <b>always</b> return a <b>Promise</b>.</li>
-                           <li>- if the function returns a value, the <b>Promise</b> will be resolved with that value</li>
-                           <li>- if the function throws an exception, the <b>Promise</b> will be rejected</li>
-                        </ul>
-                     </li>
-                     <li>b). The <i><b>await</b></i> keyword can only be used <i><b>inside</b></i> an <i><b>async</b></i> function. It makes the function pause the execution, and wait for a <i><b>resolved promise</b></i> before it continues.</li>
-                  </ul>
-               </p>
-               <p>More info can be found here:
-                  <ul>
-                     <li><a href="https://www.w3schools.com/Js/js_async.asp" target="_blank" rel="noopener noreferrer">W3Schools Async & Await</a></li>
-                     <li><a href="https://www.geeksforgeeks.org/async-await-function-in-javascript/" target="_blank" rel="noopener noreferrer">Geeks4Geeks Async and Await</a></li>
-                  </ul>
-               </p>
-            </article>
-            <hr style="width: 90%;">
-
-            <!-- Async Example -->
-            <article>
-               <h6>Async Example</h6>
-               <p>Here is a simple example of using <i><b>async</b></i>:
-                  <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight">login</span> = <span class="colorHighlight2">async</span> (username, password) => {
-                        <ul>
-                           <li>if (!username || !password) <i><b>throw</b></i> 'Credentials Incomplete!'</li>
-                           <li>if (password === 'pswd') return 'Welcome'</li>
-                           <i><b>throw</b></i> 'Invalid Password!'
-                        </ul>
-                     </li>
-                     <li>}</li>
-                     <li>*the <i><b>throw</b></i> statement allows you to create a custom error. The technical term for this is: <i>The throw statement <b>throws an exception</b></i></li>
-                  </ul>
-               </p>
-               <p>So we've created a <i><span class="colorHighlight2">async</span></i> function to parse a login attempt for valid information.
-                  <ul>
-                     <li>- if the <i>username <b>or</b> password</i> is blank ('empty string'), then it <i><b>throws</b></i> an error with the message <i>"Credentials Incomplete!"</i></li>
-                     <li>- if the <i>password</i> is "invalid" then it <i><b>throws</b></i> an error with the message <i>"Invalid Password!"</i></li>
-                     <li>- if the login data is correct, there are no exceptions and it returns the message <i>"Welcome, you have successfully logged in"</i></li>
-                  </ul>
-               </p>
-               <p>And next we would need to <i>call</i> this function:
-                  <ul class="sectHighlight">
-                     <li><span class="colorHighlight">login</span>('MyName', 'pswd')
-                        <ul>
-                           <li><b>.then</b>(msg => {
-                              <ul>
-                                 <li>console.log(`${msg}, you have successfully Logged In`);</li>
-                              </ul>
-                           </li>
-                           <li>})</li>
-                           <li><b>.catch</b>(err => {
-                              <ul>
-                                 <li>console.log(`ERROR!, ${err}`);</li>
-                              </ul>
-                           </li>
-                           <li>})</li>
-                        </ul>
-                     </li>
-                     <li>&nbsp;</li>
-                     <li>- the <i><b>.then()</b></i> method provides two callbacks, one function to run when a promise is fulfilled, and one function to run when a promise is rejected.</li>
-                     <li>- the <i><b>.catch()</b></i> method provides a callback to run when a promise is rejected.</li>
-                  </ul>
-               </p>
-               <p>So if we leave either the <i>username or password</i> fields blank, then the console logs the message <i>"ERROR!, Credentials Incomplete!"</i></p>
-               <p>If we enter an invalid password, the console logs <i>"ERROR!, Invalid Password"</i></p>
-               <p>And finally, if we enter a <i>correct</i> username and password, then the console logs <i>"Welcome, you have successfully Logged In."</i></p>
-            </article>
-            <hr style="width: 90%;">
-
-            <!-- Await -->
-            <article>
-               <h6>The Await Expression</h6>
-               <p>We now know that placing <i><b>“async”</b> before a function</i>, means one simple thing. This is an <i><b>async function</b></i>, and an <i>async function</i> <i><b>always returns a promise</b></i>. In other words, the keyword <i><b>async</b></i> before a function, <b>always makes</b> the function return a promise</p>
-               <p>The <i><b>await</b></i> expression pauses the execution of its surrounding async functions, until that promise is settled (that is, fulfilled or rejected). When execution resumes, the value of the await expression becomes that of the fulfilled promise.</p>
-               <p>An <i><b>await</b></i> is <b>only valid inside async functions and modules</b>. It wil pause the execution of the <b><i>async function</i></b>, and waits for a promise to resolve, before it continues.</p>
-               <hr style="width: 90%;">
-               <p>Let's start with this example. We're going to add a <b>&lt;div></b> with a width of 400px and a height of 35px <i>(as defined in a css stylesheet)</i>. We're going to give the &lt;div> and <b>id="colorChange"</b>, so we can reference it within our JavaScript:
-                  <ul class="sectHighlight">
-                     <li><b>HTML</b></li>
                      <li>&lt;div <b>id=colorChange"</b>>&lt;/div></li>
-                     <li>
-                        <div id="div1"></div>
-                     </li>
-                     <li><b>JavaScript</b></li>
-                     <li>const <span class="colorHighlight">colorChange</span> = document.GetElementById('<b>colorChange</b>');</li>
                   </ul>
-               </p>
-               <p>Next, we're going to write a function that will create a <i><b>new Promise</b></i> that will change the background color of our div, every 1.5 seconds <i>(1500ms)</i>:
-                  <ul class="sectHighlight">
-                     <li><b>JavaScript</b></li>
+               </li>
+               <li>&nbsp;</li>
+               <li><b>CSS</b>
+                  <ul>
+                     <li><b>#colorChange</b> {
+                        <ul>
+                           <li>width: 400px;</li>
+                           <li>height: 35px;</li>
+                           <li>border: 2px solid black;</li>
+                           <li>border-radius: 8px;</li>
+                           <li>transition: 1.25s background-color;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>&nbsp;</li>
+               <li><b>JavaScript</b>
+                  <ul>
+                     <li>// <i>create a variable for a div with id="colorChange"</i></li>
+                     <li>const <span class="colorHighlight">colorChange</span> = document.getElementById('<b>colorChange</b>');</li>
+                     <li>&nbsp;</li>
+                     <li>// <i>random background color change with a time delay</i></li>
                      <li>const <span class="colorHighlight">delayedColorChange</span> = (<i>color</i>) => {
                         <ul>
-                           <li><i>return <span class="colorHighlight2">new Promise</span></i>((resolve, reject) => {
+                           <li><b>return</b> <span class="colorHighlight2"><i>new Promise</i></span>((<i>resolve</i>, <i>reject</i>) => {
                               <ul>
-                                 <li>setTimeout(() => {
+                                 <li><b>setTimeout</b>(() => {
                                     <ul>
                                        <li><span class="colorHighlight">colorChange</span>.style.backgroundColor = <i>color</i>;</li>
-                                       <li><b>resolve();</b></li>
+                                       <li><span class="colorHighlight2">resolve()</span>;</li>
                                     </ul>
                                  </li>
                                  <li>}, <b>1500</b>)</li>
@@ -255,31 +345,9 @@
                         </ul>
                      </li>
                      <li>}</li>
-                  </ul>
-                  So this function <b><i>creates</i></b> a <i><span class="colorHighlight2">new Promise</span></i> that will change the background color of our div, to the color <i><b>passed in</b></i> to the function. It will then return a resolution of the <b>Promise</b>, in this case, a <i><b>resolve()</b></i>.
-               </p>
-               <p>Next we need to create our <i><b>async function</b></i> which will pass in all of the colors for the background color changes. And inside this function will be several calls of the function <b>delayedColorChange()</b>, which if we look at the function, we see that after 1.5 seconds, it changes our &lt;div>'s background-color. But wait Houston... we have a problem.</p>
-               <p>If we call our <i><b>async function</b></i>, and pass in our first two <b>delayedColorChange()</b> functions, like so:
-                  <ul class="sectHighlight">
-                     <li><b>JavaScript</b></li>
-                     <li><i><b>async</b> function</i> rainbow() {
-                        <ul>
-                           <li><span class="colorHighlight">delayedColorChange</span>('red')</li>
-                           <li><span class="colorHighlight">delayedColorChange</span>('orange')</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <p>What do you think happens? Do we see a Red background, and then 1.5 seconds later a orange background?</p>
-               <p>Well, actually we don't.</p>
-               <p>Because we've told our <span class="colorHighlight">colorChange</span> function to wait 1500ms (1.5 seconds), but when we call this function a second time for the second color, it actually changes the color <i><b>before</b></i> the 1.5 seconds the <i><b>timeout</b></i> calls for. So it has changed the background color twice, <i><b>before</b> the timeout has finished running</i>. So instead of getting <i>Red</i> to <i>Orange</i>, we just see the <i>Orange</i>.</p>
-               <p>And this is where we find the use for our <i><b>await</b> expression.</i></p>
-               <p>Remember that we can only call <i><b>await</b> inside</i> of an <i>async <b>function</b></i>. And an <i>async <b>function</b></i> always returns a promise. So when we preface our <span class="colorHighlight">colorChange</span> function with <i><b>await</b></i>, it forces the Promise it is working on, <i>to <b>wait </b>until it has finished</i>, before moving on to the next Promise.</p>
-               <p>So our <i><b>async</b> function</i> would be:
-                  <ul class="sectHighlight">
-                     <li><b>JavaScript</b></li>
-                     <li><i><b>async</b></i> function <span class="colorHighlight2"><i>rainbow()</i></span> {
+                     <li>&nbsp;</li>
+                     <li>// <i>process the async with awaits</i></li>
+                     <li><b>async</b> function <span class="colorHighlight2"><i>rainbow()</i></span> {
                         <ul>
                            <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('red')</li>
                            <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('orange')</li>
@@ -288,109 +356,29 @@
                            <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('blue')</li>
                            <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('indigo')</li>
                            <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('violet')</li>
-                           <li><i><b>return</b></i> "ALL DONE!"</li>
+                           <li><b>return</b> "ALL DONE!"</li>
                         </ul>
                      </li>
                      <li>}</li>
+                     <li>&nbsp;</li>
+                     <li>// <i>run the rainbow async function</i></li>
+                     <li><span class="colorHighlight2"><i>rainbow()</i></span>;</li>
                   </ul>
-               </p>
-               <p>And finally, all that's left to do is to actually <i><b>call</b></i> the <span class="colorHighlight2"><i>rainbow()</i></span> <i><b>async</b> function</i>:
-                  <ul class="sectHighlight">
-                     <li><span class="colorHighlight2">rainbow()</span>;</li>
-                  </ul>
-               </p>
-               <p>And here is our final result. Our &lt;div> with changing background color.</p>
-               <div id="colorChange"></div>
-               <p>So as we can see, the <i><b>await</b></i> expression has paused the execution of its surrounding async functions, until that promise is settled (that is, fulfilled or rejected). And in our example, the end result is that every color change requires a 1.5 second delay before moving on to the next one.</p>
-            </article>
-            <hr style="width: 90%;">
+               </li>
+               <li>&nbsp;</li>
+            </ul>
+         </article>
+      </section>
 
-            <!-- Final Code -->
-            <article>
-               <h6>Final Code</h6>
-               <ul class="sectHighlight">
-                  <li><b>HTML</b>
-                     <ul>
-                        <li>&lt;div <b>id=colorChange"</b>>&lt;/div></li>
-                     </ul>
-                  </li>
-                  <li>&nbsp;</li>
-                  <li><b>CSS</b>
-                     <ul>
-                        <li><b>#colorChange</b> {
-                           <ul>
-                              <li>width: 400px;</li>
-                              <li>height: 35px;</li>
-                              <li>border: 2px solid black;</li>
-                              <li>border-radius: 8px;</li>
-                              <li>transition: 1.25s background-color;</li>
-                           </ul>
-                        </li>
-                        <li>}</li>
-                     </ul>
-                  </li>
-                  <li>&nbsp;</li>
-                  <li><b>JavaScript</b>
-                     <ul>
-                        <li>// <i>create a variable for a div with id="colorChange"</i></li>
-                        <li>const <span class="colorHighlight">colorChange</span> = document.getElementById('<b>colorChange</b>');</li>
-                        <li>&nbsp;</li>
-                        <li>// <i>random background color change with a time delay</i></li>
-                        <li>const <span class="colorHighlight">delayedColorChange</span> = (<i>color</i>) => {
-                           <ul>
-                              <li><b>return</b> <span class="colorHighlight2"><i>new Promise</i></span>((<i>resolve</i>, <i>reject</i>) => {
-                                 <ul>
-                                    <li><b>setTimeout</b>(() => {
-                                       <ul>
-                                          <li><span class="colorHighlight">colorChange</span>.style.backgroundColor = <i>color</i>;</li>
-                                          <li><span class="colorHighlight2">resolve()</span>;</li>
-                                       </ul>
-                                    </li>
-                                    <li>}, <b>1500</b>)</li>
-                                 </ul>
-                              </li>
-                              <li>})</li>
-                           </ul>
-                        </li>
-                        <li>}</li>
-                        <li>&nbsp;</li>
-                        <li>// <i>process the async with awaits</i></li>
-                        <li><b>async</b> function <span class="colorHighlight2"><i>rainbow()</i></span> {
-                           <ul>
-                              <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('red')</li>
-                              <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('orange')</li>
-                              <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('yellow')</li>
-                              <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('green')</li>
-                              <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('blue')</li>
-                              <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('indigo')</li>
-                              <li><b>await</b> <span class="colorHighlight">delayedColorChange</span>('violet')</li>
-                              <li><b>return</b> "ALL DONE!"</li>
-                           </ul>
-                        </li>
-                        <li>}</li>
-                        <li>&nbsp;</li>
-                        <li>// <i>run the rainbow async function</i></li>
-                        <li><span class="colorHighlight2"><i>rainbow()</i></span>;</li>
-                     </ul>
-                  </li>
-                  <li>&nbsp;</li>
-               </ul>
-            </article>
-         </section>
-
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
    <script src="jsPromises.js"></script>
 </body>
-
 </html>

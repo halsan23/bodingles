@@ -7,14 +7,14 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
    <style>
       hr {
@@ -25,331 +25,320 @@
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p>
-               <a href="../jsIndex.html">Back to JavaScript Index Page</a>
-            </p>
-            <hr style="width: 50%" />
-            <h5>JavaScript Array Callback Methods</h5>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p>
+            <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+         </p>
+         <hr style="width: 50%" />
+         <h5>JavaScript Array Callback Methods</h5>
+      </section>
 
-         <!-- JavaScript Objects Reference Links -->
-         <section id="textWindow2">
-            <h6>Array Callback Methods References</h6>
-            <p><a href="../../../assets/files/JavaScript_Array_Callback_Methods.pdf" target="_blank">JavaScript Array Callback Methods PDF</a></p>
-            <p><a href="../arrowFunctions/arrowFunctions.html" target="_blank">JavaScript Arrow Functions</a></p>
-         </section>
+      <!-- JavaScript Objects Reference Links -->
+      <section id="textWindow2">
+         <h6>Array Callback Methods References</h6>
+         <p><a href="../../../assets/files/JavaScript_Array_Callback_Methods.pdf" target="_blank">JavaScript Array Callback Methods PDF</a></p>
+         <p><a href="../arrowFunctions/arrowFunctions.html" target="_blank">JavaScript Arrow Functions</a></p>
+      </section>
 
-         <!-- Class Notes -->
-         <section id="textWindow4" class="just lists">
-            <!-- Callback Methods Defined -->
-            <article>
-               <p><span class="firstWord">Array Callback Methods</span> are methods that are built specifically to works with arrays. These methods use the <b>arrow function syntax</b>.</p>
-               <p>Here are some of these methods:</p>
-            </article>
-            <br><hr><br>
+      <!-- Class Notes -->
+      <section id="textWindow4" class="just lists">
+         <!-- Callback Methods Defined -->
+         <article>
+            <p><span class="firstWord">Array Callback Methods</span> are methods that are built specifically to works with arrays. These methods use the <b>arrow function syntax</b>.</p>
+            <p>Here are some of these methods:</p>
+         </article>
+         <br><hr><br>
 
-            <!-- forEach -->
-            <article>
-               <h6>forEach</h6>
-               <p><a href="https://www.w3schools.com/jsref/jsref_forEach.asp" target="_blank" rel="noopener noreferrer">forEach()</a> expects a function as an argument, then runs that function, for each element in an array. The <b>forEach()</b> method does not run if the array is empty. Example:
-                  <ul>
-                     <li>// create an array</li>
-                     <li>let <b>nums</b> = [1, 2, 3, 4, 5];</li>
-                     <li>&nbsp;&nbsp;</li>
-                     <li>// create a function to print an input (<b>number</b>) to the console</li>
-                     <li>function <b>print</b>(number) {
-                        <ul>
-                           <li>console.log(number);</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                     <li>&nbsp;&nbsp;</li>
-                     <li>// so <b>for each</b> number in the (<b>nums</b>) array,</li>
-                     <li>// run the function (<b>print</b>) to output them to the console</li>
-                     <li><b>nums</b>.forEach(<b>print</b>);</li>
-                  </ul>
-                  So <b>forEach</b> will run a function on every element of an array. <b>However</b>, when using <b>forEach()</b>, you do not usually define an external function. You would define the function within the <b>forEach()</b> statement, like so:
-                  <ul>
-                     <li><b>nums</b>.forEach(function (<b>number</b>) {
-                        <ul>
-                           <li>console.log(number);</li>
-                        </ul>
-                     </li>
-                     <li>})</li>
-                  </ul>
-                  This is done because you don't need an external function, you only need this function within the forEach to run while you are processing the array.
-               </p>
-               <p><b>*note</b>: forEach() is not used that much anymore, now we use
-                  <a href="https://www.w3schools.com/js/js_loop_forof.asp" target="_blank" rel="noopener noreferrer">for Of</a>.</p>
-            </article>
-            <br><hr><br>
-
-            <!-- map -->
-            <article>
-               <h6>map</h6>
-               <p><a href="https://www.w3schools.com/jsref/jsref_map.asp" target="_blank" rel="noopener noreferrer">map()</a> creates a <b>new</b> array with the results of running a "callback function" on <b>every</b> element in the original array. <b>map()</b> does not execute the function for empty elements. <b>map() does not</b> change the original array.</p>
-               <p>So <b>map()</b>, takes the original array, changes it in a "callback" function, and returns the results as a <b>new</b> array. Example:
-                  <ul>
-                     <li>// create original array</li>
-                     <li>const <b>texts</b> = ['rofl', 'lol', 'omg', 'yeppers'];</li>
-                     <li><br></li>
-                     <li>// run the callback function to change the original array data and output it to a <b>new array</b></li>
-                     <li>const <b>caps</b> = texts.<b>map(</b>function(change) {
-                        <ul>
-                           <li>return change.toUpperCase();</li>
-                        </ul>
-                     </li>
-                     <li>)}</li>
-                  </ul>
-                  console.log(<b>texts</b>); will return ['rofl', 'lol', 'omg', 'yeppers'] and,<br>
-                  console.log(<b>caps</b>); will return ['ROFL', LOL', 'OMG', 'YEPPERS']
-               </p>
-               <p>So <b>map()</b> is generally used when you want to change every element of an array, in some fashion. Map creates a new array when run but will not run on an empty array.</p>
-            </article>
-            <br><hr><br>
-
-            <!-- filter -->
-            <article>
-               <h6>filter</h6>
-               <p><a href="https://www.w3schools.com/jsref/jsref_filter.asp" target="_blank" rel="noopener noreferrer">filter()</a>: method creates a <b>new</b> array filled with elements that pass a test provided by a function. This will test <b>every</b> element in the array and return either <b>true</b> or <b>false</b>. If the element returns true, it is added to the new array.
-                  <ul>
-                     <li>The <b>filter()</b> method <b>does not</b> change the original array.</li>
-                     <li>The <b>filter()</b> method does not execute the function for empty elements.</li>
-                  </ul>
-               </p>
-               <p>lets create an array to work with:
-                  <ul>
-                     <li><b>const nums = [9, 8, 7, 6, 5, 4, 3, 2, 1];</b></li>
-                  </ul>
-               </p>
-               <p>If we create a filter method to return the numbers in the array that are odd, it could look like this:
-                  <ul>
-                     <li><b>const odds = nums.filter(n => n % 2 === 1)</b></li>
-                     <li><b>%</b> is the mod operator. it determines the remainder, of <b>n divided by</b> (in this case) <b>2</b>.</li>
-                     <li>if <b>n</b> is an even number this will return 0 <i>(false)</i></li>
-                     <li>if <b>n</b> is an odd number this will return 1 <i>(true)</i></li>
-                     <li>the callback function returns the numbers where <b>n % 2 = 1</b> and stores them in the new array, <b>odds</b></li>
-                  </ul>
-               </p>
-               <p>and if we print out <b>odds</b>, it would return:
-                  <ul>
-                     <li><b>[9, 7, 5, 3, 1]</b></li>
-                  </ul>
-               </p>
-               <p><b>*note</b> that this <b>does not</b> change the original array. <b>nums</b> is still equal to [9, 8, 7, 6, 5, 4, 3, 2, 1]. Instead, <b>filter</b> creates a <b>new</b> array, <b><i>odds</i></b> that holds the returns from the callback function [9, 7, 5, 3, 1].</p>
-            </article>
-            <br><hr><br>
-
-            <!-- Some -->
-            <article>
-               <h6>some</h6>
-               <p><a href="https://www.w3schools.com/jsref/jsref_some.asp" target="_blank" rel="noopener noreferrer">some()</a>: Always returns <b>true</b> or <b>false</b>. This method checks if any array element passes a test <i>(provided as a callback function)</i>. The <b>some()</b> method executes the callback function once <b>for each array element</b>, returns true (<b>and stops</b>) if the function returns true for any <b>one</b> of the array elements. The <b>some()</b> method returns false if the function returns false for <b>all</b> of the array elements. The <b>some()</b> method does not execute the function for empty array elements. The <b>some()</b> method <b>does not</b> change the original array.</p>
-
-               <p>Example: <b>const exams = [80, 82, 92, 78, 70, 90, 89, 81, 77];</b><br>
-                  if we run
-                  <ul>
-                     <li>console.log(exams.<b>some</b>(score => score > 75));</li>
-                  </ul>
-                  we get <b>true</b> because <b>some</b> of the exam scores are > 75.
-               </p>
-               <p>but if we run
-                  <ul>
-                     <li>console.log(exams.<b>some</b>(score => score < 65));</li>
-                  </ul>
-                  we get <b>false</b> because <b>none</b> of the exam scores are < 65.
-               </p>
-            </article>
-            <br><hr><br>
-
-            <!-- Every -->
-            <article>
-               <h6>every</h6>
-               <p><a href="https://www.w3schools.com/jsref/jsref_every.asp" target="_blank" rel="noopener noreferrer">every()</a>: Always returns <b>true</b> or <b>false</b>. This method executes a function <i>(provided as a callback function)</i> <b>for each array element</b>, and returns <b>true</b> if the function returns true for <b>all</b> elements. The <b>every()</b> method returns <b>false</b> if the function returns false for <b>one</b> element. The <b>every()</b> method does not execute the function for empty elements. The <b>every()</b> method <b>does not</b> change the original array</p>
-
-               <p>Example: <b>const exams = [80, 82, 92, 78, 70, 90, 89, 81, 77];</b><br>
-                  if we run
-                  <ul>
-                     <li>console.log(exams.<b>every</b>(score => score > 65));</li>
-                  </ul>
-                  we get <b>true</b> because <b>every</b> one of the exam scores are > 65.
-               </p>
-               <p>but if we run
-                  <ul>
-                     <li>console.log(exams.<b>every</b>(score => score < 80));</li>
-                  </ul>
-                  we get <b>false</b> because <b>not every</b> one of the exam scores are NOT < 80.
-               </p>
-               <p>==========================================================</p>
-               <p>Another example:<br>
-                  Say we wanted to pass several arrays into a function for processing. Let's use three "number" arrays and test to see if all of the numbers in each array are even. A <b>Callback Function</b> would be perfect for this. Remember, a Callback Function is a function that takes a function as an argument.
-               </p>
-               <p>Lets set up our basic function:
-                  <ul>
-                     <li><b>const allEvents = function(arr) {}</b></li>
-                  </ul>
-                  We are creating a function "<b>allEvents</b>" which takes one argument "<b>arr</b>". We will write the Callback function that will check each array within this function.
-               </p>
-               <p>Let's set up our arrays for testing:
-                  <ul>
-                     <li><b>allEvens([2,4,6,8]);</b></li>
-                     <li><b>allEvens([1,4,6,8]);</b></li>
-                     <li><b>allEvens([1,2,3]);</b></li>
-                  </ul>
-                  We are calling <b>allEvents()</b> and passing in an array for processing by the callback function.
-               </p>
-               <p>In the Callback Function, we will use <b>every()</b> to test if EVERY element in the array, is an even number:
-                  <table style="background-color: #ddd;"><tr><td>
-                     <ul>
-                        <li>const <b>allEvents</b> = function(<b>arr</b>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// <i>this is the initial function where we pass our array into the variable <b>arr</b></i>
-                           <ul>
-                              <li><b>return</b> arr.<b>every</b>(function(<b>num</b>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// <i>this will return the results of this "callback function"</i>
-                                 <ul>
-                                    <li><b>return</b> <b>num</b> % 2 === 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// <i>this will return boolean if num is odd or even to the "callback function"</i></li>
-                                 </ul>
-                              </li>
-                              <li>});</li>
-                           </ul>
-                        }</li>
-                     </ul>
-                  </td></tr></table>
-               </p>
-               <p>So we have an array and we want to check if all the elements are even numbers <b>[1,4,6,8]</b></p>
-               <p>We want to pass this array into our <b>allEvens()</b> function like so: <b>allEvens([1,4,6,8]);</b> and the array is passed into the function variable, <b>arr</b></p>
-
-               <p>The callback function then runs the <b>every()</b> method on <b>arr</b> (array passed in) and because of the nature of the <b>every()</b> method will return <b>true</b> or <b>false</b> based on the test set on the next line.</p>
-
-               <p>The <b>every()</b> method then test's <b>every</b> item in the array (<b>arr</b>) and returns <b>true</b> or <b>false</b> depending whether or not <b>num % 2 === 0</b>, which is then returned to the Callback Function which in turn returns the results (<b>true</b> or <b>false</b>) to the initial function called, <b>allEvens()</b>.</p>
-
-               <p>So for our three arrays, this would be the returned results:
-                  <ul>
-                     <li><b>allEvens([2,4,6,8]);</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns <b>true</b> - all numbers ARE even</li>
-                     <li><b>allEvens([1,4,6,8]);</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns <b>false</b> - all numbers ARE NOT even</li>
-                     <li><b>allEvens([1,2,3]);</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns <b>false</b> - all numbers ARE NOTeven</li>
-                  </ul>
-               </p>
-               <p><b>*note</b>: we could also use an <b>arrow function</b> to simplify our code like so:
-                  <table style="background-color: #ddd;"><tr><td>
-                     <ul>
-                        <li>const allEvens = arr => arr.every(num => num % 2 === 0);</li>
-                     </ul>
-                  </td></tr></table>
-               </p>
-            </article>
-            <br><hr><br>
-
-            <!-- Reduce -->
-            <article>
-               <h6>reduce</h6>
-               <p><a href="https://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="noopener noreferrer">reduce()</a>: method executes a reducer function for array element and returns a single value, the function's accumulated result. Essentially, this method reduces an array down to a single value. The <b>reduce()</b> method does not execute the function for empty array elements. The <b>reduce()</b> method <b>does not</b> change the original array.</p>
-               <p>The basic syntax is:
-                  <ul>
-                     <li><b>array.reduce(function(total, currentValue, currentIndex, arr), initialValue)</b>
-                        <ul style="background-color: #ddd;">
-                           <li><br></li>
-                           <li><b>function()</b>: A function to be run for each element in the array <i>(<b>required</b>)</i></li>
-                           <li><br></li>
-                           <li><b>total</b>: the initialValue, or the previously returned value of the function <i>(<b>required</b>)</i></li>
-                           <li><b>currentValue</b>: the value of the current element <i>(<b>required</b>)</i></li>
-                           <li><b>currentIndex</b>: the index of the current elemen <i>(optional)</i></li>
-                           <li><b>arr</b>: the array the current element belongs to <i>(optional)</i></li>
-                           <li><br></li>
-                           <li><b>initialValue</b>: a value to be passed to the function as the initial value <i>(optional)</i></li>
-                           <li><br></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-               <p>This works extremely well if want to add an array full of numbers. For example:</p>
+         <!-- forEach -->
+         <article>
+            <h6>forEach</h6>
+            <p><a href="https://www.w3schools.com/jsref/jsref_forEach.asp" target="_blank" rel="noopener noreferrer">forEach()</a> expects a function as an argument, then runs that function, for each element in an array. The <b>forEach()</b> method does not run if the array is empty. Example:
                <ul>
-                  <li><b>const nums = [3, 5, 7, 9, 11];</li>
-                  <li><br></li>
-                  <li>nums.reduce((total, currentValue) => {
+                  <li>// create an array</li>
+                  <li>let <b>nums</b> = [1, 2, 3, 4, 5];</li>
+                  <li>&nbsp;&nbsp;</li>
+                  <li>// create a function to print an input (<b>number</b>) to the console</li>
+                  <li>function <b>print</b>(number) {
                      <ul>
-                        <li>return total + currentValue;</li>
+                        <li>console.log(number);</li>
                      </ul>
                   </li>
-                  <li>});</li>
-               </ul></b>
-               <p>This returns <b>35</b> because 3 + 5 = <b>8</b> + 7 = <b>15</b> + 9 = <b>24</b> + 11 = <b>35</b>, thus reducing the array down to a single element which is the sum of all of the elements.</p>
-               <p><b>*note</b> that this does <b>not</b> change the <b>original</b> array.</p>
-               <p>You can also shorten and simplify the code with an <b>Implicit Return</b> and an <b>Arrow Function</b>:</p>
-               <p><b>nums.reduce((total, currentValue) => total + currentValue);</b> returns the same result <b>35</b>.</p>
-
-               <p>You are not limited to addition, you could perform <b>any</b> mathematical function:
-                  <ul>
-                     <li><b>const nums = [3, 5, 7, 9, 11];</b></li>
-                     <li><b>nums.reduce((total, currentValue) => total - currentValue);</b> returns <b>-29</b></li>
-                  </ul>
-               </p>
-
-               <p><br>You could aslo add the <i>optional</i> <b>initialValue</b> paramater to alter the reduce, like so:
-                  <ul style="background-color: #ddd;"><br>
-                     <li>nums.reduce((total, currentValue) => total - currentValue<b>, 100</b>); would return <b>71</b> because you are telling the reduce method to start at 100.</li>
-                     <br></ul>
-               </p><br>
-
-               <p>You are also not limited to mathematical functions. You could do anything that would return a single value such as find the lowest, or highest number.</p>
-               <p>
-                  <ul style="background-color: #ddd;"><b>
-                     <li><br></li>
-                     <li>num.reduce((min, val) => {
-                        <ul>
-                           <li>if (val < min) {
-                              <ul>
-                                 <li>return val;</li>
-                              </ul>
-                           </li>
-                           <li>} else {
-                              <ul>
-                                 <li>return min;</li>
-                              </ul>
-                           </li>
-                           <li>}</li>
-                        </ul>
-                     </li>
+                  <li>}</li>
+                  <li>&nbsp;&nbsp;</li>
+                  <li>// so <b>for each</b> number in the (<b>nums</b>) array,</li>
+                  <li>// run the function (<b>print</b>) to output them to the console</li>
+                  <li><b>nums</b>.forEach(<b>print</b>);</li>
+               </ul>
+               So <b>forEach</b> will run a function on every element of an array. <b>However</b>, when using <b>forEach()</b>, you do not usually define an external function. You would define the function within the <b>forEach()</b> statement, like so:
+               <ul>
+                  <li><b>nums</b>.forEach(function (<b>number</b>) {
+                     <ul>
+                        <li>console.log(number);</li>
+                     </ul>
+                  </li>
                   <li>})</li>
+               </ul>
+               This is done because you don't need an external function, you only need this function within the forEach to run while you are processing the array.
+            </p>
+            <p><b>*note</b>: forEach() is not used that much anymore, now we use
+               <a href="https://www.w3schools.com/js/js_loop_forof.asp" target="_blank" rel="noopener noreferrer">for Of</a>.</p>
+         </article>
+         <br><hr><br>
+
+         <!-- map -->
+         <article>
+            <h6>map</h6>
+            <p><a href="https://www.w3schools.com/jsref/jsref_map.asp" target="_blank" rel="noopener noreferrer">map()</a> creates a <b>new</b> array with the results of running a "callback function" on <b>every</b> element in the original array. <b>map()</b> does not execute the function for empty elements. <b>map() does not</b> change the original array.</p>
+            <p>So <b>map()</b>, takes the original array, changes it in a "callback" function, and returns the results as a <b>new</b> array. Example:
+               <ul>
+                  <li>// create original array</li>
+                  <li>const <b>texts</b> = ['rofl', 'lol', 'omg', 'yeppers'];</li>
                   <li><br></li>
-                  </ul></b>
-               </p>
-               <p>This will obviously return <b>3</b>. It runs through the Callback Function starting with <b>3</b> and compares it to the next number in the list until it reduces the entire array down to a single return, in this case, the lowest number.</p>
-            </article>
-            <br><hr><br>
+                  <li>// run the callback function to change the original array data and output it to a <b>new array</b></li>
+                  <li>const <b>caps</b> = texts.<b>map(</b>function(change) {
+                     <ul>
+                        <li>return change.toUpperCase();</li>
+                     </ul>
+                  </li>
+                  <li>)}</li>
+               </ul>
+               console.log(<b>texts</b>); will return ['rofl', 'lol', 'omg', 'yeppers'] and,<br>
+               console.log(<b>caps</b>); will return ['ROFL', LOL', 'OMG', 'YEPPERS']
+            </p>
+            <p>So <b>map()</b> is generally used when you want to change every element of an array, in some fashion. Map creates a new array when run but will not run on an empty array.</p>
+         </article>
+         <br><hr><br>
 
-            <!-- Find -->
-            <article>
-               <h6>find</h6>
-               <p><a href="https://www.w3schools.com/jsref/jsref_find.asp" target="_blank" rel="noopener noreferrer">find()</a>: method returns the value of the <b>first</b> element that passes a test. The <b>find()</b> method executes a function for each array element. The <b>find()</b> method returns undefined if no elements are found. The <b>find()</b> method does not execute the function for empty elements. The <b>find()</b> method <b>does not</b> change the original array.</p>
-            </article>
-         </section>
+         <!-- filter -->
+         <article>
+            <h6>filter</h6>
+            <p><a href="https://www.w3schools.com/jsref/jsref_filter.asp" target="_blank" rel="noopener noreferrer">filter()</a>: method creates a <b>new</b> array filled with elements that pass a test provided by a function. This will test <b>every</b> element in the array and return either <b>true</b> or <b>false</b>. If the element returns true, it is added to the new array.
+               <ul>
+                  <li>The <b>filter()</b> method <b>does not</b> change the original array.</li>
+                  <li>The <b>filter()</b> method does not execute the function for empty elements.</li>
+               </ul>
+            </p>
+            <p>lets create an array to work with:
+               <ul>
+                  <li><b>const nums = [9, 8, 7, 6, 5, 4, 3, 2, 1];</b></li>
+               </ul>
+            </p>
+            <p>If we create a filter method to return the numbers in the array that are odd, it could look like this:
+               <ul>
+                  <li><b>const odds = nums.filter(n => n % 2 === 1)</b></li>
+                  <li><b>%</b> is the mod operator. it determines the remainder, of <b>n divided by</b> (in this case) <b>2</b>.</li>
+                  <li>if <b>n</b> is an even number this will return 0 <i>(false)</i></li>
+                  <li>if <b>n</b> is an odd number this will return 1 <i>(true)</i></li>
+                  <li>the callback function returns the numbers where <b>n % 2 = 1</b> and stores them in the new array, <b>odds</b></li>
+               </ul>
+            </p>
+            <p>and if we print out <b>odds</b>, it would return:
+               <ul>
+                  <li><b>[9, 7, 5, 3, 1]</b></li>
+               </ul>
+            </p>
+            <p><b>*note</b> that this <b>does not</b> change the original array. <b>nums</b> is still equal to [9, 8, 7, 6, 5, 4, 3, 2, 1]. Instead, <b>filter</b> creates a <b>new</b> array, <b><i>odds</i></b> that holds the returns from the callback function [9, 7, 5, 3, 1].</p>
+         </article>
+         <br><hr><br>
 
-         <p><br></p>
-         <p><a href="#top">Back to Top</a><br /><br /></p>
-      </div>
+         <!-- Some -->
+         <article>
+            <h6>some</h6>
+            <p><a href="https://www.w3schools.com/jsref/jsref_some.asp" target="_blank" rel="noopener noreferrer">some()</a>: Always returns <b>true</b> or <b>false</b>. This method checks if any array element passes a test <i>(provided as a callback function)</i>. The <b>some()</b> method executes the callback function once <b>for each array element</b>, returns true (<b>and stops</b>) if the function returns true for any <b>one</b> of the array elements. The <b>some()</b> method returns false if the function returns false for <b>all</b> of the array elements. The <b>some()</b> method does not execute the function for empty array elements. The <b>some()</b> method <b>does not</b> change the original array.</p>
+
+            <p>Example: <b>const exams = [80, 82, 92, 78, 70, 90, 89, 81, 77];</b><br>
+               if we run
+               <ul>
+                  <li>console.log(exams.<b>some</b>(score => score > 75));</li>
+               </ul>
+               we get <b>true</b> because <b>some</b> of the exam scores are > 75.
+            </p>
+            <p>but if we run
+               <ul>
+                  <li>console.log(exams.<b>some</b>(score => score < 65));</li>
+               </ul>
+               we get <b>false</b> because <b>none</b> of the exam scores are < 65.
+            </p>
+         </article>
+         <br><hr><br>
+
+         <!-- Every -->
+         <article>
+            <h6>every</h6>
+            <p><a href="https://www.w3schools.com/jsref/jsref_every.asp" target="_blank" rel="noopener noreferrer">every()</a>: Always returns <b>true</b> or <b>false</b>. This method executes a function <i>(provided as a callback function)</i> <b>for each array element</b>, and returns <b>true</b> if the function returns true for <b>all</b> elements. The <b>every()</b> method returns <b>false</b> if the function returns false for <b>one</b> element. The <b>every()</b> method does not execute the function for empty elements. The <b>every()</b> method <b>does not</b> change the original array</p>
+
+            <p>Example: <b>const exams = [80, 82, 92, 78, 70, 90, 89, 81, 77];</b><br>
+               if we run
+               <ul>
+                  <li>console.log(exams.<b>every</b>(score => score > 65));</li>
+               </ul>
+               we get <b>true</b> because <b>every</b> one of the exam scores are > 65.
+            </p>
+            <p>but if we run
+               <ul>
+                  <li>console.log(exams.<b>every</b>(score => score < 80));</li>
+               </ul>
+               we get <b>false</b> because <b>not every</b> one of the exam scores are NOT < 80.
+            </p>
+            <p>==========================================================</p>
+            <p>Another example:<br>
+               Say we wanted to pass several arrays into a function for processing. Let's use three "number" arrays and test to see if all of the numbers in each array are even. A <b>Callback Function</b> would be perfect for this. Remember, a Callback Function is a function that takes a function as an argument.
+            </p>
+            <p>Lets set up our basic function:
+               <ul>
+                  <li><b>const allEvents = function(arr) {}</b></li>
+               </ul>
+               We are creating a function "<b>allEvents</b>" which takes one argument "<b>arr</b>". We will write the Callback function that will check each array within this function.
+            </p>
+            <p>Let's set up our arrays for testing:
+               <ul>
+                  <li><b>allEvens([2,4,6,8]);</b></li>
+                  <li><b>allEvens([1,4,6,8]);</b></li>
+                  <li><b>allEvens([1,2,3]);</b></li>
+               </ul>
+               We are calling <b>allEvents()</b> and passing in an array for processing by the callback function.
+            </p>
+            <p>In the Callback Function, we will use <b>every()</b> to test if EVERY element in the array, is an even number:
+               <table style="background-color: #ddd;"><tr><td>
+                  <ul>
+                     <li>const <b>allEvents</b> = function(<b>arr</b>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// <i>this is the initial function where we pass our array into the variable <b>arr</b></i>
+                        <ul>
+                           <li><b>return</b> arr.<b>every</b>(function(<b>num</b>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// <i>this will return the results of this "callback function"</i>
+                              <ul>
+                                 <li><b>return</b> <b>num</b> % 2 === 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// <i>this will return boolean if num is odd or even to the "callback function"</i></li>
+                              </ul>
+                           </li>
+                           <li>});</li>
+                        </ul>
+                     }</li>
+                  </ul>
+               </td></tr></table>
+            </p>
+            <p>So we have an array and we want to check if all the elements are even numbers <b>[1,4,6,8]</b></p>
+            <p>We want to pass this array into our <b>allEvens()</b> function like so: <b>allEvens([1,4,6,8]);</b> and the array is passed into the function variable, <b>arr</b></p>
+
+            <p>The callback function then runs the <b>every()</b> method on <b>arr</b> (array passed in) and because of the nature of the <b>every()</b> method will return <b>true</b> or <b>false</b> based on the test set on the next line.</p>
+
+            <p>The <b>every()</b> method then test's <b>every</b> item in the array (<b>arr</b>) and returns <b>true</b> or <b>false</b> depending whether or not <b>num % 2 === 0</b>, which is then returned to the Callback Function which in turn returns the results (<b>true</b> or <b>false</b>) to the initial function called, <b>allEvens()</b>.</p>
+
+            <p>So for our three arrays, this would be the returned results:
+               <ul>
+                  <li><b>allEvens([2,4,6,8]);</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns <b>true</b> - all numbers ARE even</li>
+                  <li><b>allEvens([1,4,6,8]);</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns <b>false</b> - all numbers ARE NOT even</li>
+                  <li><b>allEvens([1,2,3]);</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns <b>false</b> - all numbers ARE NOTeven</li>
+               </ul>
+            </p>
+            <p><b>*note</b>: we could also use an <b>arrow function</b> to simplify our code like so:
+               <table style="background-color: #ddd;"><tr><td>
+                  <ul>
+                     <li>const allEvens = arr => arr.every(num => num % 2 === 0);</li>
+                  </ul>
+               </td></tr></table>
+            </p>
+         </article>
+         <br><hr><br>
+
+         <!-- Reduce -->
+         <article>
+            <h6>reduce</h6>
+            <p><a href="https://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank" rel="noopener noreferrer">reduce()</a>: method executes a reducer function for array element and returns a single value, the function's accumulated result. Essentially, this method reduces an array down to a single value. The <b>reduce()</b> method does not execute the function for empty array elements. The <b>reduce()</b> method <b>does not</b> change the original array.</p>
+            <p>The basic syntax is:
+               <ul>
+                  <li><b>array.reduce(function(total, currentValue, currentIndex, arr), initialValue)</b>
+                     <ul style="background-color: #ddd;">
+                        <li><br></li>
+                        <li><b>function()</b>: A function to be run for each element in the array <i>(<b>required</b>)</i></li>
+                        <li><br></li>
+                        <li><b>total</b>: the initialValue, or the previously returned value of the function <i>(<b>required</b>)</i></li>
+                        <li><b>currentValue</b>: the value of the current element <i>(<b>required</b>)</i></li>
+                        <li><b>currentIndex</b>: the index of the current elemen <i>(optional)</i></li>
+                        <li><b>arr</b>: the array the current element belongs to <i>(optional)</i></li>
+                        <li><br></li>
+                        <li><b>initialValue</b>: a value to be passed to the function as the initial value <i>(optional)</i></li>
+                        <li><br></li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>This works extremely well if want to add an array full of numbers. For example:</p>
+            <ul>
+               <li><b>const nums = [3, 5, 7, 9, 11];</li>
+               <li><br></li>
+               <li>nums.reduce((total, currentValue) => {
+                  <ul>
+                     <li>return total + currentValue;</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul></b>
+            <p>This returns <b>35</b> because 3 + 5 = <b>8</b> + 7 = <b>15</b> + 9 = <b>24</b> + 11 = <b>35</b>, thus reducing the array down to a single element which is the sum of all of the elements.</p>
+            <p><b>*note</b> that this does <b>not</b> change the <b>original</b> array.</p>
+            <p>You can also shorten and simplify the code with an <b>Implicit Return</b> and an <b>Arrow Function</b>:</p>
+            <p><b>nums.reduce((total, currentValue) => total + currentValue);</b> returns the same result <b>35</b>.</p>
+
+            <p>You are not limited to addition, you could perform <b>any</b> mathematical function:
+               <ul>
+                  <li><b>const nums = [3, 5, 7, 9, 11];</b></li>
+                  <li><b>nums.reduce((total, currentValue) => total - currentValue);</b> returns <b>-29</b></li>
+               </ul>
+            </p>
+
+            <p><br>You could aslo add the <i>optional</i> <b>initialValue</b> paramater to alter the reduce, like so:
+               <ul style="background-color: #ddd;"><br>
+                  <li>nums.reduce((total, currentValue) => total - currentValue<b>, 100</b>); would return <b>71</b> because you are telling the reduce method to start at 100.</li>
+                  <br></ul>
+            </p><br>
+
+            <p>You are also not limited to mathematical functions. You could do anything that would return a single value such as find the lowest, or highest number.</p>
+            <p>
+               <ul style="background-color: #ddd;"><b>
+                  <li><br></li>
+                  <li>num.reduce((min, val) => {
+                     <ul>
+                        <li>if (val < min) {
+                           <ul>
+                              <li>return val;</li>
+                           </ul>
+                        </li>
+                        <li>} else {
+                           <ul>
+                              <li>return min;</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+               <li>})</li>
+               <li><br></li>
+               </ul></b>
+            </p>
+            <p>This will obviously return <b>3</b>. It runs through the Callback Function starting with <b>3</b> and compares it to the next number in the list until it reduces the entire array down to a single return, in this case, the lowest number.</p>
+         </article>
+         <br><hr><br>
+
+         <!-- Find -->
+         <article>
+            <h6>find</h6>
+            <p><a href="https://www.w3schools.com/jsref/jsref_find.asp" target="_blank" rel="noopener noreferrer">find()</a>: method returns the value of the <b>first</b> element that passes a test. The <b>find()</b> method executes a function for each array element. The <b>find()</b> method returns undefined if no elements are found. The <b>find()</b> method does not execute the function for empty elements. The <b>find()</b> method <b>does not</b> change the original array.</p>
+         </article>
+      </section>
+
+      <p><br></p>
+      <p><a href="#top">Back to Top</a><br /><br /></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>

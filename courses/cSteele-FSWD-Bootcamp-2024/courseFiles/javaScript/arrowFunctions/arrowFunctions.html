@@ -7,231 +7,220 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p>
-               <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p>
+            <a href="../jsIndex.html">Back to JavaScript Index Page</a>
+         </p>
+         <hr style="width: 50%" />
+         <h5>JavaScript Arrow Functions</h5>
+      </section>
+
+      <!-- JavaScript Objects Reference Links -->
+      <section id="textWindow2">
+         <h6>JavaScript Arrow Function References</h6>
+         <p><a href="https://www.w3schools.com/Js/js_arrow_function.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Arrow Function</a></p>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener noreferrer">MDN Arrow Function Expressions</a></p>
+      </section>
+
+      <!-- Class Notes -->
+      <section id="textWindow4" class="just lists">
+         <!-- Arrow Functions Defined -->
+         <article>
+            <p><span class="firstWord">An</span> arrow function expression is a compact alternative to a traditional function expression. They allow us to write a function without actually having to use the keyword <b>function</b>. Arrow Functions have some semantic differences and deliberate limitations in usage:
+               <ul>
+                  <li>Arrow functions don't have their own bindings to <b>this</b>, <b>arguments</b>, or <b>super</b>, and should <b>not be used as methods</b>.</li>
+                  <li>Arrow functions can <b>not be used as constructors</b>. Calling them with new throws a TypeError. They also don't have access to the new.target keyword.</li>
+                  <li>Arrow functions can <b>not</b> use yield within their body and cannot be created as generator functions.</li>
+                  <li><b>Also</b>: Arrow Functions are <b>NOT supported in Internet Explorer</b>.</li>
+               </ul>
             </p>
-            <hr style="width: 50%" />
-            <h5>JavaScript Arrow Functions</h5>
-         </section>
+         </article>
+         <hr style="width: 95%;">
 
-         <!-- JavaScript Objects Reference Links -->
-         <section id="textWindow2">
-            <h6>JavaScript Arrow Function References</h6>
-            <p><a href="https://www.w3schools.com/Js/js_arrow_function.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Arrow Function</a></p>
-            <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener noreferrer">MDN Arrow Function Expressions</a></p>
-         </section>
-
-         <!-- Class Notes -->
-         <section id="textWindow4" class="just lists">
-            <!-- Arrow Functions Defined -->
-            <article>
-               <p><span class="firstWord">An</span> arrow function expression is a compact alternative to a traditional function expression. They allow us to write a function without actually having to use the keyword <b>function</b>. Arrow Functions have some semantic differences and deliberate limitations in usage:
-                  <ul>
-                     <li>Arrow functions don't have their own bindings to <b>this</b>, <b>arguments</b>, or <b>super</b>, and should <b>not be used as methods</b>.</li>
-                     <li>Arrow functions can <b>not be used as constructors</b>. Calling them with new throws a TypeError. They also don't have access to the new.target keyword.</li>
-                     <li>Arrow functions can <b>not</b> use yield within their body and cannot be created as generator functions.</li>
-                     <li><b>Also</b>: Arrow Functions are <b>NOT supported in Internet Explorer</b>.</li>
-                  </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- examples with further description -->
-            <article>
-               <p><span class="firstWord">example</span>:<br>if we had a regular function, something like:
-                  <ul>
-                     <li>const add = function(x, y) {
-                        <ul>
-                           <li>return x + y;</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <hr style="width: 50%; margin-left: 0;">
-               <p>we could simplify it with the <b>arrow function</b> and remove the <b>function</b> keyword, like so:
-                  <ul>
-                     <li>const add = (x, y) <b>=></b> {
-                        <ul>
-                           <li>return x + y;</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <p>The <b>=></b> Arrow Function is telling us that <b>add = (x, y)</b> is a <b>function</b>, simplifying the code.</p>
-               <hr style="width: 50%; margin-left: 0;">
-               <p><b>Also</b>, if you have a function that does not have any parameters passed in,you can use the <b>Arrow Function</b> with empty parenthesis <b>()</b>, like so:
-                  <ul>
-                     <li>const rollDie = <b>()</b> => {
-                        <ul>
-                           <li>return math.floor(math.random() * 6) + 1;</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <hr style="width: 50%; margin-left: 0;">
-               <p><b>Also</b>, if you <b>only have one parameter</b> to pass in to the function, you can eliminate the perenthesis <b>()</b> altogether, like so:
-                  <ul>
-                     <li>const square = <b>num</b> => {
-                        <ul>
-                           <li>return num * num;</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- Implicit Returns -->
-            <article>
-               <h6>Implicit Returns</h6>
-               <p>Implicit Returns are a way of compacting the callback code even further. If your callback code only has ONE process to return such as in the previous example:
-                  <ul>
-                     <li>const rollDie = <b>()</b> => {
-                        <ul>
-                           <li>return math.floor(math.random() * 6) + 1;</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <p>We can use an Implicit Return to simplify this code by <b>removing the return</b> keyword.</p>
-               <p><b>*note</b>: When you use Implicit Returns, you <b>must replace the curly braces {} with parenthesis ()</b>, like so:
-                  <ul>
-                     <li>const rollDie = <b>()</b> => (
-                        <ul>
-                           <li>math.floor(math.random() * 6) + 1;</li>
-                        </ul>
-                     </li>
-                     <li>)</li>
-                  </ul>
-               </p>
-               <p>We can simplify this even more by removing the parenthesis <b>()</b> and putting everything on one line:
-                  <ul>
-                     <li>const rollDie = <b>()</b> => math.floor(math.random() * 6) + 1;</li>
-                  </ul>
-               </p>
-               <p><span class="firstWord">Remember</span>, Implicit Returns
-                  <ul>
-                     <li><b>must contain ONLY one line of code to process</b></li>
-                     <li><b>must use parenthesis instead of curly braces</b> if you are using a multi-line format.<br>
-                     <i>(if you are using single-line format, curly braces can be omitted)</i></li>
-                  </ul>
-               </p>
-            </article>
-            <hr style="width: 95%;">
-
-            <!-- Implicit Returns -->
-            <article>
-               <h6>Summary with Examples</h6>
-               <p>The function call is : <b>isEven(x)</b>.</p>
-               <p>We pass in a number and the "Callback Function" determines if the number is an even number, then returns true or false.</p>
-               <p><b>*note</b>: <i>(All of the following functions do the same thing)</i>.</p>
-               <hr style="width: 50%; margin-left: 0;">
-               <p>Regular function expression:</p>
+         <!-- examples with further description -->
+         <article>
+            <p><span class="firstWord">example</span>:<br>if we had a regular function, something like:
                <ul>
-                  <li><b>const isEven = function(num) {</b>
+                  <li>const add = function(x, y) {
                      <ul>
-                        <li>return num % 2 === 0;</li>
+                        <li>return x + y;</li>
                      </ul>
                   </li>
                   <li>}</li>
                </ul>
-               <hr style="width: 50%; margin-left: 0;">
-               <p>Arrow function with parenthesis around the parameter. This removes the <b>function</b> keyword:</p>
+            </p>
+            <hr style="width: 50%; margin-left: 0;">
+            <p>we could simplify it with the <b>arrow function</b> and remove the <b>function</b> keyword, like so:
                <ul>
-                  <li><b>const isEven = (num) => {</b>
+                  <li>const add = (x, y) <b>=></b> {
                      <ul>
-                        <li>return num % 2 === 0;</li>
+                        <li>return x + y;</li>
                      </ul>
                   </li>
                   <li>}</li>
                </ul>
-               <hr style="width: 50%; margin-left: 0;">
-               <p>No parenthesis around the parameter <i>(or just empty parenthesis <b>()</b> if no parameters are passed in)</i>:</p>
+            </p>
+            <p>The <b>=></b> Arrow Function is telling us that <b>add = (x, y)</b> is a <b>function</b>, simplifying the code.</p>
+            <hr style="width: 50%; margin-left: 0;">
+            <p><b>Also</b>, if you have a function that does not have any parameters passed in,you can use the <b>Arrow Function</b> with empty parenthesis <b>()</b>, like so:
                <ul>
-                  <li><b>const isEven = num => {</b>
+                  <li>const rollDie = <b>()</b> => {
                      <ul>
-                        <li>return num % 2 === 0;</li>
+                        <li>return math.floor(math.random() * 6) + 1;</li>
                      </ul>
                   </li>
                   <li>}</li>
                </ul>
-               <hr style="width: 50%; margin-left: 0;">
-               <p>Since the callback function only contains one line of code (the return line)</p>
-               <p>We can use an <b>Implicit Return</b> which eliminates the <b>return</b> keyword, but we must use parenthesis <b>()</b> instead of curly braces <b>{}</b>.</p>
+            </p>
+            <hr style="width: 50%; margin-left: 0;">
+            <p><b>Also</b>, if you <b>only have one parameter</b> to pass in to the function, you can eliminate the perenthesis <b>()</b> altogether, like so:
                <ul>
-                  <li>const isEven = num => (
+                  <li>const square = <b>num</b> => {
                      <ul>
-                        <li><b>num % 2 === 0;</b></li>
+                        <li>return num * num;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
+
+         <!-- Implicit Returns -->
+         <article>
+            <h6>Implicit Returns</h6>
+            <p>Implicit Returns are a way of compacting the callback code even further. If your callback code only has ONE process to return such as in the previous example:
+               <ul>
+                  <li>const rollDie = <b>()</b> => {
+                     <ul>
+                        <li>return math.floor(math.random() * 6) + 1;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>We can use an Implicit Return to simplify this code by <b>removing the return</b> keyword.</p>
+            <p><b>*note</b>: When you use Implicit Returns, you <b>must replace the curly braces {} with parenthesis ()</b>, like so:
+               <ul>
+                  <li>const rollDie = <b>()</b> => (
+                     <ul>
+                        <li>math.floor(math.random() * 6) + 1;</li>
                      </ul>
                   </li>
                   <li>)</li>
                </ul>
-               <hr style="width: 50%; margin-left: 0;">
-               <p>With an <b>Implicit Return</b> we can simplify this even more to one line of code.</p>
+            </p>
+            <p>We can simplify this even more by removing the parenthesis <b>()</b> and putting everything on one line:
                <ul>
-                  <li><b>const isEven = num => num % 2 === 0;</b>
-                     <ul>
-                        <li><b>isEven</b>: is the name given for the callback function</li>
-                        <li><b>num</b>: is the parameter being passed in to the function
-                           <ul>
-                              <li><i>this could also be empty parenthesis <b>()</b> if we were not passing any parameters into the function</i></li>
-                           </ul>
-                        </li>
-                        <li><b>=></b>: is saying that this is a function</li>
-                        <li><b>num % 2 === 0</b>: is the <b>single</b> line of code that we are processing and returning</li>
-                     </ul>
-                  </li>
+                  <li>const rollDie = <b>()</b> => math.floor(math.random() * 6) + 1;</li>
                </ul>
-            </article>
+            </p>
+            <p><span class="firstWord">Remember</span>, Implicit Returns
+               <ul>
+                  <li><b>must contain ONLY one line of code to process</b></li>
+                  <li><b>must use parenthesis instead of curly braces</b> if you are using a multi-line format.<br>
+                  <i>(if you are using single-line format, curly braces can be omitted)</i></li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 95%;">
 
-         </section>
+         <!-- Implicit Returns -->
+         <article>
+            <h6>Summary with Examples</h6>
+            <p>The function call is : <b>isEven(x)</b>.</p>
+            <p>We pass in a number and the "Callback Function" determines if the number is an even number, then returns true or false.</p>
+            <p><b>*note</b>: <i>(All of the following functions do the same thing)</i>.</p>
+            <hr style="width: 50%; margin-left: 0;">
+            <p>Regular function expression:</p>
+            <ul>
+               <li><b>const isEven = function(num) {</b>
+                  <ul>
+                     <li>return num % 2 === 0;</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <hr style="width: 50%; margin-left: 0;">
+            <p>Arrow function with parenthesis around the parameter. This removes the <b>function</b> keyword:</p>
+            <ul>
+               <li><b>const isEven = (num) => {</b>
+                  <ul>
+                     <li>return num % 2 === 0;</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <hr style="width: 50%; margin-left: 0;">
+            <p>No parenthesis around the parameter <i>(or just empty parenthesis <b>()</b> if no parameters are passed in)</i>:</p>
+            <ul>
+               <li><b>const isEven = num => {</b>
+                  <ul>
+                     <li>return num % 2 === 0;</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <hr style="width: 50%; margin-left: 0;">
+            <p>Since the callback function only contains one line of code (the return line)</p>
+            <p>We can use an <b>Implicit Return</b> which eliminates the <b>return</b> keyword, but we must use parenthesis <b>()</b> instead of curly braces <b>{}</b>.</p>
+            <ul>
+               <li>const isEven = num => (
+                  <ul>
+                     <li><b>num % 2 === 0;</b></li>
+                  </ul>
+               </li>
+               <li>)</li>
+            </ul>
+            <hr style="width: 50%; margin-left: 0;">
+            <p>With an <b>Implicit Return</b> we can simplify this even more to one line of code.</p>
+            <ul>
+               <li><b>const isEven = num => num % 2 === 0;</b>
+                  <ul>
+                     <li><b>isEven</b>: is the name given for the callback function</li>
+                     <li><b>num</b>: is the parameter being passed in to the function
+                        <ul>
+                           <li><i>this could also be empty parenthesis <b>()</b> if we were not passing any parameters into the function</i></li>
+                        </ul>
+                     </li>
+                     <li><b>=></b>: is saying that this is a function</li>
+                     <li><b>num % 2 === 0</b>: is the <b>single</b> line of code that we are processing and returning</li>
+                  </ul>
+               </li>
+            </ul>
+         </article>
 
-         <p><br></p>
-         <p><a href="#top">Back to Top</a><br /><br /></p>
-      </div>
+      </section>
+
+      <p><br></p>
+      <p><a href="#top">Back to Top</a><br /><br /></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>
