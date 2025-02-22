@@ -31,13 +31,13 @@ const head = () => {
     // build second part of header
     // if on page index.html, add link to temp.html
     if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-        headText += headText `
+        headText += `
             <a href="${rootPath}temp/temp.html"><img class="sloganBulb" src="${rootPath}images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
                 Ideas&nbsp;&nbsp;&nbsp;- -
             </span>
         `;
     } else {
-        headText += headText `
+        headText += `
             <img class="sloganBulb" src="${rootPath}images/logos/lightbulb.png" alt="Lightbulb Graphic">
                 Ideas&nbsp;&nbsp;&nbsp;- -
             </span>

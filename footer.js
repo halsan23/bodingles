@@ -6,7 +6,7 @@ const footer = document.querySelector("#app-footer");
 
 // build Footer
 const foot = () => {
-  let foot = `
+  return `
     <div>Website created by badDoggy</div>
     <div>|</div>
     <div>2024</div>
@@ -17,4 +17,4 @@ const foot = () => {
 
 // Get footer data & insert into #app-footer
 const appFoot = foot();
-footer.innerHTML = appfoot;
+footer.innerHTML = appFoot;
