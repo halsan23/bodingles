@@ -7,7 +7,8 @@ let rootPath = '';
 
 // github root fix
 const getRoot = () => {
-    if (window.location.hostname === 'halsan23.github.io') {
+    // if (window.location.hostname === 'halsan23.github.io') {
+    if (window.location.pathname === '\/bodingles\/') {
       return 'halsan23.github.io/bodingles/';
     } else {
       return '/';
@@ -52,6 +53,6 @@ const appHead = head();
 header.innerHTML = appHead;
 
 // log window paths
-console.log(`window.location.hostname : ${window.location.hostname}`);
+// console.log(`window.location.hostname : ${window.location.hostname}`);
 // console.log(`rootPath : ${rootPath}`);
 console.log(`window.location.pathname : ${window.location.pathname}`);
