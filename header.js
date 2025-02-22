@@ -53,6 +53,7 @@ const appHead = head();
 header.innerHTML = appHead;
 
 // log window paths
+console.log(`window.location.host : ${window.location.host}`);
 // console.log(`window.location.hostname : ${window.location.hostname}`);
 // console.log(`rootPath : ${rootPath}`);
 console.log(`window.location.pathname : ${window.location.pathname}`);
