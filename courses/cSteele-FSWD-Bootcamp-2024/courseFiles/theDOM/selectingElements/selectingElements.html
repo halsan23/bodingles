@@ -7,183 +7,167 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../domIndex.html">Back to DOM Index Page</a></p>
-            <hr style="width: 50%" />
-            <h5>DOM | Selecting Elements</h5>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../domIndex.html">Back to DOM Index Page</a></p>
+         <hr style="width: 50%" />
+         <h5>DOM | Selecting Elements</h5>
+      </section>
 
-         <!-- Class Notes -->
-         <section id="textWindow4" class="just lists">
+      <!-- Class Notes -->
+      <section id="textWindow4" class="just lists">
+         <!-- Get Element -->
+         <article>
+            <h6>get Element</h6>
+            <p>The <b>get</b> method allows you to manipulate specific objects by their specific name or type. <b>*note</b>: This is the OLDER way of selecting elements. The NEWER way is to use a <a href="#qs">querySelector()</a>.</p>
 
-            <!-- Get Element -->
-            <article>
-               <h6>get Element</h6>
-               <p>The <b>get</b> method allows you to manipulate specific objects by their specific name or type. <b>*note</b>: This is the OLDER way of selecting elements. The NEWER way is to use a <a href="#qs">querySelector()</a>.</p>
+            <!-- getElementById() -->
+            <p>
+               <ul>
+                  <li>- <b>document.getElementById()</b> allows you to select the DOM Objects by ID Name.
+                     <ul>
+                        <li>- selects a single element with a specific ID</li>
+                        <li>- <a href="https://www.w3schools.com/jsref/met_document_getelementbyid.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools</a></li>
+                        <li>- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
 
-               <!-- getElementById() -->
+            <!-- getElementsByTagName() -->
                <p>
-                  <ul>
-                     <li>- <b>document.getElementById()</b> allows you to select the DOM Objects by ID Name.
-                        <ul>
-                           <li>- selects a single element with a specific ID</li>
-                           <li>- <a href="https://www.w3schools.com/jsref/met_document_getelementbyid.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools</a></li>
-                           <li>- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
+               <ul>
+                  <li>- <b>document.getElementsByTagName()</b> allows you to select the DOM Objects by the TAG Name.
+                     <ul>
+                        <li>- selects all elements of a specific TAG type</li>
+                        <li>- <a href="https://www.w3schools.com/jsref/met_document_getelementsbytagname.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools</a></li>
+                        <li>- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
 
-               <!-- getElementsByTagName() -->
-                <p>
-                  <ul>
-                     <li>- <b>document.getElementsByTagName()</b> allows you to select the DOM Objects by the TAG Name.
-                        <ul>
-                           <li>- selects all elements of a specific TAG type</li>
-                           <li>- <a href="https://www.w3schools.com/jsref/met_document_getelementsbytagname.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools</a></li>
-                           <li>- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
+            <!-- getElementsByClassName() -->
+               <p>
+               <ul>
+                  <li>- <b>document.getElementsByClassName()</b> allows you to select the DOM Objects by CLASS Name.
+                     <ul>
+                        <li>- selects all elements with a specific CLASS</li>
+                        <li>- <a href="https://www.w3schools.com/JSREF/met_document_getelementsbyclassname.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools</a></li>
+                        <li>- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
 
-               <!-- getElementsByClassName() -->
-                <p>
+            <p>Because <b>getElementsByTagName()</b> and <b>getElementsByClassName()</b> can return multiple elements, they return what is called an <b>HTML Collection.</b>. For example if you have a webpage with three images <i>(img tag)</i> and from the console, you call:
+               <ul id="qs">
+                  <li><b>getElementsByTagName('img');</b></li>
+               </ul>
+               it would return <b>HTML Collection (3) [img, img, img]</b>.</p>
+            <p>This is telling you that THIS specific collection contains three items. And because of the square brackets, an HTML Collection looks like an array, BUT IT ISN'T. You can NOT perform array functions on it. But it DOES have a length (3 in this case) and each individual img can be targeted by it's index just like an array.</p>
+         </article>
+         <hr style="width: 90%">
+         <!-- querySelector() -->
+         <article>
+         <h6>querySelector()</h6>
+         <p><b>getElement()</b> is the <i>OLDER</i> way of selecting elements for manipulation and is seldom used anymore. You will however see it in older code. The <i>NEW</i> way of accomplishing this is by using <b>querySelector()</b>. querySelector() is a newer, all-in-one method to select a <b>single</b> element. This method works similarly to <b>getElement()</b>, but it differs in the following ways:
+            <ul>
+               <li>- document.querySelector() can be used to select ALL types of elements <i>(HTML tags, ID's, and classes)</i></li>
+               <li>- document.querySelector() can <b>only pick out the first</b> item of a specific elements type
                   <ul>
-                     <li>- <b>document.getElementsByClassName()</b> allows you to select the DOM Objects by CLASS Name.
-                        <ul>
-                           <li>- selects all elements with a specific CLASS</li>
-                           <li>- <a href="https://www.w3schools.com/JSREF/met_document_getelementsbyclassname.asp" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools</a></li>
-                           <li>- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN</a></li>
-                        </ul>
-                     </li>
+                     <li><i>eg. if you have 2 <b>[p]</b> tags, document.querySelector() will only return the first tag.</i></li>
+                     <li><i>this FIRST TAG limitation can be overridden. See Overriding the first element below</i></li>
                   </ul>
-               </p>
-
-               <p>Because <b>getElementsByTagName()</b> and <b>getElementsByClassName()</b> can return multiple elements, they return what is called an <b>HTML Collection.</b>. For example if you have a webpage with three images <i>(img tag)</i> and from the console, you call:
-                  <ul id="qs">
-                     <li><b>getElementsByTagName('img');</b></li>
-                  </ul>
-                  it would return <b>HTML Collection (3) [img, img, img]</b>.</p>
-               <p>This is telling you that THIS specific collection contains three items. And because of the square brackets, an HTML Collection looks like an array, BUT IT ISN'T. You can NOT perform array functions on it. But it DOES have a length (3 in this case) and each individual img can be targeted by it's index just like an array.</p>
-            </article>
-            <hr style="width: 90%">
-
-            <!-- querySelector() -->
-             <article>
-               <h6>querySelector()</h6>
-               <p><b>getElement()</b> is the <i>OLDER</i> way of selecting elements for manipulation and is seldom used anymore. You will however see it in older code. The <i>NEW</i> way of accomplishing this is by using <b>querySelector()</b>. querySelector() is a newer, all-in-one method to select a <b>single</b> element. This method works similarly to <b>getElement()</b>, but it differs in the following ways:
-                  <ul>
-                     <li>- document.querySelector() can be used to select ALL types of elements <i>(HTML tags, ID's, and classes)</i></li>
-                     <li>- document.querySelector() can <b>only pick out the first</b> item of a specific elements type
-                        <ul>
-                           <li><i>eg. if you have 2 <b>[p]</b> tags, document.querySelector() will only return the first tag.</i></li>
-                           <li><i>this FIRST TAG limitation can be overridden. See Overriding the first element below</i></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-               <p>document.querySelector() uses the following syntax:
-                  <ul>
-                     <li>document.querySelector(<b>'html tag name'</b>)</li>
-                     <li>document.querySelector(<b>'#idName'</b>)</li>
-                     <li>document.querySelector(<b>'.(period)className'</b>)</li>
-                  </ul>
-               </p><br>
-               <p><b>Overriding the first element.</b> Since document.querySelector() by default, will only return the FIRST element, we override this using <b>:nth-of-type(x)</b>, for example: If we wanted to select the second [p] tag from above we would use
-                  <ul>
-                     <li>document.querySelector('<b>p:nth-of-type(2)</b>');</li>
-                  </ul>
-               </p><br>
-               <p>We can also select <b>multiple attributes of an element</b>. Suppose we have an anchor tag like so:
-                  <ul>
-                     <li>< a href="/wiki/Java" title="Java">Java< /a></a></li>
-                  </ul>
-                  Since there will probably be multiple anchor tags on a page, we can target only the one with the <b>title = "Java"</b> by designating <i>multiple attributes</i> within the query selection, like so:
-                  <ul>
-                     <li>document.querySelector('<b>a[title="Java"]</b>')</li>
-                     <li><i>we are selecting an <b>a</b> tag that contains a <b>title = Java</b></i></li>
-                  </ul>
-               </p>
-             </article>
-             <hr style="width: 90%" />
-
-             <!-- querySelectorAll() -->
-             <article id="qsa">
-                <h6>querySelectorAll()</h6>
-                <p><b>querySelectorAll()</b> essentially works the same as querySelector(), but <b>returns <i>a collection</i></b> of all matching elements. So if we call querySelectorAll() on our <b>[p]</b> tags from above, like so:
-                  <ul>
-                     <li><b>document.querySelectorAll('p');</b></li>
-                  </ul>
-                  we would return:
-                  <ul>
-                     <li><b>NodeList(2) [p, p]</b></li>
-                  </ul>
-                  So, similar to <b>getElements()</b>, this returns a <i>collection</i>. And while it looks like an array <i>(because of the square brackets)</i>, it is not. But it does have a length <b>(2)</b> and individual elements can be targeted <i>like an array</i>.
-               </p><br>
-               <p>We can also narrow our queries down by adding multiple queries within the selector. Say we a have a webpage with 10 <b>[a]</b> tags, 5 of which reside within a <b>[p]</b> tag. If we query the <b>[a]</b> tags:
-                  <ul>
-                     <li><b>document.querySelectAll('a');</b></li>
-                  </ul>
-                  we would return:
-                  <ul>
-                     <li>NodeList(10) [a, a, a, a, a, a, a, a, a, a]</li>
-                  </ul>
-                  because there are 10 <b>[a]</b>tags. But if we want to select only the <b>[a]</b> tags that reside within a <b>[p]</b> tag, we use the <i>CSS Descendant Selector (space)</i>:
-                  <ul>
-                     <li><b>document.querySelectAll('p a');</b></li>
-                  </ul>
-                  this would return:
-                  <ul>
-                     <li>NodeList(5) [a, a, a, a, a]</li>
-                  </ul>
-                  because there are only 5 <b>[a]</b> tags that reside within <b>[p]</b> tags.
-               </p>
-               <p><b>*note</b> that you can use <b>all of the CSS Selectors</b> to define how your query selects elements for processing.</p><br>
-               <hr style="width: 90%" /><br>
-               <p><span class="firstWord">Remember</span>, getElement(s) and query's return <b>objects</b> because the DOM is Javascript converting everything into an object. So because they are objects, we can open each object in the console and see it's properties.</p>
-               </article>
-         </section>
-
-         <p><a href="#top">Back to Top</a><br/><br/></p>
-      </div>
+               </li>
+            </ul>
+         </p>
+         <p>document.querySelector() uses the following syntax:
+            <ul>
+               <li>document.querySelector(<b>'html tag name'</b>)</li>
+               <li>document.querySelector(<b>'#idName'</b>)</li>
+               <li>document.querySelector(<b>'.(period)className'</b>)</li>
+            </ul>
+         </p><br>
+         <p><b>Overriding the first element.</b> Since document.querySelector() by default, will only return the FIRST element, we override this using <b>:nth-of-type(x)</b>, for example: If we wanted to select the second [p] tag from above we would use
+            <ul>
+               <li>document.querySelector('<b>p:nth-of-type(2)</b>');</li>
+            </ul>
+         </p><br>
+         <p>We can also select <b>multiple attributes of an element</b>. Suppose we have an anchor tag like so:
+            <ul>
+               <li>< a href="/wiki/Java" title="Java">Java< /a></a></li>
+            </ul>
+            Since there will probably be multiple anchor tags on a page, we can target only the one with the <b>title = "Java"</b> by designating <i>multiple attributes</i> within the query selection, like so:
+            <ul>
+               <li>document.querySelector('<b>a[title="Java"]</b>')</li>
+               <li><i>we are selecting an <b>a</b> tag that contains a <b>title = Java</b></i></li>
+            </ul>
+         </p>
+         </article>
+         <hr style="width: 90%" />
+         <!-- querySelectorAll() -->
+         <article id="qsa">
+               <h6>querySelectorAll()</h6>
+               <p><b>querySelectorAll()</b> essentially works the same as querySelector(), but <b>returns <i>a collection</i></b> of all matching elements. So if we call querySelectorAll() on our <b>[p]</b> tags from above, like so:
+               <ul>
+                  <li><b>document.querySelectorAll('p');</b></li>
+               </ul>
+               we would return:
+               <ul>
+                  <li><b>NodeList(2) [p, p]</b></li>
+               </ul>
+               So, similar to <b>getElements()</b>, this returns a <i>collection</i>. And while it looks like an array <i>(because of the square brackets)</i>, it is not. But it does have a length <b>(2)</b> and individual elements can be targeted <i>like an array</i>.
+            </p><br>
+            <p>We can also narrow our queries down by adding multiple queries within the selector. Say we a have a webpage with 10 <b>[a]</b> tags, 5 of which reside within a <b>[p]</b> tag. If we query the <b>[a]</b> tags:
+               <ul>
+                  <li><b>document.querySelectAll('a');</b></li>
+               </ul>
+               we would return:
+               <ul>
+                  <li>NodeList(10) [a, a, a, a, a, a, a, a, a, a]</li>
+               </ul>
+               because there are 10 <b>[a]</b>tags. But if we want to select only the <b>[a]</b> tags that reside within a <b>[p]</b> tag, we use the <i>CSS Descendant Selector (space)</i>:
+               <ul>
+                  <li><b>document.querySelectAll('p a');</b></li>
+               </ul>
+               this would return:
+               <ul>
+                  <li>NodeList(5) [a, a, a, a, a]</li>
+               </ul>
+               because there are only 5 <b>[a]</b> tags that reside within <b>[p]</b> tags.
+            </p>
+            <p><b>*note</b> that you can use <b>all of the CSS Selectors</b> to define how your query selects elements for processing.</p><br>
+            <hr style="width: 90%" /><br>
+            <p><span class="firstWord">Remember</span>, getElement(s) and query's return <b>objects</b> because the DOM is Javascript converting everything into an object. So because they are objects, we can open each object in the console and see it's properties.</p>
+         </article>
+      </section>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script async src="/header.js"></script>
+   <script async src="/footer.js"></script>
+</body>
 </html>

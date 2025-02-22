@@ -7,203 +7,192 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../domIndex.html">Back to DOM Index Page</a></p>
-            <hr style="width: 50%" />
-            <h5>Parent | Child | Sibling</h5>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../domIndex.html">Back to DOM Index Page</a></p>
+         <hr style="width: 50%" />
+         <h5>Parent | Child | Sibling</h5>
+      </section>
 
-         <section id="textWindow4" class="just lists">
-            <!-- parentElement -->
-            <article>
-               <h6>parentElement</h6>
-               <p><span class="firstWord">Because</span> of the DOM's hierarchal structure, elements can be navigated through their parent, child, and sibling relationships. <b>parentElement</b> allows us to navigate up one level to an element's <b>parent</b> element. Let's demonstrate this by using the [<b>b</b>] tags from this paragraph. Since there are several [<b>b</b>] tags, we will use <b>querySelector('b')</b> to select the first one. We are also going to assign it to a variable for easier coding:
-                  <ul>
-                     <li><b>const <span class="colorHighlight">firstBold</span> = document.querySelector('b');</b></li>
-                     <li><span class="colorHighlight">firstBold</span> now returns <b>< b>parentElement< /b></b>
-                        <ul>
-                           <li><i>because the 1<sup>st</sup> [<b>b</b>] tag of the paragraph is <b>parentElement</b>.</i></li>
-                        </ul>
-                     </li>
-                  </ul>
-                  We can use <b>parentElement</b> to navigate up one level of the DOM to return the "parent Element" of the [<b>b</b>] tag:
-                  <ul>
-                     <li><span class="colorHighlight">firstBold</span>.<b>parentElement</b> &nbsp;&nbsp;&nbsp;// <i>returns <b>< p>...< /p></b></i>
-                        <ul>
-                           <li>because we have <i>"navigated"</i> up one level to the [<b>p</b>] tag that contains the [<b>b</b>] tag.</li>
-                        </ul>
-                     </li>
-                  </ul>
-                  And if we continued:
-                  <ul>
-                     <li><span class="colorHighlight">firstBold</span>.parentElement.<b>parentElement</b> &nbsp;&nbsp;&nbsp;// <i>returns <b>< article>...< /article></b></i>
-                        <ul>
-                           <li><i>because the [<b>article</b>] tag is the <b>parent</b> of the [<b>p</b>] tag</i></li>
-                        </ul>
-                     </li>
-                  </ul>
-                  and so on, and so on. We could continue "stringing" <b>parentElement</b>'s until we get to the very top element which would be the <b>HTML</b> tag itself.
-               </p>
-               <p>We can see that <b>parentElement</b> gives us a way to navigate <b>up</b> the DOM structure, so that we can then affect some change on an element such as appending, or removing an element.</p>
-            </article>
+      <section id="textWindow4" class="just lists">
+         <!-- parentElement -->
+         <article>
+            <h6>parentElement</h6>
+            <p><span class="firstWord">Because</span> of the DOM's hierarchal structure, elements can be navigated through their parent, child, and sibling relationships. <b>parentElement</b> allows us to navigate up one level to an element's <b>parent</b> element. Let's demonstrate this by using the [<b>b</b>] tags from this paragraph. Since there are several [<b>b</b>] tags, we will use <b>querySelector('b')</b> to select the first one. We are also going to assign it to a variable for easier coding:
+               <ul>
+                  <li><b>const <span class="colorHighlight">firstBold</span> = document.querySelector('b');</b></li>
+                  <li><span class="colorHighlight">firstBold</span> now returns <b>< b>parentElement< /b></b>
+                     <ul>
+                        <li><i>because the 1<sup>st</sup> [<b>b</b>] tag of the paragraph is <b>parentElement</b>.</i></li>
+                     </ul>
+                  </li>
+               </ul>
+               We can use <b>parentElement</b> to navigate up one level of the DOM to return the "parent Element" of the [<b>b</b>] tag:
+               <ul>
+                  <li><span class="colorHighlight">firstBold</span>.<b>parentElement</b> &nbsp;&nbsp;&nbsp;// <i>returns <b>< p>...< /p></b></i>
+                     <ul>
+                        <li>because we have <i>"navigated"</i> up one level to the [<b>p</b>] tag that contains the [<b>b</b>] tag.</li>
+                     </ul>
+                  </li>
+               </ul>
+               And if we continued:
+               <ul>
+                  <li><span class="colorHighlight">firstBold</span>.parentElement.<b>parentElement</b> &nbsp;&nbsp;&nbsp;// <i>returns <b>< article>...< /article></b></i>
+                     <ul>
+                        <li><i>because the [<b>article</b>] tag is the <b>parent</b> of the [<b>p</b>] tag</i></li>
+                     </ul>
+                  </li>
+               </ul>
+               and so on, and so on. We could continue "stringing" <b>parentElement</b>'s until we get to the very top element which would be the <b>HTML</b> tag itself.
+            </p>
+            <p>We can see that <b>parentElement</b> gives us a way to navigate <b>up</b> the DOM structure, so that we can then affect some change on an element such as appending, or removing an element.</p>
+         </article>
+         <hr style="width: 90%">
+
+         <!-- childElement -->
+         <article>
+            <h6>children Elements</h6>
+            <p><span class="firstWord">While</span> parentElement allows us to navigate <b>up</b> one level of a DOM structure, navigating through <b>children elements</b> is a little different because, while each element will only have one parent element, it could possible have many children elements.</p>
+            <p>For example, if we select the 1<sup>st</sup> paragraph on this page (the 1<sup>st</sup> [<b>p</b>] tag), and assign it to a variable like so:
+               <ul>
+                  <li>const <span class="colorHighlight">firstPara</span> = document.querySelector('<b>p</b>');</li>
+               </ul>
+               and then call:
+               <ul>
+                  <li><span class="colorHighlight">firstPara</span>.<b>parentElement</b> it would return
+                     <ul>
+                        <li><b>< article>...< /article></b></li>
+                     </ul>
+                  </li>
+               </ul>
+               because the <b>parent element</b> of the 1<sup>st</sup> [<b>p</b>] tag is an [<b>article</b>] element.
+            </p>
             <hr style="width: 90%">
-
-            <!-- childElement -->
-            <article>
-               <h6>children Elements</h6>
-               <p><span class="firstWord">While</span> parentElement allows us to navigate <b>up</b> one level of a DOM structure, navigating through <b>children elements</b> is a little different because, while each element will only have one parent element, it could possible have many children elements.</p>
-               <p>For example, if we select the 1<sup>st</sup> paragraph on this page (the 1<sup>st</sup> [<b>p</b>] tag), and assign it to a variable like so:
-                  <ul>
-                     <li>const <span class="colorHighlight">firstPara</span> = document.querySelector('<b>p</b>');</li>
-                  </ul>
-                  and then call:
-                  <ul>
-                     <li><span class="colorHighlight">firstPara</span>.<b>parentElement</b> it would return
-                        <ul>
-                           <li><b>< article>...< /article></b></li>
-                        </ul>
-                     </li>
-                  </ul>
-                  because the <b>parent element</b> of the 1<sup>st</sup> [<b>p</b>] tag is an [<b>article</b>] element.
-               </p>
-               <hr style="width: 90%">
-               <p><span class="firstWord">Before</span> we start using <b>children</b> elements, we may want to find out how many child elements an element actually has. <b>childElementCount</b> can be used for this. For example:
-                  <ul>
-                     <li><span class="colorHighlight">firstPara</span>.<b>childElementCount</b> would return <b>6</b>,
-                        <ul>
-                           <li>because there are 6 child elements in the first [<b>p</b>] element.
-                              <ul>
-                                 <li><i>(a [<b>span</b>] element and 5 [<b>b</b>] elements).</i></li>
-                              </ul>
-                           </li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-               <p>We can also build an <b><i>HTML Collection</i></b> of the child elements by calling:
-                  <ul>
-                     <li><span class="colorHighlight">firstPara</span>.<b>children</b>
-                        <ul>
-                           <li>which would return (for our 1<sup>st</sup> paragraph)
-                              <ul>
-                                 <li><i>HTML Collection(6) [span.firstWord, b, b, b, b, b]</i></li>
-                                 <li>showing us all of the children for the 1<sup>st</sup> [<b>p</b>] element.</li>
-                              </ul>
-                           </li>
-                        </ul>
-                     </li>
-                  </ul>
-                  if we <i>EXPAND</i> this HTML Collection (in the console) we would get:
-                  <ul>
-                     <li>HTMLCollection(6) [span.firstWord, b, b, b, b, b]
-                        <ul>
-                           <li>0: span.firstWord</li>
-                           <li>1: b</li>
-                           <li>1: b</li>
-                           <li>1: b</li>
-                           <li>1: b</li>
-                           <li>1: b</li>
-                        </ul>
-                     </li>
-                     <li>length: 6</li>
-                     <li>[[Prototype]]: HTMLCollection</li>
-                  </ul>
-                  and we could further expand each individual item in the collection to see ALL of the DOM Object properties for each child element.
-               </p>
-               <hr style="width: 90%">
-               <p>while this HTML Collection looks like an ARRAY, it is not. It is an HTML Collection. But it IS iterable like an array. So we could call:
-                  <ul>
-                     <li><span class="colorHighlight">firstPara</span>.children<b>[0]</b>;
-                        <ul>
-                           <li>returns <i>< span class="firstWord">Because< /span></i></li>
-                        </ul>
-                     </li>
-                     <li> or <span class="colorHighlight">firstPara</span>.children<b>[1]</b>;
-                        <ul>
-                           <li>returns <i>< b>firstElement< /b></i></li>
-                        </ul>
-                     </li>
-                     <li>and so on.</li>
-                  </ul>
-               </p>
-            </article>
+            <p><span class="firstWord">Before</span> we start using <b>children</b> elements, we may want to find out how many child elements an element actually has. <b>childElementCount</b> can be used for this. For example:
+               <ul>
+                  <li><span class="colorHighlight">firstPara</span>.<b>childElementCount</b> would return <b>6</b>,
+                     <ul>
+                        <li>because there are 6 child elements in the first [<b>p</b>] element.
+                           <ul>
+                              <li><i>(a [<b>span</b>] element and 5 [<b>b</b>] elements).</i></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>We can also build an <b><i>HTML Collection</i></b> of the child elements by calling:
+               <ul>
+                  <li><span class="colorHighlight">firstPara</span>.<b>children</b>
+                     <ul>
+                        <li>which would return (for our 1<sup>st</sup> paragraph)
+                           <ul>
+                              <li><i>HTML Collection(6) [span.firstWord, b, b, b, b, b]</i></li>
+                              <li>showing us all of the children for the 1<sup>st</sup> [<b>p</b>] element.</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+               if we <i>EXPAND</i> this HTML Collection (in the console) we would get:
+               <ul>
+                  <li>HTMLCollection(6) [span.firstWord, b, b, b, b, b]
+                     <ul>
+                        <li>0: span.firstWord</li>
+                        <li>1: b</li>
+                        <li>1: b</li>
+                        <li>1: b</li>
+                        <li>1: b</li>
+                        <li>1: b</li>
+                     </ul>
+                  </li>
+                  <li>length: 6</li>
+                  <li>[[Prototype]]: HTMLCollection</li>
+               </ul>
+               and we could further expand each individual item in the collection to see ALL of the DOM Object properties for each child element.
+            </p>
             <hr style="width: 90%">
+            <p>while this HTML Collection looks like an ARRAY, it is not. It is an HTML Collection. But it IS iterable like an array. So we could call:
+               <ul>
+                  <li><span class="colorHighlight">firstPara</span>.children<b>[0]</b>;
+                     <ul>
+                        <li>returns <i>< span class="firstWord">Because< /span></i></li>
+                     </ul>
+                  </li>
+                  <li> or <span class="colorHighlight">firstPara</span>.children<b>[1]</b>;
+                     <ul>
+                        <li>returns <i>< b>firstElement< /b></i></li>
+                     </ul>
+                  </li>
+                  <li>and so on.</li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 90%">
 
-            <!-- prev/next element sibling -->
-            <article>
-               <h6>prev/next element sibling</h6>
-               <p><span class="firstWord">If</span> a parent element has multiple child elements, <i>AND</i> we have selected one of these child elements, we can then navigate back and forth within the child elements using <b>previousElementSibling</b> and <b>nextElementSibling</b>.</p>
-               <p>From our previous example, if we select firstPara.children[1]; and assign it to a variable:
-                  <ul>
-                     <li>const <span class="colorHighlight">child</span> = <span class="colorHighlight">firstPara</span>.children[<b>1</b>];</li>
-                     <li><span class="colorHighlight">child</span> would = < b><b>parentElement</b>< /b> &nbsp;&nbsp;&nbsp;//<i>the 2<sup>nd</sup> child of the 1<sup>st</sup> paragraph.</i>
-                        <ul>
-                           <li><i>remember, the HTML Collection indexes start counting at 0 so index[1] would be the second element</i></li>
-                        </ul>
-                     </li>
-                  </ul>
-                  and if we call:
-                  <ul>
-                     <li><span class="colorHighlight">child</span>.<b>previousElementSibling</b></li>
-                     <li>we would return < span class="firstWord"><b>Because</b>< /span> &nbsp;&nbsp;&nbsp;//<i>the 1<sup>st</sup> child of the 1<sup>st</sup> paragraph.</i>
-                        <ul>
-                           <li>because the previous child element (to <span class="colorHighlight">firstPara</span>.Element[1]) would be <span class="colorHighlight">firstPara</span>.Element[0] which would be the [<b>span</b>] element.</li>
-                        </ul>
-                     </li>
-                  </ul>
-                  but if we call:
-                  <ul>
-                     <li><span class="colorHighlight">child</span>.<b>nextElementSibling</b></li>
-                     <li>we would return < b><b>parent</b>< /b> &nbsp;&nbsp;&nbsp;//<i>the 3<sup>rd</sup> child of the 1<sup>st</sup> paragraph.</i>
-                        <ul>
-                           <li>because the next child element (to <span class="colorHighlight">firstPara</span>.Element[1]) would be <span class="colorHighlight">firstPara</span>.Element[2] which would be another [<b>b</b>] element.</li>
-                        </ul>
-                     </li>
-                  </ul>
-               </p>
-            </article>
-         </section>
+         <!-- prev/next element sibling -->
+         <article>
+            <h6>prev/next element sibling</h6>
+            <p><span class="firstWord">If</span> a parent element has multiple child elements, <i>AND</i> we have selected one of these child elements, we can then navigate back and forth within the child elements using <b>previousElementSibling</b> and <b>nextElementSibling</b>.</p>
+            <p>From our previous example, if we select firstPara.children[1]; and assign it to a variable:
+               <ul>
+                  <li>const <span class="colorHighlight">child</span> = <span class="colorHighlight">firstPara</span>.children[<b>1</b>];</li>
+                  <li><span class="colorHighlight">child</span> would = < b><b>parentElement</b>< /b> &nbsp;&nbsp;&nbsp;//<i>the 2<sup>nd</sup> child of the 1<sup>st</sup> paragraph.</i>
+                     <ul>
+                        <li><i>remember, the HTML Collection indexes start counting at 0 so index[1] would be the second element</i></li>
+                     </ul>
+                  </li>
+               </ul>
+               and if we call:
+               <ul>
+                  <li><span class="colorHighlight">child</span>.<b>previousElementSibling</b></li>
+                  <li>we would return < span class="firstWord"><b>Because</b>< /span> &nbsp;&nbsp;&nbsp;//<i>the 1<sup>st</sup> child of the 1<sup>st</sup> paragraph.</i>
+                     <ul>
+                        <li>because the previous child element (to <span class="colorHighlight">firstPara</span>.Element[1]) would be <span class="colorHighlight">firstPara</span>.Element[0] which would be the [<b>span</b>] element.</li>
+                     </ul>
+                  </li>
+               </ul>
+               but if we call:
+               <ul>
+                  <li><span class="colorHighlight">child</span>.<b>nextElementSibling</b></li>
+                  <li>we would return < b><b>parent</b>< /b> &nbsp;&nbsp;&nbsp;//<i>the 3<sup>rd</sup> child of the 1<sup>st</sup> paragraph.</i>
+                     <ul>
+                        <li>because the next child element (to <span class="colorHighlight">firstPara</span>.Element[1]) would be <span class="colorHighlight">firstPara</span>.Element[2] which would be another [<b>b</b>] element.</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+         </article>
+      </section>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script async src="/header.js"></script>
+   <script async src="/footer.js"></script>
 </body>
 
 </html>

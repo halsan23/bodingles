@@ -7,14 +7,14 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
    <!-- Basic Reset for different browsers support -->
-   <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
    <!-- My local Stylesheets -->
-   <link rel="stylesheet" href="../../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="../localStyle.css" />
    <style>
       .purple {
@@ -28,168 +28,157 @@
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../domIndex.html">Back to DOM Index Page</a></p>
-            <hr style="width: 50%" />
-            <h5>classList</h5>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../domIndex.html">Back to DOM Index Page</a></p>
+         <hr style="width: 50%" />
+         <h5>classList</h5>
+      </section>
 
-         <section id="textWindow4" class="just lists">
-            <!-- classList -->
-            <article>
-               <p><span class="firstWord">classList</span> is a method we use to modify an HTML Element by adding or removing one or more classes. We are not creating or deleting  classes, we are simply enabling an element to use, or not to use existing classes.</p>
-               <p>In order to use classList, either the external style sheet or the internal styles (in the page < head> section) must exist, and if you are using an external style sheet, you must have the reference to this stylesheet in the < head> section of the HTML.</p>
-               <p>To start, we have the following two classes defined in the < head> section of this page. They are as follows:
-                  <ul>
-                     <li><b>.purple</b> {
-                        <ul>
-                           <li>color: purple;</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                     <li><b>.border</b> {
-                        <ul>
-                           <li>border: 2px solid green;</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-                  <b>.purple</b> will obviously change the text color of an element to purple and <b>.border</b> will add a 2px, solid, green border to an element. These styles have NOT been applied to any element.
-               </p>
-               <p>We'll define an <b>h5</b> element to work with
-                  <ul>
-                     <li>< h5>This is my Heading 5< /h5> &nbsp;&nbsp;&nbsp; which will produce:</li>
-                     <li><h5>This is my Heading 5</h5></li>
-                  </ul>
-                  which has no styles associated with it.
-               </p>
-            </article>
-            <hr style="width: 90%">
-
-         <!-- getAttribute & setAttribute -->
-            <article>
-               <p>We can verify there are no styles associated with our h5 by using <b>getAttribute()</b>:
-                  <ul>
-                     <li>const h5 = document.querySelector('h5');&nbsp;&nbsp;&nbsp;// assigns the first (& only) h5 to a variable</li>
-                     <li>h5.<b>getAttribute('class')</b>;&nbsp;&nbsp;&nbsp;// returns any classes associated with this element</li>
-                     <li>returns <b>null</b>>&nbsp;&nbsp;&nbsp;// because this element has no class assigned</li>
-                  </ul>
-               </p>
-               <p>Now we could use <b>setAttribute()</b> to assign a class to the element, but we could only use this method to assign one single class. If we used setAttribute() a second time, it would just overwrite the previous class we had already set.</p>
-               <div style="background-color: #e3e3e3; margin: 20px; padding: 10px 25px; border: 1px solid black;">
-                  <p><i><b>*note</b>: you could actually set multiple classes with setAttribute() using string literals:</i>
+      <section id="textWindow4" class="just lists">
+         <!-- classList -->
+         <article>
+            <p><span class="firstWord">classList</span> is a method we use to modify an HTML Element by adding or removing one or more classes. We are not creating or deleting  classes, we are simply enabling an element to use, or not to use existing classes.</p>
+            <p>In order to use classList, either the external style sheet or the internal styles (in the page < head> section) must exist, and if you are using an external style sheet, you must have the reference to this stylesheet in the < head> section of the HTML.</p>
+            <p>To start, we have the following two classes defined in the < head> section of this page. They are as follows:
+               <ul>
+                  <li><b>.purple</b> {
                      <ul>
-                        <li>const h5.document.querySelector('h5');&nbsp;&nbsp;&nbsp;// <i>assign h5 to a variable called h5</i></li>
-                        <li>h5.setAttribute('class', <b>purple</b>);&nbsp;&nbsp;&nbsp;// <i>sets first class to purple</i></li>
-                        <li>let currentClass = h5.getAttribute('class');&nbsp;&nbsp;&nbsp;// <i>set's current class (purple) to variable currentClass</i></li>
-                        <li>h5.setAttribute('class', `${currentClass} <b>border</b>`);&nbsp;&nbsp;&nbsp;// <i>uses string literal to assign two classes to h5</i></li>
+                        <li>color: purple;</li>
                      </ul>
-                     <b>or</b>
+                  </li>
+                  <li>}</li>
+                  <li><b>.border</b> {
                      <ul>
-                        <li>h5.setAttribute('class', `<b>purple border</b>`);&nbsp;&nbsp;&nbsp;// <i>uses string literal to assign two classes to h5</i></li>
+                        <li>border: 2px solid green;</li>
                      </ul>
-                  </p>
-               </div>
-               <p>Woof, what a mess but not to worry, there is a better way.</p>
-            </article>
-            <hr style="width: 90%">
+                  </li>
+                  <li>}</li>
+               </ul>
+               <b>.purple</b> will obviously change the text color of an element to purple and <b>.border</b> will add a 2px, solid, green border to an element. These styles have NOT been applied to any element.
+            </p>
+            <p>We'll define an <b>h5</b> element to work with
+               <ul>
+                  <li>< h5>This is my Heading 5< /h5> &nbsp;&nbsp;&nbsp; which will produce:</li>
+                  <li><h5>This is my Heading 5</h5></li>
+               </ul>
+               which has no styles associated with it.
+            </p>
+         </article>
+         <hr style="width: 90%">
 
-         <!-- Adding Classes -->
-            <article>
-               <h6>Adding Classes</h6>
-               <p>By using <b>classList</b> we can list any classes that are applied to an element. In our case it would return <b>""</b> because we haven't assigned any classes yet. But we can also use <b>classList</b> to ADD or REMOVE classes.</p>
-               <p>So we have our basic <b>h5</b>
+      <!-- getAttribute & setAttribute -->
+         <article>
+            <p>We can verify there are no styles associated with our h5 by using <b>getAttribute()</b>:
+               <ul>
+                  <li>const h5 = document.querySelector('h5');&nbsp;&nbsp;&nbsp;// assigns the first (& only) h5 to a variable</li>
+                  <li>h5.<b>getAttribute('class')</b>;&nbsp;&nbsp;&nbsp;// returns any classes associated with this element</li>
+                  <li>returns <b>null</b>>&nbsp;&nbsp;&nbsp;// because this element has no class assigned</li>
+               </ul>
+            </p>
+            <p>Now we could use <b>setAttribute()</b> to assign a class to the element, but we could only use this method to assign one single class. If we used setAttribute() a second time, it would just overwrite the previous class we had already set.</p>
+            <div style="background-color: #e3e3e3; margin: 20px; padding: 10px 25px; border: 1px solid black;">
+               <p><i><b>*note</b>: you could actually set multiple classes with setAttribute() using string literals:</i>
                   <ul>
-                     <li><h5>This is my Heading 5</h5></li>
+                     <li>const h5.document.querySelector('h5');&nbsp;&nbsp;&nbsp;// <i>assign h5 to a variable called h5</i></li>
+                     <li>h5.setAttribute('class', <b>purple</b>);&nbsp;&nbsp;&nbsp;// <i>sets first class to purple</i></li>
+                     <li>let currentClass = h5.getAttribute('class');&nbsp;&nbsp;&nbsp;// <i>set's current class (purple) to variable currentClass</i></li>
+                     <li>h5.setAttribute('class', `${currentClass} <b>border</b>`);&nbsp;&nbsp;&nbsp;// <i>uses string literal to assign two classes to h5</i></li>
                   </ul>
-                  First we are going to assign this to a variable <b>head5</b> to simplify our coding:
+                  <b>or</b>
                   <ul>
-                     <li>const <b>head5</b> = document.querySelector('h5');</li>
-                  </ul>
-                  and we can add the class "purple" like so:
-                  <ul>
-                     <li>head5.classList.<b>add</b>('purple'); &nbsp; we get:</li>
-                     <li><h5>This is my Heading 5</h5></li>
-                  </ul>
-                  and if we add a second class:
-                  <ul>
-                     <li>head5.classList.<b>add</b>('border'); &nbsp; we get:</li>
-                     <li><h5>This is my Heading 5</h5></li>
-                  </ul>
-                  and if we list the applied classes with <b>classList</b>:
-                  <ul>
-                     <li><b>head5.classList</b>&nbsp;&nbsp;&nbsp;// <i>remember, we assigned our h5 to a variable to simplify coding</i></li>
-                  </ul>
-                  we would see that there are two classes applied, <b>purple</b>,  and <b>border</b>. So using <b>classList</b> is a much better way to add classes to an element than using string literals. Remember that these classes <i>have <b>already</b> be defined before using <b>classList</b></i>.</b>
-               </p>
-            </article>
-            <hr style="width: 90%">
-
-         <!-- Removing Classes -->
-            <article>
-               <h6>Removing Classes</h6>
-               <p>Removing classes is just as easy as adding classes. If we remove the purple:
-                  <ul>
-                     <li>head5.classList.<b>remove</b>('purple');</li>
-                  </ul>
-                  we would get:
-                  <ul>
-                     <li><h5>This is my Heading 5</h5></li>
-                  </ul>
-                  So the <b>purple</b> class is gone but the <b>border</b> class remains.
-               </p>
-            </article>
-            <hr style="width: 90%">
-
-         <!-- Other Useful classList Methods -->
-            <article>
-               <h6>Other Useful classList Methods</h6>
-               <p>There are some other very useful classList methods, we might want to use:
-                  <ul>
-                     <li><b>contains</b> - - classList.<b>contains</b>('className')
-                        <ul>
-                           <li>does this element <b>contain</b> this class</li>
-                           <li>returns <b>true</b> or <b>false</b></li>
-                        </ul>
-                     </li>
-                     <li><b>toggle</b> - - classList.<b>toggle</b>('className')
-                        <ul>
-                           <li><b>toggles</b> the specified class <b>on</b> or <b>off</b></li>
-                           <li>returns <b>true</b> or <b>false</b></li>
-                        </ul>
-                     </li>
+                     <li>h5.setAttribute('class', `<b>purple border</b>`);&nbsp;&nbsp;&nbsp;// <i>uses string literal to assign two classes to h5</i></li>
                   </ul>
                </p>
-            </article>
-         </section>
+            </div>
+            <p>Woof, what a mess but not to worry, there is a better way.</p>
+         </article>
+         <hr style="width: 90%">
 
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+      <!-- Adding Classes -->
+         <article>
+            <h6>Adding Classes</h6>
+            <p>By using <b>classList</b> we can list any classes that are applied to an element. In our case it would return <b>""</b> because we haven't assigned any classes yet. But we can also use <b>classList</b> to ADD or REMOVE classes.</p>
+            <p>So we have our basic <b>h5</b>
+               <ul>
+                  <li><h5>This is my Heading 5</h5></li>
+               </ul>
+               First we are going to assign this to a variable <b>head5</b> to simplify our coding:
+               <ul>
+                  <li>const <b>head5</b> = document.querySelector('h5');</li>
+               </ul>
+               and we can add the class "purple" like so:
+               <ul>
+                  <li>head5.classList.<b>add</b>('purple'); &nbsp; we get:</li>
+                  <li><h5>This is my Heading 5</h5></li>
+               </ul>
+               and if we add a second class:
+               <ul>
+                  <li>head5.classList.<b>add</b>('border'); &nbsp; we get:</li>
+                  <li><h5>This is my Heading 5</h5></li>
+               </ul>
+               and if we list the applied classes with <b>classList</b>:
+               <ul>
+                  <li><b>head5.classList</b>&nbsp;&nbsp;&nbsp;// <i>remember, we assigned our h5 to a variable to simplify coding</i></li>
+               </ul>
+               we would see that there are two classes applied, <b>purple</b>,  and <b>border</b>. So using <b>classList</b> is a much better way to add classes to an element than using string literals. Remember that these classes <i>have <b>already</b> be defined before using <b>classList</b></i>.</b>
+            </p>
+         </article>
+         <hr style="width: 90%">
+
+      <!-- Removing Classes -->
+         <article>
+            <h6>Removing Classes</h6>
+            <p>Removing classes is just as easy as adding classes. If we remove the purple:
+               <ul>
+                  <li>head5.classList.<b>remove</b>('purple');</li>
+               </ul>
+               we would get:
+               <ul>
+                  <li><h5>This is my Heading 5</h5></li>
+               </ul>
+               So the <b>purple</b> class is gone but the <b>border</b> class remains.
+            </p>
+         </article>
+         <hr style="width: 90%">
+
+      <!-- Other Useful classList Methods -->
+         <article>
+            <h6>Other Useful classList Methods</h6>
+            <p>There are some other very useful classList methods, we might want to use:
+               <ul>
+                  <li><b>contains</b> - - classList.<b>contains</b>('className')
+                     <ul>
+                        <li>does this element <b>contain</b> this class</li>
+                        <li>returns <b>true</b> or <b>false</b></li>
+                     </ul>
+                  </li>
+                  <li><b>toggle</b> - - classList.<b>toggle</b>('className')
+                     <ul>
+                        <li><b>toggles</b> the specified class <b>on</b> or <b>off</b></li>
+                        <li>returns <b>true</b> or <b>false</b></li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+         </article>
+      </section>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
 
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script async src="/header.js"></script>
+   <script async src="/footer.js"></script>
    <script>
       const h53 = document.querySelectorAll('h5')[3];
       h53.classList.add('purple');
@@ -201,7 +190,5 @@
       h55.classList.add('border');
       h55.classList.remove('purple');
    </script>
-
 </body>
-
 </html>
