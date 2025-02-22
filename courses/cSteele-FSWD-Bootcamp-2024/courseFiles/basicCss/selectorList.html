@@ -7,244 +7,233 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../images/logos/favicon.ico" type="image/x-icon">
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
 
    <!-- link stylesheet -->
-   <link rel="stylesheet" href="../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../css/root.css">
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../basicCss/basicCss.html">Back to CSS Reference Index</a></p>
-            <hr style=" width: 40%;">
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../basicCss/basicCss.html">Back to CSS Reference Index</a></p>
+         <hr style=" width: 40%;">
+      </section>
 
-         <!-- Basic CSS Selectors -->
-         <h3>CSS Basic Selectors</h3>
-         <section id="textWindow3">
-            <div class="lists">
-               <h4>Basic Selectors</h4>
-               <ul>
-                  <li><b>Element</b> Selector
-                     <ul>
-                        <li>select element by it's name</li>
-                        <li>eg. h1, p, a, etc.</li>
-                     </ul>
-                  </li>
-                  <li><b>Universal</b> Selector | <b>*</b> (asterisk)
-                     <ul>
-                        <li>selects all elements</li>
-                     </ul>
-                  </li>
-                  <li><b>Combine</b> Selector | <b>,</b> (comma)
-                     <ul>
-                        <li>combines multiple elements</li>
-                     </ul>
-                  </li>
-                  <li><b>Class</b> Selector | <b>.</b> (period)
-                     <ul>
-                        <li>selects specific class element</li>
-                     </ul>
-                  </li>
-                  <li><b>ID</b> Selector | <b>#</b> (pound)
-                     <ul>
-                        <li>selects specific id element</li>
-                     </ul>
-                  </li>
-               </ul>
-
-               <!-- Combinator Selectors -->
-               <h4 id="combin">Combinator Selectors</h4>
-               <ul>
-                  <li><b>Descendant</b> Selector | <b> </b> (space)
-                     <ul>
-                        <li>matches all elements that are descendants of a specified element</li>
-                        <li>eg. [ <b>p a</b> ] | selects all <b>a</b> tags inside a <b>p</b> tag</li>
-                     </ul>
-                  </li>
-                  <li><b>Adjacent</b> Selector | <b>+</b> (plus)
-                     <ul>
-                        <li>used to select a single element that is directly after another specific element</li>
-                        <li>the sibling element must have the same parent element, and "adjacent" means "immediately
-                           following"</li>
-                        <li>eg. [ <b>h1 + p</b> ] | selects the first <b>p</b> tag that is adjacent to an <b>h1</b> tag
-                        </li>
-                     </ul>
-                  </li>
-                  <li><b>Direct Child</b> Selector | <b>></b> (greater than)
-                     <ul>
-                        <li>selects all child elements</li>
-                        <li>eg. [ <b>div > li</b> ] | selects all <b>li</b> elements that are a child to a <b>div</b>
-                           element
-                        </li>
-                     </ul>
-                  </li>
-                  <li><b>General Sibling</b> Selector | <b>~</b> (tilde)
-                     <ul>
-                        <li>selects all elements that are the <b>next siblings</b> of a specified element</li>
-                        <li>eg. [ <b>div ~ p</b> ] | selects all <b>p</b> elements that are the <b>next siblings
-                              after</b>
-                           a
-                           <b>div</b> element
-                        </li>
-                     </ul>
-                  </li>
-               </ul>
-
-               <!-- Attribute Selectors -->
-               <h4 id="attrib">Attribute Selector</h4>
-               <ul>
-                  <li>Selects all elements based on a specific criteria</li>
+      <!-- Basic CSS Selectors -->
+      <h3>CSS Basic Selectors</h3>
+      <section id="textWindow3">
+         <div class="lists">
+            <h4>Basic Selectors</h4>
+            <ul>
+               <li><b>Element</b> Selector
                   <ul>
-                     <li>eg. <b>input [type="text"] {}</b> ] | selects all <b>input</b> tags that are type <b>text</b>
+                     <li>select element by it's name</li>
+                     <li>eg. h1, p, a, etc.</li>
+                  </ul>
+               </li>
+               <li><b>Universal</b> Selector | <b>*</b> (asterisk)
+                  <ul>
+                     <li>selects all elements</li>
+                  </ul>
+               </li>
+               <li><b>Combine</b> Selector | <b>,</b> (comma)
+                  <ul>
+                     <li>combines multiple elements</li>
+                  </ul>
+               </li>
+               <li><b>Class</b> Selector | <b>.</b> (period)
+                  <ul>
+                     <li>selects specific class element</li>
+                  </ul>
+               </li>
+               <li><b>ID</b> Selector | <b>#</b> (pound)
+                  <ul>
+                     <li>selects specific id element</li>
+                  </ul>
+               </li>
+            </ul>
+
+            <!-- Combinator Selectors -->
+            <h4 id="combin">Combinator Selectors</h4>
+            <ul>
+               <li><b>Descendant</b> Selector | <b> </b> (space)
+                  <ul>
+                     <li>matches all elements that are descendants of a specified element</li>
+                     <li>eg. [ <b>p a</b> ] | selects all <b>a</b> tags inside a <b>p</b> tag</li>
+                  </ul>
+               </li>
+               <li><b>Adjacent</b> Selector | <b>+</b> (plus)
+                  <ul>
+                     <li>used to select a single element that is directly after another specific element</li>
+                     <li>the sibling element must have the same parent element, and "adjacent" means "immediately
+                        following"</li>
+                     <li>eg. [ <b>h1 + p</b> ] | selects the first <b>p</b> tag that is adjacent to an <b>h1</b> tag
                      </li>
                   </ul>
-                  </li>
-                  <li><a href="https://www.w3schools.com/css/css_attribute_selectors.asp" target="_blank"
-                        crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools More Info</a></li>
-                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors" target="_blank"
-                        crossorigin="anonymous" referrerpolicy="no-referrer">MDN More Info</a></li>
-               </ul>
+               </li>
+               <li><b>Direct Child</b> Selector | <b>></b> (greater than)
+                  <ul>
+                     <li>selects all child elements</li>
+                     <li>eg. [ <b>div > li</b> ] | selects all <b>li</b> elements that are a child to a <b>div</b>
+                        element
+                     </li>
+                  </ul>
+               </li>
+               <li><b>General Sibling</b> Selector | <b>~</b> (tilde)
+                  <ul>
+                     <li>selects all elements that are the <b>next siblings</b> of a specified element</li>
+                     <li>eg. [ <b>div ~ p</b> ] | selects all <b>p</b> elements that are the <b>next siblings
+                           after</b>
+                        a
+                        <b>div</b> element
+                     </li>
+                  </ul>
+               </li>
+            </ul>
 
-               <!-- Pseudo Classes -->
-               <h4 id="pscl">: Pseudo Classes</h4>
+            <!-- Attribute Selectors -->
+            <h4 id="attrib">Attribute Selector</h4>
+            <ul>
+               <li>Selects all elements based on a specific criteria</li>
                <ul>
-                  <li><a href="https://www.w3schools.com/css/css_pseudo_classes.asp" target="_blank"
-                        crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools Pseudo-Class</a></li>
-                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" target="_blank"
-                        crossorigin="anonymous" referrerpolicy="no-referrer">MDN Pseudo-Class</a></li>
-                  <li>pseudo-classes are used to define a special state of an element.
-                     <ul>For example it can be used to,
-                        <li>Style an element when a user mouses over it</li>
-                        <li>Style visited and unvisited links differently</li>
-                        <li>Style an element when it gets focus</li>
-                        <li>and many more.</li>
-                     </ul>
-                  </li>
-               </ul>
-               <hr style=" width: 90%;">
-               <ul>
-                  <li><b>:hover</b>
-                     <ul>
-                        <li>styles an element when the mouse is hovered over it</li>
-                     </ul>
-                  </li>
-                  <li><b>:active</b>
-                     <ul>
-                        <li>styles the element when clicked with the mouse</li>
-                     </ul>
-                  </li>
-                  <li><b>:checked</b>
-                     <ul>
-                        <li>styles and <b>radio</b> or <b>checkbox</b> that is checked</li>
-                     </ul>
-                  </li>
-                  <li><b>:first-child</b>
-                     <ul>
-                        <li>selects the element that is the first child of its parent (among a group of sibling
-                           elements)</li>
-                     </ul>
-                  </li>
-                  <li><b>:nth-child()</b>
-                     <ul>
-                        <li>selects the element that is the <b>nth</b> child of its parent (among a group of sibling
-                           elements)</li>
-                     </ul>
-                  </li>
-                  <li><b>:nth-of-type()</b>
-                     <ul>
-                        <li>matches every element that is the nth child, of the same tag (type), of its parent</li>
-                        <li>can be a number/index, a keyword (odd or even), or a formula (like an + b)</li>
-                        <li><a href="https://www.w3schools.com/CSSref/sel_nth-of-type.php" target="_blank"
-                              crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools More Info</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-of-type" target="_blank"
-                              crossorigin="anonymous" referrerpolicy="no-referrer">MDN More Info</a></li>
-                     </ul>
-                  </li>
-                  <li><b>:not()</b>
-                     <ul>
-                        <li>matches any element that is <b>NOT</b> the specified element/selector</li>
-                        <li><a href="https://www.w3schools.com/CSSref/sel_not.php" target="_blank"
-                              crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools More Info</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not?ref=serpapi" target="_blank"
-                              crossorigin="anonymous" referrerpolicy="no-referrer">MDN More Info</a>
-                        </li>
-                     </ul>
+                  <li>eg. <b>input [type="text"] {}</b> ] | selects all <b>input</b> tags that are type <b>text</b>
                   </li>
                </ul>
                </li>
-               </ul>
+               <li><a href="https://www.w3schools.com/css/css_attribute_selectors.asp" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools More Info</a></li>
+               <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">MDN More Info</a></li>
+            </ul>
 
-               <!-- Pseudo Elements -->
-               <h4 id="psel">:: Pseudo Elements</h4>
-               <ul>
-                  <li><a href="https://www.w3schools.com/css/css_pseudo_elements.asp" target="_blank"
-                        crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools Pseudo Elements</a></li>
-                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements" target="_blank"
-                        crossorigin="anonymous" referrerpolicy="no-referrer">MDN Pseudo Elements</a></li>
-                  <li>A CSS pseudo-element is used to style specified parts of an element
-                     <ul>For example, it can be used to:
-                        <li>Style the first letter, or line, of an element</li>
-                        <li>Insert content before, or after, the content of an element</li>
-                     </ul>
-                  </li>
-               </ul>
-               <hr style=" width: 90%;">
-               <ul>Some examples
-                  <li>element<b>::first-letter</b>
-                     <ul>
-                        <li>styles the "first letter" of an element</li>
-                     </ul>
-                  </li>
-                  <li>element<b>::first-line</b>
-                     <ul>
-                        <li>styles the "first line" of an element, such as a paragraph</li>
-                     </ul>
-                  </li>
-                  <li>element<b>::selection</b>
-                     <ul>
-                        <li>styles page items that would be selected by the user. For example,
-                           <ul>
-                              <li>if a user selects some text on a webpage, change the background color of the selected
-                                 text.</li>
-                           </ul>
-                        </li>
-                        <li style="background-color: wheat;">select any text on this page to see the result</li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
-         </section>
+            <!-- Pseudo Classes -->
+            <h4 id="pscl">: Pseudo Classes</h4>
+            <ul>
+               <li><a href="https://www.w3schools.com/css/css_pseudo_classes.asp" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools Pseudo-Class</a></li>
+               <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">MDN Pseudo-Class</a></li>
+               <li>pseudo-classes are used to define a special state of an element.
+                  <ul>For example it can be used to,
+                     <li>Style an element when a user mouses over it</li>
+                     <li>Style visited and unvisited links differently</li>
+                     <li>Style an element when it gets focus</li>
+                     <li>and many more.</li>
+                  </ul>
+               </li>
+            </ul>
+            <hr style=" width: 90%;">
+            <ul>
+               <li><b>:hover</b>
+                  <ul>
+                     <li>styles an element when the mouse is hovered over it</li>
+                  </ul>
+               </li>
+               <li><b>:active</b>
+                  <ul>
+                     <li>styles the element when clicked with the mouse</li>
+                  </ul>
+               </li>
+               <li><b>:checked</b>
+                  <ul>
+                     <li>styles and <b>radio</b> or <b>checkbox</b> that is checked</li>
+                  </ul>
+               </li>
+               <li><b>:first-child</b>
+                  <ul>
+                     <li>selects the element that is the first child of its parent (among a group of sibling
+                        elements)</li>
+                  </ul>
+               </li>
+               <li><b>:nth-child()</b>
+                  <ul>
+                     <li>selects the element that is the <b>nth</b> child of its parent (among a group of sibling
+                        elements)</li>
+                  </ul>
+               </li>
+               <li><b>:nth-of-type()</b>
+                  <ul>
+                     <li>matches every element that is the nth child, of the same tag (type), of its parent</li>
+                     <li>can be a number/index, a keyword (odd or even), or a formula (like an + b)</li>
+                     <li><a href="https://www.w3schools.com/CSSref/sel_nth-of-type.php" target="_blank"
+                           crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools More Info</a></li>
+                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-of-type" target="_blank"
+                           crossorigin="anonymous" referrerpolicy="no-referrer">MDN More Info</a></li>
+                  </ul>
+               </li>
+               <li><b>:not()</b>
+                  <ul>
+                     <li>matches any element that is <b>NOT</b> the specified element/selector</li>
+                     <li><a href="https://www.w3schools.com/CSSref/sel_not.php" target="_blank"
+                           crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools More Info</a></li>
+                     <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not?ref=serpapi" target="_blank"
+                           crossorigin="anonymous" referrerpolicy="no-referrer">MDN More Info</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            </li>
+            </ul>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+            <!-- Pseudo Elements -->
+            <h4 id="psel">:: Pseudo Elements</h4>
+            <ul>
+               <li><a href="https://www.w3schools.com/css/css_pseudo_elements.asp" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">W3Schools Pseudo Elements</a></li>
+               <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements" target="_blank"
+                     crossorigin="anonymous" referrerpolicy="no-referrer">MDN Pseudo Elements</a></li>
+               <li>A CSS pseudo-element is used to style specified parts of an element
+                  <ul>For example, it can be used to:
+                     <li>Style the first letter, or line, of an element</li>
+                     <li>Insert content before, or after, the content of an element</li>
+                  </ul>
+               </li>
+            </ul>
+            <hr style=" width: 90%;">
+            <ul>Some examples
+               <li>element<b>::first-letter</b>
+                  <ul>
+                     <li>styles the "first letter" of an element</li>
+                  </ul>
+               </li>
+               <li>element<b>::first-line</b>
+                  <ul>
+                     <li>styles the "first line" of an element, such as a paragraph</li>
+                  </ul>
+               </li>
+               <li>element<b>::selection</b>
+                  <ul>
+                     <li>styles page items that would be selected by the user. For example,
+                        <ul>
+                           <li>if a user selects some text on a webpage, change the background color of the selected
+                              text.</li>
+                        </ul>
+                     </li>
+                     <li style="background-color: wheat;">select any text on this page to see the result</li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+      </section>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
 
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
 </body>
-
 </html>
