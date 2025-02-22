@@ -8,7 +8,7 @@ let rootPath = '';
 // github root fix
 const getRoot = () => {
     // if (window.location.hostname === 'halsan23.github.io') {
-    if (window.location.pathname === '/bodingles/') {
+    if (window.location.host === 'halsan23.github.io') {
       return 'halsan23.github.io/bodingles/';
     } else {
       return '/';
