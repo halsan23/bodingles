@@ -7,336 +7,321 @@
 	<title>Bodingles | Colt Steele</title>
 
 	<!-- Link Favicon -->
-	<link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
 
 	<!-- link stylesheets -->
 	<!-- Basic Reset for different browsers support -->
-	<link rel="stylesheet" href="../../../../../css/cssReset.css">
+	<link rel="stylesheet" href="/css/cssReset.css">
 
 	<!-- Bootstrap Stylesheet -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 	<!-- My local Stylesheets -->
-	<link rel="stylesheet" href="../../../../../css/root.css">
+	<link rel="stylesheet" href="/css/root.css">
 	<link rel="stylesheet" href="localStyle.css">
 </head>
 
 <body>
-	<!-- Header -->
-	<header>
-		<span class="headLogo"></span>
-		<span class="headTitle headBoot">Bo</span>
-		<span class="headTitleb headBootb">dingles<sub>TM</sub></span>
-		<span class="headScroll">
-			<img src="../../../../../images/scroll.png" alt="">
-		</span>
-		<span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-			<img class="sloganBulb" src="../../../../../images/logos/lightbulb.png"
-				alt="Lightbulb Graphic">Ideas&nbsp;&nbsp;&nbsp;- -
-		</span>
-	</header>
+   <!-- Header -->
+   <header id="app-header"></header>
 
-	<section id="main">
-		<div class="content">
-			<!-- Title -->
-			<section>
-				<h2><i>The Web Developer Bootcamp 2024</i></h2>
-				<p>Colt Steele</p>
-				<p><a href="../bootstrapIndex.html">Back to Bootstrap Index Page</a></p>
-				<hr style="width: 50%" />
-			</section>
+   <!-- Main Body -->
+	<section id="main" class="content">
+		<!-- Title -->
+		<section>
+			<h2><i>The Web Developer Bootcamp 2024</i></h2>
+			<p>Colt Steele</p>
+			<p><a href="../bootstrapIndex.html">Back to Bootstrap Index Page</a></p>
+			<hr style="width: 50%" />
+		</section>
 
-			<h5>Bootstrap Forms</h5>
-			<!-- Class Notes -->
-			<section id="textWindow4">
-				<div class="just">
-					<p><span class="firstWord">Bootstrap</span>
-						<a href="https://getbootstrap.com/docs/5.3/forms/overview/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">forms</a>
-						have several form options to make your forms more stylish, and have better sizing control for responsive web sites.
-					</p>
-					<p>Bootstrap’s form controls expand on
-						<a href="https://getbootstrap.com/docs/5.3/content/reboot/#forms" target="_blank"
-							crossorigin="anonymous" referrerpolicy="no-referrer">our Rebooted form styles</a>
-							 with classes. Use these classes to opt into their customized displays for a more consistent rendering across browsers and devices.
-					</p>
-					<p><b>*note</b>: be sure to use an appropriate type attribute on all inputs (e.g., email for email address or number for numerical information) to take advantage of newer input controls like email verification, number selection, and more.</p>
-					<p><b>Lets start with a basic form:</b></p>
-					<!-- Default Form -->
-					<form action="">
-						<label for="email">Email:</label>
-						<input type="email" id="email" name="email" value="email@address"><br><br>
+		<h5>Bootstrap Forms</h5>
+		<!-- Class Notes -->
+		<section id="textWindow4">
+			<div class="just">
+				<p><span class="firstWord">Bootstrap</span>
+					<a href="https://getbootstrap.com/docs/5.3/forms/overview/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">forms</a>
+					have several form options to make your forms more stylish, and have better sizing control for responsive web sites.
+				</p>
+				<p>Bootstrap’s form controls expand on
+					<a href="https://getbootstrap.com/docs/5.3/content/reboot/#forms" target="_blank"
+						crossorigin="anonymous" referrerpolicy="no-referrer">our Rebooted form styles</a>
+							with classes. Use these classes to opt into their customized displays for a more consistent rendering across browsers and devices.
+				</p>
+				<p><b>*note</b>: be sure to use an appropriate type attribute on all inputs (e.g., email for email address or number for numerical information) to take advantage of newer input controls like email verification, number selection, and more.</p>
+				<p><b>Lets start with a basic form:</b></p>
+				<!-- Default Form -->
+				<form action="">
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" value="email@address"><br><br>
 
-						<label for="pswd">Password:</label>
-						<input type="password" id="pswd" name="pswd" value="password"><br><br>
+					<label for="pswd">Password:</label>
+					<input type="password" id="pswd" name="pswd" value="password"><br><br>
 
-						<label for="city">City:</label>
-						<input type="text" id="city" name="city" value="City"><br><br>
+					<label for="city">City:</label>
+					<input type="text" id="city" name="city" value="City"><br><br>
 
-						<label for="st">State:</label>
-						<select>
-							<option id="st" value="Alaska" selected>Alaska</option>
-							<option id="st" value="Alabama">Alabama</option>
-							<option id="st" value="New Mexico">New Mexico</option>
-							<option id="st" value="Wyoming">Wyoming</option>
-						</select><br><br>
+					<label for="st">State:</label>
+					<select>
+						<option id="st" value="Alaska" selected>Alaska</option>
+						<option id="st" value="Alabama">Alabama</option>
+						<option id="st" value="New Mexico">New Mexico</option>
+						<option id="st" value="Wyoming">Wyoming</option>
+					</select><br><br>
 
-						<label for="zip">Zip:</label>
-						<input type="text" id="zip" name="zip" value="zip"><br><br>
+					<label for="zip">Zip:</label>
+					<input type="text" id="zip" name="zip" value="zip"><br><br>
 
-						<label>How Many:</label>
-						<input type="checkbox" id="howMany1" name="howMany1" value="1">
-						<label for="howMany1"> 1</label>
-						<input type="checkbox" id="howMany2" name="howMany2" value="2">
-						<label for="howMany2"> 2</label>
-						<input type="checkbox" id="howMany3" name="howMany3" value="3">
-						<label for="howMany3"> 3</label><br><br>
+					<label>How Many:</label>
+					<input type="checkbox" id="howMany1" name="howMany1" value="1">
+					<label for="howMany1"> 1</label>
+					<input type="checkbox" id="howMany2" name="howMany2" value="2">
+					<label for="howMany2"> 2</label>
+					<input type="checkbox" id="howMany3" name="howMany3" value="3">
+					<label for="howMany3"> 3</label><br><br>
 
-						<input type="radio" id="terms" name="terms" value="terms">
-						<label for="terms">I Agree to the Terms and Conditions</label><br><br>
+					<input type="radio" id="terms" name="terms" value="terms">
+					<label for="terms">I Agree to the Terms and Conditions</label><br><br>
 
-						<button>Submit</button>
-					</form>
-				</div>
-			</section>
+					<button>Submit</button>
+				</form>
+			</div>
+		</section>
 
-			<!-- My Bootstrap Form -->
-			<section id="textWindow4" class="just">
-				<article>
-					<p><span class="firstWord">The</span> most important requirement of any Bootstrap structure is that it <b>must be contained within a container</b>, and Bootstrap forms are no different.</p>
-					<p>So first off, we create the container, <b>< div class="container"></b>, and within this container, we create the form. <b>< form action=""></b>.</p>
-					<p>And because of the nature of Bootstrap we know it is built using rows and columns (12). So next we create a row, <b>< div class="row"></b>.</p>
-					<p>In bootstrap forms, we can group together form labels, and form inputs. This is called a <b>form-group</b>. And in the <b>Input</b> field, we use a bootstrap class called  <b>form-control</b>, to tell bootstrap how to format this form element. So we create our columns in form-groups like so:
-					<ul>
-						<li>< div class="<b>form-group</b>">
-								<ul>
-									<li>< label for=" fname">First Name</></li>
-									<li>< input type="text" class="<b>form-control</b>" id="fname"></li>
-								</ul>
-						</li>
-						<li>< /div></li>
-					</ul>
-					This creates our <b>form columns</b>. In the example below, we have the First and Last name inputs on the same <b>row</b>. And because no colum width is specified, each column is  <b>6-wide</b>. The same is true for the City, State, Zip row. Because no column width is defined, each of theses three columns in <b>4-wide</b>, because they share the same <b>row</b>.</p>
-					<p>We can now add our <b>breakpoint styling</b> code for our responsive web design. This code goes inside the <b>column</b> control. In our example the <b>column</b> control is created with the <b>form-group</b> div. So the First/Last Name column code would be something like,
-					<b>< div class="form-group mb-3 col-md-6"></b>. Here we are adding a <b>margin-bottom</b> of 3 and if the viewport is larger than <b>medium</b> (md) then make each column <b>6-wide</b>.
-					</p>
-					<p><b>*note</b>: one other thing of importance to mention is that different form elements have different bootstrap code to style the elements properly. Refer to the
-						<a href="https://getbootstrap.com/docs/5.3/forms/overview/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Bootstrap Forms</a> page for more information.
-					</p>
-				</article>
-
-				<!-- Bootstrap designed form -->
-				<div class="container">
-					<form action="">
-						<div class="row">
-							<div class="form-group mb-3 col-md-6">
-								<label for="fname">First Name</label>
-								<input type="text" class="form-control" id="fname" placeholder="First Name" required>
-							</div>
-							<div class="form-group mb-3 col-md-6">
-								<label for="lname">Last Name</label>
-								<input type="text" class="form-control" id="lname" placeholder="Last Name" required>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group mb-3">
-								<label for="address">Address</label>
-								<input type="text" class="form-control" id="address" placeholder="Address">
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group mb-3 col-lg-4 col-md-6">
-								<label for="city">City</label>
-								<input type="text" class="form-control" id="city" placeholder="City">
-							</div>
-							<div class="form-group mb-3 col-lg-4 col-md-6">
-								<label for="state">State</label>
-								<input type="text" class="form-control" id="state" placeholder="State">
-							</div>
-							<div class="form-group mb-3 col-lg-4 col-md-6">
-								<label for="zip">Zip</label>
-								<input type="text" class="form-control" id="zip" placeholder="Zip">
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group mb-3 col-md-6">
-								<label for="email">Email Address</label>
-								<input type="email" class="form-control" id="email" placeholder="email@domain.com" required>
-							</div>
-							<div class="form-group mb-3 col-md-6">
-								<label for="pswd">Password</label>
-								<input type="password" class="form-control" id="pswd" placeholder="Password" required>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group mb-3">
-								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="tos" required>
-									<label class="custom-control-label" for="tos">I agree to the Terms of Service.</label>
-							  </div>
-							</div>
-						</div>
-						<button type="submit" class="btn btn-success mb-3">Submit</button>
-					</form>
-				</div>
-
-				<!-- Adding Icons to the form -->
-				<div>
-					<p>You can also add icons to the form for added effect.
-						<a href="https://getbootstrap.com/docs/5.3/forms/input-group/#basic-example" target="_blank"
-						crossorigin="anonymous" referrerpolicy="no-referrer">More Info HERE</a>.
-						You can get Free Icons at
-						<a href="https://icons.getbootstrap.com/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Bootstrap Icons</a>
-						and <a href="https://fontawesome.com/search" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Font Awesome</a>.
-					</p>
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-							<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-							</svg>
-						</span>
-						<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-					</div>
-				</div>
-				<hr style="width: 100%;"><br>
-
-				<!-- Final Code -->
-				<article>
-					<p><span class="firstWord">Here</span> is the final code for this form:</p>
-					<b>
-					<ul>
-						<li>< div class="container">
+		<!-- My Bootstrap Form -->
+		<section id="textWindow4" class="just">
+			<article>
+				<p><span class="firstWord">The</span> most important requirement of any Bootstrap structure is that it <b>must be contained within a container</b>, and Bootstrap forms are no different.</p>
+				<p>So first off, we create the container, <b>< div class="container"></b>, and within this container, we create the form. <b>< form action=""></b>.</p>
+				<p>And because of the nature of Bootstrap we know it is built using rows and columns (12). So next we create a row, <b>< div class="row"></b>.</p>
+				<p>In bootstrap forms, we can group together form labels, and form inputs. This is called a <b>form-group</b>. And in the <b>Input</b> field, we use a bootstrap class called  <b>form-control</b>, to tell bootstrap how to format this form element. So we create our columns in form-groups like so:
+				<ul>
+					<li>< div class="<b>form-group</b>">
 							<ul>
-								<li>< form action="">
-									<ul>
-										<li>< div class="row">
-											<ul>
-												<li>< div class="form-group mb-3 col-md-6">
-													<ul>
-														<li>< label for="fname">First Name< /label></li>
-														<li>< input type="text" class="form-control" id="fname"
-																placeholder="First Name" required></li>
-													</ul>
-												</li>
-												<li>< /div></li>
-												<li>< div class="form-group mb-3 col-md-6">
-													<ul>
-														<li>< label for="lname">Last Name< /label></li>
-														<li>< input type="text" class="form-control" id="lname"
-																placeholder="Last Name" required></li>
-													</ul>
-												</li>
-												<li>< /div></li>
-											</ul>
-										</li>
-										<li>< /div></li>
-										<li>< div class="row">
-											<ul>
-												<li>< div class="form-group mb-3">
-													<ul>
-														<li>< label for="address">Address< /label></li>
-														<li>< input type="text" class="form-control" id="address" placeholder="Address"></li>
-													</ul>
-												</li>
-												<li>< /div></li>
-											</ul>
-										</li>
-										<li>< /div></li>
-										<li>< div class="row">
-											<ul>
-												<li>< div class="form-group mb-3 col-lg-4 col-md-6">
-													<ul>
-														<li>< label for="city">City< /label></li>
-														<li>< input type="text" class="form-control" id="city"
-																placeholder="City"></li>
-													</ul>
-												</li>
-												<li>< /div></li>
-											</ul>
-											<ul>
-												<li>< div class="form-group mb-3 col-lg-4 col-md-6">
-													<ul>
-														<li>< label for="state">State< /label></li>
-														<li>< input type="text" class="form-control" id="state"
-																placeholder="State"></li>
-													</ul>
-												</li>
-												<li>< /div></li>
-											</ul>
-											<ul>
-												<li>< div class="form-group mb-3 col-lg-4 col-md-6">
-													<ul>
-														<li>< label for="zip">Zip< /label></li>
-														<li>< input type="text" class="form-control" id="zip"
-																placeholder="Zip"></li>
-													</ul>
-												</li>
-												<li>< /div></li>
-											</ul>
-										</li>
-										<li>< /div></li>
-										<li>< div class="row">
-											<ul>
-												<li>< div class="form-group mb-3 col-md-6">
-													<ul>
-														<li>< label for="email">Email Address< /label></li>
-														<li>< input type="email" class="form-control" id="email"
-																placeholder="email@domain.com" required></li>
-													</ul>
-												</li>
-												<li>< /div></li>
-											</ul>
-											<ul>
-												<li>< div class="form-group mb-3 col-md-6">
-													<ul>
-														<li>< label for="pswd">Password< /label></li>
-														<li>< input type="password" class="form-control" id="pswd"
-																placeholder="Password" required></li>
-													</ul>
-												</li>
-												<li>< /div></li>
-											</ul>
-										</li>
-										<li>< /div></li>
-										<li>< div class="row">
-											<ul>
-												<li>< div class="form-check mb-3">
-													<ul>
-														<li>< input class="form-check-input" type="checkbox" value="" id="tos" required></li>
-														<li>< label class="form-check-label" for="tos">I agree to the Terms of Service.< /label></li>
-													</ul>
-												</li>
-												<li>< /div></li>
-											</ul>
-										</li>
-										<li>< /div></li>
-										<li>< button class="btn btn-success mb-5">Submit< /button></li>
-									</ul>
-								</li>
-								<li>< /form></li>
+								<li>< label for=" fname">First Name</></li>
+								<li>< input type="text" class="<b>form-control</b>" id="fname"></li>
 							</ul>
-						</li>
-						<li>< /div></li>
-					</ul>
-					</b>
-				</article>
-			</section>
+					</li>
+					<li>< /div></li>
+				</ul>
+				This creates our <b>form columns</b>. In the example below, we have the First and Last name inputs on the same <b>row</b>. And because no colum width is specified, each column is  <b>6-wide</b>. The same is true for the City, State, Zip row. Because no column width is defined, each of theses three columns in <b>4-wide</b>, because they share the same <b>row</b>.</p>
+				<p>We can now add our <b>breakpoint styling</b> code for our responsive web design. This code goes inside the <b>column</b> control. In our example the <b>column</b> control is created with the <b>form-group</b> div. So the First/Last Name column code would be something like,
+				<b>< div class="form-group mb-3 col-md-6"></b>. Here we are adding a <b>margin-bottom</b> of 3 and if the viewport is larger than <b>medium</b> (md) then make each column <b>6-wide</b>.
+				</p>
+				<p><b>*note</b>: one other thing of importance to mention is that different form elements have different bootstrap code to style the elements properly. Refer to the
+					<a href="https://getbootstrap.com/docs/5.3/forms/overview/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Bootstrap Forms</a> page for more information.
+				</p>
+			</article>
 
-			<p><a href="#top">Back to Top</a><br /><br /></p>
-		</div>
+			<!-- Bootstrap designed form -->
+			<div class="container">
+				<form action="">
+					<div class="row">
+						<div class="form-group mb-3 col-md-6">
+							<label for="fname">First Name</label>
+							<input type="text" class="form-control" id="fname" placeholder="First Name" required>
+						</div>
+						<div class="form-group mb-3 col-md-6">
+							<label for="lname">Last Name</label>
+							<input type="text" class="form-control" id="lname" placeholder="Last Name" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group mb-3">
+							<label for="address">Address</label>
+							<input type="text" class="form-control" id="address" placeholder="Address">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group mb-3 col-lg-4 col-md-6">
+							<label for="city">City</label>
+							<input type="text" class="form-control" id="city" placeholder="City">
+						</div>
+						<div class="form-group mb-3 col-lg-4 col-md-6">
+							<label for="state">State</label>
+							<input type="text" class="form-control" id="state" placeholder="State">
+						</div>
+						<div class="form-group mb-3 col-lg-4 col-md-6">
+							<label for="zip">Zip</label>
+							<input type="text" class="form-control" id="zip" placeholder="Zip">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group mb-3 col-md-6">
+							<label for="email">Email Address</label>
+							<input type="email" class="form-control" id="email" placeholder="email@domain.com" required>
+						</div>
+						<div class="form-group mb-3 col-md-6">
+							<label for="pswd">Password</label>
+							<input type="password" class="form-control" id="pswd" placeholder="Password" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group mb-3">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="tos" required>
+								<label class="custom-control-label" for="tos">I agree to the Terms of Service.</label>
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-success mb-3">Submit</button>
+				</form>
+			</div>
+
+			<!-- Adding Icons to the form -->
+			<div>
+				<p>You can also add icons to the form for added effect.
+					<a href="https://getbootstrap.com/docs/5.3/forms/input-group/#basic-example" target="_blank"
+					crossorigin="anonymous" referrerpolicy="no-referrer">More Info HERE</a>.
+					You can get Free Icons at
+					<a href="https://icons.getbootstrap.com/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Bootstrap Icons</a>
+					and <a href="https://fontawesome.com/search" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Font Awesome</a>.
+				</p>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+						<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+						</svg>
+					</span>
+					<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+			</div>
+			<hr style="width: 100%;"><br>
+
+			<!-- Final Code -->
+			<article>
+				<p><span class="firstWord">Here</span> is the final code for this form:</p>
+				<b>
+				<ul>
+					<li>< div class="container">
+						<ul>
+							<li>< form action="">
+								<ul>
+									<li>< div class="row">
+										<ul>
+											<li>< div class="form-group mb-3 col-md-6">
+												<ul>
+													<li>< label for="fname">First Name< /label></li>
+													<li>< input type="text" class="form-control" id="fname"
+															placeholder="First Name" required></li>
+												</ul>
+											</li>
+											<li>< /div></li>
+											<li>< div class="form-group mb-3 col-md-6">
+												<ul>
+													<li>< label for="lname">Last Name< /label></li>
+													<li>< input type="text" class="form-control" id="lname"
+															placeholder="Last Name" required></li>
+												</ul>
+											</li>
+											<li>< /div></li>
+										</ul>
+									</li>
+									<li>< /div></li>
+									<li>< div class="row">
+										<ul>
+											<li>< div class="form-group mb-3">
+												<ul>
+													<li>< label for="address">Address< /label></li>
+													<li>< input type="text" class="form-control" id="address" placeholder="Address"></li>
+												</ul>
+											</li>
+											<li>< /div></li>
+										</ul>
+									</li>
+									<li>< /div></li>
+									<li>< div class="row">
+										<ul>
+											<li>< div class="form-group mb-3 col-lg-4 col-md-6">
+												<ul>
+													<li>< label for="city">City< /label></li>
+													<li>< input type="text" class="form-control" id="city"
+															placeholder="City"></li>
+												</ul>
+											</li>
+											<li>< /div></li>
+										</ul>
+										<ul>
+											<li>< div class="form-group mb-3 col-lg-4 col-md-6">
+												<ul>
+													<li>< label for="state">State< /label></li>
+													<li>< input type="text" class="form-control" id="state"
+															placeholder="State"></li>
+												</ul>
+											</li>
+											<li>< /div></li>
+										</ul>
+										<ul>
+											<li>< div class="form-group mb-3 col-lg-4 col-md-6">
+												<ul>
+													<li>< label for="zip">Zip< /label></li>
+													<li>< input type="text" class="form-control" id="zip"
+															placeholder="Zip"></li>
+												</ul>
+											</li>
+											<li>< /div></li>
+										</ul>
+									</li>
+									<li>< /div></li>
+									<li>< div class="row">
+										<ul>
+											<li>< div class="form-group mb-3 col-md-6">
+												<ul>
+													<li>< label for="email">Email Address< /label></li>
+													<li>< input type="email" class="form-control" id="email"
+															placeholder="email@domain.com" required></li>
+												</ul>
+											</li>
+											<li>< /div></li>
+										</ul>
+										<ul>
+											<li>< div class="form-group mb-3 col-md-6">
+												<ul>
+													<li>< label for="pswd">Password< /label></li>
+													<li>< input type="password" class="form-control" id="pswd"
+															placeholder="Password" required></li>
+												</ul>
+											</li>
+											<li>< /div></li>
+										</ul>
+									</li>
+									<li>< /div></li>
+									<li>< div class="row">
+										<ul>
+											<li>< div class="form-check mb-3">
+												<ul>
+													<li>< input class="form-check-input" type="checkbox" value="" id="tos" required></li>
+													<li>< label class="form-check-label" for="tos">I agree to the Terms of Service.< /label></li>
+												</ul>
+											</li>
+											<li>< /div></li>
+										</ul>
+									</li>
+									<li>< /div></li>
+									<li>< button class="btn btn-success mb-5">Submit< /button></li>
+								</ul>
+							</li>
+							<li>< /form></li>
+						</ul>
+					</li>
+					<li>< /div></li>
+				</ul>
+				</b>
+			</article>
+		</section>
+
+		<p><a href="#top">Back to Top</a><br /><br /></p>
 	</section>
 
-	<footer>
-		<div>Website created by badDoggy</div>
-		<div>|</div>
-		<div>2024</div>
-		<div>|</div>
-		<div>&copy; All Rights Reserved</div>
-	</footer>
+   <!-- footer -->
+   <footer id="app-footer"></footer>
 
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
 	<!-- bootstrap js -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 </body>
-
 </html>
