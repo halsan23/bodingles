@@ -4,8 +4,6 @@
 // assign variables
 const header = document.getElementById("app-header");
 let rootPath = '';
-let head1 = '';
-let head2 = '';
 
 // github root fix
 const getRoot = () => {
@@ -19,38 +17,41 @@ const getRoot = () => {
 rootPath = getRoot();
 
 // build first part of header
-head1 = `
+const head = () => {
+    let headText = `
     <span class="headLogo"></span>
     <a href="/index.html">
-    <span class="headTitle">Bo</span>
-    <span class="headTitleb">dingles<sub>TM</sub></span>
+        <span class="headTitle">Bo</span>
+        <span class="headTitleb">dingles<sub>TM</sub></span>
     </a>
     <span class="headScroll"><img src="${rootPath}images/scroll.png" alt=""></span>
     <span class="headSlogan">
         - -&nbsp;&nbsp;&nbsp;Bright
-`;
+    `
+    // build second part of header
+    // if on page index.html, add link to temp.html
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        headText = headText + `
+            <a href="${rootPath}temp/temp.html"><img class="sloganBulb" src="${rootPath}images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
+                Ideas&nbsp;&nbsp;&nbsp;- -
+            </span>
+        `;
+    } else {
+        headText = headText + `
+            <img class="sloganBulb" src="${rootPath}images/logos/lightbulb.png" alt="Lightbulb Graphic">
+                Ideas&nbsp;&nbsp;&nbsp;- -
+            </span>
+        `;
+    }
+    return headText;
+};
 
-// build second part of header
-// if on page index.html, add link to temo.html
-if (window.location.pathname === '/index.html') {
-    head2 = `
-        <a href="${rootPath}temp/temp.html"><img class="sloganBulb" src="${rootPath}images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
-            Ideas&nbsp;&nbsp;&nbsp;- -
-        </span>
-    `;
-} else {
-    head2 = `
-        <img class="sloganBulb" src="${rootPath}images/logos/lightbulb.png" alt="Lightbulb Graphic">
-            Ideas&nbsp;&nbsp;&nbsp;- -
-        </span>
-    `;
-}
 
 // build the complete header and insert it into app-header <div>
-let appHead = head1 + head2;
+const appHead = head();
 header.innerHTML = appHead;
 
 // log window paths
-console.log(`window.location.hostname : ${window.location.hostname}`);
-console.log(`rootPath : ${rootPath}`);
-console.log(`window.location.hostname : ${window.location.pathname}`);
+// console.log(`window.location.hostname : ${window.location.hostname}`);
+// console.log(`rootPath : ${rootPath}`);
+console.log(`window.location.pathtname : ${window.location.pathname}`);
