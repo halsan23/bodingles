@@ -9,7 +9,7 @@ let rootPath = '';
 const getRoot = () => {
     // if (window.location.hostname === 'halsan23.github.io') {
     if (window.location.host === 'halsan23.github.io') {
-        let gitHubPath = `https://halsan23.github.io/bodingles/`
+        let gitHubPath = `halsan23.github.io/bodingles/`
         return gitHubPath;
     } else {
       return '/';
