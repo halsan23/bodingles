@@ -34,7 +34,7 @@ const head = () => {
     // if on page index.html, add link to temp.html
     if (window.location.pathname === '/' || window.location.pathname === '/index.html/' || window.location.pathname === '/bodingles/') {
         headText += `
-            <a href="/temp/temp.html"><img class="sloganBulb" src="/images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
+            <a href="temp/temp.html"><img class="sloganBulb" src="images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
                 Ideas&nbsp;&nbsp;&nbsp;- -
             </span>
         `;
