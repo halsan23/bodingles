@@ -27,7 +27,7 @@ const head = () => {
         <span class="headTitle">Bo</span>
         <span class="headTitleb">dingles<sub>TM</sub></span>
     </a>
-    <span class="headScroll"><img src="${rootPath}images/scroll.png" alt=""></span>
+    <span class="headScroll"><img src="/images/scroll.png" alt=""></span>
     <span class="headSlogan">
         - -&nbsp;&nbsp;&nbsp;Bright
     `
@@ -35,13 +35,13 @@ const head = () => {
     // if on page index.html, add link to temp.html
     if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
         headText += `
-            <a href="${rootPath}temp/temp.html"><img class="sloganBulb" src="${rootPath}images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
+            <a href="/temp/temp.html"><img class="sloganBulb" src="/images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
                 Ideas&nbsp;&nbsp;&nbsp;- -
             </span>
         `;
     } else {
         headText += `
-            <img class="sloganBulb" src="${rootPath}images/logos/lightbulb.png" alt="Lightbulb Graphic">
+            <img class="sloganBulb" src="/images/logos/lightbulb.png" alt="Lightbulb Graphic">
                 Ideas&nbsp;&nbsp;&nbsp;- -
             </span>
         `;
