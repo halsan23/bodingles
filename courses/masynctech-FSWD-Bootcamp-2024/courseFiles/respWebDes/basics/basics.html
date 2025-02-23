@@ -7,97 +7,88 @@
    <title>RWD Basics</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2>Full Stack MERN Web Development</h2>
-            <h3>Responsive Web Design (RWD)</h3>
-            <p><a href="../respDesIndex.html">Back to RWD Index</a></p>
-            <h4>The Basics and the Meta Tag</h4>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2>Full Stack MERN Web Development</h2>
+         <h3>Responsive Web Design (RWD)</h3>
+         <p><a href="../respDesIndex.html">Back to RWD Index</a></p>
+         <h4>The Basics and the Meta Tag</h4>
+      </section>
 
-         <section id="textWindow2">
-            <div class="lists">
-               <ul><b>The Basics</b>
-                  <li>Contrast's with "Fixed" style layouts</li>
-                  <li>The Core Idea is fluidity and adaptability</li>
-                  <li>Ensures functionality and appearance across different screen sizes</li>
-                  <li>Optimizes website for various devices by utilizing,
-                     <ul>
-                        <li>Fluid Grids</li>
-                        <li>Flexible Images</li>
-                        <li>Media Queries</li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
-         </section><br>
+      <section id="textWindow2">
+         <div class="lists">
+            <ul><b>The Basics</b>
+               <li>Contrast's with "Fixed" style layouts</li>
+               <li>The Core Idea is fluidity and adaptability</li>
+               <li>Ensures functionality and appearance across different screen sizes</li>
+               <li>Optimizes website for various devices by utilizing,
+                  <ul>
+                     <li>Fluid Grids</li>
+                     <li>Flexible Images</li>
+                     <li>Media Queries</li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+      </section><br>
 
-         <section id="textWindow2">
-            <div class="lists">
-               <ul><b>Viewport and Initial Scale</b>
-                  <li>The viewport is the "visible area" on a display device</li>
-                  <li>Initial scale refers to the initial "zoom" level when the page is loaded</li>
-                  <li>Both are essential for implementing RWD effectively</li>
-               </ul>
-            </div>
-         </section><br>
+      <section id="textWindow2">
+         <div class="lists">
+            <ul><b>Viewport and Initial Scale</b>
+               <li>The viewport is the "visible area" on a display device</li>
+               <li>Initial scale refers to the initial "zoom" level when the page is loaded</li>
+               <li>Both are essential for implementing RWD effectively</li>
+            </ul>
+         </div>
+      </section><br>
 
-         <section id="textWindow2">
-            <div class="lists">
-               <ul><b>The Meta Tag</b>
-                  <li>HTML's viewport <b>Meta</b> tag controls viewport width and scaling</li>
-                  <li>this is a second <b>meta</b> tag that is placed inside the HTML Head section</li>
-                  <li>The <b>Meta</b> tag is essential for mobile display</li>
-                  <li>"<b>initial-scale</b>" sets the "initial" zoom improving the user experience</li>
-                  <li>The meta tag greatly affects mobile appearance and performance, vital for RWD</li>
-               </ul>
-               <ul><b>
-                     < meta name="viewport" content="width=device-width, initial-scale=1.0">
-                  </b>
-                  <li><b>
-                        < meta>
-                     </b>: provides meta data about the html document</li>
-                  <li><b>
-                        < name>
-                     </b>="viewport": identifies the meta tag for viewport control</li>
-                  <li><b>content</b>: holds the viewport settings</li>
-                  <li><b>width=device-width</b>: sets the viewport width to the device width</li>
-                  <li><b>initial-scale=1.0</b>: Sets the initial zoom to 1.0 (the default size)</li>
-               </ul>
-            </div>
-         </section>
+      <section id="textWindow2">
+         <div class="lists">
+            <ul><b>The Meta Tag</b>
+               <li>HTML's viewport <b>Meta</b> tag controls viewport width and scaling</li>
+               <li>this is a second <b>meta</b> tag that is placed inside the HTML Head section</li>
+               <li>The <b>Meta</b> tag is essential for mobile display</li>
+               <li>"<b>initial-scale</b>" sets the "initial" zoom improving the user experience</li>
+               <li>The meta tag greatly affects mobile appearance and performance, vital for RWD</li>
+            </ul>
+            <ul><b>
+                  < meta name="viewport" content="width=device-width, initial-scale=1.0">
+               </b>
+               <li><b>
+                     < meta>
+                  </b>: provides meta data about the html document</li>
+               <li><b>
+                     < name>
+                  </b>="viewport": identifies the meta tag for viewport control</li>
+               <li><b>content</b>: holds the viewport settings</li>
+               <li><b>width=device-width</b>: sets the viewport width to the device width</li>
+               <li><b>initial-scale=1.0</b>: Sets the initial zoom to 1.0 (the default size)</li>
+            </ul>
+         </div>
+      </section>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
 
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>

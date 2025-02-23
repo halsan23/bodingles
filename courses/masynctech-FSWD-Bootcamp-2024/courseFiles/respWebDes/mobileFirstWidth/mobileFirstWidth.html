@@ -7,112 +7,103 @@
    <title>Responsive Web Design</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2>Full Stack MERN Web Development</h2>
-            <h3>Responsive Web Design (RWD)</h3>
-            <p><a href="../respDesIndex.html">Back to RWD Index</a></p>
-            <hr>
-            <h4>Mobile First using width</h4>
-            <p>*see info on <b>@media screen</b> specificity <a href="../screenMediaQueries/screenMediaQueries.html"
-                  target="_blank">here</a></p>
-         </section>
-
-         <section id="textWindow2">
-            <div class="lists">
-               <ul><b>Mobile-first Design</b>
-                  <li>Uses width and height Media Queries</li>
-                  <li>Opposite of Desktop-First (max-width, max-height) approach</li>
-                  <li>Best for new websites built from scratch</li>
-                  <li>You prioritize mobile layouts and enhance for larger screens</li>
-                  <li>Starting from scratch makes it easier to scale up the design</li>
-               </ul>
-            </div>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2>Full Stack MERN Web Development</h2>
+         <h3>Responsive Web Design (RWD)</h3>
+         <p><a href="../respDesIndex.html">Back to RWD Index</a></p>
          <hr>
+         <h4>Mobile First using width</h4>
+         <p>*see info on <b>@media screen</b> specificity <a href="../screenMediaQueries/screenMediaQueries.html"
+               target="_blank">here</a></p>
+      </section>
 
-         <section id="textWindow3">
+      <section id="textWindow2">
+         <div class="lists">
+            <ul><b>Mobile-first Design</b>
+               <li>Uses width and height Media Queries</li>
+               <li>Opposite of Desktop-First (max-width, max-height) approach</li>
+               <li>Best for new websites built from scratch</li>
+               <li>You prioritize mobile layouts and enhance for larger screens</li>
+               <li>Starting from scratch makes it easier to scale up the design</li>
+            </ul>
+         </div>
+      </section>
+      <hr>
+
+      <section id="textWindow3">
+         <div class="lists">
+            <ul><b>Important Considerations</b>
+               <li>Prefer "min-width" in media queries for a mobile-first approach</li>
+               <li>Set a <b>meta viewport tag</b> for mobile-layout control</li>
+               <li>Thoroughly test on multiple devices to ensure media queries worked as intended</li>
+            </ul>
+         </div>
+      </section>
+      <hr>
+
+      <section id="textWindow3">
+         <p>In the following example we set the background color, font color, and font size<br>
+            based on the screen width. Change the screen width to see the changes.</p>
+         <div class="lists">
+            <dl><b>we accomplish this by adding "media queries" in the CSS</b>
+               <li>@media (min-width: <i>xxx</i>px) {</li>
+               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.header {</li>
+               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <i>header styles go here</i>;
+               </li>
+               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p {</li>
+               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <i>p styles go here</i>;
+               </li>
+               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+               <li>}</li>
+            </dl>
+            <p>The screen will now change the colors and font size, as described, based on screen.</p>
             <div class="lists">
-               <ul><b>Important Considerations</b>
-                  <li>Prefer "min-width" in media queries for a mobile-first approach</li>
-                  <li>Set a <b>meta viewport tag</b> for mobile-layout control</li>
-                  <li>Thoroughly test on multiple devices to ensure media queries worked as intended</li>
+               <ul><b>** Note</b>
+                  <li>all of the <i>Styling Calls</i> are nested <b>within</b> the <i>@media function</i></li>
+                  <li>the "META" tag must reside within the HTML head section
+                     <ul>
+                        <li><b>
+                              < meta name="viewport" content="width=device-width, initial-scale=1.0">
+                           </b></li>
+                     </ul>
+                  </li>
                </ul>
-            </div>
-         </section>
-         <hr>
-
-         <section id="textWindow3">
-            <p>In the following example we set the background color, font color, and font size<br>
-               based on the screen width. Change the screen width to see the changes.</p>
-            <div class="lists">
-               <dl><b>we accomplish this by adding "media queries" in the CSS</b>
-                  <li>@media (min-width: <i>xxx</i>px) {</li>
-                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.header {</li>
-                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <i>header styles go here</i>;
-                  </li>
-                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
-                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p {</li>
-                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <i>p styles go here</i>;
-                  </li>
-                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
-                  <li>}</li>
-               </dl>
-               <p>The screen will now change the colors and font size, as described, based on screen.</p>
-               <div class="lists">
-                  <ul><b>** Note</b>
-                     <li>all of the <i>Styling Calls</i> are nested <b>within</b> the <i>@media function</i></li>
-                     <li>the "META" tag must reside within the HTML head section
-                        <ul>
-                           <li><b>
-                                 < meta name="viewport" content="width=device-width, initial-scale=1.0">
-                              </b></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </section>
-
-         <div class="bod">
-            <div class="head">
-               <p>Bodingles</p>
             </div>
          </div>
+      </section>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
+      <div class="bod">
+         <div class="head">
+            <p>Bodingles</p>
+         </div>
       </div>
-   </section>
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
 
+      <p><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>
