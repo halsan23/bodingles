@@ -32,7 +32,7 @@ const header = document.querySelector("#app-header");
     // if on page index.html, add link to temp.html
     if (window.location.pathname === '/bodingles/') {
         headText += `
-            <a href="https://halsan23.github.io/bodingles/temp/temp.html"><img class="sloganBulb" src="https://halsan23.github.io/bodingles/images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
+            <a href="https://halsan23.github.io/temp/temp.html"><img class="sloganBulb" src="https://halsan23.github.io/images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
                 Ideas&nbsp;&nbsp;&nbsp;- -
             </span>
         `;
