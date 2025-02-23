@@ -7,139 +7,130 @@
    <title>CSS Relative Positioning</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheet -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2>Full Stack MERN Web Development</h2>
-            <h3>CSS Relative Positioning</h3>
-            <p><a href="../cssPosIndex.html">Return to CSS Positioning Index</a></p>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2>Full Stack MERN Web Development</h2>
+         <h3>CSS Relative Positioning</h3>
+         <p><a href="../cssPosIndex.html">Return to CSS Positioning Index</a></p>
+      </section>
 
-         <!-- Class Specific Info Sections -->
-         <section id="textWindow3">
-            <div class="lists">
-               <ul><b>Relative Positioning</b>
-                  <li>works the same way as static, but lets you change the elements position</li>
-                  <li>element remains in the normal page flow so, moving the element will have<br>
-                     no effect on surrounding elements</li>
-                  <li>use top, bottom, left, and right to modify it's position</li>
-                  <li>changes it's <i>position relative to it's <b>PARENT</b> element</i>, <b><i>and</i></b>
-                     <i>relative to <b>ITSELF</b><br>
-                        (where it would be in the normal page flow)</i>
-                  </li>
-                  <li>(this means it is <i>relative</i> to it's <b><i>ORIGINAL</i></b> position <b><i>WITHIN</i></b> the
-                     <br>
-                     confines of the <b>PARENT</b> element)
-                  </li>
-               </ul>
-            </div>
-         </section>
-
-         <section id="textWindow3">
-            <div class="lists">
-               <ul>
-                  <li>The element stays in the page flow but is offset based on directional properties</li>
-                  <ul>
-                     <li>top, bottom, left, right</li>
-                  </ul>
-                  <li>The original space is preserved, as if the element is still there</li>
-                  <li><b><i>It is used as a positioning context for absolute child elements</i></b></li>
-                  <li>Minor adjustments can be made without major layout impact</li>
-               </ul>
-            </div>
-         </section>
-         <hr>
-
-         <section id="textWindow3">
-            <p>In the following example, we moved the red "20% OFF" graphic,<br>
-               from just below the image, centered, to the top right corner of the image.
-            </p>
-            <hr>
-            <div class="lists">
-               <ul><b>How we did it</b>
-                  <li>We did this by setting the "parent element" to [ position: <b>relative</b>; ].
-                     <ul>
-                        <li>In this case, the parent element is the div line
-                           <ul>
-                              <li>
-                                 < div class="product-image">
-                              </li>
-                           </ul>
-                        </li>
-                     </ul>
-                  </li>
-                  <li>We then set the "20% OFF" graphic to be "<b>absolute</b>" positioned to it's "<b>relative</b>"
-                     parent
-                     container,
-                     <ul>
-                        <li>so in the CSS we set the style for < class="promo-banner"> as follows,
-                              <ul>
-                                 <li>position: <b>absolute</b>;</li>
-                                 <li>top: 0;</li>
-                                 <li>right: 0;</li>
-                              </ul>
-                        </li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
-         </section>
-
-         <section id="textWindow3">
-            <p>
-               So, we can set the "20% OFF" graphic anywhere we want <i>within the parent image</i> because it is
-               positioned "absolute" within it's "relative" parent.
-            </p>
-         </section>
-
-         <!-- Class Code -->
-         <div class="bdy">
-            <div class="product">
-               <div class="product-image">
-                  <img src="https://cdn.pixabay.com/photo/2015/01/08/18/25/desk-593327_1280.jpg" alt="Product Image" />
-                  <span class="promo-banner">20% OFF</span>
-               </div>
-               <h2 class="product-title">Amazing Product</h2>
-               <p class="original-price">$100</p>
-               <p class="discounted-price">$80</p>
-               <p class="product-description">
-                  This Amazing Product is crafted with precision and love, perfect for
-                  your daily needs. Limited stock available!
-               </p>
-               <button class="add-to-cart-button">Add to Cart</button>
-            </div>
+      <!-- Class Specific Info Sections -->
+      <section id="textWindow3">
+         <div class="lists">
+            <ul><b>Relative Positioning</b>
+               <li>works the same way as static, but lets you change the elements position</li>
+               <li>element remains in the normal page flow so, moving the element will have<br>
+                  no effect on surrounding elements</li>
+               <li>use top, bottom, left, and right to modify it's position</li>
+               <li>changes it's <i>position relative to it's <b>PARENT</b> element</i>, <b><i>and</i></b>
+                  <i>relative to <b>ITSELF</b><br>
+                     (where it would be in the normal page flow)</i>
+               </li>
+               <li>(this means it is <i>relative</i> to it's <b><i>ORIGINAL</i></b> position <b><i>WITHIN</i></b> the
+                  <br>
+                  confines of the <b>PARENT</b> element)
+               </li>
+            </ul>
          </div>
+      </section>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
+      <section id="textWindow3">
+         <div class="lists">
+            <ul>
+               <li>The element stays in the page flow but is offset based on directional properties</li>
+               <ul>
+                  <li>top, bottom, left, right</li>
+               </ul>
+               <li>The original space is preserved, as if the element is still there</li>
+               <li><b><i>It is used as a positioning context for absolute child elements</i></b></li>
+               <li>Minor adjustments can be made without major layout impact</li>
+            </ul>
+         </div>
+      </section>
+      <hr>
+
+      <section id="textWindow3">
+         <p>In the following example, we moved the red "20% OFF" graphic,<br>
+            from just below the image, centered, to the top right corner of the image.
+         </p>
+         <hr>
+         <div class="lists">
+            <ul><b>How we did it</b>
+               <li>We did this by setting the "parent element" to [ position: <b>relative</b>; ].
+                  <ul>
+                     <li>In this case, the parent element is the div line
+                        <ul>
+                           <li>
+                              < div class="product-image">
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li>We then set the "20% OFF" graphic to be "<b>absolute</b>" positioned to it's "<b>relative</b>"
+                  parent
+                  container,
+                  <ul>
+                     <li>so in the CSS we set the style for < class="promo-banner"> as follows,
+                           <ul>
+                              <li>position: <b>absolute</b>;</li>
+                              <li>top: 0;</li>
+                              <li>right: 0;</li>
+                           </ul>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+      </section>
+
+      <section id="textWindow3">
+         <p>
+            So, we can set the "20% OFF" graphic anywhere we want <i>within the parent image</i> because it is
+            positioned "absolute" within it's "relative" parent.
+         </p>
+      </section>
+
+      <!-- Class Code -->
+      <div class="bdy">
+         <div class="product">
+            <div class="product-image">
+               <img src="https://cdn.pixabay.com/photo/2015/01/08/18/25/desk-593327_1280.jpg" alt="Product Image" />
+               <span class="promo-banner">20% OFF</span>
+            </div>
+            <h2 class="product-title">Amazing Product</h2>
+            <p class="original-price">$100</p>
+            <p class="discounted-price">$80</p>
+            <p class="product-description">
+               This Amazing Product is crafted with precision and love, perfect for
+               your daily needs. Limited stock available!
+            </p>
+            <button class="add-to-cart-button">Add to Cart</button>
+         </div>
       </div>
-   </section>
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
 
+      <p><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>
