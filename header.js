@@ -5,12 +5,10 @@
 const header = document.querySelector("#app-header");
 // let rootPath = '';
 
-// github root fix
+// // github root fix
 // const getRoot = () => {
-//     // if (window.location.hostname === 'halsan23.github.io') {
-//     if (window.location.host === 'halsan23.github.io') {
-//         let gitHubPath = `halsan23.github.io/bodingles/`
-//         return gitHubPath;
+//     if (window.location.pathname === '/bodingles/') {
+//         return 'bodingles/';
 //     } else {
 //       return '/';
 //     }
@@ -19,7 +17,7 @@ const header = document.querySelector("#app-header");
 //   rootPath = getRoot();
 
 // build first part of header
-const head = () => {
+// const head = () => {
     let headText = `
     <span class="headLogo"></span>
     <a href="/index.html">
@@ -52,16 +50,17 @@ const head = () => {
             </span>
         `;
     }
-    return headText;
-};
+    // return headText;
+// };
 
 
 // build the complete header and insert it into #app-header
 const appHead = head();
-header.innerHTML = appHead;
+// header.innerHTML = appHead;
+header.innerHTML = headText;
 
 // log window paths
-console.log(`window.location.host : ${window.location.host}`);
+// console.log(`window.location.host : ${window.location.host}`);
 // console.log(`window.location.hostname : ${window.location.hostname}`);
 console.log(`window.location.pathname : ${window.location.pathname}`);
-console.log(`rootPath : ${rootPath}`);
+// console.log(`rootPath : ${rootPath}`);
