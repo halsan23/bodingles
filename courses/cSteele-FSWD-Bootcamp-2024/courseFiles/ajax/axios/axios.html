@@ -1,139 +1,129 @@
 <!DOCTYPE html>
 <html lang="en" id="top">
 
-   <head>
-      <meta charset="utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Bodingles | Colt Steele</title>
+<head>
+   <meta charset="utf-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
 
-      <!-- Link Favicon -->
-      <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
-      <!-- link stylesheets -->
-      <!-- Basic Reset for different browsers support -->
-      <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
-      <!-- My local Stylesheets -->
-      <link rel="stylesheet" href="../../../../../../css/root.css" />
-      <link rel="stylesheet" href="localStyle.css" />
-   </head>
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="/css/root.css" />
+   <link rel="stylesheet" href="localStyle.css" />
+</head>
 
-   <body>
-      <!-- Header -->
-      <header>
-         <span class="headLogo"></span>
-         <span class="headTitle">Bo</span>
-         <span class="headTitleb">dingles<sub>TM</sub></span>
-         <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
-         <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-            <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-            Ideas&nbsp;&nbsp;&nbsp;- -</span>
-      </header>
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
 
-      <section id="main" class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../ajaxIndex.html">Back to Ajax Index Page</a></p>
-            <hr style="width: 50%" />
-            <h4>Axios</h4>
-         </section>
-
-         <section id="textWindow4" class="just lists">
-            <!--Axios Introduction-->
-            <article>
-               <h6>What is Axios</h6>
-               <p><span class="firstWord">Axios</span> is defined as a JavaScript library used to simplify HTTP requests, enabling seamless communication between client-side applications and servers. It is built on promises and provides an easy-to-use interface for fetching, sending, and managing data over RESTful APIs. Axios is widely appreciated for its ability to handle asynchronous requests, manage errors effectively, and support features like automatic JSON data transformation. </p>
-               <p>Unlike the native fetch API, Axios offers advanced capabilities such as request cancellation, timeout settings, and response interceptors, making it a preferred tool for developers building dynamic and interactive web applications.</p>
-               <p>For example, if you want to fetch data from a public API, Axios makes it simple, and straightforward. More information can be found at:
-                  <ul>
-                     <li><a href="https://github.com/axios/axios?tab=readme-ov-file#table-of-contents" target="_blank" rel="noopener noreferrer">Axios Documentation</a></li>
-                     <li><a href="https://axios-http.com/docs/intro" target="_blank" rel="noopener noreferrer">What is Axios</a></li>
-                     <li><a href="https://www.theknowledgeacademy.com/blog/what-is-axios/" target="_blank" rel="noopener noreferrer">Axios, A Comprehensive Guide</a></li>
-                  </ul>
-                  </p>
-            </article>
-            <hr style="width: 90%" />
-
-            <!--Axios Installation-->
-            <article>
-               <h6>Axios Installation</h6>
-               <p>As described in the documentation, there are many ways to install <i><b>Axios</b></i>. The method we are going to use, and probably the simplest, is the <b>CDN</b> install which requires that you add a <b>&lt;script> link</b> <i>(<a href="https://github.com/axios/axios?tab=readme-ov-file#cdn" target="_blank" rel="noopener noreferrer">found here</a>)</i>, to the bottom of your HTML page, just like a regular JavaScript link. At the time of this writing, the &lt;script> code is:
-                  <ul>
-                     <li><i>&lt;script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js">&lt;/script></i></li>
-                  </ul>
-               Once your &lt;script> link is established, you can start using <b>Axios</b> to write your <b>fetch</b> calls.
-               </p>
-            </article>
-            <hr style="width: 90%" />
-
-            <!--Axios Installation-->
-            <article>
-               <h6>Axios Usage</h6>
-               <p>In our discussions on <a href="../xhrRequests/xhrRequests.html" target="_blank">XHR Requests</a>, and <a href="../fetch/fetch.html" target="_blank">Fetch Requests</a>, we were using the <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars API</a> to request data for different people within the Star Wars universe.</p>
-               <p>We are going to be doing the same here, only we are going to be using <b>Axios</b> to <i><b>simplify</b></i> the coding, and the process.</p>
-               <p>Once again, we are going to be requesting the data for three different Star Wars people. This time we'll using <b>3 / 5 / 7</b> to select our people. We'll then log the results to the console. Here is the code:
-                  <ul class="sectHighlight">
-                     <li><b>JavaScript</b></li>
-                     <li>// <i>assign a variable to output the results to a &lt;div> at the bottom of the page</i></li>
-                     <li>const <span class="colorHighlight">swPeople</span> = document.<b>getElementById</b>('swPeople');</li>
-                     <li>&nbsp;</li>
-                     <li>// <i>async function to send request</i></li>
-                     <li>const <span class="colorHighlight">getStarWarsPeople</span> = <span class="colorHighlight3">async</span> (<b>id</b>) <span class="colorHighlight2">=></span> {
-                        <ul>
-                           <li>// <i>if successful request</i></li>
-                           <li><b>try</b> {
-                              <ul>
-                                 <li>const <span class="colorHighlight">res</span> = <span class="colorHighlight2">await</span> <b>axios.get</b>(`https://swapi.tech/api/people/${id}/`);</li>
-                                 <li>console.log(<span class="colorHighlight">res</span><b>.data.result.properties</b>);</li>
-                                 <li>swPeople.innerHTML +=`Star Wars person #${id} : <b>${res.data.result.properties.name}</b>&lt;br>`;</li>
-                              </ul>
-                           </li>
-                           <li>// <i>log any errors that occurred on the request</i></li>
-                           <li>} <b>catch</b> () {
-                              <ul>
-                                 <li>console.log("ERROR!!!", <b>e</b>);</li>
-                              </ul>
-                           </li>
-                           <li>}</li>
-                        </ul>
-                     </li>
-                     <li>};</li>
-                     <li>&nbsp;</li>
-                     <li>// <i>for loop to run requests for 3 / 5 / 7</i></li>
-                     <li>for (let i = 3; i < 8; i = i + 2) {
-                        <ul>
-                           <li><span class="colorHighlight">getStarWarsPeople</span>(<b>i</b>);</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <p>We can clearly see that this is a much simplified coding, from the previous <b>XHR</b>, and <b>Fetch</b> requests. For starters, Axios returns a Json Object which save us a step right there.</p>
-               <p>With <b>Fetch</b>, the initial request returned a Promise. We had to wait for that resolution, then we had to use <b>res.JSON()</b> to break down the <i><b>body: readable stream</b></i> to then log the <b>res.data.result.properties</b>, which gave us the actual data we requested.</p>
-               <p>Using <b>Axios</b>, we simply request the data, and axios does the Json conversion for us. All we had to do was log the results of <b>res.data.result.properties</b> to the console. One step and done.</p>
-               <p>And our Results for Star Wars persons <b>3 / 5 / 7</b> is:
-                  <ul id="swPeople"></ul>
-               </p>
-            </article>
-         </section>
-
-         <p><a href="#top">Back to Top</a><br><br></p>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../ajaxIndex.html">Back to Ajax Index Page</a></p>
+         <hr style="width: 50%" />
+         <h4>Axios</h4>
       </section>
 
-      <footer>
-         <div>Website created by badDoggy</div>
-         <div>|</div>
-         <div>2024</div>
-         <div>|</div>
-         <div>&copy; All Rights Reserved</div>
-      </footer>
+      <section id="textWindow4" class="just lists">
+         <!--Axios Introduction-->
+         <article>
+            <h6>What is Axios</h6>
+            <p><span class="firstWord">Axios</span> is defined as a JavaScript library used to simplify HTTP requests, enabling seamless communication between client-side applications and servers. It is built on promises and provides an easy-to-use interface for fetching, sending, and managing data over RESTful APIs. Axios is widely appreciated for its ability to handle asynchronous requests, manage errors effectively, and support features like automatic JSON data transformation. </p>
+            <p>Unlike the native fetch API, Axios offers advanced capabilities such as request cancellation, timeout settings, and response interceptors, making it a preferred tool for developers building dynamic and interactive web applications.</p>
+            <p>For example, if you want to fetch data from a public API, Axios makes it simple, and straightforward. More information can be found at:
+               <ul>
+                  <li><a href="https://github.com/axios/axios?tab=readme-ov-file#table-of-contents" target="_blank" rel="noopener noreferrer">Axios Documentation</a></li>
+                  <li><a href="https://axios-http.com/docs/intro" target="_blank" rel="noopener noreferrer">What is Axios</a></li>
+                  <li><a href="https://www.theknowledgeacademy.com/blog/what-is-axios/" target="_blank" rel="noopener noreferrer">Axios, A Comprehensive Guide</a></li>
+               </ul>
+               </p>
+         </article>
+         <hr style="width: 90%" />
 
-      <!-- JavaScripts -->
-       <!-- Axios -->
-      <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+         <!--Axios Installation-->
+         <article>
+            <h6>Axios Installation</h6>
+            <p>As described in the documentation, there are many ways to install <i><b>Axios</b></i>. The method we are going to use, and probably the simplest, is the <b>CDN</b> install which requires that you add a <b>&lt;script> link</b> <i>(<a href="https://github.com/axios/axios?tab=readme-ov-file#cdn" target="_blank" rel="noopener noreferrer">found here</a>)</i>, to the bottom of your HTML page, just like a regular JavaScript link. At the time of this writing, the &lt;script> code is:
+               <ul>
+                  <li><i>&lt;script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js">&lt;/script></i></li>
+               </ul>
+            Once your &lt;script> link is established, you can start using <b>Axios</b> to write your <b>fetch</b> calls.
+            </p>
+         </article>
+         <hr style="width: 90%" />
+
+         <!--Axios Installation-->
+         <article>
+            <h6>Axios Usage</h6>
+            <p>In our discussions on <a href="../xhrRequests/xhrRequests.html" target="_blank">XHR Requests</a>, and <a href="../fetch/fetch.html" target="_blank">Fetch Requests</a>, we were using the <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars API</a> to request data for different people within the Star Wars universe.</p>
+            <p>We are going to be doing the same here, only we are going to be using <b>Axios</b> to <i><b>simplify</b></i> the coding, and the process.</p>
+            <p>Once again, we are going to be requesting the data for three different Star Wars people. This time we'll using <b>3 / 5 / 7</b> to select our people. We'll then log the results to the console. Here is the code:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li>// <i>assign a variable to output the results to a &lt;div> at the bottom of the page</i></li>
+                  <li>const <span class="colorHighlight">swPeople</span> = document.<b>getElementById</b>('swPeople');</li>
+                  <li>&nbsp;</li>
+                  <li>// <i>async function to send request</i></li>
+                  <li>const <span class="colorHighlight">getStarWarsPeople</span> = <span class="colorHighlight3">async</span> (<b>id</b>) <span class="colorHighlight2">=></span> {
+                     <ul>
+                        <li>// <i>if successful request</i></li>
+                        <li><b>try</b> {
+                           <ul>
+                              <li>const <span class="colorHighlight">res</span> = <span class="colorHighlight2">await</span> <b>axios.get</b>(`https://swapi.tech/api/people/${id}/`);</li>
+                              <li>console.log(<span class="colorHighlight">res</span><b>.data.result.properties</b>);</li>
+                              <li>swPeople.innerHTML +=`Star Wars person #${id} : <b>${res.data.result.properties.name}</b>&lt;br>`;</li>
+                           </ul>
+                        </li>
+                        <li>// <i>log any errors that occurred on the request</i></li>
+                        <li>} <b>catch</b> () {
+                           <ul>
+                              <li>console.log("ERROR!!!", <b>e</b>);</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>};</li>
+                  <li>&nbsp;</li>
+                  <li>// <i>for loop to run requests for 3 / 5 / 7</i></li>
+                  <li>for (let i = 3; i < 8; i = i + 2) {
+                     <ul>
+                        <li><span class="colorHighlight">getStarWarsPeople</span>(<b>i</b>);</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>We can clearly see that this is a much simplified coding, from the previous <b>XHR</b>, and <b>Fetch</b> requests. For starters, Axios returns a Json Object which save us a step right there.</p>
+            <p>With <b>Fetch</b>, the initial request returned a Promise. We had to wait for that resolution, then we had to use <b>res.JSON()</b> to break down the <i><b>body: readable stream</b></i> to then log the <b>res.data.result.properties</b>, which gave us the actual data we requested.</p>
+            <p>Using <b>Axios</b>, we simply request the data, and axios does the Json conversion for us. All we had to do was log the results of <b>res.data.result.properties</b> to the console. One step and done.</p>
+            <p>And our Results for Star Wars persons <b>3 / 5 / 7</b> is:
+               <ul id="swPeople"></ul>
+            </p>
+         </article>
+      </section>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+      <!-- Axios -->
+   <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
       <!-- My Local -->
-      <script src="axios.js"></script>
-   </body>
+   <script src="axios.js"></script>
+</body>
 </html>

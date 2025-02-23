@@ -1,195 +1,184 @@
 <!DOCTYPE html>
 <html lang="en" id="top">
 
-   <head>
-      <meta charset="utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Bodingles | Colt Steele</title>
+<head>
+   <meta charset="utf-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
 
-      <!-- Link Favicon -->
-      <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
-      <!-- link stylesheets -->
-      <!-- Basic Reset for different browsers support -->
-      <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
-      <!-- My local Stylesheets -->
-      <link rel="stylesheet" href="../../../../../../css/root.css" />
-      <link rel="stylesheet" href="localStyle.css" />
-   </head>
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="/css/root.css" />
+   <link rel="stylesheet" href="localStyle.css" />
+</head>
 
-   <body>
-      <!-- Header -->
-      <header>
-         <span class="headLogo"></span>
-         <span class="headTitle">Bo</span>
-         <span class="headTitleb">dingles<sub>TM</sub></span>
-         <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
-         <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-            <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-            Ideas&nbsp;&nbsp;&nbsp;- -</span>
-      </header>
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
 
-      <section id="main" class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../ajaxIndex.html">Back to Ajax Index Page</a></p>
-            <hr style="width: 50%" />
-            <h4>JSON Introduction</h4>
-         </section>
-
-         <section id="textWindow4" class="just lists">
-            <!--JSON Introduction-->
-            <article>
-               <h6>What is Json</h6>
-               <p><span class="firstWord">Json</span> is an acronym for <b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation. It is a lightweight data-interchange format which is easy for humans to read and write, and it's easy for machines to parse and generate.</p>
-               <p>JSON is a text format that is completely <i>language independent</i>, but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.</p>
-               <p>JSON is built on two structures:
-                  <ul>
-                     <li>1). A collection of name/value pairs. In various languages, this is realized as an <b>object</b>, record, struct, dictionary, hash table, keyed list, or associative array.</li>
-                     <li>2). An ordered list of values. In most languages, this is realized as an <b>array</b>, vector, list, or sequence.</li>
-                  </ul>
-               </p>
-               <p>The Json format is very similar to JavaScript <i><b>Objects</b></i> and <i><b>Arrays</b></i> with one difference being that the <i>Object <b>keyName</b></i> must be included within <i><b>double quotes</b></i> <i>(single quotes will <b>not</b> work)</i>.</p>
-               <p>For example, if we make a <i>JavaScript Super Hero <b>Object</b></i>, it might look something like this:
-                  <ul class="sectHighlight">
-                     <li><b>JavaScript</b></li>
-                     <li>superHeroes {
-                        <ul>
-                           <li>squad: 'Super Squad',</li>
-                           <li>home: 'Metro',</li>
-                           <li>base: 'Secret Tower',</li>
-                           <li>active: true,</li>
-                           <li>members: ['Molecule Man', 'Madame Uppercut', 'Eternal Flame']</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-                  and the <i>Super Hero <b>JSON</b></i> would look like this:
-                  <ul class="sectHighlight">
-                     <li><b>JSON</b></li>
-                     <li>superHeroes {
-                        <ul>
-                           <li>"squad": 'Super Squad',</li>
-                           <li>"home": 'Metro',</li>
-                           <li>"base": 'Secret Tower',</li>
-                           <li>"active": true,</li>
-                           <li>"members": ['Molecule Man', 'Madame Uppercut', 'Eternal Flame']</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-                  Notice the <i><b>double quotes</b></i> around the <i>Object <b>keyNames</b></i>. More <i>JSON</i> information can be found <a href="https://www.json.org/json-en.html" target="_blank" rel="noopener noreferrer">here</a>, and a <i>Json Formatter & Validator</i> can be found <a href="https://jsonformatter.curiousconcept.com/" target="_blank" rel="noopener noreferrer">here</a>.
-               </p>
-            </article>
-            <hr style="width: 90%;">
-
-            <!-- .parse() & .stringify() -->
-            <article>
-               <h6>.parse() & .stringify()</h6>
-               <p>If we had sent an http request for the data from our <i>superHeroes</i> example above, the web api might return "json" data that would look something like this:
-                  <ul class="sectHighlight">
-                     <li>'{"superHeroes":{"squad":"Super Squad","home":"Metro","base":"Secret Tower","active":true,"members":["Molecule Man","Madame Uppercut","Eternal Flame"]}}'</li>
-                  </ul>
-                  and because we're familiar with how to interact with JavaScript Objects, we know that we can pull out individual pieces of data. Say we wanted to pull out the <i>base</i> name. In a JavaScript Object, we would just call:
-                  <ul class="sectHighlight">
-                     <li>superHeroes.base</li>
-                  </ul>
-                  and it would return <b>Secret Tower</b>.</p>
-                  <p>But this will not work with <i>json</i> data because if you notice, the entire "object" is incorporated within a pair of quotation marks. The entire json object itself, is a string.
-               </p>
-               <p>So what we need to to is convert the string into a useable object and JavaScript gives us the perfect tool to accomplish this.</p>
-            </article>
-            <hr style="width: 90%;">
-
-            <!-- .parse() -->
-            <article>
-               <h6>.parse()</h6>
-               <p>JSON.parse() method, <i>parses a <b>JSON string</b></i> according to JSON grammar, and then evaluates the string as if it is a <b>JavaScript expression</b>.</p>
-               <p>So in our <i>superHeroes</i> example, let's save the json data we received from the http request to a variable:
-                  <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight">data</span> = '{"superHeroes":{"squad":"Super Squad","home":"Metro","base":"Secret Tower","active":true,"members":["Molecule Man","Madame Uppercut","Eternal Flame"]}}';</li>
-                  </ul>
-                  so <span class="colorHighlight">data</span> equals our returned <i><b>json</b></i> data, and we can now <i><b>parse</b></i> this data and assign it to a variable :
-                  <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight">parsedData</span> = <b>JSON.parse(<span class="colorHighlight">data</span>);</b></li>
-                  </ul>
-                  <i><b>**Notice</b></i> that we had to use capitalization for <i><b>JSON</b></i>
-               </p>
-               <p><span class="colorHighlight">parsedData</span> now equals our <i>JavaScript Object <b>superHeroes</b></i>:
-                  <ul class="sectHighlight">
-                     <li>superHeroes:
-                        <ul>
-                           <li>active: true</li>
-                           <li>base: "Secret Tower"</li>
-                           <li>home: "Metro"</li>
-                           <li>members: (3) ['Molecule Man', 'Madame Uppercut', 'Eternal Flame']</li>
-                           <li>squad: "Super Squad"</li>
-                        </ul>
-                     </li>
-                  </ul>
-                  And just like any normal <i>JavaScript Object</i>, we can pull out the individual pieces of any data that we want:
-                  <ul class="sectHighlight">
-                     <li><span class="colorHighlight">parsedData</span>.<b>superHeroes</b></li>
-                  </ul>
-                  returns <i>{squad: 'Super Squad', home: 'Metro', base: 'Secret Tower', active: true, members: Array(3)}</i>
-               </p>
-               <p>and,
-                  <ul class="sectHighlight">
-                     <li><span class="colorHighlight">parsedData</span>.<b>superHeroes</b>.<i>base</i></li>
-                  </ul>
-                  would now return <b>Secret Tower</b>.
-               </p>
-            </article>
-            <hr style="width: 90%;">
-
-            <!-- .stringify() -->
-            <article>
-               <h6>.stringify()</h6>
-               <p>The JSON.stringify() method, does exactly the opposite of <i>JSON.parse()</i>. It converts a <b>JavaScript value</b> into a <b>JSON string</b>, <i>optionally</i> replacing values if a replacer function is specified, or <i>optionally</i> including only the specified properties if a replacer array is specified.</p>
-               <p>So if we have a JavaScript <i>Object</i> and we need to send the object's data to a Web API, and that API requires the data to be in <i>JSON</i> format.</p>
-               <p>First we define our object:
-                  <ul class="sectHighlight">
-                     <li><b>JavaScript</b></li>
-                     <li>const <span class="colorHighlight">sHeroes</span> = {
-                        <ul>
-                           <li>squad: 'Super Squad',</li>
-                           <li>home: 'Metro',</li>
-                           <li>base: 'Secret Tower',</li>
-                           <li>active: true,</li>
-                           <li>members: ['Molecule Man', 'Madame Uppercut', 'Eternal Flame']</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-                  and then we <i><b>.stringify()</b></i> our Object:
-                  <ul class="sectHighlight">
-                     <li>const <span class="colorHighlight">stringifiedHeroes</span> = <b>JSON.stringify(<span class="colorHighlight">sHeroes</span>)</b>;</li>
-                  </ul>
-                  <span class="colorHighlight">stringifiedHeroes</span> now equals:
-                  <ul class="sectHighlight">
-                     <li><i>'{"squad":"Super Squad","home":"Metro","base":"Secret Tower","active":true,"members":["Molecule Man","Madame Uppercut","Eternal Flame"]}'</i></li>
-                  </ul>
-                  which is out JavaScript Object in JSON format.
-               </p>
-            </article>
-         </section>
-
-         <p><a href="#top">Back to Top</a><br><br></p>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../ajaxIndex.html">Back to Ajax Index Page</a></p>
+         <hr style="width: 50%" />
+         <h4>JSON Introduction</h4>
       </section>
 
-      <footer>
-         <div>Website created by badDoggy</div>
-         <div>|</div>
-         <div>2024</div>
-         <div>|</div>
-         <div>&copy; All Rights Reserved</div>
-      </footer>
+      <section id="textWindow4" class="just lists">
+         <!--JSON Introduction-->
+         <article>
+            <h6>What is Json</h6>
+            <p><span class="firstWord">Json</span> is an acronym for <b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation. It is a lightweight data-interchange format which is easy for humans to read and write, and it's easy for machines to parse and generate.</p>
+            <p>JSON is a text format that is completely <i>language independent</i>, but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.</p>
+            <p>JSON is built on two structures:
+               <ul>
+                  <li>1). A collection of name/value pairs. In various languages, this is realized as an <b>object</b>, record, struct, dictionary, hash table, keyed list, or associative array.</li>
+                  <li>2). An ordered list of values. In most languages, this is realized as an <b>array</b>, vector, list, or sequence.</li>
+               </ul>
+            </p>
+            <p>The Json format is very similar to JavaScript <i><b>Objects</b></i> and <i><b>Arrays</b></i> with one difference being that the <i>Object <b>keyName</b></i> must be included within <i><b>double quotes</b></i> <i>(single quotes will <b>not</b> work)</i>.</p>
+            <p>For example, if we make a <i>JavaScript Super Hero <b>Object</b></i>, it might look something like this:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li>superHeroes {
+                     <ul>
+                        <li>squad: 'Super Squad',</li>
+                        <li>home: 'Metro',</li>
+                        <li>base: 'Secret Tower',</li>
+                        <li>active: true,</li>
+                        <li>members: ['Molecule Man', 'Madame Uppercut', 'Eternal Flame']</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               and the <i>Super Hero <b>JSON</b></i> would look like this:
+               <ul class="sectHighlight">
+                  <li><b>JSON</b></li>
+                  <li>superHeroes {
+                     <ul>
+                        <li>"squad": 'Super Squad',</li>
+                        <li>"home": 'Metro',</li>
+                        <li>"base": 'Secret Tower',</li>
+                        <li>"active": true,</li>
+                        <li>"members": ['Molecule Man', 'Madame Uppercut', 'Eternal Flame']</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               Notice the <i><b>double quotes</b></i> around the <i>Object <b>keyNames</b></i>. More <i>JSON</i> information can be found <a href="https://www.json.org/json-en.html" target="_blank" rel="noopener noreferrer">here</a>, and a <i>Json Formatter & Validator</i> can be found <a href="https://jsonformatter.curiousconcept.com/" target="_blank" rel="noopener noreferrer">here</a>.
+            </p>
+         </article>
+         <hr style="width: 90%;">
 
-      <!-- JavaScripts -->
-      <script src="json.js"></script>
+         <!-- .parse() & .stringify() -->
+         <article>
+            <h6>.parse() & .stringify()</h6>
+            <p>If we had sent an http request for the data from our <i>superHeroes</i> example above, the web api might return "json" data that would look something like this:
+               <ul class="sectHighlight">
+                  <li>'{"superHeroes":{"squad":"Super Squad","home":"Metro","base":"Secret Tower","active":true,"members":["Molecule Man","Madame Uppercut","Eternal Flame"]}}'</li>
+               </ul>
+               and because we're familiar with how to interact with JavaScript Objects, we know that we can pull out individual pieces of data. Say we wanted to pull out the <i>base</i> name. In a JavaScript Object, we would just call:
+               <ul class="sectHighlight">
+                  <li>superHeroes.base</li>
+               </ul>
+               and it would return <b>Secret Tower</b>.</p>
+               <p>But this will not work with <i>json</i> data because if you notice, the entire "object" is incorporated within a pair of quotation marks. The entire json object itself, is a string.
+            </p>
+            <p>So what we need to to is convert the string into a useable object and JavaScript gives us the perfect tool to accomplish this.</p>
+         </article>
+         <hr style="width: 90%;">
 
-   </body>
+         <!-- .parse() -->
+         <article>
+            <h6>.parse()</h6>
+            <p>JSON.parse() method, <i>parses a <b>JSON string</b></i> according to JSON grammar, and then evaluates the string as if it is a <b>JavaScript expression</b>.</p>
+            <p>So in our <i>superHeroes</i> example, let's save the json data we received from the http request to a variable:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">data</span> = '{"superHeroes":{"squad":"Super Squad","home":"Metro","base":"Secret Tower","active":true,"members":["Molecule Man","Madame Uppercut","Eternal Flame"]}}';</li>
+               </ul>
+               so <span class="colorHighlight">data</span> equals our returned <i><b>json</b></i> data, and we can now <i><b>parse</b></i> this data and assign it to a variable :
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">parsedData</span> = <b>JSON.parse(<span class="colorHighlight">data</span>);</b></li>
+               </ul>
+               <i><b>**Notice</b></i> that we had to use capitalization for <i><b>JSON</b></i>
+            </p>
+            <p><span class="colorHighlight">parsedData</span> now equals our <i>JavaScript Object <b>superHeroes</b></i>:
+               <ul class="sectHighlight">
+                  <li>superHeroes:
+                     <ul>
+                        <li>active: true</li>
+                        <li>base: "Secret Tower"</li>
+                        <li>home: "Metro"</li>
+                        <li>members: (3) ['Molecule Man', 'Madame Uppercut', 'Eternal Flame']</li>
+                        <li>squad: "Super Squad"</li>
+                     </ul>
+                  </li>
+               </ul>
+               And just like any normal <i>JavaScript Object</i>, we can pull out the individual pieces of any data that we want:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">parsedData</span>.<b>superHeroes</b></li>
+               </ul>
+               returns <i>{squad: 'Super Squad', home: 'Metro', base: 'Secret Tower', active: true, members: Array(3)}</i>
+            </p>
+            <p>and,
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">parsedData</span>.<b>superHeroes</b>.<i>base</i></li>
+               </ul>
+               would now return <b>Secret Tower</b>.
+            </p>
+         </article>
+         <hr style="width: 90%;">
+
+         <!-- .stringify() -->
+         <article>
+            <h6>.stringify()</h6>
+            <p>The JSON.stringify() method, does exactly the opposite of <i>JSON.parse()</i>. It converts a <b>JavaScript value</b> into a <b>JSON string</b>, <i>optionally</i> replacing values if a replacer function is specified, or <i>optionally</i> including only the specified properties if a replacer array is specified.</p>
+            <p>So if we have a JavaScript <i>Object</i> and we need to send the object's data to a Web API, and that API requires the data to be in <i>JSON</i> format.</p>
+            <p>First we define our object:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li>const <span class="colorHighlight">sHeroes</span> = {
+                     <ul>
+                        <li>squad: 'Super Squad',</li>
+                        <li>home: 'Metro',</li>
+                        <li>base: 'Secret Tower',</li>
+                        <li>active: true,</li>
+                        <li>members: ['Molecule Man', 'Madame Uppercut', 'Eternal Flame']</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               and then we <i><b>.stringify()</b></i> our Object:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">stringifiedHeroes</span> = <b>JSON.stringify(<span class="colorHighlight">sHeroes</span>)</b>;</li>
+               </ul>
+               <span class="colorHighlight">stringifiedHeroes</span> now equals:
+               <ul class="sectHighlight">
+                  <li><i>'{"squad":"Super Squad","home":"Metro","base":"Secret Tower","active":true,"members":["Molecule Man","Madame Uppercut","Eternal Flame"]}'</i></li>
+               </ul>
+               which is out JavaScript Object in JSON format.
+            </p>
+         </article>
+      </section>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="json.js"></script>
+</body>
 </html>

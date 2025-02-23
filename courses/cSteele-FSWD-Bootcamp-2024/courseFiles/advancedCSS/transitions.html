@@ -7,318 +7,308 @@
    <title>Bodingles | Colt Steele</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon">
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
 
    <!-- link stylesheet -->
-   <link rel="stylesheet" href="../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../css/root.css">
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../basicCss/basicCss.html">Back to CSS Reference Index</a></p>
-            <hr style=" width: 40%;">
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../basicCss/basicCss.html">Back to CSS Reference Index</a></p>
+         <hr style=" width: 40%;">
+      </section>
 
-         <!-- Advanced CSS Selectors -->
-         <h3>CSS Transitions</h3>
-         <section id="textWindow4">
-            <!-- basic definitions -->
-            <div>
-               <article>
-                  <p style="text-align: center;">CSS transitions allows you to change property values smoothly, over a
-                     given duration.</p>
-               </article>
+      <!-- Advanced CSS Selectors -->
+      <h3>CSS Transitions</h3>
+      <section id="textWindow4">
+         <!-- basic definitions -->
+         <div>
+            <article>
+               <p style="text-align: center;">CSS transitions allows you to change property values smoothly, over a
+                  given duration.</p>
+            </article>
 
-               <div class="qlinks">
-                  <a href="https://www.w3schools.com/css/css3_transitions.asp" target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">W3Schools CSS Transitions</a>
-                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions"
-                     target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN CSS Transitions</a>
-                  <a href="#buttons">Basic Button Manipulation</a>
-               </div>
-               <hr style="width: 80%;">
-
-               <p>CSS transitions provide a way to control animation speed when changing CSS properties. Instead of
-                  having property changes take effect immediately, you can cause the changes in a property to take place
-                  over a period of time. For example, if you change the color of an element from white to black, usually
-                  the change is instantaneous. With CSS transitions enabled, changes occur at time intervals that follow
-                  an acceleration curve, all of which can be customized.</p>
-               <p>Animations that involve transitioning between two states are often called implicit transitions as the
-                  states in between the start and final states are implicitly defined by the browser.</p>
-
-               <p style="text-align: center;"><img src="../../assets/images/transitionsprinciple.png"
-                     alt="Image of Transition Principles"></p>
-
-               <p>CSS transitions let you decide which properties to animate (by listing them explicitly), when the
-                  animation will start (by setting a delay), how long the transition will last (by setting a duration),
-                  and how the transition will run (by defining an easing function, e.g., linearly or quick at the
-                  beginning, slow at the end).</p>
-               <p>Hover over the teal box, to see an example of a transition effect:
-               <div class="ex1"></div>
-               </p>
-               <p>Another example of a transition effect:
-               <div class="ex2"></div>
-               </p>
+            <div class="qlinks">
+               <a href="https://www.w3schools.com/css/css3_transitions.asp" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">W3Schools CSS Transitions</a>
+               <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions"
+                  target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MDN CSS Transitions</a>
+               <a href="#buttons">Basic Button Manipulation</a>
             </div>
+            <hr style="width: 80%;">
 
-            <!-- Easing Functions -->
-            <div>
-               <h4>Easing Functions</h4>
-               <p><b>Easing functions</b> specify the rate of change of a parameter over time.</p>
-               <p>Objects in real life don’t just start and stop instantly, and almost never move at a constant speed.
-                  When
-                  we
-                  open a drawer, we first move it quickly, and slow it down as it comes out. Drop something on the
-                  floor,
-                  and
-                  it will first accelerate downwards, and then bounce back up after hitting the floor.</p>
-               <p><a href="https://easings.net/" target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">This
-                     page</a> helps you choose the right easing function.</p>
-            </div>
+            <p>CSS transitions provide a way to control animation speed when changing CSS properties. Instead of
+               having property changes take effect immediately, you can cause the changes in a property to take place
+               over a period of time. For example, if you change the color of an element from white to black, usually
+               the change is instantaneous. With CSS transitions enabled, changes occur at time intervals that follow
+               an acceleration curve, all of which can be customized.</p>
+            <p>Animations that involve transitioning between two states are often called implicit transitions as the
+               states in between the start and final states are implicitly defined by the browser.</p>
 
-            <!-- Defining Transitions -->
-            <div>
-               <h4>Defining transitions</h4>
-               <p>Transitions are defined by the following properties:
-               <ul style="text-align: left;">
-                  <li><b>Property Name</b>
+            <p style="text-align: center;"><img src="../../assets/images/transitionsprinciple.png"
+                  alt="Image of Transition Principles"></p>
+
+            <p>CSS transitions let you decide which properties to animate (by listing them explicitly), when the
+               animation will start (by setting a delay), how long the transition will last (by setting a duration),
+               and how the transition will run (by defining an easing function, e.g., linearly or quick at the
+               beginning, slow at the end).</p>
+            <p>Hover over the teal box, to see an example of a transition effect:
+            <div class="ex1"></div>
+            </p>
+            <p>Another example of a transition effect:
+            <div class="ex2"></div>
+            </p>
+         </div>
+
+         <!-- Easing Functions -->
+         <div>
+            <h4>Easing Functions</h4>
+            <p><b>Easing functions</b> specify the rate of change of a parameter over time.</p>
+            <p>Objects in real life don’t just start and stop instantly, and almost never move at a constant speed.
+               When
+               we
+               open a drawer, we first move it quickly, and slow it down as it comes out. Drop something on the
+               floor,
+               and
+               it will first accelerate downwards, and then bounce back up after hitting the floor.</p>
+            <p><a href="https://easings.net/" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">This
+                  page</a> helps you choose the right easing function.</p>
+         </div>
+
+         <!-- Defining Transitions -->
+         <div>
+            <h4>Defining transitions</h4>
+            <p>Transitions are defined by the following properties:
+            <ul style="text-align: left;">
+               <li><b>Property Name</b>
+                  <ul>
+                     <li><b>Specifies the name or names of the CSS properties to which transitions should be
+                           applied.</b>
+                        Only properties listed here are animated during transitions; changes to all other properties
+                        occur
+                        instantaneously as usual. (<i>ex. transition: background-color</i>)</li>
+                     <li><b>*note</b>: you can specify <b>all</b> to select all of the elements properties</li>
+                  </ul>
+               </li>
+               <li><b>Duration</b>
+                  <ul>
+                     <li>Specifies the duration over which transitions should occur. You can specify a single
+                        duration
+                        that
+                        applies to all properties during the transition, or multiple values to allow each property to
+                        transition over a different period of time. (<i>ex. 2s</i>)</li>
+                  </ul>
+               </li>
+               <li><b>Timing Function</b>
+                  <ul>
+                     <li>Specifies a function to define how intermediate values for properties are computed. Easing
+                        functions determine how intermediate values of the transition are calculated. Most easing
+                        functions
+                        can be specified by providing the graph of the corresponding function, as defined by four
+                        points
+                        defining a cubic bezier. You can also choose easing from Easing functions cheat sheet.</li>
+                     <li>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function" target="_blank"
+                           crossorigin="anonymous" referrerpolicy="no-referrer">MDN "CSS easing-function"</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="https://easings.net/" target="_blank" crossorigin="anonymous"
+                           referrerpolicy="no-referrer">Easy Transition Functions</a>
+                     </li>
+                  </ul>
+               </li>
+               <li><b>Delay</b>
+                  <ul>
+                     <li>Defines how long to wait between the time a property is changed and the transition actually
+                        begins. (<i>ex. 1s</i>)</li>
+                  </ul>
+               </li>
+            </ul>
+            </p>
+            <hr style="width: 95%;">
+            <p><b>The CSS syntax for transitions, is written as follows:</b>
+            <ul>
+               <li>div {
+                  <ul>
+                     <li>div property</li>
+                     <li>div property</li>
+                     <li>div property</li>
+                     <li>transition: < property(s) (<i>to be transitioned</i>)>
+                           < duration>
+                              < timing-function>
+                                 < delay>;</li>
+                  </ul>
+                  }
+               </li>
+            </ul>
+            </p>
+            <p>You can specify multiple transition properties by specifying multiple property names, such as:
+               <b>transition: background-color border-radius 1s</b>, all specified on one line.
+            </p>
+            <p>You can also specify different timing properties, such as: <b>transition: background-color 2s,
+                  border-radius
+                  1s</b>.
+            </p>
+            <hr style="width: 95%;">
+            <p>An example of different Timing Functions | Again, mouse hover over the boxes to see the different
+               Timing
+               Functions.</p>
+            <section class="ex3">
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+            </section>
+            <p>So all four boxes have the same property name, and the same timing (3s), but they get from point A to
+               point
+               B in very different ways. This is because of the transition <b>Timing Function</b>.</p>
+            <p>Here's the code:</p>
+            <hr style="width: 100%;">
+            <ul><b>HTML</b>
+               <li>
+                  < section>
                      <ul>
-                        <li><b>Specifies the name or names of the CSS properties to which transitions should be
-                              applied.</b>
-                           Only properties listed here are animated during transitions; changes to all other properties
-                           occur
-                           instantaneously as usual. (<i>ex. transition: background-color</i>)</li>
-                        <li><b>*note</b>: you can specify <b>all</b> to select all of the elements properties</li>
-                     </ul>
-                  </li>
-                  <li><b>Duration</b>
-                     <ul>
-                        <li>Specifies the duration over which transitions should occur. You can specify a single
-                           duration
-                           that
-                           applies to all properties during the transition, or multiple values to allow each property to
-                           transition over a different period of time. (<i>ex. 2s</i>)</li>
-                     </ul>
-                  </li>
-                  <li><b>Timing Function</b>
-                     <ul>
-                        <li>Specifies a function to define how intermediate values for properties are computed. Easing
-                           functions determine how intermediate values of the transition are calculated. Most easing
-                           functions
-                           can be specified by providing the graph of the corresponding function, as defined by four
-                           points
-                           defining a cubic bezier. You can also choose easing from Easing functions cheat sheet.</li>
                         <li>
-                           <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function" target="_blank"
-                              crossorigin="anonymous" referrerpolicy="no-referrer">MDN "CSS easing-function"</a>
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                           <a href="https://easings.net/" target="_blank" crossorigin="anonymous"
-                              referrerpolicy="no-referrer">Easy Transition Functions</a>
+                           < div>
+                              < /div>
+                        </li>
+                        <li>
+                           < div>
+                              < /div>
+                        </li>
+                        <li>
+                           < div>
+                              < /div>
+                        </li>
+                        <li>
+                           < div>
+                              < /div>
                         </li>
                      </ul>
-                  </li>
-                  <li><b>Delay</b>
-                     <ul>
-                        <li>Defines how long to wait between the time a property is changed and the transition actually
-                           begins. (<i>ex. 1s</i>)</li>
-                     </ul>
-                  </li>
-               </ul>
-               </p>
-               <hr style="width: 95%;">
-               <p><b>The CSS syntax for transitions, is written as follows:</b>
-               <ul>
-                  <li>div {
-                     <ul>
-                        <li>div property</li>
-                        <li>div property</li>
-                        <li>div property</li>
-                        <li>transition: < property(s) (<i>to be transitioned</i>)>
-                              < duration>
-                                 < timing-function>
-                                    < delay>;</li>
-                     </ul>
-                     }
-                  </li>
-               </ul>
-               </p>
-               <p>You can specify multiple transition properties by specifying multiple property names, such as:
-                  <b>transition: background-color border-radius 1s</b>, all specified on one line.
-               </p>
-               <p>You can also specify different timing properties, such as: <b>transition: background-color 2s,
-                     border-radius
-                     1s</b>.
-               </p>
-               <hr style="width: 95%;">
-               <p>An example of different Timing Functions | Again, mouse hover over the boxes to see the different
-                  Timing
-                  Functions.</p>
-               <section class="ex3">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-               </section>
-               <p>So all four boxes have the same property name, and the same timing (3s), but they get from point A to
-                  point
-                  B in very different ways. This is because of the transition <b>Timing Function</b>.</p>
-               <p>Here's the code:</p>
-               <hr style="width: 100%;">
-               <ul><b>HTML</b>
-                  <li>
-                     < section>
-                        <ul>
-                           <li>
-                              < div>
-                                 < /div>
-                           </li>
-                           <li>
-                              < div>
-                                 < /div>
-                           </li>
-                           <li>
-                              < div>
-                                 < /div>
-                           </li>
-                           <li>
-                              < div>
-                                 < /div>
-                           </li>
-                        </ul>
-                  </li>
-                  <li>
-                     < section>
-                  </li>
-               </ul>
-               <br>
-               <ul><b>CSS</b>
-                  <li><b>section div</b> {
-                     <ul>
-                        <li>width: 50px;</li>
-                        <li>height: 50px;</li>
-                        <li>background-color: brown;</li>
-                        <li>transition: margin-left 3s</li>
-                     </ul>
-                  </li>
-                  <li>}</li>
-               </ul>
-               <ul>
-                  <li><b>section:hover div</b> {
-                     <ul>
-                        <li>margin-left: 500px;</li>
-                     </ul>
-                  </li>
-                  <li>}</li>
-               </ul>
-               <br>
-               <ul>
-                  <li><b>section div:nth-of-type(1)</b> {
-                     <ul>
-                        <li>transition-timing-function: ease-in;</li>
-                     </ul>
-                  </li>
-                  <li>}</li>
-               </ul>
-               <ul>
-                  <li><b>section div:nth-of-type(2)</b> {
-                     <ul>
-                        <li>transition-timing-function: ease-out;</li>
-                     </ul>
-                  </li>
-                  <li>}</li>
-               </ul>
-               <ul>
-                  <li><b>section div:nth-of-type(3)</b> {
-                     <ul>
-                        <li>transition-timing-function: cubic-bezier(0.7, 0, 0.84, 0);</li>
-                     </ul>
-                  </li>
-                  <li>}</li>
-               </ul>
-               <ul>
-                  <li><b>section div:nth-of-type(4)</b> {
-                     <ul>
-                        <li>transition-timing-function: cubic-bezier(0.85, 0, 0.15, 1);</li>
-                     </ul>
-                  </li>
-                  <li>}</li>
-               </ul>
-               <p><b>*note</b>: if we wanted all four boxes to have the same properties for the transition, we could
-                  have
-                  written the code on one line, such as, <b>transition: margin-left 3s ease-in;</b>.<br>
-                  Once again, <a href="https://easings.net/" target="_blank" crossorigin="anonymous"
-                     referrerpolicy="no-referrer">here is</a> a link to some Easy Transition Functions.</p>
-               <br>
-            </div>
+               </li>
+               <li>
+                  < section>
+               </li>
+            </ul>
+            <br>
+            <ul><b>CSS</b>
+               <li><b>section div</b> {
+                  <ul>
+                     <li>width: 50px;</li>
+                     <li>height: 50px;</li>
+                     <li>background-color: brown;</li>
+                     <li>transition: margin-left 3s</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <ul>
+               <li><b>section:hover div</b> {
+                  <ul>
+                     <li>margin-left: 500px;</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <br>
+            <ul>
+               <li><b>section div:nth-of-type(1)</b> {
+                  <ul>
+                     <li>transition-timing-function: ease-in;</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <ul>
+               <li><b>section div:nth-of-type(2)</b> {
+                  <ul>
+                     <li>transition-timing-function: ease-out;</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <ul>
+               <li><b>section div:nth-of-type(3)</b> {
+                  <ul>
+                     <li>transition-timing-function: cubic-bezier(0.7, 0, 0.84, 0);</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <ul>
+               <li><b>section div:nth-of-type(4)</b> {
+                  <ul>
+                     <li>transition-timing-function: cubic-bezier(0.85, 0, 0.15, 1);</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <p><b>*note</b>: if we wanted all four boxes to have the same properties for the transition, we could
+               have
+               written the code on one line, such as, <b>transition: margin-left 3s ease-in;</b>.<br>
+               Once again, <a href="https://easings.net/" target="_blank" crossorigin="anonymous"
+                  referrerpolicy="no-referrer">here is</a> a link to some Easy Transition Functions.</p>
+            <br>
+         </div>
 
-            <!-- Basic Button Manipulation -->
-            <div id="buttons">
-               <h4>Basic Button Manipulation</h4>
-               <button>CLICK ME</button>
-               <hr>
-               <p>This effect is done with simple <b>CSS</b>, changing the colors and shadow properties, and a simple
-                  <b>Transform</b> to change the button's position.
-               </p>
-               <ul><b>HTML</b>
-                  <li>
-                     < button>CLICK ME< /button>
-                  </li>
-               </ul>
-               <ul><b>CSS</b>
-                  <li><b>button</b>
-                     <ul>
-                        <li>margin: 20px auto 40px;</li>
-                        <li>padding: 10px 20px;</li>
-                        <li>color: white;</li>
-                        <li>font-weight: bold;</li>
-                        <li>background-color: #689996;</li>
-                        <li>border: 1px solid black;</li>
-                        <li>border-radius: 15px;</li>
-                        <li>box-shadow: 2px 2px 6px #888888;</li>
-                     </ul>
-                  </li>
-                  <li><b>button:hover</b>
-                     <ul>
-                        <li>color: black;</li>
-                        <li>background-color: #5eeee4;</li>
-                        <li>box-shadow: 2px 2px 6px black inset; | (change the shadow to <b>inset</b>)</li>
-                        <li><b>transform: translate(6px, 6px);</b> | (move the same amount as the shadow size)</li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
-            <p><br></p>
-         </section>
+         <!-- Basic Button Manipulation -->
+         <div id="buttons">
+            <h4>Basic Button Manipulation</h4>
+            <button>CLICK ME</button>
+            <hr>
+            <p>This effect is done with simple <b>CSS</b>, changing the colors and shadow properties, and a simple
+               <b>Transform</b> to change the button's position.
+            </p>
+            <ul><b>HTML</b>
+               <li>
+                  < button>CLICK ME< /button>
+               </li>
+            </ul>
+            <ul><b>CSS</b>
+               <li><b>button</b>
+                  <ul>
+                     <li>margin: 20px auto 40px;</li>
+                     <li>padding: 10px 20px;</li>
+                     <li>color: white;</li>
+                     <li>font-weight: bold;</li>
+                     <li>background-color: #689996;</li>
+                     <li>border: 1px solid black;</li>
+                     <li>border-radius: 15px;</li>
+                     <li>box-shadow: 2px 2px 6px #888888;</li>
+                  </ul>
+               </li>
+               <li><b>button:hover</b>
+                  <ul>
+                     <li>color: black;</li>
+                     <li>background-color: #5eeee4;</li>
+                     <li>box-shadow: 2px 2px 6px black inset; | (change the shadow to <b>inset</b>)</li>
+                     <li><b>transform: translate(6px, 6px);</b> | (move the same amount as the shadow size)</li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+         <p><br></p>
+      </section>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
 
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
 </body>
-
 </html>

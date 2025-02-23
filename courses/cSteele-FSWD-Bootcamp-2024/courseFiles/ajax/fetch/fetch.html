@@ -1,231 +1,220 @@
 <!DOCTYPE html>
 <html lang="en" id="top">
 
-   <head>
-      <meta charset="utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Bodingles | Colt Steele</title>
+<head>
+   <meta charset="utf-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Bodingles | Colt Steele</title>
 
-      <!-- Link Favicon -->
-      <link rel="icon" href="../../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
-      <!-- link stylesheets -->
-      <!-- Basic Reset for different browsers support -->
-      <link rel="stylesheet" href="../../../../../../css/cssReset.css" />
+   <!-- link stylesheets -->
+   <!-- Basic Reset for different browsers support -->
+   <link rel="stylesheet" href="/css/cssReset.css" />
 
-      <!-- My local Stylesheets -->
-      <link rel="stylesheet" href="../../../../../../css/root.css" />
-      <link rel="stylesheet" href="localStyle.css" />
-   </head>
+   <!-- My local Stylesheets -->
+   <link rel="stylesheet" href="/css/root.css" />
+   <link rel="stylesheet" href="localStyle.css" />
+</head>
 
-   <body>
-      <!-- Header -->
-      <header>
-         <span class="headLogo"></span>
-         <span class="headTitle">Bo</span>
-         <span class="headTitleb">dingles<sub>TM</sub></span>
-         <span class="headScroll"><img src="../../../../../../images/scroll.png" alt="" /></span>
-         <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-            <img class="sloganBulb" src="../../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic" />
-            Ideas&nbsp;&nbsp;&nbsp;- -</span>
-      </header>
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
 
-      <section id="main" class="content">
-         <!-- Title -->
-         <section>
-            <h2><i>The Web Developer Bootcamp 2024</i></h2>
-            <p>Colt Steele</p>
-            <p><a href="../ajaxIndex.html">Back to Ajax Index Page</a></p>
-            <hr style="width: 50%" />
-            <h4>fetch() Http Request</h4>
-         </section>
-
-         <section id="textWindow4" class="just lists">
-            <!--fetch Introduction-->
-            <article>
-               <p><span class="firstWord">The Fetch API</span> provides a JavaScript interface for making HTTP requests and processing the responses. <i><b>Fetch is the modern replacement for XMLHttpRequest</b></i>:
-                  <ul>
-                     <li>unlike XMLHttpRequest, which uses callbacks, Fetch is promise-based and is integrated with features of the modern web such as service workers and Cross-Origin Resource Sharing (CORS)</li>
-                  </ul>
-                  With the Fetch API, you make a request by calling <b>fetch()</b>, which is available as a global function in both window and worker contexts. You pass it a <b>Request object</b> or a <b>string containing the URL to fetch</b>, along with an <i>optional</i> argument to configure the request. The <b>fetch()</b> function returns a <b>Promise</b> which is fulfilled with a Response object representing the server's response. You can then check the request status and extract the body of the response in various formats, including text and JSON, by calling the appropriate method on the response.
-               </p>
-               <p>Some of the reason that fetch is better than XHR are:
-                  <ul>
-                     <li>with XHR the coding is very clunky</li>
-                     <li>XHR does not support Promises or Async</li>
-                     <li>coding is very messy when trying to make subsequent requests</li>
-                  </ul>
-               </p>
-               <p>More Info At : <a href="https://www.w3schools.com/js/js_api_fetch.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Fetch API</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN Using the Fetch API</a></p>
-            </article>
-            <hr style="width: 90%" />
-
-            <!-- fetch Example -->
-            <article>
-               <h6>fetch() Example</h6>
-               <p>As in our <a href="../xhrRequests/xhrRequests.html" target="_blank">XHR HTTP Request</a> discussion, we're going to be sending a data request to the <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars API</a>. This time we are going to make three API requests for the data on three different people from the Star Wars Universe. And as in our <a href="../xhrRequests/xhrRequests.html" target="_blank">XHR HTTP Request</a> discussion, we will be logging the results of our API fetch Request to the console.</p>
-               <p>First we need to create a <i><b>fetch()</b></i> function and pass in the URL of our web API:
-                  <ul class="sectHighlight">
-                     <li><b>fetch</b>("https://swapi.tech/api/<b>people/1</b>/);</li>
-                  </ul>
-               </p>
-               <p>Because <i><b>fetch()</b></i> always returns a Promise, we need to process the <i>result</i> of the returned Promise.
-                  <ul>
-                     <li><b>.then</b> to process a <b>resolved</b> result, and</li>
-                     <li><b>.catch</b> to process a <b>rejected</b> result</li>
-                  </ul>
-                  like so:
-                  <ul class="sectHighlight">
-                     <li><b>.then</b>((<i>res</i>) => {
-                        <ul>
-                           <li>console.log("RESOLVED!", <i>res</i>);</li>
-                        </ul>
-                     </li>
-                     <li>})</li>
-                     <li><b>.catch</b>((<i>err</i>>) => {
-                        <ul>
-                           <li>console.log("ERROR!", <i>err</i>);</li>
-                        </ul>
-                     </li>
-                     <li>})</li>
-                  </ul>
-                  <b>**note</b> that if the Promise result is a <i><b>reject</b></i>, then it will log "ERROR! " and the error that caused the rejection.</p>
-               <p>However, if our Promise is <i><b>resolved</b></i>, then it returns a <i><b>Response Object</b></i>. This <i><b>Response Object</b></i> does NOT contain any of the Json data we are looking for. This is because the Promise is <i><b>resolved</b></i> as soon as it receives any http headers.
-               </p>
-               <p>If we look at the properties of our <i><b>Response Object</b></i>, we see that the <b>body</b> property is not our requested data, but a <i><b>readable stream</b></i>.</p>
-               <p>So we need to <i>"break down"</i> this <i><b>body: Readable Stream</b></i> with further processing. We do this by modifying our <b>.then</b> function with:
-                  <ul>
-                     <li><b>res.json()</b></li>
-                  </ul>
-               which actually returns yet another Promise. So we need to add a .then to process our resolve, to our original .then that we already created, like so:
-                  <ul class="sectHighlight">
-                     <li>.then((<i>res</i>) => {
-                        <ul>
-                           <li>console.log("RESOLVED!", <i>res</i>);</li>
-                           <li><b>return res.json();</b></li>
-                        </ul>
-                     </li>
-                     <li>})</li><b>
-                     <li>.then((data) => {
-                        <ul>
-                           <li>console.log(data.result.properties);</li>
-                        </ul>
-                     </li>
-                     <li>})</li></b>
-                  </ul>
-                  What this does is return the results of the <i><b>Response Object</b></i> Promise:
-                  <ul>
-                     <li><b>return res.json();</b></li>
-                  </ul>
-                  and the next <b>.then</b> logs the actual data <i>(data.result.properties)</i> to the console. And because in our original <i><b>fetch()</b></i> function, we asked for <i><b>people/1</b></i>, our query logged the data for "Luke Skywalker".
-               </p>
-            </article>
-            <hr style="width: 90%;">
-
-            <!-- Final Code - Single Fetch -->
-            <article>
-               <p>Here's the final Code for our <i><b>single</b> fetch request</i>:
-                  <ul class="sectHighlight">
-                     <li><b>JavaScript</b></li>
-                     <li><i><b>single</b> fetch request</i></li>
-                     <li>&nbsp;</li>
-                     <li><b>fetch</b>("https://swapi.tech/api/<b>people/1</b>/);
-                        <ul>
-                           <li>.then((res) => {
-                              <ul>
-                                 <li>console.log("RESOLVED!", res);</li>
-                                 <li>return res.json();</li>
-                              </ul>
-                           </li>
-                           <li>})</li>
-                           <li>.then((data) => {
-                              <ul>
-                                 <li>console.log(data.result.properties);</li>
-                              </ul>
-                           </li>
-                           <li>})</li>
-                           <li>.catch((e) => {
-                              <ul>
-                                 <li>console.log("ERROR!", e);</li>
-                              </ul>
-                           </li>
-                           <li>})</li>
-                        </ul>
-                     </li>
-                  </ul>
-                  which results in much simpler, more refined code than in our <a href="../xhrRequests/xhrRequests.html" target="_blank">XHR HTTP Request</a> example.
-               </p>
-            </article>
-            <hr style="width: 90%;">
-
-            <!-- Final Code - Multiple Fetch -->
-            <article>
-               <h6>Multiple Fetch Requests</h6>
-               <p>Earlier we mentioned that we want to send three requests for three different Star Wars People. We're going to use an <i><b>async</b></i> functions to accomplish this. We are going to send a request for persons <i><b>2 / 4 / 6</b></i> in the Star Wars API.</p>
-               <p>Here's the code:
-                  <ul class="sectHighlight">
-                     <li><b>JavaScript</b></li>
-                     <li><i><b>multiple</b> fetch request</i></li>
-                     <li>&nbsp;</li>
-                     <li>const <span class="colorHighlight">loadStarWarsPeople</span> = <span class="colorHighlight2">async</span> (<b>id</b>) => {</li>
-                     <li>let <span class="colorHighlight">apiAddress</span> = `https://swapi.tech/api/people/${<b>id</b>}/`;
-                        <ul>
-                           <li><b>try</b> {
-                              <ul>
-                                 <li>const <span class="colorHighlight">res</span> = <b>await</b> fetch(<span class="colorHighlight">apiAddress</span>);</li>
-                                 <li>const <span class="colorHighlight">data</span> = <b>await</b> <span class="colorHighlight">res</span>.json();</li>
-                                 <li>console.log(<span class="colorHighlight">data</span>.result.properties);</li>
-                              </ul>
-                           </li>
-                           <li>} <b>catch</b> (<b>err</b>) {
-                              <ul>
-                                 <li>console.log("ERROR!!!", <b>err</b>);</li>
-                              </ul>
-                           </li>
-                           <li>}</li>
-                        </ul>
-                     </li>
-                     <li>};</li>
-                     <li>&nbsp;</li>
-                     <li>for (let <b>i</b> = 2; i < 7; i = i + 2) {
-                        <ul>
-                           <li>loadStarWarsPeople(<b>i</b>);</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </p>
-               <p>- So we set a counter that counts, <b>2 / 4 / 6</b>. Then we call the function <i><b>loadStarWarsPeople()</b></i> with the current count number.</p>
-               <P>- We then create the  <i><b>async</b></i> function <i><b>loadStarWarsPeople()</b></i>, which receives the current count number <b>(id)</b>.</P>
-               <p>- We then build the Star Wars Web API address using this current count number.</p>
-               <p>- We then <i><b>try</b></i> to send our API Request, which
-                  <ul>
-                     <li><i><b>awaits</b></i> the result of the <i><b>fetch</b></i> request - if resolved - returns an object</li>
-                     <li><i><b>awaits</b></i> the result of the <i><b>res.JSON()</b></i> request
-                        <ul>
-                           <li>this is the <i><b>body: readable stream</b></i> from the above object</li>
-                        </ul>
-                     </li>
-                     <li>and then logs, to the console, our Star Wars <i><b>person</b></i> data for this request</li>
-                  </ul>
-               </p>
-               <p>- We the <i><b>catch</b></i> any errors that occur in the fetch process.</p>
-            </article>
-         </section>
-
-         <p><a href="#top">Back to Top</a><br><br></p>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../ajaxIndex.html">Back to Ajax Index Page</a></p>
+         <hr style="width: 50%" />
+         <h4>fetch() Http Request</h4>
       </section>
 
-      <footer>
-         <div>Website created by badDoggy</div>
-         <div>|</div>
-         <div>2024</div>
-         <div>|</div>
-         <div>&copy; All Rights Reserved</div>
-      </footer>
+      <section id="textWindow4" class="just lists">
+         <!--fetch Introduction-->
+         <article>
+            <p><span class="firstWord">The Fetch API</span> provides a JavaScript interface for making HTTP requests and processing the responses. <i><b>Fetch is the modern replacement for XMLHttpRequest</b></i>:
+               <ul>
+                  <li>unlike XMLHttpRequest, which uses callbacks, Fetch is promise-based and is integrated with features of the modern web such as service workers and Cross-Origin Resource Sharing (CORS)</li>
+               </ul>
+               With the Fetch API, you make a request by calling <b>fetch()</b>, which is available as a global function in both window and worker contexts. You pass it a <b>Request object</b> or a <b>string containing the URL to fetch</b>, along with an <i>optional</i> argument to configure the request. The <b>fetch()</b> function returns a <b>Promise</b> which is fulfilled with a Response object representing the server's response. You can then check the request status and extract the body of the response in various formats, including text and JSON, by calling the appropriate method on the response.
+            </p>
+            <p>Some of the reason that fetch is better than XHR are:
+               <ul>
+                  <li>with XHR the coding is very clunky</li>
+                  <li>XHR does not support Promises or Async</li>
+                  <li>coding is very messy when trying to make subsequent requests</li>
+               </ul>
+            </p>
+            <p>More Info At : <a href="https://www.w3schools.com/js/js_api_fetch.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Fetch API</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN Using the Fetch API</a></p>
+         </article>
+         <hr style="width: 90%" />
 
-      <!-- JavaScripts -->
-      <script src="fetch.js"></script>
+         <!-- fetch Example -->
+         <article>
+            <h6>fetch() Example</h6>
+            <p>As in our <a href="../xhrRequests/xhrRequests.html" target="_blank">XHR HTTP Request</a> discussion, we're going to be sending a data request to the <a href="https://swapi.dev/documentation#base" target="_blank" rel="noopener noreferrer">Star Wars API</a>. This time we are going to make three API requests for the data on three different people from the Star Wars Universe. And as in our <a href="../xhrRequests/xhrRequests.html" target="_blank">XHR HTTP Request</a> discussion, we will be logging the results of our API fetch Request to the console.</p>
+            <p>First we need to create a <i><b>fetch()</b></i> function and pass in the URL of our web API:
+               <ul class="sectHighlight">
+                  <li><b>fetch</b>("https://swapi.tech/api/<b>people/1</b>/);</li>
+               </ul>
+            </p>
+            <p>Because <i><b>fetch()</b></i> always returns a Promise, we need to process the <i>result</i> of the returned Promise.
+               <ul>
+                  <li><b>.then</b> to process a <b>resolved</b> result, and</li>
+                  <li><b>.catch</b> to process a <b>rejected</b> result</li>
+               </ul>
+               like so:
+               <ul class="sectHighlight">
+                  <li><b>.then</b>((<i>res</i>) => {
+                     <ul>
+                        <li>console.log("RESOLVED!", <i>res</i>);</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li><b>.catch</b>((<i>err</i>>) => {
+                     <ul>
+                        <li>console.log("ERROR!", <i>err</i>);</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+               <b>**note</b> that if the Promise result is a <i><b>reject</b></i>, then it will log "ERROR! " and the error that caused the rejection.</p>
+            <p>However, if our Promise is <i><b>resolved</b></i>, then it returns a <i><b>Response Object</b></i>. This <i><b>Response Object</b></i> does NOT contain any of the Json data we are looking for. This is because the Promise is <i><b>resolved</b></i> as soon as it receives any http headers.
+            </p>
+            <p>If we look at the properties of our <i><b>Response Object</b></i>, we see that the <b>body</b> property is not our requested data, but a <i><b>readable stream</b></i>.</p>
+            <p>So we need to <i>"break down"</i> this <i><b>body: Readable Stream</b></i> with further processing. We do this by modifying our <b>.then</b> function with:
+               <ul>
+                  <li><b>res.json()</b></li>
+               </ul>
+            which actually returns yet another Promise. So we need to add a .then to process our resolve, to our original .then that we already created, like so:
+               <ul class="sectHighlight">
+                  <li>.then((<i>res</i>) => {
+                     <ul>
+                        <li>console.log("RESOLVED!", <i>res</i>);</li>
+                        <li><b>return res.json();</b></li>
+                     </ul>
+                  </li>
+                  <li>})</li><b>
+                  <li>.then((data) => {
+                     <ul>
+                        <li>console.log(data.result.properties);</li>
+                     </ul>
+                  </li>
+                  <li>})</li></b>
+               </ul>
+               What this does is return the results of the <i><b>Response Object</b></i> Promise:
+               <ul>
+                  <li><b>return res.json();</b></li>
+               </ul>
+               and the next <b>.then</b> logs the actual data <i>(data.result.properties)</i> to the console. And because in our original <i><b>fetch()</b></i> function, we asked for <i><b>people/1</b></i>, our query logged the data for "Luke Skywalker".
+            </p>
+         </article>
+         <hr style="width: 90%;">
 
-   </body>
+         <!-- Final Code - Single Fetch -->
+         <article>
+            <p>Here's the final Code for our <i><b>single</b> fetch request</i>:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li><i><b>single</b> fetch request</i></li>
+                  <li>&nbsp;</li>
+                  <li><b>fetch</b>("https://swapi.tech/api/<b>people/1</b>/);
+                     <ul>
+                        <li>.then((res) => {
+                           <ul>
+                              <li>console.log("RESOLVED!", res);</li>
+                              <li>return res.json();</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                        <li>.then((data) => {
+                           <ul>
+                              <li>console.log(data.result.properties);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                        <li>.catch((e) => {
+                           <ul>
+                              <li>console.log("ERROR!", e);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                     </ul>
+                  </li>
+               </ul>
+               which results in much simpler, more refined code than in our <a href="../xhrRequests/xhrRequests.html" target="_blank">XHR HTTP Request</a> example.
+            </p>
+         </article>
+         <hr style="width: 90%;">
+
+         <!-- Final Code - Multiple Fetch -->
+         <article>
+            <h6>Multiple Fetch Requests</h6>
+            <p>Earlier we mentioned that we want to send three requests for three different Star Wars People. We're going to use an <i><b>async</b></i> functions to accomplish this. We are going to send a request for persons <i><b>2 / 4 / 6</b></i> in the Star Wars API.</p>
+            <p>Here's the code:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li><i><b>multiple</b> fetch request</i></li>
+                  <li>&nbsp;</li>
+                  <li>const <span class="colorHighlight">loadStarWarsPeople</span> = <span class="colorHighlight2">async</span> (<b>id</b>) => {</li>
+                  <li>let <span class="colorHighlight">apiAddress</span> = `https://swapi.tech/api/people/${<b>id</b>}/`;
+                     <ul>
+                        <li><b>try</b> {
+                           <ul>
+                              <li>const <span class="colorHighlight">res</span> = <b>await</b> fetch(<span class="colorHighlight">apiAddress</span>);</li>
+                              <li>const <span class="colorHighlight">data</span> = <b>await</b> <span class="colorHighlight">res</span>.json();</li>
+                              <li>console.log(<span class="colorHighlight">data</span>.result.properties);</li>
+                           </ul>
+                        </li>
+                        <li>} <b>catch</b> (<b>err</b>) {
+                           <ul>
+                              <li>console.log("ERROR!!!", <b>err</b>);</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>};</li>
+                  <li>&nbsp;</li>
+                  <li>for (let <b>i</b> = 2; i < 7; i = i + 2) {
+                     <ul>
+                        <li>loadStarWarsPeople(<b>i</b>);</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>- So we set a counter that counts, <b>2 / 4 / 6</b>. Then we call the function <i><b>loadStarWarsPeople()</b></i> with the current count number.</p>
+            <P>- We then create the  <i><b>async</b></i> function <i><b>loadStarWarsPeople()</b></i>, which receives the current count number <b>(id)</b>.</P>
+            <p>- We then build the Star Wars Web API address using this current count number.</p>
+            <p>- We then <i><b>try</b></i> to send our API Request, which
+               <ul>
+                  <li><i><b>awaits</b></i> the result of the <i><b>fetch</b></i> request - if resolved - returns an object</li>
+                  <li><i><b>awaits</b></i> the result of the <i><b>res.JSON()</b></i> request
+                     <ul>
+                        <li>this is the <i><b>body: readable stream</b></i> from the above object</li>
+                     </ul>
+                  </li>
+                  <li>and then logs, to the console, our Star Wars <i><b>person</b></i> data for this request</li>
+               </ul>
+            </p>
+            <p>- We the <i><b>catch</b></i> any errors that occur in the fetch process.</p>
+         </article>
+      </section>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="fetch.js"></script>
+</body>
 </html>
