@@ -7,114 +7,105 @@
    <title>Flex Positioning Reference</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
-   <link rel="stylesheet" href="../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2>Full Stack MERN Web Development</h2>
-            <h3>Flex Positioning Reference Index</h3>
-            <p><a href="../../masynIndex.html">Back to Class Page</a></p>
-         </section>
-         <hr>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2>Full Stack MERN Web Development</h2>
+         <h3>Flex Positioning Reference Index</h3>
+         <p><a href="../../masynIndex.html">Back to Class Page</a></p>
+      </section>
+      <hr>
 
-         <!-- Index List -->
-         <section class="lists">
-            <ul>
-               <li><a href="axis/mainAxis.html">Flex Main & Cross Axis</a></li>
-               <li><a href="parentProp/parentProp.html">Parent Element Flex Properties</a></li>
-               <li><a href="childProp/childProp.html">Child Element Flex Properties</a></li>
+      <!-- Index List -->
+      <section class="lists">
+         <ul>
+            <li><a href="axis/mainAxis.html">Flex Main & Cross Axis</a></li>
+            <li><a href="parentProp/parentProp.html">Parent Element Flex Properties</a></li>
+            <li><a href="childProp/childProp.html">Child Element Flex Properties</a></li>
+         </ul>
+      </section>
+      <p></p>
+      <hr>
+
+      <p><b>There are two components to a Flexbox</b><br>
+         - the Flex Container,<br>
+         - and the Flex Items</p>
+
+      <!-- Flex Specific Info Sections -->
+      <section id="textWindow2">
+         <div class="lists">
+            <ul><b>Flex Container</b>
+               <li>The parent container holding the "flex items".</li>
+               <li>Flex Container is defined with [<b>display: flex;</b>] or [<b>display: inline-flex;</b>].</li>
+               <li>Use Flex container for a single dimensional row/column layout.</li>
             </ul>
-         </section>
-         <p></p>
-         <hr>
+         </div>
+      </section>
+      <hr>
 
-         <p><b>There are two components to a Flexbox</b><br>
-            - the Flex Container,<br>
-            - and the Flex Items</p>
-
-         <!-- Flex Specific Info Sections -->
-         <section id="textWindow2">
-            <div class="lists">
-               <ul><b>Flex Container</b>
-                  <li>The parent container holding the "flex items".</li>
-                  <li>Flex Container is defined with [<b>display: flex;</b>] or [<b>display: inline-flex;</b>].</li>
-                  <li>Use Flex container for a single dimensional row/column layout.</li>
-               </ul>
-            </div>
-         </section>
-         <hr>
-
-         <section id="textWindow2">
-            <div class="lists">
-               <ul><b>Flex Items</b>
-                  <li>Children become <i>"Flex Items"</i> automatically.</li>
-                  <li>Flex Items are <i>immediate</i> children within the container.
-                     <ul>
-                        <li><i>they are individual items within a flex container</i></li>
-                     </ul>
-                  </li>
-                  <li>They can be various HTML elements.</li>
-                  <li>They adopt the parent container's flex properties.</li>
-                  <li>The can also have their <i>own</i> flex properties for layout and alignment.</li>
-                  <li>Use Flex items for aligning, reordering, or resizing, within a container.</li>
-               </ul>
-            </div>
-         </section>
-         <hr>
-
-         <section id="textWindow2">
-            <div class="lists">
-               <ul><b>Cautions</b>
-                  <li>Flex Items are the <b>immediate</b> children of the parent container only.</li>
-                  <li>Be cautious with "flex" properties on items as they can override the parent.</li>
-                  <li>Limit Flexbox to one dimensional layouts, not the entire page layout.</li>
-               </ul>
-            </div>
-         </section>
-
-         <section class="lists">
-            <ul>
-               <h4>Additional Resources</h4>
-               <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank"
-                     rel="noopener noreferrer">MDN WebDocs : Flexbox</a></li>
-               <li><a href="https://www.freecodecamp.org/news/css-flexbox-tutorial-with-cheatsheet/" target="_blank"
-                     rel="noopener noreferrer">CSS Flexbox Tutorial</a></li>
-               <li><a href="https://www.freecodecamp.org/news/flexbox-the-ultimate-css-flex-cheatsheet/" target="_blank"
-                     rel="noopener noreferrer">Flexbox - The Ultimate CSS Flex cheat sheet</a></li>
-               <li><a href="https://dev.to/joyshaheb/css-grid-cheat-sheet-illustrated-in-2021-1a3" target="_blank"
-                     rel="noopener noreferrer">CSS Grid Cheat Sheet</a></li>
+      <section id="textWindow2">
+         <div class="lists">
+            <ul><b>Flex Items</b>
+               <li>Children become <i>"Flex Items"</i> automatically.</li>
+               <li>Flex Items are <i>immediate</i> children within the container.
+                  <ul>
+                     <li><i>they are individual items within a flex container</i></li>
+                  </ul>
+               </li>
+               <li>They can be various HTML elements.</li>
+               <li>They adopt the parent container's flex properties.</li>
+               <li>The can also have their <i>own</i> flex properties for layout and alignment.</li>
+               <li>Use Flex items for aligning, reordering, or resizing, within a container.</li>
             </ul>
-         </section>
+         </div>
+      </section>
+      <hr>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
+      <section id="textWindow2">
+         <div class="lists">
+            <ul><b>Cautions</b>
+               <li>Flex Items are the <b>immediate</b> children of the parent container only.</li>
+               <li>Be cautious with "flex" properties on items as they can override the parent.</li>
+               <li>Limit Flexbox to one dimensional layouts, not the entire page layout.</li>
+            </ul>
+         </div>
+      </section>
+
+      <section class="lists">
+         <ul>
+            <h4>Additional Resources</h4>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank"
+                  rel="noopener noreferrer">MDN WebDocs : Flexbox</a></li>
+            <li><a href="https://www.freecodecamp.org/news/css-flexbox-tutorial-with-cheatsheet/" target="_blank"
+                  rel="noopener noreferrer">CSS Flexbox Tutorial</a></li>
+            <li><a href="https://www.freecodecamp.org/news/flexbox-the-ultimate-css-flex-cheatsheet/" target="_blank"
+                  rel="noopener noreferrer">Flexbox - The Ultimate CSS Flex cheat sheet</a></li>
+            <li><a href="https://dev.to/joyshaheb/css-grid-cheat-sheet-illustrated-in-2021-1a3" target="_blank"
+                  rel="noopener noreferrer">CSS Grid Cheat Sheet</a></li>
+         </ul>
+      </section>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
    </section>
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
 
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>

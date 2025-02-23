@@ -7,169 +7,159 @@
    <title>Child Element Flex Properties</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheets -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2>Full Stack MERN Web Development</h2>
-            <h3>Child Element Flex Properties</h3>
-            <p><a href="../flexIndex.html">Back to Flex Reference Index</a></p>
-         </section>
-         <hr><br>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2>Full Stack MERN Web Development</h2>
+         <h3>Child Element Flex Properties</h3>
+         <p><a href="../flexIndex.html">Back to Flex Reference Index</a></p>
+      </section>
+      <hr><br>
 
-         <!-- Flex Specific Info Sections -->
-         <section id="textWindow3">
-            <p>In a "flex" container, the Child Elements are referred to as <b>Flex Items</b>.<br>The flex item
-               properties
-               control item behavior within the parent container.</p>
-            <div class="lists">
-               <ul><b>Key properties of flex items:</b>
-                  <li><b>flex-basis</b>: the initial size before "flexing".</li>
-                  <li><b>flex-grow</b>: determines the growth relative to the other items.</li>
-                  <li><b>flex-shrink</b>: determines the shrinking relative to the other items.</li>
-                  <li><b>align-self</b>: individual alignment that overrides the align-items defined in the parent
-                     container.
-                     <ul>
-                        <li>remember that <b>align=items</b> affects the <b>cross-axis</b></li>
-                        <li>so if you are using a <b>flex-row</b> container, the align items<br>
-                           would be moving items on the CROSS axis (vertically)</li>
-                     </ul>
-                  </li>
-                  <li><b>order</b>: controls the item display order within the container.</li>
+      <!-- Flex Specific Info Sections -->
+      <section id="textWindow3">
+         <p>In a "flex" container, the Child Elements are referred to as <b>Flex Items</b>.<br>The flex item
+            properties
+            control item behavior within the parent container.</p>
+         <div class="lists">
+            <ul><b>Key properties of flex items:</b>
+               <li><b>flex-basis</b>: the initial size before "flexing".</li>
+               <li><b>flex-grow</b>: determines the growth relative to the other items.</li>
+               <li><b>flex-shrink</b>: determines the shrinking relative to the other items.</li>
+               <li><b>align-self</b>: individual alignment that overrides the align-items defined in the parent
+                  container.
+                  <ul>
+                     <li>remember that <b>align=items</b> affects the <b>cross-axis</b></li>
+                     <li>so if you are using a <b>flex-row</b> container, the align items<br>
+                        would be moving items on the CROSS axis (vertically)</li>
+                  </ul>
+               </li>
+               <li><b>order</b>: controls the item display order within the container.</li>
+            </ul>
+         </div>
+      </section>
+
+      <!-- Discussion Area -->
+      <div class="bod"></div>
+
+      <!-- Default Setup -->
+      <h4>Default Setup</h4>
+      <div class="lists">
+         <ul><b>Setting the default workspace</b>
+            <li>In the parent container, set <b>display: flex;</b>
+               <ul>
+                  <li>this defines the container as a "flex" container</li>
                </ul>
-            </div>
-         </section>
-
-         <!-- Discussion Area -->
-         <div class="bod"></div>
-
-         <!-- Default Setup -->
-         <h4>Default Setup</h4>
-         <div class="lists">
-            <ul><b>Setting the default workspace</b>
-               <li>In the parent container, set <b>display: flex;</b>
-                  <ul>
-                     <li>this defines the container as a "flex" container</li>
-                  </ul>
-               </li>
-               <li>in the "item" class that defines the boxes, set <b>flex-basis: 50px;</b>
-                  <ul>
-                     <li>this sets the base width of the "box" items to 50px</li>
-                     <li><b>flex-basis</b> replaces <b>width: 50px;</b> that would normally be used in a non-flex
-                        container
-                     </li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-
-         <section class="contain1">
-            <div class="item item1">1</div>
-            <div class="item item2">2</div>
-            <div class="item item3">3</div>
-            <div class="item item4">4</div>
-            <div class="item item5">5</div>
-         </section>
-         <br>
-         <hr>
-
-         <div class="lists">
-            <ul>Let's spread the boxes out across the row - we'll give box item 1 a property of:
-               <li><b>flex-grow: 1;</b></li>
-            </ul>
-         </div>
-         <p>so, box item 1 takes up ALL of the extra space.</p>
-         <section class="contain1">
-            <div class="item item6">1</div>
-            <div class="item item2">2</div>
-            <div class="item item3">3</div>
-            <div class="item item4">4</div>
-            <div class="item item5">5</div>
-         </section>
-         <br>
-         <hr>
-
-         <div class="lists">
-            <ul>Let's split the extra space between boxes 1 AND 2
-               <li><b>flex-grow: 1;</b></li>
-               <li>for both item boxes</li>
-            </ul>
-         </div>
-         <p>so now, box item 1, AND box item 2 takes up ALL of the extra space, but split the extra space evenly,
-            because
-            they BOTH have the same flex-grow value of <b>1</b>.</p>
-         <section class="contain1">
-            <div class="item item6">1</div>
-            <div class="item item7">2</div>
-            <div class="item item3">3</div>
-            <div class="item item4">4</div>
-            <div class="item item5">5</div>
-         </section>
-         <br>
-
-         <p>if we give box item <b>1</b> a value of <b>flex-grow: 2;</b> it will now take up twice the space as box item
-            <b>2</b>
-         </p>
-         <section class="contain1">
-            <div class="item item8">1</div>
-            <div class="item item7">2</div>
-            <div class="item item3">3</div>
-            <div class="item item4">4</div>
-            <div class="item item5">5</div>
-         </section>
-         <br>
-
-         <p>and if we leave item box <b>1</b> as default flex-grow, but give the remaining boxes values of <b>1, 2, 3,
-               4</b>, we get the following:<br>
-            with each subsequent item box getting twice the space as the previous box.</p>
-         <section class="contain1">
-            <div class="item item1">1</div>
-            <div class="item item9">2</div>
-            <div class="item item10">3</div>
-            <div class="item item11">4</div>
-            <div class="item item12">5</div>
-         </section>
-         <br>
-
-         <p>and if we give ALL of the item boxes a flex-grow value of <b>1</b>,<br>
-            they will distribute ALL of the available extra space, evenly.</p>
-         <section class="contain1">
-            <div class="item item13">1</div>
-            <div class="item item14">2</div>
-            <div class="item item15">3</div>
-            <div class="item item16">4</div>
-            <div class="item item17">5</div>
-         </section>
-
-         <p><a href="#top">Back to Top</a><br><br></p>
+            </li>
+            <li>in the "item" class that defines the boxes, set <b>flex-basis: 50px;</b>
+               <ul>
+                  <li>this sets the base width of the "box" items to 50px</li>
+                  <li><b>flex-basis</b> replaces <b>width: 50px;</b> that would normally be used in a non-flex
+                     container
+                  </li>
+               </ul>
+            </li>
+         </ul>
       </div>
-   </section>
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
 
+      <section class="contain1">
+         <div class="item item1">1</div>
+         <div class="item item2">2</div>
+         <div class="item item3">3</div>
+         <div class="item item4">4</div>
+         <div class="item item5">5</div>
+      </section>
+      <br>
+      <hr>
+
+      <div class="lists">
+         <ul>Let's spread the boxes out across the row - we'll give box item 1 a property of:
+            <li><b>flex-grow: 1;</b></li>
+         </ul>
+      </div>
+      <p>so, box item 1 takes up ALL of the extra space.</p>
+      <section class="contain1">
+         <div class="item item6">1</div>
+         <div class="item item2">2</div>
+         <div class="item item3">3</div>
+         <div class="item item4">4</div>
+         <div class="item item5">5</div>
+      </section>
+      <br><hr>
+
+      <div class="lists">
+         <ul>Let's split the extra space between boxes 1 AND 2
+            <li><b>flex-grow: 1;</b></li>
+            <li>for both item boxes</li>
+         </ul>
+      </div>
+      <p>so now, box item 1, AND box item 2 takes up ALL of the extra space, but split the extra space evenly,
+         because
+         they BOTH have the same flex-grow value of <b>1</b>.</p>
+      <section class="contain1">
+         <div class="item item6">1</div>
+         <div class="item item7">2</div>
+         <div class="item item3">3</div>
+         <div class="item item4">4</div>
+         <div class="item item5">5</div>
+      </section>
+      <br>
+
+      <p>if we give box item <b>1</b> a value of <b>flex-grow: 2;</b> it will now take up twice the space as box item
+         <b>2</b>
+      </p>
+      <section class="contain1">
+         <div class="item item8">1</div>
+         <div class="item item7">2</div>
+         <div class="item item3">3</div>
+         <div class="item item4">4</div>
+         <div class="item item5">5</div>
+      </section>
+      <br>
+
+      <p>and if we leave item box <b>1</b> as default flex-grow, but give the remaining boxes values of <b>1, 2, 3,
+            4</b>, we get the following:<br>
+         with each subsequent item box getting twice the space as the previous box.</p>
+      <section class="contain1">
+         <div class="item item1">1</div>
+         <div class="item item9">2</div>
+         <div class="item item10">3</div>
+         <div class="item item11">4</div>
+         <div class="item item12">5</div>
+      </section>
+      <br>
+
+      <p>and if we give ALL of the item boxes a flex-grow value of <b>1</b>,<br>
+         they will distribute ALL of the available extra space, evenly.</p>
+      <section class="contain1">
+         <div class="item item13">1</div>
+         <div class="item item14">2</div>
+         <div class="item item15">3</div>
+         <div class="item item16">4</div>
+         <div class="item item17">5</div>
+      </section>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>
