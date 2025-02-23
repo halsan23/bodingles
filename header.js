@@ -9,7 +9,7 @@ let rootPath = '';
 const getRoot = () => {
     // if (window.location.hostname === 'halsan23.github.io') {
     if (window.location.host === 'halsan23.github.io') {
-        let gitHubPath = `${window.location.host}${window.location.pathname}`
+        let gitHubPath = `https://halsan23.github.io/bodingles/`
         return gitHubPath;
     } else {
       return '/';
@@ -54,7 +54,7 @@ const appHead = head();
 header.innerHTML = appHead;
 
 // log window paths
-// console.log(`window.location.host : ${window.location.host}`);
+console.log(`window.location.host : ${window.location.host}`);
 // console.log(`window.location.hostname : ${window.location.hostname}`);
 // console.log(`window.location.pathname : ${window.location.pathname}`);
 console.log(`rootPath : ${rootPath}`);
