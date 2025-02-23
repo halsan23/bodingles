@@ -7,115 +7,105 @@
    <title>Bootstrap</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- Stylesheets Reset for Browser Normilization -->
-   <link rel="stylesheet" href="../../../../../../css/cssReset.css">
+   <link rel="stylesheet" href="/css/cssReset.css">
 
    <!-- Bootstrap stylesheets -->
    <link rel="stylesheet" href="styles/bootstrap.min.css">
 
    <!-- My Local Styles -->
-   <link rel="stylesheet" href="../../../../../../css/root.css" />
-   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="/css/root.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2>Full Stack MERN Web Development</h2>
-            <p><a href="../bootstrapIndex.html">Back to Bootstrap Index</a></p>
-            <h3>Width and Height Utilities</h3><br>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2>Full Stack MERN Web Development</h2>
+         <p><a href="../bootstrapIndex.html">Back to Bootstrap Index</a></p>
+         <h3>Width and Height Utilities</h3><br>
+      </section>
 
-         <section id="textwindow3">
-            <p>Width and Height sizing utilities. More information can be found <a
-                  href="https://getbootstrap.com/docs/5.3/utilities/sizing/" target="_blank">here</a>.</p>
-            <p>In some examples below, we change the background color to highlight some of the different
-               text<br>components. Background colors are covered more specifically in a later lesson..</p><br>
-         </section>
+      <section id="textwindow3">
+         <p>Width and Height sizing utilities. More information can be found <a
+               href="https://getbootstrap.com/docs/5.3/utilities/sizing/" target="_blank">here</a>.</p>
+         <p>In some examples below, we change the background color to highlight some of the different
+            text<br>components. Background colors are covered more specifically in a later lesson..</p><br>
+      </section>
 
-         <!-- Class Content -->
-         <div class="text-center">
-            <h2 class="ml-5">Width Utilities</h2>
-            <p class="ml-5">Width <b>percent</b> can be set using <b>w</b> and setting the width percentage. This is the
-               percent of width based on the <b>parent</b> element.</p>
-            <p class="ml-5"><b>*note</b>: you do not use the percent sign <b>%</b>, just the number.</p>
-            <!-- Width Utilities (Relative to parents)-->
-            <div class="bg-dark text-center m-2 p-1">
-               <div class="bg-success text-light m-2 p-1 w-25">Width 25% | <b>class="w-25"</b></div>
-               <div class="bg-success text-light m-2 p-1 w-50">Width 50% | <b>class="w-50"</b></div>
-               <div class="bg-success text-light m-2 p-1 w-75">Width 75% | <b>class="w-75"</b></div>
-               <div class="bg-success text-light m-2 p-1 w-95">Width 100% | <b>class="w-100"</b></div>
-               <div class="bg-success text-light m-2 p-1 w-auto">Width Auto | <b>class="w-auto"</b></div>
-            </div>
-
-            <p>Because Bootstrap width and height is based on the parent size, if we change the size of the
-               <b>parent</b>
-               container, in this case a < div>, then the children will resize accordingly.
-            </p>
-            <p>Lets change the parent width to 900px.</p>
-            <!-- Width Utilities (Relative to parents)-->
-            <div class="bg-dark text-center m-2 p-1" style="width: 900px;">
-               <div class="bg-success text-light m-2 p-2 w-25">Width 25% | <b>class="w-25"</b></div>
-               <div class="bg-success text-light m-2 p-2 w-50">Width 50% | <b>class="w-50"</b></div>
-               <div class="bg-success text-light m-2 p-2 w-75">Width 75% | <b>class="w-75"</b></div>
-               <div class="bg-success text-light m-2 p-2 w-95">Width 100% | <b>class="w-100"</b></div>
-               <div class="bg-success text-light m-2 p-2 w-auto">Width Auto | <b>class="w-auto"</b></div>
-            </div>
-
-            <p>Remember, Bootstrap width and height is based on the parent size, if we change the size of the
-               <b>parent</b>
-               container, in this case a < div>, then the children will resize accordingly.
-            </p>
-            <p>In the following, we'll set the parent height to 500px. We'll also make the elements display "inline by
-               using the bootstrap class="<b>d-inline-block</b>".</p>
-            <h2>Height Utilities</h2>
-            <!-- Height Utilities (Relative to parents)-->
-            <div style="width: 900px; height: 500px;" class="bg-dark">
-               <div class="bg-warning text-dark h-25 d-inline-block m-2 p-2">Height 25%</div>
-               <div class="bg-warning text-dark h-50 d-inline-block m-2 p-2">Height 50%</div>
-               <div class="bg-warning text-dark h-75 d-inline-block m-2 p-2">Height 75%</div>
-               <div class="bg-warning text-dark h-100 d-inline-block m-2 p-2">Height 100%</div>
-               <div class="bg-warning text-dark h-auto d-inline-block m-2 p-2">Height auto</div>
-            </div>
-
-
-            <h2>Viewport Relative Sizes</h2>
-            <p>We can replace width and height with <b>vw</b> (viewport width) and <b>vh</b> (viewport height).<br>
-               What this means is the <i>viewable</i> area of the screen.</p>
-            <p>We set either <b>min-vw</b> or <b>vw</b> to set the minimum or maximum width of the view area,
-               likewise,<br>
-               we can set either <b>min-vh</b> or <b>vh</b> to set the minimum and maximum height of the view area.</p>
-            <!-- Relative to the viewport -->
-            <div class="bg-info p-2 min-vw-100"><b>class="min-vw-100"</b> | Min-width 100vw</div>
-            <div class="bg-danger p-2 min-vh-100"><b>class="min-vh-100"</b> | Min-height 100vh</div>
-            <div class="bg-warning p-2 vw-100"><b>class="vw-100"</b> | Max-width 100vw</div>
-            <div class="bg-dark text-light p-2 vh-100"><b>class="vh-100"</b> | Max-height 100vh</div>
+      <!-- Class Content -->
+      <div class="text-center">
+         <h2 class="ml-5">Width Utilities</h2>
+         <p class="ml-5">Width <b>percent</b> can be set using <b>w</b> and setting the width percentage. This is the
+            percent of width based on the <b>parent</b> element.</p>
+         <p class="ml-5"><b>*note</b>: you do not use the percent sign <b>%</b>, just the number.</p>
+         <!-- Width Utilities (Relative to parents)-->
+         <div class="bg-dark text-center m-2 p-1">
+            <div class="bg-success text-light m-2 p-1 w-25">Width 25% | <b>class="w-25"</b></div>
+            <div class="bg-success text-light m-2 p-1 w-50">Width 50% | <b>class="w-50"</b></div>
+            <div class="bg-success text-light m-2 p-1 w-75">Width 75% | <b>class="w-75"</b></div>
+            <div class="bg-success text-light m-2 p-1 w-95">Width 100% | <b>class="w-100"</b></div>
+            <div class="bg-success text-light m-2 p-1 w-auto">Width Auto | <b>class="w-auto"</b></div>
          </div>
 
-         <p><a href="#top">Back to Top</a><br><br></p>
-      </div>
-   </section>
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+         <p>Because Bootstrap width and height is based on the parent size, if we change the size of the
+            <b>parent</b>
+            container, in this case a < div>, then the children will resize accordingly.
+         </p>
+         <p>Lets change the parent width to 900px.</p>
+         <!-- Width Utilities (Relative to parents)-->
+         <div class="bg-dark text-center m-2 p-1" style="width: 900px;">
+            <div class="bg-success text-light m-2 p-2 w-25">Width 25% | <b>class="w-25"</b></div>
+            <div class="bg-success text-light m-2 p-2 w-50">Width 50% | <b>class="w-50"</b></div>
+            <div class="bg-success text-light m-2 p-2 w-75">Width 75% | <b>class="w-75"</b></div>
+            <div class="bg-success text-light m-2 p-2 w-95">Width 100% | <b>class="w-100"</b></div>
+            <div class="bg-success text-light m-2 p-2 w-auto">Width Auto | <b>class="w-auto"</b></div>
+         </div>
 
+         <p>Remember, Bootstrap width and height is based on the parent size, if we change the size of the
+            <b>parent</b>
+            container, in this case a < div>, then the children will resize accordingly.
+         </p>
+         <p>In the following, we'll set the parent height to 500px. We'll also make the elements display "inline by
+            using the bootstrap class="<b>d-inline-block</b>".</p>
+         <h2>Height Utilities</h2>
+         <!-- Height Utilities (Relative to parents)-->
+         <div style="width: 900px; height: 500px;" class="bg-dark">
+            <div class="bg-warning text-dark h-25 d-inline-block m-2 p-2">Height 25%</div>
+            <div class="bg-warning text-dark h-50 d-inline-block m-2 p-2">Height 50%</div>
+            <div class="bg-warning text-dark h-75 d-inline-block m-2 p-2">Height 75%</div>
+            <div class="bg-warning text-dark h-100 d-inline-block m-2 p-2">Height 100%</div>
+            <div class="bg-warning text-dark h-auto d-inline-block m-2 p-2">Height auto</div>
+         </div>
+
+
+         <h2>Viewport Relative Sizes</h2>
+         <p>We can replace width and height with <b>vw</b> (viewport width) and <b>vh</b> (viewport height).<br>
+            What this means is the <i>viewable</i> area of the screen.</p>
+         <p>We set either <b>min-vw</b> or <b>vw</b> to set the minimum or maximum width of the view area,
+            likewise,<br>
+            we can set either <b>min-vh</b> or <b>vh</b> to set the minimum and maximum height of the view area.</p>
+         <!-- Relative to the viewport -->
+         <div class="bg-info p-2 min-vw-100"><b>class="min-vw-100"</b> | Min-width 100vw</div>
+         <div class="bg-danger p-2 min-vh-100"><b>class="min-vh-100"</b> | Min-height 100vh</div>
+         <div class="bg-warning p-2 vw-100"><b>class="vw-100"</b> | Max-width 100vw</div>
+         <div class="bg-dark text-light p-2 vh-100"><b>class="vh-100"</b> | Max-height 100vh</div>
+      </div>
+
+      <p><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>
