@@ -7,74 +7,65 @@
    <title>CSS ID Selectors</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheet -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css" />
    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section>
-            <h2>Full Stack MERN Web Development</h2>
-            <h3>CSS ID Selectors</h3>
-            <p><a href="../cssTagsIndex.html">Return to CSS Tags Index</a></p>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2>Full Stack MERN Web Development</h2>
+         <h3>CSS ID Selectors</h3>
+         <p><a href="../cssTagsIndex.html">Return to CSS Tags Index</a></p>
+      </section>
 
-         <!-- Class Specific Info Sections -->
-         <section id="textWindow2">
-            <p>Select a tag based on a specific ID : eg.&nbsp;&nbsp;< tagname id="idname">
-            </p>
-            <p>in the stylesheet it is referenced by&nbsp;&nbsp;#&nbsp;&nbsp;and it's "id" name : eg.&nbsp;&nbsp;#idname
-               {}
-            </p>
-         </section>
-         <hr>
+      <!-- Class Specific Info Sections -->
+      <section id="textWindow2">
+         <p>Select a tag based on a specific ID : eg.&nbsp;&nbsp;< tagname id="idname">
+         </p>
+         <p>in the stylesheet it is referenced by&nbsp;&nbsp;#&nbsp;&nbsp;and it's "id" name : eg.&nbsp;&nbsp;#idname
+            {}
+         </p>
+      </section>
+      <hr>
 
-         <!-- Class Code -->
-         <header1 id="header">
-            <h1 id="name">Bad Doggy - Web Developer</h1>
-         </header1>
-         <section id="about">
-            <h2 id="aboutTitle">About Me</h2>
-            <p id="aboutDescr">
-               I'm a passionate web developer with expertise in front-end
-               development...
-            </p>
-         </section>
-         <section id="projects">
-            <h2 id="projectsTitle">Projects</h2>
-            <p id="project1">Project 1: Online Shopping Website</p>
-            <p id="project2">Project 2: Travel Blog</p>
-         </section>
-         <div id="foot">
-            <p id="contact">Contact: baddoggy@bodingles.com</p>
-         </div>
-
-         <p><a href="#top">Back to Top</a><br><br></p>
+      <!-- Class Code -->
+      <header1 id="header">
+         <h1 id="name">Bad Doggy - Web Developer</h1>
+      </header1>
+      <section id="about">
+         <h2 id="aboutTitle">About Me</h2>
+         <p id="aboutDescr">
+            I'm a passionate web developer with expertise in front-end
+            development...
+         </p>
+      </section>
+      <section id="projects">
+         <h2 id="projectsTitle">Projects</h2>
+         <p id="project1">Project 1: Online Shopping Website</p>
+         <p id="project2">Project 2: Travel Blog</p>
+      </section>
+      <div id="foot">
+         <p id="contact">Contact: baddoggy@bodingles.com</p>
       </div>
-   </section>
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
 
+      <p><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>

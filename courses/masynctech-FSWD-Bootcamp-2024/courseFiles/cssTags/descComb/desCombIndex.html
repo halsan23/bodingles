@@ -7,81 +7,72 @@
    <title>CSS Descendent Combinator Selector</title>
 
    <!-- Link Favicon -->
-   <link rel="icon" href="../../../../../images/logos/favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
 
    <!-- link stylesheet -->
-   <link rel="stylesheet" href="../../../../../css/cssReset.css">
-   <link rel="stylesheet" href="../../../../../css/root.css" />
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css" />
    <!-- link stylesheet -->
    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
    <!-- Header -->
-   <header>
-      <span class="headLogo"></span>
-      <span class="headTitle">Bo</span><span class="headTitleb">dingles<sub>TM</sub></span>
-      <span class="headScroll"><img src="../../../../../images/scroll.png" alt=""></span>
-      <span class="headSlogan">- -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="../../../../../images/logos/lightbulb.png" alt="Lightbulb Graphic">
-         Ideas&nbsp;&nbsp;&nbsp;- -</span>
-   </header>
+   <header id="app-header"></header>
 
-   <section id="main">
-      <div class="content">
-         <!-- Title -->
-         <section style="text-align: center;">
-            <h2>Full Stack MERN Web Development</h2>
-            <h3>CSS Descendent Combinator Selector (space)</h3>
-            <p><a href="../cssTagsIndex.html">Return to CSS Tags Index</a></p>
-         </section>
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section style="text-align: center;">
+         <h2>Full Stack MERN Web Development</h2>
+         <h3>CSS Descendent Combinator Selector (space)</h3>
+         <p><a href="../cssTagsIndex.html">Return to CSS Tags Index</a></p>
+      </section>
 
-         <!-- Class Specific Info Sections -->
-         <section id="textWindow2">
-            <p>Select a tag based on it's relationship to the root tag</p>
-            <p>eg. [ root tag ]<br>
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ nested tag]
-            </p>
-            <p>would be referenced in the stylesheet with root[space]selected tag: eg. [ root(space)nestedTag {} ]</p>
-            <p>The nested tag can be a tag, class, or id.</p>
-         </section>
-         <hr>
+      <!-- Class Specific Info Sections -->
+      <section id="textWindow2">
+         <p>Select a tag based on it's relationship to the root tag</p>
+         <p>eg. [ root tag ]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ nested tag]
+         </p>
+         <p>would be referenced in the stylesheet with root[space]selected tag: eg. [ root(space)nestedTag {} ]</p>
+         <p>The nested tag can be a tag, class, or id.</p>
+      </section>
+      <hr>
 
-         <!-- Class Code -->
-         <div id="recipes">
-            <h2>Featured Recipes</h2>
-            <div class="recipe">
-               <h3>Pasta Carbonara</h3>
-               <p>Classic Italian dish...</p>
-            </div>
-            <div class="recipe">
-               <h3>Chicken Curry</h3>
-               <p>Rich and flavorful...</p>
-            </div>
+      <!-- Class Code -->
+      <div id="recipes">
+         <h2>Featured Recipes</h2>
+         <div class="recipe">
+            <h3>Pasta Carbonara</h3>
+            <p>Classic Italian dish...</p>
          </div>
-         <br>
-         <div id="reviews">
-            <h2>Restaurant Reviews</h2>
-            <div class="review">
-               <h3>Café Paris</h3>
-               <p>Great ambiance, delicious food...</p>
-            </div>
-            <div class="review">
-               <h3>Tom's Diner</h3>
-               <p>Cozy place with comfort food...</p>
-            </div>
+         <div class="recipe">
+            <h3>Chicken Curry</h3>
+            <p>Rich and flavorful...</p>
          </div>
-
-         <p><a href="#top">Back to Top</a><br><br></p>
       </div>
-   </section>
-   <footer>
-      <div>Website created by badDoggy</div>
-      <div>|</div>
-      <div>2024</div>
-      <div>|</div>
-      <div>&copy; All Rights Reserved</div>
-   </footer>
-</body>
+      <br>
+      <div id="reviews">
+         <h2>Restaurant Reviews</h2>
+         <div class="review">
+            <h3>Café Paris</h3>
+            <p>Great ambiance, delicious food...</p>
+         </div>
+         <div class="review">
+            <h3>Tom's Diner</h3>
+            <p>Cozy place with comfort food...</p>
+         </div>
+      </div>
 
+      <p><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
 </html>
