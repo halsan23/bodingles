@@ -16,7 +16,8 @@ const getRoot = () => {
     }
   }
 
-rootPath = getRoot();
+//   rootPath = getRoot();
+  rootPath = '/';
 
 // build first part of header
 const head = () => {
