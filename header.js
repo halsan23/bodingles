@@ -39,7 +39,7 @@ const head = () => {
             </span>
         `;
     }
-    if (window.location.pathname === '/' || window.location.pathname === '/index.html/') {
+    if (window.location.pathname == '/' || window.location.pathname == '/index.html') {
         headText += `
             <a href="temp/temp.html"><img class="sloganBulb" src="images/logos/lightbulb.png" alt="Lightbulb Graphic"></a>
                 Ideas&nbsp;&nbsp;&nbsp;- -
