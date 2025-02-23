@@ -55,7 +55,7 @@ const header = document.querySelector("#app-header");
 
 
 // build the complete header and insert it into #app-header
-const appHead = head();
+// const appHead = head();
 // header.innerHTML = appHead;
 header.innerHTML = headText;
 
