@@ -9,8 +9,9 @@ let headText = `
 <span class="headLogo"></span>
 <a href="/index.html">
     <span class="headTitle">Bo</span>
-    <span class="headTitleb">dingles<sub>TM</sub></span>
+    <span class="headTitleb">dingles</span>
 </a>
+<span class="headTitleShadow">Bodingles<sub>TM</sub></span>
 <span class="headScroll"><img src="/images/scroll.png" alt=""></span>
 <span class="headSlogan">
     - -&nbsp;&nbsp;&nbsp;Bright
