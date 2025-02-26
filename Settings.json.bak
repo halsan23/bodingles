@@ -5,7 +5,7 @@
   "singleQuote": true,
 
   "workbench.colorCustomizations": {
-    "[Material Theme DeepForest High Contrast]": {
+    "Dark Modern": {
       "sideBar.foreground": "#c7c7c7",
       "sideBar.background": "#080e0c",
       "sideBarSectionHeader.background": "#0A1410",
@@ -24,7 +24,7 @@
     }
   },
   "editor.tokenColorCustomizations": {
-    "[Material Theme DeepForest High Contrast]": {
+    "[Dark Modern]": {
       "textMateRules": [
         {
           "scope": [
@@ -108,7 +108,7 @@
         {
           "scope": ["source.css"],
           "settings": {
-            "foreground": "#FFFF80"
+            "foreground": "##A1A224"
           }
         }
       ]
