@@ -93,20 +93,6 @@ header {
    left: 25px;
 }
 
-.headTitleShadow {
-   position: absolute;
-   top: 20px;
-   left: 125px;
-   color: #7a7a7a;
-   font-size: 3.25rem;
-   font-family: "SUSE", sans-serif;
-   font-optical-sizing: auto;
-   font-weight: 600;
-   font-style: normal;
-   letter-spacing: 3px;
-   z-index: 0;
-}
-
 .headTitle {
    position: absolute;
    top: 15px;
@@ -135,6 +121,21 @@ header {
    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
    letter-spacing: 3px;
    z-index: 25;
+}
+
+.headTitleShadow {
+   position: absolute;
+   top: 16px;
+   left: 122px;
+   color: #7a7a7a;
+   font-size: 3.25rem;
+   font-family: "SUSE", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 600;
+   font-style: normal;
+   letter-spacing: 3px;
+   text-shadow: 3px 3px 5px #373737;
+   z-index: 0;
 }
 
 .headBoot {

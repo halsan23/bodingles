@@ -7,11 +7,11 @@ const header = document.querySelector("#app-header");
 // build first part of header
 let headText = `
 <span class="headLogo"></span>
+<span class="headTitleShadow">Bodingles<sub>TM</sub></span>
 <a href="/index.html">
     <span class="headTitle">Bo</span>
     <span class="headTitleb">dingles</span>
 </a>
-<span class="headTitleShadow">Bodingles<sub>TM</sub></span>
 <span class="headScroll"><img src="/images/scroll.png" alt=""></span>
 <span class="headSlogan">
     - -&nbsp;&nbsp;&nbsp;Bright
@@ -37,5 +37,5 @@ header.innerHTML = headText;
 // log window paths
 // console.log(`window.location.host : ${window.location.host}`);
 // console.log(`window.location.hostname : ${window.location.hostname}`);
-console.log(`window.location.pathname : ${window.location.pathname}`);
+// console.log(`window.location.pathname : ${window.location.pathname}`);
 // console.log(`rootPath : ${rootPath}`);

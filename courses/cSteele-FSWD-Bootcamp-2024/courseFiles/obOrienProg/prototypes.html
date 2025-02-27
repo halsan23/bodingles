@@ -33,15 +33,113 @@
 
       <!-- Prototypes -->
       <section id="textWindow4" class="just">
-         <article>
-            <p><span class="firstWord">Prototypes</span> are the mechanism by which JavaScript objects inherit features from one another.</p>
-            <ul>
-               <li>- <a href="https://www.w3schools.com/js/js_object_prototypes.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Object Prototypes</a></li>
-               <li>- <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_prototypes" target="_blank" rel="noopener noreferrer">MDN  Object prototypes</a></li>
-               <li>- <a href="https://www.geeksforgeeks.org/JS-Prototype/" target="_blank" rel="noopener noreferrer">Geeks4Geeks JavaScript Prototype</a></li>
-            </ul>
+         <p>
+            <p><span class="firstWord">Prototypes</span> are the mechanism by which JavaScript objects inherit features from one another.
+               <ul>
+                  <li>- <a href="https://www.w3schools.com/js/js_object_prototypes.asp" target="_blank" rel="noopener noreferrer">W3Schools JavaScript Object Prototypes</a></li>
+                  <li>- <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_prototypes" target="_blank" rel="noopener noreferrer">MDN  Object prototypes</a></li>
+                  <li>- <a href="https://www.geeksforgeeks.org/JS-Prototype/" target="_blank" rel="noopener noreferrer">Geeks4Geeks JavaScript Prototype</a></li>
+               </ul>
+            </p>
             <p>In JavaScript, <i><b>everything is an object</b></i>, including functions, arrays, and strings, which are specialized types of objects. JavaScript follows a prototype-based system, where objects inherit properties and methods from other objects through prototypes. This prototype mechanism plays a key role in how JavaScript handles inheritance and object relationships.</p>
             <p>So in JavaScript, <i><b>every object has a prototype</b></i>, which is an object that serves as a template for the object's properties and methods. The prototype is a container for methods and properties. When methods or properties are added to the prototype of a function, array, or string, they become shared by all instances of that particular object type. Prototype in general can be understood as a mold, and all its instances can be considered as the car made from it.</p>
+            <p>We can demonstrate this by creating an array:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">arr</span> = [1, 2, 3];</li>
+               </ul>
+               and if we call the array in the console:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">arr</span></li>
+               </ul>
+               we get,
+               <ul class="sectHighlight">
+                  <li><i>(3) [1, 2, 3];</i>
+                     <ul>
+                        <li>0: 1</li>
+                        <li>1: 2</li>
+                        <li>2: 3</li>
+                        <li>[[ prototype ]]</li>
+                     </ul>
+                  </li>
+               </ul>
+               showing that this array <i>(object)</i> does indeed have a prototype associated to it.</p>
+               <p>Now we did not assign the prototype to the array, Javascript did. And if you expand the prototype, you will see a list of all of the <i>prototype</i> methods associated with this object. Methods such as <b>push()</b> and <b>pop()</b>. And because these methods are defined within the <i><b>prototype</b></i>, they will be available to ALL array objects. This is the basis for how prototypes work.
+            </p>
+            <p>We can create our own methods in an object, such as:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">arr</span>.<b>lol</b> = function() {
+                     <ul>
+                        <li>console.log('lololol');</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               and now every time we call <b>arr.lol()</b>, the console will log <i><b>lololol</b></i>.</p>
+               <p>However, Houston we have a problem. If we look at the array breakdown in the console,:
+               <ul class="sectHighlight">
+                  <li><i>(3) [1, 2, 3];</i>
+                     <ul>
+                        <li>0: 1</li>
+                        <li>1: 2</li>
+                        <li>2: 3</li>
+                        <li><b>lol</b>: <i>f</i> ()</li>
+                        <li>[[ prototype ]]</li>
+                     </ul>
+                  </li>
+               </ul>
+            we can see that we have created the new method <i><b>lol</b></i> for this object. But we did not create the new method <i><b>within</b></i> the <i>prototype</i>.</p>
+            <p>What this means is that this <i><b>lol()</b></i> method will only be available for use within the scope of this individual array object. It will not be available for use within <i><b>any other</b></i> array object.
+            </p>
+            <p>To make this new function available to <b>All</b> array objects, we would define it like so:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">Array</span>.<b>prototype</b>.<b>lol</b> = function() {
+                     <ul>
+                        <li>console.log('lololol');</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               Now we need to notice a couple of things here:
+               <ul>
+                  <li>1<sup>st</sup>) we are adding to the "Array" object, not our individual array, so we assign the new function to <b>Array.prototype</b>.</li>
+                  <li>2<sup>nd</sup>) You must capitalize the first letter of the object name <b>Array</b>.</li>
+               </ul>
+            and if we look at our array breakdown, we see:
+            <ul class="sectHighlight">
+               <li><i>(3) [1, 2, 3];</i>
+                  <ul>
+                     <li>0: 1</li>
+                     <li>1: 2</li>
+                     <li>2: 3</li>
+                     <li>[[ prototype ]]
+                        <ul>
+                           <li><b>lol</b>: <i>f ()</i></li>
+                           <li>...</li>
+                           <li>...</li>
+                           <li>...</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            and now our new method is part of the prototype and can be used within <i><b>any</b></i> array object.
+            </p>
+            <p><b>*note</b> assigning our new method does have one limitation. It will only be accessible until the page is refreshed. Once the page is refreshed, the array object is reset, and the new method goes away.</p>
+            <p>Another thing to note is that you can change the functionality of <i><b>existing</b></i> methods. For example, if we use the <b>pop()</b> method, we remember that <b>pop()</b> removes the last item in an array object. We can change this default functionality, like so:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">Array</span>.<b>prototype</b>.<b>pop</b> = function() {
+                     <ul>
+                        <li>console.log('I\'m Sorry, but I wish to keep this item!!');</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            and now if we call pop() on our <span class="colorHighlight">arr</span> array:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">arr</span>.<b>pop()</b></li>
+               </ul>
+               instead of removing the last item, we get "I'm Sorry, but I wish to keep this item!!"
+            </p>
          </article>
       </section>
 
