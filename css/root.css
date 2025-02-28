@@ -333,6 +333,11 @@ li {
    font-weight: bold;
 }
 
+.colorHighlight4 {
+   color: #810c0c;
+   font-weight: bold;
+}
+
 /* text Boxes */
 #textWindow {
    margin: 35px auto;
@@ -410,6 +415,11 @@ li {
    float: right;
    width: 15%;
    height: auto;
+}
+
+#commentStyle {
+   font-size: 14px;
+   color: #525d56;
 }
 
 .contactWindow {

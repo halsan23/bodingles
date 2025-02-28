@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css" />
+   <link rel="stylesheet" href="localStyle.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+         <hr style="width: 50%"/>
+         <h5>Object Orientated Programming</h5>
+         <h4>Factory Functions</h4>
+      </section>
+
+      <!-- Object Orientated Programming -->
+      <section id="textWindow4" class="just">
+         <article>
+            <p><span class="firstWord">Object Orientated Programming</span> is the concept of building our own objects that we can use. Once these objects are created, we can then assign properties and methods to them.</p>
+            <p>We are going to be building a color changing app to demonstrate the concepts of building our own objects. Let's start with a basic function:
+               <ul class="sectHighlight">
+                  <li>function <span class="colorHighlight2">rgb</span>(r, g, b) {
+                     <ul>
+                        <li><b>return</b> `rgb(${r}, ${g}, ${b})`;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               This will return the string temporal literate of an "RGB" color. So if we pass in an RGB value of 255, 100, 25:
+                  <ul class="sectHighlight">
+                     <li><span class="colorHighlight2">rgb</span>(255, 100, 25);</li>
+                  </ul>
+               the function will return the "RGB" color value of <b>rgb(255, 100, 25)</b>.
+               </p>
+         </article>
+         <hr style="width: 90%;">
+
+         <article>
+            <p>Now let's create a basic function that will convert an "RGB" color to a "HEX" color:
+               <ul class="sectHighlight">
+                  <li>function <span class="colorHighlight2">hex</span>(r, g, b) {
+                     <ul>
+                        <li><b>return</b> '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            The math will return a "#HEX" number converted from the "RGB" color passed in. So if we pass in an RGB value of 255, 100, 25:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight2">hex</span>(255, 100, 25);</li>
+               </ul>
+            the function will return the "HEX" value of <b>#ff6419</b>, converting the RGB color to a HEX color.
+            </p>
+         </article>
+      </section>
+
+      <!--Factory Functions -->
+      <section id="textWindow4" class="just">
+         <article>
+            <p><span class="firstWord">Factory Functions</span> refers to the process of building an object, with properties, and methods. Think of it as a factory building cars. The factory building the cars is our object, and the differences in the cars such as the number of doors, or the color, become our methods.</p>
+         </article>
+         <hr style="width: 90%;">
+
+         <article>
+            <p>To create our Factory Function, let's start with a basic function the will accept the three rgb color numbers:
+               <ul class="sectHighlight">
+                  <li>function <span class="colorHighlight2">makeColor</span>(r, g, b) {
+                     <ul>
+                        <li id="commentStyle">// <i>create an empty object to hold the colors</i></li>
+                        <li>const <span class="colorHighlight">color</span> = {}</li>
+                        <li id="commentStyle">// <i>add the r, g, b colors to the object</i></li>
+                        <li>color.r = r;</li>
+                        <li>color.g = g;</li>
+                        <li>color.b = b;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>
+               Now we can add our color functions from above. Because we are adding them into or object, they will become methods  of our object.
+               <ul class="sectHighlight">
+                  <li id="commentStyle">// <i>function to return RGB string Temporal Literal</i></li>
+                  <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span> = function() {
+                     <ul>
+                        <li>const { r, g, b } = <span class="colorHighlight4"><i>this</i></span>;</li>
+                        <li><b>return</b> `rgb(${r}, ${g}, ${b})`;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li id="commentStyle">// <i>returns HEX converted from RGB</i></li>
+                  <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">hex</span> = function() {
+                     <ul>
+                        <li>const { r, g, b } = <span class="colorHighlight4"><i>this</i></span>;</li>
+                        <li><b>return</b> '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);</li>
+                     </ul>
+                  </li>
+                  <li>};</li>
+               </ul>
+               <i><b>*refresher</b> on <span class="colorHighlight4"><i>this</i></span>. Remember that <span class="colorHighlight4"><i>this</i></span> refers to the item to the left of the calling source. For example, if we call:</i>
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">black</span> = makeColor(0, 0, 0);</li>
+               </ul>
+               and then we call:
+               <ul class="sectHighlight">
+                  <li><b>black.</b><span class="colorHighlight2">rgb()</span>;</li>
+                  <li><i>or</i></li>
+                  <li><b>black.</b><span class="colorHighlight2">hex()</span>;</li>
+               </ul>
+               then <span class="colorHighlight4"><i>this</i></span> refers to the <b>black</b> color that was passed into the original function.
+            </p>
+            <p>And finally we need to add one more return ath the end of the function call to return the results of anf color conversions.
+               <ul class="sectHighlight">
+                  <li><b>return</b> color;</li>
+               </ul>
+               remember that <span class="colorHighlight">color</span> was the original object that we created.
+            </p>
+         </article>
+      </section>
+
+      <!--Factory Functions -->
+      <section id="textWindow4" class="just">
+         <article>
+            <p>So in summary, we used a <i><b>Factory Function</b></i> to build the <span class="colorHighlight2">makeColor</span> object. We then added two <b><i>methods</i></b> to our object, <span class="colorHighlight2">rgb</span>, and <span class="colorHighlight2">hex</span>.
+            </p>
+            <p>We can now define any RGB color for processing by passing in the RGB values:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">black</span> = makeColor(0, 0, 0);</li>
+               </ul>
+               and then we can use the methods of our object by calling either <b>color</b>.<span class="colorHighlight2">rgb</span> or <b>color</b>.<span class="colorHighlight2">hex</span>:
+               <ul class="sectHighlight">
+                  <li><b>black.</b><span class="colorHighlight2">rgb()</span>;</li>
+                  <li><i>or</i></li>
+                  <li><b>black.</b><span class="colorHighlight2">hex()</span>;</li>
+               </ul>
+            </p>
+         </article>
+
+         <article>
+            <p>And here is the final code:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li id="commentStyle">// <i>create the makeColor Object</i></li>
+                  <li>function <span class="colorHighlight2">makeColor</span>( r, g, b ) {
+                     <ul>
+                        <li id="commentStyle">// <i>create an empty object</i></li>
+                        <li>const <span class="colorHighlight">color</span> = <b>{}</b>;</li>
+                        <li id="commentStyle">// <i>add properties to the object</i></li>
+                        <li>color.r = r;</li>
+                        <li>color.g = g;</li>
+                        <li>color.b = b;</li>
+                        <li id="commentStyle">// <i>create the rgb method</i></li>
+                        <li><span class="colorHighlight">color</span><b>.rgb</b> = function() {
+                           <ul>
+                              <li>const { r, g, b } = <span class="colorHighlight4"><i>this</i></span>;</li>
+                              <li><b>return</b> `rgb(${r}, ${g}, ${b})`;</li>
+                           </ul>
+                        </li>
+                        <li>};</li>
+                        <li id="commentStyle">// <i>create the hex method</i></li>
+                        <li><span class="colorHighlight">color</span><b>.hex</b> = function() {
+                           <ul>
+                              <li>const { r, g, b } = <span class="colorHighlight4"><i>this</i></span>;</li>
+                              <li><b>return</b> '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)</li>
+                           </ul>
+                        </li>
+                        <li>};</li>
+                        <li id="commentStyle">// <i>return the results</i></li>
+                        <li><b>return</b> <span class="colorHighlight">color</span>;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>And we can pass in any color for processing with either of our two methods we defined <i><b>rgb</b></i> or <i><b>hex</b></i>.
+               <ul class="sectHighlight">
+                  <li id="commentStyle">// <i>define the color using 3 rgb values</i></li>
+                  <li>const <span class="colorHighlight"><i>anyColor</i></span> = makeColor(xx, xx, xx);</li>
+                  <li id="commentStyle">// <i>call the object methods</i></li>
+                  <li><span class="colorHighlight"><i>anyColor</i></span><b>.</b><span class="colorHighlight2">rgb()</span>;</li>
+                  <li>or</li>
+                  <li><span class="colorHighlight"><i>anyColor</i></span>.</b><span class="colorHighlight2">hex()</span>;</li>
+               </ul>
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="factoryFunctions.js"></script>
+</body>
+</html>
