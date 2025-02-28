@@ -4,7 +4,7 @@
 // Color Convertor
 //  ==========================================================
 // Create the makeColor Object
-function makeColor(r, g, b) {
+function makeColor(r=200, g=50, b=125) {
 
    // create an empty object
 	const color = {};

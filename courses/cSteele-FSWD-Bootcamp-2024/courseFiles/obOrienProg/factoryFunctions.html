@@ -82,7 +82,7 @@
          <article>
             <p>To create our Factory Function, let's start with a basic function the will accept the three rgb color numbers:
                <ul class="sectHighlight">
-                  <li>function <span class="colorHighlight2">makeColor</span>(r, g, b) {
+                  <li>function <span class="colorHighlight2">makeColor</span> ( r, g, b ) {
                      <ul>
                         <li id="commentStyle">// <i>create an empty object to hold the colors</i></li>
                         <li>const <span class="colorHighlight">color</span> = {}</li>
@@ -95,8 +95,9 @@
                   <li>}</li>
                </ul>
             </p>
+            <p>This creates an empty object called <span class="colorHighlight">color</span>, inside of our <span class="colorHighlight2">makeColor</span> function. It then adds the <b>r</b>, <b>g</b>, and <b>b</b> key/value pairs to our object. The end result is an object inside of our function, that will store the data we want to process.</p>
             <p>
-               Now we can add our color functions from above. Because we are adding them into or object, they will become methods  of our object.
+               Now we can add our color functions from above. Because we are adding them inside of our function object, they will become methods of that object.
                <ul class="sectHighlight">
                   <li id="commentStyle">// <i>function to return RGB string Temporal Literal</i></li>
                   <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span> = function() {
@@ -115,9 +116,9 @@
                   </li>
                   <li>};</li>
                </ul>
-               <i><b>*refresher</b> on <span class="colorHighlight4"><i>this</i></span>. Remember that <span class="colorHighlight4"><i>this</i></span> refers to the item to the left of the calling source. For example, if we call:</i>
+               <i><b>*refresher</b> on <span class="colorHighlight4"><i>this</i></span>. Remember that <span class="colorHighlight4"><i>this</i></span> refers to the item to the <b>left</b> of the calling source. For example, if we call:</i>
                <ul class="sectHighlight">
-                  <li>const <span class="colorHighlight">black</span> = makeColor(0, 0, 0);</li>
+                  <li>const <span class="colorHighlight">black</span> = makeColor ( 0, 0, 0 );</li>
                </ul>
                and then we call:
                <ul class="sectHighlight">
@@ -127,25 +128,25 @@
                </ul>
                then <span class="colorHighlight4"><i>this</i></span> refers to the <b>black</b> color that was passed into the original function.
             </p>
-            <p>And finally we need to add one more return ath the end of the function call to return the results of anf color conversions.
+            <p>And finally we need to add one more return at the end of the function call to return the results of anf color conversions.
                <ul class="sectHighlight">
-                  <li><b>return</b> color;</li>
+                  <li><b>return</b> <span class="colorHighlight">color</span>;</li>
                </ul>
-               remember that <span class="colorHighlight">color</span> was the original object that we created.
+               remember that <span class="colorHighlight">color</span> was the original object that we created, and that <span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span> and <span class="colorHighlight">color</span>.<span class="colorHighlight2">hex</span> are the methods we created for that object.
             </p>
          </article>
       </section>
 
-      <!--Factory Functions -->
+      <!--Summary & Final Codes -->
       <section id="textWindow4" class="just">
          <article>
-            <p>So in summary, we used a <i><b>Factory Function</b></i> to build the <span class="colorHighlight2">makeColor</span> object. We then added two <b><i>methods</i></b> to our object, <span class="colorHighlight2">rgb</span>, and <span class="colorHighlight2">hex</span>.
+            <p>So in summary, we used a <i><b>Factory Function</b></i> to build the <span class="colorHighlight2">makeColor</span> object. We then added two <b><i>methods</i></b> to our object, <span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span>, and <span class="colorHighlight">color</span>.<span class="colorHighlight2">hex</span>.
             </p>
             <p>We can now define any RGB color for processing by passing in the RGB values:
                <ul class="sectHighlight">
-                  <li>const <span class="colorHighlight">black</span> = makeColor(0, 0, 0);</li>
+                  <li>const <span class="colorHighlight">black</span> = makeColor ( 0, 0, 0 );</li>
                </ul>
-               and then we can use the methods of our object by calling either <b>color</b>.<span class="colorHighlight2">rgb</span> or <b>color</b>.<span class="colorHighlight2">hex</span>:
+               and then we can use the methods of our object by calling either <span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span> or <span class="colorHighlight">color</span>.<span class="colorHighlight2">hex</span>:
                <ul class="sectHighlight">
                   <li><b>black.</b><span class="colorHighlight2">rgb()</span>;</li>
                   <li><i>or</i></li>
@@ -159,7 +160,7 @@
                <ul class="sectHighlight">
                   <li><b>JavaScript</b></li>
                   <li id="commentStyle">// <i>create the makeColor Object</i></li>
-                  <li>function <span class="colorHighlight2">makeColor</span>( r, g, b ) {
+                  <li>function <span class="colorHighlight2">makeColor</span> ( r, g, b ) {
                      <ul>
                         <li id="commentStyle">// <i>create an empty object</i></li>
                         <li>const <span class="colorHighlight">color</span> = <b>{}</b>;</li>
@@ -168,7 +169,7 @@
                         <li>color.g = g;</li>
                         <li>color.b = b;</li>
                         <li id="commentStyle">// <i>create the rgb method</i></li>
-                        <li><span class="colorHighlight">color</span><b>.rgb</b> = function() {
+                        <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span> = function() {
                            <ul>
                               <li>const { r, g, b } = <span class="colorHighlight4"><i>this</i></span>;</li>
                               <li><b>return</b> `rgb(${r}, ${g}, ${b})`;</li>
@@ -176,7 +177,7 @@
                         </li>
                         <li>};</li>
                         <li id="commentStyle">// <i>create the hex method</i></li>
-                        <li><span class="colorHighlight">color</span><b>.hex</b> = function() {
+                        <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">hex</span> = function() {
                            <ul>
                               <li>const { r, g, b } = <span class="colorHighlight4"><i>this</i></span>;</li>
                               <li><b>return</b> '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)</li>
@@ -199,6 +200,17 @@
                   <li>or</li>
                   <li><span class="colorHighlight"><i>anyColor</i></span>.</b><span class="colorHighlight2">hex()</span>;</li>
                </ul>
+            </p>
+            <p><b>*note</b>: One other side note here. We could set default values for the <span class="colorHighlight2">makeColor</span> function, like so:
+               <ul class="sectHighlight">
+                  <li id="commentStyle">// <i>define the color using 3 rgb values</i></li>
+                  <li>const <span class="colorHighlight"><i>anyColor</i></span> = makeColor ( r=200, g=50, b=125 );</li>
+                  <li id="commentStyle">// <i>call the object methods</i></li>
+                  <li><span class="colorHighlight"><i>anyColor</i></span><b>.</b><span class="colorHighlight2">rgb()</span>;</li>
+                  <li>or</li>
+                  <li><span class="colorHighlight"><i>anyColor</i></span>.</b><span class="colorHighlight2">hex()</span>;</li>
+               </ul>
+               This would be utilized if the end user did not pass in any numbers, or forgot a number. The function would still process with these default values, and not return an error.
             </p>
          </article>
       </section>
