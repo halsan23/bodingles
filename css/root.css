@@ -55,8 +55,10 @@
    }
 }
 
+
+/* set my page defaults */
+/* ============================================= */
 body {
-   /* set my page defaults */
    height: 100%;
    width: 100%;
    color: #000;
@@ -68,8 +70,11 @@ body {
    text-align: center;
    letter-spacing: .03em;
 }
+/* ============================================= */
+
 
 /* Set up Header and Footer */
+/* ============================================= */
 header {
    background-color: #d5d5d5;
    position: fixed;
@@ -197,13 +202,13 @@ footer div {
    padding: 0 7px;
    letter-spacing: 1.25px;
 }
+/* ============================================= */
 
-/* set main container to start below header */
+
+/* set main container */
+/* ============================================= */
 #main {
    padding-top: 130px;
-   /* border: 1px solid #bcbcbc;
-   border-radius: 10px;
-   box-shadow: 3px 0 8px inset #838383; */
 }
 
 /* set up Main Contents effects */
@@ -214,9 +219,29 @@ footer div {
    animation-iteration-count: 1;
    animation-fill-mode: forwards;
 }
+/* ============================================= */
 
 
-/* -----------  HTML Elements  -----------  */
+/* --------------  List Control  --------------- */
+/* ============================================= */
+/* setup a list container so the lists will to be centered
+in the parent section, but aligned to the left side of container */
+.lists {
+   display: inline-block;
+   text-align: left;
+   margin: 0 auto;
+}
+
+/* adds a top margin for list item spacing */
+li {
+   margin-top: 8px;
+}
+/* ============================================= */
+
+
+/* --------------  HTML Elements  -------------- */
+/* ============================================= */
+/* tags */
 a {
    color: #003088;
    font-weight: 600;
@@ -290,34 +315,12 @@ hr {
 p {
    line-height: 1.5rem;
 }
+/* ============================================= */
 
 
-/* setup a list container so the lists will to be centered in the parent section, but aligned to the left side of container */
-
-.lists {
-   display: inline-block;
-   text-align: left;
-   margin: 0 auto;
-}
-
-/* adds a top margin for list item spacing */
-li {
-   margin-top: 8px;
-}
-
+/* -------------  Class Elements  -------------- */
+/* ============================================= */
 /* Larger First Word in a paragraph */
-.firstWord {
-   font-size: 1.2rem;
-   font-weight: 500;
-}
-
-.sectHighlight {
-   background-color: #edede7;
-   padding: 0px 20px 8px;
-   border: 1px solid black;
-   border-radius: 7px;
-}
-
 .colorHighlight {
    color: #227441;
    font-weight: bold;
@@ -336,6 +339,85 @@ li {
 .colorHighlight4 {
    color: #810c0c;
    font-weight: bold;
+}
+
+.contact {
+   background-color: rgba(255, 255, 255, .5);
+   margin: 12px 14px;
+   border-radius: 7px;
+}
+
+.contactTop {
+   padding: 5px 20px;
+   font-size: 1rem;
+   font-weight: 500;
+   border-radius: 10px;
+}
+
+.contactWindow {
+   background-color: #5b78a2;
+   background-image: url("/images/email.png");
+   background-repeat: no-repeat;
+   background-size: 60% auto;
+   background-position: center;
+   width: 35%;
+   margin: 0 auto;
+   border-radius: 10px;
+   border: 3px solid #8dbcff;
+   box-shadow: 10px 10px 15px #c9c9c9;
+}
+
+.contMe {
+   font-weight: 700;
+}
+
+.firstWord {
+   font-size: 1.2rem;
+   font-weight: 500;
+}
+
+.instructor {
+   margin-top: 15px;
+   border: 2px solid #3e4b2b;
+   border-radius: 100px;
+   box-shadow: 3px 3px 13px #747474;
+}
+
+.just {
+   text-align: justify;
+}
+
+.mongodb {
+   width: .7%;
+   height: .7%;
+}
+
+.sectHighlight {
+   background-color: #edede7;
+   padding: 0px 20px 8px;
+   border: 1px solid black;
+   border-radius: 7px;
+}
+
+.splitWindow {
+   width: 92%;
+   margin: 0 auto;
+   display: flex;
+}
+
+.this {
+   color: #810c0c;
+   font-weight: bold;
+   font-style: italic;
+}
+/* ============================================= */
+
+
+/* --------------  ID Elements  --------------  */
+/* ============================================= */
+#commentStyle {
+   font-size: 14px;
+   color: #525d56;
 }
 
 /* text Boxes */
@@ -375,27 +457,10 @@ li {
    box-shadow: 10px 10px 15px #c9c9c9;
 }
 
-.splitWindow {
-   width: 92%;
-   margin: 0 auto;
-   display: flex;
-}
-
 #splitWindowLt {
    width: 60%;
    padding: 10px 20px;
    margin: 25px 35px 75px 25px;
-   text-align: justify;
-   background-color: #f3f3f3;
-   border-radius: 1.1rem;
-   border: 1px solid #3e4b2b;
-   box-shadow: 10px 10px 15px #c9c9c9;
-}
-
-#splitWindowRt {
-   width: 60%;
-   padding: 10px 20px;
-   margin: 75px 25px 25px 35px;
    text-align: justify;
    background-color: #f3f3f3;
    border-radius: 1.1rem;
@@ -410,64 +475,31 @@ li {
    height: auto;
 }
 
+#splitWindowRt {
+   width: 60%;
+   padding: 10px 20px;
+   margin: 75px 25px 25px 35px;
+   text-align: justify;
+   background-color: #f3f3f3;
+   border-radius: 1.1rem;
+   border: 1px solid #3e4b2b;
+   box-shadow: 10px 10px 15px #c9c9c9;
+}
+
 #splitWindowRt img {
    padding: 25px;
    float: right;
    width: 15%;
    height: auto;
 }
-
-#commentStyle {
-   font-size: 14px;
-   color: #525d56;
-}
-
-.contactWindow {
-   background-color: #5b78a2;
-   background-image: url("/images/email.png");
-   background-repeat: no-repeat;
-   background-size: 60% auto;
-   background-position: center;
-   width: 35%;
-   margin: 0 auto;
-   border-radius: 10px;
-   border: 3px solid #8dbcff;
-   box-shadow: 10px 10px 15px #c9c9c9;
-}
-
-.contact {
-   background-color: rgba(255, 255, 255, .5);
-   margin: 12px 14px;
-   border-radius: 7px;
-}
-
-.contactTop {
-   padding: 5px 20px;
-   font-size: 1rem;
-   font-weight: 500;
-   border-radius: 10px;
-}
-
-.contMe {
-   font-weight: 700;
-}
+/* ============================================= */
 
 
-/* ----------  Class  Elements  ----------  */
-.mongodb {
-   width: .7%;
-   height: .7%;
-}
-
-.instructor {
-   margin-top: 15px;
-   border: 2px solid #3e4b2b;
-   border-radius: 100px;
-   box-shadow: 3px 3px 13px #747474;
-}
-
+/* --------------  Media Queries  --------------  */
+/* ============================================= */
 @media screen and (max-width:700px) {
    .headSlogan {
       display: none;
    }
  }
+ /* ============================================= */

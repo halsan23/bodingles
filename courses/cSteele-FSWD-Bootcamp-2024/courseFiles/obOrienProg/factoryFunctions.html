@@ -102,7 +102,7 @@
                   <li id="commentStyle">// <i>function to return RGB string Temporal Literal</i></li>
                   <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span> = function() {
                      <ul>
-                        <li>const { r, g, b } = <span class="colorHighlight4"><i>this</i></span>;</li>
+                        <li>const { r, g, b } = <span class="this">this</span>;</li>
                         <li><b>return</b> `rgb(${r}, ${g}, ${b})`;</li>
                      </ul>
                   </li>
@@ -110,13 +110,13 @@
                   <li id="commentStyle">// <i>returns HEX converted from RGB</i></li>
                   <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">hex</span> = function() {
                      <ul>
-                        <li>const { r, g, b } = <span class="colorHighlight4"><i>this</i></span>;</li>
+                        <li>const { r, g, b } = <span class="this">this</span>;</li>
                         <li><b>return</b> '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);</li>
                      </ul>
                   </li>
                   <li>};</li>
                </ul>
-               <i><b>*refresher</b> on <span class="colorHighlight4"><i>this</i></span>. Remember that <span class="colorHighlight4"><i>this</i></span> refers to the item to the <b>left</b> of the calling source. For example, if we call:</i>
+               <i><b>*refresher</b> on <span class="this">this</span>. Remember that <span class="this">this</span> refers to the item to the <b>left</b> of the calling source. For example, if we call:</i>
                <ul class="sectHighlight">
                   <li>const <span class="colorHighlight">black</span> = makeColor ( 0, 0, 0 );</li>
                </ul>
@@ -126,7 +126,7 @@
                   <li><i>or</i></li>
                   <li><b>black.</b><span class="colorHighlight2">hex()</span>;</li>
                </ul>
-               then <span class="colorHighlight4"><i>this</i></span> refers to the <b>black</b> color that was passed into the original function.
+               then <span class="this">this</span> refers to the <b>black</b> color that was passed into the original function.
             </p>
             <p>And finally we need to add one more return at the end of the function call to return the results of anf color conversions.
                <ul class="sectHighlight">
@@ -137,7 +137,7 @@
          </article>
       </section>
 
-      <!--Summary & Final Codes -->
+      <!--Summary -->
       <section id="textWindow4" class="just">
          <article>
             <p>So in summary, we used a <i><b>Factory Function</b></i> to build the <span class="colorHighlight2">makeColor</span> object. We then added two <b><i>methods</i></b> to our object, <span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span>, and <span class="colorHighlight">color</span>.<span class="colorHighlight2">hex</span>.
@@ -155,6 +155,7 @@
             </p>
          </article>
 
+      <!--Final Code -->
          <article>
             <p>And here is the final code:
                <ul class="sectHighlight">
@@ -171,7 +172,7 @@
                         <li id="commentStyle">// <i>create the rgb method</i></li>
                         <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span> = function() {
                            <ul>
-                              <li>const { r, g, b } = <span class="colorHighlight4"><i>this</i></span>;</li>
+                              <li>const { r, g, b } = <span class="this">this</span>;</li>
                               <li><b>return</b> `rgb(${r}, ${g}, ${b})`;</li>
                            </ul>
                         </li>
@@ -179,7 +180,7 @@
                         <li id="commentStyle">// <i>create the hex method</i></li>
                         <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">hex</span> = function() {
                            <ul>
-                              <li>const { r, g, b } = <span class="colorHighlight4"><i>this</i></span>;</li>
+                              <li>const { r, g, b } = <span class="this">this</span>;</li>
                               <li><b>return</b> '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)</li>
                            </ul>
                         </li>
