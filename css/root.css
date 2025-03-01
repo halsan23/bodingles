@@ -341,6 +341,12 @@ p {
    font-weight: bold;
 }
 
+.commentStyle {
+   color: #3c3c3c;
+   font-size: 14px;
+   font-style: italic;
+}
+
 .contact {
    background-color: rgba(255, 255, 255, .5);
    margin: 12px 14px;
@@ -415,11 +421,6 @@ p {
 
 /* --------------  ID Elements  --------------  */
 /* ============================================= */
-#commentStyle {
-   font-size: 14px;
-   color: #525d56;
-}
-
 /* text Boxes */
 #textWindow {
    margin: 35px auto;

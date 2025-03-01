@@ -34,19 +34,20 @@
       <!--Review and Set Up -->
       <section id="textWindow4" class="just">
          <article>
-            <p><span class="firstWord">We</span> have been building up our <i><b>Color Converter</b></i> app in the previous <i></i> discussions, and so far, we have discussed <a href="prototypes.html" target="_blank">Prototypes</a>, and <a href="factoryFunctions.html" target="_blank">Factory Functions</a>. We have seen how these processes work and while using a Factory Function gives us a good start on our app, there is one drawback. As a refresher, here is the code:
+            <p><span class="firstWord">We</span> have been building up our <i><b>Color Converter</b></i> app in the previous <i></i> discussions, and so far, we have discussed <a href="prototypes.html" target="_blank">Prototypes</a>, and <a href="factoryFunctions.html" target="_blank">Factory Functions</a>. We have seen how these processes work and while using a Factory Function gives us a good start on our app, there is one drawback.</p>
+            <p>As a refresher, here is the code:
                <ul class="sectHighlight">
                   <li><b>JavaScript</b></li>
-                  <li id="commentStyle">// <i>create the makeColor Object</i></li>
+                  <li class="commentStyle">// create the makeColor Object</li>
                   <li>function <span class="colorHighlight2">makeColor</span> ( r, g, b ) {
                      <ul>
-                        <li id="commentStyle">// <i>create an empty object</i></li>
+                        <li class="commentStyle">// create an empty object</li>
                         <li>const <span class="colorHighlight">color</span> = <b>{}</b>;</li>
-                        <li id="commentStyle">// <i>add properties to the object</i></li>
+                        <li class="commentStyle">// add properties to the object</li>
                         <li>color.r = r;</li>
                         <li>color.g = g;</li>
                         <li>color.b = b;</li>
-                        <li id="commentStyle">// <i>create the rgb method</i></li>
+                        <li class="commentStyle">// create the rgb method</li>
                         <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span> = function() {
                            <ul>
                               <li>const { r, g, b } = <span class="this">this</span>;</li>
@@ -54,7 +55,7 @@
                            </ul>
                         </li>
                         <li>};</li>
-                        <li id="commentStyle">// <i>create the hex method</i></li>
+                        <li class="commentStyle">// create the hex method</li>
                         <li><span class="colorHighlight">color</span>.<span class="colorHighlight2">hex</span> = function() {
                            <ul>
                               <li>const { r, g, b } = <span class="this">this</span>;</li>
@@ -62,7 +63,7 @@
                            </ul>
                         </li>
                         <li>};</li>
-                        <li id="commentStyle">// <i>return the results</i></li>
+                        <li class="commentStyle">// return the results</li>
                         <li><b>return</b> <span class="colorHighlight">color</span>;</li>
                      </ul>
                   </li>
@@ -70,17 +71,18 @@
                </ul>
             Inside of our <span class="colorHighlight2">makeColor</span> function, we create the <span class="colorHighlight">color</span> object. We then create two functions, <span class="colorHighlight">color</span>.<span class="colorHighlight2">rgb</span>, and <span class="colorHighlight">color</span>.<span class="colorHighlight2">hex</span> that are used to manipulate, or process, the data from this <span class="colorHighlight">color</span> object.
             </p>
-            <p>This code works very well, but there is a small problem. Every time we run the <span class="colorHighlight2">makeColor</span> function, we are creating a <i><b>new</b></i> object and reassigning the internal functions to each <i><b>new</b></i> object. So these internal functions <i>(methods)</i> become unique to each and every object created, which results in each and every object we create, having it's own unique instance of the object's methods. Every time you run the <span class="colorHighlight2">makeColor</span> function with different values, you will get different results, but you are creating multiple instances of the object and it's methods.</p>
+            <p>This code works very well, but there is a small problem. Every time we run the <span class="colorHighlight2">makeColor</span> function, we are creating a <i><b>new</b></i> object and reassigning the internal functions to each <i><b>new</b></i> object.</p>
+            <p>So these internal functions <i>(methods)</i> become unique to each and every object created, which results in each and every object we create, having it's own unique instance of the object's methods. So every time you run the <span class="colorHighlight2">makeColor</span> function with different values, you will get different results, but you are creating multiple instances of the object and it's methods.</p>
          </article>
       </section>
 
-      <!-- Constructor Functions -->
+      <!-- Basic Setup & NEW -->
       <section id="textWindow4" class="just">
-         <h6>Constructor Functions</h6>
+         <!-- Basic Setup -->
          <article>
+            <h6>Basic Setup</h6>
             <p>Our code could be much more efficient if we could write it in a way that only has one object instance, and only one instance of the internal functions <i>(methods)</i>. The way to  accomplish this would be to build our methods inside of the object's prototype using a <i><b>Constructor Function</b></i>.</p>
-            <p>To create a <i>Constructor Function</i> we need to use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="noopener noreferrer">new</a> operator. The <i><b>new</b></i> operator lets developers create an instance of a <i>user-defined object</i> type or of one of the built-in object types that <b>has a constructor function</b>.</p>
-            <p>Let's look a an example of a <i>Constructor Function</i>:
+            <p>Let's start with a simple example:
                <ul class="sectHighlight">
                   <li>function <span class="colorHighlight2">Car</span> ( make, model, year ) {
                      <ul>
@@ -91,15 +93,104 @@
                   </li>
                   <li>}</li>
                   <li>&nbsp;</li>
-                  <li>var <span class="colorHighlight">myCar</span> = <i><b>new</b></i> Car ( 'Ford', 'Mustang', 1970 );</li>
-                  <li>&nbsp;</li>
-                  <li>console.log(<span class="colorHighlight">myCar</span>.make); // <i>logs Ford</i></li>
+                  <li>var <span class="colorHighlight">myCar</span> = <i><b>new</b></i> <span class="colorHighlight2">Car</span> ( 'Ford', 'Mustang', 1970 );</li>
+                  <li>console.log(<span class="colorHighlight">myCar</span>.make); <span class="commentStyle">// logs Ford</span></li>
                </ul>
             We notice a couple of things here:
-            <ul>
-               <li>1<sup>st</sup> - The function does not <i><b>return</b></i> anything.</li>
-               <li>2<sup>nd</sup> - We're not creating an object within the function to hold the data. Instead, we are using <span class="this">this</span> exclusively to assign the values</li>
-            </ul>
+               <ul>
+                  <li>1<sup>st</sup> - The function name is expressed with a capitol letter.
+                     <ul>
+                        <li class="commentStyle"><i>this is done to indicate that this is not a regular function, but is a function that helps you create objects. In other words, a <b>Constructor Function</b>.</i></li>
+                     </ul>
+                  </li>
+                  <li>2<sup>nd</sup> - The function does not <i><b>return</b></i> anything.</li>
+                  <li>3<sup>rd</sup> - We're not creating an object within the function to hold the data. Instead, we are using <span class="this">this</span> exclusively to assign the values</li>
+               </ul>
+            </p>
+         </article>
+         <hr style="width: 90%;">
+
+         <!-- The this Problem -->
+         <article>
+            <p class="firstWord">The <span class="this">this</span> Problem</p>
+            <p>Now we have another problem that we will have to adjust for. If we console.log(<span class="this">this</span>); we will get an object. But it is not our <span class="colorHighlight2">Car</span> object. It is the root window object. This is because within our function, we have not created any objects for <span class="this">this</span></span> to work with, and so <span class="this">this</span> will refer to the next nearest parent object, which is the window object.</p>
+            <p>We can resolve this problem by using :</p>
+            <p class="firstWord">The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new#description" target="_blank" rel="noopener noreferrer">new</a> Keyword</p>
+            <p>When a function is called with the <i><b>new</b></i> keyword, the function will be used as a <i><b>constructor function</b></i>, and <i><b>new</b></i> will do the following things:
+               <ul>
+                  <li style="list-style: decimal;">Creates a blank, plain JavaScript object.</li>
+                  <li style="list-style: decimal;">Points the object's [[Prototype]] to the constructor function's prototype property, if the prototype is an Object. Otherwise, the function stays as a plain object with Object.prototype as its [[Prototype]].</li>
+                  <li style="list-style: decimal;">Executes the constructor function with the given arguments, binding the object as the <span class="this">this</span> context (i.e. all references to <span class="this">this</span> in the constructor function now refer to the function object).</li>
+                  <li style="list-style: decimal;">If the constructor function returns a non-primitive, <span class="this">this</span> return value becomes the result of the whole <i><b>new</b></i> expression. Otherwise, if the constructor function doesn't return anything or returns a primitive, the function object is returned instead. <i>(Normally constructors don't return a value, but they can choose to do so to override the normal object creation process.)</i></li>
+               </ul>
+               <b>*note</b>: Properties/objects added to the constructor function's prototype property are therefore accessible to all instances created from the constructor function.
+            </p>
+            <p>So using the <i><b>new</b></i> keyword will create an object for <span class="this">this</span> to refer to. And any properties or objects that are added to the constructor function's [[prototype]] property are accessible to ALL of the instances created from the constructor function</p>
+         </article>
+      </section>
+
+      <!-- Building the Constructor -->
+      <section id="textWindow4" class="just">
+         <!-- Building the Constructor -->
+         <article>
+            <h6>Building the Constructor</h6>
+            <p>So now, let's redefine our function:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li class="commentStyle">// create the makeColor function</li>
+                  <li>function <span class="colorHighlight2">MakeColor</span> ( r, g, b ) {
+                     <ul>
+                        <li class="commentStyle">// add properties to the object</li>
+                        <li><span class="this">this</span>.r = r;</li>
+                        <li><span class="this">this</span>.g = g;</li>
+                        <li><span class="this">this</span>.b = b;</li>
+                        <li>console.log(<span class="this">this</span>);</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            Remember, if we call:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight2">MakeColor</span> ( 255, 40, 100 );</li>
+               </ul>
+            the console will log our object properties, <i><b>but they will be the properties for the parent window.</b></i>
+            </p>
+            <p>And our fix for this is to call the function with the <i><b>new</b></i> keyword:
+               <ul class="sectHighlight">
+                  <li><i><b>new</b></i> <span class="colorHighlight2">MakeColor</span> ( 255, 40, 100);</li>
+               </ul>
+            and now the console logs our <i>new</i> object that the <i><b>new</b></i> keyword has created.</p>
+            <p>And if you look at the prototype properties for this object, you will see that our <span class="colorHighlight2">MakeColor</span> function, is now a <i><b>Constructor Function</b></i>. And because it is a <i>Constructor Function</i>, it has created an object for <span class="this">this</span> to refer to.
+            </p>
+            <p>And now that we have a <i><b>Constructor Function</b></i>, we can add methods to its [[prototype]], which will be available for use in any instance of this object.</p>
+         </article>
+         <hr style="width: 90%;">
+
+         <!-- Adding Methods -->
+         <article>
+            <h6>Adding Methods</h6>
+            <p>When we constructed our <a href="factoryFunctions.html" target="_blank">Factory Function</a>, we built the methods as functions that resided within the <span class="colorHighlight2">makeColor</span> function itself. <i>Constructor Functions</i> are a little different in that we build the methods <i><b>externally</b></i> from the <i>Constructor Function.</i></p>
+            <p><b>*note</b>: we could build the methods inside of the <i>Constructor Function</i> but it would not set the method inside of the [[prototype]] which is what we need if we only want one method instance that would work on all <i>Constructor Function</i> objects.</p>
+            <p>So we just build our methods externally and refer them to the <i>Constructor Function</i> in the
+            naming of the method:
+               <ul class="sectHighlight">
+                  <li class="commentStyle">// create the rgb method</li>
+                  <li><span class="colorHighlight2">MakeColor</span>.<b>prototype</b>.rgb = function() {
+                     <ul>
+                        <li>const { r, g, b } = <span class="this">this</span>;</li>
+                        <li><b>return</b> `rgb(${r}, ${g}, ${b})`;</li>
+                     </ul>
+                  </li>
+                  <li>};</li>
+                  <li class="commentStyle">// create the hex method</li>
+                  <li><span class="colorHighlight2">MakeColor</span>.<b>prototype</b>.hex = function() {
+                     <ul>
+                        <li>const { r, g, b } = <span class="this">this</span>;</li>
+                        <li><b>return</b> '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)</li>
+                     </ul>
+                  </li>
+                  <li>};</li>
+               </ul>
             </p>
          </article>
       </section>
