@@ -134,7 +134,7 @@
          <!-- Building the Constructor -->
          <article>
             <h6>Building the Constructor</h6>
-            <p>So now, let's redefine our function:
+            <p>So now, let's redefine our <span class="colorHighlight2">MakeColor</span> function:
                <ul class="sectHighlight">
                   <li><b>JavaScript</b></li>
                   <li class="commentStyle">// create the makeColor function</li>
@@ -149,13 +149,13 @@
                   </li>
                   <li>}</li>
                </ul>
-            Remember, if we call:
+            First off, notice how the first letter of the function name is a capitol letter. This designates it as <i>"not a normal function, but a <b>Constructor Function</b>"</i>. And as we've learned, if we call the function like so:
                <ul class="sectHighlight">
                   <li><span class="colorHighlight2">MakeColor</span> ( 255, 40, 100 );</li>
                </ul>
-            the console will log our object properties, <i><b>but they will be the properties for the parent window.</b></i>
+            the console will log our object properties, <i><b>but they will be the properties for the parent window object.</b></i>
             </p>
-            <p>And our fix for this is to call the function with the <i><b>new</b></i> keyword:
+            <p>And our fix for this is to call the function with the <i><b>new</b></i> keyword. This designates our Constructor Function" as an Object:
                <ul class="sectHighlight">
                   <li><i><b>new</b></i> <span class="colorHighlight2">MakeColor</span> ( 255, 40, 100);</li>
                </ul>
@@ -171,8 +171,7 @@
             <h6>Adding Methods</h6>
             <p>When we constructed our <a href="factoryFunctions.html" target="_blank">Factory Function</a>, we built the methods as functions that resided within the <span class="colorHighlight2">makeColor</span> function itself. <i>Constructor Functions</i> are a little different in that we build the methods <i><b>externally</b></i> from the <i>Constructor Function.</i></p>
             <p><b>*note</b>: we could build the methods inside of the <i>Constructor Function</i> but it would not set the method inside of the [[prototype]] which is what we need if we only want one method instance that would work on all <i>Constructor Function</i> objects.</p>
-            <p>So we just build our methods externally and refer them to the <i>Constructor Function</i> in the
-            naming of the method:
+            <p>So we just build our methods externally and refer them to the <i>Constructor Function</i> in the naming of the method. This is the same process we have seen before when adding to, or editing [[prototype]] methods:
                <ul class="sectHighlight">
                   <li class="commentStyle">// create the rgb method</li>
                   <li><span class="colorHighlight2">MakeColor</span>.<b>prototype</b>.rgb = function() {
@@ -192,6 +191,104 @@
                   <li>};</li>
                </ul>
             </p>
+            <p>And now if we look in the console at the <span class="colorHighlight2">MakeColor</span> object that was logged, we see that we have indeed created an object, and that the <b>.rgb</b> and <b>.hex</b> methods are listed properly as [[prototype]] methods.</p>
+            <p>The end result is that there is only one instance of our <span class="colorHighlight2">MakeColor</span> Object, and only one instance of the [[prototype]] methods <b>.rgb</b> and <b>.hex</b>, irregardless of how many times we call the function or our methods.</p>
+            <p><b>*Note</b>: One very important thing to remember when creating our new methods is <i><b>do not use "Arrow Functions"</b></i> when defining our methods. They treat <span class="this">this</span> differently and could create problems.</p>
+         </article>
+      </section>
+
+      <!-- Using the Function -->
+      <section id="textWindow4" class="just">
+         <h6>Using the Function</h6>
+         <article>
+            <p>So we now have all of our pieces and parts needed for our function to work. All that is left is to <i>"<b>call</b>"</i> our function. We do this like any other function call, but <i><b>we must include the "new" keyword</b></i>, like so:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">newColor</span> = <b>new</b> <span class="colorHighlight2">MakeColor()</span>;</li>
+               </ul>
+               so we are <i>"calling"</i> our function using the <b>new</b> keyword, and assigning it to the variable <span class="colorHighlight">newColor</span>.
+            </p>
+            <p>And now we can use our new methods with <span class="colorHighlight">newColor</span>:
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">newColor</span><b>.rgb</b> ( xx, xx, xx );</li>
+               </ul>
+               or,
+               <ul class="sectHighlight">
+                  <li><span class="colorHighlight">newColor</span><b>.hex</b> ( xx, xx, xx );</li>
+               </ul>
+            </p>
+         </article>
+      </section>
+
+      <!-- Final Code -->
+      <section id="textWindow4" class="just">
+         <h6>Final Code</h6>
+         <article>
+            <p>Here is the final code. Note that we have added <i>"default"</i> values for the r/g/b/a channels, in the appropriate places, to avoid errors if all values are not input.</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// create the Constructor Function</li>
+               <li class="commentStyle">// adds default values for r/g/b</li>
+               <li>function <span class="colorHighlight2">MakeColor</span> ( <b>r</b> = 190, <b>g</b> = 155, <b>b</b> = 90 ) {
+                  <ul>
+                     <li><span class="this">this</span><b>.r</b> = <b>r</b>;</li>
+                     <li><span class="this">this</span><b>.g</b> = <b>g</b>;</li>
+                     <li><span class="this">this</span><b>.b</b> = <b>b</b>;</li>
+                  </ul>
+               </li>
+               <li>};</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// create the rgb [[prototype]] method</li>
+               <li><span class="colorHighlight2">MakeColor</span>.prototype.<b>rgb</b> = function() {
+                  <ul>
+                     <li>const { <b>r</b>, <b>g</b>, <b>b</b> } = <span class="this">this</span>;</li>
+                     <li><b>return</b> `rgb(${<b>r</b>}, ${<b>g</b>}, ${<b>b</b>})`;</li>
+                  </ul>
+               </li>
+               <li>};</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// create the rgba [[prototype]] method</li>
+               <li class="commentStyle">// adds default value for the alpha channel</li>
+               <li><span class="colorHighlight2">MakeColor</span>.prototype.<b>rgba</b> = function( <b>a</b> = 1.0 ) {
+                  <ul>
+                     <li>const { <b>r</b>, <b>g</b>, b } = <span class="this">this</span>;</li>
+                     <li><b>return</b> `rgba(${<b>r</b>}, ${<b>g</b>}, ${<b>b</b>}, ${<b>a</b>})`;</li>
+                  </ul>
+               </li>
+               <li>};</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// create the hex [[prototype]] method</li>
+               <li><span class="colorHighlight2">MakeColor</span>.prototype.<b>hex</b> = function() {
+                  <ul>
+                     <li>const { <b>r</b>, <b>g</b>, <b>b</b> } = <span class="this">this</span>;</li>
+                     <li><b>return</b> '#' + ((1 << 24) + (<b>r</b> << 16) + (<b>g</b> << 8) + <b>b</b>).toString(16).slice(1)</li>
+                  </ul>
+               </li>
+               <li>};</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// Call the color object</li>
+               <li class="commentStyle">// because we set default color values in the Constructor</li>
+               <li class="commentStyle">// any, or all of the input values are optional</li>
+               <li>const <span class="colorHighlight">newColor</span> = new <span class="colorHighlight2">MakeColor</span><b>()</b>;</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// Use the newColor object</li>
+               <li>console.log(`<span class="colorHighlight">newColor</span>.<b>rgb</b> = ${<span class="colorHighlight">newColor</span>.<b>rgb</b>()}`);
+                  <ul>
+                     <li class="commentStyle">// outputs newColor.rgb = <b>rgb(190, 155, 90)</b></li>
+                  </ul>
+               </li>
+               <li>console.log(`<span class="colorHighlight">newColor</span>.<b>rgba</b> = ${<span class="colorHighlight">newColor</span>.<b>rgba</b>(0.5)}`);
+                  <span class="commentStyle">// overrides the default opacity of 1.0</span>
+                  <ul>
+                     <li class="commentStyle">// outputs newColor.rgba = <b>rgba(190, 155, 90, 0.5)</b></li>
+                  </ul>
+               </li>
+               <li>console.log(`<span class="colorHighlight">newColor</span>.<b>hex</b> = ${<span class="colorHighlight">newColor</span>.<b>hex</b>()}`);
+                  <ul>
+                     <li class="commentStyle">// outputs newColor.hex = <b>#be9b5a</b></li>
+                  </ul>
+               </li>
+            </ul>
          </article>
       </section>
 
