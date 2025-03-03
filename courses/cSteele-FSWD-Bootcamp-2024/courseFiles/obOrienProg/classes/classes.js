@@ -115,6 +115,6 @@ console.log(`${bronze.name()}: ${bronze.rgb()}`);
 console.log(`${teal.name()}: ${teal.rgb()}`);
 
 
-// run the hex to rgb function
+// run the hexToRgb function
 const hexColor = hexToRgb();
 console.log(hexColor);
