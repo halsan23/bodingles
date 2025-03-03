@@ -34,7 +34,220 @@
       <!--Review and Set Up -->
       <section id="textWindow4" class="just">
          <article>
-            <p><span class="firstWord">Classes</span> </p>
+            <p><span class="firstWord">We</span> have been building up our <i><b>Color Converter</b></i> app in the previous <i></i> discussions, and so far, we have discussed <a href="../prototypes/prototypes.html" target="_blank">Prototypes</a>, <a href="../factoryFunctions/factoryFunctions.html" target="_blank">Factory Functions</a>, and <a href="../ConstFunctions/constFunctions.html" target="_blank">Constructor Functions</a>. We have seen how these processes work and while using a Constructor Function greatly improved our code efficiency over our Factory Function, we can improve our code even more by using <i><b>Classes</b></i>.</p>
+            <p>As a refresher, here is the <b>Constructor Function</b> code:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// create the Constructor Function</li>
+                  <li class="commentStyle">// adds default values for r/g/b</li>
+                  <li>function <span class="colorHighlight2">MakeColor</span> ( <b>r</b> = 190, <b>g</b> = 155, <b>b</b> = 90 ) {
+                     <ul>
+                        <li><span class="this">this</span><b>.r</b> = <b>r</b>;</li>
+                        <li><span class="this">this</span><b>.g</b> = <b>g</b>;</li>
+                        <li><span class="this">this</span><b>.b</b> = <b>b</b>;</li>
+                     </ul>
+                  </li>
+                  <li>};</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// create the rgb [[prototype]] method</li>
+                  <li><span class="colorHighlight2">MakeColor</span>.prototype.<b>rgb</b> = function() {
+                     <ul>
+                        <li>const { <b>r</b>, <b>g</b>, <b>b</b> } = <span class="this">this</span>;</li>
+                        <li><b>return</b> `rgb(${<b>r</b>}, ${<b>g</b>}, ${<b>b</b>})`;</li>
+                     </ul>
+                  </li>
+                  <li>};</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// create the rgba [[prototype]] method</li>
+                  <li class="commentStyle">// adds default value for the alpha channel</li>
+                  <li><span class="colorHighlight2">MakeColor</span>.prototype.<b>rgba</b> = function( <b>a</b> = 1.0 ) {
+                     <ul>
+                        <li>const { <b>r</b>, <b>g</b>, b } = <span class="this">this</span>;</li>
+                        <li><b>return</b> `rgba(${<b>r</b>}, ${<b>g</b>}, ${<b>b</b>}, ${<b>a</b>})`;</li>
+                     </ul>
+                  </li>
+                  <li>};</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// create the hex [[prototype]] method</li>
+                  <li><span class="colorHighlight2">MakeColor</span>.prototype.<b>hex</b> = function() {
+                     <ul>
+                        <li>const { <b>r</b>, <b>g</b>, <b>b</b> } = <span class="this">this</span>;</li>
+                        <li><b>return</b> '#' + ((1 << 24) + (<b>r</b> << 16) + (<b>g</b> << 8) + <b>b</b>).toString(16).slice(1)</li>
+                     </ul>
+                  </li>
+                  <li>};</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Call the color object</li>
+                  <li class="commentStyle">// because we set default color values in the Constructor</li>
+                  <li class="commentStyle">// any, or all of the input values are optional</li>
+                  <li>const <span class="colorHighlight">newColor</span> = new <span class="colorHighlight2">MakeColor</span><b>()</b>;</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Use the newColor object</li>
+                  <li>console.log(`<span class="colorHighlight">newColor</span>.<b>rgb</b> = ${<span class="colorHighlight">newColor</span>.<b>rgb</b>()}`);
+                     <ul>
+                        <li class="commentStyle">// outputs newColor.rgb = <b>rgb(190, 155, 90)</b></li>
+                     </ul>
+                  </li>
+                  <li>console.log(`<span class="colorHighlight">newColor</span>.<b>rgba</b> = ${<span class="colorHighlight">newColor</span>.<b>rgba</b>(0.5)}`);
+                     <span class="commentStyle">// overrides the default opacity of 1.0</span>
+                     <ul>
+                        <li class="commentStyle">// outputs newColor.rgba = <b>rgba(190, 155, 90, 0.5)</b></li>
+                     </ul>
+                  </li>
+                  <li>console.log(`<span class="colorHighlight">newColor</span>.<b>hex</b> = ${<span class="colorHighlight">newColor</span>.<b>hex</b>()}`);
+                     <ul>
+                        <li class="commentStyle">// outputs newColor.hex = <b>#be9b5a</b></li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>While this is a much better approach over our <b>Factory Function</b>, We can improve the coding even more by creating a <i><b>Class</b></i>.</p>
+         </article>
+      </section>
+
+      <!-- Creating Classes -->
+      <section id="textWindow4" class="just">
+         <h6>Creating a Class</h6>
+         <article>
+            <p>One of the biggest advantages of using a <b>Class</b> structure over a <b>Constructor Function</b> is that any <i>methods</i> that we create will be contained within the <i>Class</i> structure itself, and not externally to the <i>Class</i> function.</p>
+            <p>Let's start be defining our new Class. You start by designating the keyword <b>class</b> followed by the <b>Capitalized Name</b> of the class:
+               <ul class="sectHighlight">
+                  <li><b>class</b> <span class="colorHighlight2">MakeColor</span> {
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>The next step is to add a <i><b>Constructor Function</b></i> to our class. This <b>must</b> be the first designation after creating our new class and is <b>required</b>. Also note, the keyword name of <i><b>constructor</b></i> can not be changed.
+               <ul class="sectHighlight">
+                  <li><b>class</b> <span class="colorHighlight2">MakeColor</span> {
+                     <ul>
+                        <li><b>constructor()</b> {
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>The <i>constructor</i> will run immediately when this class is called and it works exactly like our previous <i>"constructor function"</i> we created in the <a href="../ConstFunctions/constFunctions.html" target="_blank">Constructor Functions</a> discussion. We pass in our variables and assign them to <span class="this">this</span>, like so:
+               <ul class="sectHighlight">
+                  <li><b>class</b> <span class="colorHighlight2">MakeColor</span> {
+                     <ul>
+                        <li><b>constructor ( r = 215, g = 170, b = 80, name = 'Bronze' )</b> {
+                           <ul>
+                              <li><span class="this">this</span><b>.r</b> = <b>r</b>;</li>
+                              <li><span class="this">this</span><b>.g</b> = <b>g</b>;</li>
+                              <li><span class="this">this</span><b>.b</b> = <b>b</b>;</li>
+                              <li><span class="this">this</span><b>.name</b> = <b>name</b>;</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>You may notice something new here. We've added an additional variable called <i><b>name</b></i>, to our constructor. This is optional but gives us the ability to "name" the color we are defining, such as <i>"Red"</i>, <i>"Coral"</i>, <i>"Bronze"</i>, or whatever you like.</p>
+            <p>So now all of our <b>class</b> Variables have been defined within our <i><b>class constructor</b></i>, and if you <i><b>call</b></i> this <b>class</b> like so:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorHighlight">color1</span> = <i><b>new</b></i> <span class="colorHighlight2">MakeColor</span><b>()</b>;</li>
+                  <li>console.log(<span class="colorHighlight">color1</span>);</li>
+               </ul>
+               and look at the console log you will see that we have indeed created an <b>object</b>, and that inside of the [[prototype]] for our object, we have our constructor.
+            </p>
+         </article>
+      </section>
+
+      <!-- Adding the Methods -->
+      <section id="textWindow4" class="just">
+         <h6>Adding the Methods</h6>
+         <article>
+            <p>So we now have our basic <i><b>class</b></i> built, along with it's <i><b>Constructor Function</b></i> and all is working properly.</p>
+            <p>So let's start adding our <i>methods</i> to our class. Here is where using a <i><b>Class</b></i> is better than using a <i><b>Constructor Function</b></i>:
+               <ol>
+                  <li>Our methods are contained <i>within</i> the Class structure itself, so everything is more organized.</li>
+                  <li>When defining our method, we <b>do not</b> use the [[prototype]] designation  <i>(constructorFunctionName.prototype.methodName)</i></li>
+               </ol>
+            </p>
+            <p>Add a method:
+               <ul class="sectHighlight">
+                  <li><b>rgb()</b> {
+                     <ul>
+                        <li>const { r, g, b, name } = <span class="this">this</span>;</li>
+                        <li><b>return</b> `${name} = rgb(${this.innerRGB()})`;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               and as you see, all we have to do is provide the method name and functionality. No need for the [[prototype]] designation, and this method is included within the <b>class</b> structure.
+            </p>
+            <p>So, once we add all of our methods, we end up with the same functionality as we had with our <a href="../ConstFunctions/constFunctions.html" target="_blank">Constructor Functions</a>, but the code is cleaner and easier to read. It's a big plus to have the <i><b>constructor</b></i> and All of the <i><b>methods</b></i> contained within the one <i><b>Class</b></i> Structure.</p>
+         </article>
+      </section>
+
+      <!-- Final Code -->
+      <section id="textWindow4" class="just">
+         <h6>Final Code</h6>
+         <article>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// Create the Class</li>
+               <li>class <span class="colorHighlight2">MakeColor</span> {
+                  <ul>
+                     <li class="commentStyle">// sets default values</li>
+                     <li><b>constructor</b> ( <b>r</b> = 215, <b>g</b> = 170, <b>b</b> = 80, <b>name</b> = 'Bronze' ) {
+                        <ul>
+                           <li><span class="this">this</span>.<b>r</b> = <b>r</b>;</li>
+                           <li><span class="this">this</span>.<b>g</b> = <b>g</b>;</li>
+                           <li><span class="this">this</span>.<b>b</b> = <b>b</b>;</li>
+                           <li><span class="this">this</span>.<b>name</b> = .<b>name</b>;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                     <li>&nbsp;</li>
+                     <li class="commentStyle">// Create the Methods</li>
+                     <li class="commentStyle">// create a "base" method to use in the rgb methods</li>
+                     <li><b>innerRGB</b>() {
+                        <ul>
+                           <li>const { <b>r</b>, <b>g</b>, <b>b</b> } = <span class="this">this</span>;</li>
+                           <li><b>return</b> `$<b>r</b>}, ${<b>g</b>}, ${<b>b</b>}`;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                     <li>&nbsp;</li>
+                     <li class="commentStyle">// Create the rgb Method</li>
+                     <li><b>rgb</b>() {
+                        <ul>
+                           <li><b>return</b> `rgb(${this.innerRGB()})`;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                     <li class="commentStyle">// create the rgba method</li>
+                     <li><b>rgba</b>(<b>a</b> = 1.0) {
+                        <ul>
+                           <li><b>return</b> `rgba(${this.innerRGB()}, ${<b>a</b>})`;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                     <li class="commentStyle">// create the hex method</li>
+                     <li><b>hex</b>() {
+                        <ul>
+                           <li>const { <b>r</b>, <b>g</b>, <b>b</b>, <b>name</b> } = <span class="this">this</span>;</li>
+                           <li><b>return</b> '#' + ((1 << 24) + (<b>r</b> << 16) + (<b>g</b> << 8) + (<b>b</b>).toString(16).slice(1));</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>}</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// Call the Class</li>
+               <li>const <span class="colorHighlight">color1</span> = new <span class="colorHighlight2">MakeColor</span>();</li>
+               <li>const <span class="colorHighlight">color2</span> = new <span class="colorHighlight2">MakeColor</span>(0, 195, 195, 'Teal');</li>
+            </ul>
+            <p>Notice that when we call <span class="colorHighlight">color1</span>, we did not designate any color values. This is to demonstrate how the <b>class</b> will set the <i>default</i> values set within the class structure.</p>
+            <p>Also notice that we inserted a <i><b>"base" method to use in the rgb methods</b></i>. This was done simply to demonstrate how to utilize a method from within another method.</p>
          </article>
       </section>
 
