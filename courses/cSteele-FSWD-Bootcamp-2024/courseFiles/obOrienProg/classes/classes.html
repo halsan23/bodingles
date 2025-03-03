@@ -196,17 +196,25 @@
                <li>class <span class="colorHighlight2">MakeColor</span> {
                   <ul>
                      <li class="commentStyle">// sets default values</li>
-                     <li><b>constructor</b> ( <b>r</b> = 215, <b>g</b> = 170, <b>b</b> = 80, <b>name</b> = 'Bronze' ) {
+                     <li><b>constructor</b> ( <b>r</b> = 215, <b>g</b> = 170, <b>b</b> = 80, <b>colorName</b> = 'Bronze' ) {
                         <ul>
                            <li><span class="this">this</span>.<b>r</b> = <b>r</b>;</li>
                            <li><span class="this">this</span>.<b>g</b> = <b>g</b>;</li>
                            <li><span class="this">this</span>.<b>b</b> = <b>b</b>;</li>
-                           <li><span class="this">this</span>.<b>name</b> = .<b>name</b>;</li>
+                           <li><span class="this">this</span>.<b>colorName</b> = .<b>colorName</b>;</li>
                         </ul>
                      </li>
                      <li>}</li>
                      <li>&nbsp;</li>
                      <li class="commentStyle">// Create the Methods</li>
+                     <li class="commentStyle">// create a colorName method</li>
+                     <li><b>name</b>() {
+                        <ul>
+                           <li>const <b>colorName</b> = <span class="this">this</span><b>.colorName</b>;</li>
+                           <li><b>return</b> `Color Name is: ${<b>colorName</b>}`;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
                      <li class="commentStyle">// create a "base" method to use in the rgb methods</li>
                      <li><b>innerRGB</b>() {
                         <ul>
@@ -215,7 +223,6 @@
                         </ul>
                      </li>
                      <li>}</li>
-                     <li>&nbsp;</li>
                      <li class="commentStyle">// Create the rgb Method</li>
                      <li><b>rgb</b>() {
                         <ul>

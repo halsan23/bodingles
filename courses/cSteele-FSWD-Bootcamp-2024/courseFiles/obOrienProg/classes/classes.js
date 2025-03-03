@@ -3,12 +3,18 @@
 
 // Create the Class
 class MakeColor {
-   constructor ( r = 215, g = 170, b = 80, name = 'Bronze' ) {
+   constructor ( r = 215, g = 170, b = 80, colorName = 'Bronze' ) {
          this.r = r;
          this.g = g;
          this.b = b;
-         this.name = name;
+         this.colorName = colorName;
          console.log(`color = ${name}: rgb(${r}, ${g}, ${b})`);
+   }
+
+   // create a name method
+   name() {
+      const colorName = this.colorName;
+      return `Color Name is: ${colorName}`;
    }
 
    // create a "base" method to use in the rgb methods
