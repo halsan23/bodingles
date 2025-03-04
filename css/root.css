@@ -44,7 +44,7 @@
 */
 
 
-/* Header Fade in Effect */
+/* body Fade in Effect */
 @keyframes fadeInAnimation {
    0% {
       opacity: 0;
@@ -56,8 +56,21 @@
 }
 
 
-/* set my page defaults */
+/* --------------  HTML Elements  -------------- */
 /* ============================================= */
+/* custom anchor tags */
+a {
+   color: #003088;
+   font-weight: 600;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+a:hover {
+   color: #aa9042;
+}
+
+/* body setup */
 body {
    height: 100%;
    width: 100%;
@@ -70,11 +83,8 @@ body {
    text-align: center;
    letter-spacing: .03em;
 }
-/* ============================================= */
 
-
-/* Set up Header and Footer */
-/* ============================================= */
+/* header setup */
 header {
    background-color: #d5d5d5;
    position: fixed;
@@ -91,66 +101,6 @@ header {
    z-index: 99;
 }
 
-.headLogo {
-   content: url(../images/logos/bodinglesLogo3.png);
-   position: absolute;
-   top: 30px;
-   left: 25px;
-}
-
-.headTitle {
-   position: absolute;
-   top: 15px;
-   left: 121px;
-   color: #404d1e;
-   font-size: 3.25rem;
-   font-family: "SUSE", sans-serif;
-   font-optical-sizing: auto;
-   font-weight: 600;
-   font-style: normal;
-   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-   letter-spacing: 3px;
-   z-index: 25;
-}
-
-.headTitleb {
-   position: absolute;
-   top: 15px;
-   left: 189px;
-   color: #927b50;
-   font-size: 3.25rem;
-   font-family: "SUSE", sans-serif;
-   font-optical-sizing: auto;
-   font-weight: 600;
-   font-style: normal;
-   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-   letter-spacing: 3px;
-   z-index: 25;
-}
-
-.headTitleShadow {
-   position: absolute;
-   top: 16px;
-   left: 122px;
-   color: #7a7a7a;
-   font-size: 3.25rem;
-   font-family: "SUSE", sans-serif;
-   font-optical-sizing: auto;
-   font-weight: 600;
-   font-style: normal;
-   letter-spacing: 3px;
-   text-shadow: 3px 3px 5px #373737;
-   z-index: 0;
-}
-
-.headBoot {
-   top: 5px;
-}
-
-.headBootb {
-   top: 5px;
-}
-
 header sub {
    font-weight: 700;
    font-size: .7rem;
@@ -160,30 +110,7 @@ header sub {
    letter-spacing: 0;
 }
 
-.headScroll img {
-   position: absolute;
-   top: 78px;
-   left: 103px;
-   height: 30px;
-   width: 310px;
-}
-
-.headSlogan {
-   position: absolute;
-   top: 37px;
-   right: 38px;
-   text-align: center;
-   font-size: 1.1rem;
-   font-weight: normal;
-   font-style: italic;
-}
-
-.sloganBulb {
-   vertical-align: middle;
-   width: 42px;
-   height: 48px;
-}
-
+/* footer setup */
 footer {
    background-color: #d5d5d5;
    margin: 0 auto;
@@ -193,8 +120,6 @@ footer {
    font-weight: 400;
    box-shadow: 0 -3px 7px #888888;
    border-bottom: 1px solid #000;
-   /* background-image: url("../images/footBack.png"); */
-   /* border-radius: 7px; */
 }
 
 footer div {
@@ -202,57 +127,8 @@ footer div {
    padding: 0 7px;
    letter-spacing: 1.25px;
 }
-/* ============================================= */
 
-
-/* set main container */
-/* ============================================= */
-#main {
-   padding-top: 130px;
-}
-
-/* set up Main Contents effects */
-/* in this case, were setting a fade-in */
-.content {
-   opacity: 0;
-   animation: fadeInAnimation ease 2.5s;
-   animation-iteration-count: 1;
-   animation-fill-mode: forwards;
-}
-/* ============================================= */
-
-
-/* --------------  List Control  --------------- */
-/* ============================================= */
-/* setup a list container so the lists will to be centered
-in the parent section, but aligned to the left side of container */
-.lists {
-   display: inline-block;
-   text-align: left;
-   margin: 0 auto;
-}
-
-/* adds a top margin for list item spacing */
-li {
-   margin-top: 8px;
-}
-/* ============================================= */
-
-
-/* --------------  HTML Elements  -------------- */
-/* ============================================= */
-/* tags */
-a {
-   color: #003088;
-   font-weight: 600;
-   text-decoration: none;
-   cursor: pointer;
-}
-
-a:hover {
-   color: #aa9042;
-}
-
+/* custom heading tags */
 h1 {
    font-family: "Akaya Telivigala", system-ui;
    font-optical-sizing: auto;
@@ -307,120 +183,31 @@ h6 {
    margin: 0;
 }
 
+/* custom ruler */
 hr {
    border: 1px solid #c1c5bb;
    width: 60%;
 }
 
+/* adds a top margin for list item spacing */
+li {
+   margin-top: 8px;
+}
+
+/* set default paragraph spacing */
 p {
    line-height: 1.5rem;
 }
 /* ============================================= */
 
 
-/* -------------  Class Elements  -------------- */
-/* ============================================= */
-/* Larger First Word in a paragraph */
-.colorHighlight {
-   color: #227441;
-   font-weight: bold;
-}
-
-.colorHighlight2 {
-   color: #682274;
-   font-weight: bold;
-}
-
-.colorHighlight3 {
-   color: #968842;
-   font-weight: bold;
-}
-
-.colorHighlight4 {
-   color: #810c0c;
-   font-weight: bold;
-}
-
-.commentStyle {
-   color: #3c3c3c;
-   font-size: 14px;
-   font-style: italic;
-}
-
-.contact {
-   background-color: rgba(255, 255, 255, .5);
-   margin: 12px 14px;
-   border-radius: 7px;
-}
-
-.contactTop {
-   padding: 5px 20px;
-   font-size: 1rem;
-   font-weight: 500;
-   border-radius: 10px;
-}
-
-.contactWindow {
-   background-color: #5b78a2;
-   background-image: url("/images/email.png");
-   background-repeat: no-repeat;
-   background-size: 60% auto;
-   background-position: center;
-   width: 35%;
-   margin: 0 auto;
-   border-radius: 10px;
-   border: 3px solid #8dbcff;
-   box-shadow: 10px 10px 15px #c9c9c9;
-}
-
-.contMe {
-   font-weight: 700;
-}
-
-.firstWord {
-   font-size: 1.2rem;
-   font-weight: 500;
-}
-
-.instructor {
-   margin-top: 15px;
-   border: 2px solid #3e4b2b;
-   border-radius: 100px;
-   box-shadow: 3px 3px 13px #747474;
-}
-
-.just {
-   text-align: justify;
-}
-
-.mongodb {
-   width: .7%;
-   height: .7%;
-}
-
-.sectHighlight {
-   background-color: #edede7;
-   padding: 0px 20px 8px;
-   border: 1px solid black;
-   border-radius: 7px;
-}
-
-.splitWindow {
-   width: 92%;
-   margin: 0 auto;
-   display: flex;
-}
-
-.this {
-   color: #810c0c;
-   font-weight: bold;
-   font-style: italic;
-}
-/* ============================================= */
-
-
 /* --------------  ID Elements  --------------  */
 /* ============================================= */
+/* set main container */
+#main {
+   padding-top: 130px;
+}
+
 /* text Boxes */
 #textWindow {
    margin: 35px auto;
@@ -458,6 +245,7 @@ p {
    box-shadow: 10px 10px 15px #c9c9c9;
 }
 
+/* Main Page Split Window */
 #splitWindowLt {
    width: 60%;
    padding: 10px 20px;
@@ -492,6 +280,218 @@ p {
    float: right;
    width: 15%;
    height: auto;
+}
+/* ============================================= */
+
+
+/* -------------  Class Elements  -------------  */
+/* ============================================= */
+/* Set up some Color Highlights */
+.colorHighlight {
+   color: #227441;
+   font-weight: bold;
+}
+
+.colorHighlight2 {
+   color: #682274;
+   font-weight: bold;
+}
+
+.colorHighlight3 {
+   color: #968842;
+   font-weight: bold;
+}
+
+.colorHighlight4 {
+   color: #810c0c;
+   font-weight: bold;
+}
+
+/* styling for comments */
+.commentStyle {
+   color: #3c3c3c;
+   font-size: 14px;
+   font-style: italic;
+}
+
+/* Contact Me Styling */
+.contact {
+   background-color: rgba(255, 255, 255, .5);
+   margin: 12px 14px;
+   border-radius: 7px;
+}
+
+.contactTop {
+   padding: 5px 20px;
+   font-size: 1rem;
+   font-weight: 500;
+   border-radius: 10px;
+}
+
+.contactWindow {
+   background-color: #5b78a2;
+   background-image: url("/images/email.png");
+   background-repeat: no-repeat;
+   background-size: 60% auto;
+   background-position: center;
+   width: 35%;
+   margin: 0 auto;
+   border-radius: 10px;
+   border: 3px solid #8dbcff;
+   box-shadow: 10px 10px 15px #c9c9c9;
+}
+
+.contMe {
+   font-weight: 700;
+}
+
+/* set up Main Contents fade-in */
+.content {
+   opacity: 0;
+   animation: fadeInAnimation ease 2.5s;
+   animation-iteration-count: 1;
+   animation-fill-mode: forwards;
+}
+
+/* Larger First Word in a paragraph */
+.firstWord {
+   font-size: 1.2rem;
+   font-weight: 500;
+}
+
+/* Header Styling */
+.headBoot {
+   top: 5px;
+}
+
+.headBootb {
+   top: 5px;
+}
+
+.headLogo {
+   content: url(../images/logos/bodinglesLogo3.png);
+   position: absolute;
+   top: 30px;
+   left: 25px;
+}
+
+.headScroll img {
+   position: absolute;
+   top: 78px;
+   left: 103px;
+   height: 30px;
+   width: 310px;
+}
+
+.headSlogan {
+   position: absolute;
+   top: 37px;
+   right: 38px;
+   text-align: center;
+   font-size: 1.1rem;
+   font-weight: normal;
+   font-style: italic;
+}
+
+.headTitle {
+   position: absolute;
+   top: 15px;
+   left: 121px;
+   color: #404d1e;
+   font-size: 3.25rem;
+   font-family: "SUSE", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 600;
+   font-style: normal;
+   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+   letter-spacing: 3px;
+   z-index: 25;
+}
+
+.headTitleb {
+   position: absolute;
+   top: 15px;
+   left: 189px;
+   color: #927b50;
+   font-size: 3.25rem;
+   font-family: "SUSE", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 600;
+   font-style: normal;
+   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+   letter-spacing: 3px;
+   z-index: 25;
+}
+
+.headTitleShadow {
+   position: absolute;
+   top: 16px;
+   left: 122px;
+   color: #7a7a7a;
+   font-size: 3.25rem;
+   font-family: "SUSE", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 600;
+   font-style: normal;
+   letter-spacing: 3px;
+   text-shadow: 3px 3px 5px #373737;
+   z-index: 0;
+}
+
+/* Instructor Picture Styling */
+.instructor {
+   margin-top: 15px;
+   border: 2px solid #3e4b2b;
+   border-radius: 100px;
+   box-shadow: 3px 3px 13px #747474;
+}
+
+/* default text alignment */
+.just {
+   text-align: justify;
+}
+
+/* setup a list container so the lists will to be centered
+in the parent section, but aligned to the left side of container */
+.lists {
+   display: inline-block;
+   text-align: left;
+   margin: 0 auto;
+}
+
+/* styling needed for MongoDB logo */
+.mongodb {
+   width: .7%;
+   height: .7%;
+}
+
+/* Styling cor code snippets */
+.sectHighlight {
+   background-color: #edede7;
+   padding: 0px 20px 8px;
+   border: 1px solid black;
+   border-radius: 7px;
+}
+
+/* styling for lightbulb alignment */
+.sloganBulb {
+   vertical-align: middle;
+   width: 42px;
+   height: 48px;
+}
+
+/* Split Window Styling */
+.splitWindow {
+   width: 92%;
+   margin: 0 auto;
+   display: flex;
+}
+
+/* Color styling for this keyword */
+.this {
+   color: #810c0c;
+   font-weight: bold;
+   font-style: italic;
 }
 /* ============================================= */
 

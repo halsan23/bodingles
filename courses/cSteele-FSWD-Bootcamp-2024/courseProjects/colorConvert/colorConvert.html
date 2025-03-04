@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon"/>
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css"/>
+   <link rel="stylesheet" href="localStyle.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <div>
+         <h2><i>Bodingles.com</i></h2>
+         <p>badDoggy</p>
+         <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+         <hr>
+         <h4>Color Convertor App</h4>
+      </div>
+
+      <article id="textWindow3">
+         <p><span class="firstWord">This</span> app will take a know color number and convert it in to a different color format.</p>
+      </article>
+
+         <form id="form1">
+            <label for="colorType">Known color type: </label>
+
+            <select id="colorType" name="colorType">
+               <option value="rgb" selected> RGB </option>
+               <option value="hex"> HEX </option>
+               <option value="hsl"> HSL </option>
+            </select>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+            <button id="butt1">Submit</button>
+         </form>
+
+
+         <form id="form2">
+            <label id="label1" for="colorValue"></label>
+            <input type="text" id="colorValue" name="colorValue" required size="10">
+            <label id="label2" for="colorValue">Known color value: </label>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+            <button id="butt2">Submit</button>
+         </form>
+
+
+         <div id="colorDiv">
+         </div>
+
+
+      <p><br><a href="#top">Back to Top</a><br><br></p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="colorConvert.js"></script>
+</body>
+</html>
