@@ -193,7 +193,7 @@
             <ul class="sectHighlight">
                <li><b>JavaScript</b></li>
                <li class="commentStyle">// Create the Class</li>
-               <li>class <span class="colorHighlight2">MakeColor</span> {
+               <li>class <span class="colorHighlight3">RgbConvert</span> {
                   <ul>
                      <li class="commentStyle">// sets default values</li>
                      <li><b>constructor</b> ( <b>r</b> = 215, <b>g</b> = 170, <b>b</b> = 80, <b>colorName</b> = 'Bronze' ) {
@@ -202,12 +202,14 @@
                            <li><span class="this">this</span>.<b>g</b> = <b>g</b>;</li>
                            <li><span class="this">this</span>.<b>b</b> = <b>b</b>;</li>
                            <li><span class="this">this</span>.<b>colorName</b> = .<b>colorName</b>;</li>
+                           <li><span class="this">this</span>.<span class="colorHighlight2">calcHSL()</span>;
+                           <span class="commentStyle">// run method to convert rgb to hsl</span></li>
                         </ul>
                      </li>
                      <li>}</li>
                      <li>&nbsp;</li>
                      <li class="commentStyle">// Create the Methods</li>
-                     <li class="commentStyle">// create a colorName method</li>
+                     <li class="commentStyle">// method to output color name</li>
                      <li><b>name</b>() {
                         <ul>
                            <li>const <b>colorName</b> = <span class="this">this</span><b>.colorName</b>;</li>
@@ -223,38 +225,126 @@
                         </ul>
                      </li>
                      <li>}</li>
-                     <li class="commentStyle">// Create the rgb Method</li>
+                     <li class="commentStyle">// Output the RGB Color String</li>
                      <li><b>rgb</b>() {
                         <ul>
                            <li><b>return</b> `rgb(${this.innerRGB()})`;</li>
                         </ul>
                      </li>
                      <li>}</li>
-                     <li class="commentStyle">// create the rgba method</li>
+                     <li class="commentStyle">// Output the RGBA Color String</li>
                      <li><b>rgba</b>(<b>a</b> = 1.0) {
                         <ul>
                            <li><b>return</b> `rgba(${this.innerRGB()}, ${<b>a</b>})`;</li>
                         </ul>
                      </li>
                      <li>}</li>
-                     <li class="commentStyle">// create the hex method</li>
+                     <li class="commentStyle">// convert rgb to hex method</li>
                      <li><b>hex</b>() {
                         <ul>
-                           <li>const { <b>r</b>, <b>g</b>, <b>b</b>, <b>name</b> } = <span class="this">this</span>;</li>
+                           <li>const { <b>r</b>, <b>g</b>, <b>b</b> } = <span class="this">this</span>;</li>
                            <li><b>return</b> '#' + ((1 << 24) + (<b>r</b> << 16) + (<b>g</b> << 8) + (<b>b</b>).toString(16).slice(1));</li>
                         </ul>
                      </li>
+                     <li>}</li>
+                     <li class="commentStyle">// =================================</li>
+                     <li class="commentStyle">// added hsl methods</li>
+                     <li class="commentStyle">// method to output hsl color</li>
+                     <li><b>hsl</b>() {
+                        <ul>
+                           <li>const { <b>h</b>, <b>s</b>, <b>l</b> } = <span class="this">this</span>;</li>
+                           <li><b>return</b> `hsl(${h}, ${s}%, ${l}%)`;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                     <li class="commentStyle">// method to output opposite hsl color</li>
+                     <li><b>opposite</b>() {
+                        <ul>
+                           <li>const { <b>h</b>, <b>s</b>, <b>l</b> } = <span class="this">this</span>;</li>
+                           <li>const <span class="colorHighlight">newHue</span> = (h + 180) % 360;</li>
+                           <li><b>return</b> `hsl(${<span class="colorHighlight">newHue</span>}, 100%, ${l}%)`;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                     <li class="commentStyle"> // convert rgb to hsl</li>
+                     <li><b>calcHSL</b>() {
+                        <ul>
+                           <li>let { <b>r</b>, <b>g</b>, <b>b</b> } = <span class="this">this</span>;</li>
+                           <li class="commentStyle"> // Make r, g, and b fractions of 1</li>
+                           <li><b>r</b> /= 255;</li>
+                           <li><b>g</b> /= 255;</li>
+                           <li><b>b</b> /= 255;</li>
+                           <li class="commentStyle"> // Find greatest and smallest channel values</li>
+                           <li>let <span class="colorHighlight">cmin</span> = Math.min(<b>r</b>, <b>g</b>, <b>b</b>),
+                              <ul>
+                                 <li><span class="colorHighlight">cmax</span> = Math.max(<b>r</b>, <b>g</b>, <b>b</b>),</li>
+                                 <li><span class="colorHighlight">delta</span> = <span class="colorHighlight">cmax</span> - <span class="colorHighlight">cmin,</span></li>
+                                 <li><b>h</b> = 0,</li>
+                                 <li><b>s</b> = 0,</li>
+                                 <li><b>l</b> = 0;</li>
+                              </ul>
+                           </li>
+                           <li>if (delta == 0) <b>h</b> = 0;</li>
+                           <li>else if (cmax == <b>r</b>)
+                              <ul>
+                                 <li class="commentStyle">// Red is max</li>
+                                 <li><b>h</b> = ((<b>g</b> - <b>b</b>) / delta) % 6;</li>
+                              </ul>
+                           </li>
+                           <li>else if (cmax == g)
+                              <ul>
+                                 <li class="commentStyle">// Green is max</li>
+                                 <li><b>h</b> = (<b>b</b> - <b>r</b>) / delta + 2;</li>
+                              </ul>
+                           </li>
+                           <li>else
+                              <ul>
+                                 <li class="commentStyle">// Blue is max</li>
+                                 <li><b>h</b> = (<b>r</b> - <b>g</b>) / delta + 4;</li>
+                              </ul>
+                           </li>
+                           <li><b>h</b> = Math.round(h * 60);</li>
+                           <li class="commentStyle">// Make negative hues positive behind 360Â°</li>
+                           <li>if (<b>h</b> < 0) <b>h</b> += 360;</li>
+                           <li class="commentStyle">// Calculate lightness</li>
+                           <li><b>l</b> = (cmax + cmin) / 2;</li>
+                           <li class="commentStyle">// Calculate saturation</li>
+                           <li><b>s</b> = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));</li>
+                           <li class="commentStyle">// Multiply l and s by 100</li>
+                           <li><b>s</b> = +(<b>s</b> * 100).toFixed(1);</li>
+                           <li><b>l</b> = +(<b>l</b> * 100).toFixed(1);</li>
+                           <li><span class="this">this</span>.<b>h</b> = <b>h</b>;</li>
+                           <li><span class="this">this</span>.<b>s</b> = <b>s</b>;</li>
+                           <li><span class="this">this</span>.<b>l</b> = <b>l</b>;</li>
+                        </ul>
                      <li>}</li>
                   </ul>
                </li>
                <li>}</li>
                <li>&nbsp;</li>
-               <li class="commentStyle">// Call the Class</li>
-               <li>const <span class="colorHighlight">color1</span> = new <span class="colorHighlight2">MakeColor</span>();</li>
-               <li>const <span class="colorHighlight">color2</span> = new <span class="colorHighlight2">MakeColor</span>(0, 195, 195, 'Teal');</li>
+               <li class="commentStyle">// Call the RgbConvert Class</li>
+               <li>const <span class="colorHighlight">bronze</span> = new <span class="colorHighlight3">RgbConvert</span>();</li>
+               <li>const <span class="colorHighlight">teal</span> = new <span class="colorHighlight3">RgbConvert</span>(0, 195, 195, 'Teal');</li>
+               <li>&nbsp;</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// function to convert hex to rgb</li>
+               <li>function <span class="colorHighlight2">hexToRgb</span> ( hex = 'a82aaa' ) {
+                  <ul>
+                     <li>let <b>r</b> = parseInt(hex.substring(0,2), 16);</li>
+                     <li>let <b>g</b> = parseInt(hex.substring(2,4), 16);</li>
+                     <li>let <b>b</b> = parseInt(hex.substring(4), 16);</li>
+                     <li><b>return</b> `HEX Color #${hex} = rgb(${r}, ${g}, ${b})`;</li>
+                  </ul>
+               </li>
+               <li>}</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// run the hex to rgb function</li>
+               <li>const <span class="colorHighlight">hexColor</span> = <span class="colorHighlight2">hexToRgb</span>(); <span class="commentStyle">// input hex number as string, no # sign</span></li>
             </ul>
-            <p>Notice that when we call <span class="colorHighlight">color1</span>, we did not designate any color values. This is to demonstrate how the <b>class</b> will set the <i>default</i> values set within the class structure.</p>
+            <p>Notice that when we call <span class="colorHighlight">bronze</span>, we did not designate any color values. This is to demonstrate how the <b>class</b> will set the <i>default</i> values set within the class structure.</p>
             <p>Also notice that we inserted a <i><b>"base" method to use in the rgb methods</b></i>. This was done simply to demonstrate how to utilize a method from within another method.</p>
+            <P>We also added a method to convert RGB to HSL, and also a method to return the <i><b>opposite</b></i> HSL value, for determining the opposite color on the color wheel.</P>
+            <p>And finally, we added a function to convert a hex number into an rgb number.</p>
          </article>
       </section>
 
