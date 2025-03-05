@@ -52,16 +52,13 @@ function rgbConvert() {
       // break input string down into individual numbers
       let numbers = colVal.value.split(",")
       let r = numbers[0]; g = numbers[1]; b = numbers[2];
-      console.log(`r =${r}, g =${g}, b = ${b}`);
 
       // set color strings
       let rgb = `rgb(${r}, ${g}, ${b})`;
       console.log(`rgb: ${rgb}`);
-      // let hex = '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-      // let hex = rgbToHex(r, g, b);
-      let hex = rgbToHex(r, g, b);
-      console.log(`hex: ${hex}`);
 
+      let hex = '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+      console.log(`hex: ${hex}`);
 
       // output results
       colorsDisp.hidden = false;
@@ -69,8 +66,7 @@ function rgbConvert() {
       val1.innerText = rgb;
       col2.style.backgroundColor = hex;
       val2.innerText = hex;
-   };
-
+	};
 
    colVal.placeholder = '255,255,255';
 
@@ -78,9 +74,8 @@ function rgbConvert() {
    form2.addEventListener('click', click2Handler, true);
 }
 
-const rgbToHex = (r, g, b) => {
-   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
- }
+
+
 
 // set initial defaults
 butt1.hidden = false;
