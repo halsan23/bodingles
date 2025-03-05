@@ -31,34 +31,55 @@
 
       <article id="textWindow3">
          <p><span class="firstWord">This</span> app will take a know color number and convert it in to a different color format.</p>
-      </article>
-
-         <form id="form1">
-            <label for="colorType">Known color type: </label>
-
-            <select id="colorType" name="colorType">
-               <option value="rgb" selected> RGB </option>
-               <option value="hex"> HEX </option>
-               <option value="hsl"> HSL </option>
-            </select>
-            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-            <button id="butt1">Submit</button>
-         </form>
-
-
-         <form id="form2">
-            <label id="label1" for="colorValue"></label>
-            <input type="text" id="colorValue" name="colorValue" required size="10">
-            <label id="label2" for="colorValue">Known color value: </label>
-            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-            <button id="butt2">Submit</button>
-         </form>
-
-
-         <div id="colorDiv">
+         <p>Simply input the known color type and value.</p>
+         <div id="instructions" class="lists">
+            <b>*note:</b>
+               <ul>
+                  <li>For RGB values, enter numbers with comma separators : eg. 255,255,255</li>
+                  <li>For HEX values, enter numbers only, no # sign : eg. ffffff</li>
+                  <li>For HSL values, enter numbers only, with comma separators (no % signs) : eg. 180,50,50</li>
+               </ul>
          </div>
+         <hr><br>
+
+         <div id="form">
+            <form id="form1">
+               <span>
+                  <label for="colorType">Known color type: </label>
+                  <select id="colorType" name="colorType">
+                     <option value="rgb" selected> RGB </option>
+                     <option value="hex"> HEX </option>
+                     <option value="hsl"> HSL </option>
+                  </select>
+               </span>
+               <span><button id="butt1">Submit</button></span>
+            </form>
+
+            <!-- <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
+
+            <form id="form2">
+               <span>
+                  <label for="colorValue">Value: </label>
+                  <input id="colorValue" name="colorValue" type="text" size="15">
+                  <!-- <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
+               </span>
+               <span><button id="butt2">Submit</button></span>
+            </form>
+         </div>
+
+
+         <div id="colorsDisp">
+            <hr>
+            <span id="col1"></span>
+            <span id="val1"></span>
+            <span id="col2"></span>
+            <span id="val2"></span>
+         </div>
+
+         <div id="oppositeDisp">
+         </div>
+
+      </article>
 
 
       <p><br><a href="#top">Back to Top</a><br><br></p>

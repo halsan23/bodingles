@@ -1,8 +1,27 @@
-#form2 {
-   margin: 10px auto;
-   padding: 10px;
+#form {
+   margin: 0 auto;
+   width: 85%;
+   display: flex;
+   justify-content: space-around;
 }
 
 #colorValue::placeholder {
    color: #c1c1c1;
+}
+
+#instructions {
+   margin: 0 auto;
+   font-size: small;
+}
+
+#colorsDisp {
+   font-size: small;
+}
+
+#col1 {
+   display: inline-block;
+   width: 12px;
+   height: 12px;
+   vertical-align: bottom;
+   border: 1px solid black;
 }
