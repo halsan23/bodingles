@@ -40,7 +40,7 @@
                   <li>For HSL values, enter numbers only, with comma separators (no % signs) : eg. 180,50,50</li>
                </ul>
          </div>
-         <hr><br>
+         <hr>
 
          <div id="form">
             <form id="form1">
@@ -59,24 +59,46 @@
 
             <form id="form2">
                <span>
-                  <label for="colorValue">Value: </label>
+                  <label id="form2Label" for="colorValue"></label>
                   <input id="colorValue" name="colorValue" type="text" size="15">
+                  <label id="form2Label2" for="colorValue"></label>
                   <!-- <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
                </span>
                <span><button id="butt2">Submit</button></span>
             </form>
          </div>
-
+         <hr>
 
          <div id="colorsDisp">
-            <hr>
-            <span id="col1"></span>
-            <span id="val1"></span>
-            <span id="col2"></span>
-            <span id="val2"></span>
+            <div>
+               <span id="col1" class="colorDisplay"></span>
+               <span id="val1"></span>
+            </div>
+            <div>
+               <span id="col2" class="colorDisplay"></span>
+               <span id="val2"></span>
+            </div>
+            <div>
+               <span id="col3" class="colorDisplay"></span>
+               <span id="val3"></span>
+            </div>
          </div>
+         <hr>
 
          <div id="oppositeDisp">
+            <div>
+               <span id="oppcol1" class="oppDisplay"></span>
+               <span id="oppval1"></span>
+            </div>
+            <div>
+               <span id="oppcol2" class="oppDisplay"></span>
+               <span id="oppval2"></span>
+            </div>
+            <div>
+               <span id="oppcol3" class="oppDisplay"></span>
+               <span id="oppval3"></span>
+            </div>
+         </div>
          </div>
 
       </article>
@@ -92,5 +114,6 @@
    <script src="/header.js"></script>
    <script src="/footer.js"></script>
    <script src="colorConvert.js"></script>
+   <script src="colorClass.js"></script>
 </body>
 </html>
