@@ -115,29 +115,27 @@ function hslToRgb(h, s, l) {
    const k = n => (n + h / 30) % 12;
    const a = s * Math.min(l, 1 - l);
    const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
-   return [255 * f(0), 255 * f(8), 255 * f(4)];
+   let r = Math.round(255 * f(0));
+   let g = Math.round(255 * f(8));
+   let b = Math.round(255 * f(4));
+   return [r, g, b];
 }
 
-// run the hexToRgb function
-// const hexColor = hexToRgb();
-// console.log(hexColor);
+//strip opposite hsl string to numbers
+const convHslRgb = (oppHsl) => {
+   // remove all from hsl string except numbers
+   let temp = oppHsl.slice(4, -1);
+   let stripHsl = temp.replaceAll("%", "");
 
+   // convert the hsl string numbers into actual numbers
+   let numbs = stripHsl.split(",")
+   let h = numbs[0]; s = numbs[1]; l = numbs[2];
+   h = Number(h); s = Number(s); l = Number(l);
 
-// run the hslToRgb function
-const rgbColor2 = new RgbConvert(255,200,255);
-let mycolor = rgbColor2.hsl();
-let mycol = mycolor.replaceAll('%', '');
-mycol = mycol.slice(4);
-mycol = mycol.slice(onabort, -1);
-console.log(`mycol is: ${mycol}`);
+   // convert the opposite hsl color into an rgb color
+   const hslRgb = hslToRgb(h, s, l);
+   r = hslRgb[0]; g = hslRgb[1]; b = hslRgb[2]
 
-
-let numbers = mycol.split(",")
-// let h = numbers[0]; s = numbers[1]; l = numbers[2];
-let h = Math.round(Number(numbers[0])); s = Math.round(Number(numbers[1])); l = Math.round(Number(numbers[2]));
-
-const hslColor = hslToRgb(h, s, l);
-console.log(`hsl to rgb = ${hslColor}`);
-
-const newRgb = new RgbConvert(hslColor);
-console.log(`newRgb = ${newRgb.hsl()}`);
+   // create new color object for opposite calc's
+   return new RgbConvert(r, g, b);
+}

@@ -68,7 +68,6 @@ function rgbConv() {
       evt.preventDefault();
 
       // break input string down into individual numbers
-      // console.log(`colVal type: ${colVal.value.typeof +str}`);
       let numbers = colVal.value.split(",")
       let r = numbers[0]; g = numbers[1]; b = numbers[2];
       r = Number(r); g = Number(g); b = Number(b);
@@ -89,8 +88,13 @@ function rgbConv() {
       col3.style.border = '1px solid black';
       val3.innerText = rgbColor.hsl();
 
-      const hexColor = hexToRgb(rgbColor.hex());
-      console.log(hexColor);
+      // generate opposite hsl color
+      const oppHsl = rgbColor.opposite();
+
+      // generate new opposite rgb object
+      const myOppRgb = convHslRgb(oppHsl);
+      console.log(`opp rgb = ${myOppRgb.rgb()}`);
+
 
       // output opposite results
       oppcol1.style.backgroundColor = '#ffffff';
@@ -109,6 +113,7 @@ function rgbConv() {
    // event listener for color value submit
    form2.addEventListener('submit', click2Handler, true);
 }
+
 
 // set initial defaults
 butt1.hidden = false;
