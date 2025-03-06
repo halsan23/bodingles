@@ -3,12 +3,12 @@
 
 // Create the Class
 class RgbConvert {
-   constructor ( r = 215, g = 170, b = 80, colorName = 'Bronze' ) {
-         this.r = r;
-         this.g = g;
-         this.b = b;
-         this.colorName = colorName;
-         this.calcHSL();
+   constructor ( r = 255, g = 255, b = 255, colorName = 'White' ) {
+      this.r = r;
+      this.g = g;
+      this.b = b;
+      this.colorName = colorName;
+      this.calcHSL();
    }
 
    // method to output color name
@@ -99,14 +99,17 @@ class RgbConvert {
 
 // function to convert hex to rgb
 function hexToRgb(hex = 'a82aaa') {
+   console.log(`hexToRgb: #${hex}`);
    let r = parseInt(hex.substring(0,2), 16);
    let g = parseInt(hex.substring(2,4), 16);
    let b = parseInt(hex.substring(4), 16);
+   console.log(`hexToRgb: rgb(${r}, ${g}, ${b})`);
    return [r, g, b];
 }
 
 // function to convert hsl to rgb
 function hslToRgb(h, s, l) {
+   console.log(`hslToRgb: hsl(${h}, ${s}, ${l})`);
    s /= 100;
    l /= 100;
    const k = n => (n + h / 30) % 12;
@@ -115,6 +118,7 @@ function hslToRgb(h, s, l) {
    let r = Math.round(255 * f(0));
    let g = Math.round(255 * f(8));
    let b = Math.round(255 * f(4));
+   console.log(`hslToRgb: rgb(${r}, ${g}, ${b})`);
    return [r, g, b];
 }
 
@@ -136,3 +140,7 @@ const convHslRgb = (oppHsl) => {
    // create new color object for opposite calc's
    return new RgbConvert(r, g, b);
 }
+
+
+console.log(hexToRgb('ffffff'));
+console.log(hslToRgb('0, 100, 100'));

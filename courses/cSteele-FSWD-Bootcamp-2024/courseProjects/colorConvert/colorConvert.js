@@ -12,7 +12,7 @@ const form2Label = document.querySelector('#form2Label');
 const form2Label2 = document.querySelector('#form2Label2');
 
 const colTyp = document.querySelector('#colorType');
-const colVal = document.querySelector('#colorValue');
+let colVal = document.querySelector('#colorValue');
 
 const butt1 = document.querySelector('#butt1');
 const butt2 = document.querySelector('#butt2');
@@ -83,6 +83,9 @@ function rgbConv() {
       // show color headings
       head1.hidden = false;
       head2.hidden = false;
+      if (colVal.value === '') {
+         colVal.value = '255, 255, 255';
+      }
 
       // break input string down into individual numbers
       let numbers = colVal.value.split(",")
@@ -117,8 +120,8 @@ function rgbConv() {
       oppcol2.style.backgroundColor = `#${myOppRgb.hex()}`;
       oppcol2.style.border = '1px solid black';
       oppval2.innerText = `hex #${myOppRgb.hex()}`;
-      oppcol3.style.backgroundColor = `hsl(${myOppRgb.hsl()})`;
+      oppcol3.style.backgroundColor = `hsl(${myOppRgb.opposite()})`;
       oppcol3.style.border = '1px solid black';
-      oppval3.innerText = `hsl(${myOppRgb.hsl()})`;
+      oppval3.innerText = `hsl(${myOppRgb.opposite()})`;
 	});
 }
