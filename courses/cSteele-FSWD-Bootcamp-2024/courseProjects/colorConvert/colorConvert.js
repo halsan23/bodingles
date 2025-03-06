@@ -16,11 +16,12 @@ let colVal = document.querySelector('#colorValue');
 
 const butt1 = document.querySelector('#butt1');
 const butt2 = document.querySelector('#butt2');
+const resetButt = document.querySelector('#reset');
 
 const colorsDisp = document.querySelector('#colorsDisp');
 const oppositeDisp = document.querySelector('#oppositeDisp');
 
-const colorDisplay = document.querySelector('.colorDisplay');
+// const colorDisplay = document.querySelector('.colorDisplay');
 
 const col1 = document.querySelector('#col1');
 const col2 = document.querySelector('#col2');
@@ -42,15 +43,8 @@ const oppval3 = document.querySelector('#oppval3');
 const head1 = document.querySelector('#head1');
 const head2 = document.querySelector('#head2');
 
-// set initial defaults
-butt1.hidden = false;
-form2.hidden = true;
-butt2.hidden = true;
-colVal.innerText = '';
-colorsDisp.hidden = true;
-oppositeDisp.hidden = true;
-head1.hidden = true;
-head2.hidden = true;
+// set defaults
+reset();
 
 // set click handler for color type submit
 form1.addEventListener('submit', function(evt) {
@@ -62,11 +56,18 @@ form1.addEventListener('submit', function(evt) {
    }
 });
 
+resetButt.addEventListener('click', function(evt) {
+   evt.preventDefault();
+
+   reset();
+});
+
 // function to convert rgb to hex and hsl
 function rgbConv() {
    //  remove button 1, show form2 and button 2
    form1.hidden = true;
    butt1.hidden = true;
+   resetButt.hidden = false
    form2.hidden = false;
    butt2.hidden = false;
 
@@ -125,4 +126,39 @@ function rgbConv() {
       oppcol3.style.border = '1px solid black';
       oppval3.innerText = rgbColor.opposite();
 	});
+}
+
+   // set defaults
+function reset() {
+   form1.hidden = false;
+   butt1.hidden = false;
+   resetButt.hidden = true;
+   form2.hidden = true;
+   butt2.hidden = true;
+
+   colVal.innerText = '';
+   head1.hidden = true;
+   head2.hidden = true;
+   oppositeDisp.hidden = true;
+   colorsDisp.hidden = true;
+
+   col1.style.backgroundColor = '';
+   col1.style.border = 'none';
+   val1.innerText = '';
+   col2.style.backgroundColor = '';
+   col2.style.border = 'none';
+   val2.innerText = '';
+   col3.style.backgroundColor = '';
+   col3.style.border = 'none';
+   val3.innerText = '';
+
+   oppcol1.style.backgroundColor = '';
+   oppcol1.style.border = 'none';
+   oppval1.innerText = '';
+   oppcol2.style.backgroundColor = '';
+   oppcol2.style.border = 'none';
+   oppval2.innerText = '';
+   oppcol3.style.backgroundColor = '';
+   oppcol3.style.border = 'none';
+   oppval3.innerText = '';
 }
