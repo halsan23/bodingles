@@ -65,6 +65,7 @@ form1.addEventListener('submit', function(evt) {
 // function to convert rgb to hex and hsl
 function rgbConv() {
    //  remove button 1, show form2 and button 2
+   form1.hidden = true;
    butt1.hidden = true;
    form2.hidden = false;
    butt2.hidden = false;
@@ -120,8 +121,8 @@ function rgbConv() {
       oppcol2.style.backgroundColor = `#${myOppRgb.hex()}`;
       oppcol2.style.border = '1px solid black';
       oppval2.innerText = `hex #${myOppRgb.hex()}`;
-      oppcol3.style.backgroundColor = `hsl(${myOppRgb.opposite()})`;
+      oppcol3.style.backgroundColor = rgbColor.opposite();
       oppcol3.style.border = '1px solid black';
-      oppval3.innerText = `hsl(${myOppRgb.opposite()})`;
+      oppval3.innerText = rgbColor.opposite();
 	});
 }
