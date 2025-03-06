@@ -93,19 +93,18 @@ function rgbConv() {
 
       // generate new opposite rgb object
       const myOppRgb = convHslRgb(oppHsl);
-      console.log(`opp rgb = ${myOppRgb.rgb()}`);
 
 
       // output opposite results
-      oppcol1.style.backgroundColor = '#ffffff';
+      oppcol1.style.backgroundColor = myOppRgb.rgb();
       oppcol1.style.border = '1px solid black';
-      oppval1.innerText = '';
-      oppcol2.style.backgroundColor = '#ffffff';
+      oppval1.innerText = myOppRgb.rgb();
+      oppcol2.style.backgroundColor = `#${myOppRgb.hex()}`;
       oppcol2.style.border = '1px solid black';
-      oppval2.innerText = `hex`;
-      oppcol3.style.backgroundColor = '#ffffff';
+      oppval2.innerText = `hex #${myOppRgb.hex()}`;
+      oppcol3.style.backgroundColor = myOppRgb.hsl();
       oppcol3.style.border = '1px solid black';
-      oppval3.innerText = '';
+      oppval3.innerText = myOppRgb.hsl();
 	};
 
    colVal.placeholder = '255,255,255';
