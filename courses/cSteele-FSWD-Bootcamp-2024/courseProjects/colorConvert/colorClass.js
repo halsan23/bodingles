@@ -8,7 +8,7 @@ class RgbConvert {
          this.g = g;
          this.b = b;
          this.colorName = colorName;
-         this.calcHSL(); // run method to convert rgb to hsl
+         this.calcHSL();
    }
 
    // method to output color name
@@ -42,8 +42,7 @@ class RgbConvert {
    // method to output hsl color
 	hsl() {
 		const { h, s, l } = this;
-      // console.log(`h = ${h}, s = ${s}, l = ${l}`);
-		return `hsl(${h}, ${s}%, ${l}%)`;
+		return `${h}, ${s}%, ${l}%`;
 	}
 
    // method to output opposite hsl color
@@ -56,13 +55,12 @@ class RgbConvert {
    // convert rgb to hsl
 	calcHSL() {
 		let { r, g, b } = this;
-
 		// Make r, g, and b fractions of 1
 		r /= 255;
 		g /= 255;
 		b /= 255;
 
-      // Find greatest and smallest channel values
+		// Find greatest and smallest channel values
 		let cmin = Math.min(r, g, b),
 			cmax = Math.max(r, g, b),
 			delta = cmax - cmin,
@@ -84,7 +82,6 @@ class RgbConvert {
 
 		// Make negative hues positive behind 360Â°
 		if (h < 0) h += 360;
-
 		// Calculate lightness
 		l = (cmax + cmin) / 2;
 
@@ -97,7 +94,7 @@ class RgbConvert {
 		this.h = h;
 		this.s = s;
 		this.l = l;
-   }
+	}
 }
 
 // function to convert hex to rgb
@@ -105,7 +102,7 @@ function hexToRgb(hex = 'a82aaa') {
    let r = parseInt(hex.substring(0,2), 16);
    let g = parseInt(hex.substring(2,4), 16);
    let b = parseInt(hex.substring(4), 16);
-   return `HEX Color #${hex} = rgb(${r}, ${g}, ${b})`;
+   return [r, g, b];
 }
 
 // function to convert hsl to rgb
