@@ -28,6 +28,16 @@
    justify-content: space-evenly;
 }
 
+#head1 {
+   padding-left: 17%;
+   text-align: left;
+}
+
+#head2 {
+   padding-left: 17%;
+   text-align: left;
+}
+
 .colorDisplay {
    display: inline-block;
    margin-top: 10px;

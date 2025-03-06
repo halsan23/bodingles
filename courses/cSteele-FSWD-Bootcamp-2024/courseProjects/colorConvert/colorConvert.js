@@ -39,6 +39,8 @@ const oppval1 = document.querySelector('#oppval1');
 const oppval2 = document.querySelector('#oppval2');
 const oppval3 = document.querySelector('#oppval3');
 
+const head1 = document.querySelector('#head1');
+const head2 = document.querySelector('#head2');
 
 // set initial defaults
 butt1.hidden = false;
@@ -47,6 +49,8 @@ butt2.hidden = true;
 colVal.innerText = '';
 colorsDisp.hidden = true;
 oppositeDisp.hidden = true;
+head1.hidden = true;
+head2.hidden = true;
 
 // set click handler for color type submit
 form1.addEventListener('submit', function(evt) {
@@ -75,6 +79,10 @@ function rgbConv() {
    // event listener for color value submit
    form2.addEventListener('submit', function(evt) {
       evt.preventDefault();
+
+      // show color headings
+      head1.hidden = false;
+      head2.hidden = false;
 
       // break input string down into individual numbers
       let numbers = colVal.value.split(",")
