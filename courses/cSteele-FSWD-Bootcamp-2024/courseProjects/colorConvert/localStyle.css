@@ -1,9 +1,59 @@
-#colorsDisp {
-   margin: 25px auto;
-   width: 80%;
+#mainWindow {
+   margin: 0 auto;
+   width: 75%;
    display: flex;
    justify-content: space-evenly;
 }
+
+#mainLeft {
+   width: 50%;
+   margin: 0 auto;
+}
+
+#mainRight {
+   width: 50%;
+   margin: 0 auto;
+}
+
+#heading {
+   margin: 0 auto;
+   padding: 20px;
+   text-align: center;
+}
+
+#columns {
+   width: 100%;
+   text-align: center;
+   display: flex;
+   justify-content: space-around;
+}
+
+#leftColumn {
+   width: 50%;
+   text-align: center;
+   vertical-align: middle;
+}
+
+#rightColumn {
+   width: 50%;
+   text-align: center;
+   vertical-align: middle;
+}
+
+#colDisp {
+   margin: auto;
+   width: 100%;
+   padding: 10px 0;
+   border: 1px solid black;
+}
+#colVal {
+   margin: auto;
+   width: 100%;
+   padding: 10px 0;
+}
+
+
+
 
 #colorValue::placeholder {
    color: #c1c1c1;
@@ -16,22 +66,12 @@
    justify-content: space-around;
 }
 
-#head1 {
-   padding-left: 17%;
-   text-align: left;
-}
-
-#head2 {
-   padding-left: 17%;
-   text-align: left;
-}
-
 #instructions {
    margin: 0 auto;
    font-size: small;
 }
 
-#oppositeDisp {
+/* #oppositeDisp {
    margin: 25px auto;
    width: 80%;
    display: flex;
@@ -52,4 +92,4 @@
    width: 16px;
    height: 16px;
    vertical-align: bottom;
-}
+} */

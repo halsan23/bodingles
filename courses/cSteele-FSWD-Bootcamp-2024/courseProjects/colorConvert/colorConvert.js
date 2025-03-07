@@ -11,17 +11,17 @@ const form2 = document.querySelector('#form2');
 const form2Label = document.querySelector('#form2Label');
 const form2Label2 = document.querySelector('#form2Label2');
 
-const colTyp = document.querySelector('#colorType');
+const colType = document.querySelector('#colorType');
 let colVal = document.querySelector('#colorValue');
 
 const butt1 = document.querySelector('#butt1');
 const butt2 = document.querySelector('#butt2');
 const resetButt = document.querySelector('#reset');
 
-const colorsDisp = document.querySelector('#colorsDisp');
-const oppositeDisp = document.querySelector('#oppositeDisp');
+const colorsDisp = document.querySelector('#leftColumn');
+const oppositeDisp = document.querySelector('#mainRight');
 
-// const colorDisplay = document.querySelector('.colorDisplay');
+const heading = document.querySelector('#heading');
 
 const col1 = document.querySelector('#col1');
 const col2 = document.querySelector('#col2');
@@ -40,9 +40,6 @@ const oppval1 = document.querySelector('#oppval1');
 const oppval2 = document.querySelector('#oppval2');
 const oppval3 = document.querySelector('#oppval3');
 
-const head1 = document.querySelector('#head1');
-const head2 = document.querySelector('#head2');
-
 // set defaults
 reset();
 
@@ -51,7 +48,7 @@ form1.addEventListener('submit', function(evt) {
    evt.preventDefault();
 
    // trap for color type choice
-   if (colTyp.value = 'rgb') {
+   if (colType.value = 'rgb') {
       rgbConv();
    }
 });
@@ -83,8 +80,7 @@ function rgbConv() {
       evt.preventDefault();
 
       // show color headings
-      head1.hidden = false;
-      head2.hidden = false;
+      heading.hidden = false;
       if (colVal.value === '') {
          colVal.value = '255, 255, 255';
       }
@@ -137,8 +133,7 @@ function reset() {
    butt2.hidden = true;
 
    colVal.innerText = '';
-   head1.hidden = true;
-   head2.hidden = true;
+   heading.hidden = true;
    oppositeDisp.hidden = true;
    colorsDisp.hidden = true;
 
