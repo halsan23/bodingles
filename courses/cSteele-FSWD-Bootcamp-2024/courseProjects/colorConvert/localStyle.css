@@ -75,6 +75,12 @@
    display: block;
 }
 
+.instructions2 {
+   color: #822500;
+   font-weight: bold;
+   display: block;
+}
+
 #colorDisplayL {
    width: 35%;
    margin-left: 15px;

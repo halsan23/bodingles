@@ -19,6 +19,7 @@ const butt2 = document.querySelector('#butt2');
 
 // Instructions
 let instructions = document.querySelector('.instructions');
+let instructions2 = document.querySelector('.instructions2');
 
 // Reset Button
 const resetButt = document.querySelector('#reset');
@@ -86,6 +87,7 @@ function reset() {
    colVal.value = '';
 
    instructions.innerText = 'Select a known color type for processing.';
+   instructions2.innerText = '';
 
    mainLeft.style.display = 'none';
    mainRight.style.display = 'none';
@@ -142,6 +144,7 @@ form1.addEventListener('submit', function(evt) {
    evt.preventDefault();
 
    instructions.innerText = 'Enter the known RGB values in the format: 255,255,255';
+   instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and 255';
 
    // trap for color type choice
    if (colType.value = 'rgb') {
