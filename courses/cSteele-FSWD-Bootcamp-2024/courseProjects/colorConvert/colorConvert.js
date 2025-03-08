@@ -5,40 +5,32 @@
 
 
 // assign variables
+// form1
 const form1 = document.querySelector('#form1');
-const form2 = document.querySelector('#form2');
-
-const form2Label = document.querySelector('#form2Label');
-const form2Label2 = document.querySelector('#form2Label2');
-
 const colType = document.querySelector('#colorType');
-let colVal = document.querySelector('#colorValue');
-
 const butt1 = document.querySelector('#butt1');
+
+// form2
+const form2 = document.querySelector('#form2');
+const form2Label1 = document.querySelector('#form2Label1');
+let colVal = document.querySelector('#colorValue');
+const form2Label2 = document.querySelector('#form2Label2');
 const butt2 = document.querySelector('#butt2');
+
+// Instructions
+let instructions = document.querySelector('.instructions');
+
+// Reset Button
 const resetButt = document.querySelector('#reset');
 
-const colorsDisp = document.querySelector('#leftColumn');
-const oppositeDisp = document.querySelector('#mainRight');
+// Output Windows
+const mainWindow = document.querySelector('#mainWindow');
+const mainLeft = document.querySelector('.mainLeft');
+const mainRight = document.querySelector('.mainRight');
 
-const heading = document.querySelector('#heading');
-
-const col1 = document.querySelector('#col1');
-const col2 = document.querySelector('#col2');
-const col3 = document.querySelector('#col3');
-
-const val1 = document.querySelector('#val1');
-const val2 = document.querySelector('#val2');
-const val3 = document.querySelector('#val3');
-
-
-const oppcol1 = document.querySelector('#oppcol1');
-const oppcol2 = document.querySelector('#oppcol2');
-const oppcol3 = document.querySelector('#oppcol3');
-
-const oppval1 = document.querySelector('#oppval1');
-const oppval2 = document.querySelector('#oppval2');
-const oppval3 = document.querySelector('#oppval3');
+// color display columns for adding a border
+const colorDisplayL = document.querySelector('#colorDisplayL');
+const colorDisplayR = document.querySelector('#colorDisplayR');
 
 // set defaults
 reset();
@@ -46,6 +38,8 @@ reset();
 // set click handler for color type submit
 form1.addEventListener('submit', function(evt) {
    evt.preventDefault();
+
+   instructions.innerText = 'Enter the known RGB values in the format: 255,255,255';
 
    // trap for color type choice
    if (colType.value = 'rgb') {
@@ -69,8 +63,8 @@ function rgbConv() {
    butt2.hidden = false;
 
    // format text input for rgb
-   form2Label.value = 'Value:  rgb(';
-   form2Label.innerText = form2Label.value;
+   form2Label1.value = 'Value:  rgb(';
+   form2Label1.innerText = form2Label1.value;
    form2Label2.value = ')';
    form2Label2.innerText = form2Label2.value;
    colVal.placeholder = '255,255,255';
@@ -79,8 +73,7 @@ function rgbConv() {
    form2.addEventListener('submit', function(evt) {
       evt.preventDefault();
 
-      // show color headings
-      heading.hidden = false;
+      // sets default rgb value
       if (colVal.value === '') {
          colVal.value = '255, 255, 255';
       }
@@ -93,15 +86,16 @@ function rgbConv() {
       // create new color object
       const rgbColor = new RgbConvert(r, g, b);
 
+      // show color headings
+      mainLeft.style.display = 'block';
+      mainRight.style.display = 'block';
+
       // output conversion results
       col1.style.backgroundColor = rgbColor.rgb();
-      col1.style.border = '1px solid black';
       val1.innerText = rgbColor.rgb();
       col2.style.backgroundColor = `#${rgbColor.hex()}`;
-      col2.style.border = '1px solid black';
       val2.innerText = `hex #${rgbColor.hex()}`;
       col3.style.backgroundColor = `hsl(${rgbColor.hsl()})`;
-      col3.style.border = '1px solid black';
       val3.innerText = `hsl(${rgbColor.hsl()})`;
 
       // generate opposite hsl color
@@ -111,15 +105,16 @@ function rgbConv() {
       // new object call is in the convHslRgb function
       const myOppRgb = convHslRgb(oppHsl);
 
+      // display border around color boxes
+      colorDisplayL.style.border = `3px solid ${rgbColor.opposite()}`;
+      colorDisplayR.style.border = `3px solid ${myOppRgb.opposite()}`;
+
       // output opposite results
       oppcol1.style.backgroundColor = myOppRgb.rgb();
-      oppcol1.style.border = '1px solid black';
       oppval1.innerText = myOppRgb.rgb();
       oppcol2.style.backgroundColor = `#${myOppRgb.hex()}`;
-      oppcol2.style.border = '1px solid black';
       oppval2.innerText = `hex #${myOppRgb.hex()}`;
       oppcol3.style.backgroundColor = rgbColor.opposite();
-      oppcol3.style.border = '1px solid black';
       oppval3.innerText = rgbColor.opposite();
 	});
 }
@@ -128,32 +123,15 @@ function rgbConv() {
 function reset() {
    form1.hidden = false;
    butt1.hidden = false;
+
    resetButt.hidden = true;
    form2.hidden = true;
    butt2.hidden = true;
 
-   colVal.innerText = '';
-   heading.hidden = true;
-   oppositeDisp.hidden = true;
-   colorsDisp.hidden = true;
+   colVal.value = '';
 
-   col1.style.backgroundColor = '';
-   col1.style.border = 'none';
-   val1.innerText = '';
-   col2.style.backgroundColor = '';
-   col2.style.border = 'none';
-   val2.innerText = '';
-   col3.style.backgroundColor = '';
-   col3.style.border = 'none';
-   val3.innerText = '';
+   instructions.innerText = 'Select a known color type for processing.';
 
-   oppcol1.style.backgroundColor = '';
-   oppcol1.style.border = 'none';
-   oppval1.innerText = '';
-   oppcol2.style.backgroundColor = '';
-   oppcol2.style.border = 'none';
-   oppval2.innerText = '';
-   oppcol3.style.backgroundColor = '';
-   oppcol3.style.border = 'none';
-   oppval3.innerText = '';
+   mainLeft.style.display = 'none';
+   mainRight.style.display = 'none';
 }

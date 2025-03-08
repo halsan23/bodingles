@@ -1,95 +1,86 @@
-#mainWindow {
-   margin: 0 auto;
-   width: 75%;
+.form {
+   margin: 25px auto;
+   width: 70%;
    display: flex;
    justify-content: space-evenly;
 }
 
-#mainLeft {
-   width: 50%;
+.mainWindow {
    margin: 0 auto;
+   width: 90%;
+   display: flex;
+   justify-content: space-evenly;
 }
 
-#mainRight {
+.mainLeft {
    width: 50%;
    margin: 0 auto;
+   padding: 0 0 20px 0;
+   display: block;
 }
 
-#heading {
+.mainRight {
+   width: 50%;
+   margin: 0 auto;
+   padding: 0 0 20px 0;
+   display: block;
+}
+
+.headings {
    margin: 0 auto;
    padding: 20px;
    text-align: center;
 }
 
-#columns {
+.columns {
    width: 100%;
    text-align: center;
    display: flex;
    justify-content: space-around;
 }
 
-#leftColumn {
-   width: 50%;
+.leftColumn {
+   width: 55%;
+   text-align: center;
+   vertical-align: middle;
+   border: none;
+}
+
+.rightColumn {
+   width: 55%;
    text-align: center;
    vertical-align: middle;
 }
 
-#rightColumn {
-   width: 50%;
-   text-align: center;
-   vertical-align: middle;
-}
-
-#colDisp {
+.colDisp {
    margin: auto;
    width: 100%;
-   padding: 10px 0;
-   border: 1px solid black;
-}
-#colVal {
-   margin: auto;
-   width: 100%;
+   height: 30px;
    padding: 10px 0;
 }
 
-
-
-
-#colorValue::placeholder {
-   color: #c1c1c1;
-}
-
-#form {
-   margin: 25px auto;
-   width: 70%;
+.colVal {
+   margin: auto;
+   width: 100%;
+   height: 30px;
+   padding: 10px 0;
+   font-weight: 500;
    display: flex;
+   flex-direction: column;
    justify-content: space-around;
 }
 
-#instructions {
-   margin: 0 auto;
-   font-size: small;
+.instructions {
+   font-weight: bold;
+   display: block;
 }
 
-/* #oppositeDisp {
-   margin: 25px auto;
-   width: 80%;
-   display: flex;
-   justify-content: space-evenly;
+#colorDisplayL {
+   width: 35%;
+   margin-left: 15px;
 }
 
-.colorDisplay {
-   display: inline-block;
-   margin-top: 10px;
-   width: 16px;
-   height: 16px;
-   vertical-align: bottom;
+#colorDisplayR {
+   width: 35%;
+   margin-right: 15px;
 }
-
-.oppDisplay {
-   display: inline-block;
-   margin-top: 10px;
-   width: 16px;
-   height: 16px;
-   vertical-align: bottom;
-} */

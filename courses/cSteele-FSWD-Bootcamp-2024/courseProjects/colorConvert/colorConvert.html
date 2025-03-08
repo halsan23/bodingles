@@ -21,28 +21,25 @@
 
    <!-- Main Body -->
    <section id="main" class="content">
-      <div>
+      <!-- Title -->
+      <article>
          <h2><i>Bodingles.com</i></h2>
          <p>badDoggy</p>
          <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
          <hr>
          <h4>Color Convertor App</h4>
-      </div>
-
-      <article id="textWindow3">
-         <p><span class="firstWord">This</span> app will take a know color number and convert it in to a different color format.</p>
-         <p>Simply input the known color type and value.</p>
-         <div id="instructions" class="lists">
-            <b>*note:</b>
-               <ul>
-                  <li>For RGB values, enter numbers with comma separators : eg. 255,255,255</li>
-                  <li>For HEX values, enter numbers only, no # sign : eg. ffffff</li>
-                  <li>For HSL values, enter numbers only, with comma separators (no % signs) : eg. 180,50,50</li>
-               </ul>
-         </div>
       </article>
 
-         <div id="form">
+      <section id="textWindow3">
+         <!-- Description -->
+         <div>
+            <p><span class="firstWord">This</span> app will take a know color type, and value, and then convert it in to a different color formats.</p>
+            <p>It then displays the color values for RGB, HEX, and HSL. It also displays the opposite color values.</p>
+            <div class="instructions"></div>
+         </div>
+
+         <!-- Input Forms -->
+         <div class="form">
             <!-- Color Type Input -->
             <form id="form1">
                <span>
@@ -62,7 +59,7 @@
             <!-- Color Value Input -->
             <form id="form2">
                <span>
-                  <label id="form2Label" for="colorValue"></label>
+                  <label id="form2Label1" for="colorValue"></label>
                   <input id="colorValue" name="colorValue" type="text" size="15">
                   <label id="form2Label2" for="colorValue"></label>
                   <!-- <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
@@ -70,30 +67,31 @@
                <span><button id="butt2">Submit</button></span>
             </form>
          </div>
+         <hr>
 
-      <article id="textWindow2">
-         <!-- main window -->
-         <div id="mainWindow">
+         <!-- main display window -->
+         <div class="mainWindow">
 
             <!-- main left -->
-            <span id="mainLeft">
+            <span class="mainLeft">
 
                <!-- header -->
                <!-- span 2 cols -->
-               <div id="heading"><h6>Standard Colors</h6></div>
+               <div class="headings"><h6>Standard Colors</h6></div>
 
                <!-- inner columns -->
                <!-- container -->
-               <div id="columns">
+               <div class="columns">
 
-                  <span id="leftColumn">
-                     <!-- left display -->
+                  <!-- left display -->
+                  <span id="colorDisplayL" class="leftColumn">
                      <div id="col1" class="colDisp"></div>
                      <div id="col2" class="colDisp"></div>
-                     <div id="col" class="colDisp"></div>
+                     <div id="col3" class="colDisp"></div>
                   </span>
 
-                  <span id="rightColumn">
+                  <!-- Right display -->
+                  <span class="rightColumn">
                      <div id="val1" class="colVal"></div>
                      <div id="val2" class="colVal"></div>
                      <div id="val3" class="colVal"></div>
@@ -104,27 +102,28 @@
             </span>
 
             <!-- main right -->
-            <span id="mainRight">
+            <span class="mainRight">
 
                <!-- header -->
                <!-- span 2 cols -->
-               <div id="heading"><h6>Opposite Colors</h6></div>
+               <div class="headings"><h6>Opposite Colors</h6></div>
 
                <!-- inner columns -->
                <!-- container -->
-               <div id="columns">
+               <div class="columns">
 
-                  <span id="leftColumn">
-                     <!-- left display -->
-                     <div id="oppcol1" class="colDisp"></div>
-                     <div id="oppcol2" class="colDisp"></div>
-                     <div id="oppcol3" class="colDisp"></div>
-                  </span>
-
-                  <span id="rightColumn">
+                  <!-- left display -->
+                  <span class="leftColumn">
                      <div id="oppval1" class="colVal"></div>
                      <div id="oppval2" class="colVal"></div>
                      <div id="oppval3" class="colVal"></div>
+                  </span>
+
+                  <!-- Right display -->
+                  <span id="colorDisplayR" class="rightColumn">
+                     <div id="oppcol1" class="colDisp"></div>
+                     <div id="oppcol2" class="colDisp"></div>
+                     <div id="oppcol3" class="colDisp"></div>
                   </span>
 
                </div>
@@ -132,7 +131,7 @@
             </span>
 
          </div>
-      </article>
+      </section>
 
       <p><br><a href="#top">Back to Top</a><br><br></p>
    </section>
