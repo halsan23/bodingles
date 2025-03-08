@@ -47,6 +47,10 @@ function rgbConv() {
    form2.hidden = false;
    butt2.hidden = false;
 
+   // set info display
+   instructions.innerText = 'Enter the known RGB values in the format: 255,255,255';
+   instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and 255';
+
    // format text input for rgb
    form2Label1.value = 'Value:  rgb(';
    form2Label1.innerText = form2Label1.value;
@@ -75,6 +79,47 @@ function rgbConv() {
 	});
 }
 
+// HEX Routine
+// function to convert hex to rgb and hsl
+function hexConv() {
+   //  remove button 1, show form2 and button 2
+   form1.hidden = true;
+   butt1.hidden = true;
+   resetButt.hidden = false
+   form2.hidden = false;
+   butt2.hidden = false;
+
+   // set info display
+   instructions.innerText = 'Enter the known HEX values in the format: ffffff';
+   instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and f';
+
+   // format text input for rgb
+   form2Label1.value = 'Value:  #';
+   form2Label1.innerText = form2Label1.value;
+   form2Label2.value = '';
+   form2Label2.innerText = form2Label2.value;
+   colVal.placeholder = 'ffffff';
+
+   // event listener for color value submit
+   form2.addEventListener('submit', function(evt) {
+      evt.preventDefault();
+
+      // sets default rgb value
+      if (colVal.value === '') {
+         colVal.value = 'ffffff';
+      }
+
+      // break rgb input string down into individual numbers
+      [r, g, b] = hexToRgb(colVal.value);
+
+      // display the results
+      form2Label1.innerText = `Displaying results for #`;
+      outputDisplay(r, g, b);
+
+      [r, g, b] = '';
+	});
+}
+
 // reset - set defaults
 function reset() {
    form1.hidden = false;
@@ -85,6 +130,7 @@ function reset() {
    butt2.hidden = true;
 
    colVal.value = '';
+   colType.value = 'rgb';
 
    instructions.innerText = 'Select a known color type for processing.';
    instructions2.innerText = '';
@@ -143,13 +189,15 @@ reset();
 form1.addEventListener('submit', function(evt) {
    evt.preventDefault();
 
-   instructions.innerText = 'Enter the known RGB values in the format: 255,255,255';
-   instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and 255';
+   // console.log(`Conversion Type: ${colType.value}`);
 
    // trap for color type choice
-   if (colType.value = 'rgb') {
+   if (colType.value === 'rgb') {
       rgbConv();
+   } else if (colType.value === 'hex') {
+      hexConv();
    }
+
 });
 
 
