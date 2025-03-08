@@ -32,27 +32,11 @@ const mainRight = document.querySelector('.mainRight');
 const colorDisplayL = document.querySelector('#colorDisplayL');
 const colorDisplayR = document.querySelector('#colorDisplayR');
 
-// set defaults
-reset();
 
-// set click handler for color type submit
-form1.addEventListener('submit', function(evt) {
-   evt.preventDefault();
+// FUNCTIONS
+//  ==========================================================
 
-   instructions.innerText = 'Enter the known RGB values in the format: 255,255,255';
-
-   // trap for color type choice
-   if (colType.value = 'rgb') {
-      rgbConv();
-   }
-});
-
-resetButt.addEventListener('click', function(evt) {
-   evt.preventDefault();
-
-   reset();
-});
-
+// RGB Routine
 // function to convert rgb to hex and hsl
 function rgbConv() {
    //  remove button 1, show form2 and button 2
@@ -78,48 +62,19 @@ function rgbConv() {
          colVal.value = '255, 255, 255';
       }
 
-      // break input string down into individual numbers
+      // break rgb input string down into individual numbers
       let numbers = colVal.value.split(",")
       let r = numbers[0]; g = numbers[1]; b = numbers[2];
       r = Number(r); g = Number(g); b = Number(b);
 
-      // create new color object
-      const rgbColor = new RgbConvert(r, g, b);
+      // display the results
+      form2Label1.innerText = `Displaying results for rgb(`;
+      outputDisplay(r, g, b);
 
-      // show color headings
-      mainLeft.style.display = 'block';
-      mainRight.style.display = 'block';
-
-      // output conversion results
-      col1.style.backgroundColor = rgbColor.rgb();
-      val1.innerText = rgbColor.rgb();
-      col2.style.backgroundColor = `#${rgbColor.hex()}`;
-      val2.innerText = `hex #${rgbColor.hex()}`;
-      col3.style.backgroundColor = `hsl(${rgbColor.hsl()})`;
-      val3.innerText = `hsl(${rgbColor.hsl()})`;
-
-      // generate opposite hsl color
-      const oppHsl = rgbColor.opposite();
-
-      // generate new opposite rgb object
-      // new object call is in the convHslRgb function
-      const myOppRgb = convHslRgb(oppHsl);
-
-      // display border around color boxes
-      colorDisplayL.style.border = `3px solid ${rgbColor.opposite()}`;
-      colorDisplayR.style.border = `3px solid ${myOppRgb.opposite()}`;
-
-      // output opposite results
-      oppcol1.style.backgroundColor = myOppRgb.rgb();
-      oppval1.innerText = myOppRgb.rgb();
-      oppcol2.style.backgroundColor = `#${myOppRgb.hex()}`;
-      oppval2.innerText = `hex #${myOppRgb.hex()}`;
-      oppcol3.style.backgroundColor = rgbColor.opposite();
-      oppval3.innerText = rgbColor.opposite();
 	});
 }
 
-   // set defaults
+// reset - set defaults
 function reset() {
    form1.hidden = false;
    butt1.hidden = false;
@@ -135,3 +90,69 @@ function reset() {
    mainLeft.style.display = 'none';
    mainRight.style.display = 'none';
 }
+
+// Output Display
+function outputDisplay (r, g, b) {
+   // create new color object
+   const rgbColor = new RgbConvert(r, g, b);
+
+   // show color headings
+   mainLeft.style.display = 'block';
+   mainRight.style.display = 'block';
+
+   // output conversion results
+   col1.style.backgroundColor = rgbColor.rgb();
+   val1.innerText = rgbColor.rgb();
+   col2.style.backgroundColor = `#${rgbColor.hex()}`;
+   val2.innerText = `hex #${rgbColor.hex()}`;
+   col3.style.backgroundColor = `hsl(${rgbColor.hsl()})`;
+   val3.innerText = `hsl(${rgbColor.hsl()})`;
+
+   // generate opposite hsl color
+   const oppHsl = rgbColor.opposite();
+
+   // generate new opposite rgb object
+   // new object call is in the convHslRgb function
+   const myOppRgb = convHslRgb(oppHsl);
+
+   // display border around color boxes
+   colorDisplayL.style.border = `3px solid ${rgbColor.opposite()}`;
+   colorDisplayR.style.border = `3px solid ${myOppRgb.opposite()}`;
+
+   // output opposite results
+   oppcol1.style.backgroundColor = myOppRgb.rgb();
+   oppval1.innerText = myOppRgb.rgb();
+   oppcol2.style.backgroundColor = `#${myOppRgb.hex()}`;
+   oppval2.innerText = `hex #${myOppRgb.hex()}`;
+   oppcol3.style.backgroundColor = rgbColor.opposite();
+   oppval3.innerText = rgbColor.opposite();
+}
+
+
+//  ==========================================================
+// set defaults
+reset();
+
+
+// RUN THE APP
+//  ==========================================================
+
+// set click handler for color type submit
+form1.addEventListener('submit', function(evt) {
+   evt.preventDefault();
+
+   instructions.innerText = 'Enter the known RGB values in the format: 255,255,255';
+
+   // trap for color type choice
+   if (colType.value = 'rgb') {
+      rgbConv();
+   }
+});
+
+
+// set click handler for reset
+resetButt.addEventListener('click', function(evt) {
+   evt.preventDefault();
+
+   reset();
+});
