@@ -70,6 +70,14 @@
    justify-content: space-around;
 }
 
+.instDisp {
+   font-size: 1.2rem;
+}
+
+.instDisp2 {
+   font-size: 1.1rem;
+}
+
 .instructions {
    font-weight: bold;
    display: block;
