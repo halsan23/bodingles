@@ -147,39 +147,47 @@ function hslStrip (hslStr) {
    return hslToRgb( h, s, l );
 }
 
+function strToNums (str) {
+   // convert the hsl string numbers into actual numbers
+   let numbs = str.split(",")
+   let a = numbs[0]; b = numbs[1]; c = numbs[2];
+   a = Number(a); b = Number(b); c = Number(c);
+   return new RgbConvert( a, b, c );
+}
+
 // rgb pass in numbers : eg (0,0,0))
 // hex pass in string : eg 'ffffff'
 // hsl: if you have numbers only (0,0,100) => call hslToRgb(0,0,100) as numbers
 // hsl: if you have the complete hsl string (from .opposite()): hsl(0, 0%,100%),
 //      call hslStrip('hsl(0,0%,100%)') as a string
-const rgb = new RgbConvert( 255, 255, 255 );
-console.log('Type = rgb');
-console.log(`rgb = ${rgb.rgb()}`);
-console.log(`hex = #${rgb.hex()}`);
-console.log(`hsl = ${rgb.hsl()}`);
-console.log(`opposite = ${rgb.opposite()}`);
-console.log(' ');
+// const rgb = new RgbConvert( 255, 255, 255 );
+// console.log('Type = rgb');
+// console.log(`rgb = ${rgb.rgb()}`);
+// console.log(`hex = #${rgb.hex()}`);
+// console.log(`hsl = ${rgb.hsl()}`);
+// console.log(`opposite = ${rgb.opposite()}`);
+// console.log(' ');
 
-const hex = hexToRgb('#ffffff');
-console.log('Type = hex');
-console.log(`rgb = ${hex.rgb()}`);
-console.log(`hex = #${hex.hex()}`);
-console.log(`hsl = ${hex.hsl()}`);
-console.log(`opposite = ${hex.opposite()}`);
-console.log(' ');
+// const hex = hexToRgb('#ffffff');
+// console.log('Type = hex');
+// console.log(`rgb = ${hex.rgb()}`);
+// console.log(`hex = #${hex.hex()}`);
+// console.log(`hsl = ${hex.hsl()}`);
+// console.log(`opposite = ${hex.opposite()}`);
+// console.log(' ');
 
-const hslNumbs = hslToRgb(0,0,100);
-console.log('Type = hsl as numbers');
-console.log(`rgb = ${hslNumbs.rgb()}`);
-console.log(`hex = #${hslNumbs.hex()}`);
-console.log(`hsl = ${hslNumbs.hsl()}`);
-console.log(`opposite = ${hslNumbs.opposite()}`);
-console.log(' ');
+// const hslNumbs = hslToRgb(0,0,100);
+// console.log('Type = hsl as numbers');
+// console.log(`rgb = ${hslNumbs.rgb()}`);
+// console.log(`hex = #${hslNumbs.hex()}`);
+// console.log(`hsl = ${hslNumbs.hsl()}`);
+// console.log(`opposite = ${hslNumbs.opposite()}`);
+// console.log(' ');
 
-const hslStr = hslStrip('hsl(0,0%,100%)');
-console.log('Type = hsl as string');
-console.log(`rgb = ${hslStr.rgb()}`);
-console.log(`hex = #${hslStr.hex()}`);
-console.log(`hsl = ${hslStr.hsl()}`);
-console.log(`opposite = ${hslStr.opposite()}`);
-console.log(' ');
+// const hslStr = hslStrip('hsl(0,0%,100%)');
+// console.log('Type = hsl as string');
+// console.log(`rgb = ${hslStr.rgb()}`);
+// console.log(`hex = #${hslStr.hex()}`);
+// console.log(`hsl = ${hslStr.hsl()}`);
+// console.log(`opposite = ${hslStr.opposite()}`);
+// console.log(' ');

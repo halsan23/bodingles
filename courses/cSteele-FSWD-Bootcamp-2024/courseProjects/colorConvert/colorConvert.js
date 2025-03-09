@@ -67,58 +67,62 @@ function rgbConv() {
          colVal.value = '255, 255, 255';
       }
 
-      // break rgb input string down into individual numbers
-      let numbers = colVal.value.split(",")
-      let r = numbers[0]; g = numbers[1]; b = numbers[2];
-      r = Number(r); g = Number(g); b = Number(b);
+      // // display the results
+      form2Label1.innerText = `Results for rgb(`;
 
-      // display the results
-      form2Label1.innerText = `Displaying results for rgb(`;
-      outputDisplay(r, g, b);
+      // convert string input to numbers
+      // this function also builds the color class
+      const rgb = strToNums(colVal.value);
+
+      // outputs the new color object
+      outputDisplay(rgb);
 
 	});
 }
 
 // HEX Routine
 // function to convert hex to rgb and hsl
-function hexConv() {
-   //  remove button 1, show form2 and button 2
-   form1.hidden = true;
-   butt1.hidden = true;
-   resetButt.hidden = false
-   form2.hidden = false;
-   butt2.hidden = false;
+// function hexConv() {
+//    //  remove button 1, show form2 and button 2
+//    form1.hidden = true;
+//    butt1.hidden = true;
+//    resetButt.hidden = false
+//    form2.hidden = false;
+//    butt2.hidden = false;
 
-   // set info display
-   instructions.innerText = 'Enter the known HEX values in the format: ffffff';
-   instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and f';
+//    // set info display
+//    instructions.innerText = 'Enter the known HEX values in the format: ffffff';
+//    instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and f';
 
-   // format text input for rgb
-   form2Label1.value = 'Value:  #';
-   form2Label1.innerText = form2Label1.value;
-   form2Label2.value = '';
-   form2Label2.innerText = form2Label2.value;
-   colVal.placeholder = 'ffffff';
+//    // format text input for rgb
+//    form2Label1.value = 'Value:  #';
+//    form2Label1.innerText = form2Label1.value;
+//    form2Label2.value = '';
+//    form2Label2.innerText = form2Label2.value;
+//    colVal.placeholder = 'ffffff';
 
-   // event listener for color value submit
-   form2.addEventListener('submit', function(evt) {
-      evt.preventDefault();
+//    // event listener for color value submit
+//    form2.addEventListener('submit', function(evt) {
+//       evt.preventDefault();
 
-      // sets default rgb value
-      if (colVal.value === '') {
-         colVal.value = 'ffffff';
-      }
 
-      // break rgb input string down into individual numbers
-      [r, g, b] = hexToRgb(colVal.value);
 
-      // display the results
-      form2Label1.innerText = `Displaying results for #`;
-      outputDisplay(r, g, b);
 
-      [r, g, b] = '';
-	});
-}
+//       // // sets default rgb value
+//       // if (colVal.value === '') {
+//       //    colVal.value = 'ffffff';
+//       // }
+
+//       // // break rgb input string down into individual numbers
+//       // [r, g, b] = hexToRgb(colVal.value);
+
+//       // // display the results
+//       // form2Label1.innerText = `Displaying results for #`;
+//       // outputDisplay(r, g, b);
+
+//       // [r, g, b] = '';
+// 	});
+// }
 
 // reset - set defaults
 function reset() {
@@ -140,40 +144,33 @@ function reset() {
 }
 
 // Output Display
-function outputDisplay (r, g, b) {
-   // create new color object
-   const rgbColor = new RgbConvert(r, g, b);
-
+function outputDisplay (color) {
    // show color headings
    mainLeft.style.display = 'block';
    mainRight.style.display = 'block';
 
    // output conversion results
-   col1.style.backgroundColor = rgbColor.rgb();
-   val1.innerText = rgbColor.rgb();
-   col2.style.backgroundColor = `#${rgbColor.hex()}`;
-   val2.innerText = `hex #${rgbColor.hex()}`;
-   col3.style.backgroundColor = `hsl(${rgbColor.hsl()})`;
-   val3.innerText = `hsl(${rgbColor.hsl()})`;
+   col1.style.backgroundColor = color.rgb();
+   val1.innerText = color.rgb();
+   col2.style.backgroundColor = `#${color.hex()}`;
+   val2.innerText = `hex #${color.hex()}`;
+   col3.style.backgroundColor = `hsl(${color.hsl()}`;
+   val3.innerText = `hsl(${color.hsl()}`;
 
    // generate opposite hsl color
-   const oppHsl = rgbColor.opposite();
+   const oppCols = hslStrip(color.opposite());
 
-   // generate new opposite rgb object
-   // new object call is in the convHslRgb function
-   const myOppRgb = convHslRgb(oppHsl);
-
-   // display border around color boxes
-   colorDisplayL.style.border = `3px solid ${rgbColor.opposite()}`;
-   colorDisplayR.style.border = `3px solid ${myOppRgb.opposite()}`;
+   // // display border around color boxes
+   colorDisplayL.style.border = `3px solid ${color.opposite()}`;
+   colorDisplayR.style.border = `3px solid hsl(${color.hsl()})`;
 
    // output opposite results
-   oppcol1.style.backgroundColor = myOppRgb.rgb();
-   oppval1.innerText = myOppRgb.rgb();
-   oppcol2.style.backgroundColor = `#${myOppRgb.hex()}`;
-   oppval2.innerText = `hex #${myOppRgb.hex()}`;
-   oppcol3.style.backgroundColor = rgbColor.opposite();
-   oppval3.innerText = rgbColor.opposite();
+   oppcol1.style.backgroundColor = oppCols.rgb();
+   oppval1.innerText = oppCols.rgb();
+   oppcol2.style.backgroundColor = `#${oppCols.hex()}`;
+   oppval2.innerText = `hex #${oppCols.hex()}`;
+   oppcol3.style.backgroundColor = `hsl(${oppCols.hsl()}`;
+   oppval3.innerText = `hsl(${oppCols.hsl()}`;
 }
 
 
@@ -192,11 +189,11 @@ form1.addEventListener('submit', function(evt) {
    // console.log(`Conversion Type: ${colType.value}`);
 
    // trap for color type choice
-   if (colType.value === 'rgb') {
+   // if (colType.value === 'rgb') {
       rgbConv();
-   } else if (colType.value === 'hex') {
-      hexConv();
-   }
+   // } else if (colType.value === 'hex') {
+   //    hexConv();
+   // }
 
 });
 
