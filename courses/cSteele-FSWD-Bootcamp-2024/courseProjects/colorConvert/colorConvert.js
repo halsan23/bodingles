@@ -50,7 +50,6 @@ function rgbConv() {
    form2.hidden = false;
    butt2.hidden = false;
 
-   colVal.value = '';
    colType.value = '';
 
    // set info display
@@ -94,7 +93,6 @@ function hexConv() {
    form2.hidden = false;
    butt2.hidden = false;
 
-   colVal.value = '';
    colType.value = '';
 
    // set info display
@@ -134,7 +132,6 @@ function hslConv() {
    form2.hidden = false;
    butt2.hidden = false;
 
-   colVal.value = '';
    colType.value = '';
 
    // set info display
