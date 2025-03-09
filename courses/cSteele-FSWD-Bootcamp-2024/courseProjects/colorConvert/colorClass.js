@@ -3,24 +3,22 @@
 
 // Create the Class
 class RgbConvert {
-   constructor ( r = 255, g = 255, b = 255, colorName = 'White' ) {
+   constructor ( r = 255, g = 255, b = 255 ) {
       this.r = r;
       this.g = g;
       this.b = b;
-      this.colorName = colorName;
-      this.calcHSL();
    }
 
    // method to output color name
-   name() {
-      const colorName = this.colorName;
-      return `Color ${colorName}`;
+   colType() {
+      const type = this.colorType;
+      return type;
    }
 
    // method to output rgb color
 	rgb() {
       const { r, g, b } = this;
-		return `${r}, ${g}, ${b}`;
+		return `rgb(${r}, ${g}, ${b})`;
 	}
 
    // method to convert rgb color to hex color
@@ -31,27 +29,6 @@ class RgbConvert {
 
    // method to output hsl color
 	hsl() {
-		const {h, s, l} = this;
-		return `${h}, ${s}%, ${l}%`;
-	}
-
-   // method to output opposite hsl color
-	opposite() {
-		let {h, s, l} = this;
-		const newHue = (h + 180) % 360;
-      // if white, change to black
-      if (l === 100) {
-         l = 0;
-         // if black, change to white
-      } else if (l === 0) {
-         l = 100;
-      }
-		return `hsl(${h}, ${s}%, ${l}%)`;
-	}
-
-
-   // convert rgb to hsl
-	calcHSL() {
 		let { r, g, b } = this;
 		// Make r, g, and b fractions of 1
 		r /= 255;
@@ -92,20 +69,36 @@ class RgbConvert {
 		this.h = h;
 		this.s = s;
 		this.l = l;
+		return `${h}, ${s}%, ${l}%`;
+	}
+
+   // method to output opposite hsl color
+	opposite() {
+		let { h, s, l } = this;
+		const newHue = (h + 180) % 360;
+      // if white, change to black
+      if (l === 100) {
+         l = 0;
+         // if black, change to white
+      } else if (l === 0) {
+         l = 100;
+      }
+		return `hsl(${newHue}, ${s}%, ${l}%)`;
 	}
 }
 
 // function to convert hex to rgb
 function hexToRgb(hex = 'a82aaa') {
-   let r = parseInt(hex.substring(0,2), 16);
-   let g = parseInt(hex.substring(2,4), 16);
-   let b = parseInt(hex.substring(4), 16);
-   return [r, g, b];
+   let r = parseInt(hex.substring(1,3), 16);
+   let g = parseInt(hex.substring(3,5), 16);
+   let b = parseInt(hex.substring(5), 16);
+
+   // create new hex object
+   const hexRgb = new RgbConvert(r, g, b);
+   return hexRgb;
 }
 
-// convert hsl to rgb
-function hslToRgb(h, s, l) {
-   // console.log(`H:${h}, S:${s}, L:${l}`);
+function hslToRgb( h, s, l ) {
    // Must be fractions of 1
    s /= 100;
    l /= 100;
@@ -134,19 +127,34 @@ function hslToRgb(h, s, l) {
    g = Math.round((g + m) * 255);
    b = Math.round((b + m) * 255);
 
-   return [r, g, b];
+   // create new hsl object
+   const hslRgb = new RgbConvert(r, g, b);
+   return hslRgb;
 }
 
-//strip opposite hsl string to numbers
-const hslStrip = (hslString) => {
-   // remove all from hsl string except numbers
-   let temp = hslString.slice(4, -1);
-   let stripHsl = temp.replaceAll("%", "");
+const rgb = new RgbConvert( 255, 255, 255 );
+console.log('Type = rgb');
+console.log(`rgb = ${rgb.rgb()}`);
+console.log(`hex = #${rgb.hex()}`);
+console.log(`hsl = ${rgb.hsl()}`);
+console.log(`opposite = ${rgb.opposite()}`);
+console.log(' ');
 
-   // convert the hsl string numbers into actual numbers
-   let numbs = stripHsl.split(",")
-   let h = numbs[0]; s = numbs[1]; l = numbs[2];
-   h = Number(h); s = Number(s); l = Number(l);
+const hex = hexToRgb('#ffffff');
+console.log('Type = hex');
+console.log(`rgb = ${hex.rgb()}`);
+console.log(`hex = #${hex.hex()}`);
+console.log(`hsl = ${hex.hsl()}`);
+console.log(`opposite = ${hex.opposite()}`);
+console.log(' ');
 
-   return [h, s, l];
-}
+const hsl = hslToRgb( 0, 0, 100 );
+console.log('Type = hsl');
+console.log(`rgb = ${hsl.rgb()}`);
+console.log(`hex = #${hsl.hex()}`);
+console.log(`hsl = ${hsl.hsl()}`);
+console.log(`opposite = ${hsl.opposite()}`);
+console.log(' ');
+
+// rgb and hsl, pas in numbers : eg 0,0,0 and 0,0,100 respectively
+// hex pass in string : eg 'ffffff'
