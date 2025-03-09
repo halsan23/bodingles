@@ -17,20 +17,10 @@ class RgbConvert {
       return `Color ${colorName}`;
    }
 
-   // create a "base" method to use in the rgb methods
-	innerRGB() {
-		const { r, g, b } = this;
-		return `${r}, ${g}, ${b}`;
-	}
-
    // method to output rgb color
 	rgb() {
-		return `rgb(${this.innerRGB()})`;
-	}
-
-   // method to output rgba color
-	rgba(a = 1.0) {
-		return `rgba(${this.innerRGB()}, ${a})`;
+      const { r, g, b } = this;
+		return `${r}, ${g}, ${b}`;
 	}
 
    // method to convert rgb color to hex color
@@ -56,8 +46,9 @@ class RgbConvert {
       } else if (l === 0) {
          l = 100;
       }
-		return `hsl(${newHue}, ${s}%, ${l}%)`;
+		return [newHue, s, l];
 	}
+
 
    // convert rgb to hsl
 	calcHSL() {
@@ -112,7 +103,7 @@ function hexToRgb(hex = 'a82aaa') {
    return [r, g, b];
 }
 
-function hslToRgb(h,s,l) {
+function hslToRgb(h, s, l) {
    // Must be fractions of 1
    s /= 100;
    l /= 100;
@@ -142,23 +133,4 @@ function hslToRgb(h,s,l) {
    b = Math.round((b + m) * 255);
 
    return [r, g, b];
-}
-
-//strip opposite hsl string to numbers
-const convHslRgb = (oppHsl) => {
-   // remove all from hsl string except numbers
-   let temp = oppHsl.slice(4, -1);
-   let stripHsl = temp.replaceAll("%", "");
-
-   // convert the hsl string numbers into actual numbers
-   let numbs = stripHsl.split(",")
-   let h = numbs[0]; s = numbs[1]; l = numbs[2];
-   h = Number(h); s = Number(s); l = Number(l);
-
-   // convert the opposite hsl color into an rgb color
-   const hslRgb = hslToRgb(h, s, l);
-   r = hslRgb[0]; g = hslRgb[1]; b = hslRgb[2]
-
-   // create new color object for opposite calc's
-   return new RgbConvert(r, g, b);
 }

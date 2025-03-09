@@ -13,13 +13,16 @@ const butt1 = document.querySelector('#butt1');
 // form2
 const form2 = document.querySelector('#form2');
 const form2Label1 = document.querySelector('#form2Label1');
-let colVal = document.querySelector('#colorValue');
+const colVal = document.querySelector('#colorValue');
 const form2Label2 = document.querySelector('#form2Label2');
 const butt2 = document.querySelector('#butt2');
 
 // Instructions
-let instructions = document.querySelector('.instructions');
-let instructions2 = document.querySelector('.instructions2');
+const instructions = document.querySelector('.instructions');
+const instructions2 = document.querySelector('.instructions2');
+const instructions3 = document.querySelector('.instructions3');
+const instructions4 = document.querySelector('.instructions4');
+const instructions5 = document.querySelector('.instructions5');
 
 // Reset Button
 const resetButt = document.querySelector('#reset');
@@ -52,11 +55,14 @@ function rgbConv() {
    instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and 255';
 
    // format text input for rgb
-   form2Label1.value = 'Value:  rgb(';
-   form2Label1.innerText = form2Label1.value;
-   form2Label2.value = ')';
-   form2Label2.innerText = form2Label2.value;
+   form2Label1.innerText = 'Value: rgb(';
+   form2Label2.innerText = ')';
+   colVal.value = "";
    colVal.placeholder = '255,255,255';
+   colType.value = 'rgb';
+
+   console.log(`Input Color Value = ${colVal.value}`);
+   console.log(`Input Color Placeholder = ${colVal.placeholder}`);
 
    // event listener for color value submit
    form2.addEventListener('submit', function(evt) {
@@ -67,15 +73,16 @@ function rgbConv() {
          colVal.value = '255, 255, 255';
       }
 
+      console.log(`colVal.value = ${colVal.value}`);
+
       // break rgb input string down into individual numbers
       let numbers = colVal.value.split(",")
       let r = numbers[0]; g = numbers[1]; b = numbers[2];
       r = Number(r); g = Number(g); b = Number(b);
 
       // display the results
-      form2Label1.innerText = `Displaying results for rgb(`;
+      form2Label1.innerText = 'Results for rgb(';
       outputDisplay(r, g, b);
-
 	});
 }
 
@@ -91,14 +98,17 @@ function hexConv() {
 
    // set info display
    instructions.innerText = 'Enter the known HEX values in the format: ffffff';
-   instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and f';
+   instructions2.innerText = '!Warning! You MUST enter individual hex color values between 0 and f';
 
    // format text input for rgb
-   form2Label1.value = 'Value:  #';
-   form2Label1.innerText = form2Label1.value;
-   form2Label2.value = '';
-   form2Label2.innerText = form2Label2.value;
+   form2Label1.innerText = 'Value: #';
+   form2Label2.innerText = '';
+   colVal.value = "";
    colVal.placeholder = 'ffffff';
+   colType.value = 'hex';
+
+   console.log(`Input Color Value = ${colVal.value}`);
+   console.log(`Input Color Placeholder = ${colVal.placeholder}`);
 
    // event listener for color value submit
    form2.addEventListener('submit', function(evt) {
@@ -109,34 +119,70 @@ function hexConv() {
          colVal.value = 'ffffff';
       }
 
+      console.log(`colVal.value = ${colVal.value}`);
+
       // break rgb input string down into individual numbers
-      [r, g, b] = hexToRgb(colVal.value);
+      const conv = [r, g, b] = hexToRgb(colVal.value);
 
       // display the results
-      form2Label1.innerText = `Displaying results for #`;
-      outputDisplay(r, g, b);
-
-      [r, g, b] = '';
+      form2Label1.innerText = 'Results for #';
+      outputDisplay(conv[0], conv[1], conv[2]);
 	});
 }
 
-// reset - set defaults
-function reset() {
-   form1.hidden = false;
-   butt1.hidden = false;
+// HSL Routine
+// function to convert hsl to rgb and hex
+function HSLConv() {
+   //  remove button 1, show form2 and button 2
+   form1.hidden = true;
+   butt1.hidden = true;
+   resetButt.hidden = false
+   form2.hidden = false;
+   butt2.hidden = false;
 
-   resetButt.hidden = true;
-   form2.hidden = true;
-   butt2.hidden = true;
+   // set info display
+   instructions.innerText = 'Enter the known HSL values in the format: 180,50,50';
+   instructions2.innerText = '!Warning! You MUST enter individual hsl color values properly:';
+   instructions3.innerText = 'Hue value must be between 0 and 360';
+   instructions4.innerText = 'Saturation and Luminous values must be between 0% and 100%';
+   instructions5.innerText = '!DO NOT ENTER THE % SIGNS!';
 
-   colVal.value = '';
-   colType.value = 'rgb';
+   // format text input for rgb
+   form2Label1.innerText = 'Value: hsl(';
+   form2Label2.innerText = ')';
+   colVal.value = "";
+   colVal.placeholder = '180,50,50';
+   colType.value = 'hsl';
 
-   instructions.innerText = 'Select a known color type for processing.';
-   instructions2.innerText = '';
+   console.log(`Input Color Value = ${colVal.value}`);
+   console.log(`Input Color Placeholder = ${colVal.placeholder}`);
 
-   mainLeft.style.display = 'none';
-   mainRight.style.display = 'none';
+   // event listener for color value submit
+   form2.addEventListener('submit', function(evt) {
+      evt.preventDefault();
+
+      // sets default rgb value
+      if (colVal.value === '') {
+         colVal.value = '180, 50, 50';
+      }
+
+      console.log(`colVal.value = ${colVal.value}`);
+
+      // break hsl input string down into individual numbers
+      let temp = colVal.value.replaceAll("%", "");
+
+      // convert the hsl string numbers into actual numbers
+      let numbs = temp.split(",")
+      let h = numbs[0]; s = numbs[1]; l = numbs[2];
+      h = Number(h); s = Number(s); l = Number(l);
+
+      const rgb = hslToRgb(h, s, l);
+      r = rgb[0]; g = rgb[1]; b = rgb[2]
+
+      // display the results
+      form2Label1.innerText = 'Results for hsl(';
+      outputDisplay(r, g, b);
+	});
 }
 
 // Output Display
@@ -149,8 +195,8 @@ function outputDisplay (r, g, b) {
    mainRight.style.display = 'block';
 
    // output conversion results
-   col1.style.backgroundColor = rgbColor.rgb();
-   val1.innerText = rgbColor.rgb();
+   col1.style.backgroundColor = `rgb(${rgbColor.rgb()})`;
+   val1.innerText = `rgb(${rgbColor.rgb()})`;
    col2.style.backgroundColor = `#${rgbColor.hex()}`;
    val2.innerText = `hex #${rgbColor.hex()}`;
    col3.style.backgroundColor = `hsl(${rgbColor.hsl()})`;
@@ -158,22 +204,54 @@ function outputDisplay (r, g, b) {
 
    // generate opposite hsl color
    const oppHsl = rgbColor.opposite();
+   const hslOpp = `hsl(${oppHsl[0]}, ${oppHsl[1]}%, ${oppHsl[2]}%)`;
+   console.log(`hslOpp - ${hslOpp}`);
 
    // generate new opposite rgb object
-   // new object call is in the convHslRgb function
-   const myOppRgb = convHslRgb(oppHsl);
+   const myOppRgb = hslToRgb(oppHsl[0], oppHsl[1], oppHsl[2]);
+   const newOppRGB = new RgbConvert(myOppRgb[0], myOppRgb[1], myOppRgb[2]);
+   const oppHs2 = newOppRGB.opposite();
+   const newRgbOpp = `hsl(${oppHs2[0]}, ${oppHs2[1]}%, ${oppHs2[2]}%)`;
+   console.log(`newRgbOpp - ${newRgbOpp}`);
 
    // display border around color boxes
-   colorDisplayL.style.border = `3px solid ${rgbColor.opposite()}`;
-   colorDisplayR.style.border = `3px solid ${myOppRgb.opposite()}`;
+   colorDisplayL.style.border = `3px solid ${hslOpp}`;
+   colorDisplayR.style.border = `3px solid ${newRgbOpp}`;
 
    // output opposite results
-   oppcol1.style.backgroundColor = myOppRgb.rgb();
-   oppval1.innerText = myOppRgb.rgb();
-   oppcol2.style.backgroundColor = `#${myOppRgb.hex()}`;
-   oppval2.innerText = `hex #${myOppRgb.hex()}`;
-   oppcol3.style.backgroundColor = rgbColor.opposite();
-   oppval3.innerText = rgbColor.opposite();
+   oppcol1.style.backgroundColor = `rgb(${newOppRGB.rgb()}`;
+   oppval1.innerText = `rgb(${newOppRGB.rgb()}`;
+   oppcol2.style.backgroundColor = `#${newOppRGB.hex()}`;
+   oppval2.innerText = `hex #${newOppRGB.hex()}`;
+   oppcol3.style.backgroundColor = `hsl(${newOppRGB.hsl()})`;
+   oppval3.innerText = `hsl(${newOppRGB.hsl()})`;
+}
+
+
+// reset - set defaults
+function reset() {
+   form1.hidden = false;
+   butt1.hidden = false;
+   resetButt.hidden = true;
+   form2.hidden = true;
+   butt2.hidden = true;
+   mainLeft.style.display = 'none';
+   mainRight.style.display = 'none';
+
+   form2Label1.innerText = '';
+   form2Label2.innerText = '';
+   instructions.innerText = 'Select a known color type for processing.';
+   instructions2.innerText = '';
+   instructions3.innerText = '';
+   instructions4.innerText = '';
+   instructions5.innerText = '';
+
+   colVal.value = "";
+   colVal.placeholder = '';
+
+   console.log(`colVal.value = ${colVal.value}`);
+   console.log(`colVal.placeholder = ${colVal.placeholder}`);
+   console.log(`colType.value = ${colType.value}`);
 }
 
 
@@ -189,15 +267,14 @@ reset();
 form1.addEventListener('submit', function(evt) {
    evt.preventDefault();
 
-   // console.log(`Conversion Type: ${colType.value}`);
-
    // trap for color type choice
-   if (colType.value === 'rgb') {
-      rgbConv();
+   if (colType.value === 'hsl') {
+      HSLConv()
    } else if (colType.value === 'hex') {
       hexConv();
+   } else {
+      rgbConv();
    }
-
 });
 
 
