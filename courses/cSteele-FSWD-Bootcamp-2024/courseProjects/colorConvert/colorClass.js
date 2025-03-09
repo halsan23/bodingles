@@ -46,7 +46,7 @@ class RgbConvert {
       } else if (l === 0) {
          l = 100;
       }
-		return [newHue, s, l];
+		return `hsl(${h}, ${s}%, ${l}%)`;
 	}
 
 
@@ -103,7 +103,9 @@ function hexToRgb(hex = 'a82aaa') {
    return [r, g, b];
 }
 
+// convert hsl to rgb
 function hslToRgb(h, s, l) {
+   // console.log(`H:${h}, S:${s}, L:${l}`);
    // Must be fractions of 1
    s /= 100;
    l /= 100;
@@ -133,4 +135,18 @@ function hslToRgb(h, s, l) {
    b = Math.round((b + m) * 255);
 
    return [r, g, b];
+}
+
+//strip opposite hsl string to numbers
+const hslStrip = (hslString) => {
+   // remove all from hsl string except numbers
+   let temp = hslString.slice(4, -1);
+   let stripHsl = temp.replaceAll("%", "");
+
+   // convert the hsl string numbers into actual numbers
+   let numbs = stripHsl.split(",")
+   let h = numbs[0]; s = numbs[1]; l = numbs[2];
+   h = Number(h); s = Number(s); l = Number(l);
+
+   return [h, s, l];
 }

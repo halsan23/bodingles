@@ -61,8 +61,6 @@ function rgbConv() {
    colVal.placeholder = '255,255,255';
    colType.value = 'rgb';
 
-   console.log(`Input Color Value = ${colVal.value}`);
-   console.log(`Input Color Placeholder = ${colVal.placeholder}`);
 
    // event listener for color value submit
    form2.addEventListener('submit', function(evt) {
@@ -72,8 +70,6 @@ function rgbConv() {
       if (colVal.value === '') {
          colVal.value = '255, 255, 255';
       }
-
-      console.log(`colVal.value = ${colVal.value}`);
 
       // break rgb input string down into individual numbers
       let numbers = colVal.value.split(",")
@@ -107,9 +103,6 @@ function hexConv() {
    colVal.placeholder = 'ffffff';
    colType.value = 'hex';
 
-   console.log(`Input Color Value = ${colVal.value}`);
-   console.log(`Input Color Placeholder = ${colVal.placeholder}`);
-
    // event listener for color value submit
    form2.addEventListener('submit', function(evt) {
       evt.preventDefault();
@@ -118,8 +111,6 @@ function hexConv() {
       if (colVal.value === '') {
          colVal.value = 'ffffff';
       }
-
-      console.log(`colVal.value = ${colVal.value}`);
 
       // break rgb input string down into individual numbers
       const conv = [r, g, b] = hexToRgb(colVal.value);
@@ -154,9 +145,6 @@ function HSLConv() {
    colVal.placeholder = '180,50,50';
    colType.value = 'hsl';
 
-   console.log(`Input Color Value = ${colVal.value}`);
-   console.log(`Input Color Placeholder = ${colVal.placeholder}`);
-
    // event listener for color value submit
    form2.addEventListener('submit', function(evt) {
       evt.preventDefault();
@@ -165,8 +153,6 @@ function HSLConv() {
       if (colVal.value === '') {
          colVal.value = '180, 50, 50';
       }
-
-      console.log(`colVal.value = ${colVal.value}`);
 
       // break hsl input string down into individual numbers
       let temp = colVal.value.replaceAll("%", "");
@@ -194,6 +180,11 @@ function outputDisplay (r, g, b) {
    mainLeft.style.display = 'block';
    mainRight.style.display = 'block';
 
+   // console.log(`Old rgb = ${rgbColor.rgb()}`);
+   // console.log(`Old hex = ${rgbColor.hex()}`);
+   // console.log(`Old hsl = ${rgbColor.hsl()}`);
+   // console.log(`Old opposite = ${rgbColor.opposite()}`);
+
    // output conversion results
    col1.style.backgroundColor = `rgb(${rgbColor.rgb()})`;
    val1.innerText = `rgb(${rgbColor.rgb()})`;
@@ -203,26 +194,28 @@ function outputDisplay (r, g, b) {
    val3.innerText = `hsl(${rgbColor.hsl()})`;
 
    // generate opposite hsl color
-   const oppHsl = rgbColor.opposite();
-   const hslOpp = `hsl(${oppHsl[0]}, ${oppHsl[1]}%, ${oppHsl[2]}%)`;
-   console.log(`hslOpp - ${hslOpp}`);
+   const oldOpp = rgbColor.opposite();
+
+   // strip dow opposite hsl color to numbers [returns array]
+   const newOppHsl = hslStrip(oldOpp);
+   h = newOppHsl[0]; s = newOppHsl[1]; l = newOppHsl[2];
+
+   // convert the stripped hsl into rgb [returns array]
+   const hslConvRgb = hslToRgb(h, s, l);
+   r = hslConvRgb[0]; g = hslConvRgb[1]; b = hslConvRgb[2];
 
    // generate new opposite rgb object
-   const myOppRgb = hslToRgb(oppHsl[0], oppHsl[1], oppHsl[2]);
-   const newOppRGB = new RgbConvert(myOppRgb[0], myOppRgb[1], myOppRgb[2]);
-   const oppHs2 = newOppRGB.opposite();
-   const newRgbOpp = `hsl(${oppHs2[0]}, ${oppHs2[1]}%, ${oppHs2[2]}%)`;
-   console.log(`newRgbOpp - ${newRgbOpp}`);
+   const newOppRGB = new RgbConvert(r, g, b);
 
    // display border around color boxes
-   colorDisplayL.style.border = `3px solid ${hslOpp}`;
-   colorDisplayR.style.border = `3px solid ${newRgbOpp}`;
+   colorDisplayL.style.border = `3px solid ${rgbColor.opposite()}`;
+   colorDisplayR.style.border = `3px solid ${newOppRGB.opposite()}`;
 
-   // output opposite results
-   oppcol1.style.backgroundColor = `rgb(${newOppRGB.rgb()}`;
-   oppval1.innerText = `rgb(${newOppRGB.rgb()}`;
+   // // output opposite results
+   oppcol1.style.backgroundColor = `rgb(${newOppRGB.rgb()})`;
+   oppval1.innerText = `rgb(${newOppRGB.rgb()})`;
    oppcol2.style.backgroundColor = `#${newOppRGB.hex()}`;
-   oppval2.innerText = `hex #${newOppRGB.hex()}`;
+   oppval2.innerText = `#${newOppRGB.hex()}`;
    oppcol3.style.backgroundColor = `hsl(${newOppRGB.hsl()})`;
    oppval3.innerText = `hsl(${newOppRGB.hsl()})`;
 }
@@ -249,9 +242,9 @@ function reset() {
    colVal.value = "";
    colVal.placeholder = '';
 
-   console.log(`colVal.value = ${colVal.value}`);
-   console.log(`colVal.placeholder = ${colVal.placeholder}`);
-   console.log(`colType.value = ${colType.value}`);
+   // console.log(`colVal.value = ${colVal.value}`);
+   // console.log(`colVal.placeholder = ${colVal.placeholder}`);
+   // console.log(`colType.value = ${colType.value}`);
 }
 
 
