@@ -88,7 +88,7 @@ class RgbConvert {
 }
 
 // function to convert hex to rgb
-function hexToRgb(hex = 'a82aaa') {
+function hexToRgb (hex = 'a82aaa') {
    let r = parseInt(hex.substring(1,3), 16);
    let g = parseInt(hex.substring(3,5), 16);
    let b = parseInt(hex.substring(5), 16);
@@ -98,7 +98,8 @@ function hexToRgb(hex = 'a82aaa') {
    return hexRgb;
 }
 
-function hslToRgb( h, s, l ) {
+// function to convert hsl to rgb
+function hslToRgb ( h, s, l ) {
    // Must be fractions of 1
    s /= 100;
    l /= 100;
@@ -132,6 +133,25 @@ function hslToRgb( h, s, l ) {
    return hslRgb;
 }
 
+//strip full hsl string to numbers : eg hsl(100, 0%, 100%) to 100, 0, 100
+function hslStrip (hslStr) {
+   // remove all from hsl string except numbers
+   let temp = hslStr.slice(4, -1);
+   let stripHsl = temp.replaceAll("%", "");
+
+   // convert the hsl string numbers into actual numbers
+   let numbs = stripHsl.split(",")
+   let h = numbs[0]; s = numbs[1]; l = numbs[2];
+   h = Number(h); s = Number(s); l = Number(l);
+
+   return hslToRgb( h, s, l );
+}
+
+// rgb pass in numbers : eg (0,0,0))
+// hex pass in string : eg 'ffffff'
+// hsl: if you have numbers only (0,0,100) => call hslToRgb(0,0,100) as numbers
+// hsl: if you have the complete hsl string (from .opposite()): hsl(0, 0%,100%),
+//      call hslStrip('hsl(0,0%,100%)') as a string
 const rgb = new RgbConvert( 255, 255, 255 );
 console.log('Type = rgb');
 console.log(`rgb = ${rgb.rgb()}`);
@@ -148,13 +168,18 @@ console.log(`hsl = ${hex.hsl()}`);
 console.log(`opposite = ${hex.opposite()}`);
 console.log(' ');
 
-const hsl = hslToRgb( 0, 0, 100 );
-console.log('Type = hsl');
-console.log(`rgb = ${hsl.rgb()}`);
-console.log(`hex = #${hsl.hex()}`);
-console.log(`hsl = ${hsl.hsl()}`);
-console.log(`opposite = ${hsl.opposite()}`);
+const hslNumbs = hslToRgb(0,0,100);
+console.log('Type = hsl as numbers');
+console.log(`rgb = ${hslNumbs.rgb()}`);
+console.log(`hex = #${hslNumbs.hex()}`);
+console.log(`hsl = ${hslNumbs.hsl()}`);
+console.log(`opposite = ${hslNumbs.opposite()}`);
 console.log(' ');
 
-// rgb and hsl, pas in numbers : eg 0,0,0 and 0,0,100 respectively
-// hex pass in string : eg 'ffffff'
+const hslStr = hslStrip('hsl(0,0%,100%)');
+console.log('Type = hsl as string');
+console.log(`rgb = ${hslStr.rgb()}`);
+console.log(`hex = #${hslStr.hex()}`);
+console.log(`hsl = ${hslStr.hsl()}`);
+console.log(`opposite = ${hslStr.opposite()}`);
+console.log(' ');
