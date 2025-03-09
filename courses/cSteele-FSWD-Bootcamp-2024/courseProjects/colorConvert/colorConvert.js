@@ -80,7 +80,7 @@ function rgbConv() {
 
       // outputs the new color object
       outputDisplay(rgb);
-
+      colVal.value = '';
 	});
 }
 
@@ -120,6 +120,7 @@ function hexConv() {
 
       // outputs the new color object
       outputDisplay(hex);
+      colVal.value = '';
 	});
 }
 
@@ -166,6 +167,7 @@ function hslConv() {
       // display the results
       form2Label1.innerText = 'Results for hsl(';
       outputDisplay(hsl);
+      colVal.value = '';
 	});
 }
 
