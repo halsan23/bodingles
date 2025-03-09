@@ -158,11 +158,8 @@ function hslConv() {
          colVal.value = '0, 0, 100';
       }
 
-      // create string need for hsl processing
-      colVal.value = `hsl(${colVal.value})`
-
       // create hsl object
-      const hsl = hslStrip(colVal.value);
+      const hsl = hslStrip(`hsl(${colVal.value})`);
 
       // display the results
       form2Label1.innerText = 'Results for hsl(';
@@ -203,25 +200,25 @@ function outputDisplay (color) {
    // output conversion results
    col1.style.backgroundColor = color.rgb();
    val1.innerText = color.rgb();
-   col2.style.backgroundColor = `#${color.hex()}`;
-   val2.innerText = `hex #${color.hex()}`;
-   col3.style.backgroundColor = `hsl(${color.hsl()}`;
-   val3.innerText = `hsl(${color.hsl()}`;
+   col2.style.backgroundColor = color.hex();
+   val2.innerText = color.hex();
+   col3.style.backgroundColor = color.hsl();
+   val3.innerText = color.hsl();
 
    // generate opposite hsl color
    const oppCols = hslStrip(color.opposite());
 
    // // display border around color boxes
-   colorDisplayL.style.border = `3px solid ${color.opposite()}`;
-   colorDisplayR.style.border = `3px solid hsl(${color.hsl()})`;
+   colorDisplayL.style.border = `3px solid ${oppCols.rgb()}`;
+   colorDisplayR.style.border = `3px solid ${color.rgb()}`;
 
    // output opposite results
    oppcol1.style.backgroundColor = oppCols.rgb();
    oppval1.innerText = oppCols.rgb();
-   oppcol2.style.backgroundColor = `#${oppCols.hex()}`;
-   oppval2.innerText = `hex #${oppCols.hex()}`;
-   oppcol3.style.backgroundColor = `hsl(${oppCols.hsl()}`;
-   oppval3.innerText = `hsl(${oppCols.hsl()}`;
+   oppcol2.style.backgroundColor = oppCols.hex();
+   oppval2.innerText = oppCols.hex();
+   oppcol3.style.backgroundColor = oppCols.hsl();
+   oppval3.innerText = oppCols.hsl();
 }
 
 
