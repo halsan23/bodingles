@@ -89,9 +89,9 @@ class RgbConvert {
 
 // function to convert hex to rgb
 function hexToRgb (hex = 'a82aaa') {
-   let r = parseInt(hex.substring(1,3), 16);
-   let g = parseInt(hex.substring(3,5), 16);
-   let b = parseInt(hex.substring(5), 16);
+   let r = parseInt(hex.substring(0,2), 16);
+   let g = parseInt(hex.substring(2,4), 16);
+   let b = parseInt(hex.substring(4), 16);
 
    // create new hex object
    const hexRgb = new RgbConvert(r, g, b);
@@ -152,6 +152,7 @@ function strToNums (str) {
    let numbs = str.split(",")
    let a = numbs[0]; b = numbs[1]; c = numbs[2];
    a = Number(a); b = Number(b); c = Number(c);
+
    return new RgbConvert( a, b, c );
 }
 

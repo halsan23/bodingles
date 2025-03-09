@@ -18,8 +18,11 @@ const form2Label2 = document.querySelector('#form2Label2');
 const butt2 = document.querySelector('#butt2');
 
 // Instructions
-let instructions = document.querySelector('.instructions');
-let instructions2 = document.querySelector('.instructions2');
+const instructions = document.querySelector('.instructions');
+const instructions2 = document.querySelector('.instructions2');
+const instructions3 = document.querySelector('.instructions3');
+const instructions4 = document.querySelector('.instructions4');
+const instructions5 = document.querySelector('.instructions5');
 
 // Reset Button
 const resetButt = document.querySelector('#reset');
@@ -47,15 +50,16 @@ function rgbConv() {
    form2.hidden = false;
    butt2.hidden = false;
 
+   colVal.value = '';
+   colType.value = '';
+
    // set info display
    instructions.innerText = 'Enter the known RGB values in the format: 255,255,255';
    instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and 255';
 
    // format text input for rgb
-   form2Label1.value = 'Value:  rgb(';
-   form2Label1.innerText = form2Label1.value;
-   form2Label2.value = ')';
-   form2Label2.innerText = form2Label2.value;
+   form2Label1.innerText = 'Value:  rgb(';
+   form2Label2.innerText = ')';
    colVal.placeholder = '255,255,255';
 
    // event listener for color value submit
@@ -82,47 +86,88 @@ function rgbConv() {
 
 // HEX Routine
 // function to convert hex to rgb and hsl
-// function hexConv() {
-//    //  remove button 1, show form2 and button 2
-//    form1.hidden = true;
-//    butt1.hidden = true;
-//    resetButt.hidden = false
-//    form2.hidden = false;
-//    butt2.hidden = false;
+function hexConv() {
+   //  remove button 1, show form2 and button 2
+   form1.hidden = true;
+   butt1.hidden = true;
+   resetButt.hidden = false
+   form2.hidden = false;
+   butt2.hidden = false;
 
-//    // set info display
-//    instructions.innerText = 'Enter the known HEX values in the format: ffffff';
-//    instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and f';
+   colVal.value = '';
+   colType.value = '';
 
-//    // format text input for rgb
-//    form2Label1.value = 'Value:  #';
-//    form2Label1.innerText = form2Label1.value;
-//    form2Label2.value = '';
-//    form2Label2.innerText = form2Label2.value;
-//    colVal.placeholder = 'ffffff';
+   // set info display
+   instructions.innerText = 'Enter the known HEX values in the format: ffffff';
+   instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and f';
 
-//    // event listener for color value submit
-//    form2.addEventListener('submit', function(evt) {
-//       evt.preventDefault();
+   // format text input for rgb
+   form2Label1.innerText = 'Value:  #';
+   form2Label2.innerText = '';
+   colVal.placeholder = 'ffffff';
 
+   // event listener for color value submit
+   form2.addEventListener('submit', function(evt) {
+      evt.preventDefault();
 
+      // // sets default rgb value
+      if (colVal.value === '') {
+         colVal.value = 'ffffff';
+      }
 
+      // create the hex color object
+      const hex = hexToRgb(colVal.value);
 
-//       // // sets default rgb value
-//       // if (colVal.value === '') {
-//       //    colVal.value = 'ffffff';
-//       // }
+      // outputs the new color object
+      outputDisplay(hex);
+	});
+}
 
-//       // // break rgb input string down into individual numbers
-//       // [r, g, b] = hexToRgb(colVal.value);
+// RGB Routine
+// function to convert rgb to hex and hsl
+function hslConv() {
+   //  remove button 1, show form2 and button 2
+   form1.hidden = true;
+   butt1.hidden = true;
+   resetButt.hidden = false
+   form2.hidden = false;
+   butt2.hidden = false;
 
-//       // // display the results
-//       // form2Label1.innerText = `Displaying results for #`;
-//       // outputDisplay(r, g, b);
+   colVal.value = '';
+   colType.value = '';
 
-//       // [r, g, b] = '';
-// 	});
-// }
+   // set info display
+   instructions.innerText = 'Enter the known HSL values in the format: 180,50,50';
+   instructions2.innerText = '!Warning! You MUST enter individual hsl color values properly:';
+   instructions3.innerText = 'Hue value must be between 0 and 360';
+   instructions4.innerText = 'Saturation and Luminous values must be between 0% and 100%';
+   instructions5.innerText = '!DO NOT ENTER THE % SIGNS!';
+
+   // format text input for rgb
+   form2Label1.innerText = 'Value: hsl(';
+   form2Label2.innerText = ')';
+   colVal.placeholder = '0,0,100';
+
+   // event listener for color value submit
+   form2.addEventListener('submit', function(evt) {
+      evt.preventDefault();
+
+      // sets default rgb value
+      if (colVal.value === '') {
+         colVal.value = '0, 0, 100';
+      }
+
+      // create string need for hsl processing
+      colVal.value = `hsl(${colVal.value})`
+
+      // create hsl object
+      const hsl = hslStrip(colVal.value);
+
+      // display the results
+      form2Label1.innerText = 'Results for hsl(';
+      outputDisplay(hsl);
+	});
+}
 
 // reset - set defaults
 function reset() {
@@ -138,6 +183,10 @@ function reset() {
 
    instructions.innerText = 'Select a known color type for processing.';
    instructions2.innerText = '';
+
+   form2Label1.innerText = '';
+   form2Label2.innerText = '';
+   colVal.placeholder = '';
 
    mainLeft.style.display = 'none';
    mainRight.style.display = 'none';
@@ -178,25 +227,21 @@ function outputDisplay (color) {
 // set defaults
 reset();
 
-
 // RUN THE APP
 //  ==========================================================
-
 // set click handler for color type submit
 form1.addEventListener('submit', function(evt) {
    evt.preventDefault();
 
-   // console.log(`Conversion Type: ${colType.value}`);
-
    // trap for color type choice
-   // if (colType.value === 'rgb') {
+   if (colType.value === 'hsl') {
+      hslConv();
+   } else if (colType.value === 'hex') {
+      hexConv();
+   } else {
       rgbConv();
-   // } else if (colType.value === 'hex') {
-   //    hexConv();
-   // }
-
+   }
 });
-
 
 // set click handler for reset
 resetButt.addEventListener('click', function(evt) {
