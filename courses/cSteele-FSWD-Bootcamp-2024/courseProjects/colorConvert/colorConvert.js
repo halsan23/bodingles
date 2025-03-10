@@ -204,6 +204,21 @@ function reset() {
 
    mainLeft.style.display = 'none';
    mainRight.style.display = 'none';
+
+   // set click handler for color type submit
+   form1.addEventListener('submit', function(evt) {
+      evt.preventDefault();
+
+      // console.log(`Conversion Type: ${colType.value}`);
+
+      // trap for color type choice
+      if (colType.value === 'rgb') {
+         rgbConv();
+      } else if (colType.value === 'hex') {
+         hexConv();
+      }
+
+   });
 }
 
 // Output Display
