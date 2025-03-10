@@ -88,7 +88,7 @@ class RgbConvert {
 }
 
 // function to convert hex to rgb
-function hexToRgb (hex = 'a82aaa') {
+function hexToRgb (hex = 'ffffff') {
    let r = parseInt(hex.substring(0,2), 16);
    let g = parseInt(hex.substring(2,4), 16);
    let b = parseInt(hex.substring(4), 16);

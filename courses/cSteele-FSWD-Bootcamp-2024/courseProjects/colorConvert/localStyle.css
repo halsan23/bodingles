@@ -1,3 +1,38 @@
+#colorDisplayL {
+   width: 35%;
+   margin-left: 15px;
+}
+
+#colorDisplayR {
+   width: 35%;
+   margin-right: 15px;
+}
+
+.colDisp {
+   margin: auto;
+   width: 100%;
+   height: 30px;
+   padding: 10px 0;
+}
+
+.columns {
+   width: 100%;
+   text-align: center;
+   display: flex;
+   justify-content: space-around;
+}
+
+.colVal {
+   margin: auto;
+   width: 100%;
+   height: 30px;
+   padding: 10px 0;
+   font-weight: 500;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+}
+
 .form {
    margin: 25px auto;
    width: 70%;
@@ -5,11 +40,30 @@
    justify-content: space-evenly;
 }
 
-.mainWindow {
+.headings {
    margin: 0 auto;
-   width: 90%;
-   display: flex;
-   justify-content: space-evenly;
+   padding: 20px;
+   text-align: center;
+}
+
+.instDisp {
+   font-size: 1.1rem;
+}
+
+.instDisp2 {
+   margin: 25px;
+   padding: 15px;
+   background-color: #f7f4ec;
+   color: brown;
+   border: 2px solid black;
+   border-radius: 8px;
+}
+
+.leftColumn {
+   width: 55%;
+   text-align: center;
+   vertical-align: middle;
+   border: none;
 }
 
 .mainLeft {
@@ -26,75 +80,15 @@
    display: block;
 }
 
-.headings {
+.mainWindow {
    margin: 0 auto;
-   padding: 20px;
-   text-align: center;
-}
-
-.columns {
-   width: 100%;
-   text-align: center;
+   width: 90%;
    display: flex;
-   justify-content: space-around;
-}
-
-.leftColumn {
-   width: 55%;
-   text-align: center;
-   vertical-align: middle;
-   border: none;
+   justify-content: space-evenly;
 }
 
 .rightColumn {
    width: 55%;
    text-align: center;
    vertical-align: middle;
-}
-
-.colDisp {
-   margin: auto;
-   width: 100%;
-   height: 30px;
-   padding: 10px 0;
-}
-
-.colVal {
-   margin: auto;
-   width: 100%;
-   height: 30px;
-   padding: 10px 0;
-   font-weight: 500;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-}
-
-.instDisp {
-   font-size: 1.2rem;
-}
-
-.instDisp2 {
-   font-size: 1.1rem;
-}
-
-.instructions {
-   font-weight: bold;
-   display: block;
-}
-
-.instructions2 {
-   color: #822500;
-   font-weight: bold;
-   display: block;
-}
-
-#colorDisplayL {
-   width: 35%;
-   margin-left: 15px;
-}
-
-#colorDisplayR {
-   width: 35%;
-   margin-right: 15px;
 }

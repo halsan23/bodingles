@@ -3,7 +3,6 @@
 // badDoggy
 //  ==========================================================
 
-
 // assign variables
 // form1
 const form1 = document.querySelector('#form1');
@@ -18,6 +17,7 @@ const form2Label2 = document.querySelector('#form2Label2');
 const butt2 = document.querySelector('#butt2');
 
 // Instructions
+const instDisp2 = document.querySelector('.instDisp2');
 const instructions = document.querySelector('.instructions');
 const instructions2 = document.querySelector('.instructions2');
 const instructions3 = document.querySelector('.instructions3');
@@ -37,189 +37,135 @@ const colorDisplayL = document.querySelector('#colorDisplayL');
 const colorDisplayR = document.querySelector('#colorDisplayR');
 
 
-// FUNCTIONS
+// EVENT LISTENERS
 //  ==========================================================
 
-// RGB Routine
-// function to convert rgb to hex and hsl
-function rgbConv() {
-   //  remove button 1, show form2 and button 2
+// event listener for color type submit
+form1.addEventListener('submit', function(evt) {
+   evt.preventDefault();
+
+   //  remove form1 & button 1
    form1.hidden = true;
    butt1.hidden = true;
+   // show form2 & button 2
    resetButt.hidden = false
    form2.hidden = false;
    butt2.hidden = false;
-
+   // show info panel
+   instDisp2.hidden = false;
+   // reset input color value (form2)
    colVal.value = '';
-   colType.value = '';
 
+   // trap for color type choice
+   if (colType.value === 'rgb') {
+      rgbDisp();
+   } else if (colType.value === 'hex') {
+      hexDisp();
+   } else {
+      hslDisp();
+   }
+
+
+   // event listener for color value submit
+   form2.addEventListener('submit', function(evt) {
+      evt.preventDefault();
+
+      // on form submission (color value) process results
+      if (colType.value === 'rgb') {
+         processRgb();
+      } else if (colType.value === 'hex') {
+         processHex();
+      } else {
+         processHsl();
+      }
+
+   });
+});
+
+// event listener for reset
+resetButt.addEventListener('click', function(evt) {
+   evt.preventDefault();
+
+   initialDisplay();
+});
+
+
+// FUNCTIONS
+//  ==========================================================
+function initialDisplay() {
+   // show form1 and button
+   form1.hidden = false;
+   butt1.hidden = false;
+
+   // hide form2, reset and hide info display
+   resetButt.hidden = true;
+   form2.hidden = true;
+   butt2.hidden = true;
+   instDisp2.hidden = true;
+
+   // delete input color value (form2)
+   // set default color type (form1) to rgb
+   colVal.value = '';
+   colType.value = 'rgb';
+
+   // reset all info display's text
+   instructions.innerText = 'Select a known color type for processing.';
+   instructions2.innerText = '';
+   instructions3.innerText = '';
+   instructions4.innerText = '';
+   instructions5.innerText = '';
+
+   // reset all label text's and color value placeholder (form2)
+   form2Label1.innerText = '';
+   form2Label2.innerText = '';
+   colVal.placeholder = '';
+
+   // hide output displays
+   mainLeft.style.display = 'none';
+   mainRight.style.display = 'none';
+}
+
+// RGB Display Setup
+function rgbDisp() {
    // set info display
-   instructions.innerText = 'Enter the known RGB values in the format: 255,255,255';
-   instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and 255';
+   instructions.innerHTML = 'Enter the known RGB values in the format: <b>255,255,255</b>';
+   instructions2.innerText = 'Warning! You MUST enter individual rgb color values between 0 and 255';
 
    // format text input for rgb
    form2Label1.innerText = 'Value:  rgb(';
    form2Label2.innerText = ')';
    colVal.placeholder = '255,255,255';
-
-   // set click handler for reset
-   resetButt.addEventListener('click', function(evt) {
-      evt.preventDefault();
-      reset();
-   });
-
-   // event listener for color value submit
-   form2.addEventListener('submit', function(evt) {
-      evt.preventDefault();
-
-      // sets default rgb value
-      if (colVal.value === '') {
-         colVal.value = '255, 255, 255';
-      }
-
-      // // display the results
-      form2Label1.innerText = `Results for rgb(`;
-
-      // convert string input to numbers
-      // this function also builds the color class
-      const rgb = strToNums(colVal.value);
-
-      // outputs the new color object
-      outputDisplay(rgb);
-	});
 }
 
-// HEX Routine
-// function to convert hex to rgb and hsl
-function hexConv() {
-   //  remove button 1, show form2 and button 2
-   form1.hidden = true;
-   butt1.hidden = true;
-   resetButt.hidden = false
-   form2.hidden = false;
-   butt2.hidden = false;
 
-   colVal.value = '';
-   colType.value = '';
-
+// HEX Display Setup
+function hexDisp() {
    // set info display
-   instructions.innerText = 'Enter the known HEX values in the format: ffffff';
-   instructions2.innerText = '!Warning! You MUST enter individual rgb color values between 0 and f';
+   instructions.innerHTML = 'Enter the known HEX values in the format: <b>ffffff</b>';
+   instructions2.innerText = 'Warning! You MUST enter individual rgb color values between 0 and f';
 
    // format text input for rgb
    form2Label1.innerText = 'Value:  #';
    form2Label2.innerText = '';
    colVal.placeholder = 'ffffff';
-
-   // set click handler for reset
-   resetButt.addEventListener('click', function(evt) {
-      evt.preventDefault();
-      reset();
-   });
-
-   // event listener for color value submit
-   form2.addEventListener('submit', function(evt) {
-      evt.preventDefault();
-
-      // // sets default rgb value
-      if (colVal.value === '') {
-         colVal.value = 'ffffff';
-      }
-
-      // create the hex color object
-      const hex = hexToRgb(colVal.value);
-
-      // outputs the new color object
-      outputDisplay(hex);
-	});
 }
 
-// RGB Routine
-// function to convert rgb to hex and hsl
-function hslConv() {
-   //  remove button 1, show form2 and button 2
-   form1.hidden = true;
-   butt1.hidden = true;
-   resetButt.hidden = false
-   form2.hidden = false;
-   butt2.hidden = false;
 
-   colVal.value = '';
-   colType.value = '';
-
+// HSL Display Setup
+function hslDisp() {
    // set info display
-   instructions.innerText = 'Enter the known HSL values in the format: 180,50,50';
-   instructions2.innerText = '!Warning! You MUST enter individual hsl color values properly:';
-   instructions3.innerText = 'Hue value must be between 0 and 360';
+   instructions.innerHTML = 'Enter the known HSL values in the format: <b>180,50,50</b>';
+   instructions2.innerText = 'Warning! You MUST enter individual hsl color values properly:';
+   instructions3.innerHTML = '<br>Hue value must be between 0 and 360';
    instructions4.innerText = 'Saturation and Luminous values must be between 0% and 100%';
-   instructions5.innerText = '!DO NOT ENTER THE % SIGNS!';
+   instructions5.innerHTML = '<br>!DO NOT ENTER THE % SIGNS!';
 
    // format text input for rgb
    form2Label1.innerText = 'Value: hsl(';
    form2Label2.innerText = ')';
    colVal.placeholder = '0,0,100';
-
-   // set click handler for reset
-   resetButt.addEventListener('click', function(evt) {
-      evt.preventDefault();
-      reset();
-   });
-
-   // event listener for color value submit
-   form2.addEventListener('submit', function(evt) {
-      evt.preventDefault();
-
-      // sets default rgb value
-      if (colVal.value === '') {
-         colVal.value = '0, 0, 100';
-      }
-
-      // create hsl object
-      const hsl = hslStrip(`hsl(${colVal.value})`);
-
-      // display the results
-      form2Label1.innerText = 'Results for hsl(';
-      outputDisplay(hsl);
-	});
 }
 
-// reset - set defaults
-function reset() {
-   form1.hidden = false;
-   butt1.hidden = false;
-
-   resetButt.hidden = true;
-   form2.hidden = true;
-   butt2.hidden = true;
-
-   colVal.value = '';
-   colType.value = 'rgb';
-
-   instructions.innerText = 'Select a known color type for processing.';
-   instructions2.innerText = '';
-
-   form2Label1.innerText = '';
-   form2Label2.innerText = '';
-   colVal.placeholder = '';
-
-   mainLeft.style.display = 'none';
-   mainRight.style.display = 'none';
-
-   // set click handler for color type submit
-   form1.addEventListener('submit', function(evt) {
-      evt.preventDefault();
-
-      // console.log(`Conversion Type: ${colType.value}`);
-
-      // trap for color type choice
-      if (colType.value === 'rgb') {
-         rgbConv();
-      } else if (colType.value === 'hex') {
-         hexConv();
-      }
-
-   });
-}
 
 // Output Display
 function outputDisplay (color) {
@@ -252,6 +198,5 @@ function outputDisplay (color) {
 }
 
 
-//  ==========================================================
-// set defaults
-reset();
+// Initial Display
+initialDisplay();
