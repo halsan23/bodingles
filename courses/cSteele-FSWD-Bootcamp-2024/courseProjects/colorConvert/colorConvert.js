@@ -50,6 +50,7 @@ function rgbConv() {
    form2.hidden = false;
    butt2.hidden = false;
 
+   colVal.value = '';
    colType.value = '';
 
    // set info display
@@ -60,6 +61,12 @@ function rgbConv() {
    form2Label1.innerText = 'Value:  rgb(';
    form2Label2.innerText = ')';
    colVal.placeholder = '255,255,255';
+
+   // set click handler for reset
+   resetButt.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      reset();
+   });
 
    // event listener for color value submit
    form2.addEventListener('submit', function(evt) {
@@ -79,7 +86,6 @@ function rgbConv() {
 
       // outputs the new color object
       outputDisplay(rgb);
-      colVal.value = '';
 	});
 }
 
@@ -93,6 +99,7 @@ function hexConv() {
    form2.hidden = false;
    butt2.hidden = false;
 
+   colVal.value = '';
    colType.value = '';
 
    // set info display
@@ -103,6 +110,12 @@ function hexConv() {
    form2Label1.innerText = 'Value:  #';
    form2Label2.innerText = '';
    colVal.placeholder = 'ffffff';
+
+   // set click handler for reset
+   resetButt.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      reset();
+   });
 
    // event listener for color value submit
    form2.addEventListener('submit', function(evt) {
@@ -118,7 +131,6 @@ function hexConv() {
 
       // outputs the new color object
       outputDisplay(hex);
-      colVal.value = '';
 	});
 }
 
@@ -132,6 +144,7 @@ function hslConv() {
    form2.hidden = false;
    butt2.hidden = false;
 
+   colVal.value = '';
    colType.value = '';
 
    // set info display
@@ -145,6 +158,12 @@ function hslConv() {
    form2Label1.innerText = 'Value: hsl(';
    form2Label2.innerText = ')';
    colVal.placeholder = '0,0,100';
+
+   // set click handler for reset
+   resetButt.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      reset();
+   });
 
    // event listener for color value submit
    form2.addEventListener('submit', function(evt) {
@@ -161,7 +180,6 @@ function hslConv() {
       // display the results
       form2Label1.innerText = 'Results for hsl(';
       outputDisplay(hsl);
-      colVal.value = '';
 	});
 }
 
@@ -222,26 +240,3 @@ function outputDisplay (color) {
 //  ==========================================================
 // set defaults
 reset();
-
-// RUN THE APP
-//  ==========================================================
-// set click handler for color type submit
-form1.addEventListener('submit', function(evt) {
-   evt.preventDefault();
-
-   // trap for color type choice
-   if (colType.value === 'hsl') {
-      hslConv();
-   } else if (colType.value === 'hex') {
-      hexConv();
-   } else {
-      rgbConv();
-   }
-});
-
-// set click handler for reset
-resetButt.addEventListener('click', function(evt) {
-   evt.preventDefault();
-
-   reset();
-});
