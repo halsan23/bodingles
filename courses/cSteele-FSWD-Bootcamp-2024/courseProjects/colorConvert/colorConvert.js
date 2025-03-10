@@ -185,8 +185,10 @@ function outputDisplay (color) {
    const oppCols = hslStrip(color.opposite());
 
    // // display border around color boxes
-   colorDisplayL.style.border = `3px solid ${oppCols.rgb()}`;
-   colorDisplayR.style.border = `3px solid ${color.rgb()}`;
+   // colorDisplayL.style.border = `3px solid ${oppCols.rgb()}`;
+   // colorDisplayR.style.border = `3px solid ${color.rgb()}
+   colorDisplayL.style.border = '3px solid black';
+   colorDisplayR.style.border = '3px solid black';
 
    // output opposite results
    oppcol1.style.backgroundColor = oppCols.rgb();
