@@ -11,14 +11,6 @@ class Pets {
    }
 }
 
-// cat Class
-class Cat extends Pets {
-   // meow method
-   meow() {
-      return `${this.name} says Meeooowww, purr, purr`;
-   }
-}
-
 // dog Class
 class Dog extends Pets {
    // bark method
@@ -27,6 +19,14 @@ class Dog extends Pets {
    }
 }
 
+
+// cat Class
+class Cat extends Pets {
+   // meow method
+   meow() {
+      return `${this.name} says Meeooowww, purr, purr`;
+   }
+}
 
 
 // use the class's
