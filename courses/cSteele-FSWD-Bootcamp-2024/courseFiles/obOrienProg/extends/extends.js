@@ -1,40 +1,41 @@
 // Extends & Super keywords Demo
 // ======================================
 
-// cat Class
-class Cat {
-   constructor(name, age) {
+// create the Parent Constructor Class
+class Pets {
+   constructor(name) {
       this.name = name;
-      this.age = age;
    }
-
-   // simple methods
    eat() {
       return `${this.name} is eating.`;
    }
+}
+
+// cat Class
+class Cat extends Pets {
+   // meow method
    meow() {
-      return `Meeooowww, purr, purr,`
+      return `${this.name} says Meeooowww, purr, purr`;
    }
 }
 
 // dog Class
-class Dog {
-   constructor(name, age) {
-      this.name = name;
-      this.age = age;
-   }
-
-   // simple methods
-   eat() {
-      return `${this.name} is eating.`;
-   }
-   woof() {
-      return `Woof, Woof, BARK`
+class Dog extends Pets {
+   // bark method
+   bark() {
+      return `${this.name} says Woof, Woof, BARK, BARK`;
    }
 }
 
-// use the class
-const myCat = new Cat('Jitters', 2);
+
+
+// use the class's
+const myDog = new Dog('Chico');
+const myCat = new Cat('Jitters');
+
+// call the dog method
+console.log(myDog.eat());
+console.log(myDog.bark());
 
 // call the cat method
 console.log(myCat.eat());

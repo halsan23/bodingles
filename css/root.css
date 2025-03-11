@@ -307,6 +307,38 @@ p {
    font-weight: bold;
 }
 
+/* These colors replace the colorHighlight colors */
+/* Color Schema */
+/* Constructor */
+.colorBlue {
+   color: #0c4c81;
+   font-weight: bold;
+}
+
+/* Class Names */
+.colorGold {
+   color: #968842;
+   font-weight: bold;
+}
+
+/* Variable Names */
+.colorGreen {
+   color: #227441;
+   font-weight: bold;
+}
+
+/* Function Variable Names */
+.colorPurple {
+   color: #682274;
+   font-weight: bold;
+}
+
+/* this keyword */
+.colorRed {
+   color: #810c0c;
+   font-weight: bold;
+}
+
 /* styling for comments */
 .commentStyle {
    color: #3c3c3c;
@@ -355,8 +387,8 @@ p {
 
 /* Larger First Word in a paragraph */
 .firstWord {
-   font-size: 1.2rem;
-   font-weight: 500;
+   font-family: "Akaya Telivigala", system-ui;
+   font-size: 1.5rem;
 }
 
 /* Header Styling */

@@ -34,7 +34,170 @@
       <!--Review and Set Up -->
       <section id="textWindow4" class="just">
          <article>
-            <p><span class="firstWord"></span> </p>
+            <p><span class="firstWord">W</span>e learned that when we build a <i><b>class</b></i>, we use a <i><b>constructor</b></i> to define the base variables, that can be accessed, with all of the methods of that class. Let's use the standard "dog", "cat" classes for demonstration:
+               <ul class="sectHighlight">
+                  <li>Javascript</li>
+                  <li class="commentStyle">// <i><b>Dog</b> class</i></li>
+                  <li><b>class</b> <span class="colorGold">Dog</span> {
+                     <ul>
+                        <li><span class="colorBlue">constructor</span> ( <i>name</i> ) {
+                           <ul>
+                              <li><span class="colorRed">this</span><b>.name</b> = <i>name</i>;</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li class="commentStyle">// <i>create the eat method</i></li>
+                  <li><b>eat</b>() {</li>
+                     <ul>
+                        <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> is eating.`;</li>
+                     </ul>
+                  <li>}</li>
+                  <li class="commentStyle">// <i>create the bark method</i></li>
+                  <li><b>bark</b>() {</li>
+                     <ul>
+                        <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Woof, Woof, Bark, Bark.`;</li>
+                     </ul>
+                  <li>}</li>
+               </ul>
+            and a <b>Cat</b> class:
+            <ul class="sectHighlight">
+               <li>Javascript</li>
+               <li class="commentStyle">// <i><b>Cat</b> class</i></li>
+               <li><b>class</b> <span class="colorGold">Cat</span> {
+                  <ul>
+                     <li><span class="colorBlue">constructor</span> ( <i>name</i> ) {
+                        <ul>
+                           <li><span class="colorRed">this</span><b>.name</b> = <i>name</i>;</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li>}</li>
+               <li class="commentStyle">// <i>create the eat method</i></li>
+               <li><b>eat</b>() {</li>
+                  <ul>
+                     <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> is eating.';</li>
+                  </ul>
+               <li>}</li>
+               <li class="commentStyle">// <i>create the meow method</i></li>
+               <li><b>meow</b>() {</li>
+                  <ul>
+                     <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Meeooww, purr, purr.';</li>
+                  </ul>
+               <li>}</li>
+            </ul>
+            </p>
+            <p>Now we can call:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorGreen">Chico</span> = <span class="colorGold">Dog</span>( '<i>Chico</i>' );</li>
+               </ul>
+               we now have a <span class="colorGreen">Chico</span> object of the <span class="colorGold">Dog</span> class, and we now have access to the methods contained within the <span class="colorGold">Dog</span> class. So if we call:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">Chico</span>.<b>eat()</b></li>
+               </ul>
+               we get: Chico is eating, and if we call:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">Chico</span>.<b>bark()</b></li>
+               </ul>
+               we get: Chico goes Woof, Woof, Bark, Bark.
+            </p>
+            <p>And of course the <span class="colorGold">Cat</span> class would work exactly the same, except there is no <i><b>meow</b></i> method for the <span class="colorGold">Dog</span> class, and there is no <i><b>bark</b></i> method for the <span class="colorGold">Cat</span> class.
+            </p>
+            <p>What's important to note here is that we've created two different classes, each with their own, individual <span class="colorBlue">constructor</span>. We also notice that there is some duplication here between the two classes. Both <i><b>classes</b></i> share the same variables in their respective <span class="colorBlue">constructors</span>, and the also share the <b>eat()</b> method. Wouldn't it be nice if we could simplify the coding, and create a <i><b>common</b> <span class="colorBlue">constructor</span></i> that would have the common elements included, and that we could access from all of our individual <i><b>classes</b></i>?</p>
+            <p>This is where <i><b>Extends</b></i> comes in.</p>
+         </article>
+         <hr style="width: 90%;">
+
+         <article>
+            <h6>Extends</h6>
+            <p><span class="firstWord">T</span>o accomplish a "common" <span class="colorBlue">constructor</span>, we can create a <i><b>"parent"</b></i> <span class="colorBlue">constructor</span> class, that contains <b>all</b> of the common elements, like so:
+               <ul class="sectHighlight">
+                  <li>Javascript</li>
+                  <li class="commentStyle">// <i>Parent <span class="colorBlue">constructor</span> class</i></li>
+                  <li><b>class</b> <span class="colorGold">Pets</span> {
+                     <ul>
+                        <li><span class="colorBlue">constructor</span> ( <i>name</i> ) {
+                           <ul>
+                              <li><span class="colorRed">this</span><b>.name</b> = <i>name</i>;</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li class="commentStyle">// <i>create the eat method</i></li>
+                  <li><b>eat</b>() {</li>
+                     <ul>
+                        <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> is eating.`;</li>
+                     </ul>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>We can now remove <i><b>all</b></i> of the <i><b>common</b></i> elements from our original classes, so that all that is left are the elements that are unique to each class, like so:
+               <ul class="sectHighlight">
+                  <li>Javascript</li>
+                  <li class="commentStyle">// <i><b>Dog</b> class</i></li>
+                  <li><b>class</b> <span class="colorGold">Dog</span> {
+                     <ul>
+                        <li class="commentStyle">// <i>create the bark method</i></li>
+                        <li><b>bark</b>() {</li>
+                           <ul>
+                              <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Woof, Woof, Bark, Bark.`;</li>
+                           </ul>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            and a <b>Cat</b> class:
+               <ul class="sectHighlight">
+                  <li>Javascript</li>
+                  <li class="commentStyle">// <i><b>Cat</b> class</i></li>
+                  <li><b>class</b> <span class="colorGold">Cat</span> {
+                     <ul>
+                        <li class="commentStyle">// <i>create the meow method</i></li>
+                        <li><b>meow</b>() {</li>
+                           <ul>
+                              <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Meeooww, purr, purr.';</li>
+                           </ul>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>We now have a fully functional <i><span class="colorGold">Pets</span> Parent <span class="colorBlue">constructor</span></i> class that supports both the <span class="colorGold">Dog</span> and <span class="colorGold">Cat</span> classes. Note that at this point, we will no longer be able to call the <span class="colorGold">Dog</span> or <span class="colorGold">Cat</span> class, and maintain the full original functionality. If we try we just get empty objects.</p>
+            <p>So we need a way to connect the <span class="colorGold">Dog</span> and <span class="colorGold">Cat</span> classes to our <i><span class="colorGold">Pets</span> Parent <span class="colorBlue">constructor</span></i>. To do this we use the <i><b>extends</b></i> keyword with our <span class="colorGold">Dog</span> and <span class="colorGold">Cat</span> classes, like so:
+               <ul class="sectHighlight">
+                  <li>class <span class="colorGold">Dog</span> <i><b>extends</b></i> <span class="colorGold">Pets</span> {</li>
+                  <li>and</li>
+                  <li>class <span class="colorGold">Cat</span> <i><b>extends</b></i> <span class="colorGold">Pets</span> {</li>
+               </ul>
+            </p>
+            <p>This now <i><b>extends</b></i> our <span class="colorGold">Dog</span> and <span class="colorGold">Cat</span> classes to make the functionality of the <span class="colorGold">Pets</span> class available. We can now create our <span class="colorGold">Dog</span> or <span class="colorGold">Cat</span> objects, just like in the original separate classes, and retain <b>all</b> of the original functionality.
+               <ul class="sectHighlight">
+                  <li>const <span class="colorGreen">Chico</span> = <span class="colorGold">Dog</span>( 'Chico' );</li>
+                  <li>const <span class="colorGreen">Jitters</span> = <span class="colorGold">Cat</span>( 'Jitters' );</li>
+               </ul>
+               and we now have a <span class="colorGreen">Chico</span> object of the <span class="colorGold">Dog</span> class, and a <span class="colorGreen">Jitters</span> object of the <span class="colorGold">Cat</span> class. And all of the methods contained within the <i><span class="colorGold">Pets</span> Parent <span class="colorBlue">constructor</span></i> are available for each class to use, plus each individual <span class="colorGold">Dog</span> and <span class="colorGold">Cat</span> class methods are available for each individual class respectively.
+            </p>
+            <p>So, <span class="colorGreen">Chico</span><b>.<span class="colorPurple">eat()</span></b> will return <i>"Chico is eating",</i> and <span class="colorGreen">Jitters</span><b>.<span class="colorPurple">eat()</span></b> will return <i>"Jitters is eating".</i> Likewise, <span class="colorGreen">Chico</span><b>.<span class="colorPurple">bark()</span></b> will return <i>"Chico goes Woof, Woof, Bark, Bark",</i> and <span class="colorGreen">Jitters</span><b>.<span class="colorPurple">meow()</span></b> returns <i>"Jitters goes Meeooww, purr, purr".</i>
+            </p>
+            <hr style="width: 90%;">
+            <p><span class="firstWord">O</span>ne last thing to note here about <i><b>extends</b></i>. We have an <span class="colorPurple">eat()</span> method in our <i><span class="colorGold">Pets</span> Parent <span class="colorBlue">constructor</span></i> class, but what if we created a <i><b>new</b></i> <span class="colorPurple">eat()</span> method in our <i><span class="colorGold">Dog</span> class, like so:
+               <ul class="sectHighlight">
+                  <li class="commentStyle">// <i>create the NEW <span class="colorPurple">eat()</span> method inside the <span class="colorGold">Dog</span> class</i></li>
+                  <li></i><span class="colorPurple">eat</span>() {</li>
+                     <ul>
+                        <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> scarf's his food like a dummy.`;</li>
+                     </ul>
+                  <li>}</li>
+               </ul>
+            Remember, our <span class="colorGold">Dog</span> class does not contain an <span class="colorPurple">eat()</span> method. So if we add the <i><b>new</b></i> <span class="colorPurple">eat()</span> method into our <span class="colorGold">Dog</span> class, and our other <span class="colorPurple">eat()</span> method still resides in our <i><span class="colorGold">Pets</span> Parent <span class="colorBlue">constructor</span></i> class, and we then call <span class="colorGreen">Chico</span><b>.</b><span class="colorPurple">eat()</span>, which <span class="colorPurple">eat()</span> method would it use?
+            </p>
+            <p>Well, it returns <i>"Chico scarf's his food like a dummy",</i> which means that you can override an existing method, that is contained inside the <i>Parent <span class="colorBlue">constructor</span></i> class, by creating a <i><b>new</b></i> method within the individual class, <i>(in this case, the <span class="colorGold">Dog</span> class)</i>.</p>
+            <p>To be more specific, when you create a class <b>object</b>, like our <span class="colorGold">Dog</span> object, and then call a <b>method</b> of the object, Javascript will first look inside the local class that the object represents, and if it doesn't find the method there, it will then look to the <i>Parent <span class="colorBlue">constructor</span></i> class for the method.</p>
          </article>
       </section>
 
