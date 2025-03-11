@@ -34,7 +34,7 @@
       <!--Review and Set Up -->
       <section id="textWindow4" class="just">
          <article>
-            <p><span class="firstWord">W</span>e learned that when we build a <i><b>class</b></i>, we use a <i><b>constructor</b></i> to define the base variables, that can be accessed, with all of the methods of that class. Let's use the standard "dog", "cat" classes for demonstration:
+            <p><span class="firstWord">W</span>e learned that when we build a <i><b>class</b></i>, we use a <i><span class="colorBlue">constructor</span></i> to define the base variables, that can be accessed, with all of the methods of that class. Let's use the standard "dog", "cat" classes for demonstration:
                <ul class="sectHighlight">
                   <li>Javascript</li>
                   <li class="commentStyle">// <i><b>Dog</b> class</i></li>
@@ -49,13 +49,13 @@
                   </li>
                   <li>}</li>
                   <li class="commentStyle">// <i>create the eat method</i></li>
-                  <li><b>eat</b>() {</li>
+                  <li><span class="colorPurple">eat()</span> {</li>
                      <ul>
                         <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> is eating.`;</li>
                      </ul>
                   <li>}</li>
                   <li class="commentStyle">// <i>create the bark method</i></li>
-                  <li><b>bark</b>() {</li>
+                  <li><span class="colorPurple">bark()</span>{</li>
                      <ul>
                         <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Woof, Woof, Bark, Bark.`;</li>
                      </ul>
@@ -76,13 +76,13 @@
                </li>
                <li>}</li>
                <li class="commentStyle">// <i>create the eat method</i></li>
-               <li><b>eat</b>() {</li>
+               <li><span class="colorPurple">eat()</span> {</li>
                   <ul>
                      <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> is eating.';</li>
                   </ul>
                <li>}</li>
                <li class="commentStyle">// <i>create the meow method</i></li>
-               <li><b>meow</b>() {</li>
+               <li><span class="colorPurple">meow()</span> {</li>
                   <ul>
                      <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Meeooww, purr, purr.';</li>
                   </ul>
@@ -95,21 +95,23 @@
                </ul>
                we now have a <span class="colorGreen">Chico</span> object of the <span class="colorGold">Dog</span> class, and we now have access to the methods contained within the <span class="colorGold">Dog</span> class. So if we call:
                <ul class="sectHighlight">
-                  <li><span class="colorGreen">Chico</span>.<b>eat()</b></li>
+                  <li><span class="colorGreen">Chico</span><b>.</b><span class="colorPurple">eat()</span></li>
                </ul>
-               we get: Chico is eating, and if we call:
+               we get: <i>"Chico is eating"</i>, and if we call:
                <ul class="sectHighlight">
-                  <li><span class="colorGreen">Chico</span>.<b>bark()</b></li>
+                  <li><span class="colorGreen">Chico</span><b>.</b><span class="colorPurple">bark()</span></li>
                </ul>
-               we get: Chico goes Woof, Woof, Bark, Bark.
+               we get: <i>"Chico goes Woof, Woof, Bark, Bark"</i>.
             </p>
             <p>And of course the <span class="colorGold">Cat</span> class would work exactly the same, except there is no <i><b>meow</b></i> method for the <span class="colorGold">Dog</span> class, and there is no <i><b>bark</b></i> method for the <span class="colorGold">Cat</span> class.
             </p>
-            <p>What's important to note here is that we've created two different classes, each with their own, individual <span class="colorBlue">constructor</span>. We also notice that there is some duplication here between the two classes. Both <i><b>classes</b></i> share the same variables in their respective <span class="colorBlue">constructors</span>, and the also share the <b>eat()</b> method. Wouldn't it be nice if we could simplify the coding, and create a <i><b>common</b> <span class="colorBlue">constructor</span></i> that would have the common elements included, and that we could access from all of our individual <i><b>classes</b></i>?</p>
-            <p>This is where <i><b>Extends</b></i> comes in.</p>
+            <p>What's important to note here is that we've created two different classes, each with their own, individual <span class="colorBlue">constructor</span>. We also notice that there is some duplication here between the two classes. Both <i><b>classes</b></i> share the same variables in their respective <span class="colorBlue">constructors</span>, and the also share the <span class="colorPurple">eat()</span> method.</p>
+            <p>Wouldn't it be nice if we could simplify the coding, and create a <i><b>common</b> <span class="colorBlue">constructor</span></i> that would have all of the common elements included, that we could access from all of our individual <i><b>classes</b></i>? This is where <i><b>Extends</b></i> comes in.</p>
          </article>
-         <hr style="width: 90%;">
+      </section>
 
+      <!-- Extends -->
+      <section id="textWindow4" class="just">
          <article>
             <h6>Extends</h6>
             <p><span class="firstWord">T</span>o accomplish a "common" <span class="colorBlue">constructor</span>, we can create a <i><b>"parent"</b></i> <span class="colorBlue">constructor</span> class, that contains <b>all</b> of the common elements, like so:
@@ -127,7 +129,7 @@
                   </li>
                   <li>}</li>
                   <li class="commentStyle">// <i>create the eat method</i></li>
-                  <li><b>eat</b>() {</li>
+                  <li><span class="colorPurple">eat()</span> {</li>
                      <ul>
                         <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> is eating.`;</li>
                      </ul>
@@ -141,7 +143,7 @@
                   <li><b>class</b> <span class="colorGold">Dog</span> {
                      <ul>
                         <li class="commentStyle">// <i>create the bark method</i></li>
-                        <li><b>bark</b>() {</li>
+                        <li><span class="colorPurple">bark()</span> {</li>
                            <ul>
                               <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Woof, Woof, Bark, Bark.`;</li>
                            </ul>
@@ -157,7 +159,7 @@
                   <li><b>class</b> <span class="colorGold">Cat</span> {
                      <ul>
                         <li class="commentStyle">// <i>create the meow method</i></li>
-                        <li><b>meow</b>() {</li>
+                        <li><span class="colorPurple">meow()</span> {</li>
                            <ul>
                               <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Meeooww, purr, purr.';</li>
                            </ul>
@@ -198,6 +200,61 @@
             </p>
             <p>Well, it returns <i>"Chico scarf's his food like a dummy",</i> which means that you can override an existing method, that is contained inside the <i>Parent <span class="colorBlue">constructor</span></i> class, by creating a <i><b>new</b></i> method within the individual class, <i>(in this case, the <span class="colorGold">Dog</span> class)</i>.</p>
             <p>To be more specific, when you create a class <b>object</b>, like our <span class="colorGold">Dog</span> object, and then call a <b>method</b> of the object, Javascript will first look inside the local class that the object represents, and if it doesn't find the method there, it will then look to the <i>Parent <span class="colorBlue">constructor</span></i> class for the method.</p>
+         </article>
+      </section>
+
+      <!-- super -->
+      <section id="textWindow4" class="just">
+         <h6>Super</h6>
+         <article>
+            <p><span class="firstWord">N</span>ow we showed how we could use <i><b>extends</b></i> to create a <i><b>"parent"</b></i> <span class="colorBlue">constructor</span> class so that we could share common properties and methods. But what if we needed some extra properties in one of our classes, that we didn't need in the other classes? This is where the keyword <i><b>super</b></i> comes in.
+            </p>
+            <p>Let's take our <span class="colorGold">Cat</span> class from above and add a <i>new</i> property called <b>livesLeft</b>. Let's see the code for the updated <span class="colorGold">Cat</span> class:
+               <ul class="sectHighlight">
+                  <li>Javascript</li>
+                  <li class="commentStyle">// <i><b>Cat</b> class</i></li>
+                  <li><b>class</b> <span class="colorGold">Cat</span> {
+                     <ul>
+                        <li><span class="colorBlue">constructor</span> ( <i>name, <b>livesLeft</b> = 9</i> ) {
+                           <ul>
+                              <li><span class="colorRed">super</span> ( <i>name</i> );</li>
+                              <li><i><span class="colorRed">this</span><b>.livesLeft</b> = livesLeft</i>;</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li class="commentStyle">// <i>create the meow method</i></li>
+                  <li><span class="colorPurple">meow()</span> {</li>
+                     <ul>
+                        <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Meeooww, purr, purr.';</li>
+                     </ul>
+                  <li>}</li>
+               </ul>
+            Because we are adding new properties to our existing <i><b>"parent"</b></i> <span class="colorBlue">constructor</span> class, we now need to bring back our <span class="colorBlue">constructor</span> in our <span class="colorGold">Cat</span> class. We then use <span class="colorRed">super</span> to tell our <span class="colorGold">Cat</span> class which properties to <i>"pull"</i> in from the <i><b>"parent"</b></i> <span class="colorBlue">constructor</span>. In this case, the <i><b>name</b></i> property. We then need to assign the <i>new<b> livesLeft</b></i> property to the <span class="colorGold">Cat</span> class with the <span class="colorRed">this</span> keyword which makes it available for use in any and all methods that we create in the <span class="colorGold">Cat</span> class.
+            </p>
+            <p>And now we can add a new method <span class="colorPurple">lives</span>:
+               <ul class="sectHighlight">
+                  <li class="commentStyle">// <i>add lives method</i></li>
+                  <li><span class="colorPurple">lives()</span> {
+                     <ul>
+                        <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} has ${<span class="colorRed">this</span><b>.livesLeft</b>} lives left.</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>and when we create the "<span class="colorGreen">Jitters</span>" object:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorGreen">jitters</span> = <span class="colorGold">Cat</span>('Jitters');</li>
+               </ul>
+               and we call:
+               <ul class="sectHighlight">
+                  <li> <span class="colorGreen">jitters</span><b>.livesLeft()</b>;</li>
+               </ul>
+               we now get <i>"Jitters has 9 lives left".</i>
+            </p>
+            Remember, we can not call <b>livesLeft()</b> from a <span class="colorGold">Dog</span> object because <b>livesLeft()</b> is unique to the <span class="colorGold">Cat</span> class, just like the <b>meow()</b> method.
          </article>
       </section>
 
