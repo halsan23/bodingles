@@ -22,14 +22,18 @@ class Dog extends Pets {
 
 // cat Class
 class Cat extends Pets {
+	constructor( name, livesLeft = 9 ) {
+		super(name);
+		this.livesLeft = livesLeft;
+	}
    // meow method
    meow() {
-      return `${this.name} says Meeooowww, purr, purr`;
+      return `${this.name} says Meooww, purr, purr`;
    }
 }
 
 
-// use the class's
+// create the class object's
 const myDog = new Dog('Chico');
 const myCat = new Cat('Jitters');
 
