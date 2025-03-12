@@ -1,6 +1,18 @@
+
+
+article {
+   text-align: justify;
+}
+
 hr {
    margin: 15px auto;
    width: 90%;
+}
+
+iframe {
+   border: 3px solid black;
+   border-radius: 10px;
+   box-shadow: 6px 6px 13px #656565;
 }
 
 li {
@@ -10,8 +22,4 @@ li {
 
 ol li {
    list-style: decimal;
-}
-
-article {
-   text-align: justify;
 }
