@@ -40,23 +40,31 @@
                   <li class="commentStyle">// <i><b>Dog</b> class</i></li>
                   <li><b>class</b> <span class="colorGold">Dog</span> {
                      <ul>
-                        <li><span class="colorBlue">constructor</span> ( <i>name</i> ) {
+                        <li><span class="colorBlue">constructor</span> ( <i>name, age</i> ) {
                            <ul>
                               <li><span class="colorRed">this</span><b>.name</b> = <i>name</i>;</li>
+                              <li><span class="colorRed">this</span><b>.age</b> = <i>age</i>;</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                        <li class="commentStyle">// <i>create the age method</i></li>
+                        <li><span class="colorPurple">age()</span> {
+                           <ul>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} is ${<span class="colorRed">this</span><b>.age</b>} years old.`;</li>
                            </ul>
                         </li>
                         <li>}</li>
                         <li class="commentStyle">// <i>create the eat method</i></li>
                         <li><span class="colorPurple">eat()</span> {
                            <ul>
-                              <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> is eating.`;</li>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} is eating.`;</li>
                            </ul>
                         </li>
                         <li>}</li>
                         <li class="commentStyle">// <i>create the meow method</i></li>
                         <li><span class="colorPurple">bark()</span>{
                            <ul>
-                              <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Woof, Woof, Bark, Bark.`;</li>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} goes Woof, Woof, Bark, Bark.`;</li>
                            </ul>
                         </li>
                         <li>}</li>
@@ -70,23 +78,31 @@
                <li class="commentStyle">// <i><b>Cat</b> class</i></li>
                <li><b>class</b> <span class="colorGold">Cat</span> {
                   <ul>
-                     <li><span class="colorBlue">constructor</span> ( <i>name</i> ) {
+                     <li><span class="colorBlue">constructor</span> ( <i>name, age</i> ) {
                         <ul>
                            <li><span class="colorRed">this</span><b>.name</b> = <i>name</i>;</li>
+                           <li><span class="colorRed">this</span><b>.age</b> = <i>age</i>;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                     <li class="commentStyle">// <i>create the age method</i></li>
+                     <li><span class="colorPurple">age()</span> {
+                        <ul>
+                           <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} is ${<span class="colorRed">this</span><b>.age</b>} years old.`;</li>
                         </ul>
                      </li>
                      <li>}</li>
                      <li class="commentStyle">// <i>create the eat method</i></li>
                      <li><span class="colorPurple">eat()</span> {
                         <ul>
-                           <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> is eating.`;</li>
+                           <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} is eating.`;</li>
                         </ul>
                      </li>
                      <li>}</li>
                      <li class="commentStyle">// <i>create the bark method</i></li>
                      <li><span class="colorPurple">meow()</span>{
                         <ul>
-                           <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Meeooww, purr, purr.';</li>
+                           <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} goes Meeooww, purr, purr.';</li>
                         </ul>
                      </li>
                      <li>}</li>
@@ -126,19 +142,29 @@
                   <li class="commentStyle">// <i>Parent <span class="colorBlue">constructor</span> class</i></li>
                   <li><b>class</b> <span class="colorGold">Pets</span> {
                      <ul>
-                        <li><span class="colorBlue">constructor</span> ( <i>name</i> ) {
+                        <li><span class="colorBlue">constructor</span> ( <i>name, age</i> ) {
                            <ul>
                               <li><span class="colorRed">this</span><b>.name</b> = <i>name</i>;</li>
+                              <li><span class="colorRed">this</span><b>.age</b> = <i>age</i>;</li>
                            </ul>
                         </li>
+                        <li>}</li>
+                        <li class="commentStyle">// <i>create the age method</i></li>
+                        <li><span class="colorPurple">age()</span> {
+                           <ul>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} is ${<span class="colorRed">this</span><b>.age</b>} years old.`;</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                        <li class="commentStyle">// <i>create the eat method</i></li>
+                        <li><span class="colorPurple">eat()</span> {
+                           <ul>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} is eating.`;</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
                      </ul>
                   </li>
-                  <li>}</li>
-                  <li class="commentStyle">// <i>create the eat method</i></li>
-                  <li><span class="colorPurple">eat()</span> {</li>
-                     <ul>
-                        <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> is eating.`;</li>
-                     </ul>
                   <li>}</li>
                </ul>
             </p>
@@ -151,7 +177,7 @@
                         <li class="commentStyle">// <i>create the bark method</i></li>
                         <li><span class="colorPurple">bark()</span> {</li>
                            <ul>
-                              <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Woof, Woof, Bark, Bark.`;</li>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} goes Woof, Woof, Bark, Bark.`;</li>
                            </ul>
                         <li>}</li>
                      </ul>
@@ -167,7 +193,7 @@
                         <li class="commentStyle">// <i>create the meow method</i></li>
                         <li><span class="colorPurple">meow()</span> {</li>
                            <ul>
-                              <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Meeooww, purr, purr.';</li>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} goes Meeooww, purr, purr.';</li>
                            </ul>
                         <li>}</li>
                      </ul>
@@ -198,7 +224,7 @@
                   <li class="commentStyle">// <i>create the NEW <span class="colorPurple">eat()</span> method inside the <span class="colorGold">Dog</span> class</i></li>
                   <li></i><span class="colorPurple">eat</span>() {</li>
                      <ul>
-                        <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> scarf's his food like a dummy.`;</li>
+                        <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} scarf's his food like a dummy.`;</li>
                      </ul>
                   <li>}</li>
                </ul>
@@ -221,9 +247,9 @@
                   <li class="commentStyle">// <i><b>Cat</b> class</i></li>
                   <li><b>class</b> <span class="colorGold">Cat</span> {
                      <ul>
-                        <li><span class="colorBlue">constructor</span> ( <i>name, <b>livesLeft</b> = 9</i> ) {
+                        <li><span class="colorBlue">constructor</span> ( <i>name, age, <b>livesLeft</b> = 9</i> ) {
                            <ul>
-                              <li><span class="colorRed">super</span> ( <i>name</i> );</li>
+                              <li><span class="colorRed">super</span> ( <i>name, age</i> );</li>
                               <li><i><span class="colorRed">this</span><b>.livesLeft</b> = livesLeft</i>;</li>
                            </ul>
                         </li>
@@ -233,7 +259,7 @@
                   <li class="commentStyle">// <i>create the meow method</i></li>
                   <li><span class="colorPurple">meow()</span> {</li>
                      <ul>
-                        <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b> goes Meeooww, purr, purr.';</li>
+                        <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} goes Meeooww, purr, purr.';</li>
                      </ul>
                   <li>}</li>
                </ul>
@@ -284,7 +310,7 @@
                         <li class="commentStyle">// <i>create the eat method</i></li>
                         <li><span class="colorPurple">eat()</span> {
                            <ul>
-                              <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b>} is eating.`;</li>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} is eating.`;</li>
                            </ul>
                         </li>
                         <li>}</li>
@@ -299,14 +325,14 @@
                         <li class="commentStyle">// <i>create the bark method</i></li>
                         <li><span class="colorPurple">bark()</span> {
                            <ul>
-                              <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b>} goes Woof, Woof, Bark, Bark.`;</li>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} goes Woof, Woof, Bark, Bark.`;</li>
                            </ul>
                         </li>
                         <li>}</li>
                         <li class="commentStyle">// <i>create the modified eat method</i></li>
                         <li><span class="colorPurple">eat()</span> {
                            <ul>
-                              <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b>} scarf's his food.`;</li>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} scarf's his food.`;</li>
                            </ul>
                         </li>
                         <li>}</li>
@@ -334,7 +360,7 @@
                         <li class="commentStyle">// <i>create the livesLeft method</i></li>
                         <li><span class="colorPurple">lives()</span> {
                            <ul>
-                              <li><b>return</b> `${<span class="colorRed">this</span>}<b>.name</b>} has ${<b>livesLeft</b>} lives left.';</li>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} has ${<b>livesLeft</b>} lives left.';</li>
                            </ul>
                         </li>
                         <li>}</li>
@@ -343,7 +369,27 @@
                   <li>}</li>
                </ul>
             </p>
-            <p>discuss final code - add object calls and console.logs</p>
+            <p><span class="firstWord">F</span>inal Code Explained:
+               <ul>
+                  <li>1. We created a <b>parent </b><span class="colorBlue">constructor</span> class (<span class="colorGold">Pets</span>), that contains all of the shared properties and methods for all of our classes.
+                     <ul>
+                        <li>- <i>(the <b>name</b>, and <b>age</b> properties, and the default <span class="colorPurple">eat()</span> method)</i></li>
+                     </ul>
+                  </li>
+                  <li>2. We created the <span class="colorGold">Dog</span> class that:
+                     <ul>
+                        <li>- has it's unique <span class="colorPurple">bark()</span> method</li>
+                        <li>- has overridden the <i>default</i> <span class="colorPurple">eat()</span> method</li>
+                     </ul>
+                  </li>
+                  <li>3. We created the <span class="colorGold">Cat</span> class that:
+                     <ul>
+                        <li>- has it's unique <span class="colorPurple">meow()</span> method</li>
+                        <li>- has added a new unique <span class="colorPurple">livesLeft()</span> method</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
          </article>
       </section>
       <p><br><a href="#top">Back to Top</a><br><br></p>
