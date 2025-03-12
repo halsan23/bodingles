@@ -307,6 +307,13 @@
                            </ul>
                         </li>
                         <li>}</li>
+                        <li class="commentStyle">// <i>create the age method</i></li>
+                        <li><span class="colorPurple">age()</span> {
+                           <ul>
+                              <li><b>return</b> `${<span class="colorRed">this</span><b>.name</b>} is ${<span class="colorRed">this</span><b>.age</b>} years old.`;</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
                         <li class="commentStyle">// <i>create the eat method</i></li>
                         <li><span class="colorPurple">eat()</span> {
                            <ul>
@@ -320,7 +327,7 @@
                   <li>&nbsp;</li>
 
                   <li class="commentStyle">// create <i><b>Dog</b> class</i></li>
-                  <li><b>class</b> <span class="colorGold">Dog</span> <i><b>extends</b></i> <span class="colorGold">Pet</span> {
+                  <li><b>class</b> <span class="colorGold">Dog</span> <i><b>extends</b></i> <span class="colorGold">Pets</span> {
                      <ul>
                         <li class="commentStyle">// <i>create the bark method</i></li>
                         <li><span class="colorPurple">bark()</span> {
@@ -341,7 +348,7 @@
                   <li>}</li>
                   <li>&nbsp;</li>
                   <li class="commentStyle">// create <i><b>Cat</b> class</i></li>
-                  <li><b>class</b> <span class="colorGold">Cat</span> <i><b>extends</b></i> <span class="colorGold">Pet</span> {
+                  <li><b>class</b> <span class="colorGold">Cat</span> <i><b>extends</b></i> <span class="colorGold">Pets</span> {
                      <ul>
                         <li><span class="colorBlue">constructor</span> ( <i>name, age, <b>livesLeft</b> = 9</i> ) {
                            <ul>
@@ -388,6 +395,25 @@
                         <li>- has added a new unique <span class="colorPurple">livesLeft()</span> method</li>
                      </ul>
                   </li>
+               </ul>
+            </p>
+            <p>and now we can create our <span class="colorGold">Dog</span> and <span class="colorGold">Cat</span> <b>objects</b>:
+               <ul class="sectHighlight">
+                  <li class="commentStyle">// <i>create the class <b>objects</b></i></li>
+                  <li>const <span class="colorGreen">myDog</span> = <span class="this">new</span> <span class="colorGold">Dog</span>('Chico');</li>
+                  <li>const <span class="colorGreen">myCat</span> = <span class="this">new</span> <span class="colorGold">Cat</span>('Jitters');</li>
+               </ul>
+            and finally, call the <span class="colorGold">Dog</span> and <span class="colorGold">Cat</span> methods:
+               <ul class="sectHighlight">
+                  <li class="commentStyle">// <i>call the <span class="colorGold">Dog</span> methods</i></li>
+                  <li>console.log(<span class="colorGreen">myDog</span>.<span class="colorPurple">age()</span>);</li>
+                  <li>console.log(<span class="colorGreen">myDog</span>.<span class="colorPurple">eat()</span>);</li>
+                  <li>console.log(<span class="colorGreen">myDog</span>.<span class="colorPurple">bark()</span>);</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// <i>call the <span class="colorGold">Cat</span> methods</i></li>
+                  <li>console.log(<span class="colorGreen">myCat</span>.<span class="colorPurple">age()</span>);</li>
+                  <li>console.log(<span class="colorGreen">myCat</span>.<span class="colorPurple">eat()</span>);</li>
+                  <li>console.log(<span class="colorGreen">myCat</span>.<span class="colorPurple">meow()</span>);</li>
                </ul>
             </p>
          </article>
