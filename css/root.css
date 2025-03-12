@@ -136,7 +136,7 @@ h1 {
    font-weight: 400;
    font-style: normal;
    font-size: 3.4rem;
-   margin: 10px;
+   margin: 15px auto 25px;
 }
 
 h2 {
@@ -145,7 +145,7 @@ h2 {
    font-weight: 400;
    font-style: normal;
    font-size: 3rem;
-   margin: 10px;
+   margin: 15px auto 25px;
 }
 
 h3 {
@@ -154,7 +154,7 @@ h3 {
    font-weight: 400;
    font-style: normal;
    font-size: 2.7rem;
-   margin: 10px;
+   margin: 13px auto 20px;
 }
 
 h4 {
@@ -163,7 +163,7 @@ h4 {
    font-weight: 400;
    font-style: normal;
    font-size: 2.4rem;
-   margin: 10px;
+   margin: 10px auto 15px;
 }
 
 h5 {
@@ -172,7 +172,7 @@ h5 {
    font-weight: 400;
    font-style: normal;
    font-size: 2rem;
-   margin: 10px;
+   margin: 7px auto 9px;
 }
 
 h6 {
@@ -181,7 +181,7 @@ h6 {
    font-weight: 400;
    font-style: normal;
    font-size: 1.6rem;
-   margin: 0;
+   margin: 5px auto 8px;
 }
 
 /* custom ruler */
