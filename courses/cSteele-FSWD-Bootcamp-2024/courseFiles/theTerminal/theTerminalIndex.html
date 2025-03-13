@@ -37,6 +37,7 @@
             <h6>Terminal References</h6><hr>
             <p><a href="../../assets/files/The Terminal.pdf" target="_blank">The Terminal Course PDF</a></p>
             <p><a href="installBash/installBash.html">Installing Git Bash</a></p>
+            <p><a href="https://git-scm.com/docs/git-help" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">GIT Help Documentation</a></p>
       </section>
 
       <!-- Definitions -->
@@ -45,91 +46,76 @@
             <h6>Definitions</h6>
             <p><span class="firstWord">T</span>erminal - used to refer to the piece of hardware, ie. the computer terminal, that you were accessing. In modern terminology, it refers to the command line interface. Think Command Prompt, or PowerShell</p>
             <p><span class="firstWord">S</span>hell - refers to the software running within the terminal. Think Git Bash.</p>
+            <p><span class="firstWord">C</span>WD - the <b>cwd</b> is the <b>Current Working Directory</b>.</p>
             <p><span class="firstWord">A</span>bsolute Path - defines an absolute path to any file or folder, irregardless of the <b>cwd</b> - eg. C:\users\User\Files\thisFile.txt.</p>
             <p><span class="firstWord">R</span>elative Path - a file or folder path, <i><b>relative</b></i> to my <b>cwd</b> - eg. <b>cwd</b>/subDirectory/subDirectory/thisFile.txt.</p>
          </article>
          <hr>
          <article>
-            <h6>Git Commands</h6>
-            <p class="commentStyle">>> interestingly, these are also linux terminal commands</p>
-               <ul class="tabDisp">
-                  <li><span class="lt">~</span>
-                     <span class="md"><i>(tilde)</i> : references the home directory.</span>
-                  </li>
-                  <li><span class="lt"></span>
-                     <span class="rt">eg. <b>cd ~</b> : goes back to the home directory.</span>
-                  </li>
-                  <li><span class="lt">/</span>
-                     <span>references the root directory</span>
-                  </li>
-                  <li><span class="lt"></span>
-                     <span></span>
-                     <span class="rt">eg. <b>cd /</b> goes back to the root directory.</span>
-                  </li>
-                  <li><span class="lt">cd</span>
-                     <span>change the <b>cwd</b> to a sub-directory</span>
-                  </li>
-                  <li>
-                     <span class="lt"></span>
-                     <span class="rt">eg. <b>cd c:/git-repos</b> goes to the <i>"git-repos"</i> sub-directory</span>
-                  </li>
-                  <li><span class="lt">cd ..</span>
-                     <span>change the <b>cwd</b> back up one level</span>
-                  </li>
-                  <li><span class="lt">../</span>
-                     <span>backs up one level</span>
-                  </li>
-                  <li>
-                     <span class="lt"></span>
-                     <span class="rt"><i>(note: theses can be chained to go back multiple levels)</i></span>
-                  </li>
-                  <li><span class="lt"></span>
-                     <span></span>
-                  </li>
-                  <li>
-                     <span class="lt"></span>
-                     <span class="rt"></span>
-                  </li>
-               </ul>
-
-
-
-
-            <table>
-               <tr>
-                  <td class="cellL"><b></b></td>
-                  <td colspan="3"> .</td>
-               </tr>
-               <tr>
-                  <td class="cellL"><b>clear</b></td>
-                  <td colspan="3">clears the terminal display screen</td>
-               </tr>
-               <tr>
-                  <td class="cellL"><b>pwd</b></td>
-                  <td colspan="3">(print working directory) : displays the path of the current working directory (cwd).</td>
-               </tr>
-               <tr>
-                  <td class="cellL"><b>ls</b></td>
-                  <td colspan="3">list's the contents of the current working directory (cwd).</td>
-               </tr>
-               <tr>
-                  <td class="cellL"><b>mkdir</b></td>
-                  <td colspan="3">creates a new, empty directory <i>(folder)</i> within the <b>cwd</b>.</td>
-               </tr>
-               <tr>
-                  <td></td>
-                  <td class="cellM"></td>
-                  <td><i><b>*note</b></i>: you can make multiple directories, like so:</td>
-               </tr>
-               <tr>
-                  <td colspan="3" class="cellM"></td>
-                  <td><b>mkdir</b> dir1 dir2 dir3</td>
-               </tr>
-               <tr>
-                  <td><b></b></td>
-                  <td></td>
-               </tr>
-            </table>
+            <h6>Basic Git Commands</h6>
+            <div class="contain">
+               <span> >> <i>interestingly, these are also linux terminal commands</i></span>
+            </div>
+            <div class="contain">
+               <div class="lt">clear</div>
+               <div class="md">clears the terminal display screen.</div>
+            </div>
+            <div class="contain">
+               <div class="lt">~</div>
+               <div class="md"><i>(tilde)</i> : references the home directory.</div>
+               <div class="rt">eg. <b>cd ~</b> goes back to the home directory.</div>
+            </div>
+            <div class="contain">
+               <div class="lt">/</div>
+               <div class="md">references the root directory.</div>
+               <div class="rt">eg. <b>cd /</b> goes back to the root directory.</div>
+            </div>
+            <div class="contain">
+               <div class="lt">cd</div>
+               <div class="md">change the <b>cwd</b> to a sub-directory <i>(if it exists)</i>.</div>
+               <div class="rt">eg. <b>cd git-repos</b> changes to the git-repos sub-directory of the <b>cwd</b>.</div>
+            </div>
+            <div class="contain">
+               <div class="lt">cd ..</div>
+               <div class="md">change the <b>cwd</b> back up one level.</div>
+            </div>
+            <div class="contain">
+               <div class="lt">../</div>
+               <div class="md">moves back up one level.</div>
+               <div class="rt"><i>(<b>note</b>: theses can be chained to go back multiple levels)</i>.</div>
+            </div>
+            <div class="contain">
+               <div class="lt">pwd</div>
+               <div class="md"><i>(print working directory)</i> : displays the path of the current working directory (cwd).</div>
+            </div>
+            <div class="contain">
+               <div class="lt">ls</div>
+               <div class="md">list's the contents of the current working directory (cwd).</div>
+            </div>
+            <div class="contain">
+               <div class="lt">mkdir</div>
+               <div class="md">creates a <i>new</i> subdirectory within the <b>cwd</b>.</div>
+            </div>
+            <div class="contain">
+               <div class="lt">touch</div>
+               <div class="md">creates a new file within the <b>cwd</b>.</div>
+               <div class="rt">syntax: touch filename.ext.</div>
+            </div>
+            <div class="contain">
+               <div class="lt">rm</div>
+               <div class="md">remove a file, (or multiple files) from the <b>cwd</b>.</div>
+               <div class="rt">eg. <b>rm</b> [filename] [filename] [filename]...</div>
+            </div>
+            <div class="contain">
+               <div class="lt">rmdir</div>
+               <div class="md">remove an <i><b>empty</b></i> folder.</div>
+               <div class="rt">eg. <b>rmdir</b> [foldername].</div>
+            </div>
+            <div class="contain">
+               <div class="lt">rm-rf</div>
+               <div class="md">remove a <i><b>not empty</b></i> folder.</div>
+               <div class="rt">eg. <b>rmd-rf</b> [foldername].</div>
+            </div>
          </article>
       </section>
 
