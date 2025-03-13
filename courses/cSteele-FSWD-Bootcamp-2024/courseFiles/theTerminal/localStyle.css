@@ -22,11 +22,15 @@ ol li {
    list-style: decimal;
 }
 
-table {
+.tabDisp {
    width: 90%;
 }
 
-td {
-   padding: 4px 8px;
-   border-bottom: 1px solid black;
+.lt {
+   font-weight: bold;
+   margin: 5px 20px;
+}
+
+.rt {
+   margin-left: 70px;
 }
