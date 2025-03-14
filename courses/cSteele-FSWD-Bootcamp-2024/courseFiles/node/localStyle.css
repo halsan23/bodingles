@@ -1,0 +1,17 @@
+article {
+   text-align: justify;
+}
+
+hr {
+   margin: 15px auto;
+   width: 90%;
+}
+
+li {
+   list-style: none;
+   text-align: left;
+}
+
+ol li {
+   list-style: decimal;
+}

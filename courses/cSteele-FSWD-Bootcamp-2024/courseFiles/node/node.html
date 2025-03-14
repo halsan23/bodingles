@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="localStyle.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h3>Node Js</h3>
+         <p>&nbsp;</p>
+      </section>
+
+      <!-- Reference Materials -->
+      <section id="textWindow4">
+            <h6>Node Js References</h6><hr>
+            <p><a href="../../assets/files/Node Intro.pdf" target="_blank">Node Intro Course PDF</a></p>
+            <p><a href="https://nodejs.org/en/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Node Js Website</a></p>
+            <p><a href="https://nodejs.org/docs/latest/api/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Node Js Documentation</a></p>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Defining Node -->
+         <article>
+            <h6>What is Node.js</h6>
+            <p><span class="firstWord">N</span>ode.js is a cross-platform, open-source JavaScript runtime environment that can run on Windows, Linux, Unix, macOS, and more. It allows developers to use JavaScript to write command line tools and for server-side scripting, enabling a "JavaScript everywhere" paradigm where the same programming language can be used for both server- and client-side programming. This means you can use node to design apps to run either internally, such as in a web page, or externally as in an independent app.</p>
+            <p>An in depth description and much more info can be <a href="https://www.simplilearn.com/tutorials/nodejs-tutorial/what-is-nodejs" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>.</p>
+         </article>
+         <hr>
+
+         <!-- Installing Node -->
+         <article>
+            <h6>Installing Node.js</h6>
+            <p><span class="firstWord">N</span>ode.js is straight forward and simple to install. Go to the Node Js Website and click on <a href="https://nodejs.org/en/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Download Node,js</a>. Once downloaded, simply run the installer file. To verify the install, open a "Terminal" window and type <b>Node</b>. If you get any kind of error message, then Node was NOT properly installed and you may wish to run the installer again. However, if you get the message:
+               <ul>
+                  <li>Welcome to Node.js v22.14.0.</li>
+                  <li>Type ".help" for more information.</li>
+               </ul>
+            then Node WAS properly installed and you can type <b>.exit</b> to exit out of the node "repl" interface.
+            </p>
+            <p>What is the Node "repl" interface you might ask? It is merely referring to the working environment of the Node system. When you are in the "Node repl", you are in an EXTERNAL JavaScript environment where you can write, and run JavaScript code. No webpage needed.</p>
+         </article>
+      <hr>
+
+      <!-- differences -->
+      <article>
+         <h6>Node & JavaScript Differences</h6>
+         <p><span class="firstWord">J</span>avaScript and Node.js are both crucial in modern web development, but they serve different purposes and are used in different environments.</p>
+         <p>JavaScript is a programming language primarily used for client-side web development. It is used primarily to add functionality and interactivity to the "front end" of web development. In JavaScript, the <b>window</b> is the "Global" Top Level Object. It represents the "Browser Window".</p>
+         <p>Node.js is a "runtime environment" that is primarily used for server-side web development, communicating with the web servers on the "back end" side of web development. Like Javascript, Node also has a "Global" Top Level Object, and it's actually called <b>global</b>.</p>
+         <p>Because Node does not run in a browser, we won't have access to all the browser "stuff". The window, document, and DOM API's are not available in Node!</p>
+         <p>So what can we actually do with node.js? Well, that's a very good question. Node.js is used with:
+            <ul>
+               <li>- Web Servers</li>
+               <li>- Command Line Tools</li>
+               <li>- Native Apps such as VS Code</li>
+               <li>- Video Games</li>
+               <li>- Drone Controller Software</li>
+            </ul>
+            and much, much more. Also, Node comes with many built-in modules that don't exist in the browser. These modules help us do things like interact with the operating system and files/folders.
+         </p>
+      </article>
+      <hr>
+
+      <!-- repl -->
+      <article>
+         <h6>The Node Repl</h6>
+         <p><span class="firstWord">W</span>hat is the node <b>repl</b>? Another very good question. REPL actually stands for <b>Read / Evaluate / Print / Loop</b>. REPL comes from the idea that when you write javascript code, it will <b>read</b> the code typed in, <b>evaluate</b> the code, <b>print</b> the code, and <b>loop</b> back in to the code.</p>
+         <p>In simpler terms, the node repl is the working environment within node.js. When you open a terminal window and type <b>node</b>, you should see:
+            <ul>
+               <li>Welcome to Node.js <i>version #</i>.</li>
+               <li>Type ".help" for more information.</li>
+               <li>></li>
+            </ul>
+         you are now in the node <b>repl</b> or node working environment. This is where you will write all of your Js code. If you type <b>.help</b> it will show some basic repl commands such as using &lt;ctrl D>, or typing <b>.exit</b> to exit the node <b>repl</b>.</p>
+      </article>
+      <hr>
+
+      <!-- running a js app in node -->
+      <article>
+         <h6>Running Js in Node</h6>
+         <p><span class="firstWord">T</span>o run a Js app in Node is pretty straight forward.
+            <ol>
+               <li>Create your code in the code editor of your choice.</li>
+               <li>Open either the Windows Terminal, or the Node.js Command Prompt (From the Start Menu Node Folder)</li>
+               <li>Navigate to the folder your script is located in.</li>
+               <li><b>*DO NOT</b></DO> enter the Node REPL by typing [<b>Node</b>] as this will cause a syntax error when you try to run the code.</li>
+               <li>Enter [<b>node <i>filename.js</i></b>].</li>
+            </ol>
+         Your code should run just like if you ran it in an html console.</p>
+      </article>
+   </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
