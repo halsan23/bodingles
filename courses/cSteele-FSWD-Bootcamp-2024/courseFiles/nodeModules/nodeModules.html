@@ -35,10 +35,182 @@
          <!-- Defining NPM -->
          <article>
             <h6>What is NPM</h6>
-            <p><span class="firstWord">n</span>pm </p>
-            <p>An in depth description and much more info can be <a href="" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>.</p>
+            <p><b>npm</b> is a package manager for the JavaScript programming language. <b>npm</b> is the <b>default package manager for</b> the JavaScript runtime environment <b>Node.js</b> and is included as a recommended feature in the Node.js installer.
+            </p>
+            <p>It consists of a command line client, also called npm, and an online database of public and paid-for private packages, called the npm registry. The registry is accessed via the client, and the available packages can be browsed and searched via the npm website. The package manager and the registry are managed by npm, Inc.
+            </p>
+            <p>Although "npm" is commonly understood to be an abbreviation of "Node Package Manager", it is officially a recursive backronymic abbreviation for "npm is not an acronym".
+            </p>
+            <p>An in depth description and much more info can be <a href="https://docs.npmjs.com/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>.
+            </p>
          </article>
          <hr>
+
+         <!-- Defining NPM -->
+         <article>
+            <h6>Using NPM</h6>
+            <p><span class="firstWord">H</span>ow do we use npm? Essentially, npm works similarly to Python in that it has modules that can be imported for use, or shared between different Js files. In JavaScript, these "modules" are called <b>packages</b> and an online database of public and paid-for private packages, called the <i><b>npm registry</b></i> can be
+               <a href="https://www.npmjs.com/package/find-packages" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>. More information about npm packages can be
+               <a href="https://docs.npmjs.com/packages-and-modules" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>.</p>
+            <p>Lets demonstrate the concept by creating a package that we can "share" with another Js file. We're going to create a Js file called [<b>math.js</b>]. Inside this file, all we are going to have is two functions, and one variable assignment.</p>
+            <p>Here is the file contents:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><b>math.js</b></li>
+                  <li>
+                     <ul>
+                        <li>const <span class="colorGreen">add</span> = ( x, y ) => x + y;</li>
+                        <li>const <span class="colorGreen">square</span> = x => x * x;</li>
+                        <li>const <span class="colorGreen">PI</span> = 3.14159;</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>
+               So we've created a Js <b>package</b> that we can import into our other Js files. For that, we're going to need another Js file to work with. We'll call it [<b>app.js</b>]. Now in our new [<b>app.js</b>], we need to <i>"import"</i> our [<b>math.js</b>], and to do that, we use <b>require</b> like so:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><b>app.js</b></li>
+                  <li>
+                     <ul>
+                        <li>const <span class="colorGreen">mathImp</span> = <b>require</b> ('./math');</li>
+                        <li>console.log(<span class="colorGreen">mathImp</span>);</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>
+               Now if we run this in our "node" console, what will we get?
+               <ul class="sectHighlight">
+                  <li>Node Terminal
+                     <ul>
+                        <li><b>node</b> app.js</li>
+                     </ul>
+                  </li>
+               </ul>
+            Well, we actually get:
+               <ul class="sectHighlight">
+                  <li>{ }</li>
+               </ul>
+            an empty object. Now npm packages <i>are</i> in fact objects, so that part is correct, but we didn't get anything else from the package. This is because in the original [<b>math.js</b>] that we are trying to import, you have to <i><b>specifically</b></i> designate, what you want to export (share).</p>
+            <p>We do that with <b>module.exports</b>, like so:
+               <ul>
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><b>math.js</b></li>
+                  <li>
+                     <ul>
+                        <li>const <span class="colorGreen">add</span> = ( x, y ) => x + y;</li>
+                        <li>const <span class="colorGreen">square</span> = x => x * x;</li>
+                        <li>const <span class="colorGreen">PI</span> = 3.14159;</li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul class="sectHighlight">
+                  <li>
+                     <ul>module.exports.add = <span class="colorGreen">add</span>;</ul>
+                     <ul>module.exports.square = <span class="colorGreen">square</span>;</ul>
+                     <ul>module.exports.PI = <span class="colorGreen">PI</span>;</ul>
+                  </li>
+               </ul>
+            </p>
+            <p>And, now we get:
+               <ul class="sectHighlight">
+                  <li>{ <b>add</b>: [ Function: <b>add</b> ], <b>square</b>: [ Function: <b>square</b> ], <b>PI</b>: 3.14159 }</li>
+               </ul>
+               our complete package object with two functions, and one variable.
+            </p>
+            <p>So now, from within [<b>app.js</b>], we can log out some results from our [<b>math.js</b>], by adding:
+               <ul class="sectHighlight">
+                  <li>const {<span class="colorGreen">add</span>, <span class="colorGreen">square</span>, <span class="colorGreen">PI</span>} = <b>require</b> ('./math')</li>
+                  <li>console.log(<b><span class="colorGreen">add</span>( 2, 2 )</b>);</li>
+                  <li>console.log(<b><span class="colorGreen">square</span>(5)</b>);</li>
+                  <li>console.log(<b><span class="colorGreen">PI</span></b>);</li>
+                  </li>
+               </ul>
+            </p>
+            <p>and we get:
+               <ul class="sectHighlight">
+                  <li>4</li>
+                  <li>25</li>
+                  <li>3.14159</li>
+               </ul>
+            </p>
+         </article>
+         <hr>
+
+         <!-- Simplifying the Code -->
+         <article>
+            <h6>Simplifying the Code</h6>
+            <p><span class="firstWord">W</span>e can simplify our "exports" code in our [<b>math.js</b>] file by creating an object and exporting the object file like so:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorGreen">math</span> = {
+                     <ul>
+                        <li>add: add,</li>
+                        <li>square: square,</li>
+                        <li>PI: PI</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li>module.exports = <span class="colorGreen">math</span>;</li>
+               </ul>
+            </p>
+            <p>Another way to simplify the code would be to export each "math" item directly, like so:
+               <ul class="sectHighlight">
+                  <li>module.exports.<b>add</b> = ( x, y ) => x + y;</li>
+                  <li>module.exports.<b>square</b> = x => x * x;</li>
+                  <li>module.exports.<b>PI</b> = 3.14159;</li>
+               </ul>
+            </p>
+         </article>
+         <hr>
+
+         <!-- Summary -->
+         <article>
+            <h6>In Summary</h6>
+            <p><span class="firstWord">S</span>o we can "import packages" into another Js file by using the <b>require</b> keyword, in the file that we are importing into.
+               <ul class="sectHighlight">
+                  <li>const <span class="colorGreen"><i>variable</i></span> = <b>require</b> ('./file to import');</li>
+               </ul>
+            </p>
+            <p>We can only <i>import</i> items that have been <b>exported</b> in the originating package with the <b>module.exports</b> keyword, eg:
+               <ul class="sectHighlight">
+                  <li><b>module.exports</b>.<span class="colorGreen">add</span> = ( x, y ) => x + y;</li>
+               </ul>
+            </p>
+         </article>
+         <hr>
+
+         <!-- Final Code -->
+         <article>
+            <h6>Final Code</h6>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle"><span class="colorBlue">math</span>.js
+                  <ul>
+                     <li>module.exports.<span class="colorGreen">add</span> = ( x, y ) => x + y;</li>
+                     <li>module.exports.<span class="colorGreen">square</span> = x => x * x;</li>
+                     <li>module.exports.<span class="colorGreen">PI</span> = 3.14159;</li>
+                  </ul>
+               </li>
+            </ul>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">app.js
+                  <ul>
+                     <li>const {<span class="colorGreen">add</span>, <span class="colorGreen">square</span>, <span class="colorGreen">PI</span>} = <b>require</b> ('./<span class="colorBlue">math</span>');</li>
+                     <li>console.log(<span class="colorGreen">add</span>(2, 2));</li>
+                     <li>console.log(<span class="colorGreen">square</span>(5));</li>
+                     <li>console.log(<span class="colorGreen">PI</span>);</li>
+                  </ul>
+               </li>
+            </ul>
+            Outputs:
+            <ul class="sectHighlight">
+               <li>4</li>
+               <li>25</li>
+               <li>3.14159</li>
+            </ul>
+         </article>
    </section>
 
       <p><br><a href="#top">Back to Top</a></p>

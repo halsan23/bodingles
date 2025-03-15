@@ -15,7 +15,7 @@ let headText = `
    <span class="headScroll"><img src="/images/scroll.png" alt=""></span>
    <span class="headSlogan">
       - -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" style="width: 40px;" src="/images/logos/lightbulb.png" alt="Lightbulb Graphic">
+         <img class="sloganBulb" src="/images/logos/lightbulb.png" alt="Lightbulb Graphic">
       Ideas&nbsp;&nbsp;&nbsp;- -
    </span>
 `;
