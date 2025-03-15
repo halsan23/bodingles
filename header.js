@@ -6,15 +6,18 @@ const header = document.querySelector("#app-header");
 
 // build first part of header
 let headText = `
-<span class="headLogo"></span>
-<span class="headTitleShadow">Bodingles<sub>TM</sub></span>
-<a href="/index.html">
-    <span class="headTitle">Bo</span>
-    <span class="headTitleb">dingles</span>
-</a>
-<span class="headScroll"><img src="/images/scroll.png" alt=""></span>
-<span class="headSlogan">
-    - -&nbsp;&nbsp;&nbsp;Bright
+   <span class="headLogo"></span>
+   <span class="headTitleShadow">Bodingles<sub>TM</sub></span>
+   <a href="/index.html">
+      <span class="headTitle">Bo</span>
+      <span class="headTitleb">dingles</span>
+   </a>
+   <span class="headScroll"><img src="/images/scroll.png" alt=""></span>
+   <span class="headSlogan">
+      - -&nbsp;&nbsp;&nbsp;Bright
+         <img class="sloganBulb" style="width: 40px;" src="/images/logos/lightbulb.png" alt="Lightbulb Graphic">
+      Ideas&nbsp;&nbsp;&nbsp;- -
+   </span>
 `;
 
 // build second part of header
