@@ -59,6 +59,10 @@
 /* --------------  HTML Elements  -------------- */
 /* ============================================= */
 /* custom anchor tags */
+article {
+   text-align: justify;
+}
+
 a {
    color: #003088;
    font-weight: 600;
@@ -186,13 +190,19 @@ h6 {
 
 /* custom ruler */
 hr {
-   border: 1px solid #c1c5bb;
-   width: 60%;
+   margin: 15px auto;
+   width: 90%;
 }
 
 /* adds a top margin for list item spacing */
 li {
    margin-top: 5px;
+   list-style: none;
+   text-align: left;
+}
+
+ol li {
+   list-style: decimal;
 }
 
 /* set default paragraph spacing */
