@@ -143,7 +143,7 @@
                </ul>
             </p>
          </article>
-         <hr>
+         <p>&nbsp;</p>
 
          <!-- Simplifying the Code -->
          <article>
@@ -169,7 +169,7 @@
                </ul>
             </p>
          </article>
-         <hr>
+         <p>&nbsp;</p>
 
          <!-- Summary -->
          <article>
@@ -190,6 +190,7 @@
          <!-- Final Code -->
          <article>
             <h6>Final Code</h6>
+            <hr>
             <ul class="sectHighlight">
                <li><b>JavaScript</b></li>
                <li class="commentStyle"><span class="colorBlue">math</span>.js</li>
@@ -222,6 +223,127 @@
                <li>25</li>
                <li>3.14159</li>
             </ul>
+         </article>
+         <p>&nbsp;</p>
+
+         <!-- Including Folders -->
+         <article>
+            <h6>One Last Note</h6>
+            <p>Now, one other note about imports. We can also import an <b>entire folder</b> of files. To do this you need to create your packages in a folder, and the create a file that <b>must be named index.html</b>. Lets demonstrate. We'll create a folder called "<b>pets</b>, and inside the folder, we will create three files with different pet information. So in our file structure, we have:
+               <ul class="sectHighlight">
+                  <li class="commentStyle">// pets folder</li>
+                  <li><b>pets</b></li>
+                  <li>
+                     <ul>
+                        <li class="commentStyle">// pet files</li>
+                        <li>chico.js</li>
+                        <li>jitters.js</li>
+                        <li>jasper.js</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>So <b>pets</b> is the "parent" folder and contains the three "pet" Js files. The Js file will contain info about each pet. Here is Chico's file:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle">// <span class="colorBlue">chico</span>.js</li>
+                  <li><b>module.exports</b> = {
+                     <ul>
+                        <li>name: 'Chico',</li>
+                        <li>color: 'Brown',</li>
+                        <li>type: 'Dog'</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>So the [<b>chico,js</b>] file has been set up to export info about the "Chico" pet. The other two pet files will be set up exactly the same, but with their specific pet info. And now, <b>within</b> our "Pets" folder, we need to create an "index" file to control the import of all the other files. So we create the <i>new</i> [<b>index.js</b>] inside of our "Pets" folder:
+               <ul class="sectHighlight">
+                  <li class="commentStyle">// pets folder</li>
+                  <li><b>pets</b></li>
+                  <li>
+                     <ul>
+                        <li class="commentStyle">// pet files</li>
+                        <li>chico.js</li>
+                        <li>jitters.js</li>
+                        <li>jasper.js</li>
+                        <li class="commentStyle">// add the index controller file</li>
+                        <li><b>index.js</b></li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>Now, inside our <i>new</i> [<b>index.js</b>] file, we're going to require our three pet files, like so:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle">// <span class="colorBlue">index</span>.js</li>
+                  <li class="commentStyle">// import the individual pet files</li>
+                  <li>const <span class="colorGreen">chico</span> = <i>require</i> (./<b>chico</b>);</li>
+                  <li>const <span class="colorGreen">jitters</span> = <i>require</i> (./<b>jitters</b>);</li>
+                  <li>const <span class="colorGreen">jasper</span> = <i>require</i> (./<b>jasper</b>);</li>
+                  <li class="commentStyle">// combine the three files into an array</li>
+                  <li>const <span class="colorGreen">allPets</span> = [ <span class="colorGreen">chico</span>, <span class="colorGreen">jitters</span>, <span class="colorGreen">jasper</span> ];</li>
+               </ul>
+            </p>
+            <p>Now if we run our [<b>index.js</b>], we get:
+               <ul class="sectHighlight">
+                  <li>[
+                     <ul>
+                        <li>{ name: 'Chico', color: 'Brown', type: 'Dog' },</li>
+                        <li>{ name: 'Jitters', color: 'Brown', type: 'Cat' },</li>
+                        <li>{ name: 'Jasper', color: 'Black', type: 'Cat' }</li>
+                     </ul>
+
+                  </li>
+                  <li>]</li>
+               </ul>
+            </p>
+            <p>So we can see that we have imported all three pet files as an array. Now lets go ahead and export this array from within our <i>[<b>index.js</b>]</i> file:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle">// <span class="colorBlue">index</span>.js</li>
+                  <li class="commentStyle">// export the allPets array</li>
+                  <li><b>module.exports</b> = <span class="colorGreen">allPets</span>;</li>
+               </ul>
+            </p>
+            <p>and now we can import the entire "pets" folder into our existing [<b>app.js</b>], by adding the following line:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle">// <span class="colorBlue">app</span>.js</li>
+                  <li>const <span class="colorGreen">myPets</span> = require ('./<b>pets</b>');</li>
+               </ul>
+            </p>
+            <p>and  now if we run our [<b>app.js</b>], we get this output:
+               <ul class="sectHighlight">
+                  <li>[
+                     <ul>
+                        <li>{ name: 'Chico', color: 'Brown', type: 'Dog' },</li>
+                        <li>{ name: 'Jitters', color: 'Brown', type: 'Cat' },</li>
+                        <li>{ name: 'Jasper', color: 'Black', type: 'Cat' }</li>
+                     </ul>
+
+                  </li>
+                  <li>]</li>
+               </ul>
+               which is the same output we got when we ran [<b>index.js</b>], only this time we got the output running [<b>app.js</b>] and it still worked because we <i><b>imported</b></i> the entire <b>pets</b> folder into [<b>app.js</b>].
+            </p>
+            <p><b>Lets Recap</b>:
+               <ul>
+                  <li>- We created a new <b>pets</b> folder.</li>
+                  <li>- Inside this folder we created three individual pet Js files.
+                     <ul>
+                        <li>each file exported info on an individual pet.</li>
+                     </ul>
+                  </li>
+                  <li>- We then created an [<b>index.js</b>] "controller" file that imports all three pet files
+                     <ul>
+                        <li>we then added the three imports to an array, and exported that array.</li>
+                     </ul>
+                  </li>
+                  <li>- Finally, we imported our <b>pets</b> folder into our [<b>app.js</b>] file.</li>
+               </ul>
+               and because we added the [<b>index.js</b>] "controller" file to our <b>pets</b> folder, when we import the folder, it also imports all of the individual <b>pet</b> files. The important point here is that most often when you import packages, they may contain many files, and they will all be controlled by an [<b>index.js</b>] "controller" file.
+            </p>
          </article>
    </section>
 
