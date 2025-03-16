@@ -15,9 +15,6 @@ let headText = `
    <span class="headScroll"><img src="/images/scroll.png" alt=""></span>
    <span class="headSlogan">
       - -&nbsp;&nbsp;&nbsp;Bright
-         <img class="sloganBulb" src="/images/logos/lightbulb.png" alt="Lightbulb Graphic">
-      Ideas&nbsp;&nbsp;&nbsp;- -
-   </span>
 `;
 
 // build second part of header
@@ -28,6 +25,7 @@ if (window.location.pathname == '/' || window.location.pathname == '/index.html'
             Ideas&nbsp;&nbsp;&nbsp;- -
         </span>
     `;
+// if not on index.html, no like to temp.html
 } else {
     headText += `
         <img class="sloganBulb" src="/images/logos/lightbulb.png" alt="Lightbulb Graphic">

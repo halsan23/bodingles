@@ -113,7 +113,7 @@
                   </li>
                </ul>
             </p>
-            <p>And, now we get:
+            <p>And now, if we run our [<b>app.js</b>], we now get:
                <ul class="sectHighlight">
                   <li>{ <b>add</b>: [ Function: <b>add</b> ], <b>square</b>: [ Function: <b>square</b> ], <b>PI</b>: 3.14159 }</li>
                </ul>
@@ -121,10 +121,17 @@
             </p>
             <p>So now, from within [<b>app.js</b>], we can log out some results from our [<b>math.js</b>], by adding:
                <ul class="sectHighlight">
-                  <li>const {<span class="colorGreen">add</span>, <span class="colorGreen">square</span>, <span class="colorGreen">PI</span>} = <b>require</b> ('./math')</li>
-                  <li>console.log(<b><span class="colorGreen">add</span>( 2, 2 )</b>);</li>
-                  <li>console.log(<b><span class="colorGreen">square</span>(5)</b>);</li>
-                  <li>console.log(<b><span class="colorGreen">PI</span></b>);</li>
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><b>app.js</b></li>
+                  <li>
+                     <ul>
+                        <li class="commentStyle">// <i>assign variables to the [<b>math.js</b>] objects</i></li>
+                        <li>const {<span class="colorGreen">add</span>, <span class="colorGreen">square</span>, <span class="colorGreen">PI</span>} = <b>require</b> ('./math')</li>
+                        <li class="commentStyle">// <i>log the objects with the provided values</i></li>
+                        <li>console.log(<b><span class="colorGreen">add</span>( 2, 2 )</b>);</li>
+                        <li>console.log(<b><span class="colorGreen">square</span>(5)</b>);</li>
+                        <li>console.log(<b><span class="colorGreen">PI</span></b>);</li>
+                     </ul>
                   </li>
                </ul>
             </p>
@@ -185,8 +192,10 @@
             <h6>Final Code</h6>
             <ul class="sectHighlight">
                <li><b>JavaScript</b></li>
-               <li class="commentStyle"><span class="colorBlue">math</span>.js
+               <li class="commentStyle"><span class="colorBlue">math</span>.js</li>
+               <li>
                   <ul>
+                     <li class="commentStyle">// export our math objects</li>
                      <li>module.exports.<span class="colorGreen">add</span> = ( x, y ) => x + y;</li>
                      <li>module.exports.<span class="colorGreen">square</span> = x => x * x;</li>
                      <li>module.exports.<span class="colorGreen">PI</span> = 3.14159;</li>
@@ -195,16 +204,19 @@
             </ul>
             <ul class="sectHighlight">
                <li><b>JavaScript</b></li>
-               <li class="commentStyle">app.js
+               <li class="commentStyle"><span class="colorBlue">app</span>.js</li>
+               <li>
                   <ul>
+                     <li class="commentStyle">// import our math objects</li>
                      <li>const {<span class="colorGreen">add</span>, <span class="colorGreen">square</span>, <span class="colorGreen">PI</span>} = <b>require</b> ('./<span class="colorBlue">math</span>');</li>
+                     <li class="commentStyle">// log the results</li>
                      <li>console.log(<span class="colorGreen">add</span>(2, 2));</li>
                      <li>console.log(<span class="colorGreen">square</span>(5));</li>
                      <li>console.log(<span class="colorGreen">PI</span>);</li>
                   </ul>
                </li>
             </ul>
-            Outputs:
+            And if you run <i><span class="colorBlue">app</span>.js</i>, it outputs:
             <ul class="sectHighlight">
                <li>4</li>
                <li>25</li>
