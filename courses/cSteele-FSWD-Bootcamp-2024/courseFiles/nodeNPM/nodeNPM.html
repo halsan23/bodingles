@@ -52,6 +52,77 @@
             And the <b>npm registry</b> can be
             <a href="https://www.npmjs.com/package/find-packages" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>, where there is a searchable database to find new packages.</p>
          </article>
+         <p>&nbsp;</p>
+
+         <!-- Using NPM -->
+         <article>
+            <h6>Using NPM</h6>
+            <p><span class="firstWord">W</span>e're going to demonstrate installing and using node "packages" with two packages called "Jokes" and "Colors". We'll get them from the <b>npm registry</b> listed above. Here are the individual links:
+               <ul>
+                  <li>npm Package : <a href="https://www.npmjs.com/package/give-me-a-joke" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">give-me-a-joke</a></li>
+                  <li>npm Package : <a href="https://www.npmjs.com/package/colors" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">colors</a></li>
+               </ul>
+            </p>
+         </article>
+   </section>
+
+   <section id="textWindow4" class="just">
+      <!-- Installing the NPM Package -->
+      <article>
+         <h6>Installing the npm packages</h6>
+         <p><span class="firstWord">T</span>he first thing we need to do is create a folder for our jokes app, so we make a folder called [<b>jokes</b>].</p>
+         <p>To install the packages we can open the terminal app of our choice, or we can use the terminal in vs code. Which ever approach you take, you need to navigate to the newly created [<b>jokes</b>] directory, where we are going to install our packages.
+         </p>
+         <p>If we look at the info for the <a href="https://www.npmjs.com/package/give-me-a-joke" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">give-me-a-joke</a> package, you can see that we need to run [<b>npm install --save give-me-a-joke</b>] to install the package. Once done, we can go to the <a href="https://www.npmjs.com/package/colors" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">colors</a> package and install it into our same [<b>jokes</b>] folder with [<b>npm install colors</b>].
+         </p>
+         <p>We should now have our two packages installed. <i><b>*note</b>: I encountered a couple of errors on the <b>colors</b> installation, but when I tried the recommended fix, it broke the package, so on reInstall of the package, I ignored the errors.</i>
+         </p>
+         <p>Now we need the code to utilize the packages. First we'll set up the [<b>jokes</b>] package. We need a new <i>"controller"</i> file, so inside of our <b>jokes</b> directory, make a new file called [<b>index.js</b>]. Add this code to the newly created [<b>index.js</b>]:
+            <ul class="sectHighlight">
+               <li>JavaScript</li>
+               <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+               <li class="commentStyle">// import the joke package</li>
+               <li>const <span class="colorGreen">jokes</span> = require('give-me-a-joke');</li>
+               <li class="commentStyle">// import the color package</li>
+               <li>const <span class="colorGreen">colors</span> = require('colors');</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// To get a random dad joke</li>
+               <li><span class="colorGreen">jokes</span>.getRandomDadJoke (function(<b>joke</b>) {
+                  <ul>
+                     <li>console.log(<b>joke</b>);</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+         </p>
+         <p>And now, if we run [<b>node index.js</b>] from the terminal <i>(in the jokes directory)</i>, we should now see a random joke output to the console.</p>
+         <p>And if we look at the <b>colors</b> documentation, we can see various ways of outputting the text in different color formats. We are going to output the Joke in "green", so in our [<b>index.js</b>] file we are going to modify the joke output by modifying the console.log() statement, like so:
+            <ul>
+               <li>JavaScript</li>
+               <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+               <li class="commentStyle">// import the joke package</li>
+               <li>const <span class="colorGreen">jokes</span> = require('give-me-a-joke');</li>
+               <li class="commentStyle">// import the color package</li>
+               <li>const <span class="colorGreen">colors</span> = require('colors');</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// To get a random dad joke</li>
+               <li><span class="colorGreen">jokes</span>.getRandomDadJoke (function(<b>joke</b>) {</li>
+            </ul>
+            <ul class="sectHighlight">
+               <li>
+                  <ul>
+                     <li>console.log(<b>joke</b>.<span class="colorGreen">green</span>);</li>
+                  </ul>
+               </li>
+            </ul>
+            <ul>
+               <li>}</li>
+            </ul>
+            and now when our joke outputs, it will have <span class="colorGreen">green</span> text.
+         </p>
+      </article>
+      <div><button class="butt">Click for a new joke</button></div>
+      <div id="newJoke"></div>
    </section>
 
       <p><br><a href="#top">Back to Top</a></p>
