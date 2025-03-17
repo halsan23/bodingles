@@ -17,6 +17,8 @@ const colors = require('colors');
 parButt.addEventListener('click', function(evt) {
    evt.preventDefault();
 
+   console.log('Button Clicked');
+
    // To get a random dad joke
    jokes.getRandomDadJoke (function(joke) {
 
