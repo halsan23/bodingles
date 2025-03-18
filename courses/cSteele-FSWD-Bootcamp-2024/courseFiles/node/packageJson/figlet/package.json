@@ -17,5 +17,8 @@
       "name": "badDoggy"
     }
   ],
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "figlet": "^1.8.0"
+  }
 }

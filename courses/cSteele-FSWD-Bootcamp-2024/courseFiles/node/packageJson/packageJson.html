@@ -27,21 +27,21 @@
          <p><a href="../node.html">Back to Node Index Page</a></p>
          <hr style="width: 40%;">
          <p>&nbsp;</p>
-         <h3>Package.json</h3>
+         <h5>Package.json</h5>
       </section>
 
       <section id="textWindow4" class="just">
          <!-- Defining Package.json -->
          <article>
-            <p><b>What is package.json</b></p>
+            <h6><b>What is package.json</b></h6>
             <p>When we create or install node packages, we need a way to essentially, define the package. Things like the author, version number, description, package dependencies and much more. This is where the <b>package.json</b> file comes in. It is required for every package and is always included in the root folder of the package.
             </p>
-            <p><b>Creating a package.json file</b></p>
-            <p>When we create a new node package, we create a "parent" folder to hold all of our package files. This is where our package.json file will reside. To demonstrate our principles, we are going to utilize a package called <b>figlet</b>, which creates ASCII art. The package can be found in the Node Registry, <a href="https://www.npmjs.com/package/figlet" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">here</a>.
+            <h6><b>Creating a package.json file</b></h6>
+            <p>When we create a new node package, we create a "parent" folder to hold all of our package files. This is where our package.json file will reside. To demonstrate our principles, we are going to utilize a package called <b>figlet</b>, which creates ASCII art. The package can be found in the Node Registry, .
             </p>
-            <p>So we're going to start by creating our "parent" folder [<b>figlet</b>]. Now we need to open up our [<b>node</b>] Terminal and navigate to this folder. Once inside the empty [<b>figlet</b>] folder, and from within the [<b>node terminal</b>], we run [<b>npm init</b>].</p>
-            <p>This will ask us a series of questions designed to help us build a basic <b>package.json</b> file. Now we could create this file entirely on our own, but the <b>init</b> method simplifies the process and ensures that we have some of the most basic info. So just answer the questions as they come up. If any particular question does not apply to your package, just press [<b>enter</b>] and move on. It is not required to answer every question.</p>
-            <p>Once we finish the process we have a <b>figlet</b> folder with one file, [<b>package.json</b>]. And just for clarity, her is the contents of the file created:
+            <p>We're going to start by creating our "parent" folder [<b>figlet</b>]. Now we need to open up our [<b>node</b>] Terminal and navigate to this folder. Once inside the empty [<b>figlet</b>] folder, and from within the [<b>node terminal</b>], we run [<b>npm init</b>].</p>
+            <p>This will ask us a series of questions designed to help us build a basic <b>package.json</b> file. Now we could create this file entirely on our own, but the <b>init</b> method simplifies the process and ensures that we have some of the most basic info. Just answer the questions as they come up. If any particular question does not apply to your package, just press [<b>enter</b>] and move on. It is not required to answer every question.</p>
+            <p>Once we finish the process we have a <b>figlet</b> folder with one file, [<b>package.json</b>]. And just for clarity, here is the contents of the file created:
                <ul class="sectHighlight">
                   <li><b>json</b></li>
                   <li class="commentStyle"><span class="colorBlue">package</span>.json</li>
@@ -87,7 +87,64 @@
                   <li>}</li>
                </ul>
             </p>
-   </section>
+            <p>Now that we have our <i>basic</i> <b>package.json</b> file, now we need to install our [<b>figlet</b>] package. We should already be in our <b>figlet</b> directory we created, but if not, just navigate to it in the terminal. Then type [<b>npm i figlet</b>], as shown in the package documentation.
+            </p>
+            <p>After the <b>figlet</b> install, if we look at our <b>package.json</b> file we notice that it has add the following "dependencies" to our project:
+               <ul class="sectHighlight">
+                  <li>"dependencies": {
+                     <ul>
+                        <li>"figlet": "^1.8.0"</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               meaning that our project now requires <b>figlet v1.8.0</b> or greater.
+            </p>
+            <p>We should now be able to write the code to run our figlet project. Remember that an [<b>index.js</b>] file is required in the root project folder, so we're going to create that now. In this file we will <b>require</b> the <b>figlet</b> package we installed, and set a variable for the text we want to use for the art:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li class="commentStyle">// import the figlet package</li>
+                  <li>const <span class="colorGreen">figlet</span> = require('<b>figlet</b>');</li>
+                  <li class="commentStyle">// Set the text for the art</li>
+                  <li>const <span class="colorGreen">artText</span> = 'Hello World!!';</li>
+               </ul>
+            </p>
+            <p>And now we can add some code to our [<b>index.js</b>] file, so we can console.log some ASCII Art. We'll just copy the example from the <b>figlet</b> <a href="https://www.npmjs.com/package/figlet" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">website</a>.
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li><b>figlet</b>( <span class="colorGreen">artText</span>, <span class="colorPurple">function</span> ( <b>err, data</b> ) {
+                     <ul>
+                        <li>if (<b>err</b>) {
+                           <ul>
+                              <li>console.log("Something went wrong...");</li>
+                              <li>console.dir(err);</li>
+                              <li>return;</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                        <li>console.log(<b>data</b>);</li>
+                     </ul>
+                  </li>
+                  <li>});</li>
+               </ul>
+            </p>
+            <p>and if we run [<b>index.js</b>] the console should log:
+               <ul class="sectHighlight">
+                  <li><pre>
+                      _   _      _ _        __        __         _     _ _ _
+                     | | | | ___| | | ___   \ \      / /__  _ __| | __| | | |
+                     | |_| |/ _ \ | |/ _ \   \ \ /\ / / _ \| '__| |/ _` | | |
+                     |  _  |  __/ | | (_) |   \ V  V / (_) | |  | | (_| |_|_|
+                     |_| |_|\___|_|_|\___/     \_/\_/ \___/|_|  |_|\__,_(_|_)
+                  </pre></li>
+               </ul>
+            </p>
+            <p>On a final note, one of the most important aspects of the <b>package.json</b> file are the <b>dependencies</b>. Once you have created your <b>package.json</b> file, and then install your packages, the <b>package.json</b> file updates it's dependencies. So you have a record showing what version of the packages were installed in your project. This could be very useful information if something happens to one of you project packages and it becomes unusable, you would know which version need to be reinstalled.
+            </p>
+         </article>
+      </section>
 
       <p><br><a href="#top">Back to Top</a></p>
       <p>&nbsp;</p>
