@@ -8,8 +8,7 @@ const colors = require('colors');
 // To get a random dad joke
 jokes.getRandomDadJoke (function(joke) {
    //=> console.log(joke);
-   let thisJoke = joke;
-   console.log(thisJoke.green);
+   console.log(joke.green);
 });
 
 

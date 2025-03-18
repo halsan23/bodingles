@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../../cSteeleBootcIndex.html">Back to Class Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h3>Package.json</h3>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Defining Package.json -->
+         <article>
+            <p><b>What is package.json</b></p>
+            <p>When we create or install node packages, we need a way to essentially, define the package. Things like the author, version number, description, package dependencies and much more. This is where the <b>package.json</b> file comes in. It is required for every package and is always included in the root folder of the package.
+            </p>
+            <p><b>Creating a package.json file</b></p>
+            <p>When we create a new node package, we create a "parent" folder to hold all of our package files. This is where our package.json file will reside. To demonstrate our principles, we are going to utilize a package called <b>figlet</b>, which creates ASCII art. The package can be found in the Node Registry, <a href="https://www.npmjs.com/package/figlet" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">here</a>.
+            </p>
+            <p>So we're going to start by creating our "parent" folder [<b>figlet</b>]. Now we need to open up our [<b>node</b>] Terminal and navigate to this folder. Once inside the empty [<b>figlet</b>] folder, and from within the [<b>node terminal</b>], we run [<b>npm init</b>].</p>
+            <p>This will ask us a series of questions designed to help us build a basic <b>package.json</b> file. Now we could create this file entirely on our own, but the <b>init</b> method simplifies the process and ensures that we have some of the most basic info. So just answer the questions as they come up. If any particular question does not apply to your package, just press [<b>enter</b>] and move on. It is not required to answer every question.</p>
+            <p>Once we finish the process we have a <b>figlet</b> folder with one file, [<b>package.json</b>]. And just for clarity, her is the contents of the file created:
+               <ul class="sectHighlight">
+                  <li><b>json</b></li>
+                  <li class="commentStyle"><span class="colorBlue">package</span>.json</li>
+                  <li>{</li>
+                     <ul>
+                        <li>"name": "figlet",</li>
+                        <li>"version": "1.0.0",</li>
+                        <li>"description": "A package that generates ASCII Art",</li>
+                        <li>"main": "index.js",</li>
+                        <li>"scripts": {
+                           <ul>
+                              <li>"test": "echo \"Error: no test specified\" && exit 1"</li>
+                           </ul>
+                        </li>
+                        <li>},</li>
+                        <li>"keywords": [
+                           <ul>
+                              <li>"figlet"</li>
+                           </ul>
+                        </li>
+                        <li>],</li>
+                        <li>"contributors": [
+                           <ul>
+                              <li>{
+                                 <ul>
+                                    <li>"name": "patorjk"</li>
+                                 </ul>
+                              </li>
+                              <li>},</li>
+                           </ul>
+                           <ul>
+                              <li>{
+                                 <ul>
+                                    <li>"name": "badDoggy"</li>
+                                 </ul>
+                              </li>
+                              <li>}</li>
+                           </ul>
+                        </li>
+                        <li>],</li>
+                        <li>"license": "ISC"</li>
+                     </ul>
+                  <li>}</li>
+               </ul>
+            </p>
+   </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
