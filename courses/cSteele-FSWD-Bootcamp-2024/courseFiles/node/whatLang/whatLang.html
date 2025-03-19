@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../node.html">Back to Node Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Language Identifier</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Language Identifier -->
+         <article>
+            <h6>Project</h6>
+            <p><span class="firstWord">T</span>his project is a class project called <b>Language Identifier</b>. It will take a text input in the Terminal and output what language the text is in. This will run from the Terminal only as it is an exercise in importing, configuring, and outputting data from a node package. We will be utilizing two packages to make our app work.</p>
+            <p>The first package is called
+               <a href="https://github.com/wooorm/franc" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">franc</a>.
+            It takes a string input, identifies the language that the text is in, and returns a three digit code <i>(based on the
+               <a href="https://iso639-3.sil.org/code_tables/639/data" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">ISO 639-3</a>
+            standards)</i> that represents the language. The second package is called
+               <a href="https://www.npmjs.com/package/langs" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">langs</a>
+            and it will take the three digit code and return an object that includes the language name.</p>
+            <p>We then just have to process <b>language.name</b> for output. Simple.</p>
+         </article>
+
+         <article>
+            <p><span class="firstWord">W</span>e're going to start by creating a new project folder we'll call [<b>whatLang</b>]. Inside the folder we'll create an empty [<b>index.js</b>].</p>
+            <p>In the Terminal, navigate to this folder and enter [<b>npm init</b>] which is the process to create a new [<b>package.json</b>] file. In the [<b>packages.json</b>] file, we need to add our dependencies for the two packages we need to include, <b>franc</b>, and <b>langs</b>. So our [<b>package.json</b>] file should look like this:
+               <ul class="sectHighlight">
+                  <li>Json</li>
+                  <li class="commentStyle"><span class="colorBlue">package</span>.json</li>
+                  <li>{
+                     <ul>
+                        <li>"name": "lang",</li>
+                        <li>"version": "1.0.0",</li>
+                        <li>"description": "Language Identifier",</li>
+                        <li>"main": "index.js",</li>
+                        <li>"scripts": {
+                           <ul>
+                              <li>"test": "echo \"Error: no test specified\" && exit 1"</li>
+                           </ul>
+                        </li>
+                        <li>},</li>
+                        <li>"author": "badDoggy",</li>
+                        <li>"license": "ISC",</li>
+                        <li><b>"dependencies": {</b>
+                           <ul>
+                              <li><b>"franc": "^5.0.0",</b></li>
+                              <li><b>"langs": "^2.0.0"</b></li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>So we now have our Project Folder [<b>whatLang</b>], our [<b>project.json</b>] file, and an empty [<b>index.js</b>] file that we'll get to shortly.</p>
+            <p>One thing that we are still missing is our [<b>node_modules</b>] folder with our installed packages, <b>franc</b>, and <b> langs</b>. And since they are listed as dependencies in our [<b>package,json</b>] file, we can just run [<b>npm init</b>] and it will install both of the missing packages, into the new [<b>node_modules</b>] folder, that it will create.</p>
+            <p>We should now have everything we need to make this app work. All that is left is to write the Js code into out [<b>index.js</b>] file to run our app:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// import required packages</li>
+                  <li>const <span class="colorGreen">franc</span> = <span class="colorBlue">require</span>('<b>franc</b>');</li>
+                  <li>const <span class="colorGreen">langs</span> = <span class="colorBlue">require</span>('<b>langs</b>');</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// run input stream from console</li>
+                  <li>const <span class="colorGreen">input</span> = process.<span class="colorRed">argv</span>[<b>2</b>];</li>
+                  <li class="commentStyle">// get the language code based on the console input</li>
+                  <li>const <span class="colorGreen">langCode</span> = <b>franc</b>(<span class="colorGreen">input</span>);</li>
+                  <li>&nbsp;</li>
+
+
+                  <li class="commentStyle">// error check if can't identify language</li>
+                  <li><b>if</b> (<span class="colorGreen">langCode</span> === '<b>und</b>') {
+                     <ul>
+                        <li>console.log('<span class="colorRed">Undefined Language, please try more letters;</span>')</li>
+                     </ul>
+                  </li>
+                  <li>} <b>else</b> {
+                     <ul>
+                        <li class="commentStyle">// convert the language code into the language name</li>
+                        <li>const <span class="colorGreen">language</span> = <b>langs</b>.<span class="colorBlue">where</span>("3", <span class="colorGreen">langCode</span>);</li>
+                        <li class="commentStyle">// output the language name</li>
+                        <li>console.log(`My best guess is: ${<span class="colorGreen">language</span>.<span class="colorBlue">name</span>}`);</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>Pretty straight forward code here. We added an error trap in case [<b>franc</b>] can't determine the language. Also, on the <b>input</b> line, we are trapping the 3<sup>rd</sup> input argument by inputting <b>[node] [index.js] [text]</b>, hence the command <span style="background-color: #f4eec7;"> const <span class="colorGreen">input</span> = process.<span class="colorRed">argv</span>[<b>2</b>]; </span>
+            </p>
+            <p>So, to run this code, from the Terminal, in our project folder, we enter:
+               <ul class="sectHighlight">
+                  <li><b> node&nbsp;&nbsp;&nbsp; index.js&nbsp;&nbsp;&nbsp;&nbsp; 'Alle menneske er fødde til fridom'</b></li>
+               </ul>
+               and in th example, the output is:
+               <ul class="sectHighlight">
+                  <li><b>My best guess is: Norwegian Nynorsk</b></li>
+               </ul>
+            </p>
+         </article>
+
+   </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
