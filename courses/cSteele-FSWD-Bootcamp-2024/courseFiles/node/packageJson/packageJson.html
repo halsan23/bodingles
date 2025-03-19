@@ -145,9 +145,20 @@
 
          <!-- Dependencies -->
          <article>
-            <p><b>Dependencies</b></p>
-            <p>One of the most important aspects of the <b>package.json</b> file are the <b>dependencies</b>. Once you have created your <b>package.json</b> file, and then install your packages, the <b>package.json</b> file updates it's dependencies. So you have a record showing what version of the packages were installed in your project. This could be very useful information if something happens to one of you project packages and it becomes unusable, you would know which version need to be reinstalled.
-            </p>
+            <h6>Dependencies</h6>
+            <p>One of the most important aspects of the <b>package.json</b> file are the <b>dependencies</b>. Once you have created your <b>package.json</b> file, and then install your packages, the <b>package.json</b> file updates it's dependencies. So you have a record showing what version of the packages were installed in your project. This could be very useful information if something happens to one of you project packages and it becomes unusable, you would know which version need to be reinstalled.</p>
+            <p>Another reason why the dependency list in the package,json file is so important is because some packages DO NOT include ALL of the dependant packages when installed. We can look at the package
+               <a href="https://github.com/dkhd/node-group-chat" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">node-group-chat</a> as an example. This package does not come from the npm registry, it comes from the author's GitHub page. So to install this package, you would download the .zip file and extract the files into your project folder.</p>
+               <p>Now if we take a look at these files, we notice two things. First we see that there is not a [<b>node_modules</b>] folder. This is where the dependant files would be located. And second, if we look in the [<b>package.json</b>] file, we see the there are three dependencies that need to be installed:
+                  <ul>
+                     <li>ejs</li>
+                     <li>express</li>
+                     <li>socket.io</li>
+                  </ul>
+               </p>
+               <p>Now this package only needs the three dependent packages installed, so we could just find them in the npm registry and install them individually. But what if we were dealing with a package that had say, 50 or 100 missing dependent packages? Now installing each dependent package individually becomes problematic at best. But there is a better way.</p>
+               <p>What we need to do is navigate, in the Terminal, to the parent directory of the project. The one that has the [<b>package.json</b>] file. Once there, we can run [<b>npm install</b>]. This will search our [<b>package.json</b>] file, create our [<b>node_modules</b>] folder to contain any missing dependant packages and then download and install, any missing dependencies that are required. Much, much easier than downloading and installing each dependent package individually.</p>
+               <p>The biggest takeaway here is that if your [<b>node_modules</b>] folder is missing or corrupt, or if you are missing any dependent packages, that your [<b>package.json</b>] file says you should have, then you can run [<b>npm install</b>] to restore all missing dependant packages and the [<b>node_modules</b>] folder itself.</p>
          </article>
       </section>
 
