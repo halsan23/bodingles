@@ -504,10 +504,11 @@ in the parent section, but aligned to the left side of container */
 
 /* Styling cor code snippets */
 .sectHighlight {
-   background-color: #edede7;
-   padding: 0px 20px 8px;
-   border: 1px solid black;
-   border-radius: 7px;
+   background-color: #e5e5e5;
+   font-weight: 500;
+   padding: 3px 20px 10px;
+   border: 2px solid #000000;
+   border-radius: 10px;
 }
 
 /* styling for lightbulb alignment */

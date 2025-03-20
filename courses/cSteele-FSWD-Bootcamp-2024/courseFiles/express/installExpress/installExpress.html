@@ -34,7 +34,64 @@
          <!-- Install Express -->
          <article>
             <h6>Installing Express</h6>
-            <p><span class="firstWord"></span></p>
+            <p><span class="firstWord">T</span>here is a very good explanation of how to get <b>express</b> up and running on their website,
+               <a href="https://expressjs.com/en/starter/installing.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>,
+            so we're going to just follow along. The first thing we need to do when creating our first <b>express</b> app is to create our "Parent" directory.
+               <ul class="sectHighlight">
+                  <li>mkdir <b>myapp</b></li>
+                  <li>cd <b>myapp</b></li>
+               </ul>
+            </p>
+            <p>Use the [<b>npm init</b>] command to create the <b>package.json</b> file for your application. We are using the default <b>index.js</b> as our file name.
+               <ul class="sectHighlight">
+                  <li>npm init</li>
+               </ul>
+            </p>
+            <p>Next, install Express in the [<b>myapp</b>] directory and save it in the dependencies list. For example:</p>
+            <ul class="sectHighlight">
+               <li>npm (i)nstall express</li>
+            </ul>
+            This creates our <b>node_modules</b> folder with all the packages that <b>express</b> requires. It also updates the dependencies in our <b>package.json</b> file to reflect our version of <b>express</b>, which should now be installed into our working directory.</p>
+         </article><hr>
+
+         <article>
+            <h6>Hello World</h6>
+            <p><span class="firstWord">W</span>e can now create or first <b>express</b> app. We are going to create the standard "Hello World" app. This app starts a server and listens on port 3000 for connections. The app responds with “Hello World!” for requests to the root URL (/) or route. For every other path, it will respond with a 404 Not Found.</p>
+            <p>
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li>const <span class="colorGreen">express</span> = <b>require</b>('<span class="colorPurple">express</span>');</li>
+                  <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+                  <li>const <span class="colorGreen">port</span> = <b>3000</b></li>
+                  <li class="commentStyle">// response for requests to the root URL (/)</li>
+                  <li><span class="colorGreen">app</span>.get('/', (req, res) => {
+                     <ul>
+                        <li>res.send('Hello World!')</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li class="commentStyle">// starts the server : listens for response</li>
+                  <li><span class="colorGreen">app</span>.listen(port, () => {
+                     <ul>
+                        <li>console.log(`App Server is running : Listening on port ${port}`)</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+            <p>A note about ports. This little app is set up to run on port 3000. In most cases, when running a localhost server, we usually set it up to run on either port 8080, or port 3000.</p>
+         </article><hr>
+
+         <article>
+            <h6>Running the App</h6>
+            <p><span class="firstWord">W</span>e can now run the app with the following command:
+               <ul class="sectHighlight">
+                  <li>node index.js</li>
+               </ul>
+            Then, load <b>http://localhost:3000/</b> into a browser to see the output.</p>
+            <p>When you're finished, you press <b>ctrl/c</b> in the Terminal to <b>stop</b> the server.
+            </p>
          </article>
 
    </section>
