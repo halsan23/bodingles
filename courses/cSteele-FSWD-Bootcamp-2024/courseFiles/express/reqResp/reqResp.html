@@ -33,31 +33,8 @@
       <section id="textWindow4" class="just">
          <!-- Install Express -->
          <article>
-            <h6>Installing Express</h6>
-            <p><span class="firstWord">T</span>here is a very good explanation of how to get <b>express</b> up and running on their website,
-               <a href="https://expressjs.com/en/starter/installing.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>,
-            so we're going to just follow along. The first thing we need to do when creating our first <b>express</b> app is to create our "Parent" directory.
-               <ul class="sectHighlight">
-                  <li>mkdir <b>myapp</b></li>
-                  <li>cd <b>myapp</b></li>
-               </ul>
-            </p>
-            <p>Use the [<b>npm init</b>] command to create the <b>package.json</b> file for your application. We are using the default <b>index.js</b> as our file name.
-               <ul class="sectHighlight">
-                  <li>npm init</li>
-               </ul>
-            </p>
-            <p>Next, install Express in the [<b>myapp</b>] directory and save it in the dependencies list. For example:</p>
-            <ul class="sectHighlight">
-               <li>npm (i)nstall express</li>
-            </ul>
-            This creates our <b>node_modules</b> folder with all the packages that <b>express</b> requires. It also updates the dependencies in our <b>package.json</b> file to reflect our version of <b>express</b>, which should now be installed into our working directory.</p>
-         </article><hr>
-
-         <!-- Create the server script -->
-         <article>
-            <h6>Hello World</h6>
-            <p><span class="firstWord">W</span>e can now create or first <b>express</b> app. We are going to create the standard "Hello World" app. This app starts a server and listens on port 3000 for connections. The app responds with “Hello World!” for requests to the root URL (/) or route. For every other path, it will respond with a 404 Not Found.</p>
+            <h6>Request & Response</h6>
+            <p><span class="firstWord">I</span>n the <a href="../installExpress/installExpress.html" target="_blank">"Install Express"</a> discussion, we learned how to get our server up ands running, and then start the server and check the output. Here is the server code:
             <p>
                <ul class="sectHighlight">
                   <li>JavaScript</li>
@@ -66,14 +43,14 @@
                   <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
                   <li>const <span class="colorGreen">port</span> = <b>3000</b></li>
                   <li class="commentStyle">// response for requests to the root URL (/)</li>
-                  <li><span class="colorGreen">app</span>.get('/', (req, res) => {
+                  <li><span class="colorGreen">app</span>.get('/', ( req, res ) => {
                      <ul>
                         <li>res.send('Hello World!')</li>
                      </ul>
                   </li>
                   <li>})</li>
                   <li class="commentStyle">// starts the server : listens for response</li>
-                  <li><span class="colorGreen">app</span>.listen(port, () => {
+                  <li><span class="colorGreen">app</span>.listen( port, () => {
                      <ul>
                         <li>console.log(`App Server is running : Listening on port ${port}`)</li>
                      </ul>
@@ -81,11 +58,38 @@
                   <li>})</li>
                </ul>
             </p>
-            <p>A note about ports. This little app is set up to run on port 3000. In most cases, when running a localhost server, we usually set it up to run on either port 8080, or port 3000.</p>
+            <p>To recap, we:
+               <ul>
+                  <li>&#8756;&nbsp; required <i>(imported)</i> express : <span class="colorGreen">express</span></li>
+                  <li>&#8756;&nbsp; created a variable to represent the express object : <span class="colorGreen">app</span></li>
+                  <li>&#8756;&nbsp; created a variable to define the server port number : <span class="colorGreen">port</span> = <b>3000</b></li>
+                  <li>&#8756;&nbsp; we started the server : <span class="colorGreen">app</span>.<b>listen</b></li>
+                  <li>&#8756;&nbsp; and the server should now be running and waiting for a response, on <span class="colorGreen">port</span> = <b>3000</b>.</li>
+               </ul>
+            </p>
+            <p>Waiting for a response? A response from where?</p>
+            <p>This is where our last section of code comes in:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">app</span>.get('/', ( <b>req</b>, <b>res</b> ) => {
+                     <ul>
+                        <li>res.send('Hello World!')</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+            <p>You notice this code uses two new parameters, <b>req</b>, and <b>res</b>. But what are these new parameters and what do they do?</p>
          </article><hr>
 
-         <!-- Start the server & check the output -->
+         <!-- req & res -->
          <article>
+            <h6>req & res</h6>
+            <p><span class="firstWord"></span>
+            </p>
+         </article>
+
+         <!-- Start the server & check the output -->
+         <!-- <article>
             <h6>Running the App</h6>
             <p><span class="firstWord">W</span>e can now run the app with the following command:
                <ul class="sectHighlight">
@@ -94,7 +98,7 @@
             Then, load <b>http://localhost:3000/</b> into a browser to see the output.</p>
             <p>When you're finished, you press <b>ctrl/c</b> in the Terminal to <b>stop</b> the server.
             </p>
-         </article>
+         </article> -->
 
    </section>
 
