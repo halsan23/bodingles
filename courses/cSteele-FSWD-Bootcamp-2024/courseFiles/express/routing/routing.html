@@ -31,10 +31,10 @@
       </section>
 
       <section id="textWindow4" class="just">
-         <!-- req & res -->
+         <!-- recap -->
          <article>
-            <h6>Request & Response</h6>
-            <p><span class="firstWord">I</span>n the <a href="../installExpress/installExpress.html" target="_blank">"Install Express"</a> discussion, we learned how to get our server up ands running, and then start the server and check the output. Here is the server code:
+            <h6>Express Routing</h6>
+            <p><span class="firstWord">S</span>o far we have learned how to get our server up ands running, and then start the server and check the output. Here is the server code:
             <p>
                <ul class="sectHighlight">
                   <li>JavaScript</li>
@@ -67,49 +67,11 @@
                   <li>&#8756;&nbsp; and the server should now be running and waiting for a response, on <span class="colorGreen">port</span> = <b>3000</b>.</li>
                </ul>
             </p>
-            <p>Waiting for a response? A response from where?</p>
-            <p>This is where our last section of code comes in:
-               <ul class="sectHighlight">
-                  <li><span class="colorGreen">app</span>.get('/', ( <b>req</b>, <b>res</b> ) => {
-                     <ul>
-                        <li>res.send('Hello World!')</li>
-                     </ul>
-                  </li>
-                  <li>})</li>
-               </ul>
-            </p>
-            <p>You notice this code uses two new parameters, <b>req</b>, and <b>res</b>. But what are these new parameters and what do they do?</p>
          </article><hr>
 
-         <!-- req & res -->
+         <!-- routing -->
          <article>
-            <h6>req & res</h6>
-            <p><span class="firstWord">T</span>hese properties have very specific uses with our server request. <b>req</b> is a property that represents the <i>incoming</i> request, and <b>res</b> is a property that represents the <i>outgoing</i> result of that request.</p>
-            <p>In our little example, where we simply started the server, and then output "Hello World", our <b>req</b> was sent when we started the server. While we didn't "request" any specific data, we did send a request to the server. And if if we add a new line logging out the <b>req</b>:
-               <ul class="sectHighlight">
-                  <li>console.<b>dir</b>( <b>req</b> )</li>
-               </ul>
-               what we would get is a massive object of all kinds of information that represents our request.
-            </p>
-            <p>Now for the response, we used a "method" called <b>send</b> to output our response to the browser window. In our case, we used <b>res.send("Hello World");</b></p>
-            <p>The important thing to know about the <b>send</b> method of the <b>res</b> property is that it is very versatile. We could send a string of text, a .json file, or some HTML code with text such as:
-               <ul>
-                  <li>&lt;h6>This is My Header&lt;/h6></li>
-               </ul>
-               and Express will process the <b>res</b> and convert the output appropriately. So for these little examples, the browser window would display"
-               <ul>
-                  <li>a string of text</li>
-                  <li>a json file contents</li>
-                  <li>an actual html markup for an &lt;h6> element</li>
-               </ul>
-            </p>
-            <p><span class="firstWord">T</span>o sum it all up:
-               <ul>
-                  <li><b>req</b> returns an object, created by express that represents the request sent to the server.</li>
-                  <li><b>res</b> represent the result of the request. There are many methods of the <b>res</b> property that we can use.</li>
-                  <li>express will convert the request into the proper type of result, based on the request.</li>
-               </ul>
-            </p>
+            <p><span class="firstWord"></span></p>
          </article>
    </section>
 
