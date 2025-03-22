@@ -28,12 +28,13 @@
          <hr style="width: 40%;">
          <p>&nbsp;</p>
          <h5>Express Js</h5>
+         <h6>Routing</h6>
       </section>
 
       <section id="textWindow4" class="just">
          <!-- recap -->
          <article>
-            <h6>Express Routing</h6>
+            <h6>Recap</h6>
             <p><span class="firstWord">S</span>o far we have learned how to get our server up ands running, and then start the server and check the output. Here is the server code:
             <p>
                <ul class="sectHighlight">
@@ -43,7 +44,7 @@
                   <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
                   <li>const <span class="colorGreen">port</span> = <b>3000</b></li>
                   <li class="commentStyle">// response for requests to the root URL (/)</li>
-                  <li><span class="colorGreen">app</span>.get('/', ( req, res ) => {
+                  <li><span class="colorGreen">app</span>.get( '<b>/</b>', ( req, res ) => {
                      <ul>
                         <li>res.send('Hello World!');</li>
                      </ul>
@@ -71,9 +72,107 @@
 
          <!-- routing -->
          <article>
-            <p><span class="firstWord"></span></p>
-         </article>
-   </section>
+            <h6>Routing</h6>
+            <p><span class="firstWord">S</span>o the server is up and running and waiting for a response. Now we can look at how to process the response. This is done with "<b>routing</b>". If we look at this line in our server code:
+               <ul>
+                  <li><span class="colorGreen">app</span>.get( '<b><span class="colorRed">/</span></b>', ( req, res ) => {</li>
+               </ul>
+            you can see that we have <b>'<span class="colorRed">/</span>'</b>.</p>
+            <p>This is actually a path definition pointing to the root directory of our server. This <b>is</b> our routing. What this line of code is saying is that if we open a browser window and go to [<b>http://localhost:3000/</b>] <i>(the server root)</i>, then whatever code was defined in this particular callback function, will run.
+            </p>
+            <p>So naturally, we could define any other "<b>routes</b>" that we want. If we have an "<b>About Us</b>" page, the routing might look like:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">app</span>.get( '<b><span class="colorRed">/about</span></b>', ( req, res ) => {
+                     <ul>
+                        <li>res.send('This is the "About Us" page.');</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            or, if we had a "<b>Login Page</b>", it might look like this:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">app</span>.get( '<b><span class="colorRed">/login</span></b>', ( req, res ) => {
+                     <ul>
+                        <li>res.send('This is the "Log In" page.');</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            and so on, and so on.</p>
+         </article><hr>
+
+         <!-- Error Trapping the Routing -->
+          <article>
+            <h6>Error Trapping</h6>
+            <p><span class="firstWord">A</span>nother thing to mention here. If a <b>req</b> is sent that will return an invalid response, such as requesting a page that does not exist, the browser will display an error. A better solution is to include an "error trap" within our code to resolve this. So we've add the following code to our server code:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">app</span>.get( '<b><span class="colorRed">*</span></b>', ( req, res ) => {
+                     <ul>
+                        <li>res.send('Invalid Path : Path Not Found!');</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            If we make a request for anything that has <b>not already been defined</b> in the routing, then display the "Invalid Path : Path Not Found!" message. And remember, because of the "Top Down" nature of JavaScript, the error trap MUST go after all of the other routing, so that all of the other routing has a chance to work. And if none of the other routings work, THEN run the error code.
+            </p>
+          </article><hr>
+
+          <!-- Group Routing -->
+           <article>
+             <h6>Group Routing</h6>
+             <p><span class="firstWord">I</span>n our server code that we've written so far, we only have three different routes. One for the "Home" directory. One for an "About" directory. And one for a "Login" directory. But what if we were talking about a website such as <b>Reddit</b> that could have hundreds of different routings? We wouldn't want to define a routing for every single one. So we need a way to do a kind of "universal" routing. The way to do this is with Technique called "Path Parameters".
+            </p>
+            <p>If you go to <b>Reddit</b> and search for, oh let's say "chickens". It opens a <b>sub-reddit</b> called "chickens". And if you look at the path in the address bar, you will see "https://www.reddit.com/r/chickens/". The important thing to note here is the <b>/r/chickens/</b> designation. This is a <b>path parameter</b>.
+            </p>
+            <p>Start by defining the <b>path parameter</b> in your <b>get</b> method, like so:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">app</span>.get( '<b><span class="colorRed">/r/subreddit</span></b>', ( req, res ) => {
+                     <ul>
+                        <li>res.send('This is a Sub-Reddit');</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+            <p>Now, if we are using <b>path parameters</b> to control our routing, then we probably don't want a generic message like <i>"This is a Sub-Reddit"</i>. And we can change this messaging using the <i><b>params</b></i> property of the <b>req</b> object. We can see tre output of this property by adding the code:
+               <ul class="sectHighlight">
+                  <li>console.log(<b>req.params</b>);</li>
+               </ul>
+               and for our <b>/r/chickens/</b> example we would get:
+               <ul class="sectHighlight">
+                  <li>{ subreddit: 'chickens' }</li>
+               </ul>
+               so the <b>param</b> name is <b>subreddit</b>, and the <b>value</b> is <b>chickens</b>, so we can rewrite our <b>res.send</b> code with a string temporal literate like so:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">app</span>.get( '<b><span class="colorRed">/r/subreddit</span></b>', ( req, res ) => {
+                     <ul>
+                        <li>const { <span class="colorGreen">subreddit</span> } = <b>req.params</b>;</li>
+                        <li>res.send(`Now browsing the ${<span class="colorGreen">subreddit</span>} subReddit`);</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+            <p>One other note of importance here. <b>Reddit</b> is using the <b>/r</b> identifier and the <b>subreddit</b> variable, but we can use anything we like. For example, I'm using the <b>/d</b> designator <i>(short for sub directory)</i>, and <b>subDir</b> as a variable name, so my code looks like this:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">app</span>.get( '<b><span class="colorRed">/d/subDir</span></b>', ( req, res ) => {
+                     <ul>
+                        <li>const { <span class="colorGreen">subDir</span> } = <b>req.params</b>;</li>
+                        <li>res.send(`Now browsing the ${<span class="colorGreen">subDir</span>} sub directory`);</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+            <p>So if you are in my webpage and you type <b>/d/anything</b> in the address bar, the webpage will output:
+               <ul class="sectHighlight">
+                  <li>Now browsing the <b>anything</b> sub directory</li>
+               </ul>
+            </p>
+            <p>So when we are using <b>path parameters</b> we are defining a <i><b>pattern</b></i>, as opposed to defining an exact match, such as <i><b>/about</b></i>. And this can be used to route multiple responses so we don't have to manually define our multiple routes.
+            </p>
+           </article>
+      </section>
 
       <p><br><a href="#top">Back to Top</a></p>
       <p>&nbsp;</p>

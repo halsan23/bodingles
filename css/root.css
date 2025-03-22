@@ -505,7 +505,7 @@ in the parent section, but aligned to the left side of container */
 /* Styling cor code snippets */
 .sectHighlight {
    background-color: #e5e5e5;
-   font-weight: 500;
+   font-weight: 450;
    padding: 3px 20px 10px;
    border: 2px solid #000000;
    border-radius: 10px;
