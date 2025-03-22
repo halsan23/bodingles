@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../expressIndex.html">Back to Express Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Express Js</h5>
+         <h6>Final Server Code</h6>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- nodemon -->
+         <article>
+            <ul class="sectHighlight">
+               <li class="commentStyle">// Express Server Setup</li>
+               <li>JavaScript</li>
+               <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// define the variables</li>
+               <li>const <span class="colorGreen">express</span> = require('<span class="colorPurple">express</span>');</li>
+               <li class="commentStyle">// app variable represents return values from express object</li>
+               <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+               <li class="commentStyle">// assign the localhost server port #</li>
+               <li class="commentStyle">// usually 8080 or 3000</li>
+               <li>const <span class="colorGreen">port</span> = <b>3000</b>;</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// start the server and wait for a response</li>
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">listen</span>( <span class="colorGreen">port</span>, () => {
+                  <ul>
+                     <li>console.log(`App Server is running : Listening on port ${ <span class="colorGreen">port</span> }`);</li>
+                  </ul>
+               </li>
+               <li>});</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// process 'get' response from root</li>
+               <li><span class="colorGreen">app</span>.<span class="colorRed">get</span>( '<b>/</b>>', ( req, res ) => {
+                  <ul>
+                     <li>res.<span class="colorBlue">send</span>('&lt;h3>Hello World!!&lt;/h3>');</li>
+                  </ul>
+               </li>
+               <li>});</li>
+               <li class="commentStyle">// setting up a path parameter for sub directories</li>
+               <li><span class="colorGreen">app</span>.<span class="colorRed">get</span>( '<b>/d/:subDir</b>', ( req, res ) => {
+                  <ul>
+                     <li>const { <span class="colorGreen">subDir</span> } = <b>req</b>.params;</li>
+                     <li>res.<span class="colorBlue">send</span>(`&lt;h3>Now browsing the ${ <span class="colorGreen">subDir</span> } sub directory&lt;/h3>`);</li>
+                  </ul>
+               </li>
+               <li>});</li>
+               <li class="commentStyle">// setting up a path parameter for sub directories plus post ID</li>
+               <li><span class="colorGreen">app</span>.<span class="colorRed">get</span>( '<b>/r/:subreddit/:postId</b>', ( req, res ) => {
+                  <ul>
+                     <li>const { <span class="colorGreen">subreddit</span>, <span class="colorGreen">postId</span> } = req.params;</li>
+                     <li>res.<span class="colorBlue">send</span>(`&lt;h3>Viewing Post ID: ${ <span class="colorGreen">postId</span> } on the ${ <span class="colorGreen">subreddit</span> } subreddit&lt;/h3>`);</li>
+                  </ul>
+               </li>
+               <li>});</li>
+               <li class="commentStyle">// setting up a path for search parameter</li>
+               <li><span class="colorGreen">app</span>.<span class="colorRed">get</span>( '<b>/search</b>', ( req, res ) => {
+                  <ul>
+                     <li>const { <span class="colorGreen">q</span> } = req.query;</li>
+                     <li>if ( <span class="colorRed">!</span><span class="colorGreen">q</span> ) {
+                        <ul>
+                           <li>res.<span class="colorBlue">send</span>('&lt;h3>Search Field Empty, No Results!&lt;/h3>');</li>
+                        </ul>
+                     </li>
+                     <li>} else {
+                        <ul>
+                           <li>res.<span class="colorBlue">send</span>(`&lt;h3>Search results for: ${ <span class="colorGreen">q</span> }&lt;/h3>`);</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>})</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// set Standard Paths</li>
+               <li class="commentStyle">// about directory</li>
+               <li><span class="colorGreen">app</span>.<span class="colorRed">get</span>( '/about', ( req, res ) => {
+                  <ul>
+                     <li>res.<span class="colorBlue">send</span>('&lt;h3>This is the "About Us" page.&lt;/h3>');</li>
+                  </ul>
+               </li>
+               <li>});</li>
+               <li class="commentStyle">// login directory</li>
+               <li><span class="colorGreen">app</span>.<span class="colorRed">get</span>( '/login', ( req, res ) => {
+                  <ul>
+                     <li>res.<span class="colorBlue">send</span>('&lt;h3>This is the "Log In" page.&lt;/h3>');</li>
+                  </ul>
+               </li>
+               <li>});</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// path error detect catch all</li>
+               <li class="commentStyle">// if other than the above routing, do this</li>
+               <li><span class="colorGreen">app</span>.<span class="colorRed">get</span>( '*', (req, res ) => {
+                  <ul>
+                     <li>res.<span class="colorBlue">send</span>('&lt;h3>Invalid Path : Path Not Found!&lt;/h3>');</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
