@@ -10,7 +10,7 @@ app.set( 'view engine', 'ejs' );
 
 // get request for root dir
 app.get( '/', ( req, res ) => {
-   res.send('Responding on Root Directory.')
+   res.render('home')
 })
 
 

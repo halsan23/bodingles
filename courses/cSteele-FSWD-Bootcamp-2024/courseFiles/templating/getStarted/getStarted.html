@@ -101,6 +101,13 @@
                   <li>npm i ejs</li>
                </ul>
             </p>
+            <p>One thing to note here, we <b>do not</b> need to <b>require('ejs')</b> in out <b>index.js</b> Server File. This is because when we defined
+               <ul>
+                  <li>app.<span class="colorBlue">set</span>( 'view engine', 'ejs' );</li>
+               </ul>
+            which is an <b>express</b> method, <b>express</b> will, <i>behind the scenes</i> require <b>ejs</b> for us.</p>
+            <p>Now, because of the nature of the <b>express</b> "view engine", it is going to be looking for our templates, or "views" to reside within a <b>views</b> directory, so we are going to create that now. In the "Parent" directory, create a new sub-directory called "views".</p>
+            <p><b>*note</b>: if we look at the documentation for the <b>express</b> method <a href="https://expressjs.com/en/5x/api.html#app.set" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">set()</a>, under the <b>view</b> property, we see that we could use <i>any</i> folder we like for the <b>view</b> folder, but <b>view</b> is the default.</p>
             <p>Now we have everything we need installed:
                <ol>
                   <li>Our "Parent" directory is set up.</li>
@@ -108,16 +115,49 @@
                   <li><b>Express</b> is installed</li>
                   <li>Our <b>index.js</b> Server File is set</li>
                   <li><b>nodemon</b> is installed <i>(for build purposes)</i></li>
-                  <li>and <b>EJS</b> is installed.</li>
+                  <li><b>EJS</b> is installed.</li>
+                  <li>and we have our <b>views</b> folder for our templates.</li>
                </ol>
-            but one last thing to note here, we <b>do not</b> need to <b>require('ejs')</b> in out <b>index.js</b> Server File. This is because when we defined
-               <ul class="sectHighlight">
-                  <li>app.<span class="colorBlue">set</span>( 'view engine', 'ejs' );</li>
-               </ul>
-            which is an <b>express</b> method, <b>express</b> will, <i>behind the scenes</i> require <b>ejs</b> for us.
             </p>
          </article><hr>
-   </section>
+
+         <!-- Final Code -->
+         <article>
+            <h6>Final Code</h6>
+            <p><i><b>so far ...</b></i></p>
+            <p><span class="firstWord">W</span>e have everything we need to start defining our views (templates), and here is what we have for our Server Code so far:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js | Server Code</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Set the variables and requires</li>
+                  <li>const <span class="colorGreen">express</span> = require( '<span class="colorPurple">express</span>' );</li>
+                  <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+                  <li>const <span class="colorGreen">port</span> = <b>3000</b>;</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// set our view engine to ejs</li>
+                  <li>app.<span class="colorBlue">set</span>( 'view engine', 'ejs' );</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// get request for root dir</li>
+                  <li>app.<span class="colorBlue">get</span>( '/', ( req, res ) => {
+                     <ul>
+                        <li>res.<span class="colorRed">send</span>('Responding on Root Directory.')</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Start Server : Listening on {port}</li>
+                  <li>app.<span class="colorBlue">listen</span>( port, () => {
+                     <ul>
+                        <li>console.log(`Server Online : Listening on port: ${port}`);</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+            <p>Next we will start defining our views and setting up our templates.</p>
+         </article>
+      </section>
 
       <p><br><a href="#top">Back to Top</a></p>
       <p>&nbsp;</p>
