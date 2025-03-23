@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../templatingIndex.html">Back to Templating Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Templating & EJS</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Defining Templating -->
+         <article>
+            <h6>What is Templating</h6>
+            <p><span class="firstWord">T</span>emplating allows us to define a <i>preset pattern</i> for a webpage, that we can modify dynamically.</p>
+            <p>For example, we could define a single search template that displays all of the results for a given search term. We won't know what the term is or how many results there are ahead of time, but we will create the webpage with the results, on the fly.</p>
+         </article><hr>
+
+         <!-- Defining EJS -->
+         <article>
+            <h6>Embedded JavaScript</h6>
+            <p><span class="firstWord">W</span>e are going to be utilizing an npm package called <b>EJS</b> to help build our templates. But what is EJS, and what does it do?</p>
+            <p>Well, EJS is basically, a package that converts some Js code into HTML code. According to their <a href="https://ejs.co/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">website</a>, EJS is a simple templating language that lets you generate HTML markup with plain JavaScript. No religiousness about how to organize things. No reinvention of iteration and control-flow. It's just plain JavaScript.</p>
+            <p>So we can write our templating code in JavaScript, and EJS will convert what we need into useful HTML code.</p>
+         </article><hr>
+
+         <!-- Installing EJS -->
+         <article>
+            <h6>Installing EJS</h6>
+            <p><span class="firstWord">T</span>o get started, we need to set up our Express environment, so we need to:
+               <ol>
+                  <li>Create our "parent" working directory.</li>
+                  <li>Install <b>Express</b> at the root level.</li>
+                  <li><i>(optional)</i> - Install <b>nodemon</b> for server restarts.</li>
+                  <li>Create our <b>index.js</b> in the root directory.</li>
+               </ol>
+            </p>
+            <p>Now that we have our <b>index.js</b> file, we can write our server code to:
+               <ul>
+                  <li>- start the server</li>
+                  <li>- listen on the defined port</li>
+                  <li>- set up our basic <b>get</b> request on the root directory</li>
+               </ul>
+            </p>
+            <p>
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js | Server Code</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Set the variables and requires</li>
+                  <li>const <span class="colorGreen">express</span> = require( '<span class="colorPurple">express</span>' );</li>
+                  <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+                  <li>const <span class="colorGreen">port</span> = <b>3000</b>;</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// get request for root dir</li>
+                  <li>app.<span class="colorBlue">get</span>( '/', ( req, res ) => {
+                     <ul>
+                        <li>res.<span class="colorRed">send</span>('Responding on Root Directory.')</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Start Server : Listening on {port}</li>
+                  <li>app.<span class="colorBlue">listen</span>( port, () => {
+                     <ul>
+                        <li>console.log(`Server Online : Listening on port: ${port}`);</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+            <p>So we now have <b>express</b> installed with our corresponding <b>package.json</b>, and <b>index.js</b>, which means that it's now time to get <b>EJS</b> set up and running. To to this we are going to use the <b>express</b> method <b>set()</b>. Information on this can be <a href="https://expressjs.com/en/5x/api.html#app.set" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>. And we are going to be utilizing the <b>view engine</b> property of the <b>set()</b> method. As described in the <b>express</b> documentation, <b>view engine</b> is the default engine extension to use when omitted.</p>
+            <p>So we're going to add the following line to our <b>index.js</b>:
+               <ul class="sectHighlight">
+                  <li>app.<span class="colorBlue">set</span>( 'view engine', 'ejs' );</li>
+               </ul>
+            and now, from the Terminal, we can actually install <b>EJS</b>:
+            <ul class="sectHighlight">
+                  <li>npm i ejs</li>
+               </ul>
+            </p>
+            <p>Now we have everything we need installed:
+               <ol>
+                  <li>Our "Parent" directory is set up.</li>
+                  <li>Our <b>package.json</b> file is set.</li>
+                  <li><b>Express</b> is installed</li>
+                  <li>Our <b>index.js</b> Server File is set</li>
+                  <li><b>nodemon</b> is installed <i>(for build purposes)</i></li>
+                  <li>and <b>EJS</b> is installed.</li>
+               </ol>
+            but one last thing to note here, we <b>do not</b> need to <b>require('ejs')</b> in out <b>index.js</b> Server File. This is because when we defined
+               <ul class="sectHighlight">
+                  <li>app.<span class="colorBlue">set</span>( 'view engine', 'ejs' );</li>
+               </ul>
+            which is an <b>express</b> method, <b>express</b> will, <i>behind the scenes</i> require <b>ejs</b> for us.
+            </p>
+         </article><hr>
+   </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="../express/index.js"></script>
+</body>
+</html>
