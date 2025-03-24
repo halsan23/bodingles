@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../templatingIndex.html">Back to Templating Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Extended Js Syntax</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- EJS Syntax -->
+         <article>
+            <h6>ejs Syntax</h6>
+            <p><span class="firstWord">E</span>xtended JavaScript (<b>ejs</b>) has it's own specific uses and syntax. More info can be <a href="https://ejs.co/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>.</p>
+            <p>Here are the specific <b>ejs</b> tags:
+               <ul>
+                  <li><b>&lt;%</b>&nbsp; &nbsp; 'Scriptlet' tag, for control-flow, no output</li>
+                  <li><b>&lt;%_</b>&nbsp; &nbsp; ‘Whitespace Slurping’ Scriptlet tag, strips all whitespace before it</li>
+                  <li><b>&lt;%=</b>&nbsp; &nbsp; Outputs the value into the template (HTML escaped)</li>
+                  <li><b>&lt;%-</b>&nbsp; &nbsp; Outputs the unescaped value into the template</li>
+                  <li><b>&lt;%#</b>&nbsp; &nbsp; Comment tag, no execution, no output</li>
+                  <li><b>&lt;%%</b>&nbsp; &nbsp; Outputs a literal '&lt;%'</li>
+               </ul>
+            and here are the possible closing tags:
+               <ul>
+                  <li><b>%></b>&nbsp; &nbsp; Plain ending tag</li>
+                  <li><b>-%></b>&nbsp; &nbsp; Trim-mode ('newline slurp') tag, trims following newline</li>
+                  <li><b>_%></b>&nbsp; &nbsp; ‘Whitespace Slurping’ ending tag, removes all whitespace after it</li>
+               </ul>
+            </p>
+            <p>Remember that <b>ejs</b> code only runs in <b>ejs</b> files. And we can see from the list that different <b>ejs</b> tags have different uses. For example, we can see that "&lt;%=  "Outputs the value into the template (HTML escaped)" which means it runs any JavaScript code  and returns an HTML output.</p>
+            <p>In our previous discussions on "Templating", we created a <b>home.ejs</b> in our <b>views</b> directory. And within the file we started with an <b>&lt;h3></b> element:
+               <ul>
+                  <li>&lt;h3>EJS Home Page&lt;/h3></li>
+               </ul>
+            So, in the <b>home.ejs</b> file, let's add some <b>ejs</b> code to our <b>&lt;h3></b> element, like so:
+               <ul class="sectHighlight">
+                  <li>&lt;h3>EJS Home Page &lt;%= 3 + 4 + 5 %>&lt;/h3></li>
+               </ul>
+            This will output an &lt;h3> element with the value:
+               <ul>
+                  <li><b>EJS Home Page 12</b></li>
+               </ul>
+            What happened here was that <b>ejs</b> evaluated the coding within our <b>home.ejs</b> html file, and found some <b>ejs encoded</b> javascript. It evaluated the Js code and produced a result, which it then converted to an html output, which it then added to then end of the <b>&lt;h3></b> element, which is where the <b>ejs</b> code was placed. So we've added some Js coding inside an html element, and the Js was evaluated and added to the html element as an output. This is the heart of <b>EJS</b>.</p>
+            <p>Another example. Let's take the same &lt;h3> element and add this Js code:
+               <ul class="sectHighlight">
+                  <li>&lt;h3>&lt;%= 'EJS Home Page'.toUpperCase() %>&lt;/h3></li>
+               </ul>
+            would output:
+               <ul>
+                  <li><b>EJS HOME PAGE</b></li>
+               </ul>
+            Once again, it processed the Js, produced a result, converted the result into an html output it then displayed on the page.
+            </p>
+         </article><hr>
+
+         <!-- Takeaway -->
+         <article>
+            <h6>The Takeaway</h6>
+            <p><span class="firstWord">S</span>o <b>EJS</b> has some real potential here for "real time" dynamic page construction, but we must use the proper opening AND closing tags to achieve the results we are looking for.</p>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="../express/index.js"></script>
+</body>
+</html>

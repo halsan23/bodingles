@@ -13,7 +13,8 @@ app.set( 'views', path.join( __dirname, '/views' ));
 
 // get request for root dir
 app.get( '/', ( req, res ) => {
-   res.render('home')
+   const num = Math.floor(Math.random() * 100) + 1;
+   res.render('home', { num })
 })
 
 
