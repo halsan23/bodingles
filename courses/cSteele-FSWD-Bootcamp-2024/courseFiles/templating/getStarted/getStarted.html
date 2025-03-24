@@ -12,6 +12,7 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="../local.css">
 </head>
 
 <body>
@@ -107,12 +108,12 @@
                </ul>
             which is an <b>express</b> method, <b>express</b> will, <i>behind the scenes</i> require <b>ejs</b> for us.</p>
             <p>Now, because of the nature of the <b>express</b> "view engine", it is going to be looking for our templates, or "views" to reside within a <b>views</b> directory, so we are going to create that now. In the "Parent" directory, create a new sub-directory called "views".</p>
-            <p><b>*note</b>: if we look at the documentation for the <b>express</b> method <a href="https://expressjs.com/en/5x/api.html#app.set" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">set()</a>, under the <b>view</b> property, we see that we could use <i>any</i> folder we like for the <b>view</b> folder, but <b>view</b> is the default.</p>
+            <p><b>*note</b>: if we look at the documentation for the <b>express</b> method <a href="https://expressjs.com/en/5x/api.html#app.set" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">set()</a>, under the <b>view</b> property, we see that we could use <i>any</i> folder we like for the <b>view</b> folder, but <b>views</b> is the default.</p>
             <p>Now we have everything we need installed:
                <ol>
-                  <li>Our "Parent" directory is set up.</li>
+                  <li>Our "Parent" directory set up.</li>
                   <li>Our <b>package.json</b> file is set.</li>
-                  <li><b>Express</b> is installed</li>
+                  <li><b>Express</b> is installed <i>(node_modules directory)</i></li>
                   <li>Our <b>index.js</b> Server File is set</li>
                   <li><b>nodemon</b> is installed <i>(for build purposes)</i></li>
                   <li><b>EJS</b> is installed.</li>
@@ -125,7 +126,20 @@
          <article>
             <h6>Final Code</h6>
             <p><i><b>so far ...</b></i></p>
-            <p><span class="firstWord">W</span>e have everything we need to start defining our views (templates), and here is what we have for our Server Code so far:
+            <p><span class="firstWord">W</span>e have everything we need to start defining our views (templates). Here is our current directory structure:
+               <ul class="sectHighlight">
+                  <li><img src="/images/folder_16x16.png" alt="Folder Icon"> &nbsp; Parent Directory
+                     <ul>
+                        <li><img src="/images/folder_16x16.png" alt="Folder Icon"> &nbsp; node_modules</li>
+                        <li><img src="/images/folder_16x16.png" alt="Folder Icon"> &nbsp; views</li>
+                        <li class="fileIndent">index.js</li>
+                        <li class="fileIndent">package-lock.json</li>
+                        <li class="fileIndent">package.json</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>and here is what we have for our Server Code so far:
                <ul class="sectHighlight">
                   <li>JavaScript</li>
                   <li class="commentStyle"><span class="colorBlue">index</span>.js | Server Code</li>
