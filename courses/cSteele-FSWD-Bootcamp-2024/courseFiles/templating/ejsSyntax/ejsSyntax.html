@@ -75,12 +75,80 @@
                </ul>
             Once again, it processed the Js, produced a result, converted the result into an html output it then displayed on the page.
             </p>
+            <p>Let's have one more example to discuss another point. We'll have our <b>home.ejs</b> page display a random number between 1 and 100, every time we refresh the page. The code would be:
+               <ul class="sectHighlight">
+                  <li>&lt;p>Your random number is: &lt;%= Math.floor(Math.random() * 100) +1 %>&lt;/p></li>
+               </ul>
+            Remember, this is <b>HTML</b> code, written inside an <b>ejs</b> page with some <b>embedded Js</b> with the proper <b>ejs syntax</b>. Now this code works, <b>however</b>, it is generally not considered good practice to write extensive Js code inside of our <b>ejs</b> files. What is a better approach is to write the bulk of our Js externally and display the results of the code within our <b>ejs</b> file, using the proper <b>ejs syntax</b>, of course.</p>
+            <p>So we're going to restructure a bit here. We're going to move our random number generator to our <b>index.js</b> file. We already have the code:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li>app.<span class="colorBlue">get</span>( '/', ( req, res ) => {
+                     <ul>
+                        <li>res.<span class="colorRed">render</span>('home')</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            and we are going to modify it and add our random number generator, like so:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li>app.<span class="colorBlue">get</span>( '/', ( req, res ) => {
+                     <ul>
+                        <li>const <span class="colorGreen">num</span> = Math.floor(Math.random() * 100) + 1;</li>
+                        <li>res.<span class="colorRed">render</span>('home', { <span class="colorGreen">num</span> })</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            So we generate our random number inside our <b>index.js</b> file, and we assign it to the variable <span class="colorGreen">num</span> that we then pass on to our <b>home.ejs</b> file when we "render" the page. Now all we have to do is change the coding inside our <b>home.ejs</b> file to just display the result, instead of running the Math.random() function:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li class="commentStyle"><span class="colorBlue">home</span>.ejs</li>
+                  <li>&lt;p>Todays Random Number is: &lt;b>&lt;%= <span class="colorGreen">num</span> %>&lt;/b>&lt;/p></li>
+               </ul>
+            </p>
+            <p>One last thing to mention here is that in the Js code, when we "render" the page, we have the line:
+               <ul class="sectHighlight">
+                  <li>res.<span class="colorRed">render</span>('home', { <span class="colorGreen">num</span> })</li>
+               </ul>
+            you will notice that <span class="colorGreen">num</span> is an <b>object</b>. It's expecting a Key/Value pair. But, most coders would write it as <b>{ num: num }</b> for the key value pair. But when the key and the value are the same, we can simplify this and just call { <span class="colorGreen">num</span> }. This will assume that the key is named <b>num</b> and the value is the variable <span class="colorGreen">num</span>.
+            </p>
          </article><hr>
 
          <!-- Takeaway -->
          <article>
             <h6>The Takeaway</h6>
             <p><span class="firstWord">S</span>o <b>EJS</b> has some real potential here for "real time" dynamic page construction, but we must use the proper opening AND closing tags to achieve the results we are looking for.</p>
+            <p>Also, remember that it is generally better practice to write most of your Js code <b>externally</b> and display the results in your <b>ejs</b> page using the <b>ejs specific syntax</b>.</p>
+         </article><hr>
+
+         <!-- another ejs example -->
+         <article>
+            <b><%= %></b> vs <b><% %></b>
+            <p><span class="firstWord">S</span>o far we've seen examples using the equals sign <b>ejs syntax</b>. This allows us to insert some Js code (or result), it then converts into an HTML output. But what if we didn't want any conversion to HTML output? What if we simply wanted to run some Js code, say, maybe a conditional?
+            </p>
+            <p>Let's say with our random number generator, if it produces an even number, let's output <b>This is an EVEN number.</b>, and if it's an odd number, output <b>This is an ODD number.</b> We'll need a conditional for this, so we <b>can't</b> use <b><%= %></b> (equals sign). Instead, we'll use <b><% %></b> without the equals sign. Here's the code:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li class="commentStyle"><span class="colorBlue">home</span>.ejs</li>
+                  <li><b>&lt;%</b> if ( <span class="colorGreen">num</span> % 2 === 0 ) { <b>%></b></li>
+                  <li>This is an EVEN Number</li>
+                  <li><b>&lt;%</b> } else { <b>%></b></li>
+                  <li>This is an ODD Number</li>
+                  <li><b>&lt;%</b> } <b>%></b></li>
+               </ul>
+            So now using the ejs syntax &lt;% %> with <b>no</b> equals sign, we can run our Js conditional. And we are no longer converting anything in to an HTML output, we are actually running the Js code from inside of an HTML page, and producing the output based on the conditional logic.</p>
+            <p>Now we could also use a "Ternary Operator" to accomplish the same thing. Just replace the above code with:
+               <ul class="sectHighlight">
+                  <li>&lt;%= <span class="colorGreen">num</span>%2===0 ? 'EVEN' : 'ODD' %></li>
+               </ul>
+            which would be simpler coding, but would defeat the point of this discussion which is the difference between using <b>&lt;%=</b> (with equals sign), and <b>&lt;%</b> (without equals sign). Remember that <b>&lt;%=</b> (with equals sign) will run the Js code and convert the result  into an HTML output.
+            </p>
+            <p>One other solution would also be to run our conditional within our <b>index.js</b> file and just render the output to our <b>home.ejs</b>.</p>
+         </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>

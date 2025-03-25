@@ -8,8 +8,10 @@
 </head>
 
 <body>
+   <!-- running Js code from within our HTML structure, using ejs syntax -->
     <h3>This is my EJS <%= 'demo '.toUpperCase() %> Page</h3>
-    <p><b>Todays Random Number is: <%= num %></b></p>
+    <p>Todays Random Number is: <b><%= num %></b> and it's an <b>
+      <%= num%2===0 ? 'EVEN' : 'ODD' %> </b>number.</p>
 
    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ex itaque eum culpa, sed, sint natus sapiente doloremque eaque rem quam expedita dolore, illo voluptatem fugiat minima hic quidem quis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit explicabo nulla ea provident. Adipisci culpa, temporibus, fugiat dicta omnis voluptates nisi rem, sunt dolore inventore excepturi ratione doloremque deserunt minus?</p>
 
