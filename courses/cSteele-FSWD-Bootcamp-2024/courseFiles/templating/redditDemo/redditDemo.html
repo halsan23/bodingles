@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../templatingIndex.html">Back to Templating Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>EJS Reddit Demo</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- EJS Recap, Reddit Intro -->
+         <article>
+            <h6>Recap and Reddit Intro</h6>
+            <p><span class="firstWord">W</span>e're going to expand our <b>ejs</b> discussions by creating a "Reddit" type app that is going to run from a template, that we're going to create.</p>
+            <p>We are going to continue building upon our <b>index.js</b> file that we have been building up with our previous discussions. Also, we are going to be using this <a href="../express/ejsDemoData.json" target="_blank">ejsDemoData.json file</a> to hold our "reddit's" data, to get us used to using an external source for data retrieval.</p>
+            <p>Here is the code for our <b>index.js</b> file that we have so far:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js | Server Code</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Set the variables and requires</li>
+                  <li>const <span class="colorGreen">express</span> = require( '<span class="colorPurple">express</span>' );</li>
+                  <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+                  <li>const <span class="colorGreen">path</span> = require( '<span class="colorPurple">path</span>' );</li>
+                  <li>const <span class="colorGreen">port</span> = <b>3000</b>;</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// set our view engine to ejs</li>
+                  <li>app.<span class="colorBlue">set</span>( 'view engine', 'ejs' );</li>
+                  <li class="commentStyle">// define our "path" to the views sub-directory</li>
+                  <li>app.<span class="colorBlue">set</span>( 'views', path.<span class="colorBlue">join</span>( __dirname, '/views' ));</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// get request for root view</li>
+                  <li>app.<span class="colorBlue">get</span>( '/', ( req, res ) => {
+                     <ul>
+                        <li>const <span class="colorGreen">num</span> = Math.floor(Math.random() * 100) + 1;</li>
+                        <li>res.<span class="colorRed">render</span>( 'home', { <span class="colorGreen">num</span> })</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// get request for pets view</li>
+                  <li>app.<span class="colorBlue">get</span>( '/pets', ( req, res ) => {
+                     <ul>
+                        <li>const <span class="colorGreen">pets</span> = [ 'Chico', 'Bella', 'Sadie', 'Addie Cakes', 'Boo Boo', 'Jasper', 'Jitters' ];</li>
+                        <li>res.<span class="colorRed">render</span>( 'pets', { <span class="colorGreen">pets</span> })</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Start Server : Listening on {port}</li>
+                  <li>app.<span class="colorBlue">listen</span>( port, () => {
+                     <ul>
+                        <li>console.log(`Server Online : Listening on port: ${port}`);</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            We also have our two ejs files, <b>home.ejs</b>:
+            <ul class="sectHighlight">
+                  <li>EJS</li>
+                  <li class="commentStyle"><span class="colorBlue">home</span>.ejs</li>
+                  <li class="commentStyle">// running Js inside html using ejs</li>
+                  <li class="commentStyle">// changes the word 'demo' to upper case</li>
+                  <li>&lt;h3>This is my EJS <%= 'demo '.toUpperCase() %> Page</h3></li>
+                  <li class="commentStyle">// outputs the random # computed in index.js</li>
+                  <li>&lt;p>Todays Random Number is: &lt;b>&lt;%= num %>&lt;/b> and it's an &lt;b>
+                     <ul>
+                        <li>&lt;%= num%2===0 ? 'EVEN' : 'ODD' %> &lt;/b>number.&lt;/p></li>
+                     </ul>
+                  </li>
+               </ul>
+            and <b>pets.ejs</b>:
+            <ul class="sectHighlight">
+                  <li>EJS</li>
+                  <li class="commentStyle"><span class="colorBlue">pets</span>.ejs</li>
+                  <li class="commentStyle">// display the header</li>
+                  <li>&lt;h1>These are Our Pets&lt;/h1></li>
+                  <li class="commentStyle">// pets array created in index.js</li>
+                  <li class="commentStyle">// loop through the array</li>
+                  <li>&lt;% for ( pet of pets ) { %>
+                     <ul>
+                        <li>&lt;%= pet %></li>
+                     </ul>
+                  </li>
+                  <li>&lt;% } %></li>
+               </ul>
+            </p>
+         </article>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Build the Reddit app -->
+         <article>
+            <h6>Reddit Demo</h6>
+            <p><span class="firstWord">T</span>he first thing we need to do is make some additions to our <b>index.js</b>. We're going to need to <b>require</b> our json file that we are using to hold our data. So we're going to add this line:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorGreen">demoData</span> = require( '<span class="colorRed">./ejsDemoData.json</span>' );</li>
+               </ul>
+            </p>
+            <p>And now we add the following code to "parse" our json file and retrieve the data:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js | Server Code</li>
+                  <li>&nbsp;</li>
+                  <li  class="commentStyle">// get request for subreddit view</li>
+                  <li>app.<span class="colorBlue">get</span>( '/r/:subreddit', ( req, res ) => {
+                     <ul>
+                        <li class="commentStyle">// <b>req</b> returns an object</li>
+                        <li class="commentStyle">// <span class="colorRed">params</span> breaks down the object into individual parameters</li>
+                        <li>const <span class="colorGreen">{ subreddit }</span> = req.<span class="colorRed">params</span>;</li>
+                        <li class="commentStyle">// assigns the <b>demoData</b> to the variable <span class="colorGreen">data</span></li>
+                        <li>const <span class="colorGreen">data</span> = demoData[subreddit];</li>
+                        <li>if (data) {
+                           <ul>
+                              <li class="commentStyle">// if there is data</li>
+                              <li>res.<span class="colorRed">render</span>('<span class="colorGreen">{ subreddit }</span>', { ...data });</li>
+                              <li class="commentStyle">// the 3 dots allow us to "spread" the data to get to the individual pieces, such as "Name"</li>
+                              <li class="commentStyle">// we'll use this in our <b>subReddit.ejs</b> template file.</li>
+                           </ul>
+                        </li>
+                        <li>} else {
+                           <ul>
+                              <li class="commentStyle">// if no data, <span class="colorRed">render</span> a <b>not found</b> page</li>
+                              <li>res.<span class="colorRed">render</span>('notFound', <span class="colorGreen">{ subreddit }</span>);</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>}) </li>
+               </ul>
+            </p>
+            <p>Our <b>index.js</b> file should now be complete. Next we need to create our <b>notFound.ejs</b> and our <b>subReddit.ejs</b>, in which we will build our <b>template</b> for the reddit's.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="../express/index.js"></script>
+</body>
+</html>
