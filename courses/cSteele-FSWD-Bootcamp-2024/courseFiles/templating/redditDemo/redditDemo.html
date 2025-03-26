@@ -112,15 +112,15 @@
       </section>
 
       <section id="textWindow4" class="just">
-         <!-- Build the Reddit app -->
+         <!-- add the Reddit app entries into index.js -->
          <article>
             <h6>Reddit Demo</h6>
-            <p><span class="firstWord">T</span>he first thing we need to do is make some additions to our <b>index.js</b>. We're going to need to <b>require</b> our json file that we are using to hold our data. So we're going to add this line:
+            <p><span class="firstWord">N</span>ow to add our Reddit Demo. The first thing we need to do is make some additions to our <b>index.js</b>. First, we're going to need to <b>require</b> our json file that we are using to hold our data. So we're going to add this line:
                <ul class="sectHighlight">
                   <li>const <span class="colorGreen">demoData</span> = require( '<span class="colorRed">./ejsDemoData.json</span>' );</li>
                </ul>
             </p>
-            <p>And now we add the following code to "parse" our json file and retrieve the data:
+            <p>And now we're going to add the following code into our <b>index.js</b> file, to "parse" our json file and retrieve the data:
                <ul class="sectHighlight">
                   <li>JavaScript</li>
                   <li class="commentStyle"><span class="colorBlue">index</span>.js | Server Code</li>
@@ -129,14 +129,17 @@
                   <li>app.<span class="colorBlue">get</span>( '/r/:subreddit', ( req, res ) => {
                      <ul>
                         <li class="commentStyle">// <b>req</b> returns an object</li>
-                        <li class="commentStyle">// <span class="colorRed">params</span> breaks down the object into individual parameters</li>
                         <li>const <span class="colorGreen">{ subreddit }</span> = req.<span class="colorRed">params</span>;</li>
-                        <li class="commentStyle">// assigns the <b>demoData</b> to the variable <span class="colorGreen">data</span></li>
-                        <li>const <span class="colorGreen">data</span> = demoData[subreddit];</li>
-                        <li>if (data) {
+                        <li class="commentStyle">// <span class="colorRed">params</span> breaks down the object into individual parameters</li>
+                        <li>&nbsp;</li>
+                        <li>const <span class="colorGreen">data</span> = demoData[<span class="colorGreen">subreddit</span>];</li>
+                        <li class="commentStyle">// create a <b>demoData</b> array that holds the <span class="colorGreen">subreddit</span> parameters</li>
+                        <li class="commentStyle">// assigns the <b>demoData</b> array to the variable <span class="colorGreen">data</span></li>
+                        <li>&nbsp;</li>
+                        <li>if ( <span class="colorGreen">data</span> ) {
                            <ul>
                               <li class="commentStyle">// if there is data</li>
-                              <li>res.<span class="colorRed">render</span>('<span class="colorGreen">{ subreddit }</span>', { ...data });</li>
+                              <li>res.<span class="colorRed">render</span>('<span class="colorGreen">{ subReddit }</span>', { ...data });</li>
                               <li class="commentStyle">// the 3 dots allow us to "spread" the data to get to the individual pieces, such as "Name"</li>
                               <li class="commentStyle">// we'll use this in our <b>subReddit.ejs</b> template file.</li>
                            </ul>
@@ -154,6 +157,72 @@
                </ul>
             </p>
             <p>Our <b>index.js</b> file should now be complete. Next we need to create our <b>notFound.ejs</b> and our <b>subReddit.ejs</b>, in which we will build our <b>template</b> for the reddit's.</p>
+         </article><hr>
+
+         <!-- build notFound.ejs -->
+         <article>
+            <h6>notFound.ejs</h6>
+            <p><span class="firstWord">R</span>emember that we are running from a <b>localhost</b>, in this case, port <b>3000</b>. And the code is set up to so that we are using <b>/r/</b> to designate that we are looking for a subreddit. So what ever subreddit we are trying to display, we would type the following in the browser address bar:
+               <ul class="sectHighlight">
+                  <li>http://localhost:3000<i><b>/r/</b>subreddit</i></li>
+               </ul>
+            The <i>subreddit</i> variable will be replaced with whatever subreddit we are looking for.
+            </p>
+            <p>If, we try looking for a subreddit that doesn't exist, then we would get an error. We've built a response in our <b>index.js</b> file so that if a reddit can't be found, it will run <b>notFound.ejs</b> so that our app doesn't crash with the error.</p>
+            <p>So next, we need to build our <b>notFound.ejs</b>. Simply add this line into the body of the file:
+               <ul class="sectHighlight">
+                  <li>&lt;h2>We're sorry, the &lt;%= <i>subreddit</i> %> subreddit was not found.&lt;/h2></li>
+               </ul>
+            So if our app can't find a reddit, it displays a page with the message, "<b>We're sorry, the</b> <i>subredditName</i> <b>subreddit was not found.</b>", and our app doesn't crash.
+            </p>
+         </article><hr>
+
+         <!-- build subReddit.ejs -->
+         <article>
+            <h6>subReddit.ejs</h6>
+            <p><span class="firstWord">O</span>k, all that's left now is to build the <b>subReddit.ejs</b> file. TShis file will be our "Template" for displaying all of our valid sub-reddits. Now, if we look at our <a href="../express/ejsDemoData.json" target="_blank">ejsDemoData.json file</a>, we'll see that we have three valid subReddits defined:
+               <ol>
+                  <li>soccer</li>
+                  <li>chickens</li>
+                  <li>harvest</li>
+               </ol>
+            and that they all have the same basic structure of <b>name</b>, <b>subscribers</b>, <b>description</b>, and <b>posts</b>. Likewise, the "posts" also share commonalities. They all have a <b>title</b>, and <b>author</b>, but only some of them have an <b>image</b>.</p>
+            <p>This is the structure we're going to use for our template. We just need the following code within the <b>body</b> element of the <b>subReddit.ejs</b> page:
+               <ul class="sectHighlight">
+                  <li>EJS</li>
+                  <li class="commentStyle"><span class="colorBlue">subReddit</span>.ejs</li>
+                  <li class="commentStyle">// setting up the reddit name, description, and subscriber info</li>
+                  <li>&lt;h2>Now viewing the &lt;%= <span class="colorRed">name</span> %> Reddit&lt;/h2></li>
+                  <li>&lt;h4>&lt;%= <span class="colorRed">description</span>  %>&lt;/h4></li>
+                  <li>&lt;p>&lt;b>&lt;%= <span class="colorRed">subscribers</span> %>&lt;/b> Total Subscribers&lt;/p></li>
+                  <li>&lt;hr></li>
+                  <li class="commentStyle">// setting up a loop to loop through all of the posts for this reddit</li>
+                  <li>&lt;% for ( <span class="colorGreen">post</span> of <span class="colorBlue">posts</span> ) { %>
+                     <ul>
+                        <li>&lt;article>
+                           <ul>
+                              <li>&lt;p>&lt;b>&lt;%= <span class="colorGreen">post</span>.<span class="colorRed">author</span> %>&lt;/b>: &lt;%= <span class="colorGreen">post</span>.<span class="colorRed">title</span> %>&lt;/p></li>
+                              <li>&lt;% if (<span class="colorGreen">post</span>.<span class="colorRed">img</span>) { %>
+                                 <ul>
+                                    <li>&lt;img src="&lt;%= <span class="colorGreen">post</span>.<span class="colorRed">img</span> %>" alt="&lt;%= <span class="colorGreen">post</span>.<span class="colorRed">title</span> %>"></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;% } else { %>
+                                 <ul>
+                                    <li>&lt;p>&lt;b>No Image Available&lt;/b>&lt;/p></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;% } %></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/article>&lt;hr></li>
+                     </ul>
+                  </li>
+                  <li>&lt;% } %></li>
+               </ul>
+            </p>
+            <p>Not too bad. We have a heading section that displays the reddit name, description, and subscribers info. We then have a loop that list's all of the posts related to this reddit. Lastly we added an error trap to display the images of the posts that actually have an image. And for the ones that don't, just display a message.
+            </p>
          </article>
       </section>
 
