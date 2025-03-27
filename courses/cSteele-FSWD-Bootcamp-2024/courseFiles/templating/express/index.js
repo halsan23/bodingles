@@ -12,6 +12,12 @@ app.set( 'view engine', 'ejs' );
 app.set( 'views', path.join( __dirname, '/views' ));
 
 
+// Start Server : Listening on {port}
+app.listen( port, () => {
+   console.log(`Server Online : Listening on port: ${port}`);
+});
+
+
 // get request for root view
 app.get( '/', ( req, res ) => {
    const num = Math.floor(Math.random() * 100) + 1;
@@ -35,9 +41,3 @@ app.get( '/r/:subreddit', ( req, res ) => {
       res.render('notFound', { subreddit });
    }
 })
-
-
-// Start Server : Listening on {port}
-app.listen( port, () => {
-   console.log(`Server Online : Listening on port: ${port}`);
-});

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="../local.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../templatingIndex.html">Back to Templating Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>sub-Reddit Project</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">W</span>e are going to build a sub-Reddit project to demonstrate some basic technologies and their use. This will not be a fully functional Reddit clone. We are simply going to be pulling data for three sub-Reddits, that have been stored in a <b>.json</b> file. The purpose of this discussion is to see how we would implement the technologies to display the sub-Reddit data, that is acquired from an external source (the .json file).</p>
+            <p>The relative <b>.json</b> file can be <a href="../express/ejsDemoData.json" target="_blank">viewed here</a>., and the technologies that we're going to be utilizing are:
+               <ol>
+                  <li>JavaScript</li>
+                  <li>Express</li>
+                  <li>node.js</li>
+                  <li>nodemon</li>
+                  <li>Extended JavaScript (ejs)</li>
+               </ol>
+            and of course we will be writing some <b>HTML</b> code, but we will be incorporating it into our <b>ejs</b> files along with some extended Js.</p>
+         </article><hr>
+
+         <article>
+            <h6>Basic Setup</h6>
+            <p><span class="firstWord">F</span>or our Basic Setup, we will have:
+               <ol>
+                  <li>Our "Parent" directory set up. <i>(called <b>express</b>)</i></li>
+                  <li>Our <b>package.json</b> file is set.</li>
+                  <li><b>Express</b> is installed <i>(node_modules directory)</i></li>
+                  <li>Our <b>index.js</b> Server File is set</li>
+                  <li><b>nodemon</b> is installed <i>(for build purposes)</i></li>
+                  <li><b>EJS</b> is installed.</li>
+                  <li>We have our <b>views</b> folder for our two <b>ejs</b> files.
+                     <ol>
+                        <li>subReddit.ejs</li>
+                        <li>notFound.ejs</li>
+                     </ol>
+                  </li>
+               </ol>
+            </p><hr>
+            <p>Here is our directory structure:
+               <ul class="sectHighlight">
+                  <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <b>express</b>
+                     <ul>
+                        <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; node_modules</li>
+                        <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; views
+                           <ul>
+                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; subReddit.ejs</li>
+                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; notFound.ejs</li>
+                           </ul>
+                        </li>
+                        <li><img src="/images/js.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; index.js</li>
+                        <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; package-lock.json</li>
+                        <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; package.json</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>and here is our Server Code:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js | Server Code</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Set the variables and requires</li>
+                  <li>const <span class="colorGreen">express</span> = require( '<span class="colorPurple">express</span>' );</li>
+                  <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+                  <li>const <span class="colorGreen">port</span> = <b>3000</b>;</li>
+                  <li>const <span class="colorGreen">path</span> = require( '<span class="colorPurple">path</span>' );</li>
+                  <li>const <span class="colorGreen">demoData</span> = require( '<b>./ejsDemoData.json</b>' );</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// set our view engine to ejs</li>
+                  <li>app.<span class="colorBlue">set</span>( 'view engine', 'ejs' );</li>
+                  <li class="commentStyle">// define our "path" to the views sub-directory</li>
+                  <li>app.<span class="colorBlue">set</span>( 'views', path.<span class="colorBlue">join</span>( __dirname, '/views' ));</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// get request for subreddit view</li>
+                  <li>app.<span class="colorBlue">get</span>( '<b>/r/:subreddit</b>', ( req, res ) => {
+                     <ul>
+                        <li class="commentStyle">// <span class="colorRed">params</span> breaks down the <b>req</b> object and returns an array with the object parameters</li>
+                        <li>const { <span class="colorGreen">subreddit</span> } = <b>req.</b><span class="colorRed">params</span>;</li>
+                        <li>const <span class="colorGreen">data</span> = <b>demoData[<span class="colorGreen">subreddit</span>]</b>;</li>
+                        <li>if ( <span class="colorGreen">data</span> ) {
+                           <ul>
+                              <li class="commentStyle">// the 3 dots allow us to "spread" the data to get to the individual pieces, such as "Name"</li>
+                              <li>res.<span class="colorRed">render</span>(' <span class="colorGreen">subreddit</span>', { ...<span class="colorGreen">data</span> })</li>
+                           </ul>
+                        </li>
+                        <li>} else {
+                           <ul>
+                              <li>res.<span class="colorRed">render</span>( '<span class="colorGreen">notFound</span>', { <span class="colorGreen">subreddit</span> })</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Start Server : Listening on {port}</li>
+                  <li>app.<span class="colorBlue">listen</span>( port, () => {
+                     <ul>
+                        <li>console.log(`Server Online : Listening on port: ${port}`);</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="../express/index.js"></script>
+</body>
+</html>
