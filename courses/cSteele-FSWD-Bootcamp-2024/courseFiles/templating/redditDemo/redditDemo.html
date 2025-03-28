@@ -35,8 +35,8 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">W</span>e are going to build a sub-Reddit project to demonstrate some basic technologies and their use. This will not be a fully functional Reddit clone. We are simply going to be pulling data for three sub-Reddits, that have been stored in a <b>.json</b> file. The purpose of this discussion is to see how we would implement the technologies to display the sub-Reddit data, that is acquired from an external source (the .json file).</p>
-            <p>The relative <b>.json</b> file can be <a href="../express/ejsDemoData.json" target="_blank">viewed here</a>., and the technologies that we're going to be utilizing are:
+            <p><span class="firstWord">W</span>e are going to build a sub-Reddit project to demonstrate some basic technologies and their use. This will not be a fully functional Reddit clone. We are simply going to be demonstrating how to pull data from an external source and create a template to display the data.</p>
+            <p>To achieve this, we are going to be pulling our data from a <b>.json</b> file. This file contains data for three different sub-reddits. The relative <b>.json</b> file can be <a href="../express/ejsDemoData.json" target="_blank">viewed here</a>., and the technologies that we're going to be utilizing are:
                <ol>
                   <li>JavaScript</li>
                   <li>Express</li>
@@ -47,6 +47,7 @@
             and of course we will be writing some <b>HTML</b> code, but we will be incorporating it into our <b>ejs</b> files along with some extended Js.</p>
          </article><hr>
 
+         <!-- Basic Setup -->
          <article>
             <h6>Basic Setup</h6>
             <p><span class="firstWord">F</span>or our Basic Setup, we will have:
@@ -54,18 +55,23 @@
                   <li>Our "Parent" directory set up. <i>(called <b>express</b>)</i></li>
                   <li>Our <b>package.json</b> file is set.</li>
                   <li><b>Express</b> is installed <i>(node_modules directory)</i></li>
-                  <li>Our <b>index.js</b> Server File is set</li>
+                  <li><b>EJS</b> is installed  <i>(node_modules directory)</i></li>
                   <li><b>nodemon</b> is installed <i>(for build purposes)</i></li>
-                  <li><b>EJS</b> is installed.</li>
-                  <li>We have our <b>views</b> folder for our two <b>ejs</b> files.
+                  <li>Our <b>index.js</b> Server File is set</li>
+                  <li>and, we have our <b>views</b> folder for our two <b>ejs</b> files.
                      <ol>
                         <li>subReddit.ejs</li>
                         <li>notFound.ejs</li>
                      </ol>
                   </li>
                </ol>
-            </p><hr>
-            <p>Here is our directory structure:
+            </p>
+         </article><hr>
+
+         <!-- File & Folder Setup -->
+         <article>
+            <h6>Directory Structure</h6>
+            <p><span class="firstWord">H</span>ere is our directory structure:
                <ul class="sectHighlight">
                   <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <b>express</b>
                      <ul>
@@ -83,7 +89,12 @@
                   </li>
                </ul>
             </p>
-            <p>and here is our Server Code:
+         </article>
+
+         <!-- Server Setup -->
+         <article>
+            <h6>Server Code</h6>
+            <p><span class="firstWord">H</span>ere is our Server Setup:
                <ul class="sectHighlight">
                   <li>JavaScript</li>
                   <li class="commentStyle"><span class="colorBlue">index</span>.js | Server Code</li>
@@ -130,7 +141,127 @@
                   <li>})</li>
                </ul>
             </p>
-         </article>
+            <p>You will notice a couple of important setup issues here:
+               <ul>
+                  <li>- we are <b>requiring</b> our <b>.json</b> file, which will give us access to it's data.</li>
+                  <li>- if we look at our <span class="colorBlue">get</span> request, we see that we're using the <span class="colorRed">params</span> method
+                     <ul>
+                        <li>- this will return the individual parameters of the <b>req</b> object, and assign it to the variable as an object</li>
+                     </ul>
+                  </li>
+                  <li>- next we notice that we are assigning out <b>.json</b> file data, as an array.
+                     <ul>
+                        <li>- this is because we have three subReddits within the <b>.json</b> file and the will be allocated to the variable as three array parameters.</li>
+                     </ul>
+                  </li>
+                  <li>- next we is an error check to make sure the sub-Reddit the user is searching for, actually exists
+                     <ul>
+                        <li>- if it does: we'll break the sub-Reddit data into usable pieces using <b>...</b> and <span class="colorRed">render</span> it for output.</li>
+                        <li>- if not: we'll <span class="colorRed">render</span> the <span class="colorGreen">notFound</span> page.</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>And all that's left now is to set up our two <b>ejs</b> files.</p>
+         </article><hr>
+
+         <!-- subReddit.ejs Setup -->
+         <article>
+            <h6>subReddit.ejs</h6>
+            <p><span class="firstWord">W</span>e need to understand that the point of this conversation is to be able to set up a server that will pull data from an external source and produce an output. The "pulling" of the data, it's processing, and rendering, are all going to be handled <i><b>on the server side</b></i>.</p>
+            <p>Also, we are going to be <span class="colorRed">rendering</span> our output as an <b>ejs</b> file, so we need to point out a couple of distinctions here, between <b>ejs</b> files, and <b>html</b> files. Both file types output their data from html coding. However, there are a couple of important differences:
+               <ul>
+                  <li>- <b>html</b> files are <span class="colorRed">rendered</span> on the <b>client side</b> which means they can utilize external files such as css, and Js files.</li>
+                  <li>- <b>ejs</b> files however, are <span class="colorRed">rendered</span> on the <b>server side</b>. This means that they can NOT access external css or Js files. But they can process Js <i>internally</i> within the html file itself, and we'll use this capability to <span class="colorRed">render</span> our output.</li>
+               </ul>
+            </p>
+            <p>So we start by creating a basic html file by opening a new empty file and <i>(in vsCode)</i> pressing [<b>sh</b> + <b>!</b>]. This will give us the basic html structure we need for an ejs file.
+               <ul>
+                  <li class="commentStyle"><i><b>*note</b>: you could of course set this up manually, and type in all the required html info, but it is much simpler to let vsCode do the work for us</i>.</li>
+               </ul>
+            So we now have an html file with the basic structure. We can set a <b>title</b> if we want and I set mine to "Reddit Demo". Now we need to save this file, but NOT as an html file, but as an <b>ejs</b> file. So we will make sure we are in out "<b>views</b>" directory, and save the file as [<b>subReddit.ejs</b>].
+            </p>
+            <p>And now that our <b>subReddit.ejs</b> file is set up and ready to go, we need to understand that all we are concerned about for the rendering, is what code is contained, within the <b>body</b> element. This is where we'll be writing our code for our output. No "css" files. No "script" files. Just html, and embedded Js coding with the proper "<b>ejs syntax</b>".</p>
+            <p>and here is the code:
+               <ul class="sectHighlight">
+                  <li>EJS</li>
+                  <li class="commentStyle"><span class="colorBlue">subReddit</span>.ejs</li>
+                  <li class="commentStyle">// all variable data is received from the index.js app.GET</li>
+                  <li class="commentStyle">// all data originates from ejsDemoData.json</li>
+                  <li class="commentStyle">// set a heading</li>
+                  <li>&lt;h2>Now viewing the &lt;%= <span class="colorGreen">name</span> %> Reddit&lt;/h2></li>
+                  <li class="commentStyle">// description</li>
+                  <li>&lt;h4>&lt;%= <span class="colorGreen">description</span>  %>&lt;/h4></li>
+                  <li class="commentStyle">// subscriber info</li>
+                  <li>&lt;p>&lt;b>&lt;%= <span class="colorGreen">subscribers</span> %>&lt;/b> Total Subscribers&lt;/p>&lt;hr></li>
+                  <li class="commentStyle">// loop to display all posts</li>
+                  <li>&lt;% for ( <span class="colorBlue">post</span> of <span class="colorGreen">posts</span> ) { %>
+                     <ul>
+                        <li>&lt;article>
+                           <ul>
+                              <li class="commentStyle">// post author and title</li>
+                              <li>&lt;p>&lt;b>&lt;%= <span class="colorBlue">post</span>.<span class="colorGreen">author</span> %>&lt;/b>: &lt;%= <span class="colorBlue">post</span>.<span class="colorGreen">title</span> %>&lt;/p></li>
+                              <li class="commentStyle">// if post has an image check</li>
+                              <li>&lt;% if (<span class="colorBlue">post</span>.<span class="colorRed">img</span>) { %>
+                                 <ul>
+                                    <li>&lt;img src="&lt;%= <span class="colorBlue">post</span>.<span class="colorRed">img</span> %>" alt="&lt;%= <span class="colorBlue">post</span>.<span class="colorGreen">title</span> %>"></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;% } else { %>
+                                 <ul>
+                                    <li>&lt;p>&lt;b>No Image Available&lt;/b>&lt;/p></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;% } %></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/article>&lt;hr></li>
+                     </ul>
+                  </li>
+                  <li>&lt;% } %></li>
+               </ul>
+            </p>
+            <p>What we end up with is a file, that outputs data as an html file, but process Js code <b>internally</b>, within the file. Notice that we are using proper <b>ejs syntax</b> to process the Js coding. Make a special note that:
+               <ul>
+                  <li>- we are using [<b class="colorPurple">&lt;%=</b>] to only <b>output</b> Js variables.</li>
+                  <li>- We are using [<b class="colorPurple">&lt;%</b>] <i>without</i> the equals sign, to actually run some Js</li>
+               </ul>
+            </p>
+            <p>So we are only <i>displaying</i> information for the subReddit <b>name</b>, <b>description</b>, and <b>subscribers</b> information. But we are actually running Js code to run a <b>loop</b> to output ALL of the posts, and we are also running an <b>if</b> check to see if a post has an image to display.</p>
+            <p>So JavaScript, is running "natively" within the HTML structure. This is the beauty of using <b>ejs</b> files. Remember tho, ALL of the processing for output, <i><b>is done on the server side</b></i>.</p>
+         </article><hr>
+
+         <!-- notFound.ejs Setup -->
+         <article>
+            <h6>notFound.ejs</h6>
+            <p><span class="firstWord">A</span>nd finally, all we have left to do is to create our <b>notFound.ejs</b> file. The reason for this file is that the end user could type a <b>subReddit</b> they might be looking for directly into the browser address bar. But if the <b>subReddit</b> doesn't exist, then we will get an error and our app will crash.</p>
+            <p>To prevent this, we create a page that simply says, "We're sorry but that sub-reddit can not be found. So our app continues to run.</p>
+            <p>We'll prepare the ejs file exactly like we did with the <b>subReddit.ejs</b> file. Make sure you save the file in the " <b>views</b>" directory. Once we have the basic html structure, We'll set a title and add the following code to the <b>body</b> element:
+               <ul class="sectHighlight">
+                  <li>EJS</li>
+                  <li class="commentStyle"><span class="colorBlue">notFound</span>.ejs</li>
+                  <li class="commentStyle">// display a sub-reddit not found message</li>
+                  <li>&lt;h2>We're sorry, the &lt;%= <span class="colorGreen">subreddit</span> %> subreddit was not found.&lt;/h2></li>
+               </ul>
+            and that's it. That's all we need for this file. Notice that we are using <b>&lt;%=</b> to output the subReddit name.
+            </p>
+         </article><hr>
+
+         <!-- running the app -->
+         <article>
+            <h6>Running the App</h6>
+            <p><span class="firstWord">N</span>ow we can finally discuss how to actually run the app. Since we are using <b>server side</b> processing, we are going to need to be running our "<b>localhost</b>" server. Simply navigate to our <i><b>root</b></i> directory <i>(that we named <b>express</b>)</i>, and type either:
+               <ul>
+                  <li><b>node index.js</b>, or</li>
+                  <li><b>nodemon index.js</b></li>
+               </ul>
+            </p>
+            <p>We then open our browser window, and because we defined our port number to be <b>3000</b> <i>(in <b>index.js</b>)</i>, we type <i>(in the address bar)</i>:
+               <ul>
+                  <li><a href="http://localhost:3000/r/soccer" target="_blank">http://localhost:3000/r/soccer</a></li>
+               </ul>
+            which is our first sub-reddit.</p>
+            And there we go, our sub-reddit app is up and running. We retrieved our data from an external source <i>(<b>ejsDemoData.json</b>)</i>, and utilized server side processing to process the data, and output it for viewing, <i>(<b>using the ejs file format</b>)</i>.
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
