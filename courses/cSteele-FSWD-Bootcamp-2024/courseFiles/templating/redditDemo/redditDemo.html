@@ -58,6 +58,13 @@
                   <li><b>EJS</b> is installed  <i>(node_modules directory)</i></li>
                   <li><b>nodemon</b> is installed <i>(for build purposes)</i></li>
                   <li>Our <b>index.js</b> Server File is set</li>
+                  <li>We have our "Static Files Directory" and it's sub-directories:
+                     <ul>
+                        <li>css</li>
+                        <li>imgs</li>
+                        <li>js</li>
+                     </ul>
+                  </li>
                   <li>and, we have our <b>views</b> folder for our two <b>ejs</b> files.
                      <ol>
                         <li>subReddit.ejs</li>
@@ -75,6 +82,20 @@
                <ul class="sectHighlight">
                   <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <b>express</b>
                      <ul>
+                        <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; assets
+                           <ul>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; css
+                                 <ul>
+                                    <li><img src="/images/css.png" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; localStyles.css</li>
+                                 </ul>
+                              </li>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; files
+                                 <ul>
+                                    <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; ejsDemoData.json</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
                         <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; node_modules</li>
                         <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; views
                            <ul>
@@ -104,7 +125,10 @@
                   <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
                   <li>const <span class="colorGreen">port</span> = <b>3000</b>;</li>
                   <li>const <span class="colorGreen">path</span> = require( '<span class="colorPurple">path</span>' );</li>
-                  <li>const <span class="colorGreen">demoData</span> = require( '<b>./ejsDemoData.json</b>' );</li>
+                  <li>const <span class="colorGreen">demoData</span> = require( '<b>./assets/files/ejsDemoData.json</b>' );</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// define our "path" to the "static files" directory</li>
+                  <li><b>app.</b><span class="colorBlue">use</span>(<b>express</b>.<span class="colorRed">static</span>(path.<span class="colorBlue">join</span>(__dirname, '<span class="colorOrange">assets</span>')))</li>
                   <li>&nbsp;</li>
                   <li class="commentStyle">// set our view engine to ejs</li>
                   <li>app.<span class="colorBlue">set</span>( 'view engine', 'ejs' );</li>

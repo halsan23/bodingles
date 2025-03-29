@@ -8,48 +8,40 @@
    <!-- link to static assets directory -->
    <link rel="stylesheet" href="/css/root.css">
    <link rel="stylesheet" href="/css/localStyles.css">
-
-   <style>
-   </style>
 </head>
+
 <body>
-   <section id="main" class="content">
+   <!-- Instructions -->
+   <div>
       <h1>My Reddits</h1>
       <p>To display a Reddit:</p>
+      <p>in the address bar : type <b>http://localhost:3000/r/</b><br>
+         followed by one of your three choices:</p>
+      <p><a href="http://localhost:3000/r/soccer">Soccer</a><br>
+         <a href="http://localhost:3000/r/chickens">Chickens</a><br>
+         <a href="http://localhost:3000/r/harvest">Harvest</a></p>
+   </div><hr>
 
-      <section id="textWindow4">
-         <div class="index">
-            <ul>
-               <li>in the address bar : type /r/</li>
-               <li>followed by one of your three choices:
-                  <ul>
-                     <li><a href="http://localhost:3000/r/soccer">Soccer</a></li>
-                     <li><a href="http://localhost:3000/r/chickens">Chickens</a></li>
-                     <li><a href="http://localhost:3000/r/harvest">Harvest</a></li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-         <hr><hr>
-         <h5><%= name %></h5>
-         <p><b><%= description  %></b></p>
-         <p><%= subscribers %> Total Subscribers</p>
-         <hr>
+   <!-- Reddit Info -->
+   <div>
+      <h4><%= name %></h4>
+      <p class="desc"><%= description  %></p>
+      <p>Total Subscribers:&nbsp;&nbsp;&nbsp;<b><span class="subs"><%= subscribers %></b></span></p>
+   </div>
 
-         <div class="posts">
-            <% for ( post of posts ) { %>
-               <article>
-                  <p><b><%= post.author %></b>: <%= post.title %></p>
-                  <% if (post.img) { %>
-                     <img src="<%= post.img %>" alt="<%= post.title %>">
-                  <% } else { %>
-                     <p><b>No Image Available</b></p>
-                  <% } %>
-               </article><hr>
+   <!-- Reddit Posts -->
+   <div>
+      <% for ( post of posts ) { %>
+         <hr><p>&nbsp;</p>
+         <p><span class="author"><%= post.author %>:</span>&nbsp;&nbsp;&nbsp;<span><%= post.title %></span></p><br>
+         <p>
+            <% if (post.img) { %>
+               <img src="<%= post.img %>" alt="<%= post.title %>">
+            <% } else { %>
+               <b>No Image Available</b>
             <% } %>
-         </div>
-      </section>
-
-   </section>
+         </p><br>
+      <% } %>
+   </div>
 </body>
 </html>

@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require( 'path' );
 const port = 3000;
-const demoData = require( './ejsDemoData.json' );
+const demoData = require( './assets/files/ejsDemoData.json' );
 
 
 // set directory for static files
