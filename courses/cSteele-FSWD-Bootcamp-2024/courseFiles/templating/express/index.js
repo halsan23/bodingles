@@ -6,6 +6,11 @@ const port = 3000;
 const demoData = require( './ejsDemoData.json' );
 
 
+// set directory for static files
+app.use(express.static(path.join(__dirname, 'assets')))
+// app.use(express.static( 'assets' ) )
+
+
 // set ejs as our view engine using .get() express method
 app.set( 'view engine', 'ejs' );
 // define our "path" to the views sub-directory

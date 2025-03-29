@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../templatingIndex.html">Back to Templating Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Static Files in Express</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Introduction</h6>
+            <p><span class="firstWord">W</span>e've been building up our <b>subReddit</b> app over the past few discussions, and we're going to continue building it up here. As we've seen previously, we can "embed" javascript code into an html page using <b>ejs</b> files and syntax. And we have defined some of the differences between <b>html</b> pages, and <b>ejs</b> page:
+               <ul>
+                  <li>- <b>html</b> files are <span class="colorRed">rendered</span> on the <b>client side</b> which means they can utilize external files such as css, and Js files.</li>
+                  <li>- <b>ejs</b> files however, are <span class="colorRed">rendered</span> on the <b>server side</b>. This means that they can NOT access external css or Js files. But they can process Js <i>internally</i> within the html file itself, and we'll use this capability to <span class="colorRed">render</span> our output.</li>
+               </ul>
+            </p>
+            <p>So when we generate our code with an <b>ejs</b> file, which is rendered on the <b>server side</b>, we no longer have access to our other files, such style sheets (css), Js files, images, or any other files that are considered "<b>local static files</b>". These are considered <b>static</b> because the sever can't do anything with them. They are all rendered on the <b>client side</b>.</p>
+            <p>But what if we want to be able to access these files? Luckily, there is a way. There is a method, in <b>express</b>, that is considered <i>"<b>middle ware</b>"</i>, and it's called <span class="colorRed">.static</span>. This method functions off of <b>app.</b><span class="colorBlue">use</span>.</p>
+            <p>Now, <b>app.</b><span class="colorBlue">use</span> is different that the <b>app.</b><span class="colorBlue">get</span> that we've been using. <b>app.</b><span class="colorBlue">get</span> runs after a specific request to the server, and renders a specific ejs file. <b>app.</b><span class="colorBlue">use</span> on the other hand, will run every single time there is a request to the server. And because it is always listening for a request, our "static" files always available. Once again, this is an example of something called <i>"<b>middle ware</b>"</i>.</p>
+            <p>The basic syntax for this is :
+               <ul class="sectHighlight">
+                  <li><b>app.</b><span class="colorBlue">use</span>(<b>express</b>.<span class="colorRed">static</span>( '<span class="colorOrange">public</span>' ) )</li>
+               </ul>
+            </p>
+            <p>This "<span class="colorOrange">public</span>" directory becomes the directory that holds our <i>"static Files".</i> It does NOT have to be called <b>public</b>. You can name it anything you like, as long as the correct directory is linked in our <b>index.js</b> file. Also, this directory <b>must</b> reside within our apps <b>root</b> directory.</p>
+            <p>More information on serving static files in Express can be <a href="https://expressjs.com/en/starter/static-files.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a></p>
+         </article><hr>
+
+         <!-- Setting it up -->
+         <article>
+            <h6>Setting it Up</h6>
+            <p><span class="firstWord">S</span>o we have the basics, now let's get it set up. First, we're going to modify our <b>index.js</b> file, by adding [ <b>app.</b><span class="colorBlue">use</span> ].</p>
+            <p>Now if we remember from our previous discussions we utilized <b>__dirname</b> to define our path for our <b>views</b> directory. Technically, [ __dirname ] is always the directory in which the currently executing script resides. So the reason we used this is so that we could reference the <b>views</b> directory from <i>any</i> directory <b>within our app</b> structure. We're going to incorporate the same process to reference our "static files directory".</p>
+            <p>So we'll add the following to our <b>index.js</b> file:
+               <ul class="sectHighlight">
+                  <li><b>app.</b><span class="colorBlue">use</span>(<b>express</b>.<span class="colorRed">static</span>(path.<span class="colorBlue">join</span>(__dirname, '<span class="colorOrange">assets</span>')))</li>
+               </ul>
+               Notice that we have named our directory for holding our "static" files, <b>assets</b>.
+            </p>
+            <hr>
+            <p>Next, we're going to add our new <span class="colorOrange">assets</span> directory to our current directory structure.</p>
+            <p><b>*note</b>: we can create separate directories for our css, js, imgs, or whatever files we need, but we would then have to make several entries into our <b>index.js</b> file, referencing all of these separate directories. A better way is to create a directory, that will have sub-directories for each static type, such as css, js, or whatever. This way we only need one entry in our <b>index,js</b> referencing the "root", or "parent" "static files directory".</p>
+            <p>So we create our static files "root directory" in the <b>root</b> directory for our app. Then we create our "static" sub-directories within this "parent static files" directory. When combined with our directory structure that we've already created, we get this:</p>
+            <h6>Directory Structure</h6>
+            <p><span class="firstWord">H</span>ere is our directory structure:
+               <ul class="sectHighlight">
+                  <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <b>express</b>
+                     <ul>
+                        <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <span class="colorOrange">assets</span>
+                           <ul>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <span class="colorOrange">css</span></li>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <span class="colorOrange">imgs</span></li>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <span class="colorOrange">js</span></li>
+                           </ul>
+                        </li>
+                        <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; node_modules</li>
+                        <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; views
+                           <ul>
+                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; subReddit.ejs</li>
+                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; notFound.ejs</li>
+                           </ul>
+                        </li>
+                        <li><img src="/images/js.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; index.js</li>
+                        <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; package-lock.json</li>
+                        <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; package.json</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            </p>As you can see, we've created "static sub-directories" to hold our "static files", in an organized manner.
+            </p>
+            <p>The next thing we need to do is to "link" our assets to our <b>ejs</b> file. We do this in the <b>head</b> section of our <b>ejs</b> file by adding a "link" element. One thing to understand here is that when we added:
+               <ul><li><b>app.</b><span class="colorBlue">use</span>(<b>express</b>.<span class="colorRed">static</span>(path.<span class="colorBlue">join</span>(__dirname, '<span class="colorOrange">assets</span>')))</li>
+               </ul>
+            to our <b>index.js</b>, we are "serving" our <b>entire</b> "static files directory", and ALL of it's contents, to our app. So all of our "static files" can be accessed by using standard directory <i>"path"</i> declarations. So to refer to our base "static files directory", the path would be "<b>/</b>". But to refer say to the css files, the path would be /css/<i>cssFileName</i>.</p>
+            <p>So, in the <b>head</b> section of our <b>subReddit.ejs</b> file, we are going to add:
+               <ul class="sectHighlight">
+                  <li>&lt;<span class="colorBlue">link</span> rel="stylesheet" href="/css/styles.css"></li>
+               </ul>
+            </p>
+            <p>Lastly, we're going to add a simple <b>body</b> style to our css file that just changes the body background color. And now if we run our <b>subReddit.ejs</b> app from our localhost, we'll see that indeed, the page background color has changed, showing that our process is working. Also if we type in the address bar of our browser:
+               <ul>
+                  <li>http://localhose:3000/css/styles.css</li>
+               </ul>
+            we'll see our contents of our styles.css "static" file, once again, showing that the process is working.
+            </p>
+         </article><hr>
+
+         <!-- Summary -->
+         <article>
+            <h6>In Summary</h6>
+            <p><span class="firstWord">T</span>o summarize:
+               <ul>
+                  <li>- We modified our <b>index.js file</b> to set a path for our "static assets directory"
+                     <ul>
+                        <li class="sectHighlight">- <b>app.</b><span class="colorBlue">use</span>(<b>express</b>.<span class="colorRed">static</span>(path.<span class="colorBlue">join</span>(__dirname, '<span class="colorOrange">assets</span>')))</li>
+                     </ul>
+                  </li>
+                  <li>- We modified our folder structure to include our "static files directories"
+                     <ul>
+                        <li class="sectHighlight"><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <span class="colorOrange">assets</span>
+                           <ul>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <span class="colorOrange">css</span></li>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <span class="colorOrange">imgs</span></li>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <span class="colorOrange">js</span></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>- We added our "Link" the the <b>head</b> section of our <b>subReddit.ejs</b> file.
+                     <ul>
+                        <li class="sectHighlight">&lt;<span class="colorBlue">link</span> rel="stylesheet" href="/css/styles.css"></li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>Three simple steps to make our "static assets" available to our "server-side" ejs file.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="../express/index.js"></script>
+</body>
+</html>
