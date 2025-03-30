@@ -31,7 +31,7 @@ app.get( '/', ( req, res ) => {
 
 // get request for pets view
 app.get( '/pets', ( req, res ) => {
-   const pets = [ 'Chico', 'Bella', 'Sadie', 'Addie Cakes', 'Boo Boo', 'Jasper', 'Jitters' ];
+   const pets = [ 'Chico', 'Bella', 'Sadie', 'Addie Cakes', 'BooBoo', 'Jasper', 'Jitters' ];
    res.render('pets', { pets })
 })
 

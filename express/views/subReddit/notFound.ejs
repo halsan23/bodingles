@@ -4,25 +4,18 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Reddit Not Found</title>
+
+   <!-- link to static assets directory -->
+   <%- include('includes/headBootstrap') %>
+   <%- include('includes/headLocalStyles') %>
 </head>
+
 <body>
+   <!-- Bootstrap Navbar -->
+   <%- include('includes/navBar') %>
 
-   <h2>We're sorry, the <%= subreddit %> subreddit was not found.</h2>
-
-   <h1>My Reddits</h1>
-   <p>To display a Reddit:
-      <ul>
-         <li>in the address bar : type /r/</li>
-         <li>followed by one of your three choices:
-            <ul>
-               <li><a href="http://localhost:3000/r/soccer">Soccer</a></li>
-               <li><a href="http://localhost:3000/r/chickens">Chickens</a></li>
-               <li><a href="http://localhost:3000/r/harvest">Harvest</a></li>
-            </ul>
-         </li>
-      </ul>
-      <hr>
-   </p>
-
+   <!-- Body Content -->
+   <P>&nbsp;</P>
+   <h6>We're sorry, but the <span class="subReddit"><%= subreddit %></span> subreddit was not found.</h6>
 </body>
 </html>

@@ -1,6 +1,5 @@
 body {
-   margin-top: 50px;
-   background-color: #629c9c;
+   background-color: #70b1b1;
 }
 
 a {
@@ -31,16 +30,45 @@ img {
    box-shadow: 3px 3px 15px #232323;
 }
 
+p{
+  margin: 25px 100px;
+}
+
 .author {
-   color: #dddddd;
+   color: #1f1f1f;
    font-size: 1.3rem;
   font-weight: 500;
 }
 
 .desc {
+   color: #1f1f1f;
    font-size: 1.3rem;
 }
 
-.subs {
+.redditName {
    color: #dddddd;
+}
+
+.subReddit {
+   color: #dddddd;
+   font-size: 2rem;
+  font-weight: 500;
+}
+
+.subs {
+   color: #1f1f1f;
+   font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.subTitle {
+   color: #dddddd;
+   font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.title {
+   color: #dddddd;
+   font-size: 1.1rem;
+  font-weight: 500;
 }

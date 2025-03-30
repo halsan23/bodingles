@@ -6,43 +6,37 @@
    <title>Express subReddits Demo</title>
 
    <!-- link to static assets directory -->
-   <!-- <link rel="stylesheet" href="/css/root.css">
-   <link rel="stylesheet" href="/css/localStyles.css"> -->
-   <link rel="stylesheet" href="/css/bootstrap.min.css">
+   <%- include('includes/headBootstrap') %>
+   <%- include('includes/headLocalStyles') %>
 </head>
 
 <body>
-   <!-- Instructions -->
-   <div>
-      <h1>My Reddits</h1>
-      <p>To display a Reddit:</p>
-      <p>in the address bar : type <b>http://localhost:3000/r/</b><br>
-         followed by one of your three choices:</p>
-      <p><a href="http://localhost:3000/r/soccer">Soccer</a><br>
-         <a href="http://localhost:3000/r/chickens">Chickens</a><br>
-         <a href="http://localhost:3000/r/harvest">Harvest</a></p>
-   </div><hr>
+   <!-- Bootstrap Navbar -->
+   <%- include('includes/navBar') %>
 
    <!-- Reddit Info -->
-   <div>
-      <h4><%= name %></h4>
-      <p class="desc"><%= description  %></p>
-      <p>Total Subscribers:&nbsp;&nbsp;&nbsp;<b><span class="subs"><%= subscribers %></b></span></p>
-   </div>
+   <container>
+      <div>
+         <h1>subReddits Demo</h1>
+         <h2 class="redditName"><%= name %></h2>
+         <p class="desc"><%= description  %></p>
+         <p class="subTitle">Total Subscribers:&nbsp;&nbsp;&nbsp;<b><span class="subs"><%= subscribers %></b></span></p>
+      </div>
 
-   <!-- Reddit Posts -->
-   <div>
-      <% for ( post of posts ) { %>
-         <hr><p>&nbsp;</p>
-         <p><span class="author"><%= post.author %>:</span>&nbsp;&nbsp;&nbsp;<span><%= post.title %></span></p><br>
-         <p>
-            <% if (post.img) { %>
-               <img src="<%= post.img %>" alt="<%= post.title %>">
-            <% } else { %>
-               <b>No Image Available</b>
-            <% } %>
-         </p><br>
-      <% } %>
-   </div>
+      <!-- Reddit Posts -->
+      <div>
+         <% for ( post of posts ) { %>
+            <hr><p>&nbsp;</p>
+            <p><span class="author"><%= post.author %>:</span>&nbsp;&nbsp;&nbsp;<span class="title"><%= post.title %></span></p><br>
+            <p>
+               <% if (post.img) { %>
+                  <img src="<%= post.img %>" alt="<%= post.title %>">
+               <% } else { %>
+                  <b>No Image Available</b>
+               <% } %>
+            </p><br>
+         <% } %>
+      </div>
+   </container>
 </body>
 </html>

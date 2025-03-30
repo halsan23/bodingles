@@ -4,15 +4,24 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Our Pets</title>
+
+   <!-- link to static assets directory -->
+   <%- include('includes/headBootstrap') %>
+   <%- include('includes/headLocalStyles') %>
 </head>
+
 <body>
+   <!-- Bootstrap Navbar -->
+   <%- include('includes/navBar') %>
 
-   <h1>These are Our Pets</h1>
+   <!-- Pets Demo -->
+   <h1>express Demo</h1>
+   <p>&nbsp;</p>
+   <h5>These are Our Pets</h5>
+   <p>&nbsp;</p>
+   <% for ( pet of pets ) { %>
+      <p><%= pet %></p>
+   <% } %>
 
-   <ul>
-      <% for ( pet of pets ) { %>
-         <li><%= pet %></li>
-      <% } %>
-   </ul>
 </body>
 </html>
