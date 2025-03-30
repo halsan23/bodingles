@@ -1,5 +1,5 @@
 body {
-   background-color: #70b1b1;
+   background-color: #a6e8e8;
 }
 
 a {
@@ -22,20 +22,12 @@ hr {
    border-color: #000000;
 }
 
-img {
-   max-width: 600px;
-   height: auto;
-   border: 2px solid #1a1a1a;
-   border-radius: 20px;
-   box-shadow: 3px 3px 15px #232323;
-}
-
 p{
   margin: 25px 100px;
 }
 
 .author {
-   color: #1f1f1f;
+   color: #000000;
    font-size: 1.3rem;
   font-weight: 500;
 }
@@ -45,14 +37,12 @@ p{
    font-size: 1.3rem;
 }
 
-.redditName {
-   color: #dddddd;
-}
-
-.subReddit {
-   color: #dddddd;
-   font-size: 2rem;
-  font-weight: 500;
+.pics {
+   max-width: 600px;
+   height: auto;
+   border: 2px solid #1a1a1a;
+   border-radius: 20px;
+   box-shadow: 3px 3px 15px #232323;
 }
 
 .subs {
@@ -62,13 +52,13 @@ p{
 }
 
 .subTitle {
-   color: #dddddd;
+   color: #1f1f1f;
    font-size: 1.2rem;
   font-weight: 500;
 }
 
 .title {
-   color: #dddddd;
+   color: #1f1f1f;
    font-size: 1.1rem;
   font-weight: 500;
 }

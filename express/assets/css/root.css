@@ -99,7 +99,7 @@ header {
    height: 120px;
    margin: 0;
    padding: 0;
-   background-image: url("../images/headBack2.png");
+   background-image: url("/imgs/headBack2.png");
    background-repeat: repeat-x;
    text-align: left;
    box-shadow: 0 3px 7px #888888;
@@ -110,7 +110,7 @@ header sub {
    font-weight: 700;
    font-size: .7rem;
    color: #7a7a7a;
-   padding-left: 2px;
+   padding-left: 4px;
    text-shadow: none;
    letter-spacing: 0;
 }
@@ -210,7 +210,7 @@ p {
 /* ============================================= */
 /* set main container */
 #main {
-   padding-top: 130px;
+   padding-top: 120px;
 }
 
 /* text Boxes */
@@ -373,7 +373,7 @@ p {
 
 .contactWindow {
    background-color: #5b78a2;
-   background-image: url("/images/email.png");
+   background-image: url("/imgs/email.png");
    background-repeat: no-repeat;
    background-size: 35% auto;
    background-position: center;
@@ -412,7 +412,7 @@ p {
 }
 
 .headLogo {
-   content: url(../images/logos/bodinglesLogo3.png);
+   content: url(/imgs/bodinglesLogo3.png);
    position: absolute;
    top: 30px;
    left: 25px;
