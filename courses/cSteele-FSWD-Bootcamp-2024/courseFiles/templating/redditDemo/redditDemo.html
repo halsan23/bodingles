@@ -304,6 +304,91 @@
       </section>
 
       <section id="textWindow4" class="just">
+         <!-- Includes Setup -->
+         <article>
+            <h6>the Includes</h6>
+            <p><span class="firstWord">W</span>e are going to be using <b>includes</b> in our process, so we can demonstrate how to use them. Remember the <b>includes</b> will go in the <b>views/includes</b> sub-directory.</p>
+            <p>Now in our <b>Bodingles</b> html app, we are using external, <b>header/footer</b> Js files that are using <b>innerHTML</b> to build and display the header and footer. In the individual html pages that use the <b>header/footer</b>, we simply add an empty <b>&lt;div></b> with an <b>id</b> that we access in the Js file. And of course we need the <b>&lt;script></b> elements before our closing <b>&lt;body></b> elements So in any of our html pages, we'll have:
+               <ul class="sectHighlight">
+                  <li>html</li>
+                  <li class="commentStyle">// any html file</li>
+                  <li>&lt;body>
+                     <ul>
+                        <li>&lt;div id="header">&lt;/div></li>
+                        <li>...</li>
+                        <li>&lt;div id="footer">&lt;/div></li>
+                     </ul>
+                  </li>
+                  <li>&lt;script src="header.js">&lt;/script></li>
+                  <li>&lt;script src="footer.js">&lt;/script></li>
+                  <li>&lt;/body></li>
+               </ul>
+            </p>
+            <p>Now in our <b>header/footer</b> Js files, we'd have:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">header</span>.js</li>
+                  <li>const head = document.querySelector('<b>#header</b>');</li>
+                  <li>head.innerHTML = 'All header HTML code goes here';</li>
+                  <li class="commentStyle">or</li>
+                  <li class="commentStyle"><span class="colorBlue">footer</span>.js</li>
+                  <li>const foot = document.querySelector('<b>#footer</b>');</li>
+                  <li>foot.innerHTML = 'All footer HTML code goes here';</li>
+               </ul>
+            </p>
+            <p>This works but remember, all of these files are rendered on the <b>client-side</b>. Since we are now working with files that are rendered on the <b>server-side</b>, we can utilize essentially the same process, but done a little differently.</p>
+            <p>In <b>server-side</b> rendering, we're using <b>ejs</b> files. So the <b>header/footer</b> files will be written with html instead of JavaScript. And very <b>IMPORTANT</b>: We do not need to create a complete HTML page with all the essential elements such a <b>&lt;head></b> and <b>&lt;body></b> elements. We ONLY need the HTML coding for the specific data that we want in our <b>include</b>.
+            </p>
+            <p>So the code for our <b>header/footer.ejs</b> files will look like this:
+               <ul class="sectHighlight">
+                  <li>HTML/EJS</li>
+                  <li class="commentStyle"><span class="colorBlue">header</span>.ejs</li>
+                  <li>&lt;header>
+                     <ul>
+                        <li>header html coding goes here</li>
+                     </ul>
+                  </li>
+                  <li>&lt;/header></li>
+                  <li>or</li>
+                  <li class="commentStyle"><span class="colorBlue">footer</span>.ejs</li>
+                  <li>&lt;footer>
+                     <ul>
+                        <li>Footer html coding goes here</li>
+                     </ul>
+                  </li>
+                  <li>&lt;/footer></li>
+               </ul>
+            </p>
+            <p>Remember, we save these files as <b>ejs</b> files (<b>header.ejs/footer.ejs</b>).</p>
+            <p>And finally, our <b>includes</b>. It's one line of Js code, written with the <b>ejs</b> syntax, like so:
+               <ul class="sectHighlight">
+                  <li>HTML/EJS</li>
+                  <li>&lt;body>
+                     <ul>
+                        <li><b>&lt;%- include('includes/header') %></b></li>
+                        <li>... other page coding here ...</li>
+                        <li><b>&lt;%- include('includes/footer') %></b></li>
+                     </ul>
+                  </li>
+               <li>&lt;/body></li>
+               </ul>
+            </p>
+            <p>Very simple coding here to <b>include</b> our external <b>header/footer.ejs</b> files. A couple of things to note here:
+               <ol>
+                  <li>The external header and footer files can be either <b>html</b> or <b>ejs</b> files, however
+                     <ul>
+                        <li style="list-style: none;"><i>if there is any "scripting" or js coding involved, they must be <b>ejs</b> files</i></li>
+                     </ul>
+                  </li>
+                  <li>Any pages that want to <b>include</b> the header and footer files must be <b>ejs</b> files.</li>
+                  <li>And finally, we must use <b>&lt;%-</b> as the ejs syntax to generate the include.</li>
+               </ol>
+            </p>
+            <p>So we should be able to create our include files, save them in the <b>includes</b> sub-directory, and actually <b>include</b> them into any <b>ejs</b> file. We can now set up our individual page <i>(views)</i>.</p>
+         </article>
+      </section>
+
+      <section id="textWindow4" class="just">
          <!-- Setting Up our Views -->
          <article>
             <h6>Setting Up our Views</h6>
@@ -320,13 +405,15 @@
                </ul>
             So we now have an html file with the basic structure. We can set a <b>title</b> if we want and I set mine to "Reddit Demo". Now we need to save this file, but NOT as an html file, but as an <b>ejs</b> file. So we will make sure we are in our "<b>views</b>" directory to save our files.
             </p>
+         </article>
+      </section>
 
 
-            <p>&nbsp;</p>
-            <h6>setting up the files</h6>
-            <p>small part about Bodingles, not in depth. then set up home/pets/subReddit/notFound. don't forget the includes</p>
-            <p>&nbsp;</p>
-
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
 
             <p>And now that our <b>subReddit.ejs</b> file is set up and ready to go, we need to understand that all we are concerned about for the rendering, is what code is contained, within the <b>body</b> element. This is where we'll be writing our code for our output. No "css" files. No "script" files. Just html, and embedded Js coding with the proper "<b>ejs syntax</b>".</p>
             <p>and here is the code:
