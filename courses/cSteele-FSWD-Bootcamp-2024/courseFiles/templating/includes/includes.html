@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../templatingIndex.html">Back to Templating Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Express Js</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Includes -->
+         <article>
+            <h6>Includes</h6>
+            <p><span class="firstWord">S</span>ometimes you may find that you are writing the same code for several different pages. A "Header" and a "Footer" are good examples of this as you will probably want these on most of your site pages. Say, you have a sight, you want to change some of the "Header" or Footer" data. If you only have a few pages it becomes a nuisance, but if you have a few hundred pages, it becomes very problematic.</p>
+            <p><b>*note</b>: some programmers call these files "<b>partials</b>"", and some call them "<b>includes</b>".</p>
+            <p>A better way to do this would be to create these files as separate files, and then <i><b>include</b></i> them into our pages, where needed. Like PHP, Express gives us a way to <b>include</b> separate files into any different location within a webpage coding. The caveat' is that they must be <b>ejs</b> files.</p>
+            <p>The way to set this up is pretty simple. First you need to create a sub-directory to hold our include files. You can name this sub-folder anything you like <i>(I normally call it <b>includes</b></i>). So Our directory structure would look something like this:
+               <ul class="sectHighlight">
+                  <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <b>express</b>
+                        <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; node_modules</li>
+                        <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; views
+                           <ul>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; includes</li>
+                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; projectFile1.ejs</li>
+                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; projectFile2.ejs</li>
+                           </ul>
+                        </li>
+                        <li><img src="/images/js.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; index.js</li>
+                        <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; package-lock.json</li>
+                        <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; package.json</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>You then just need write your <b>include</b> HTML files as <b>ejs</b> files.</p>
+            <p>Remember, with <b>ejs</b> files, you can incorporate both HTML, <i>and</i> Js as needed. Also, the base structure of a <b>ejs</b> file is the same as for an HTML file, but you don't write an entire HTML page with the html declarations, head section, body, and closing body and html tags. These are already incorporated in the file where you are placing your includes.</p>
+         </article><hr>
+
+         <!-- Writing the Include File -->
+          <article>
+            <h6>Creating the Include File</h6>
+            <p><span>T</span>o write our include files, we just need to write the specific code we need. For example:
+               <ul class="sectHighlight">
+                  <li>&lt;p>Some Header Code goes here.&lt;/p></li>
+               </ul>
+            and save the file, as an <b>ejs</b> file. Make sure to save this file in the folder we created for our include files. And if we also create a "footer" file, our directory structure would look like this:
+               <ul class="sectHighlight">
+                  <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; <b>express</b>
+                        <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; node_modules</li>
+                        <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; views
+                           <ul>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; includes
+                                 <ul>
+                                    <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; header.ejs</li>
+                                    <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; footer.ejs</li>
+                                 </ul>
+                              </li>
+                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; projectFile1.ejs</li>
+                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; projectFile2.ejs</li>
+                           </ul>
+                        </li>
+                        <li><img src="/images/js.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; index.js</li>
+                        <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; package-lock.json</li>
+                        <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; package.json</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>An now all we need to do is to actually <b>include</b> these files into <i><b>any</b></i> of our project files. If we recall, in our <b>index.js</b> file, we designated our <i>default</i> <b>views</b> directory. So all we need to do is to reference the path to our <b>includes/file</b> directory, like so:
+               <ul class="sectHighlight">
+                  <li>&lt;%- include('includes/header') %></li>
+               </ul>
+            Not that we are using the <b>E</b>etended <b>J</b>avaScript syntax (ejs) <b>&lt;%-</b> which "Outputs the unescaped value into the template". So what we get is the header.ejs coding <b>included</b> wherever we place the code within our page. More information can be <a href="https://ejs.co/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a> under the <b>Includes</b> section.
+            </p>
+          </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="../express/index.js"></script>
+</body>
+</html>
