@@ -6,17 +6,16 @@ const port = 3000;
 const demoData = require( './assets/files/json/ejsDemoData.json' );
 
 
+// set ejs as our view engine using .get() express method
+app.set( 'view engine', 'ejs' );
+
 // set directory for static files
 app.use(express.static(path.join(__dirname, 'assets')))
-
 // Set multiple view directories
 app.set('views', [
    path.join(__dirname, 'views/bodingles'),
    path.join(__dirname, 'views/subReddit')
- ]);
-
-// set ejs as our view engine using .get() express method
-app.set( 'view engine', 'ejs' );
+]);
 
 
 // get request for root view (Bodingles)
@@ -24,8 +23,8 @@ app.get( '/', ( req, res ) => {
    res.render('bodIndex')
 })
 
-// get request for root view
-app.get( '/rand', ( req, res ) => {
+// get request for root view (express ejs app)
+app.get( '/home', ( req, res ) => {
    const num = Math.floor(Math.random() * 100) + 1;
    res.render('home', { num })
 })

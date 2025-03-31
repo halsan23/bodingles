@@ -28,16 +28,24 @@
          <p><a href="../templatingIndex.html">Back to Templating Index Page</a></p>
          <hr style="width: 40%;">
          <p>&nbsp;</p>
-         <h5>sub-Reddit Project</h5>
+         <h5>Express EJS Project</h5>
       </section>
 
       <section id="textWindow4" class="just">
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">W</span>e've built an express project which uses several technologies to demonstrate several principles, including how to process Js code <b>within</b> an html file, and also, how to render applications from the <b>server-side</b>.</p>
+            <p><span class="firstWord">W</span>e've built an express <b>ejs</b> project which uses several technologies to demonstrate several principles, including how to process Js code <b>within</b> an html file <i>(using Embedded Js (<b>ejs</b>))</i>, and also, how to render applications from the <b>server-side</b>.</p>
             <p>One page displays a random number generator, and another simple list output. Very simple stuff here, but invaluable information in learning how to  process Js <b>within</b> an html file, and also how to generate <b>server-side</b> rendered output.</p>
             <p>And lastly, we created a "sub-Reddit" project meant to demonstrate these basic technologies and their use. This is not a fully functional Reddit clone. We are simply going to be demonstrating how to pull data from an external source and create a template to display the data.</p>
+            <p>To view these files in our browser, we need our server running, so:
+               <ol>
+                  <li>Open your Terminal application</li>
+                  <li>Navigate to your Project Directory <i>(where your <b>index.js</b> file is located)</i></li>
+                  <li>Type <b>node index.js</b> or <b>nodemon index.js</b></li>
+               </ol>
+               Your server should now be running and because we added a "console.log()" statement to our index.js file, it will display "<b>Server Online : Listening on port: 3000</b>", in the Terminal. And now with our server running, and in the browser address bar, go to <b>http://localhost:3000/home</b>
+            </p>
             <p>To build the subReddit part of this project, we are going to be pulling data from a <b>.json</b> file. This file contains data for three different sub-reddits. The relative <b>.json</b> file can be <a href="/express/assets/files/json/ejsDemoData.json" target="_blank">viewed here</a>., and the technologies that we're going to be utilizing are:
                <ol>
                   <li>HTML</li>
@@ -45,11 +53,13 @@
                   <li>node.js</li>
                   <li>nodemon</li>
                   <li>Express</li>
-                  <li>Extended JavaScript (ejs)</li>
+                  <li>Embedded JavaScript (ejs)</li>
                </ol>
-            We will be incorporating our HTML code into <b>ejs</b> files along with some extended Js.</p>
-         </article><hr>
+            We will be combining our HTML, and Js code into <b>ejs</b> files.</p>
+         </article>
+      </section>
 
+      <section id="textWindow4" class="just">
          <!-- Basic Setup -->
          <article>
             <h6>Basic Setup</h6>
@@ -63,21 +73,44 @@
                   <li>Our <b>index.js</b> Server File is set</li>
                   <li>We have our "Static Files Directory" and it's sub-directories:
                      <ul>
-                        <li>css</li>
-                        <li>imgs</li>
-                        <li>js</li>
+                        <li style="list-style: none;"><b>assets</b>
+                           <ul>
+                              <li style="list-style: none;">css</li>
+                              <li style="list-style: none;">files</li>
+                              <li style="list-style: none;">js</li>
+                           </ul>
+                        </li>
                      </ul>
                   </li>
-                  <li>and, we have our <b>views</b> folder for our two <b>ejs</b> files.
-                     <ol>
-                        <li>subReddit.ejs</li>
-                        <li>notFound.ejs</li>
-                     </ol>
+                  <li>we have our <b>views</b> folder for our four <b>ejs</b> files:
+                     <ul>
+                        <li style="list-style: none;"><b>views</b>
+                           <ul>
+                              <li style="list-style: none;">home.ejs</li>
+                              <li style="list-style: none;">pets.ejs</li>
+                              <li style="list-style: none;">subReddit.ejs</li>
+                              <li style="list-style: none;">notFound.ejs</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>and we have our <b>includes</b> files a header/footer/navbar"
+                     <ul>
+                        <li style="list-style: none;"><b>includes</b>
+                           <ul>
+                              <li style="list-style: none;">footer.ejs</li>
+                              <li style="list-style: none;">header.ejs</li>
+                              <li style="list-style: none;">navbar.ejs</li>
+                           </ul>
+                        </li>
+                     </ul>
                   </li>
                </ol>
             </p>
-         </article><hr>
+         </article>
+      </section>
 
+      <section id="textWindow4" class="just">
          <!-- File & Folder Setup -->
          <article>
             <h6>Directory Structure</h6>
@@ -89,12 +122,24 @@
                            <ul>
                               <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; css
                                  <ul>
+                                    <li><img src="/images/css.png" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; bootstrap.min.css</li>
                                     <li><img src="/images/css.png" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; localStyles.css</li>
+                                    <li><img src="/images/css.png" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; root.css</li>
                                  </ul>
                               </li>
                               <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; files
                                  <ul>
-                                    <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; ejsDemoData.json</li>
+                                    <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; json
+                                       <ul>
+                                          <li><img src="/images/json.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; ejsDemoData.json</li>
+                                       </ul>
+                                    </li>
+                                 </ul>
+                              </li>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; js
+                                 <ul>
+                                    <li><img src="/images/js.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; bootstrap.min.js</li>
+                                    <li><img src="/images/js.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; jquery-3/7/1/min.js</li>
                                  </ul>
                               </li>
                            </ul>
@@ -102,8 +147,34 @@
                         <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; node_modules</li>
                         <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; views
                            <ul>
-                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; subReddit.ejs</li>
-                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; notFound.ejs</li>
+                              <li class="commentStyle">// experimental view to render Bodingles Home on server</li>
+                              <li class="commentStyle">// this view is entirely separate from our subReddit EJS Project</li>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; bodingles
+                                 <ul>
+                                    <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; includes
+                                       <ul>
+                                          <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; footer.ejs</li>
+                                          <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; header.ejs</li>
+                                       </ul>
+                                    </li>
+                                    <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; bodIndex.ejs</li>
+                                 </ul>
+                              </li>
+                              <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; subReddit
+                                 <ul>
+                                    <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; includes
+                                       <ul>
+                                          <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; footer.ejs</li>
+                                          <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; header.ejs</li>
+                                          <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; navbar.ejs</li>
+                                       </ul>
+                                    </li>
+                                    <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; home.ejs</li>
+                                    <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; pets.ejs</li>
+                                    <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; subReddit.ejs</li>
+                                    <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; notFound.ejs</li>
+                                 </ul>
+                              </li>
                            </ul>
                         </li>
                         <li><img src="/images/js.png" valign="middle" width="16" height="16" valign="middle" alt="ejs Icon">&nbsp; index.js</li>
@@ -114,7 +185,9 @@
                </ul>
             </p>
          </article>
+      </section>
 
+      <section id="textWindow4" class="just">
          <!-- Server Setup -->
          <article>
             <h6>Server Code</h6>
@@ -128,15 +201,49 @@
                   <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
                   <li>const <span class="colorGreen">port</span> = <b>3000</b>;</li>
                   <li>const <span class="colorGreen">path</span> = require( '<span class="colorPurple">path</span>' );</li>
-                  <li>const <span class="colorGreen">demoData</span> = require( '<b>./assets/files/ejsDemoData.json</b>' );</li>
-                  <li>&nbsp;</li>
-                  <li class="commentStyle">// define our "path" to the "static files" directory</li>
-                  <li><b>app.</b><span class="colorBlue">use</span>(<b>express</b>.<span class="colorRed">static</span>(path.<span class="colorBlue">join</span>(__dirname, '<span class="colorOrange">assets</span>')))</li>
+                  <li>const <span class="colorGreen">demoData</span> = require( '<b>./assets/files/json/ejsDemoData.json</b>' );</li>
                   <li>&nbsp;</li>
                   <li class="commentStyle">// set our view engine to ejs</li>
                   <li>app.<span class="colorBlue">set</span>( 'view engine', 'ejs' );</li>
-                  <li class="commentStyle">// define our "path" to the views sub-directory</li>
-                  <li>app.<span class="colorBlue">set</span>( 'views', path.<span class="colorBlue">join</span>( __dirname, '/views' ));</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// define our "path" to the views sub-directories</li>
+                  <li class="commentStyle">// we create an array because there are two separate views (Bodingles & subReddit)</li>
+                  <li class="commentStyle">// when you make a <b>req</b> in the browser, it searches ALL of the views listed in the array for a match</li>
+                  <li>app.<span class="colorBlue">set</span>( 'views' [
+                     <ul>
+                        <li>path.<span class="colorBlue">join</span>(__dirname, '<span class="colorOrange">views/bodingles</span>'),</li>
+                        <li>path.<span class="colorBlue">join</span>(__dirname, '<span class="colorOrange">views/subReddit</span>')</li>
+                     </ul>
+                  </li>
+                  <li>])</li>
+                  <li class="commentStyle">// define our "path" to the "static files" directory</li>
+                  <li><b>app.</b><span class="colorBlue">use</span>(<b>express</b>.<span class="colorRed">static</span>(path.<span class="colorBlue">join</span>(__dirname, '<span class="colorOrange">assets</span>')))</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// get request for root view (Bodingles) : experiment in server rendered Bodingles Home</li>
+                  <li>app.<span class="colorBlue">get</span>( '<b>/</b>', ( req, res ) => {
+                     <ul>
+                        <li>res.<span class="colorRed">render</span>('<b>bodIndex</b>') &nbsp;&nbsp;</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// get request for root view (express ejs app)</li>
+                  <li>app.<span class="colorBlue">get</span>( '<b>/home</b>', ( req, res ) => {
+                     <ul>
+                        <li>const  = Math.floor(Math.random() * 100) + 1;</li>
+                        <li>res.<span class="colorRed">render</span>('<b>home</b>', { <span class="colorBlue">num</span> })</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// get request for pets view</li>
+                  <li>app.<span class="colorBlue">get</span>( '<b>/pets</b>', ( req, res ) => {
+                     <ul>
+                        <li>const <span class="colorGreen">pets</span> = [ 'Chico', 'Bella', 'Sadie', 'Addie Cakes', 'BooBoo', 'Jasper', 'Jitters' ];</li>
+                        <li>res.<span class="colorRed">render</span>('<b>pets</b>', { <span class="colorGreen">pets</span> })</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
                   <li>&nbsp;</li>
                   <li class="commentStyle">// get request for subreddit view</li>
                   <li>app.<span class="colorBlue">get</span>( '<b>/r/:subreddit</b>', ( req, res ) => {
@@ -152,6 +259,7 @@
                         </li>
                         <li>} else {
                            <ul>
+                              <li class="commentStyle">// if requested page is not found</li>
                               <li>res.<span class="colorRed">render</span>( '<span class="colorGreen">notFound</span>', { <span class="colorGreen">subreddit</span> })</li>
                            </ul>
                         </li>
@@ -160,15 +268,15 @@
                   <li>})</li>
                   <li>&nbsp;</li>
                   <li class="commentStyle">// Start Server : Listening on {port}</li>
-                  <li>app.<span class="colorBlue">listen</span>( port, () => {
+                  <li>app.<span class="colorBlue">listen</span>( <span class="colorGreen">port</span>, () => {
                      <ul>
-                        <li>console.log(`Server Online : Listening on port: ${port}`);</li>
+                        <li>console.log(`Server Online : Listening on port: ${ <span class="colorGreen">port</span> }`);</li>
                      </ul>
                   </li>
                   <li>})</li>
                </ul>
             </p>
-            <p>You will notice a couple of important setup issues here:
+            <p>We can notice a couple of important issues here:
                <ul>
                   <li>- we are <b>requiring</b> our <b>.json</b> file, which will give us access to it's data.</li>
                   <li>- if we look at our <span class="colorBlue">get</span> request, we see that we're using the <span class="colorRed">params</span> method
@@ -189,14 +297,18 @@
                   </li>
                </ul>
             </p>
-            <p>And all that's left now is to set up our two <b>ejs</b> files.</p>
-         </article><hr>
+            <p>A brief discussion about using an array to define our view paths. I was experimenting with running a <b>Bodingles</b> page that was rendered on the server. But since I already had my <b>subReddit</b> ejs demo, I ended up with two different <b>views</b> that are not related. But, how to be able to access each one, and their corresponding sub-pages, with one <b>index.js</b> file?</p>
+            <p>Turns out the <b>array</b> is the answer. When we are defining our <b>views path's</b>, if we list multiple views within an array, the server will search through all of the <b>views</b> listed in the array to find a match. If it doesn't find one, it's going to render the <b>notFound.ejs</b> page.</p>
+            <p>With that settled, all that's left now is to set up our <b>ejs</b> files, <i>(our views)</i>.</p>
+         </article>
+      </section>
 
-         <!-- subReddit.ejs Setup -->
+      <section id="textWindow4" class="just">
+         <!-- Setting Up our Views -->
          <article>
-            <h6>subReddit.ejs</h6>
-            <p><span class="firstWord">W</span>e need to understand that the point of this conversation is to be able to set up a server that will pull data from an external source and produce an output. The "pulling" of the data, it's processing, and rendering, are all going to be handled <i><b>on the server side</b></i>.</p>
-            <p>Also, we are going to be <span class="colorRed">rendering</span> our output as an <b>ejs</b> file, so we need to point out a couple of distinctions here, between <b>ejs</b> files, and <b>html</b> files. Both file types output their data from html coding. However, there are a couple of important differences:
+            <h6>Setting Up our Views</h6>
+            <p><span class="firstWord">W</span>e need to understand that the point of the <b>subReddit</b> ejs project is to be able to set up a server that will pull data from an external source and produce an output. The "pulling" of the data, it's processing, and rendering, are all going to be handled <i><b>on the server side</b></i>.</p>
+            <p>Also, we are going to be <span class="colorRed">rendering</span> our output <i>(our views)</i>, as <b>ejs</b> files, so we need to point out a couple of distinctions here, between <b>ejs</b> files, and <b>html</b> files. Both file types output their data from html coding. However, there are a couple of important differences:
                <ul>
                   <li>- <b>html</b> files are <span class="colorRed">rendered</span> on the <b>client side</b> which means they can utilize external files such as css, and Js files.</li>
                   <li>- <b>ejs</b> files however, are <span class="colorRed">rendered</span> on the <b>server side</b>. This means that they can NOT access external css or Js files. But they can process Js <i>internally</i> within the html file itself, and we'll use this capability to <span class="colorRed">render</span> our output.</li>
@@ -206,8 +318,16 @@
                <ul>
                   <li class="commentStyle"><i><b>*note</b>: you could of course set this up manually, and type in all the required html info, but it is much simpler to let vsCode do the work for us</i>.</li>
                </ul>
-            So we now have an html file with the basic structure. We can set a <b>title</b> if we want and I set mine to "Reddit Demo". Now we need to save this file, but NOT as an html file, but as an <b>ejs</b> file. So we will make sure we are in out "<b>views</b>" directory, and save the file as [<b>subReddit.ejs</b>].
+            So we now have an html file with the basic structure. We can set a <b>title</b> if we want and I set mine to "Reddit Demo". Now we need to save this file, but NOT as an html file, but as an <b>ejs</b> file. So we will make sure we are in our "<b>views</b>" directory to save our files.
             </p>
+
+
+            <p>&nbsp;</p>
+            <h6>setting up the files</h6>
+            <p>small part about Bodingles, not in depth. then set up home/pets/subReddit/notFound. don't forget the includes</p>
+            <p>&nbsp;</p>
+
+
             <p>And now that our <b>subReddit.ejs</b> file is set up and ready to go, we need to understand that all we are concerned about for the rendering, is what code is contained, within the <b>body</b> element. This is where we'll be writing our code for our output. No "css" files. No "script" files. Just html, and embedded Js coding with the proper "<b>ejs syntax</b>".</p>
             <p>and here is the code:
                <ul class="sectHighlight">
