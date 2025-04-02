@@ -1,0 +1,11 @@
+.diffs {
+   width: 80%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-around;
+}
+
+.getPost {
+   width: 50%;
+   padding: 5px 0px 5px 20px;
+}
