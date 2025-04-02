@@ -14,7 +14,7 @@
    <link rel="stylesheet" href="/css/root.css">
    <style>
       .backHigh {
-         background-color: #d6fff1;
+         background-color: #eaffd6;
       }
    </style>
 </head>
@@ -48,7 +48,7 @@
                   <li>Navigate to your Project Directory <i>(where your <b>index.js</b> file is located)</i></li>
                   <li>Type <b>node index.js</b> or <b>nodemon index.js</b></li>
                </ol>
-               Your server should now be running and because we added a "console.log()" statement to our index.js file, it will display "<b>Server Online : Listening on port: 3000</b>", in the Terminal. And now with our server running, and in the browser address bar, go to <b>http://localhost:3000/home</b>
+               Your server should now be running and because we added a "console.log()" statement to our <b>index.js</b> file, it will display "<b>Server Online : Listening on port: 3000</b>", in the Terminal. And now with our server running, and in the browser address bar, go to <b>http://localhost:3000/home</b>
             </p>
             <p>To build the subReddit part of this project, we are going to be pulling data from a <b>.json</b> file. This file contains data for three different sub-reddits. The relative <b>.json</b> file can be <a href="/express/assets/files/json/ejsDemoData.json" target="_blank">viewed here</a>., and the technologies that we're going to be utilizing are:
                <ol>
@@ -284,7 +284,7 @@
             <p>We can notice a couple of important issues here:
                <ul>
                   <li>- we are <b>requiring</b> our <b>.json</b> file, which will give us access to it's data.</li>
-                  <li>- if we look at our <span class="colorBlue">get</span> request, we see that we're using the <span class="colorRed">params</span> method
+                  <li>- if we look at our <span class="colorBlue">get</span> request for our <b>subReddits</b>, we see that we're using the <span class="colorRed">params</span> method
                      <ul>
                         <li>- this will return the individual parameters of the <b>req</b> object, and assign it to the variable as an object</li>
                      </ul>
@@ -302,7 +302,7 @@
                   </li>
                </ul>
             </p>
-            <p>A brief discussion about using an array to define our view paths. I was experimenting with running a <b>Bodingles</b> page that was rendered on the server. But since I already had my <b>subReddit</b> ejs demo, I ended up with two different <b>views</b> that are not related. But, how to be able to access each one, and their corresponding sub-pages, with one <b>index.js</b> file?</p>
+            <p>A brief discussion about using an array to define our <b>view paths</b>. I was experimenting with running a <b>Bodingles</b> page that was rendered on the server. But since I already had my <b>subReddit</b> ejs demo, I ended up with two different <b>views</b> that are not related. But, how to be able to access each one, and their corresponding sub-pages, with one <b>index.js</b> file?</p>
             <p>Turns out the <b>array</b> is the answer. When we are defining our <b>views path's</b>, if we list multiple views within an array, the server will search through all of the <b>views</b> listed in the array to find a match. If it doesn't find one, it's going to render the <b>notFound.ejs</b> page.</p>
          </article>
       </section>
@@ -312,7 +312,7 @@
          <article>
             <h6>the Includes</h6>
             <p><span class="firstWord">W</span>e are going to be using <b>includes</b> in our process, so we can demonstrate how to use them. Remember the <b>includes</b> will go in the <b>views/includes</b> sub-directory.</p>
-            <p>Now in our <b>Bodingles</b> html app, which renders on the <b>client-side</b>, we used external, <b>header/footer</b> Js files that are using <b>innerHTML</b> to build and display the header and footer. In the individual html pages that use the <b>header/footer</b>, we simply add an empty <b>&lt;div></b> with an <b>id</b> that we access in the Js file. And of course we need the <b>&lt;script></b> elements before our closing <b>&lt;body></b> elements So in any of our html pages, we'll have:
+            <p>Now in our original <b>Bodingles</b> html app, which renders on the <b>client-side</b>, we used external, header/footer <b>Js</b> files that are using <b>innerHTML</b> to build and display the header and footer. In the individual html pages that use the <b>header/footer</b>, we simply add an empty <b>&lt;div></b> with an <b>id</b> that we access in the Js file. And of course we need the <b>&lt;script></b> elements before our closing <b>&lt;body></b> elements So in any of our html pages, we'll have:
                <ul class="sectHighlight">
                   <li>html</li>
                   <li class="commentStyle">// any html file</li>
@@ -350,7 +350,7 @@
 
             <p>One last note about our <b>includes files</b> here. We do NOT need to create a complete HTML page with all the essential elements such a <b>&lt;head></b> and <b>&lt;body></b> elements. We ONLY need the HTML coding for the specific data that we want in our <b>include</b>.
             </p>
-            <p>So, for example, the code for our header/footer.ejs <b>include</b> files will look like this:
+            <p>So, for example, the code for our header/footer.ejs <b>include</b> files will look something like this:
                <ul class="sectHighlight">
                   <li>HTML/EJS</li>
                   <li class="commentStyle"><span class="colorBlue">header</span>.ejs</li>
@@ -423,18 +423,13 @@
                <ol>
                   <li>home.ejs <span class="commentStyle">// displays a random number generator plus a couple of "lorem inpsum" paragraphs</span></li>
                   <li>pets.ejs <span class="commentStyle">// displays a bulleted list</span></li>
-                  <li>subReddit.ejs <span class="commentStyle">// displays three different sub-reddits:</span>
-                     <ul>
-                        <li style="list-style: none;">Chickens</li>
-                        <li style="list-style: none;">Mighty Harvest</li>
-                        <li style="list-style: none;">Soccer</li>
-                     </ul>
-                  </li>
+                  <li>subReddit.ejs <span class="commentStyle">// displays three different sub-reddits: chickens, harvest, and soccer</span></li>
                   <li>notFound.ejs <span class="commentStyle">// displays message if query not found</span></li>
                </ol>
             </p>
-            <p>And now our basic files are set up and ready to go. We need to understand that, all we are concerned about for the rendering, is what code is contained, within the <b>body</b> element of the page. This is where we'll be writing our code for our output. No "css" files. No "script" files. Just html, and embedded Js coding with the proper "<b>ejs syntax</b>".</p>
+            <p>And now our basic files are set up and ready to go. We need to understand that, all we are concerned about for the rendering, is what code is contained, within the <b>body</b> element of the page. This is where we'll be writing our code for our output. No "css" files. No "script" files. Just <b>html</b>, and embedded Js (<b>ejs</b>) coding with the proper "<b>ejs syntax</b>".</p>
             <p>So for our breakdown of our code, we are not going to list the entire file contents, only the coding that resides within the <b>&lt;body> - &lt;/body></b> elements of the page. Also, I'm not going to do a breakdown of the "Bodingles" project. That was a just an experiment to see if I could make it work. But I did mention it earlier in the folder setup, and in the server code, but only to show how we could incorporate multiple views, within one <b>index.js</b> file.</p>
+            <p>So here are our views:</p>
          </article><hr>
 
          <!-- home.ejs -->
