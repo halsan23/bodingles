@@ -291,6 +291,15 @@ p {
 
 /* -------------  Class Elements  -------------  */
 /* ============================================= */
+/* Set up Background Highlights */
+.backGreen {
+   background-color: #d6fff1;
+}
+
+.backYellow {
+   background-color: #fcffd6;
+}
+
 /* Set up some Color Highlights */
 .colorHighlight {
    color: #227441;
