@@ -12,7 +12,7 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
-   <link rel="stylesheet" href="local.css">
+   <link rel="stylesheet" href="../local.css">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
       <section id="textWindow4" class="just">
          <!-- Intro -->
          <article>
-            <p><span class="firstWord">G</span>ET and POST are both forms of requests that are used to send and receive data from a server, but there are differences between the two. Here is a brief overview:</p>
+            <p><span class="firstWord">G</span>ET and POST are both forms of requests that are used to send and receive data from a server, but there are differences between the two. Here is a brief overview:</p><hr>
             <div class="diffs">
                <span class="getPost">
                   <p style="margin-left: 100px;"><b>GET</b></p>
@@ -50,7 +50,7 @@
                   <p>- Data is sent via request body, not a query string</p>
                   <p>- Can send any source of data (JSON)</p>
                </span>
-            </div>
+            </div><hr>
             <p>With this being outlined, we need to remember that these are NOT Hard Rules that we MUST adhere to. You could for example "send" data with a GET request, it's just generally considered Not Good Practice.</p>
             <p><b>Get</b> requests are generally used to <b>search</b>, or <b>retrieve</b> information.Their requests are sent via a <b>query string</b> which means that they are limited in the amount of data they can request. They are also limited to text requests. Also, the query string is visible in the browser address bar making it an <b>unsecure</b> request. This is why they are NOT generally used to send, update, or delete data.</p>
             <p><b>POST</b> requests <i><b>are</b></i> generally used to send, update, or delete data. They are included in the <b>request body</b> as opposed to the <b>query string</b>, so they will NOT be displayed in the browser address bar. Also, because the request is sent in the <b>request body</b>, they are not limited to any data type and can send more data.</p>

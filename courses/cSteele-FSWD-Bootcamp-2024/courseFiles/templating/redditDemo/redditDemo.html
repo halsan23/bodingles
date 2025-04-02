@@ -12,11 +12,6 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
-   <style>
-      .backHigh {
-         background-color: #eaffd6;
-      }
-   </style>
 </head>
 
 <body>
@@ -212,7 +207,7 @@
                   <li>app.<span class="colorBlue">set</span>( 'view engine', 'ejs' );</li>
                   <li>&nbsp;</li>
                   <li class="commentStyle">// define our "path" to the views sub-directories</li>
-                  <li class="commentStyle">// we create an array because there are two separate views (Bodingles & subReddit)</li>
+                  <li class="commentStyle backGreen"><b>// we create an array because there are two separate views (Bodingles & subReddit)</b></li>
                   <li class="commentStyle">// when you make a <b>req</b> in the browser, it searches ALL of the views listed in the array for a match</li>
                   <li>app.<span class="colorBlue">set</span>( 'views' [
                      <ul>
@@ -302,8 +297,8 @@
                   </li>
                </ul>
             </p>
-            <p>A brief discussion about using an array to define our <b>view paths</b>. I was experimenting with running a <b>Bodingles</b> page that was rendered on the server. But since I already had my <b>subReddit</b> ejs demo, I ended up with two different <b>views</b> that are not related. But, how to be able to access each one, and their corresponding sub-pages, with one <b>index.js</b> file?</p>
-            <p>Turns out the <b>array</b> is the answer. When we are defining our <b>views path's</b>, if we list multiple views within an array, the server will search through all of the <b>views</b> listed in the array to find a match. If it doesn't find one, it's going to render the <b>notFound.ejs</b> page.</p>
+            <p class="backGreen">A brief discussion about using an array to define our <b>view paths</b>. I was experimenting with running a <b>Bodingles</b> page that was rendered on the server. But since I already had my <b>subReddit</b> ejs demo, I ended up with two entirely different <b>views</b> that are not related. But, how to be able to access each one, and their corresponding sub-pages, with one <b>index.js</b> file?</p>
+            <p class="backGreen">Turns out the <b>array</b> is the answer. When we are defining our <b>views path's</b>, if we list multiple views within an array, the server will search through all of the <b>views</b> listed in the array to find a match. If it doesn't find one, it's going to render the <b>notFound.ejs</b> page.</p>
          </article>
       </section>
 
@@ -440,22 +435,22 @@
                <li class="commentStyle"><span class="colorBlue">home</span>.ejs</li>
                <li>&lt;body>
                   <ul>
-                     <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/header') %>&nbsp;&nbsp;</span></li>
+                     <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/header') %>&nbsp;&nbsp;</span></li>
                      <li>&lt;div>
                         <ul>
                            <li class="commentStyle">// Bootstrap NavBar</li>
-                           <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/navBar') %>&nbsp;&nbsp;</span></li>
+                           <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/navBar') %>&nbsp;&nbsp;</span></li>
                            <li>&nbsp;</li>
-                           <li>&lt;h3>This is my EJS <span class="backHigh">&nbsp;&nbsp;&lt;%= 'demo '.toUpperCase() %>&nbsp;&nbsp;</span> Page&lt;/h3></li>
+                           <li>&lt;h3>This is my EJS <span class="backGreen">&nbsp;&nbsp;&lt;%= 'demo '.toUpperCase() %>&nbsp;&nbsp;</span> Page&lt;/h3></li>
                            <li>&lt;p>Todays Random Number is: &lt;b><%= num %>&lt;/b> and it's an </li>
-                           <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b><span class="backHigh">&nbsp;&nbsp;&lt;%= num%2===0 ? 'EVEN' : 'ODD' %>&nbsp;&nbsp;</span> &lt;/b>number.&lt;/p></li>
+                           <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b><span class="backGreen">&nbsp;&nbsp;&lt;%= num%2===0 ? 'EVEN' : 'ODD' %>&nbsp;&nbsp;</span> &lt;/b>number.&lt;/p></li>
                            <li>&nbsp;</li>
                            <li>&lt;p>lorem ipsum ...&lt;/p></li>
                            <li>&lt;p>lorem ipsum ...&lt;/p></li>
                         </ul>
                      </li>
                      <li>&lt;/div></li>
-                     <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/footer') %>&nbsp;&nbsp;</span></li>
+                     <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/footer') %>&nbsp;&nbsp;</span></li>
                   </ul>
                </li>
                <li>&lt;/body>
@@ -477,25 +472,25 @@
                <li class="commentStyle"><span class="colorBlue">pets</span>.ejs</li>
                <li>&lt;body>
                   <ul>
-                     <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/header') %>&nbsp;&nbsp;</span></li>
+                     <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/header') %>&nbsp;&nbsp;</span></li>
                      <li>&lt;div>
                         <ul>
                            <li class="commentStyle">// Bootstrap NavBar</li>
-                           <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/navBar') %>&nbsp;&nbsp;</span></li>
+                           <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/navBar') %>&nbsp;&nbsp;</span></li>
                            <li>&lt;h1>express Demo&lt;/h1></li>
                            <li>&nbsp;</li>
                            <li>&lt;h5>These are Our Pets&lt;/h5></li>
                            <li>&lt;hr></li>
-                           <li><span class="backHigh">&nbsp;&nbsp;&lt;% for ( pet of pets ) { %>&nbsp;&nbsp;</span>
+                           <li><span class="backGreen">&nbsp;&nbsp;&lt;% for ( pet of pets ) { %>&nbsp;&nbsp;</span>
                            <ul>
-                              <li>&lt;p><span class="backHigh">&nbsp;&nbsp;<%= pet %>&nbsp;&nbsp;</span>&lt;/p></li>
+                              <li>&lt;p><span class="backGreen">&nbsp;&nbsp;<%= pet %>&nbsp;&nbsp;</span>&lt;/p></li>
                            </ul>
                         </li>
-                           <li><span class="backHigh">&nbsp;&nbsp;&lt;% } %>&nbsp;&nbsp;</span></li>
+                           <li><span class="backGreen">&nbsp;&nbsp;&lt;% } %>&nbsp;&nbsp;</span></li>
                         </ul>
                      </li>
                      <li>&lt;/div></li>
-                     <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/footer') %>&nbsp;&nbsp;</span></li>
+                     <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/footer') %>&nbsp;&nbsp;</span></li>
                   </ul>
                </li>
                <li>&lt;/body>
@@ -511,48 +506,48 @@
                <li class="commentStyle"><span class="colorBlue">subReddit</span>.ejs</li>
                <li>&lt;body>
                   <ul>
-                     <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/header') %>&nbsp;&nbsp;</span></li>
+                     <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/header') %>&nbsp;&nbsp;</span></li>
                      <li>&lt;div>
                         <ul>
                            <li class="commentStyle">// Bootstrap NavBar</li>
-                           <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/navBar') %>&nbsp;&nbsp;</span></li>
+                           <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/navBar') %>&nbsp;&nbsp;</span></li>
                            <li>&nbsp;</li>
                            <li>&lt;h1>subReddits Demo&lt;/h1></li>
                            <li class="commentStyle">// all variable data is received from the index.js app.GET</li>
                            <li class="commentStyle">// all subReddit data originates from ejsDemoData.json</li>
-                           <li>&lt;h2><span class="backHigh">&nbsp;&nbsp;&lt;%= <span class="colorGreen">name</span> %>&nbsp;&nbsp;</span>&lt;/h2></li>
-                           <li>&lt;h4><span class="backHigh">&nbsp;&nbsp;&lt;%= <span class="colorGreen">description</span>  %>&nbsp;&nbsp;</span>&lt;/h4></li>
+                           <li>&lt;h2><span class="backGreen">&nbsp;&nbsp;&lt;%= <span class="colorGreen">name</span> %>&nbsp;&nbsp;</span>&lt;/h2></li>
+                           <li>&lt;h4><span class="backGreen">&nbsp;&nbsp;&lt;%= <span class="colorGreen">description</span>  %>&nbsp;&nbsp;</span>&lt;/h4></li>
                            <li class="commentStyle">// subscriber info</li>
-                           <li>&lt;p>Total Subscribers: &lt;b><span class="backHigh">&nbsp;&nbsp;&lt;%= <span class="colorGreen">subscribers</span> %>&nbsp;&nbsp;</span>&lt;/b>&lt;/p>&lt;hr></li>
+                           <li>&lt;p>Total Subscribers: &lt;b><span class="backGreen">&nbsp;&nbsp;&lt;%= <span class="colorGreen">subscribers</span> %>&nbsp;&nbsp;</span>&lt;/b>&lt;/p>&lt;hr></li>
                            <li>&nbsp;</li>
                            <li class="commentStyle">// loop to display all posts</li>
-                           <li><span class="backHigh">&nbsp;&nbsp;&lt;% for ( <span class="colorBlue">post</span> of <span class="colorGreen">posts</span> ) { %>&nbsp;&nbsp;</span>
+                           <li><span class="backGreen">&nbsp;&nbsp;&lt;% for ( <span class="colorBlue">post</span> of <span class="colorGreen">posts</span> ) { %>&nbsp;&nbsp;</span>
                               <ul>
                                  <li>&lt;article>
                                     <ul>
                                        <li class="commentStyle">// post author and title</li>
-                                       <li>&lt;p>&lt;b><span class="backHigh">&nbsp;&nbsp;&lt;%= <span class="colorBlue">post</span>.<span class="colorGreen">author</span> %>&nbsp;&nbsp;</span>&lt;/b>: <span class="backHigh">&nbsp;&nbsp;&lt;%= <span class="colorBlue">post</span>.<span class="colorGreen">title</span> %>&nbsp;&nbsp;</span>&lt;/p></li>
+                                       <li>&lt;p>&lt;b><span class="backGreen">&nbsp;&nbsp;&lt;%= <span class="colorBlue">post</span>.<span class="colorGreen">author</span> %>&nbsp;&nbsp;</span>&lt;/b>: <span class="backGreen">&nbsp;&nbsp;&lt;%= <span class="colorBlue">post</span>.<span class="colorGreen">title</span> %>&nbsp;&nbsp;</span>&lt;/p></li>
                                        <li class="commentStyle">// if post has an image check</li>
-                                       <li><span class="backHigh">&nbsp;&nbsp;&lt;% if (<span class="colorBlue">post</span>.<span class="colorRed">img</span>) { %>&nbsp;&nbsp;</span>
+                                       <li><span class="backGreen">&nbsp;&nbsp;&lt;% if (<span class="colorBlue">post</span>.<span class="colorRed">img</span>) { %>&nbsp;&nbsp;</span>
                                           <ul>
-                                             <li>&lt;img src="<span class="backHigh">&nbsp;&nbsp;&lt;%= <span class="colorBlue">post</span>.<span class="colorRed">img</span> %>&nbsp;&nbsp;</span>" alt="<span class="backHigh">&nbsp;&nbsp;&lt;%= <span class="colorBlue">post</span>.<span class="colorGreen">title</span> %>&nbsp;&nbsp;</span>"></li>
+                                             <li>&lt;img src="<span class="backGreen">&nbsp;&nbsp;&lt;%= <span class="colorBlue">post</span>.<span class="colorRed">img</span> %>&nbsp;&nbsp;</span>" alt="<span class="backGreen">&nbsp;&nbsp;&lt;%= <span class="colorBlue">post</span>.<span class="colorGreen">title</span> %>&nbsp;&nbsp;</span>"></li>
                                           </ul>
                                        </li>
-                                       <li><span class="backHigh">&nbsp;&nbsp;&lt;% } else { %>&nbsp;&nbsp;</span>
+                                       <li><span class="backGreen">&nbsp;&nbsp;&lt;% } else { %>&nbsp;&nbsp;</span>
                                           <ul>
                                              <li>&lt;p>&lt;b>No Image Available&lt;/b>&lt;/p></li>
                                           </ul>
                                        </li>
-                                       <li><span class="backHigh">&nbsp;&nbsp;&lt;% } %>&nbsp;&nbsp;</span></li>
+                                       <li><span class="backGreen">&nbsp;&nbsp;&lt;% } %>&nbsp;&nbsp;</span></li>
                                     </ul>
                                  </li>
                                  <li>&lt;/article>&lt;hr></li>
                               </ul>
                            </li>
-                           <li><span class="backHigh">&nbsp;&nbsp;&lt;% } %>&nbsp;&nbsp;</span></li>
+                           <li><span class="backGreen">&nbsp;&nbsp;&lt;% } %>&nbsp;&nbsp;</span></li>
                         </ul>
                      <li>&lt;/div></li>
-                     <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/footer') %>&nbsp;&nbsp;</span></li>
+                     <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/footer') %>&nbsp;&nbsp;</span></li>
                   </ul>
                </li>
                <li>&lt;/body>
@@ -568,16 +563,16 @@
                <li class="commentStyle"><span class="colorBlue">notFound</span>.ejs</li>
                <li>&lt;body>
                   <ul>
-                     <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/header') %>&nbsp;&nbsp;</span></li>
+                     <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/header') %>&nbsp;&nbsp;</span></li>
                      <li>&lt;div>
                         <ul>
                            <li class="commentStyle">// Bootstrap NavBar</li>
-                           <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/navBar') %>&nbsp;&nbsp;</span></li>
-                           <li>&lt;h6>We're sorry, but the <span class="backHigh">&nbsp;&nbsp;&lt;%= <span class="colorGreen">subreddit</span> %>&nbsp;&nbsp;</span> subreddit was not found.&lt;/h6></li>
+                           <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/navBar') %>&nbsp;&nbsp;</span></li>
+                           <li>&lt;h6>We're sorry, but the <span class="backGreen">&nbsp;&nbsp;&lt;%= <span class="colorGreen">subreddit</span> %>&nbsp;&nbsp;</span> subreddit was not found.&lt;/h6></li>
                         </ul>
                      </li>
                      <li>&lt;/div></li>
-                     <li><span class="backHigh">&nbsp;&nbsp;&lt;%- include('includes/footer') %>&nbsp;&nbsp;</span></li>
+                     <li><span class="backGreen">&nbsp;&nbsp;&lt;%- include('includes/footer') %>&nbsp;&nbsp;</span></li>
                   </ul>
                </li>
                <li>&lt;/body>
@@ -613,6 +608,7 @@
             will bring up our sub-reddit pages.
             </p>
             <p>And there we go, our <b>Express ejs Demo</b> app is up and running. We retrieved our data from an external source <i>(<b>ejsDemoData.json</b>)</i>, and utilized <b>server-side</b> processing to process the data, and output it for viewing, <i>(<b>using the ejs file format</b>)</i>.</p>
+         </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>

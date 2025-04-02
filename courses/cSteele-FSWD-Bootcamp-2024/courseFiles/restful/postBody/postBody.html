@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="../local.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../restfulIndex.html">Back to RESTful Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Parsing the req Body</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">O</span>ne of the major uses for the <b>post</b> request is with the sending of form data for processing. So to continue our discussion on the <b>post</b> req, we are going to set up a basic form with two inputs.</p><hr>
+            <p><b>Order Tacos</b></p>
+            <form action="http://localhost:3000/tacos" method="post">
+               <p><label for="meat">Type of Meat? </label>
+                  <input type="text" name="meat" placeholder="Beef" value="Beef"></p>
+               <p><label for="qty">How Many? </label>
+                  <input type="number" name="qty" value="2"></p></p>
+               <button>Submit</button>
+            </form><hr>
+            <p>Now this is a simple form but remember, we are processing the data with a <b>post</b> request, through a server, so we need to reflect this in our <b>action</b> and <b>method</b> properties of our form:
+               <ul class="sectHighlight">
+                  <li>&lt;form action="<b>http://localhost:3000/tacos</b>" method="<b>post</b>"></li>
+               </ul>
+            and of course, we need to set up our server:</p>
+            <ol>
+               <li>Start by creating our <b>working directory</b>.</li>
+               <li>Run <b>npm init</b> to create our <b>package.json</b> file.</li>
+               <li>Run <b>npm i express</b> to install express.</li>
+               <li>Create our "ServerFile" - <b>index.js</b>.</li>
+            </ol>
+            <p>We're just going to run a basic server setup for this discussion, so our <b>index.js</b> file will look like this:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li class="commentStyle">// Set the variables and requires</li>
+                  <li>const <span class="colorPurple">express</span> = require('express');</li>
+                  <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+                  <li>const <span class="colorGreen">port</span> = 3000;</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// post requests</li>
+                  <li><span class="colorGreen">app</span>.<span class="colorBlue">post</span>( '/tacos', ( req, res ) => {
+                     <ul>
+                        <li>res.<span class="colorRed">send</span>('post Tacos response');</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Start Server : Listening on { <span class="colorGreen">port</span> }</li>
+                  <li> <span class="colorGreen">app</span>.<span class="colorBlue">listen</span>( <span class="colorGreen">port</span>, () => {
+                     <ul>
+                        <li>console.log(`Server Online : Listening on port: ${ <span class="colorGreen">port</span> }`);</li>
+                     </ul>
+                  </li>
+                  <li>});</li>
+               </ul>
+            </p>
+            <p>With that, our server is now online. We start it by running <b>node index.js</b> or <b>nodemon index.js</b> <i>(if nodemon is installed.)</i>. And now if we submit the form, it will open a page and respond with:
+               <ul>
+                  <li>"post Tacos response"</li>
+               </ul>
+            confirming that our server is up and running and that our form is <b>post</b>ing.
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="../express/index.js"></script>
+</body>
+</html>

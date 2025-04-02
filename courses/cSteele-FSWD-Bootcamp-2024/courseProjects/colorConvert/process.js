@@ -1,5 +1,4 @@
 // Process Color Value inputs for display
-
 function processRgb() {
    // sets default rgb value
    if (colVal.value === '') {

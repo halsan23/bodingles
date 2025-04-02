@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <h5>Node-Express Setup</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <p><b>Setting up a basic Node-Express working Environment</b></p>
+            <ol>
+               <li>Create the <b>Parent Directory</b>.</li>
+               <li>Run <b>npm init</b> : to create the package.json file.</li>
+               <li>Run <b>npm i express</b> : to install express.</li>
+               <li>Run <b>npm install ejs</b> : to install ejs <i>(if running ejs files)</i></li>
+               <li>Run <b>npm install nodemon</b> : to install nodemon <i>(for build purposes)</i></li>
+               <li>Create the "Server File" : <b>index.js</b>.</li>
+               <li>Create a "<b>Static Files Directory</b>" and sub-directories <i>(if needed)</i></li>
+               <li>Create a "<b>views directory</b>" <i>(if needed)</i></li>
+               <li>Create an "<b>includes" directory"</b> <i>(if needed)</i> : (sub-directory of <b>views</b>)</li>
+            </ol>
+            <p>The <a href="../courses/cSteele-FSWD-Bootcamp-2024/courseFiles/templating/redditDemo/redditDemo.html" target="_blank">subReddit Demo</a> page has information on using <b>arrays</b> to set up multiple <b>views</b> directories, to support separate views pages that are not related.</p><hr>
+            <p>Create a basic "Server File" (<b>index.js</b>)
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li class="commentStyle">// Set the variables and requires</li>
+                  <li>const <span class="colorPurple">express</span> = require('express');</li>
+                  <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+                  <li>const <span class="colorGreen">port</span> = 3000;</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// get requests</li>
+                  <li><span class="colorGreen">app</span>.<span class="colorBlue">get</span>( '/', ( req, res ) => {
+                     <ul>
+                        <li>res.<span class="colorRed">send</span>('get response');</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// post requests</li>
+                  <li><span class="colorGreen">app</span>.<span class="colorBlue">post</span>( '/', ( req, res ) => {
+                     <ul>
+                        <li>res.<span class="colorRed">send</span>('post response');</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Start Server : Listening on { <span class="colorGreen">port</span> }</li>
+                  <li> <span class="colorGreen">app</span>.<span class="colorBlue">listen</span>( <span class="colorGreen">port</span>, () => {
+                     <ul>
+                        <li>console.log(`Server Online : Listening on port: ${ <span class="colorGreen">port</span> }`);</li>
+                     </ul>
+                  </li>
+                  <li>});</li>
+               </ul>
+            </p>
+            <p>With that, our server should now be available.</p>
+            <p>We start it by opening a Terminal window, and running <b>node index.js</b> or <b>nodemon index.js</b> <i>(if nodemon is installed.)</i>. You should get the message, in the Terminal: "Server Online : Listening on port: 3000".</p>
+            <p>Open a browser window and go to: <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> to verify that the server is up and running.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+   <script src="../express/index.js"></script>
+</body>
+</html>
