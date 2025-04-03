@@ -3,6 +3,10 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+// express middleware parser for post req.body
+// for parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }))
+
 
 // get requests
 app.get( '/tacos', ( req, res ) => {
@@ -12,7 +16,8 @@ app.get( '/tacos', ( req, res ) => {
 
 // post requests
 app.post( '/tacos', ( req, res ) => {
-   res.send('post Tacos response');
+   const { meat, qty } = req.body;
+   res.send(`Your Order is: ${qty} ${meat} Taco(s).`);
 })
 
 
