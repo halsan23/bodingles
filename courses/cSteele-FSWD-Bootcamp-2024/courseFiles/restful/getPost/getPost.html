@@ -53,7 +53,7 @@
             </div><hr>
             <p>With this being outlined, we need to remember that these are NOT Hard Rules that we MUST adhere to. You could for example "send" data with a GET request, it's just generally considered Not Good Practice.</p>
             <p><b>Get</b> requests are generally used to <b>search</b>, or <b>retrieve</b> information.Their requests are sent via a <b>query string</b> which means that they are limited in the amount of data they can request. They are also limited to text requests. Also, the query string is visible in the browser address bar making it an <b>unsecure</b> request. This is why they are NOT generally used to send, update, or delete data.</p>
-            <p><b>POST</b> requests <i><b>are</b></i> generally used to send, update, or delete data. They are included in the <b>request body</b> as opposed to the <b>query string</b>, so they will NOT be displayed in the browser address bar. Also, because the request is sent in the <b>request body</b>, they are not limited to any data type and can send more data.</p>
+            <p><b>POST</b> requests <i><b>are</b></i> generally used to send, update, or delete data. They are included in the <b>request body</b> as opposed to a <b>query string</b>, so they will NOT be displayed in the browser address bar. Also, because the request is sent in the <b>request body</b>, they are not limited to any data type or how much data they can send.</p>
             <p><span class="firstWord">I</span>n summary, GET requests are generally used to <b>receive</b> data while POST requests are generally used to <b>send, update, or delete</b> data.
             </p>
          </article>
@@ -61,7 +61,7 @@
          <!-- syntax -->
           <article>
             <h6>Syntax</h6>
-            <p><span class="firstWord">W</span>e have already been using <b>get</b> requests so we've seen the syntax for them and <b>post</b> are the same syntax but we weill break it down here.</p>
+            <p><span class="firstWord">W</span>e have already been using <b>get</b> requests, so we've seen the basic syntax for them. <b>Post</b> requests are essentially the same syntax, but we we're going to break it down a little.</p>
             <p>When we set up our <b>localhost</b> server we know we're going to be running <b>express</b>, so we do some basic server coding to import express and start the server in "listening" mode. Here's the Js code:
                <ul class="sectHighlight">
                   <li>JavaScript</li>
@@ -80,7 +80,7 @@
                   <li>})</li>
                </ul>
             </p>
-            <p>So we've required <i>(imported)</i> <span class="colorPurple">express</span> and assigned it to the variable <span class="colorGreen">app</span> which gives us access to the <span class="colorPurple">express</span> methods. We then put the server in <span class="colorRed">listen</span> mode, waiting for a <b>req</b>.</p>
+            <p>So we've required <i>(imported)</i> <span class="colorPurple">express</span> and assigned it to the variable <span class="colorGreen">app</span> which gives us access to the <span class="colorPurple">express</span> methods. We then put the server in <span class="colorRed">listen</span> mode, on the designated <b>port</b>, waiting for a <b>req</b>.</p>
             <p>Now we can set our <b>get</b> request:
                <ul class="sectHighlight">
                   <li>JavaScript</li>
@@ -107,7 +107,7 @@
                   </li>
                   <li>})</li>
                </ul>
-            The server syntax the same for both requests, but the difference between <b>get</b> and <b>post</b>, is <i><b>how the request's are processed</b></i>. Also, you would not normally use <b>post</b> to request a webpage, like we're showing here. We're just trying to show the <b>syntax</b> at this point.</p>
+            The server syntax is the same for <b>both</b> requests, but the difference between <b>get</b> and <b>post</b>, is <i><b>how the request's are processed</b></i>. Also, you would not normally use <b>post</b> to request a webpage, like we're showing here. We're just trying to show the <b>syntax</b> at this point.</p>
             <p>And remember that a <b>post</b> request is generally used to send, update, or delete data.  <b>Post</b> is most often used in conjunction with <b>forms</b> to send and process form data. We will delve into that topic in the next discussion.</p>
           </article>
       </section>

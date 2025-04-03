@@ -37,7 +37,7 @@
             <h6>Intro</h6>
             <p><span class="firstWord">O</span>ne of the major uses for the <b>post</b> request is with the sending of form data for processing. So to continue our discussion on the <b>post</b> req, we are going to set up a basic form with two inputs.</p><hr>
             <p><b>Order Tacos</b></p>
-            <form action="http://localhost:3000/tacos" method="post">
+            <form action="http://localhost:3000/tacos" target="_blank" method="post">
                <p><label for="meat">Type of Meat? </label>
                   <input type="text" name="meat" placeholder="Beef" value="Beef"></p>
                <p><label for="qty">How Many? </label>
@@ -46,16 +46,17 @@
             </form><hr>
             <p>Now this is a simple form but remember, we are processing the data with a <b>post</b> request, through a server, so we need to reflect this in our <b>action</b> and <b>method</b> properties of our form:
                <ul class="sectHighlight">
-                  <li>&lt;form action="<b>http://localhost:3000/tacos</b>" method="<b>post</b>"></li>
+                  <li>&lt;form action="<b>http://localhost:3000/tacos</b>" <i>target="_blank"</i> method="<b>post</b>"></li>
                </ul>
-            and of course, we need to set up our server:</p>
+            notice the use of <b>target="_blank"</b> here. This was an experiment just to see if it would work, and guess what? It does. When you submit the form it opens the <b>post</b> results <b>in a new page</b>. Very Cool.</p>
+            <p>And next, we need to set up our server:</p>
             <ol>
                <li>Start by creating our <b>working directory</b>.</li>
                <li>Run <b>npm init</b> to create our <b>package.json</b> file.</li>
                <li>Run <b>npm i express</b> to install express.</li>
                <li>Create our "ServerFile" - <b>index.js</b>.</li>
             </ol>
-            <p>We're just going to run a basic server setup for this discussion, so our <b>index.js</b> file will look like this:
+            <p>We're just going to run a basic server setup for this discussion, so our <b>index.js</b> file will look something like this:
                <ul class="sectHighlight">
                   <li>JavaScript</li>
                   <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
@@ -81,12 +82,31 @@
                   <li>});</li>
                </ul>
             </p>
-            <p>With that, our server is now online. We start it by running <b>node index.js</b> or <b>nodemon index.js</b> <i>(if nodemon is installed.)</i>. And now if we submit the form, it will open a page and respond with:
+            <p>With that, our server is now set up. To start it, we open a "Terminal" window in our app's <b>root</b> express directory, and entering either <b>node index.js</b>, or <b>nodemon index.js</b> <i>(if nodemon is installed.)</i>. And now if we submit the form, it will open a page and respond with:
                <ul>
                   <li>"post Tacos response"</li>
                </ul>
-            confirming that our server is up and running and that our form is <b>post</b>ing.
+            confirming that our server is up and running, and that our form is <b>post</b>ing.
             </p>
+         </article><hr>
+
+         <!-- Parsing the Data -->
+         <article>
+            <h6>Parsing the Data</h6>
+            <p><span class="firstWord">S</span>o we now have our form built for the data input. And we have our basic server, set up and running, waiting for some data to process. This <i>processing</i> happens within the <b>body</b> of the <b>req</b>, which resides in our <span class="colorGreen">app</span>.<span class="colorBlue">post</span> call.</p>
+            <p>Let's add a console.log to our <span class="colorBlue">post</span> <b>req</b>, to see the output of this req.<b>body</b>:
+               <ul class="sectHighlight">
+                  <li class="commentStyle">// post requests</li>
+                  <li><span class="colorGreen">app</span>.<span class="colorBlue">post</span>( '/tacos', ( req, res ) => {
+                     <ul>
+                        <li><b class="backYellow">&nbsp;&nbsp;console.log(req.body);&nbsp;&nbsp;</b></li>
+                        <li>res.<span class="colorRed">send</span>('post Tacos response');</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            and, what do we get....</p>
+            <p>Oh, we got <i><b>undefined</b></i>. Not what we expected.</p>
          </article>
       </section>
 
@@ -100,6 +120,5 @@
    <!-- scripts -->
    <script src="/header.js"></script>
    <script src="/footer.js"></script>
-   <script src="../express/index.js"></script>
 </body>
 </html>
