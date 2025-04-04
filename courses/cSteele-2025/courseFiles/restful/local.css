@@ -9,3 +9,14 @@
    width: 50%;
    padding: 5px 0px 5px 20px;
 }
+
+.crud {
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: flex-start;
+}
+
+.crud2 {
+   padding: 5px 20px;
+}
