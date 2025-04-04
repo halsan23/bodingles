@@ -6,13 +6,8 @@ const port = 3000;
 // express middleware parser for post req.body
 // for parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }))
-
-
-// get requests
-app.get( '/tacos', ( req, res ) => {
-   res.send('get Tacos response');
-})
-
+// for parsing json data
+app.use(express.json())
 
 // post requests
 app.post( '/tacos', ( req, res ) => {

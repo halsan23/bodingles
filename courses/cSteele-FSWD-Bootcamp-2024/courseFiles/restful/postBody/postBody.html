@@ -39,9 +39,13 @@
             <p><b>Order Tacos</b></p>
             <form action="http://localhost:3000/tacos" target="_blank" method="post">
                <p><label for="meat">Type of Meat? </label>
-                  <input type="text" name="meat" placeholder="Beef" value="Beef"></p>
+                  <select name="meat">
+                     <option value="Beef" selected>Beef</option>
+                     <option value="Chicken">Chicken</option>
+                     <option value="Steak">Steak</option>
+                   </select></p>
                <p><label for="qty">How Many? </label>
-                  <input type="number" name="qty" value="2"></p></p>
+                  <input style="width: 30px;" type="number" name="qty" min="1" value="1"></p>
                <button>Submit</button>
             </form><hr>
             <p>Now this is a simple form but remember, we are processing the data with a <b>post</b> request, through a server, so we need to reflect this in our <b>action</b> and <b>method</b> properties of our form:
@@ -129,7 +133,7 @@
                <ul>
                   <li><span class="backYellow">&nbsp;&nbsp;{ meat: 'Beef', qty: '2' }</span></li>
                </ul>
-            Our express <b>middleware</b> has identified the <b>req.body</b> as urlencoded data, allowing us to parse out the information. It's important to note that the output looks like a json file because <i>"req.body Contains key-value pairs"</i>, but it isn't json data. It's urlencoded data with key/value pairs. We'll explain in a bit, <i>(further down the page)</i> why this distinction is important.</p>
+            Our express <b>middleware</b> has identified the <b>req.body</b> as  <b>urlencoded</b> data, allowing us to parse out the information. It's important to note that the output looks like a json file because <i>"req.body Contains key-value pairs"</i>, but it isn't json data. It's urlencoded data with key/value pairs. We'll explain in a bit, <i>(further down the page)</i> why this distinction is important.</p>
             <p>Ok, so far, so good, but our only output is to the console. We want to produce an output on a webpage, so let's restructure our <span class="colorGreen">app</span>.<span class="colorBlue">post</span>, like so:
                <ul class="sectHighlight">
                   <li class="commentStyle">// post requests</li>
@@ -142,7 +146,7 @@
                   <li>})</li>
                </ul>
             </p>
-            <p>Since we assigned <b>meat</b> and <b>qty</b> as names in our form field declarations, and because we know that the req,body is going to return urlencoded data in key.value pairs, we can use this info to extract our form input values for display in the res.<span class="colorRed">send</span> output. So once we submit our form, and check the output on our localhost <b>/tacos</b> page, we now see:
+            <p>We know that the req,body is going to return urlencoded data in <b>key/value</b> pairs, so we can use this info to extract our form input <b>names</b> and <b>values</b> for display in the res.<span class="colorRed">send</span> output. So once we submit our form, and check the output on our localhost <b>/tacos</b> page, we now see:
                <ul>
                   <li><span class="backGreen">Your Order is: 2 Beef tacos.</span></li>
                </ul>
@@ -153,7 +157,7 @@
                <ul>
                   <li><span class="colorGreen">app</span>.<span class="colorBlue">use</span>(<b>express.urlencoded</b>({ extended: true }))</li>
                </ul>
-            The distinction is that this <b>express middleware</b> is only designed to parse <b>urlencoded form data</b> that is coming from a <b>form</b>, and there are many other formats that can be used.</p>
+            The distinction here is that this <b>express middleware</b> is only designed to parse <b>urlencoded form data</b> that is coming from a <b>form</b>, and there are many other formats that can be used.</p>
             <p>What if we were passing actual <b>json</b> data. This <b>post</b> request would return <b>{ unknown: unknown }</b>, because this current <b>express middleware</b> can NOT parse json data, only urlencoded data.</p>
             <p>Now we could easily solve the <b>json</b> problem by adding another <span class="colorGreen">app</span>.<span class="colorBlue">use</span> call to our server code:
                <ul class="sectHighlight">
@@ -161,7 +165,7 @@
                   <li><span class="backYellow">&nbsp; <span class="colorGreen">app</span>.<span class="colorBlue">use</span>(express.json()) &nbsp;</span></li>
                </ul>
             and now our app can parse <b>urlencoded data</b> AND <b>json data</b>. But the bigger point here is that the data can be sent in many different formats, and you'll need to use the proper "<b>middleware</b>" to parse which ever data format is being used.</p>
-            <p>And that IS the basic concept of data parsing the <b>req.body</b>.</p>
+            <p>And that my friends, is the basic concept of data parsing the <b>req.body</b>.</p>
          </article>
       </section>
 
@@ -172,20 +176,70 @@
 
          <!-- The Input Form -->
          <article>
-            <h6>The Input Form</h6>
+            <h6>Input Form</h6>
             <ul class="sectHighlight">
                <li>HTML</li>
                <li>// form input</li>
+               <li>&lt;form action="http://localhost:3000/tacos" target="_blank" method="post">
+                  <ul>
+                     <li>&lt;label for="meat">Type of Meat? &lt;/label>
+                        <ul>
+                           <li>&lt;select name="meat">&lt;/select>
+                              <ul>
+                                 <li>&lt;option value="Beef" selected>Beef&lt;/option></li>
+                                 <li>&lt;option value="Chicken">Chicken&lt;/option></li>
+                                 <li>&lt;option value="Steak">Steak&lt;/option></li>
+                              </ul>
+                           </li>
+                           <li>&lt;/select></li>
+                        </ul>
+                     </li>
+                     <li>&lt;label for="qty">How Many? &lt;/label>
+                        <ul>
+                           <li>&lt;input type="number" name="qty" min="1" value="1"></li>
+                        </ul>
+                     </li>
+                     <li>&lt;button>Submit&lt;/button></li>
+                  </ul>
+               </li>
+               <li>&lt;/form></li>
             </ul>
          </article>
 
          <!-- The Server File -->
          <article>
-            <h6>The Server File</h6>
+            <h6>Server File</h6>
             <ul class="sectHighlight">
                <li>JavaScript</li>
                <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+               <li class="commentStyle">// Set the variables and requires</li>
+               <li>const <span class="colorPurple">express</span> = require('express');</li>
+               <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+               <li>const <span class="colorGreen">port</span> = 3000;</li>
                <li>&nbsp;</li>
+               <li class="commentStyle">// express middleware parser for post req.body</li>
+               <li class="commentStyle">// for parsing application/x-www-form-urlencoded data</li>
+               <li>app.<span class="colorBlue">use</span>(express.<span class="colorBlue">urlencoded</span>({ <span class="colorRed">extended</span>: <span class="colorOrange">true</span> }))</li>
+               <li class="commentStyle">// for parsing json data</li>
+               <li>app.<span class="colorBlue">use</span>(express.<span class="colorBlue">json</span>())</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// post requests</li>
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">post</span>( '/tacos', ( req, res ) => {
+                  <ul>
+                     <li>const { <b>meat</b>, <b>qty</b> } = req.body;</li>
+                     <li>res.<span class="colorRed">send</span>(`Your Order is: ${ <b>qty</b> } ${ <b>meat</b> } Taco(s).`);</li>
+                  </ul>
+               </li>
+               <li>})</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// Start Server : Listening on { <span class="colorGreen">port</span> }</li>
+               <li> <span class="colorGreen">app</span>.<span class="colorBlue">listen</span>( <span class="colorGreen">port</span>, () => {
+                  <ul>
+                     <li>console.log(`Server Online : Listening on port: ${ <span class="colorGreen">port</span> }`);</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
             </ul>
          </article>
       </section>
