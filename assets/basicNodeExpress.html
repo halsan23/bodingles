@@ -24,7 +24,8 @@
       <section>
          <h2><i>The Web Developer Bootcamp 2024</i></h2>
          <p>Colt Steele</p>
-         <h5>Node-Express Setup</h5>
+         <h5>Basic Local Server Setup</h5>
+         <h6>Using Node/Express/EJS</h6>
       </section>
 
       <section id="textWindow4" class="just">
@@ -38,9 +39,21 @@
                <li>Run <b>npm install ejs</b> : to install ejs <i>(if running ejs files)</i></li>
                <li>Run <b>npm install nodemon</b> : to install nodemon <i>(for build purposes)</i></li>
                <li>Create the "Server File" : <b>index.js</b>.</li>
-               <li>Create a "<b>Static Files Directory</b>" and sub-directories <i>(if needed)</i></li>
-               <li>Create a "<b>views directory</b>" <i>(if needed)</i></li>
-               <li>Create an "<b>includes" directory"</b> <i>(if needed)</i> : (sub-directory of <b>views</b>)</li>
+               <li>Create a "<b>Static Files Directory</b>" and sub-directories <i>(if needed)</i>
+                  <ul>
+                     <li style="list-style: none;"><i>for any "static" files: imgs, pdfs, css, etc.</i></li>
+                  </ul>
+               </li>
+               <li>Create a "<b>views directory</b>" <i>(if needed)</i>
+                  <ul>
+                     <li style="list-style: none;"><i>for your <b>ejs</b> files</i></li>
+                  </ul>
+               </li>
+               <li>Create an "<b>includes" directory"</b> <i>(if needed)</i> : (sub-directory of <b>views</b>)
+                  <ul>
+                     <li style="list-style: none;"><i>for your include files such as header, footer, or css links</i></li>
+                  </ul>
+               </li>
             </ol>
             <p>The <a href="../courses/cSteele-FSWD-Bootcamp-2024/courseFiles/templating/redditDemo/redditDemo.html" target="_blank">subReddit Demo</a> page has information on using <b>arrays</b> to set up multiple <b>views</b> directories, to support separate views pages that are not related.</p><hr>
             <p>Create a basic "Server File" (<b>index.js</b>)
@@ -48,22 +61,51 @@
                   <li>JavaScript</li>
                   <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
                   <li class="commentStyle">// Set the variables and requires</li>
-                  <li>const <span class="colorPurple">express</span> = require('express');</li>
+                  <li>const <span class="colorGreen">path</span> = require('<b>path</b>');</li>
+                  <li>const <span class="colorGreen">express</span> = require('<b>express</b>');</li>
                   <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
-                  <li>const <span class="colorGreen">port</span> = 3000;</li>
+                  <li>const <span class="colorGreen">port</span> = 3000;&nbsp;&nbsp;&nbsp;
+                     <ul>
+                        <li class="commentStyle">assigning the port to a variable allows us to have one simple place to make changes, should we need to change the port number.</li>
+                     </ul>
+                  </li>
                   <li>&nbsp;</li>
-                  <li class="commentStyle">// get requests</li>
+                  <li class="commentStyle">// express middleware parser for post req.body</li>
+                  <li><span class="colorGreen">app</span>.<span class="colorBlue">use</span>( 'express.<span class="colorBlue">urlencoded</span>({ <span class="colorRed">extended</span>: <span class="colorOrange">true</span> }))
+                     <ul>
+                        <li class="commentStyle">parser for application/x-www-form-urlencoded data</li>
+                     </ul>
+                  </li>
+                  <li><span class="colorGreen">app</span>.<span class="colorBlue">use</span>(express.<span class="colorBlue">json</span>())
+                     <ul>
+                        <li class="commentStyle">parser for json data</li>
+                     </ul>
+                  </li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// set default views and path</li>
+                  <li><span class="colorGreen">app</span>.<span class="colorBlue">set</span>('views', path.<span class="colorBlue">join</span>(__dirname, 'views'))
+                     <ul>
+                        <li class="commentStyle">defines a path structure relative to THIS index.js file, to the "views" directory</li>
+                     </ul>
+                  </li>
+                  <li><span class="colorGreen">app</span>.<span class="colorBlue">set</span>('view engine', 'ejs')
+                     <ul>
+                        <li class="commentStyle">sets the default "view engine" to "ejs" files - allows us to eliminate the <b>.ejs</b> extension when routing to views</li>
+                     </ul>
+                  </li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// default get request format</li>
                   <li><span class="colorGreen">app</span>.<span class="colorBlue">get</span>( '/', ( req, res ) => {
                      <ul>
-                        <li>res.<span class="colorRed">send</span>('get response');</li>
+                        <li>res.<span class="colorRed">send</span>('whatever you want sent from <b>get req</b> for processing');</li>
                      </ul>
                   </li>
                   <li>})</li>
                   <li>&nbsp;</li>
-                  <li class="commentStyle">// post requests</li>
+                  <li class="commentStyle">// default post request format</li>
                   <li><span class="colorGreen">app</span>.<span class="colorBlue">post</span>( '/', ( req, res ) => {
                      <ul>
-                        <li>res.<span class="colorRed">send</span>('post response');</li>
+                        <li>res.<span class="colorRed">send</span>('whatever you want sent from <b>post req</b> for processing');</li>
                      </ul>
                   </li>
                   <li>})</li>

@@ -6,7 +6,7 @@ const path = require('path');
 
 
 // express middleware parser for post req.body
-// for parsing application/x-www-form-urlencoded
+// for parsing application/x-www-form-urlencoded data
 app.use(express.urlencoded({ extended: true }))
 // for parsing json data
 app.use(express.json())
