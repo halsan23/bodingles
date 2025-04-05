@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="../local.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../restfulIndex.html">Back to RESTful Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Rest Intro</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">W</span>hat is REST. Well technically REST stands for <b>RE</b>presntational <b>S</b>tate <b>T</b>ransfer. <b>REST</b> is "an architectural style for distributed hypermedia systems". Um, OK. What does that even mean.</p>
+            <p>In plain english, REST is basically a set of guidelines for how a client + server should communicate and perform CRUD operations on a given resource.</p>
+            <p>Sometimes developers will talk about REST and they are talking about the overall principles and guidelines of REST, and sometimes you'll hear them talk about "RESTful". In this phraseology, their talking about being in compliance with the REST guidelines.</p>
+            <p>There was a dissertation given on this subject, and an excerpt describing REST,can be <a href="https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank" rel="noopener noreferrer">found here</a>.</p>
+            <p>The main idea of REST is treating data on the server side <b>as</b> resources that can be CRUDed.
+            <ul>
+               <li>CRUD : <b>C</b>reate, <b>R</b>ead, <b>U</b>pdate, <b>D</b>elete</li>
+            </ul>So what we're talking about is a standardized, or generalized way that I can run a server, and anyone can say, create/read/update/delete a tweet. So anyone could have "full CRUD".</p>
+            <p>There is a huge amount of information on REST and CRUD online, but at this point in time, all we really need to understand is that we are going to we building different API's and APPs. But we are going to write all of our code in a "RESTful" manner, meaning it will be structured in an organized "standardized" way.</p>
+         </article>
+
+         <!-- Project Overview -->
+         <article>
+            <h6>Project Overview</h6>
+            <p>We are going to be building "comments" app with CRUD functionality, while maintaining a RESTful structure. And within this RESTful structure, there are a lot of ways we could actually structure our app, but here's what we're going to do. We're going to create a standard "syntax" for the <b>routing</b> of our API. We're going to use:<hr>
+               <div class="crud">
+                  <span class="crud2">
+                     <ul>
+                        <li><b>Command</b></li>
+                        <li><b>GET</b> /comments</li>
+                        <li><b>POST</b> /comments</li>
+                        <li><b>GET</b> /comments/:id</li>
+                        <li><b>PATCH</b> /comments/:id</li>
+                        <li><b>DELETE</b> /comments/:id</li>
+                     </ul>
+                  </span>
+                  <span class="crud2">
+                     <ul>
+                        <li><b>Result</b></li>
+                        <li><b>List</b> all comments</li>
+                        <li><b>Create</b> a new comment</li>
+                        <li><b>GET one</b> comment by id</li>
+                        <li><b>Update one</b> comment by id</li>
+                        <li><b>Delete one</b> comment by id</li>
+                     </ul>
+                  </span>
+               </div><hr>
+            This will be our basic CRUD functionality. Now, we haven't learned how to build and access a database yet, (coming soon), but for now, we'll just set up an array we use in it's place.
+            </p>
+            <p>Each element of our CRUD list is known as a <b>route</b> and developers usually give there routes names for a simple way of referring to each piece. We are going to do the same and use:<hr>
+               <div class="crud">
+                  <span class="crud2">
+                     <ul>
+                        <li><b>Route Name</b></li>
+                        <li><span class="colorGreen">Index</span></li>
+                        <li><span class="colorGreen">New</span></li>
+                        <li><span class="colorGreen">Show</span></li>
+                        <li><span class="colorGreen">Update</span></li>
+                        <li><span class="colorGreen">Destroy</span></li>
+                     </ul>
+                  </span>
+                  <span class="crud2">
+                     <ul>
+                        <li><b>Command</b></li>
+                        <li><b>GET</b> /comments</li>
+                        <li><b>POST</b> /comments</li>
+                        <li><b>GET</b> /comments/:id</li>
+                        <li><b>PATCH</b> /comments/:id</li>
+                        <li><b>DELETE</b> /comments/:id</li>
+                     </ul>
+                  </span>
+                  <span class="crud2">
+                     <ul>
+                        <li><b>Result</b></li>
+                        <li><b>List</b> all comments</li>
+                        <li><b>Create</b> a new comment</li>
+                        <li><b>GET one</b> comment by id</li>
+                        <li><b>Update one</b> comment by id</li>
+                        <li><b>Delete one</b> comment by id</li>
+                     </ul>
+                  </span>
+               </div><hr>
+            </p>
+            <p>So we've got our basic structure based on our RESTful, CRUD functionalities. Next we start building the app.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
