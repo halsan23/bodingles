@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const path = require('path');
 
 
 // express middleware parser for post req.body
@@ -9,7 +10,36 @@ const port = 3000;
 app.use(express.urlencoded({ extended: true }))
 // for parsing json data
 app.use(express.json())
+// set default views and path
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
 
+
+// Our fake database:
+let comments = [
+   {
+       username: 'Sexy Sandy',
+       comment: 'lol that is so funny!'
+   },
+   {
+       username: 'Skyler',
+       comment: 'I like to go birdwatching with my dog'
+   },
+   {
+       username: 'Josephene',
+       comment: 'Do you think they have pizza in space?'
+   },
+   {
+       username: 'Sadie',
+       comment: 'What in the world is going on here?'
+   }
+]
+
+
+// get request for index route
+app.get('/comments', (req, res) => {
+   res.render('comments/index', { comments });
+})
 
 // post requests
 app.post( '/tacos', ( req, res ) => {

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="../local.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../restfulIndex.html">Back to RESTful Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Comments App</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">W</span>e're going to building a "Comments" app to demonstrate the RESTful approach to CRUD design.</p>
+            <p.=>As a refresher, REST is a set of guidelines for how a client and server should interact, and CRUD is the way of creating "ROUTES" within the server that will allow users to <b>C</b>reate/<b>R</b>ead/<b>U</b>pdate/<b>D</b>elete data, in this case, our comments.</p>
+            <p>Also, there are many ways we could build our app within the REST guidelines and giving CRUD abilities. How we are going to accomplish this is but one of many ways we could do it. So don't think this procedure should be engraved in stone, or that there are not other ways in which we could achieve our goals here.</p>
+         </article><hr>
+
+         <!-- Getting Started -->
+         <article>
+            <h6>Getting Started</h6>
+            <p><span class="firstWord">T</span>o get started, we're going to create an array to hold some "starter" comments. Now normally, these comments would be stored in a database on a server, but at this point, we don't have a database to work with so we are just going to build the array in our server file. Here's the structure:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li>const <span class="colorGreen">comments</span> = [
+                     <ul>
+                        <li>{
+                           <ul>
+                              <li><b>username</b>: Sandy</li>
+                              <li><b>comment</b>: lol, that's too funny!</li>
+                           </ul>
+                        </li>
+                        <li>},</li>
+                        <li>{
+                           <ul>
+                              <li><b>username</b>: Skyler</li>
+                              <li><b>comment</b>: Life is way too short ..</li>
+                           </ul>
+                        </li>
+                        <li>},</li>
+                        <li>{
+                           <ul>
+                              <li><b>username</b>: Josephene</li>
+                              <li><b>comment</b>: Do you think they have pizza in space?</li>
+                           </ul>
+                        </li>
+                        <li>},</li>
+                        <li>{
+                           <ul>
+                              <li><b>username</b>: Sadie</li>
+                              <li><b>comment</b>: What in the world is going on here?</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>]</li>
+               </ul>
+            </p>
+            <p>This will get us started for comments. Next we need to start building our server file <i>(<span class="colorBlue">index</span>.js)</i>. We are going to be utilizing <b>node</b>, <b>nodemon</b>, <b>express</b>, and <b>ejs</b> so we need to get everything installed and set up. In case you don't remember, <a href="/assets/basicNodeExpress.html" target="_blank">here is a refresher</a>.</p>
+            <p>When finished, we should have something like this:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li class="commentStyle">// Set the variables and requires</li>
+                  <li>const <span class="colorPurple">express</span> = require('express');</li>
+                  <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+                  <li>const <span class="colorGreen">port</span> = 3000;</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// post requests</li>
+                  <li><span class="colorGreen">app</span>.<span class="colorBlue">post</span>( '/', ( req, res ) => {
+                     <ul>
+                        <li>res.<span class="colorRed">send</span>('post response');</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// Start Server : Listening on { <span class="colorGreen">port</span> }</li>
+                  <li> <span class="colorGreen">app</span>.<span class="colorBlue">listen</span>( <span class="colorGreen">port</span>, () => {
+                     <ul>
+                        <li>console.log(`Server Online : Listening on port: ${ <span class="colorGreen">port</span> }`);</li>
+                     </ul>
+                  </li>
+                  <li>});</li>
+               </ul>
+            </p>
+            <p>Now we are going to be utilizing <b>ejs</b> files, so we can embed Js to help with the processing of our form input data for the comments. So we're going to need to make sure we have a couple of things set up here:
+               <ul>
+                  <li>our views Directory set up</li>
+                  <li>and in our server file:
+                     <ul>
+                        <li>require <b>path</b></li>
+                        <li>app.set our view engine</li>
+                        <li>app.set out path to our views directory</li>
+                        <li></li>
+                        <li></li>
+                     </ul>
+                  </li>
+               </ul>
+            so we need to make sure we have the following in our <i><span class="colorBlue">index</span>.js</i> file:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li class="commentStyle">// at the top where we define the variables and requires ...</li>
+                  <li>const <span class="colorGreen">path</span> = require('<b>path</b>');</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// next where we define the encoding ...</li>
+                  <li>app.<span class="colorBlue">set</span>('views', path.<span class="colorBlue">join</span>(__dirname, 'views'));</li>
+                  <li>app.<span class="colorBlue">set</span>('view engine', 'ejs');</li>
+               </ul>
+            </p>
+            <p>Now, if we remember, we "defined" our <b>routes</b> in our last discussion:<hr>
+               <div class="crud">
+                  <span class="crud2">
+                     <ul>
+                        <li><b>Route Name</b></li>
+                        <li><span class="colorGreen">index</span></li>
+                        <li><span class="colorGreen">new</span></li>
+                        <li><span class="colorGreen">show</span></li>
+                        <li><span class="colorGreen">update</span></li>
+                        <li><span class="colorGreen">destroy</span></li>
+                     </ul>
+                  </span>
+                  <span class="crud2">
+                     <ul>
+                        <li><b>Command</b></li>
+                        <li><b>GET</b> /comments</li>
+                        <li><b>POST</b> /comments</li>
+                        <li><b>GET</b> /comments/:id</li>
+                        <li><b>PATCH</b> /comments/:id</li>
+                        <li><b>DELETE</b> /comments/:id</li>
+                     </ul>
+                  </span>
+                  <span class="crud2">
+                     <ul>
+                        <li><b>Result</b></li>
+                        <li><b>List</b> all comments</li>
+                        <li><b>Create</b> a new comment</li>
+                        <li><b>GET one</b> comment by id</li>
+                        <li><b>Update one</b> comment by id</li>
+                        <li><b>Delete one</b> comment by id</li>
+                     </ul>
+                  </span>
+               </div><hr>
+               and next we're going to start applying our routes in our server file, <i><span class="colorBlue">index</span>.js</i>. We'll start with the <span class="colorGreen">index</span> route that allows us to <b>List</b> all of the existing comments.
+            </p>
+            <p>The first step in this process is to create a file/directory structure, for a page that will display all of our existing comments. So in our <b>views</b> directory, we're going to create a directory called <b>comments</b>. And within that directory, we're going to create a file called <span class="colorBlue">index</span>.<b>ejs</b>, like so:
+               <ul class="sectHighlight">
+                  <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; views
+                     <ul>
+                        <li>- <img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; comments
+                           <ul>
+                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; index.ejs</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            <i><b>*note</b>: while we could name our <span class="colorBlue">index</span>.<b>ejs</b> anything we like, it is generally considered "good practice" to name the <span class="colorGreen">index</span> <b>route</b> as <span class="colorBlue">index</span>.<b>ejs</b></i>
+            </p>
+            <p>and now we need to add an <b>app</b>.<span class="colorBlue">get()</span> request to our server file:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li class="commentStyle">// get request for index route</li>
+                  <li><b>app</b>.<span class="colorBlue">get</span>('/comments', ( req, res ) => {
+                     <ul>
+                        <li>res.<span class="colorBlue">render</span>( 'comments/index', { comments } )</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+            <p>And now if we start our server <i>(approot / nodemon <span class="colorBlue">index</span>.js</i>), and in our browser, go to:
+               <ul>
+                  <li><b>http://localhost:3000/comments</b></li>
+               </ul>
+            our <span class="colorBlue">index</span>.<b>ejs</b> page should now display. And this finishes the construction of our basic <span class="colorGreen">index</span> <b>route</b>, which we defined as "the route to display all comments".</p>
+            <p>So what we've shown here is <b>one</b> potential way, of many, to structure CRUD functionality for one single resource (our comments).
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
