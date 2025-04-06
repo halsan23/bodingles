@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Express subReddits Demo</title>
+
+   <!-- link to static assets directory -->
+   <%- include('includes/headBootstrap') %>
+   <%- include('includes/headLocalStyles') %>
+</head>
+
+<body>
+   <%- include('includes/header') %>
+
+   <!-- Reddit Info -->
+   <section id="main">
+      <div>
+         <%- include('includes/navBar') %>
+         <h1>subReddits Demo</h1>
+         <h2><%= name %></h2>
+         <p class="desc"><%= description  %></p>
+         <p class="subTitle">Total Subscribers:&nbsp;&nbsp;&nbsp;<b><span class="subs"><%= subscribers %></b></span></p>
+      </div>
+
+      <!-- Reddit Posts -->
+      <div id="textWindow4">
+         <% for ( post of posts ) { %>
+            <hr><p>&nbsp;</p>
+            <p><span class="author"><%= post.author %>:</span>&nbsp;&nbsp;&nbsp;<span class="title"><%= post.title %></span></p><br>
+            <p>
+               <% if (post.img) { %>
+                  <img class="pics" src="<%= post.img %>" alt="<%= post.title %>">
+               <% } else { %>
+                  <b>No Image Available</b>
+               <% } %>
+            </p><br>
+         <% } %>
+      </div>
+   </section>
+   <a href="#top"><< TOP >></a>
+   <p>&nbsp;</p>
+
+   <%- include('includes/footer') %>
+</body>
+</html>

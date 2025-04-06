@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | EJS Home</title>
+
+   <!-- link to static assets directory -->
+   <%- include('includes/headBootstrap') %>
+   <%- include('includes/headLocalStyles') %>
+</head>
+
+<body>
+   <%- include('includes/header') %>
+
+   <section id="main">
+      <div>
+         <%- include('includes/navBar') %>
+         <h3>This is my EJS <%= 'demo '.toUpperCase() %> Page</h3>
+         <p>Todays Random Number is: <b><%= num %></b> and it's an <b>
+         <%= num%2===0 ? 'EVEN' : 'ODD' %> </b>number.</p>
+         <p>&nbsp;</p>
+
+         <p><span class="firstWord">L</span>orem ipsum dolor sit, amet consectetur adipisicing elit. Odio ex itaque eum culpa, sed, sint natus sapiente doloremque eaque rem quam expedita dolore, illo voluptatem fugiat minima hic quidem quis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit explicabo nulla ea provident. Adipisci culpa, temporibus, fugiat dicta omnis voluptates nisi rem, sunt dolore inventore excepturi ratione doloremque deserunt minus?</p>
+
+         <p><span class="firstWord">L</span>orem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis unde iste mollitia eaque assumenda laudantium ducimus accusantium distinctio illo ipsum in quam quos, repudiandae maiores adipisci non voluptate atque quidem?</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
+      </div>
+   </section>
+   <a href="#top"><< TOP >></a>
+   <p>&nbsp;</p>
+
+   <%- include('includes/footer') %>
+</body>
+</html>

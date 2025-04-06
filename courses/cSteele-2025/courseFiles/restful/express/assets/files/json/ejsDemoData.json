@@ -1,0 +1,61 @@
+{
+    "soccer": {
+        "name": "Soccer",
+        "subscribers": 72612,
+        "description": "The football subreddit. News, results and discussion about the beautiful game.",
+        "posts": [
+            {
+                "title": "Marten de Roon to make pizza for more than 1,000 people in Bergamo if Atalanta win the Champions league.",
+                "author": "joeextreme"
+            },
+            {
+                "title": "Stephan Lichtsteiner has retired from professional football",
+                "author": "odd person",
+                "img": "https://imgs.search.brave.com/CkLj1uCsokKVNfZsu0xHusrR2IwfJoy2YEjyzD1zQNc/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy8w/LzA1L1N0ZXBoYW5f/TGljaHRzdGVpbmVy/XzIwMTguanBn"
+            },
+            {
+                "title": "OFFICIAL: Dani Parejo signs for Villareal.",
+                "author": "badDoggy",
+                "img": "https://imgs.search.brave.com/u2Gs9yKZjEku62QU6GJg7W4FZQ2v1xcJKMaUsvzWLLg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTE3/MTcyMzUzOS9waG90/by92YWxlbmNpYS1z/cGFpbi1kYW5pLXBh/cmVqby1vZi12YWxl/bmNpYS1jZi1sb29r/cy1vbi1kdXJpbmct/dGhlLWxpZ2EtbWF0/Y2gtYmV0d2Vlbi12/YWxlbmNpYS1jZi5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/cmlpNmFNV1d2Uk1h/WS1VN09DV1U4Mmda/YzJKMjFtVXZfRDFh/dlI5WDFjZz0"
+            }
+        ]
+    },
+    "chickens": {
+        "name": "Chickens",
+        "subscribers": 23956,
+        "description": "A place to post your photos, video and questions about chickens!",
+        "posts": [
+            {
+                "title": "Naughty chicken hid under a shed for 3 weeks and came home with 25 chicks today!",
+                "author": "bannanaDanna",
+                "img": "https://preview.redd.it/pcn8u4j7c9z61.jpg?width=960&crop=smart&auto=webp&s=e114976dde1108b9556555d2db36a3cb6211798d"
+            },
+            {
+                "title": "Had to kill my first chicken today. Does it get any easier?",
+                "author": "sad boi"
+            },
+            {
+                "title": "My five year old chicken set and hatched one baby. I guess she wanted to be a mama one more time.",
+                "author": "tammythetiger",
+                "img": "https://preview.redd.it/lervkuis3me51.jpg?width=640&crop=smart&auto=webp&s=6a18ab3c4daa80eccf3449217589b922fa443946"
+            }
+        ]
+    },
+    "harvest": {
+        "name": "Mighty Harvest",
+        "subscribers": 44002,
+        "description": "Feeding many villages and village idiots for 10s of days.",
+        "posts": [
+            {
+                "title": "My first meyer lemon ripened today. Im so proud of the little guy. Banana for scale",
+                "author": "proudmamma",
+                "img": "https://preview.redd.it/1bz6we4j54941.jpg?width=640&crop=smart&auto=webp&s=a036ea99299f7737efde9f6c3bfa43893f5eaa00"
+            },
+            {
+                "title": "I think I overestimated the harvest basket size I needed.",
+                "author": "grower123",
+                "img": "https://preview.redd.it/4h99osd25i351.jpg?width=640&crop=smart&auto=webp&s=d651250a345bbceeba7a66632e8c52a02d71bc73"
+            }
+        ]
+    }
+}

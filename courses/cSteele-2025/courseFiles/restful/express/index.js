@@ -1,50 +1,50 @@
 // Set the variables and requires
 const express = require('express');
 const app = express();
+const path = require( 'path' );
 const port = 3000;
-const path = require('path');
+const demoData = require( './assets/files/json/ejsDemoData.json' );
 
 
-// express middleware parser for post req.body
-// for parsing application/x-www-form-urlencoded data
-app.use(express.urlencoded({ extended: true }))
-// for parsing json data
-app.use(express.json())
-// set default views and path
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
+// set ejs as our view engine using .get() express method
+app.set( 'view engine', 'ejs' );
+
+// set directory for static files
+app.use(express.static(path.join(__dirname, 'assets')))
+// Set multiple view directories
+app.set('views', [
+   path.join(__dirname, 'views/bodingles'),
+   path.join(__dirname, 'views/subReddit')
+]);
 
 
-// Our fake database:
-let comments = [
-   {
-       username: 'Sexy Sandy',
-       comment: 'lol that is so funny!'
-   },
-   {
-       username: 'Skyler',
-       comment: 'I like to go birdwatching with my dog'
-   },
-   {
-       username: 'Josephene',
-       comment: 'Do you think they have pizza in space?'
-   },
-   {
-       username: 'Sadie',
-       comment: 'What in the world is going on here?'
-   }
-]
-
-
-// get request for index route
-app.get('/comments', (req, res) => {
-   res.render('comments/index', { comments });
+// get request for root view (Bodingles)
+app.get( '/', ( req, res ) => {
+   res.render('bodIndex')
 })
 
-// post requests
-app.post( '/tacos', ( req, res ) => {
-   const { meat, qty } = req.body;
-   res.send(`Your Order is: ${qty} ${meat} Taco(s).`);
+// get request for root view (express ejs app)
+app.get( '/home', ( req, res ) => {
+   const num = Math.floor(Math.random() * 100) + 1;
+   res.render('home', { num })
+})
+
+// get request for pets view
+app.get( '/pets', ( req, res ) => {
+   const pets = [ 'Chico', 'Bella', 'Sadie', 'Addie Cakes', 'BooBoo', 'Jasper', 'Jitters' ];
+   res.render('pets', { pets })
+})
+
+// get request for subreddit view
+app.get( '/r/:subreddit', ( req, res ) => {
+   const { subreddit } = req.params;
+   const data = demoData[subreddit];
+   if (data) {
+      // the 3 dots allow us to "spread" the data to get to the individual pieces, such as "Name"
+      res.render('subReddit', { ...data });
+   } else {
+      res.render('notFound', { subreddit });
+   }
 })
 
 

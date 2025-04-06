@@ -1,0 +1,64 @@
+body {
+   background-color: #a6e8e8;
+}
+
+a {
+   color: black;
+   font-weight: 600;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+a:hover {
+   color: #dddddd;
+}
+
+h4 {
+   color: #dddddd;
+   padding: 20px;
+}
+
+hr {
+   border-color: #000000;
+}
+
+p{
+  margin: 25px 100px;
+}
+
+.author {
+   color: #000000;
+   font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.desc {
+   color: #1f1f1f;
+   font-size: 1.3rem;
+}
+
+.pics {
+   max-width: 600px;
+   height: auto;
+   border: 2px solid #1a1a1a;
+   border-radius: 20px;
+   box-shadow: 3px 3px 15px #232323;
+}
+
+.subs {
+   color: #1f1f1f;
+   font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.subTitle {
+   color: #1f1f1f;
+   font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.title {
+   color: #1f1f1f;
+   font-size: 1.1rem;
+  font-weight: 500;
+}
