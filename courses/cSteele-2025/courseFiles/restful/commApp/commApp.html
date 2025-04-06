@@ -149,7 +149,7 @@
                   <li>app.<span class="colorBlue">set</span>('view engine', 'ejs');</li>
                </ul>
             </p>
-            <p>Now, if we remember, we "defined" our <b>routes</b> in our last discussion:<hr>
+            <p>And now, if we remember, we "defined" our <b>routes</b> in our last discussion:<hr>
                <div class="crud">
                   <span class="crud2">
                      <ul>
@@ -183,7 +183,7 @@
                   </span>
                </div>
             </p><hr>
-            <p>Next we're going to start <b>applying these routes</b> in our server file, <i><span class="colorBlue">index</span>.js</i>. We're going to start with the <span class="colorGreen">index</span> route that allows us to <b>List all of the existing comments</b>, so we need to add an <b>app</b>.<span class="colorBlue">get()</span> request to our server file:
+            <p>We're going to start <b>applying these routes</b> in our server file, <i><span class="colorBlue">index</span>.js</i>, and we're going to start with the <span class="colorGreen">index</span> route that allows us to <b>List all of the existing comments</b>. So we need to add an <b>app</b>.<span class="colorBlue">get()</span> request to our server file, that sends the <b>comments</b> array to the <b>index.ejs</b> file when a user <b>req</b>uests the "<b>comments</b>":
                <ul class="sectHighlight">
                   <li>JavaScript</li>
                   <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
@@ -196,7 +196,35 @@
                   <li>})</li>
                </ul>
             </p>
-            <p>This will send our "<b>comments</b>" array to the <b>index.ejs</b> file that we created to <b>list all of the existing</b> comments. And because it is an <b>ejs</b> file, we can embed some Js within it to process the array.</p>
+            <p>This will send our "<b>comments</b>" array to our <b>index.ejs</b> file. And because it is an <b>ejs</b> file, we can embed some Js within it to process the array.</p>
+            <p>And as stated before, an <b>ejs</b> file is simply an <b>html</b> file that we can <b>embed</b> with Js coding. So <b>ejs</b> files are built on the basic <b>html</b> structure, and for that reason, we do not need to list the entire contents of our <b>index.ejs</b> file. All that's important here, is the embedded Js code that resides within the <b>body</b> of the file, and does the processing of the <b>comments</b> array, for display. And lastly, remember that we <b>must</b> use the <b>ejs syntax</b> to embed our Js code. I'm going to utilize a simple &lt;table> to output our <b>comments</b> data:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.ejs</li>
+                  <li>&lt;body>
+                     <ul>
+                        <li>&lt;table>
+                           <ul>
+                              <li><span class="colorPurple">&lt;% for (let comm of comments) { %></span>
+                                 <ul>
+                                    <li>&lt;tr>
+                                       <ul>
+                                          <li>&lt;td><span class="colorPurple">&lt;%= comm.username >%></span>&lt;/td></li>
+                                          <li>&lt;td><span class="colorPurple">&lt;%= comm.comment %></span>&lt;/td></li>
+                                       </ul>
+                                    </li>
+                                    <li>&lt;tr></li>
+                                 </ul>
+                              </li>
+                              <li><span class="colorPurple">&lt;% } %></span></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/table></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/body></li>
+               </ul>
+            So we're going to loop through our <b>comments</b> array and display each user, and their comment.</p>
             <p>And now if we start our server <i>(approot / nodemon <span class="colorBlue">index</span>.js</i>), and in our browser, go to:
                <ul>
                   <li><b>http://localhost:3000/comments</b></li>
