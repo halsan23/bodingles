@@ -1,7 +1,7 @@
 // Set the variables and requires
+const path = require( 'path' );
 const express = require('express');
 const app = express();
-const path = require( 'path' );
 const port = 3000;
 const demoData = require( './assets/files/json/ejsDemoData.json' );
 

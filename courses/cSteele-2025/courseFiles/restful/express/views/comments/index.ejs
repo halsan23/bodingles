@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+   <title>Comments App - List All</title>
+
+   <!-- import stylesheets -->
+   <%- include('../includes/headLocalStyles') %>
+</head>
+
+<body>
+   <!-- import Bodingles header -->
+   <%- include('../includes/header') %>
+
+   <section id="main" class="content">
+      <h3>Current Comments</h3>
+
+      <section id="textWindow2">
+         <table class="crud">
+            <% users.forEach(user => { %>
+            <tr>
+               <td class="crud2 cent"><b><%= user.username %></b></td>
+               <td class="crud2"><%= user.comment %></td>
+            </tr>
+            <% }) %>
+         </table>
+      </section>
+   </section>
+
+   <!-- import Bodingles footer -->
+   <%- include('../includes/footer') %>
+</body>
+</html>
