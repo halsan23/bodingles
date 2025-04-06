@@ -122,7 +122,22 @@
                      </ul>
                   </li>
                </ul>
-            so we need to make sure we have the following in our <i><span class="colorBlue">index</span>.js</i> file:
+            </p>
+            <p>The first step in this process is to create a file/directory structure, for a page that will display all of our existing comments. So in our <b>views</b> directory, we're going to create a directory called <b>comments</b>. And within that directory, we're going to create a file called <span class="colorBlue">index</span>.<b>ejs</b>, like so:
+               <ul class="sectHighlight">
+                  <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; views
+                     <ul>
+                        <li>- <img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; comments
+                           <ul>
+                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; index.ejs</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            <i><b>*note</b>: while we could name our <span class="colorBlue">index</span>.<b>ejs</b> anything we like, it is generally considered "good practice" to name the <span class="colorGreen">index</span> <b>route</b> as <span class="colorBlue">index</span>.<b>ejs</b></i>
+            </p>
+            <p>Next we need to make sure we have the following in our <i><span class="colorBlue">index</span>.js</i> file:
                <ul class="sectHighlight">
                   <li>JavaScript</li>
                   <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
@@ -166,24 +181,9 @@
                         <li><b>Delete one</b> comment by id</li>
                      </ul>
                   </span>
-               </div><hr>
-               and next we're going to start applying our routes in our server file, <i><span class="colorBlue">index</span>.js</i>. We'll start with the <span class="colorGreen">index</span> route that allows us to <b>List</b> all of the existing comments.
-            </p>
-            <p>The first step in this process is to create a file/directory structure, for a page that will display all of our existing comments. So in our <b>views</b> directory, we're going to create a directory called <b>comments</b>. And within that directory, we're going to create a file called <span class="colorBlue">index</span>.<b>ejs</b>, like so:
-               <ul class="sectHighlight">
-                  <li><img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; views
-                     <ul>
-                        <li>- <img src="/images/folder_16x16.png" valign="middle" alt="Folder Icon">&nbsp; comments
-                           <ul>
-                              <li><img src="/images/ejs.png" valign="middle" alt="ejs Icon">&nbsp; index.ejs</li>
-                           </ul>
-                        </li>
-                     </ul>
-                  </li>
-               </ul>
-            <i><b>*note</b>: while we could name our <span class="colorBlue">index</span>.<b>ejs</b> anything we like, it is generally considered "good practice" to name the <span class="colorGreen">index</span> <b>route</b> as <span class="colorBlue">index</span>.<b>ejs</b></i>
-            </p>
-            <p>and now we need to add an <b>app</b>.<span class="colorBlue">get()</span> request to our server file:
+               </div>
+            </p><hr>
+            <p>Next we're going to start <b>applying these routes</b> in our server file, <i><span class="colorBlue">index</span>.js</i>. We're going to start with the <span class="colorGreen">index</span> route that allows us to <b>List all of the existing comments</b>, so we need to add an <b>app</b>.<span class="colorBlue">get()</span> request to our server file:
                <ul class="sectHighlight">
                   <li>JavaScript</li>
                   <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
@@ -196,12 +196,12 @@
                   <li>})</li>
                </ul>
             </p>
+            <p>This will send our "<b>comments</b>" array to the <b>index.ejs</b> file that we created to <b>list all of the existing</b> comments. And because it is an <b>ejs</b> file, we can embed some Js within it to process the array.</p>
             <p>And now if we start our server <i>(approot / nodemon <span class="colorBlue">index</span>.js</i>), and in our browser, go to:
                <ul>
                   <li><b>http://localhost:3000/comments</b></li>
                </ul>
-            our <span class="colorBlue">index</span>.<b>ejs</b> page should now display. And this finishes the construction of our basic <span class="colorGreen">index</span> <b>route</b>, which we defined as "the route to display all comments".</p>
-            <p>So what we've shown here is <b>one</b> potential way, of many, to structure CRUD functionality for one single resource (our comments).</p>
+            our <span class="colorBlue">index</span>.<b>ejs</b> page should now display. And this finishes the construction of our basic <span class="colorGreen">index</span> <b>route</b>, which we defined as "the route to display all comments". So what we've shown here is <b>one</b> potential way, of many, to structure CRUD functionality for one single resource (our comments).</p>
             <p>Next, let's add some <a href="addNew.html">New Comments</a></p>
          </article>
       </section>
