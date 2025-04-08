@@ -12,11 +12,17 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
-   <link rel="stylesheet" href="../local.css">
 
    <style>
-      li {
-         list-style-type: disc;
+      table {
+         margin: 0 auto;
+         width: 70%;
+         text-align: left;
+         border: 1px solid sienna;
+      }
+
+      td {
+         padding: 10px 25px;
       }
    </style>
 </head>
@@ -40,9 +46,8 @@
       <section id="textWindow4" class="just">
          <!-- Intro -->
          <article>
-            <h6>Intro</h6>
-            <p><span class="firstWord">W</span>hat is MongoDB?</p>
-            <p>MongoDB is an open source NoSQL database management program. NoSQL (Not only SQL) is used as an alternative to traditional relational databases. NoSQL databases are quite useful for working with large sets of distributed data. MongoDB is a tool that can manage document-oriented information, store or retrieve information.</p>
+            <h6>What is MongoDB</h6>
+            <p><span class="firstWord">M</span>ongoDB is an open source <b>NoSQL</b> database management program. NoSQL <i>(Not only SQL)</i> is used as an alternative to traditional relational databases. NoSQL databases are quite useful for working with large sets of distributed data. MongoDB is a tool that can manage document-oriented information, store or retrieve information.</p>
             <p>MongoDB is used for high-volume data storage, helping organizations store large amounts of data while still performing rapidly. Organizations also use MongoDB for its ad-hoc queries, indexing, load balancing, aggregation, server-side JavaScript execution and other features.</p>
             <p>Structured Query Language (SQL) is a standardized programming language that is used to manage relational databases. SQL normalizes data as schemas and tables, and every table has a fixed structure.</p>
             <p>Instead of using tables and rows as in relational databases, as a NoSQL database, the MongoDB architecture is made up of collections and documents. Documents are made up of Key-value pairs -- MongoDB's basic unit of data. Collections, the equivalent of SQL tables, contain document sets. MongoDB offers support for many programming languages, such as C, C++, C#, Go, Java, Python, Ruby and Swift.</p>
@@ -84,17 +89,37 @@
             </p>
          </article><hr>
 
-         <!-- Why Use Mongo -->
+         <!-- BSON -->
          <article>
-            <h6>Why Mongo</h6>
-            <p><span class="firstWord">S</span>o why do we want to learn MongoDB?
-               <ul>
-                  <li>Mongo is commonly used with Node and Express (MEAN & MERN stacks).</li>
-                  <li>It's easy to get started with (though it can be tricky to master).</li>
-                  <li>It plays particularly well with JavaScript.</li>
-                  <li>Its popularity means there is a strong community of developers using Mongo.</li>
-               </ul>
-            </p>
+            <h6>BSON</h6>
+            <p><span class="firstWord">W</span>e've been working with <b>json</b> files for a while now, and  and we know that they are objects that can store, in an organized way, different data types, such as strings, numbers, arrays and more. But json stores this information as textual data which is considered slow and not compressible.</p>
+            <p>MongoDB uses a file type called <b>BSON</b>. bson files are very similar to json files, but they are stored as a representation of "binary files", which means they are faster than json files, and are also compressible which leads to smaller file sizes..</p>
+            <p>Here is a chart showing the main differences:</p>
+            <table>
+               <tr>
+                  <td style="width: 22%;"></td>
+                  <td class="colorBlue" style="width: 39%;">JSON</td>
+                  <td class="colorGreen" style="width: 39%;">BSON</td>
+               </tr>
+               <tr>
+                  <td><b>Encoding</b></td>
+                  <td>UTF-8 String</td>
+                  <td>Binary</td>
+               </tr>
+               <tr>
+                  <td><b>Data Support</b></td>
+                  <td>String, Boolean, Number, Array</td>
+                  <td>String, Boolean, Number (Integer, Float, Long, Decimal 128..), Array, Date, Raw Binary</td>
+               </tr>
+               <tr>
+                  <td><b>Readability</b></td>
+                  <td>Human and Machine</td>
+                  <td>Machine Only</td>
+               </tr>
+            </table>
+            <p>BSON, or Binary JSON, is the data format that MongoDB uses to organize and store data. This data format includes all JSON data structure types and adds support for types including dates, different size integers, ObjectIds, and binary data. You can use BSON documents in your Python application by including the bson package. For a complete list of supported types, see the BSON Types server manual page.</p>
+            <p>BSON documents are stored in MongoDB collections in binary format, while PyMongo represents BSON documents as Python dictionaries. PyMongo automatically converts Python dictionaries into BSON documents when inserting them into a collection. Likewise, when you retrieve a document from a collection, PyMongo converts the BSON document back into a Python dictionary.</p>
+         </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
