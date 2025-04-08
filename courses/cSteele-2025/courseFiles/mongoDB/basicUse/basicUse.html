@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../mongoDbIndex.html">Back to MongoDB Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>MongoDB</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Basic Usage -->
+         <article>
+            <h6>Basic Usage</h6>
+            <p><span class="firstWord">I</span>n this discussion, we're going to start talking about how to actually use MongoDB. We're going to be using the MongoDB Shell to create a db, add to a db, and remove from a db.</p>
+            <p>We're going to create an "Animal Shelter" db and to do this we'll use the keyword <b>use</b>, which is the command to create a new db, followed by the db name. So start by typing <i>(in the Mongo Shell)</i>, the following:
+               <ul class="sectHighlight">
+                  <li><b>use</b> animalShelter</li>
+               </ul>
+            </p>
+            <p>and once we hit [Enter], the Mongo Shell displays "switched to db animalShelter", and our prompt has switched to <b>animalShelter></b> to show us that we are now working within our new db. We've now created our first MongoDB database.</p>
+            <p>We now need to understand that within Mongo, we work with different objects that are referred to as "Collections". For example, in our Animal Shelter, we might have collections of Dogs, Cats, People, or Locations. We're going to start by creating a "Dog" collection. This is called <b>inserting</b> into the db.</p>
+            <p>In Mongo, if we try to insert something into a <b>collection</b> that does not yet exist, then that collection is created. And if we look at the <a href="https://www.mongodb.com/docs/v5.0/reference/insert-methods/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Mongo Docs</a>, we'll see that there are two ways to insert data. Either insert <b>one</b>, or insert <b>many</b>. We're going to start by inserting one. Let's show the command and then break it down:
+               <ul>
+                  <li>db.dogs.insertOne({})</li>
+               </ul>
+            So, while we are in our database (<b>animalShelter</b>), we tell the <b>db</b> to either create, or insert into, the <b>dogs</b> collection and we want to <b>insertOne({})</b>. Now if you notice, insertOne() is looking for an object about the collection we want to insert. So let's actually add a collection of a dog named Chico:
+               <ul class="sectHighlight">
+                  <li>db.dogs.insertOne({name: "Chico", age: 3, breed, "Pit Bull", catFriendly: true})</li>
+               </ul>
+            Now the first thing you probably noticed is that this looks an awful lot like a json object, but wait, why are the key names not enclosed in parenthesis? It's because it's a "JavaScript" object, not a json object. So we don't need the parenthesis.
+            </p>
+            <p>Once we hit enter, mongo returns a <b>promise</b>:
+               <ul>
+                  <li>{
+                     <ul>
+                        <li>acknowledged: true,</li>
+                        <li>insertedId: ObjectId('67f5908cf09a1c0894b71236')</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            and if we enter <b>show collections</b>, we see <b>dogs</b> has been created. We can also use <b>db.dogs.find()</b> to display all of the entries in this collection, and we get:
+            <ul>
+               <li>[
+                  <ul>
+                     <li>{
+                        <ul>
+                           <li>_id: ObjectId('67f5908cf09a1c0894b71236'),</li>
+                           <li>name: 'Chico',</li>
+                           <li>age: 10,</li>
+                           <li>breed: 'Pit Bull',</li>
+                           <li>catFriendly: true</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>]</li>
+            </ul>
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>

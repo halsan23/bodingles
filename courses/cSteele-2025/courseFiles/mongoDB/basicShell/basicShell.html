@@ -13,6 +13,23 @@
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
    <link rel="stylesheet" href="../local.css">
+   <style>
+      table {
+         margin: 0 auto;
+         width: 70%;
+         text-align: left;
+         border: 1px solid sienna;
+      }
+
+      /* td {
+         padding-left: 50px;
+      } */
+
+      .cent {
+         text-align: center;
+         font-weight: 500;
+      }
+   </style>
 </head>
 
 <body>
@@ -42,14 +59,40 @@
                </ul>
             </p>
             <p>There is a good list of the shell commands at <a href="https://www.tutorialsteacher.com/mongodb/mongodb-shell-commands" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">TutorialsTeacher.com</a>, but here are a few of the basics:
-               <ul>
-                  <li><b>mongosh</b>: start the mongoDB shell.</li>
-                  <li><b>version</b>: displays the current shell version.</li>
-                  <li><b>help</b>: display the list of basic commands.</li>
-                  <li><b>cls</b>: clears the current screen.</li>
-                  <li><b>show</b>: displays a list of available databases.</li>
-                  <li><b>exit/quit/ctrl+c</b>: quit the mongoDB shell.</li>
-               </ul>
+               <table>
+                  <tr>
+                     <td class="cent colorGreen"><b>Command</b></td>
+                     <td class="colorBlue"><b>Use</b></td>
+                  </tr>
+                  <tr>
+                     <td class="cent">mongosh</td>
+                     <td>start the mongoDB shell.</td>
+                  </tr>
+                  <tr>
+                     <td class="cent">version</td>
+                     <td>displays the current shell version.</td>
+                  </tr>
+                  <tr>
+                     <td class="cent">help</td>
+                     <td>display the list of basic commands.</td>
+                  </tr>
+                  <tr>
+                     <td class="cent">cls</td>
+                     <td>clears the current screen.</td>
+                  </tr>
+                  <tr>
+                     <td class="cent">show dbs</td>
+                     <td>displays a list of available databases.</td>
+                  </tr>
+                  <tr>
+                     <td class="cent">show collections</td>
+                     <td>displays a list of collections in the current database.</td>
+                  </tr>
+                  <tr>
+                     <td class="cent">exit/quit/ctrl+c</td>
+                     <td>quit the mongoDB shell.</td>
+                  </tr>
+               </table>
             </p>
          </article>
       </section>

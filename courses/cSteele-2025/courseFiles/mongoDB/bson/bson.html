@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+
+   <style>
+      table {
+         margin: 0 auto;
+         width: 70%;
+         text-align: left;
+         border: 1px solid sienna;
+      }
+
+      td {
+         padding: 10px 25px;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../mongoDbIndex.html">Back to MongoDB Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>MongoDB</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- BSON -->
+         <article>
+            <h6>BSON</h6>
+            <p><span class="firstWord">W</span>e've been working with <b>json</b> files for a while now, and  and we know that they are objects that can store, in an organized way, different data types, such as strings, numbers, arrays and more. But json stores this information as textual data which is considered slow and not compressible.</p>
+            <p>MongoDB uses a file type called <b>BSON</b>. bson files are very similar to json files, but they are stored as a representation of "binary files", which means they are faster than json files, and are also compressible which leads to smaller file sizes..</p>
+            <p>Here is a chart showing the main differences:</p>
+            <table>
+               <tr>
+                  <td style="width: 22%;"></td>
+                  <td class="colorBlue" style="width: 39%;">JSON</td>
+                  <td class="colorGreen" style="width: 39%;">BSON</td>
+               </tr>
+               <tr>
+                  <td><b>Encoding</b></td>
+                  <td>UTF-8 String</td>
+                  <td>Binary</td>
+               </tr>
+               <tr>
+                  <td><b>Data Support</b></td>
+                  <td>String, Boolean, Number, Array</td>
+                  <td>String, Boolean, Number (Integer, Float, Long, Decimal 128..), Array, Date, Raw Binary</td>
+               </tr>
+               <tr>
+                  <td><b>Readability</b></td>
+                  <td>Human and Machine</td>
+                  <td>Machine Only</td>
+               </tr>
+            </table>
+            <p>BSON, or Binary JSON, is the data format that MongoDB uses to organize and store data. This data format includes all JSON data structure types and adds support for types including dates, different size integers, ObjectIds, and binary data. You can use BSON documents in your Python application by including the bson package. For a complete list of supported types, see the BSON Types server manual page.</p>
+            <p>BSON documents are stored in MongoDB collections in binary format, while PyMongo represents BSON documents as Python dictionaries. PyMongo automatically converts Python dictionaries into BSON documents when inserting them into a collection. Likewise, when you retrieve a document from a collection, PyMongo converts the BSON document back into a Python dictionary.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
