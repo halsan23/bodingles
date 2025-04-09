@@ -31,16 +31,23 @@
       </section>
 
       <section id="textWindow4" class="just">
-         <!-- Create a Database -->
+         <!-- Intro -->
          <article>
             <h6>Intro</h6>
             <p><span class="firstWord">I</span>n this discussion, we're going to start talking about how to actually use MongoDB to build and manipulate databases.</p>
             <p>When we installed MongoDB, we also used to option to install <b>MongoDB Compass</b> which is a Graphical User Interface (GUI) for MongoDB. And, as with most gui's, it is much simpler to use the <b>Compass GUI</b> for the building and manipulating of our databases, but our class is teaching the use of the <b>MongoDB Shell</b>, which is not necessarily a bad thing.</p>
-            <p>Since we have the two different pathways to achieve our goal of creating and manipulating MongoDB database's, I will try to document them both as we go.</p>
-            <P>Also, once you create a database, MongoDB uses what are called <b>Collections</b> to store and reference the data. Collections are simply a term used to refer to the data being stored, but because the data is stored in a <b>non-SQL</b> way, and because of the many different types of data that can be stored, MongoDB chose to just refer to the data, as <b>Collections.</b></P>
-            <hr><h6>Create the Database</h6>
-            <p>We're going to be creating a database for an Animal Shelter, so the first thing we need to do is to <b>create</b> our new database.</p>
-            <p>For the <span class="colorGreen">Compass GUI</span>:
+            <p>Since we have the two different pathways to achieve our goal of creating and manipulating MongoDB database's, I will try to document them both as we go, starting with the <span class="colorGreen">Compass GUI</span> first, and then farther down the page, how to use the <span class="colorBlue">MongoDB Shell</span> to accomplish our tasks.</p>
+            <p>Also, once you create a database, MongoDB uses what are called <b>Collections</b> to store and reference the data. Collections are simply a term used to refer to the data being stored, but because the data is stored in a <b>non-SQL</b> way, and because of the many different types of data that can be stored, MongoDB chose to just refer to the data, as <b>Collections.</b></p>
+         </article>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Compass GUI Procedure -->
+         <article>
+            <!-- Create the Database -->
+            <h6 class="colorGreen">Compass GUI</h6>
+            <h6>Create the Database</h6>
+            <p>We're going to be creating a database for an Animal Shelter, so the first thing we need to do is to <b>create</b> a new database:
                <ul>
                   <li><b>Start</b> the Compass App</li>
                   <li><b>Connect</b> to our localhost server - default port is 27017</li>
@@ -52,40 +59,98 @@
                      </ul>
                   </li>
                </ul>
-            </p><hr>
-            <p>For the <span class="colorBlue">MongoDB Shell</span>:
+            </p>
+
+            <!-- Create a Collection -->
+            <h6>Create a Collection</h6>
+            <p><span class="firstWord">A</span>s already mentioned, MongoDB utilizes "Collections" to store it's data. So once we have created our new database, we need to add our first collection. We're going to create a collection of <b>dogs</b> that will refer to any dogs we have in our shelter:
                <ul>
+                  <li><b>Click</b> the <b>+</b> sign next to our DB Name in the DB List</li>
+                  <li><b>Name</b> your collection (<b>dogs</b>)</li>
+               </ul>
+            <i>and yes, it's that simple</i></p>
+
+            <!-- Create a Document -->
+            <h6>Create a Document</h6>
+            <p>And now we'll add our first set of data, which Mongo calls a "document". Start by clicking on the green dropdown box to <b>Add Data</b>. From the dropdown, you can either Import data or Insert an empty document which opens a template to enter our data. We will choose to Insert. Now when we add data we want to add it in json format.</p>
+            <p>In the empty document template, you'll notice that Mongo has automatically added a unique ID number to identify this dataset. This is the default behavior for Mongo. But we want to add our data first, so let's delete everything inside the curly braces. Not to worry about the ID, it will add it when we are done.</p>
+            <p>Next we just need to insert our data <i>(in json format)</i> and press the big green INSERT button. So we're going to insert:
+               <ul class="sectHighlight">
+                  <li>{
+                     <ul>
+                        <li>name: 'Chico',</li>
+                        <li>age: 10,</li>
+                        <li>breed: 'Pit Bull',</li>
+                        <li>catFriendly: true</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            and press the big green "<b>Insert</b>" button when we are finished. We have just added our first document to our <b>dogs</b> collection. We can also add <b>multiple</b> "documents" to our collection, <b>at one time</b> by nesting them in an array structure, like so:
+               <ul class="sectHighlight">
+                  <li>[
+                     <ul>
+                        <li>{
+                           <ul>
+                              <li>collection object 1</li>
+                           </ul>
+                        </li>
+                        <li>},</li>
+                        <li>{
+                           <ul>
+                              <li>collection object 2</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>]</li>
+               </ul>
+         And now when we are back at the main Compass page, we see our new document added to our new collection, complete with it's unique ID number.</p>
+         </article>
+         </section>
+
+         <section id="textWindow4" class="just">
+         <!-- MongoDB Shell Procedure -->
+         <article>
+            <h6 class="colorBlue">MongoDB Shell</h6>
+            <h6>Create the Database</h6>
+            <p>To create a new database in <span class="colorBlue">MongoDB Shell</span>:
+               <ul class="sectHighlight">
                   <li><b>Open</b> your Terminal App of choice. I like PowerShell</li>
                   <li><b>Start</b> MongoDB by entering <b>mongosh</b></li>
                   <li><b>Create</b> a new database - enter <b>use animalShelter</b></li>
                </ul>
             Once the db is created, the Mongo Shell should switch to the "animalShelter" db (<i>your cursor should change from <b>test></b>, to <b>animalShelter></b></i>). If it does not, or at anytime you want to switch to that db you just created, by using the <b>use</b> keyword:
-               <ul>
+               <ul class="sectHighlight">
                   <li><i><b>use</b> animalShelter</i></li>
                </ul>
             <i><b>*note</b>: the <b>use</b> keyword will <b>switch</b> to a db if it exists, or it will <b>create</b> a new db if it does not.</i>
             </p>
-         </article><hr>
-
-         <!-- Create a Collection -->
-          <article>
             <h6>Create a Collection</h6>
-            <p><span class="firstWord">A</span>s already mentioned, MongoDB utilizes "Collections" to store it's data. So once we have created our new database, we need to add our first collection. We're going to create a collection of <b>dogs</b> that will refer to any dogs we have in our shelter.</p>
-            <p>For the <span class="colorGreen">Compass GUI</span>:
-               <ul>
-                  <li><b>Click</b> the + sign next to our DB Name in the DB List</li>
-                  <li><b>Name</b> your collection (<b>dogs</b>), <i>and yes, it's that simple</i></li>
+            <p>To create a Collection in the <span class="colorBlue">MongoDB Shell</span>, you have two options:
+               <ul class="sectHighlight">
+                  <li>1. You can enter <b>db.createCollection(</b>"collectionName"<b>)</b>
+                     <ul>
+                        <li>which will create an empty collection with no data.</li>
+                     </ul>
+                  </li>
+                  <li>or,</li>
+                  <li>2. You can enter <b>db.</b>collectionName<b>.insertOne( </b>{collectionData}<b> )</b>
+                     <ul>
+                        <li>which will create a new collection and populate it with the data.</li>
+                     </ul>
+                  </li>
                </ul>
-            Now that our empty Collection (dogs) is created we need to add some data to it .........
-            </p><hr>
-            <p>For the <span class="colorBlue">MongoDB Shell</span>:
-               <ul>
-                  <li>enter <b>db.dogs.insertOne(</b>{name: "Chico", age: 10, breed, "Pit Bull", catFriendly: true}<b>)</b></li>
-               </ul>
-            Once again, when you enter <b>db.dogs ...</b>, if that database does not exist, MongoDB will create it and insert the collection data. If the collection already exists, it will simply add the data to the collection.
+            <i><b>*note</b>: when you enter <b>db.collectionName.insertOne()</b>, if that collection does not exist, MongoDB will create it <b>and insert the collection data</b>. If the collection already exists, it will simply add the data to the existing collection.</i>
             </p>
-            <p><b>*note</b>: according to the <a href="https://www.mongodb.com/docs/languages/c/c-driver/current/write/insert/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MongoDB docs</a>, to insert one "collection" item you use <b>db.insertOne()</b>, and to enter multiple collection items, you use <b>db.insertMany()</b>.  However, the <b>db.insertOne()</b> method works for either single or multiple entries, and here's why. If you are going to add "multiple" collections of data at once, just add them as multiple objects of an array.</p>
-            <p>As you can see from our example adding the "<b>Chico</b>" collection, all of the data <b>is an object</b>, so to add multiple items, you could use <b>db.dogs.insertOne( [</b> {}, {}, {} <b>] )</b> and just create an array structure, like so:
+            <p>We are going to use option 2 which will create the Collection and populate it with it's first document. The Collection will be called <b>dogs</b>, and our Document will be populated with data for our first dog, like so:
+               <ul class="sectHighlight">
+                  <li>db.dogs.insertOne( { name: "Chico", age: 10, breed: "Pit Bull", catFriendly: true } )</li>
+               </ul>
+            </p>
+            <p>Also, according to the <a href="https://www.mongodb.com/docs/languages/c/c-driver/current/write/insert/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">MongoDB docs</a>, to insert one "collection" item you use <b>db.insertOne()</b>, and to enter multiple collection items, you use <b>db.insertMany()</b>.  However, the <b>db.insertOne()</b> method works for either single or multiple entries, and here's why. If you are going to add "multiple" collections of data at once, just add them as multiple objects of an array.</p>
+            <p>As you can see from our example <b>db.</b>collectionName<b>.insertOne( </b>{collectionData}<b> )</b>, our collection data <b>is entered as an object</b>, so to add multiple items, you could use <b>db.</b>collectionName<b>.insertOne( [</b> {}, {}, {} <b>] )</b> and <b>just create an array structure</b>, like so:
                <ul>
                   <li>[
                      <ul>
@@ -108,7 +173,7 @@
             </p>
             <p>Now you've probably noticed is that the collections look an awful lot like a json objects, but they are not. They are actually "JavaScript" objects, and there is a distinction. For one thing, when using the MongoDB Shell, the key names are not enclosed in parenthesis.
             </p>
-            <p>Also, <b>when using the shell</b>, once you hit enter to create or add dat to a collection, Mongo returns a <b>promise</b>:
+            <p>Also, <b>when using the shell</b>, once you hit enter to create or add data to a collection, Mongo returns a <b>promise</b>:
                <ul>
                   <li>{
                      <ul>
@@ -118,7 +183,7 @@
                   </li>
                   <li>}</li>
                </ul>
-            and if we enter <b>show</b> collections, we see <b>dogs</b> has been created. We can also use <b>db.dogs.find()</b> to display all of the entries in this collection, and we get:
+            This shows that the Document was created and assigned a unique ID number. And now, if we enter <b>show collections</b>, we see <b>dogs</b> has been created. We can also use <b>db.dogs.find()</b> to display all of the entries in this collection, and we get:
             <ul>
                <li>[
                   <ul>
