@@ -27,88 +27,19 @@
          <p><a href="../mongoDbIndex.html">Back to MongoDB Index Page</a></p>
          <hr style="width: 40%;">
          <p>&nbsp;</p>
-         <h5>MongoDB</h5>
+         <h5>MongoDB Shell</h5>
       </section>
 
       <section id="textWindow4" class="just">
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">I</span>n this discussion, we're going to start talking about how to actually use MongoDB to build and manipulate databases.</p>
-            <p>When we installed MongoDB, we also used to option to install <b>MongoDB Compass</b> which is a Graphical User Interface (GUI) for MongoDB. And, as with most gui's, it is much simpler to use the <b>Compass GUI</b> for the building and manipulating of our databases, but our class is teaching the use of the <b>MongoDB Shell</b>, which is not necessarily a bad thing.</p>
-            <p>Since we have the two different pathways to achieve our goal of creating and manipulating MongoDB database's, I will try to document them both as we go, starting with the <span class="colorGreen">Compass GUI</span> first, and then farther down the page, how to use the <span class="colorBlue">MongoDB Shell</span> to accomplish our tasks.</p>
-            <p>Also, once you create a database, MongoDB uses what are called <b>Collections</b> to store and reference the data. Collections are simply a term used to refer to the data being stored, but because the data is stored in a <b>non-SQL</b> way, and because of the many different types of data that can be stored, MongoDB chose to just refer to the data, as <b>Collections.</b></p>
+            <p><span class="firstWord">W</span>e're going to start talking about how to actually use MongoDB to build and manipulate databases. In this discussion, we are going to be using the <b>MongoDB Shell</b> to build and manipulate our database, and in the next discussion, we'll show you how to use MongoDB Compass.</p>
+            <p>We are going to be creating a database for an <b>Animal Shelter</b>. This database could hold information on different pets such as dogs and cats, and also perhaps, people that may be looking for pets. But, the first thing we do is to create a new database. </p>
+            <p>Once you have a database created, we will create what are called <b>Collections</b> to store and reference the data. Think of collections as basically different categories of data that are stored in the database.</p>
+            <p>And finally, once you have a database, with at least one Collection, you then create what are called <b>Documents</b>. Documents are, in the end, the actual data being stored.</p>
          </article>
       </section>
-
-      <section id="textWindow4" class="just">
-         <!-- Compass GUI Procedure -->
-         <article>
-            <!-- Create the Database -->
-            <h6 class="colorGreen">Compass GUI</h6>
-            <h6>Create the Database</h6>
-            <p>We're going to be creating a database for an Animal Shelter, so the first thing we need to do is to <b>create</b> a new database:
-               <ul>
-                  <li><b>Start</b> the Compass App</li>
-                  <li><b>Connect</b> to our localhost server - default port is 27017</li>
-                  <li><b>Create</b> a new database - just to the right of "localhost:27017" click the + sign</li>
-                  <li><b>Name</b> your database - <b>animalShelter</b></li>
-                  <li><b>Name</b> your first collection <i>(of data)</i>
-                     <ul>
-                        <li><i>this step is optional because you can create new "collections" at any time by clicking the + sign just to the right of the database name.</i></li>
-                     </ul>
-                  </li>
-               </ul>
-            </p>
-
-            <!-- Create a Collection -->
-            <h6>Create a Collection</h6>
-            <p><span class="firstWord">A</span>s already mentioned, MongoDB utilizes "Collections" to store it's data. So once we have created our new database, we need to add our first collection. We're going to create a collection of <b>dogs</b> that will refer to any dogs we have in our shelter:
-               <ul>
-                  <li><b>Click</b> the <b>+</b> sign next to our DB Name in the DB List</li>
-                  <li><b>Name</b> your collection (<b>dogs</b>)</li>
-               </ul>
-            <i>and yes, it's that simple</i></p>
-
-            <!-- Create a Document -->
-            <h6>Create a Document</h6>
-            <p>And now we'll add our first set of data, which Mongo calls a "document". Start by clicking on the green dropdown box to <b>Add Data</b>. From the dropdown, you can either Import data or Insert an empty document which opens a template to enter our data. We will choose to Insert. Now when we add data we want to add it in json format.</p>
-            <p>In the empty document template, you'll notice that Mongo has automatically added a unique ID number to identify this dataset. This is the default behavior for Mongo. But we want to add our data first, so let's delete everything inside the curly braces. Not to worry about the ID, it will add it when we are done.</p>
-            <p>Next we just need to insert our data <i>(in json format)</i> and press the big green INSERT button. So we're going to insert:
-               <ul class="sectHighlight">
-                  <li>{
-                     <ul>
-                        <li>name: 'Chico',</li>
-                        <li>age: 10,</li>
-                        <li>breed: 'Pit Bull',</li>
-                        <li>catFriendly: true</li>
-                     </ul>
-                  </li>
-                  <li>}</li>
-               </ul>
-            and press the big green "<b>Insert</b>" button when we are finished. We have just added our first document to our <b>dogs</b> collection. We can also add <b>multiple</b> "documents" to our collection, <b>at one time</b> by nesting them in an array structure, like so:
-               <ul class="sectHighlight">
-                  <li>[
-                     <ul>
-                        <li>{
-                           <ul>
-                              <li>collection object 1</li>
-                           </ul>
-                        </li>
-                        <li>},</li>
-                        <li>{
-                           <ul>
-                              <li>collection object 2</li>
-                           </ul>
-                        </li>
-                        <li>}</li>
-                     </ul>
-                  </li>
-                  <li>]</li>
-               </ul>
-         And now when we are back at the main Compass page, we see our new document added to our new collection, complete with it's unique ID number.</p>
-         </article>
-         </section>
 
          <section id="textWindow4" class="just">
          <!-- MongoDB Shell Procedure -->
