@@ -34,12 +34,12 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-
-            <p><span class="firstWord">W</span>e're going to start talking about how to actually use MongoDB to build and manipulate databases. In the previous discussion, we used the <b>MongoDB Shell</b> to build and manipulate our database, and in this discussion, we'll show you how to use <b>MongoDB Compass</b> to build our database.</p>
+            <p><span class="firstWord">W</span>e're going to start talking about how to actually use MongoDB to build and manipulate databases. In the previous discussion, we used the <span class="colorBlue">MongoDB Shell</span> to build and manipulate our database, and in this discussion, we'll show you how to use <span class="colorGreen">MongoDB Compass</span> to build our database.</p>
             <p>We are going to be creating a database for an <b>Animal Shelter</b>. This database could hold information on different pets such as dogs and cats, and also perhaps, people that may be looking for pets. But, the first thing we do is to create the new database. </p>
             <p>Once you have a database created, we will create what are called <b>Collections</b> to store and reference the data. Think of collections as basically different categories of data that are stored in the database.</p>
             <p>And finally, once you have a database, with at least one Collection, you then create what are called <b>Documents</b>. Documents are, in the end, the actual data being stored.</p>
             <p>When we installed MongoDB, we also used to option to install <b>MongoDB Compass</b> which is a Graphical User Interface (GUI) for MongoDB. And, as with most gui's, it is much simpler to use the <b>Compass GUI</b> for the building and manipulating of our databases.</p>
+            <p>More information on all of the <b>CRUD</b> <i>(<b>C</b>reate/<b>R</b>ead/<b>U</b>pdate/<b>D</b>elete</i>) operations can be found on the MongoDB <a href="https://www.mongodb.com/docs/manual/crud/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Docs Page</a>.</p>
          </article>
       </section>
 
@@ -62,8 +62,10 @@
                   </li>
                </ul>
             </p>
+         </article><hr>
 
-            <!-- Create a Collection -->
+         <!-- Create a Collection -->
+         <article>
             <h6>Create a Collection</h6>
             <p><span class="firstWord">A</span>s already mentioned, MongoDB utilizes "Collections" to store it's data. So once we have created our new database, we need to add our first collection. We're going to create a collection of <b>dogs</b> that will refer to any dogs we have in our shelter:
                <ul>
@@ -71,11 +73,14 @@
                   <li><b>Name</b> your collection (<b>dogs</b>)</li>
                </ul>
             <i>and yes, it's that simple</i></p>
+         </article><hr>
 
-            <!-- Create a Document -->
+         <!-- Create a Document -->
+         <article>
             <h6>Create a Document</h6>
             <p>And now we'll add our first set of data, which Mongo calls a "<b>Document</b>". Start by clicking on the green dropdown box to <b>Add Data</b>. From the dropdown, you can either Import data or Insert an empty document which opens a template to enter our data. We will choose to Insert. When we add the new data, which in this case is going to refer to one specific dog, we want to add it in <b>json</b> format.</p>
-            <p>In the empty document template, you'll notice that Mongo has automatically added a unique ID number to identify this dataset. This is the default behavior for Mongo. But we want to add our data first, so let's delete everything inside the curly braces. Not to worry about the ID, Mongo will add it when we are done.</p>
+            <p>In the empty document template, you'll notice that Mongo has automatically added a unique ID number to identify this dataset. This is the default behavior for Mongo. But we want to add our data first, so let's delete everything inside. Not to worry about the ID, Mongo will add it when we are done.</p>
+            <p>One quick note about the <b>ID</b> numbers. You can generate your own <b>ID</b>'s if you wish. Mongo will only generate an <b>ID</b> if one does not already exist.</p>
             <p>Next we just need to insert the following data <i>(in json format)</i> for our first dog:
                <ul class="sectHighlight">
                   <li>{
@@ -108,7 +113,14 @@
                   </li>
                   <li><b>]</b></li>
                </ul>
-         And now, if we go back to the main Compass page and select our <b>dogs</b> database, we see our new <b>Document</b> added to our new collection, complete with it's unique ID number.</p>
+         And now, if we go back to the main Compass page and select our <b>dogs</b> database, we see our new <b>Document</b> added to our new collection, complete with it's unique ID number. Remember that Mongo will automatically add a unique ID number if one does not already exist.</p>
+         </article><hr>
+
+         <!-- Read from a Collection -->
+         <article>
+            <h6>Read from a Collection</h6>
+            <p><span>S</span>o we now know how to create a database, create collections within the database, and add Documents to a Collection. Next we're going to learn how to <b>R</b>ead some data from a database. Remember that we are working within the CRUD framework which stands for <b>C</b>reate/<b>R</b>ead/<b>U</b>pdate/<b>D</b>elete.</p>
+            <p>To <b>R</b>ead from a <b>Collection</b> in Compass, we just have to select the database we want to search, enter the search criteria in the search box, and press the green <b>Find</b> button.</p>
          </article>
       </section>
 

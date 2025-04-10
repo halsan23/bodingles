@@ -34,10 +34,11 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">W</span>e're going to start talking about how to actually use MongoDB to build and manipulate databases. In this discussion, we are going to be using the <b>MongoDB Shell</b> to build and manipulate our database, and in the next discussion, we'll show you how to use <b>MongoDB Compass</b>.</p>
+            <p><span class="firstWord">W</span>e're going to start talking about how to actually use MongoDB to build and manipulate databases. In this discussion, we are going to be using the <span class="colorBlue">MongoDB Shell</span> to build and manipulate our database, and in the next discussion, we'll show you how to use <span class="colorGreen">MongoDB Compass</span>.</p>
             <p>We are going to be creating a database for an <b>Animal Shelter</b>. This database could hold information on different pets such as dogs and cats, and also perhaps, people that may be looking for pets. But, the first thing we do is to create the new database. </p>
             <p>Once you have a database created, we will create what are called <b>Collections</b> to store and reference the data. Think of collections as basically different categories of data that are stored in the database.</p>
             <p>And finally, once you have a database, with at least one Collection, you then create what are called <b>Documents</b>. Documents are, in the end, the actual data being stored.</p>
+            <p>More information on all of the <b>CRUD</b> <i>(<b>C</b>reate/<b>R</b>ead/<b>U</b>pdate/<b>D</b>elete</i>) operations can be found on the MongoDB <a href="https://www.mongodb.com/docs/manual/crud/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Docs Page</a>.</p>
          </article>
       </section>
 
@@ -48,7 +49,7 @@
             <h6>Create the Database</h6>
             <p>To create a new database in the <span class="colorBlue">MongoDB Shell</span>:
                <ul class="sectHighlight">
-                  <li><b>Open</b> your Terminal App of choice. <span class="commentStyle">(I like PowerShell)</span></li>
+                  <li><b>Open</b> your Terminal App of choice. <span class="commentStyle">(like VS Code Terminal, or PowerShell)</span></li>
                   <li><b>Start</b> MongoDB by entering <b>mongosh</b></li>
                </ul>
             Once you are IN the <b>MongoDB Shell</b>, you can use:
@@ -61,18 +62,19 @@
                <ul class="sectHighlight">
                   <li><b>use animalShelter</b></li>
                </ul>
-            Once the db is created, the Mongo Shell should switch to the "animalShelter" db (<i>your cursor should change from <b>test></b>, to <b>animalShelter></b></i>). If it does not, or at anytime you want to switch to that db you just created, by using the <b>use</b> keyword:
+            <i><b>*note</b>: the <b>use</b> keyword will <b>switch</b> to a db if it exists, or it will <b>create</b> a new db if it does not.</i></p>
+            <p>Once the db is created, the Mongo Shell should switch to the "animalShelter" db (<i>your cursor should change from <b>test></b>, to <b>animalShelter></b></i>). If it does not, or at anytime you want to switch to that db you just created, by using the <b>use</b> keyword:
                <ul class="sectHighlight">
                   <li><i><b>use</b> animalShelter</i></li>
                </ul>
-            <i><b>*note</b>: the <b>use</b> keyword will <b>switch</b> to a db if it exists, or it will <b>create</b> a new db if it does not.</i>
+
             </p>
          </article><hr>
 
          <!-- Create a Collection -->
          <article>
             <h6>Create a Collection</h6>
-            <p>To create a Collection in the <span class="colorBlue">MongoDB Shell</span>, you have two options:
+            <p><span class="firstWord">T</span>o create a Collection in the <span class="colorBlue">MongoDB Shell</span>, you have two options:
                <ul class="sectHighlight">
                   <li>1. You can enter <b>db.createCollection(</b>"collectionName"<b>)</b>
                      <ul>
@@ -129,23 +131,48 @@
                   <li>}</li>
                </ul>
             This shows that the Document was created and assigned a unique ID number. And now, if we enter <b>show collections</b>, we see <b>dogs</b> has been created. We can also use <b>db.dogs.find()</b> to display all of the entries in this collection, and we get:
-            <ul>
-               <li>[
-                  <ul>
-                     <li>{
-                        <ul>
-                           <li>_id: ObjectId('67f5908cf09a1c0894b71236'),</li>
-                           <li>name: 'Chico',</li>
-                           <li>age: 10,</li>
-                           <li>breed: 'Pit Bull',</li>
-                           <li>catFriendly: true</li>
-                        </ul>
-                     </li>
-                     <li>}</li>
-                  </ul>
-               </li>
-               <li>]</li>
-            </ul>
+               <ul>
+                  <li>[
+                     <ul>
+                        <li>{
+                           <ul>
+                              <li>_id: ObjectId('67f5908cf09a1c0894b71236'),</li>
+                              <li>name: 'Chico',</li>
+                              <li>age: 10,</li>
+                              <li>breed: 'Pit Bull',</li>
+                              <li>catFriendly: true</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>]</li>
+               </ul>
+            One quick note about the <b>ID</b> numbers. You can generate your own <b>ID</b>'s if you wish. Mongo will only generate an <b>ID</b> if one does not already exist.
+            </p>
+         </article><hr>
+
+         <!-- Read from a Collection -->
+         <article>
+            <h6>Read from a Collection</h6>
+            <p><span>S</span>o we now know how to <b>C</b>reate a database, and next we're going to learn how to <b>R</b>ead some data from a database. Remember that we are working within the CRUD framework which stands for <b>C</b>reate/<b>R</b>ead/<b>U</b>pdate/<b>D</b>elete.</p>
+            <p>So the basic command to read from a database is:
+               <ul class="sectHighlight">
+                  <li>db.databaseName.find()</li>
+               </ul>
+            so if we enter:
+               <ul>
+                  <li>db.dogs.find()</li>
+               </ul>
+            it will list all of the <b>Documents</b> in the dogs <b>Collection</b>. But we can enter in our own "search" criteria into the find field to narrow down our <b>R</b>ead results by adding an <b>object</b> like so:
+               <ul class="sectHighlight">
+                  <li>db.dogs.find( { breed: "Pit" } )</li>
+               </ul>
+            This will list all of the results with a "breed" of "Pit". A couple of notes here. The search is <b>case sensitive</b>. Also, this type of search will return ALL of the results that match the search criteria. There is another method called:
+               <ul>
+                  <li>db.dogs.find<b>One</b>()</li>
+               </ul>
+            that we can use to return the <b>first instance</b> of the search criteria.
             </p>
          </article>
       </section>
