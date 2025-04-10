@@ -174,6 +174,60 @@
                </ul>
             that we can use to return the <b>first instance</b> of the search criteria.
             </p>
+         </article><hr>
+
+         <!-- Update a Collection -->
+         <article>
+            <h6>Update a Collection</h6>
+            <P>The next part of the <b>CRUD</b> process is to <b>U</b>pdate our Documents. With Mongo, there are basically three ways to <a href="https://www.mongodb.com/docs/manual/tutorial/update-documents/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">update</a>. We can:
+               <ul>
+                  <li>collection.update<b>One</b>()</li>
+                  <li>collection.update<b>Many</b>()</li>
+                  <li>collection.<b>replace</b>One()</li>
+               </ul>
+            and they're pretty self explanatory. We can either update one document, many documents, or we can replace an entire document. If we replace a document, the document will still retain the unique ID that was assigned to it at creation.
+            </P>
+            <p>To update we use the <b>$set</b> keyword. We need to provide two values. The first value provides the "Read" criteria to find the Document(s) we want to Update. The second value contains the <b>$set</b> keyword followed by the updated value. Each one of these individual values is entered as an object. The basic syntax is:
+               <ul class="sectHighlight">
+                  <li>db.databaseName.updateOne( { find criteria }, { $set: { new criteria } } )</li>
+               </ul>
+            notice the structure for the separate objects here. Let's update our "Chico" document in our dogs collection to demonstrate. Right now we have:
+               <ul>
+                  <li>{
+                     <ul>
+                        <li>_id: ObjectId('67f5908cf09a1c0894b71236'),</li>
+                        <li>name: 'Chico',</li>
+                        <li>age: 10,</li>
+                        <li>breed: 'Pit Bull',</li>
+                        <li>catFriendly: true</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            We're going to change his age from 10 to 11:
+               <ul class="sectHighlight">
+                  <li>db.dogs.updateOne( { name: "Chico" }, { $set: { age: 11 } } )</li>
+               </ul>
+            and Mongo returns:
+               <ul>
+                  <li>{ acknowledged: true, insertedId: null, matchedCount: 1, modifiedCount: 1, upsertedCount: 0 }</li>
+               </ul>
+            and if we look at the "Chico" document, we now have:
+               <ul>
+                  <li>{
+                     <ul>
+                        <li>_id: ObjectId('67f5908cf09a1c0894b71236'),</li>
+                        <li>name: 'Chico',</li>
+                        <li>age: <b>11</b>,</li>
+                        <li>breed: 'Pit Bull',</li>
+                        <li>catFriendly: true</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>Now <b>updateMany()</b> works exactly the same way, but it will update <b>every</b> document that matches the search criteria. And <b>replaceOne()</b> will also work, essentially the same way, but it will replace everything in the document, with the exception of the unique ID, with the new data you enter for value two. It will retain the original unique ID set at creation, but it will replace everything else.</p>
+            <p>One last thing about <b>$set</b>. There are many other <b>update operators</b> that Mongo uses for many different purposes. <b>$set</b> is the one we will use most. More information on these <b>update operators</b> can be <a href="https://www.mongodb.com/docs/manual/reference/operator/update/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>.</p>
          </article>
       </section>
 
