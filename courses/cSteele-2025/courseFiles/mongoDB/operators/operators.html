@@ -34,17 +34,40 @@
       <section id="textWindow4" class="just">
          <!-- Intro -->
          <article>
-            <h6>Intro</h6>
-            <p><span class="firstWord"></span></p>
+            <h6>More Operators</h6>
+            <p><span class="firstWord">O</span>k, so we've seen how we can <b>U</b>pdate or <b>D</b>elete documents in our Collections by using specific findCriteria, such as:
+               <ul>
+                  <li>name: "Chico"</li>
+                  <li>age: 10</li>
+                  <li>catFriendly: true</li>
+               </ul>
+            </p>
+            <p>I've update our database and added a couple of new fields to our dogs.documents. I've added "size: L" (could be L/M/S), and I've changed our "catFriendly" to be a nested object, so if we look at the updated object, it looks like this:
+               <ul class="sectHighlight">
+                  <li>_id: ObjectId('67f976d154c097b94fc8fcc6'),</li>
+                  <li>name: 'Chico',</li>
+                  <li>age: 10,</li>
+                  <li>breed: 'Pit Bull',</li>
+                  <li><b>size: 'L',</b></li>
+                  <li><b>personality: { catFriendly: true, childFriendly: true }</b></li>
+               </ul>
+            </p>
+            <p>For starters, what if we wanted to find all dogs that are "catFriendly"? If we notice, <b>catFriendly</b> is now part of a "nested" <b>personality</b> object. Well, in the <b>MongoDB Shell</b>, the syntax for that would be:
+               <ul class="sectHighlight">
+                  <li>db.dogs.find ( { 'personality.catFriendly': true } )</li>
+               </ul>
+            In <b>Mongo Compass</b>, you would simply put "<b>{ 'personality.catFriendly': true }</b>" into the search box and press <b>Find</b>.
+            </p>
+            <p>But want if we want to find say, all dogs that are older, or younger than 5?</p>
+            <p>Well, we can find more information on <a href="https://www.mongodb.com/docs/manual/reference/operator/query/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Query Operators</a> on the MongoDB Docs website, where it shows a host of different <b>operators</b> for greater than, less than and many more. When you look at the website you notice that these operators are all categorized for us which makes it easier to find <b>operators</b>. You should also notice that all of the <b>operators</b> start with <b>$</b>.</p>
+            <p>So to answer our question, if we want to find all dogs that are greater then 5, we would use the <b>$gt</b> operator. In the <b>MongoDB Shell</b> it would look like:
+               <ul class="sectHighlight">
+                  <li>db.dogs.find ( { age: { <b>$gt: 5</b> } } )</li>
+               </ul>
+            notice that <b>$gt: 5</b> is enclosed inside curly braces as an object. Also notice the <b>:</b> (colon) after the "is greater than (<b>$gt</b>)" designation.</p>
+            <p>In <b>MongoDB Compass</b>, just enter <b>{age: {$gt: 5}}</b> into the search field and press <b>Find</b>.</p>
+            <p>So Mongo has all sorts of useful operators to modify your searches such as greater than, greater than or equal to, less than, less than or equal to, etc.. Just go to the <a href="https://www.mongodb.com/docs/manual/reference/operator/query/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">Query Operators Docs</a> and find the one you need.</p>
          </article>
-      </section>
-
-      <section id="textWindow4" class="just">
-         <!-- -->
-         <article>
-            <h6></h6>
-            <p></p>
-         </article><hr>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
