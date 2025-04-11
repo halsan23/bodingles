@@ -228,7 +228,39 @@
             </p>
             <p>Now <b>updateMany()</b> works exactly the same way, but it will update <b>every</b> document that matches the search criteria. And <b>replaceOne()</b> will also work, essentially the same way, but it will replace everything in the document, with the exception of the unique ID, with the new data you enter for value two. It will retain the original unique ID set at creation, but it will replace everything else.</p>
             <p>One last thing about <b>$set</b>. There are many other <b>update operators</b> that Mongo uses for many different purposes. <b>$set</b> is the one we will use most. More information on these <b>update operators</b> can be <a href="https://www.mongodb.com/docs/manual/reference/operator/update/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>.</p>
-         </article>
+         </article><hr>
+
+         <!-- Delete a Collection -->
+         <article>
+            <h6>Delete a Collection</h6>
+            <p><span class="firstWord">W</span>e've been following along with our CRUD utilization, and so far we've learned how to <b>C</b>reate, <b>R</b>ead, and <b>U</b>pdate. And lastly we are going to see how to <b>D</b>elete. Now <b>D</b>elete works very similar to <b>U</b>pdate in that we can <b>deleteOne()</b>, or we can <b>deleteMany()</b>. Here's the basic syntax:
+               <ul>
+                  <li>db.collectionName.<b>deleteOne</b>( { findCriteria } )</li>
+                  <li>db.collectionName.<b>deleteMany</b>( { findCriteria } )</li>
+               </ul>
+            </p>
+            <p>So we use the <b>findCriteria</b> to find the document(s) we wish to delete from the <b>collectionName</b>. For example, we have a <b>Document</b> in our dogs <b>Collection</b> that refers to our dog "Chico". We could <b>D</b>elete this Document like so:
+               <ul class="sectHighlight">
+                  <li>db.<b>dogs</b>.deleteOne( { name: "Chico" } )</li>
+               </ul>
+            so our Collection we want to delete from is <b>dogs</b>, and our <b>findCriteria</b> is <b>name = "Chico"</b>. So if we run this it will delete the document for "Chico".
+            </p>
+            <p>We can also <b>deleteMany()</b>, just as easy. We have a property in the <b>dogs</b> collection for each document, <b>catFriendly</b>. If we wanted to delete all of the dogs that are not cat friendly, we course use <b>deleteMany()</b> and set our <b>findCriteria</b> to "catFriendly: false", like so:
+               <ul class="sectHighlight">
+                  <li>db.<b>dogs</b>.deleteMany( { catFriendly: false } )</li>
+               </ul>
+            and that will delete ALL of the <b>Documents</b> in the dogs <b>Collection</b> that match <b>"catFriendly = false"</b>. Another important point here is that we are not limited to one single <b>findCriteria</b>. We could run a <b>D</b>elete with several findCriteria, like so:
+               <ul class="sectHighlight">
+                  <li>db.<b>dogs</b>.deleteMany( { catFriendly: false, age: 5 } )</li>
+               </ul>
+            so it will look for ALL dogs that are NOT catFriendly, AND are 5 years old.
+            </p>
+            <p>And lastly, you can <b>delete every document</b> in a Collection, by using <b>deleteMany()</b>, and omitting the <b>findCriteria</b>, like so:
+               <ul class="sectHighlight">
+                  <li>db.<b>collectionName</b>.deleteMany( { } )</li>
+               </ul>
+            So, <b>deleteMany()</b> with no <b>findCriteria</b>, will <b>delete EVERY Document</b>, in the specified Collection.
+            </p>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
