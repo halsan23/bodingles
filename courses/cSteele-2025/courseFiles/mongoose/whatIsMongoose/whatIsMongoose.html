@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Colt Steele</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h2><i>The Web Developer Bootcamp 2024</i></h2>
+         <p>Colt Steele</p>
+         <p><a href="../mongooseIndex.html">Back to Mongoose Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Mongoose</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>What is Mongoose</h6>
+            <p><span class="firstWord">M</span>ongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB.</p>
+            <p><b>ODM</b>'s like Mongoose "<i>map documents coming from a MongoDB into useable JavaScript objects</i>". Mongoose provides ways for us to model out our applications data and define a schema.</p>
+            <p><b>What is a schema?</b>
+               <ul>
+                  <li>A schema defines the structure of your "<b>Collection's, Documents</b>". A Mongoose schema maps directly to a MongoDB collection.</li>
+               </ul>
+            Mongoose offers easy ways to validate data and build complex queries from JavaScript. Mongoose claims it is "<i>elegant <b>MongoDB</b> object modeling for <b>node.Js</b>.</i>"
+            </p>
+         </article>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Installation -->
+         <article>
+            <h6>Installing Mongoose</h6>
+            <p><span class="firstWord">T</span>o get Mongoose installed, we need to get our working environment set up with <b>express</b> and <b>node.js</b>. A quick refresher can be <a href="/assets/basicNodeExpress.html" target="_blank">found here</a>.</p>
+            <p>Here are the basic steps:
+               <ul>
+                  <li>set up our "Parent Directory" which we're calling <b>express</b></li>
+                  <li>run <b>npm init</b> to set up our <b>package.json</b> file</li>
+                  <li>run <b>npm i express</b> to install <b>express</b></li>
+                  <li>run <b>npm i nodemon</b> to install <b>nodemon</b></li>
+                  <li>create our <b>index.js</b> file in our <b>express</b> directory</li>
+               </ul>
+            </p>
+            <p>And now with our working environment set up, we can writ the code in <b>index.js</b> to connect <b>mongoose</b> to our dataBase. We're going to create a Movies App for learning purposes, so our Js code will look like this:
+               <ul class="sectHighlight">
+                  <li>JavaScript</li>
+                  <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
+                  <li class="commentStyle">// require Mongoose & connect to db</li>
+                  <li>const <span class="colorGreen">mongoose</span> = require('mongoose');</li>
+                  <li>mongoose.<span class="colorRed">connect</span>( 'mongodb://127.0.0.1:27017/movieApp' )</li>
+                  <li class="commentStyle">// attempt connection & console.log the result</li>
+                  <li>
+                     <ul>
+                        <li><b>.then</b>( () => {
+                           <ul>
+                              <li>console.log('Mongoose connected on port mongodb://127.0.0.1:27017/');</li>
+                              <li>console.log('Connected to movieApp DB');</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                        <li><b>.catch</b>(err => {
+                           <ul>
+                              <li>console.log('Connection Error!');</li>
+                              <li>console.log(err);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                     </ul>
+                  </li>
+               </ul>
+            And now we can run <b>nodemon index.js</b>.</p>
+            <p>If <b>mongoose</b> successfully connects to our <b>movieApp</b> DB, we'll get the "Connected" message, if not, we'll get the error.</p>
+            <p>So we've learned how to set up our working environment, install <b>mongoose</b> and connect it to our dataBase. With all the setup done, we can now start using <b>mongoose</b>.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
