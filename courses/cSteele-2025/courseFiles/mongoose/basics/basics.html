@@ -34,14 +34,14 @@
          <!-- Basics -->
          <article>
             <h6>The Basics</h6>
-            <p><span class="firstWord">I</span>n the last discussion we got mongoose installed and up and running. Remember that mongoose is going to connect us to our Mongo DataBase and allow us to manipulate our data through JavaScript.</p>
+            <p><span class="firstWord">I</span>n the last discussion we got mongoose installed and up and running. Remember that <b>mongoose</b> is going to connect us to our <b>Mongo DataBase</b> and allow us to manipulate our data through JavaScript.</p>
             <p>The first thing to understand in working with mongoose is the <b>models.</b> Mongoose works off of <b>models</b>, which are JavaScript classes, that we create, with the assistance of mongoose, that represent the information within a Mongo DataBase. More specifically, a <b>model</b> will represent data in one <b>Collection</b>. This is important because we have to create a <b>model</b>, for <b>every Collection</b> in the DataBase we are using.</p>
          </article><hr>
 
-         <!-- Setting up Index.js -->
+         <!-- Initial Index.js -->
           <article>
             <h6>Server Code</h6>
-            <p><span class="firstWord">I</span>n our last discussion we set up our working environment, installed <b>express</b>, <b>nodemon</b>, and <b>mongoose</b>. We then started our server file (<b>index.js</b>) with the code that connects mongoose to our Mongo port (<b>27017</b>). Here's the server code we have so far:
+            <p><span class="firstWord">I</span>n our last discussion we set up our working environment, installed <b>express</b>, <b>nodemon</b>, and <b>mongoose</b>. We then started our server file (<b>index.js</b>) with the code that connects mongoose to our Mongo dataBase port (<b>27017</b>). Here's the server code we have so far:
                <ul class="sectHighlight">
                   <li>JavaScript</li>
                   <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
@@ -70,8 +70,19 @@
                </ul>
             So we've imported <b>mongoose</b> and told it to connect to our <b>movieApp</b> dataBase <i>(which has not been created yet)</i> on <b>port 27017</b>. We then set up the error trap to display a message upon successful connection to the dataBase, or to display the error, if there is one.
             </p>
-            <p>Now we can start building our <b>models</b> and more information on these, can be <a href="https://mongoosejs.com/docs/api/model.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>. There is a whole list of methods that every model we make will have access to. Remember, a <b>model</b> is a JavaScript class, that is your primary tool, for interacting with MongoDB.</p>
-          </article>
+            <p>Now we can start building our <b>models</b> and more information on these, can be <a href="https://mongoosejs.com/docs/api/model.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>. There is a whole list of methods there, that every model we make will have access to. Remember, a <b>model</b> is a JavaScript class, that is your primary tool, for interacting with MongoDB.</p>
+          </article><hr>
+
+          <!-- Using mongoose -->
+           <article>
+             <h6>Using mongoose</h6>
+             <p><span class="firstWord">S</span>o, as stated above, a <b>model</b> is a JavaScript class, that is your primary tool, for interacting with MongoDB. This <b>model</b> represents the data in a Mongoose dataBase, or more specifically, a <b>dataBase Collection</b>. Let's take a deeper dive into <b>models</b>.</p>
+             <p>In order to utilize a <b>model</b>, the first thing we need to do is to define a <b>Schema</b>. Ok, so what is a <b>Schema</b>?
+               <ul>
+                  <li>A mongoose Schema, <b>defines the structure and properties of a Document</b> in a MongoDB <b>Collection</b>. This Schema is a way to define expected properties and values along with the constraints and indexes. A Compiled version of the <b>Schema</b> is known as a <b>Model</b>. More info in <b>schemas</b> can be <a href="https://mongoosejs.com/docs/api/schema.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>, and <a href="https://www.naukri.com/code360/library/mongoose-schema-and-models" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">here</a>.</li>
+               </ul>
+            </p>
+            </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
