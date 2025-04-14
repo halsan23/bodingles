@@ -1,7 +1,8 @@
-// require Mongoose & connect to db
+// require Mongoose
 const mongoose = require('mongoose');
+
+// attempt connection to mongo DB & console.log the result
 mongoose.connect( 'mongodb://127.0.0.1:27017/movieApp' )
-// attempt connection & console.log the result
    .then(() => {
       console.log('Mongoose connected on port mongodb://127.0.0.1:27017/');
       console.log('Connected to movieApp DB');
@@ -10,3 +11,14 @@ mongoose.connect( 'mongodb://127.0.0.1:27017/movieApp' )
       console.log('Connection Error!');
       console.log(err);
    })
+
+// define a movie schema
+const movieSchema = new mongoose.Schema({
+   title: string,
+   year: number,
+   score: number,
+   rating: string
+});
+
+// define the movie model
+const movie = mongoose.Model('Movie', movieSchema);

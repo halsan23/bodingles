@@ -45,10 +45,10 @@
                <ul class="sectHighlight">
                   <li>JavaScript</li>
                   <li class="commentStyle"><span class="colorBlue">index</span>.js</li>
-                  <li class="commentStyle">// require Mongoose & connect to db</li>
+                  <li class="commentStyle">// require Mongoose</li>
                   <li>const <span class="colorGreen">mongoose</span> = require('mongoose');</li>
+                  <li class="commentStyle">// attempt connection to mongo DB & console.log the result</li>
                   <li>mongoose.<span class="colorRed">connect</span>( 'mongodb://127.0.0.1:27017/movieApp' )</li>
-                  <li class="commentStyle">// attempt connection & console.log the result</li>
                   <li>
                      <ul>
                         <li><b>.then</b>( () => {
@@ -70,7 +70,7 @@
                </ul>
             So we've imported <b>mongoose</b> and told it to connect to our <b>movieApp</b> dataBase <i>(which has not been created yet)</i> on <b>port 27017</b>. We then set up the error trap to display a message upon successful connection to the dataBase, or to display the error, if there is one.
             </p>
-            <p>Now we can start building our <b>models</b> and more information on these, can be <a href="https://mongoosejs.com/docs/api/model.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>. There is a whole list of methods there, that every model we make will have access to. Remember, a <b>model</b> is a JavaScript class, that is your primary tool, for interacting with MongoDB.</p>
+            <p>Now we can start building our <b>models</b> and more information on these, can be <a href="https://mongoosejs.com/docs/api/model.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>. There is a whole list of methods here, that every model we make will have access to. Remember, a <b>model</b> is a JavaScript class, that is your primary tool, for interacting with MongoDB.</p>
           </article><hr>
 
           <!-- Using mongoose -->
@@ -79,10 +79,69 @@
              <p><span class="firstWord">S</span>o, as stated above, a <b>model</b> is a JavaScript class, that is your primary tool, for interacting with MongoDB. This <b>model</b> represents the data in a Mongoose dataBase, or more specifically, a <b>dataBase Collection</b>. Let's take a deeper dive into <b>models</b>.</p>
              <p>In order to utilize a <b>model</b>, the first thing we need to do is to define a <b>Schema</b>. Ok, so what is a <b>Schema</b>?
                <ul>
-                  <li>A mongoose Schema, <b>defines the structure and properties of a Document</b> in a MongoDB <b>Collection</b>. This Schema is a way to define expected properties and values along with the constraints and indexes. A Compiled version of the <b>Schema</b> is known as a <b>Model</b>. More info in <b>schemas</b> can be <a href="https://mongoosejs.com/docs/api/schema.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>, and <a href="https://www.naukri.com/code360/library/mongoose-schema-and-models" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">here</a>.</li>
+                  <li>A mongoose Schema, <b>defines the structure and properties of a Document</b> in a MongoDB <b>Collection</b>. This Schema is a way to define expected properties and values along with the constraints and indexes. A Compiled version of the <b>Schema</b> is known as a <b>Model</b>. More info in <b>schemas</b> can be <a href="https://mongoosejs.com/docs/api/schema.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>, and <a href="https://www.naukri.com/code360/library/mongoose-schema-and-models" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">also here</a>.</li>
                </ul>
             </p>
-            </article>
+            <p>So we're going to need to define a <b>schema</b>, and we said previously that we wanted create a "Movie App" dataBase. So our <b>schema</b> will need to define the properties of a movie, in this example. Properties such as:
+               <ul>
+                  <li>Movie Name</li>
+                  <li>Year Released</li>
+                  <li>User Score</li>
+                  <li>MPAA Rating</li>
+               </ul>
+            So define the <b>schema</b>, we need to think about what types of data theses properties are.
+               <ul>
+                  <li>Movie Name : string data</li>
+                  <li>Year Released : numeric data</li>
+                  <li>User Score : numeric data</li>
+                  <li>MPAA Rating : string data</li>
+               </ul>
+            and now we are ready to actually <b>define our schema</b>, like so:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorGreen">movieSchema</span> = <span class="colorPurple">new</span> mongoose.<span class="colorOrange">Schema</span>({
+                     <ul>
+                        <li>title: string,</li>
+                        <li>year: number,</li>
+                        <li>score: number,</li>
+                        <li>rating: string</li>
+                     </ul>
+                  </li>
+                  <li>});</li>
+               </ul>
+            </p>
+            <p>As you can see, the <b>schema</b> is defining what kind of data, each property of a movie, will contain. <b>*note</b>: that there are several different data <b>types</b> that can be used, and a list of these can be <a href="https://mongoosejs.com/docs/api/schema.html#types" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>.
+            </p>
+            <p>Also, the defining names we've used here (title, year, score, and rating) are important in that they <b>must</b> match what is in the actual collection. In the collection itself, the names must also be (title, year, score, and rating).</p>
+            <p>Ok, we now have our <b>schema</b> created, so next we can create our <b>model</b>, which we will define to use this <b>schema</b>.
+               <ul>
+                  <li>mongoose.Model('modelName', schemaName);</li>
+               </ul>
+            Now it's important that the <b>modelName</b> is "<b>singular</b>>" and that the first letter is <b>Capitol</b>. Also, the <b>schemaName</b> must match our pre-defined schema name. So the specific model for our movieApp would look like this:
+               <ul class="sectHighlight">
+                  <li>mongoose.Model('Movie', <span class="colorGreen">movieSchema</span>);</li>
+               </ul>
+            </p>
+            <p>Mongoose will now take this <b>model</b> and create a <b>Collection</b> in our dataBase called <b>movies</b>. So what did it do here? It took our "modelName" from our <b>model</b>, and <b>lowerCased, and pluralized</b> it and created a new <b>Collection</b> with the modified name.</p>
+            <p>So our <b>model</b> name is "Movie", and our new <b>Collection</b> name that the model created. becomes "movies".</p>
+            <p>Next we assign our model to a variable:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorGreen">Movie</span> = mongoose.Model('Movie', <span class="colorGreen">movieSchema</span>);</li>
+               </ul>
+            This creates a "<b>Movie</b>" class. Notice that we normally use the same <b>variable name</b> as we used for the <b>model name</b>.</p>
+            <p>And now that we have a "<b>Movie Class</b>", we can create "new <b>instances</b>" of our class, like so:
+               <ul class="sectHighlight">
+                  <li>const <span class="colorGreen">badSanta</span> =  new Movie({
+                     <ul>
+                        <li>title: 'Bad Santa',</li>
+                        <li>year: 2003</li>
+                        <li>score: 7.0</li>
+                        <li>rating: 'R'</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+               </ul>
+            </p>
+         </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
