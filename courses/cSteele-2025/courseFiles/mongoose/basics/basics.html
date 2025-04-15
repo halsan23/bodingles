@@ -68,15 +68,15 @@
                      </ul>
                   </li>
                </ul>
-            So we've imported <b>mongoose</b> and told it to connect to our <b>movieApp</b> dataBase <i>(which has not been created yet)</i> on <b>port 27017</b>. We then set up the error trap to display a message upon successful connection to the dataBase, or to display the error, if there is one.
+            So we've imported <b>mongoose</b> and told it to connect to our <b>movieApp</b> Mongo dataBase on <b>port 27017</b>. We then set up the error trap to display a message upon successful connection to the dataBase, or to display the error, if there is one.
             </p>
             <p>Now we can start building our <b>models</b> and more information on these, can be <a href="https://mongoosejs.com/docs/api/model.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>. There is a whole list of methods here, that every model we make will have access to. Remember, a <b>model</b> is a JavaScript class, that is your primary tool, for interacting with MongoDB.</p>
           </article><hr>
 
-          <!-- Using mongoose -->
+          <!-- Defining a Schema -->
            <article>
-             <h6>Using mongoose</h6>
-             <p><span class="firstWord">S</span>o, as stated above, a <b>model</b> is a JavaScript class, that is your primary tool, for interacting with MongoDB. This <b>model</b> represents the data in a Mongoose dataBase, or more specifically, a <b>dataBase Collection</b>. Let's take a deeper dive into <b>models</b>.</p>
+             <h6>Defining a Schema</h6>
+             <p><span class="firstWord">S</span>o, as stated above, a <b>model</b> is a JavaScript class, that is your primary tool, for interacting with MongoDB. This <b>model</b> represents the data in a Mongoose dataBase, or more specifically, a dataBase <b>Collection</b>. Let's take a deeper dive into <b>models</b>.</p>
              <p>In order to utilize a <b>model</b>, the first thing we need to do is to define a <b>Schema</b>. Ok, so what is a <b>Schema</b>?
                <ul>
                   <li>A mongoose Schema, <b>defines the structure and properties of a Document</b> in a MongoDB <b>Collection</b>. This Schema is a way to define expected properties and values along with the constraints and indexes. A Compiled version of the <b>Schema</b> is known as a <b>Model</b>. More info in <b>schemas</b> can be <a href="https://mongoosejs.com/docs/api/schema.html" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>, and <a href="https://www.naukri.com/code360/library/mongoose-schema-and-models" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">also here</a>.</li>
@@ -112,20 +112,26 @@
             <p>As you can see, the <b>schema</b> is defining what kind of data, each property of a movie, will contain. <b>*note</b>: that there are several different data <b>types</b> that can be used, and a list of these can be <a href="https://mongoosejs.com/docs/api/schema.html#types" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">found here</a>.
             </p>
             <p>Also, the defining names we've used here (title, year, score, and rating) are important in that they <b>must</b> match what is in the actual collection. In the collection itself, the names must also be (title, year, score, and rating).</p>
-            <p>Ok, we now have our <b>schema</b> created, so next we can create our <b>model</b>, which we will define to use this <b>schema</b>.
+         </article><hr>
+
+         <!-- Defining a Model -->
+          <article>
+            <h6>Defining a Model</h6>
+            <p><span class="firstWord">O</span>k, we now have our <b>schema</b> created, so next we can create our <b>model</b>, which we will define to use <b>this schema</b>.
                <ul>
                   <li>mongoose.Model('modelName', schemaName);</li>
                </ul>
-            Now it's important that the <b>modelName</b> is "<b>singular</b>>" and that the first letter is <b>Capitol</b>. Also, the <b>schemaName</b> must match our pre-defined schema name. So the specific model for our movieApp would look like this:
+            Now it's important that the <b>modelName</b> is "<b>singular</b>" and that the first letter is <b>Capitol</b>, and that the <b>schemaName</b> must match our <b>pre-defined</b> schema name. So the specific model for our movieApp would look like this:
                <ul class="sectHighlight">
-                  <li>mongoose.Model('Movie', <span class="colorGreen">movieSchema</span>);</li>
+                  <li>mongoose.<span class="colorOrange">model</span>('<b>Movie</b>', <span class="colorGreen">movieSchema</span>);</li>
                </ul>
+            So <span class="colorRed">Movie</span> is the name of this specific <b>model</b>, and <span class="colorGreen">movieSchema</span> is the name of this specific <b>schema</b>.
             </p>
-            <p>Mongoose will now take this <b>model</b> and create a <b>Collection</b> in our dataBase called <b>movies</b>. So what did it do here? It took our "modelName" from our <b>model</b>, and <b>lowerCased, and pluralized</b> it and created a new <b>Collection</b> with the modified name.</p>
-            <p>So our <b>model</b> name is "Movie", and our new <b>Collection</b> name that the model created. becomes "movies".</p>
+            <p>Mongoose will now take this <b>model</b> (<span class="colorRed">Movie</span>), and create a <b>Collection</b> in our dataBase called <b>movies</b>. <b>What</b>? It did what here? It took our "modelName" from our model (<b>Movie</b>), <b>lowerCased, & pluralized</b> it, and created a new <b>Collection</b> with the modified name.</p>
+            <p>So our <b>model</b> name is "<b>Movie</b>", and our new <b>Collection</b> name that the model created. becomes "<b>movies</b>".</p>
             <p>Next we assign our model to a variable:
                <ul class="sectHighlight">
-                  <li>const <span class="colorGreen">Movie</span> = mongoose.Model('Movie', <span class="colorGreen">movieSchema</span>);</li>
+                  <li>const <span class="colorGreen">Movie</span> = mongoose.model('Movie', <span class="colorGreen">movieSchema</span>);</li>
                </ul>
             This creates a "<b>Movie</b>" class. Notice that we normally use the same <b>variable name</b> as we used for the <b>model name</b>.</p>
             <p>And now that we have a "<b>Movie Class</b>", we can create "new <b>instances</b>" of our class, like so:
@@ -139,6 +145,24 @@
                      </ul>
                   </li>
                   <li>})</li>
+               </ul>
+            </p>
+            <p>So our dataBase name is <b>movieApp</b>, and our <b>Model</b> should have created a <b>Collection</b> called <b>movies</b>. We've created a <b>new</b> instance of our "<b>Movie</b>" class for "Bad Santa", but so far we haven't actually uploaded anything to the dataBase.</p>
+         </article><hr>
+
+         <!-- Uploading the Data -->
+         <article>
+            <h6>Uploading the Data</h6>
+            <p><span class="firstWord">S</span>o now we're finally ready to add our "<b>Bad Santa</b>" movie to our dataBase. We've created our <b>schema</b>, (<span class="colorOrange">movieSchema</span>). We've created our <b>Movie</b> model, (<span class="colorRed">Movie</span>). We've created our <b>Movie</b> class, (<span class="colorPurple">Movie</span>) and finally, we've created a <b><i>new instance</i></b> of our Movie Class, (<span class="colorGreen">badSanta</span>) for the movie "<b>Bad Santa</b>".</p>
+            <p>To upload the new data, we're going to start up our Terminal, navigate to our project directory, and run [<b>node</b>].</p>
+            <p>Once <b>node</b> is running, we enter:
+               <ul>
+                  <li><b>.load index.js</b></li>
+               </ul>
+            </p>
+            <p>This should "load" our <b>index.js</b> file into our <b>node</b> environment. And now we are ready to actually "<b>write</b>" our data to the dataBase by using the command:
+               <ul class="sectHighlight">
+                  <li><b>badSanta.save()</b></li>
                </ul>
             </p>
          </article>

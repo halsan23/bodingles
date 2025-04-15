@@ -14,11 +14,21 @@ mongoose.connect( 'mongodb://127.0.0.1:27017/movieApp' )
 
 // define a movie schema
 const movieSchema = new mongoose.Schema({
-   title: string,
-   year: number,
-   score: number,
-   rating: string
+   title: String,
+   year: Number,
+   score: Number,
+   rating: String
 });
 
-// define the movie model
-const movie = mongoose.Model('Movie', movieSchema);
+// create a movie class based on the movie model
+// the model is: mongoose.Model('Movie', movieSchema)
+// assigning it to a variable creates the movie class
+const movie = mongoose.model('Movie', movieSchema);
+
+// Create a new instance of the movie class
+const badSanta = new movie({
+   title: 'Bad Santa',
+   year: 2003,
+   score: 7.0,
+   rating: 'R'
+})
