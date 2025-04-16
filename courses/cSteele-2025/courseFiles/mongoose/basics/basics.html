@@ -117,23 +117,23 @@
          <!-- Defining a Model -->
           <article>
             <h6>Defining a Model</h6>
-            <p><span class="firstWord">O</span>k, we now have our <b>schema</b> created, so next we can create our <b>model</b>, which we will define to use <b>this schema</b>.
+            <p><span class="firstWord">O</span>k, we now have our <b>schema</b> created, so next we can create our <b>model</b>, which we will define to use our <b>schema</b>. The basic syntax for a <b>model</b> is:
                <ul>
-                  <li>mongoose.Model('modelName', schemaName);</li>
+                  <li>mongoose.model('<i>modelName</i>', schemaName);</li>
                </ul>
-            Now it's important that the <b>modelName</b> is "<b>singular</b>" and that the first letter is <b>Capitol</b>, and that the <b>schemaName</b> must match our <b>pre-defined</b> schema name. So the specific model for our movieApp would look like this:
+            Now it's important to note that the <i><b>modelName</b></i> is "<b>singular</b>" and that the first letter is <b>Capitol</b>, and that the <b>schemaName</b> must match our <b>pre-defined</b> schema name. So the specific model for our movieApp would look like this:
                <ul class="sectHighlight">
-                  <li>mongoose.<span class="colorOrange">model</span>('<b>Movie</b>', <span class="colorGreen">movieSchema</span>);</li>
+                  <li>mongoose.model('<span class="colorOrange">Movie</span>', <span class="colorRed">movieSchema</span>);</li>
                </ul>
-            So <span class="colorRed">Movie</span> is the name of this specific <b>model</b>, and <span class="colorGreen">movieSchema</span> is the name of this specific <b>schema</b>.
+            So <span class="colorOrange">Movie</span> is the name of this specific <b>model</b>, and <span class="colorRed">movieSchema</span> is the name of this specific <b>schema</b>.
             </p>
-            <p>Mongoose will now take this <b>model</b> (<span class="colorRed">Movie</span>), and create a <b>Collection</b> in our dataBase called <b>movies</b>. <b>What</b>? It did what here? It took our "modelName" from our model (<b>Movie</b>), <b>lowerCased, & pluralized</b> it, and created a new <b>Collection</b> with the modified name.</p>
-            <p>So our <b>model</b> name is "<b>Movie</b>", and our new <b>Collection</b> name that the model created. becomes "<b>movies</b>".</p>
+            <p>Mongoose will now take this <b>model</b> (<span class="colorOrange">Movie</span>), and create a <b>Collection</b> in our dataBase called <b>movies</b>. What? It did what here? It took our "modelName" from our model (<span class="colorOrange">Movie</span>), <b>lowerCased</b> it, & <b>pluralized</b> it, then created a new <b>Collection</b> with the modified name (<span class="colorPurple">movies</span>).</p>
+            <p>So our <b>model</b> name is "<span class="colorOrange">Movie</span>", and our new <b>Collection</b> name that the model created. becomes "<span class="colorPurple">movies</span>".</p>
             <p>Next we assign our model to a variable:
                <ul class="sectHighlight">
                   <li>const <span class="colorGreen">Movie</span> = mongoose.model('Movie', <span class="colorGreen">movieSchema</span>);</li>
                </ul>
-            This creates a "<b>Movie</b>" class. Notice that we normally use the same <b>variable name</b> as we used for the <b>model name</b>.</p>
+            This creates a "<span class="colorOrange">Movie</span>" class. Notice that we normally use the same <b>variable name</b> as we used for the <b>model name</b>.</p>
             <p>And now that we have a "<b>Movie Class</b>", we can create "new <b>instances</b>" of our class, like so:
                <ul class="sectHighlight">
                   <li>const <span class="colorGreen">badSanta</span> =  new Movie({
@@ -147,24 +147,63 @@
                   <li>})</li>
                </ul>
             </p>
-            <p>So our dataBase name is <b>movieApp</b>, and our <b>Model</b> should have created a <b>Collection</b> called <b>movies</b>. We've created a <b>new</b> instance of our "<b>Movie</b>" class for "Bad Santa", but so far we haven't actually uploaded anything to the dataBase.</p>
+            <p>So our dataBase name is <b>movieApp</b>, and our <b>Model</b> should have created a <b>Collection</b> called <b>movies</b>. We've created a <b>new</b> instance of our "<span class="colorGreen">Movie</span>" class for "Bad Santa", but so far we haven't actually uploaded anything to the dataBase.</p>
          </article><hr>
 
          <!-- Uploading the Data -->
          <article>
             <h6>Uploading the Data</h6>
-            <p><span class="firstWord">S</span>o now we're finally ready to add our "<b>Bad Santa</b>" movie to our dataBase. We've created our <b>schema</b>, (<span class="colorOrange">movieSchema</span>). We've created our <b>Movie</b> model, (<span class="colorRed">Movie</span>). We've created our <b>Movie</b> class, (<span class="colorPurple">Movie</span>) and finally, we've created a <b><i>new instance</i></b> of our Movie Class, (<span class="colorGreen">badSanta</span>) for the movie "<b>Bad Santa</b>".</p>
+            <p><span class="firstWord">S</span>o now we're finally ready to add our "<b>Bad Santa</b>" movie to our dataBase. We've created our <b>schema</b>, (<span class="colorRed">movieSchema</span>). We've created our <b>Movie</b> model, (<span class="colorOrange">Movie</span>). We've created our <b>Movie</b> class, (<span class="colorPurple">Movie</span>) and finally, we've created a <b><i>new instance</i></b> of our Movie Class, (<span class="colorGreen">badSanta</span>) for the movie "<b>Bad Santa</b>".</p>
             <p>To upload the new data, we're going to start up our Terminal, navigate to our project directory, and run [<b>node</b>].</p>
             <p>Once <b>node</b> is running, we enter:
                <ul>
                   <li><b>.load index.js</b></li>
                </ul>
             </p>
-            <p>This should "load" our <b>index.js</b> file into our <b>node</b> environment. And now we are ready to actually "<b>write</b>" our data to the dataBase by using the command:
+            <p>This should "load" our <b>index.js</b> file into our <b>node</b> environment. And if we enter [ <b>badSanta</b> ], we should get the data for <b>badSanta</b>:
+               <ul class="sectHighlight">
+                  <li>{
+                     <ul>
+                        <li>title: 'Bad Santa',</li>
+                        <li>year: 2003,</li>
+                        <li>score: 7,</li>
+                        <li>rating: 'R',</li>
+                        <li>_id: new ObjectId('67ffdf88bf46707dab2fcd96')</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            Notice that it has automatically assigned a "unique" ID to our Document.
+            </p>
+            <p>And now we are ready to actually "<b>write</b>" our data to the dataBase by using the command:
                <ul class="sectHighlight">
                   <li><b>badSanta.save()</b></li>
                </ul>
             </p>
+            <p>This should now insert the data for our <span class="colorGreen">badSanta</span> movie, into our <span class="colorPurple">movieApp</span> dataBase, under the <span class="colorOrange">movies</span> Collection.</p>
+            <p>Also, notice that this returns a <b>promise</b>, so we could create a "try/catch" error routing to ensure the data was uploaded, or return an error, if it was not uploaded.</p>
+            <p>We can verify this did actually upload to our dataBase by exiting out of node [<b>exit</b>], and loading MongoDB [<b>mongosh</b>]. Once in the Mongo Shell, enter [<b>use movieApp</b>] to make our <b>movieApp</b> the "active" dataBase. And finally do a find(), [<b>db.movies.find()</b>] to list all of the Documents in the <b>movies</b> Collection, and we should see:
+               <ul class="sectHighlight">
+                  <li>{
+                     <ul>
+                        <li>_id: new ObjectId('67ffdf88bf46707dab2fcd96'),</li>
+                        <li>title: 'Bad Santa',</li>
+                        <li>year: 2003,</li>
+                        <li>score: 7,</li>
+                        <li>rating: 'R',</li>
+                        <li>__v: 0</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>I'm not sure what the <b>__v: 0</b> represents, but the rest of the output shows us that the <b>Bad Santa</b> data was indeed "uploaded" into our <b>movies</b> Collection of our <b>movieApp</b> dataBase.
+            </p>
+            <p>On last point of discussion here. We can also use this procedure to change or edit an existing Document. Let's say we change the user score from <b>7</b> to <b>8.5</b>:
+               <ul>
+                  <li>badSanta.score = 8.5</li>
+               </ul>
+            and re-upload the file <i>(run node - .load index.js  - badSanta.save())</i>, we can look at out Document in Mongoose and see that the "score" data has actually changed to <b>8.5</b>.</p>
          </article>
       </section>
 
