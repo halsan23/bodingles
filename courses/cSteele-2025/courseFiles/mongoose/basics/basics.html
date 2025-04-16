@@ -204,6 +204,110 @@
                   <li>badSanta.score = 8.5</li>
                </ul>
             and re-upload the file <i>(run node - .load index.js  - badSanta.save())</i>, we can look at out Document in Mongoose and see that the "score" data has actually changed to <b>8.5</b>.</p>
+         </article><hr>
+
+         <!-- Inserting Many -->
+         <article>
+            <h6>Inserting Many</h6>
+            <p><span class="firstWord">S</span>o we saw how to create a new instance of our <span class="colorOrange">Movie</span> class, and then use <b>movieClassName.save()</b> it to upload it into the dataBase. But what if we wanted to upload many items into the dataBase at one time.</p>
+            <p>Well, in MongoDB, we could use <a href="https://www.mongodb.com/docs/manual/reference/method/db.collection.insertMany/" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">db.collection.insertMany()</a>. But remember, we're trying to write <b>mongoose</b> code so we can perform the uploading through a JavaScript interface. And fortunately, <b>mongoose</b> includes a similar <b>method</b> called <a href="https://mongoosejs.com/docs/api/model.html#Model.insertMany()" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">insertMany()</a>.</p>
+            <p>To use this method, we still need to create our <b>schema</b>, and <b>model</b>. All we have to do in JavaScript is to create an array, in our <b>index.js</b> file, that will contain all of the new data for the new movies, like so:
+               <ul class="sectHighlight">
+                  <li>Movie.insertMany([
+                     <ul>
+                        <li>{ title: 'Amelie', year: 2001, score: 8.3, rating: 'R' },</li>
+                        <li>{ title: 'Alien', year: 1979, score: 8.1, rating: 'R' },</li>
+                        <li>{ title: 'The Iron Giant', year: 1999, score: 7.5, rating: 'PG' },</li>
+                        <li>{ title: 'Stand By Me', year: 1986, score: 8.6, rating: 'R' },</li>
+                        <li>{ title: 'Moonrise Kingdom', year: 2012, score: 7.3, rating: 'PG-13' }</li>
+                     </ul>
+                  </li>
+                  <li>])</li>
+               </ul>
+            First, notice that each set of movie data is it's own object. Also notice that all of these objects are combined within an array.
+            </p>
+            <P>Now this is a entirely different process than the <b>.save()</b> method we used previously. If we are only uploading ONE single <i>new class instance</i> of the <b>Movie</b> class, then we need to use the <b>.save()</b> method, like so: <b>badSanta.save()</b></P>
+            <p>But if we are trying to upload data for many movies, we need to use the <b>insertMany()</b> method as shown here. This process is basically creating a direct line in to MongoDB and insert all of the movies at once.</p>
+            <p>And lastly, because <b>insertMany()</b> returns a promise, we can use .then/.catch to process the result.
+               <ul class="sectHighlight">
+                  <li>
+                     <ul>
+                        <li>.then(data => {
+                           <ul>
+                              <li>console.log("Movie Data Uploaded:");</li>
+                              <li>console.log(data);</li>
+                           </ul>
+                        </li>
+                        <li>})</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>All that's left to do now is to fire up out Terminal application and run <b>node index.js</b>. And here is the resulting output from the Terminal:
+               <ul>
+                  <li>Movie Data Uploaded:</li>
+                  <li>[
+                     <ul>
+                        <li>{
+                           <ul>
+                              <li>title: 'Amelie',</li>
+                              <li>year: 2001,</li>
+                              <li>score: 8.3,</li>
+                              <li>rating: 'R',</li>
+                              <li>_id: new ObjectId('680016b78718461efab2c30d'),</li>
+                              <li>__v: 0</li>
+                           </ul>
+                        </li>
+                        <li>},</li>
+                        <li>{
+                           <ul>
+                              <li>title: 'Alien',</li>
+                              <li>year: 1979,</li>
+                              <li>score: 8.1,</li>
+                              <li>rating: 'R',</li>
+                              <li>_id: new ObjectId('680016b78718461efab2c30e'),</li>
+                              <li>__v: 0</li>
+                           </ul>
+                        </li>
+                        <li>},</li>
+                        <li>{
+                           <ul>
+                              <li>title: 'The Iron Giant',</li>
+                              <li>year: 1999,</li>
+                              <li>score: 7.5,</li>
+                              <li>rating: 'PG',</li>
+                              <li>_id: new ObjectId('680016b78718461efab2c30f'),</li>
+                              <li>__v: 0</li>
+                           </ul>
+                        </li>
+                        <li>},</li>
+                        <li>{
+                           <ul>
+                              <li>title: 'Stand By Me',</li>
+                              <li>year: 1986,</li>
+                              <li>score: 8.6,</li>
+                              <li>rating: 'R',</li>
+                              <li>_id: new ObjectId('680016b78718461efab2c310'),</li>
+                              <li>__v: 0</li>
+                           </ul>
+                        </li>
+                        <li>},</li>
+                        <li>{
+                           <ul>
+                              <li>title: 'Moonrise Kingdom',</li>
+                              <li>year: 2012,</li>
+                              <li>score: 7.3,</li>
+                              <li>rating: 'PG-13',</li>
+                              <li>_id: new ObjectId('680016b78718461efab2c311'),</li>
+                              <li>__v: 0</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>]</li>
+               </ul>
+            </p>
          </article>
       </section>
 
