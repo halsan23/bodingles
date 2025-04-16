@@ -26,12 +26,12 @@ const movieSchema = new mongoose.Schema({
 const Movie = mongoose.model('Movie', movieSchema);
 
 // Create a new instance of the movie class
-const badSanta = new Movie({
-   title: 'Bad Santa',
-   year: 2003,
-   score: 7.0,
-   rating: 'R'
-})
+// const badSanta = new Movie({
+//    title: 'Bad Santa',
+//    year: 2003,
+//    score: 7.0,
+//    rating: 'R'
+// })
 
 // insert MANY movies at once
 // Movie.insertMany([
