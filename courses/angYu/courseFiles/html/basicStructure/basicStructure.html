@@ -34,7 +34,120 @@
          <!-- Intro -->
          <article>
             <h6>What is HTML</h6>
-            <p><span class="firstWord"></span></p>
+            <p><span class="firstWord">HTML</span> is an acronym that stands for <b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage. An HTML page <i>(also known as a webpage)</i>, consists of a series of "nested" elements that define how data is presented on the webpage.</p>
+            <p>These <b>elements</b> usually, but not always, consist of an opening tag, and a closing "tag" that defines the element. What we mean by <i>usually</i>, is that some elements are considered "<b>self-closing</b>, meaning that they do not require a "closing" tag.</p>
+            <p>To define the element, the opening and closing tags are contained within "less than" and "greater than" symbols, like so:
+               <ul>
+                  <li><b>&lt;openingTag></b><i>data here</i><b>&lt;/closingTag></b></li>
+               </ul>
+            </p>
+            <p>Here are a few example:
+               <ul>
+                  <li>&lt;p>This defines a paragraph&lt;/p></li>
+                  <li>&lt;b><b>This is BOLD text</b>&lt;/b></li>
+                  <li>&lt;a>This defines an ANCHOR element&lt;/a></li>
+               </ul>
+            Notice how these have both opening, and closing tags. As we mentioned above, some elements are considered "self-closing" and do not required a closing tag. Here are some examples of these:
+               <ul>
+                  <li>&lt;img src="" alt=""> this defines an image element</li>
+                  <li>&lt;br> this defines a line break</li>
+               </ul>
+            Notice that these do not require a "closing tag". More information about HTML Elements can be found here:
+               <ul>
+                  <li><a href="https://www.w3schools.com/Html/html_elements.asp" target="_blank" rel="noopener noreferrer">W3Schools HTML Elements</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements" target="_blank" rel="noopener noreferrer">MDN HTML elements reference</a></li>
+               </ul>
+            </p>
+         </article><hr>
+
+         <!-- HTML Basics -->
+         <article>
+            <h6>HTML Basics</h6>
+            <p><span class="firstWord">N</span>ow that we know what HTML elements are, we can now discuss the basic HTML structure. HTML coding is basically a nested structure. For example a <b>&lt;ul></b> element defines an unordered list. The coding would look like:
+               <ul class="sectHighlight">
+                  <li>&lt;ul>
+                     <ul>
+                        <li>&lt;li>list item 1&lt;/li></li>
+                        <li>&lt;li>list item 2&lt;/li></li>
+                        <li>&lt;li>list item 3&lt;/li></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/ul></li>
+               </ul>
+            Notice the opening/closing tags, but also notice how the "line items" are "nested within" the unordered list parent element. This "nesting" is the basic structure for HTML Code.
+            </p>
+         </article><hr>
+
+         <!-- HTML Structure -->
+         <article>
+            <h6>HTML Structure</h6>
+            <p><span class="firstWord">N</span>ow we can define the Basic HTML Structure. An HTML page consists of three basic parts:
+               <ul>
+                  <li>The Declaration</li>
+                  <li>The Head Section</li>
+                  <li>The Body of the webpage</li>
+               </ul>
+            </p>
+            <p>If you open a new empty HTML page in VS Code, you can press [<b>sh + 1</b>], press enter, and the basic HTML structure will be generated for you. Or you can enter it manually, but it should look something like this:
+               <ul class="sectHighlight">
+                  <li>&lt;!DOCTYPE html></li>
+                  <li>&lt;html lang="en"></li>
+                  <li>&nbsp;
+                     <ul>
+                        <li>&lt;head>
+                           <ul>
+                              <li>&lt;meta charset="UTF-8"></li>
+                              <li>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"></li>
+                              <li>&lt;title>Document&lt;/title></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/head</li>
+                        <li>&nbsp;</li>
+                        <li>&lt;body>
+                           <ul>
+                              <li>page data goes here ...</li>
+                           </ul>
+                        </li>
+                        <li>&lt;/body</li>
+                        <li>&nbsp;</li>
+                     </ul>
+                  </li>
+                  <li>&lt/html></li>
+               </ul>
+            Notice the opening and closing tags here. Also notice the "nesting structure" of the coding. Let's break this all down.
+            </p>
+            <p><b>&lt;!DOCTYPE html></b> is defining this as an HTML page (as opposed to a CSS page, or a JS page, or any other typ of page).</p>
+            <p><b>&lt;html lang="en"></b> this is defining the coding as html and setting the default language to english. Notice that this is an opening tag and that there is a corresponding closing tag at the bottom of the page.</p>
+            <p>The <b>&lt;head></b> section is where we define different aspects of data that are relevant to this webpage. Also notice that this section is contained within opening and closing tags. In this example:
+               <ul>
+                  <li>- we are defining this page to use the <b>UTF-8</b> character set to display all characters.</li>
+                  <li>- <b>meta name="viewport"</b> is setting up the page to be "scalable" to different screen size outputs, which we will discuss in-depth when we get to CSS and Media Queries.</li>
+                  <li>- <b>&lt;title></b> allows us to define a title for the page which is displayed in the browser tab for our page.</li>
+                  <li>- this is also where we would put links to external files such as CSS files and Script files.</li>
+               </ul>
+            </p>
+            <p><b>&lt;body></b> is where we include all of our HTML coding for display of data, to our webpage. It is also contained within opening and closing tags.</p>
+         </article><hr>
+
+         <!-- Final Notes -->
+         <article>
+            <h6>Final Notes</h6>
+            <p><span class="firstWord">O</span>ne final word about HTML here. HTML is but one of three major pieces of modern webpage infrastructure. The two other key components being CSS and JavaScript.</p>
+            <ul>
+               <li>
+                  <ul>
+                     <li><b>HTML</b> is essentially the data for a webpage. The words, pictures, headings, whatever information that you want to display. You can do some basic formatting with html but usually, it is the data, or information that goes into the HTML page.</li>
+                     <li>&nbsp;</li>
+                  </ul>
+                  <ul>
+                     <li><b>CSS</b> or <b>C</b>ascading <b>S</b>tyle <b>S</b>heet is the "styling" of the webpage. CSS sets the fonts, the sizes, the colors, the width and height of different elements. CSS sets all of the "Look and Feel" of the webpage.</li>
+                     <li>&nbsp;</li>
+                  </ul>
+                  <ul>
+                     <li><b>JavaScript</b> runs all of the "functionality" of a webpage. If you want to process an input, read or write from a data base, and many other possibilities, JavaScript is the "engine" behind the scenes.</li>
+                  </ul>
+               </li>
+            </ul>
          </article>
       </section>
 
