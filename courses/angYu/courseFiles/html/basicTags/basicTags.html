@@ -12,6 +12,19 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
+   <style>
+      .listParent {
+         width: 70%;
+         display: flex;
+         justify-content: space-evenly;
+      }
+      .listCode {
+         width: 50%;
+      }
+      .listDisplay {
+         width: 50%;
+      }
+   </style>
 </head>
 
 <body>
@@ -34,7 +47,7 @@
          <!-- Headings -->
          <article>
             <h6>Headings</h6>
-            <p>Heading are elements that are generally used as a Title or heading of a section on a page. Let's say you want to discuss a book, you might start with a "heading" with the book title.</p>
+            <p><span class="firstWord">H</span>eading are elements that are generally used as a Title or heading of a section on a page. Let's say you want to discuss a book, you might start with a "heading" with the book title.</p>
             <p>The basic syntax for a heading is:
                <ul class="sectHighlight">
                   <li><b>&lt;hx></b>heading text<b>&lt;/hx></b></li>
@@ -78,7 +91,7 @@
          <!-- Paragraphs -->
          <article>
             <h6>Paragraphs</h6>
-            <p>Paragraphs are designated with a <b>&lt;p></b>paragraph text<b>&lt;/p></b> element, like so:
+            <p><span class="firstWord">P</span>aragraphs are designated with a <b>&lt;p></b>paragraph text<b>&lt;/p></b> element, like so:
                <p><b>&lt;p></b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ea dolorum itaque sunt odit, voluptate temporibus reprehenderit, optio amet reiciendis quidem odio, facilis illo. Animi dolor quia sapiente odit inventore.<b>&lt;/p></b></p>
             </p>
          </article><hr>
@@ -86,9 +99,170 @@
          <!-- hr & br -->
          <article>
             <h6>hr and br</h6>
-            <p>The <b>hr</b> and <b>br</b> elements are referred to as "self-closing", or "void" elements, because they don't have a closing tag, and because they are void of having any content or info within the tag structure.</p>
+            <p><span class="firstWord">T</span>he <b>hr</b> and <b>br</b> elements are referred to as "self-closing", or "void" elements, because they don't have a closing tag, and because they are void of having any content or info within the tag structure.</p>
             <p>The <b>hr</b> element will place a horizontal line across the page, separating the elements before, and after it. The syntax is : <b>&lt;hr></b>.</p>
-            <P>The <b>br</b> element places a line break where you need one and the syntax for that is: <b>&lt;br></b></P>
+            <p>The <b>br</b> element places a line break where you need one and the syntax for that is: <b>&lt;br></b></p>
+         </article><hr>
+
+         <!-- Lists -->
+         <article>
+            <h6>Lists</h6>
+            <p><span class="firstWord">L</span>ists are a way to display data in an organized fashion. Lists can be organized with Bullets, Numbers, Roman Numerals, etc..</p>
+            <p>There are two types of lists, an "Ordered List" <b>&lt;ol></b>, and an "Unordered List" <b>&lt;ul></b>. An "Ordered List" is going to use Numbers or Roman Numerals, and an "Unordered List" is going to use some type of bullets. The syntax is going to use opening and closing "parent" tags that define what type of list it is <b><i>ol</i></b>, or <b><i>ul</i></b>. This is followed by the actual line items <b>&lt;li></b> that make up the list.</p>
+            <p>Examples:
+               <div class="listParent">
+                  <span class="listCode">
+                     <ul><b>UnOrdered List</b>
+                        <li>&ltul>
+                           <ul>
+                              <li>&lt;li>List Item 1&lt;/li></li>
+                              <li>&lt;li>List Item 2&lt;/li></li>
+                              <li>&lt;li>List Item 3&lt;/li></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/ul></li>
+                     </ul>
+                  </span>
+                  <span class="listDisplay">
+                     <ul><b>Gives You</b>
+                        <li style="list-style: disc;">List Item 1</li>
+                        <li style="list-style: disc;">List Item 2</li>
+                        <li style="list-style: disc;">List Item 3</li>
+                     </ul>
+                  </span>
+               </div>
+               <div class="listParent">
+                  <span class="listCode">
+                     <ul><b>Ordered List</b>
+                        <li>&ltol>
+                           <ul>
+                              <li>&lt;li>List Item 1&lt;/li></li>
+                              <li>&lt;li>List Item 2&lt;/li></li>
+                              <li>&lt;li>List Item 3&lt;/li></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/ol></li>
+                     </ul>
+                  </span>
+                  <span class="listDisplay">
+                     <ol><b>Gives You</b>
+                        <li>List Item 1</li>
+                        <li>List Item 2</li>
+                        <li>List Item 3</li>
+                     </ol>
+                  </span>
+               </div>
+            Notice the opening and closing tags, and also the "nested" structure.</p>
+            <p>One last thing to mention about lists is that you can also nest "sub_lists", like so:
+               <div class="listParent">
+                  <span class="listCode">
+                     <ul><b>Ordered List</b>
+                        <li>&ltol>
+                           <ul>
+                              <li>&lt;li>List Item 1
+                                 <ul>
+                                    <li>&ltul>
+                                       <ul>
+                                          <li style="list-style: disc;">&lt;li>sub-List Item 1&lt;/li></li>
+                                          <li style="list-style: disc;">&lt;li>sub-List Item 2&lt;/li></li>
+                                          <li style="list-style: disc;">&lt;li>sub-List Item 3&lt;/li></li>
+                                       </ul>
+                                    </li>
+                                    <li>&lt;/ul></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;/li></li>
+                              <li>&lt;li>List Item 2&lt;/li></li>
+                              <li>&lt;li>List Item 3&lt;/li></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/ol></li>
+                     </ul>
+                  </span>
+                  <span class="listDisplay">
+                     <ol><b>Gives You</b>
+                        <li>List Item 1
+                           <ul>
+                              <li style="list-style: disc;">sub-List Item 1</li>
+                              <li style="list-style: disc;">sub-List Item 2</li>
+                              <li style="list-style: disc;">sub-List Item 3</li>
+                           </ul>
+                        </li>
+                        <li>List Item 2</li>
+                        <li>List Item 3</li>
+                     </ol>
+                  </span>
+               </div>
+            A couple of things to notice here. If you look you'll see that the "sub-list" is nested <b>within an &lt;li></b> tag. This is an important note as to how you set up your nesting. You could continue to have many other nested sub-lists if necessary.</p>
+            <p>Also notice that the <b>sub-nesting</b> does NOT have to be of the same type of list, as the parent list. You can mix and match any types of lists you need as long as you comply with the proper code structure, meaning the sub-list <b>must</b> be listed <b>within</b> an existing <b>&lt;li></b> tag.
+            </p>
+         </article><hr>
+
+         <!-- Anchor Elements -->
+         <article>
+            <h6>Anchor Elements</h6>
+            <p><span class="firstWord">A</span>nchor elements define a hyperlink, which is used to link from one page to another, or from one place in a webpage to another. The most important attribute of the <b>&lt;a></b> element is the <b>href</b> attribute, which indicates the link's destination. By default, links will appear as follows in all browsers:
+               <ul>
+                  <li>An unvisited link is underlined and <span class="colorBlue">blue</span></li>
+                  <li>A visited link is underlined and <span class="colorPurple">purple</span></li>
+                  <li>An active link is underlined and <span class="colorRed">red</span></li>
+               </ul>
+            </p>
+            <p>The basic syntax is:
+               <ul class="sectHighlight">
+                  <li>&lt;a href="<i>link to destination</i>" target="_blank">Displayed Text for Link&lt;/a></li>
+               </ul>
+            and a real world example is:
+               <ul class="sectHighlight">
+                  <li>&lt;a href="www.bodingles.com" target="_blank">Bodingles.com&lt;/a></li>
+               </ul>
+            and this is what is displayed on the page: <a href="http://www.bodingles.com" target="_blank">Bodingles.com</a></p>
+            <p>Optional Properties:
+               <ul>
+                  <li><b>target="_blank"</b> opens the link in a new window.</li>
+                  <li><b>rel="noopener noreferrer"</b> protects your site's users against having the site you've linked to potentially hijacking the browser (via rogue JS).
+                     <ul>
+                        <li><b>Update as of 2021</b>: <i>All current versions of major browsers now automatically use the behavior of rel="noopener" for any target="_blank" link, nullifying this issue.</i></li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>And lastly, you can link to somewhere <b>within</b> the current page. To do this, simply add and <b>ID</b> to any element on the page, that would be where you want to link to. And then place an Anchor tag in place in the page where you want the "link" to be displayed. When you create the link, the <b>href</b> would point to the previously declared <b>ID</b>.</p>
+            <p>So for example, many pages will have a link that goes back to the top of the page. So in your code, at the top of your page wher you want the link to go to, add the <b>ID</b>, like so:
+               <ul>
+                  <li>&lt;div <b>id="top"</b>></li>
+               </ul>
+            and the wherever you want to place the actual link, your going to create your "anchor element":
+               <ul>
+                  <li>&lt;a <b>href="#top"</b>>Back to Top&lt;/a></li>
+               </ul>
+            so your <b>href</b> is pointing to the div with the <b>ID</b> of "top".</p>
+            <p>A couple of points here. Where you place you <b>ID</b> does not have to be a <b>&lt;div></b>. It can be any element. But the <b>ID</b> HAS to match your <b>href</b>. Also, the Link Text can say whatever you like.
+            </p>
+         </article><hr>
+
+         <!-- Image Elements -->
+         <article>
+            <h6>Image Elements</h6>
+            <p><span class="firstWord">I</span>mage elements are used to display images on a page. One important note about <b>&lt;img></b> elements is that they are <b>self-closing</b>, or <b>void</b> elements, which means there is no closing tag.</p>
+            <p>The basic syntax is:
+               <ul>
+                  <li>&lt;img src="link to image file" alt="text describing image"></li>
+               </ul>
+            Now the <b>src</b> is going to be <b>path to the image file</b>/image.type. So an image element that displays an image of a butterfly in an images directory might look like:
+               <ul>
+                  <li>&lt;img src="images/butterfly.png" alt="image of a butterfly"></li>
+               </ul>
+            </p>
+            <p>One note here about the <b>src</b>. The images do not have to be images you have on your local computer. They can also be online. Just replace the directory structure in ith <b>src</b> property to a web link, like so:
+               <ul>
+                  <li>&lt;img src="<b>https://www.stockvault.net/data/2011/02/21/117750/preview16.jpg</b>" alt="Online pic of sunset over the ocean."></li>
+                  <li><img src="https://www.stockvault.net/data/2011/02/21/117750/preview16.jpg" alt="Online pic of sunset over the ocean." width="50%" height="50%"></li>
+               </ul>
+            </p>
+            <p>Also, the <b>alt</b> is optional and is used for screen readers that will read the text out loud. This is an <b>Aria</b> feature that is part of the technology that allows people with "sight" disabilities to be able to know what is on a page. Even though this is optional, it is always considered "best practice" to include an <b>alt</b> property.
+            </p>
+         </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
