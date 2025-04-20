@@ -39,11 +39,15 @@
             <ul>
                <li><b>Attribute Selector []</b>
                   <ul>
-                     <li>A Way to specifically target an element's attribute. Attributes are things such as ID, or Class, or "draggable". If we have the following example:
+                     <li>A Way to specifically target an element's attribute. Attributes are things such as ID, or Class, or "draggable". If we had one, (or more) &lt;p> element(s) with an ID of "priority":
                         <ul>
                            <li>&lt;p <b>id="priority</b>">This paragraph has priority&lt;/p></li>
                         </ul>
-                     we can select it in the CSS file with <b>p[#priority] {}</b> and apply our style. So we are only targeting the <b>&lt;p></b> element with an ID of priority
+                     then
+                        <ul>
+                           <li><b>p[#priority] {}</b></li>
+                        </ul>
+                     would select all of the <b>&lt;p></b> elements, with an ID of "<b>priority</b>".
                      </li>
                   </ul>
                </li>
@@ -51,19 +55,43 @@
                   <ul>
                      <li>Allows us to target multiple elements. If we have an <b>&lt;h1></b> and an <b>&lt;h2></b> element that we want to select, we would use:
                         <ul>
-                           <li>h1<b>,</b> h2 {}</li>
+                           <li><b>h1, h2 {}</b></li>
                         </ul>
                      This would group both elements for styling.
                      </li>
                   </ul>
                </li>
-               <li><b>Child Selector ></b> <i>(greater than)</i>
+               <li><b>Direct Descendant, or Child Selector ></b> <i>(greater than)</i>
                   <ul>
-                     <li>Allows us to select a child element. If we had a &lt;div> with a child &lt;p> element, we could select the child, like so:
+                     <li>Allows us to select all descendant element(s), that are a <b>direct descendant</b>. If we had a &lt;div> with descendant &lt;p> element(s), we could select the descendants, like so:
                         <ul>
-                           <li>div <b>></b> p {}</li>
+                           <li><b>div > p {}</b></li>
                         </ul>
-                     This would select all <b>&lt;p></b> elements, that are children to a <b>&lt;div></b> element.
+                     This would select all <b>&lt;p></b> elements, that are <b>direct</b> descendants to a <b>&lt;div></b> element <i>(but only direct descendants one level down)</i>.
+                     </li>
+                  </ul>
+               </li>
+               <li><b>All Descendant Selector &nbsp;</b> <i>(space)</i>
+                  <ul>
+                     <li>Selects ALL of the descendant elements specified, of the parent element. So, if we have a &lt;div> element, and inside are a couple of &lt;p> elements, and a &lt;ul> with a &lt;p> element, if we select:
+                        <ul>
+                           <li><b>div</b> <i>(space)</i> <b>p {}</b></li>
+                        </ul>
+                     This would select <b>ALL</b> of the &lt;p> elements nested <b>anywhere</b> within the parent &lt;div> element.
+                     </li>
+                  </ul>
+               </li>
+               <li><b>Chaining</b>
+                  <ul>
+                     <li>Chaining is a way of being <b>very specific</b> in our element selection process. Let's say we have an &lt;h1> with an ID of title, and two classes (class1, & class2):
+                        <ul>
+                           <li><b>&lt;h1 id="title" class="class1 class2"></b></li>
+                        </ul>
+                     We could be very specific in targeting this &lt;h1> by using:
+                        <ul>
+                           <li><b>h1#title.class1.class2</b></li>
+                        </ul>
+                     This is the essence of "chaining". We are selecting an &lt;h1> with an ID of title, a class of class1 and a class of class2. Notice that there are <b>NO Separations</b> between the element, id, and both classes. It is all "<b>chained</b>" together into one long selector.
                      </li>
                   </ul>
                </li>

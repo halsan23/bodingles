@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <style>
+      div.box1{
+         width: 250px;
+         height: 250px;
+         background-color: seagreen;
+         position: relative;
+      }
+      div.box2{
+         width: 150px;
+         height: 150px;
+         background-color: blue;
+         position: absolute;
+      }
+      div.box3{
+         width: 150px;
+         height: 150px;
+         top: 25px;
+         left: 25px;
+         background-color: blue;
+         position: absolute;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h3>Complete 2024 Web Development Bootcamp</h3>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../cssIndex.html">Back to CSS Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>CSS Positioning</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+          <h6>Intro</h6>
+         <p><span class="firstWord">P</span>ositioning is a way of moving elements around on a webpage.</p>
+         <p>With all of the positioning methods <i>(except static)</i>, you <b>move</b> an element with the <b>top</b>, <b>bottom</b>, <b>left</b> and <b>right</b> properties. You can also use <b>z-index</b> move the element's position forwards or backwards on a page.</p>
+         <p>Also, when you look at a "positioned" element in the "inspector", you'll notice that the <b>position</b> property is <b>outside</b> of the <b>margin</b> property. So moving from the outside inwards, you would have position, then margin, then padding.</p>
+         <article>
+
+         </article><hr>
+
+         <!-- Static -->
+         <article>
+            <h6>Static</h6>
+            <p><span class="firstWord">S</span>atic positioning is the <b>default</b> HTML positioning method. If no other positioning is defined, the page will default to static positioning. What this means in practice is that the page will follow the default flow of top to bottom, and left to right.</p>
+         </article><hr>
+
+         <!-- Relative -->
+         <article>
+            <h6>Relative</h6>
+            <p><span class="firstWord">R</span>elative position is setting a position that is <b>relative to it's original</b> position. So you can move an element up, down, left and right <i>relative</i> to it's <b>original position</b>.</p>
+            <p>Setting the top, right, bottom, and left properties of a <b>Relative</b>-positioned element will cause it to be adjusted <b>away from its normal position</b>. Other content will <b>not be adjusted</b> to fit into any gap left by the element.</p>
+         </article><hr>
+
+         <!-- Absolute -->
+         <article>
+            <h6>Absolute</h6>
+            <p><span class="firstWord">A</span>bsolute positioning is setting a position that is relative to the <b>nearest positioned ancestor</b>, or to the top left corner of a webpage <i>(if there is not a near positioned ancestor)</i>.</p>
+            <p>Let's break this down a little. We'll create a green, 250px by 250px &lt;div>, that is positioned with <b>relative</b> positioning which means, "relative to it's original position". So if we don't move, or offset it in any way, it will remain at it's original position.</p>
+            <p>We then add a blue, 150px by 150px &lt;div>, <b>inside</b> of our green &lt;div>, and use <b>absolute</b> positioning. And because the green box was "<b>positioned</b>", it becomes the <b>nearest positioned ancestor</b> to our blue box.</p>
+            <div class="box1">
+               <div class="box2"></div>
+            </div>
+            <p>So the blue box being positioned <b>absolute</b>, will be positioned, <b>relative</b> to the green box. And if there was <b>not</b> a nearest ancestor that <b>has been "positioned"</b>, then the second part of the rule would apply, and the blue box would be positioned, <b>relative to the top left corner of the webpage</b>.</p>
+            <p>Now what we mean by an element being <b>positioned</b>, is that it has a defined position (static, relative, absolute, or fixed). Remember, you <b>move</b> an element with the <b>top</b> and <b>left</b> properties.</p>
+            <p>So if we move our blue box <b>top: 25px;</b> and <b>left: 25px;</b> it would move the blue box, down and right, 25px, <b>relative to the green box</b>, like so:</p>
+            <div class="box1">
+               <div class="box3"></div>
+            </div>
+            <p>And if we remove the <b>position: relative</b> from the green box, the blue box would then move relative to the top left corner of the webpage. Also, <b>z-index</b> could be relevant here as well.</p>
+            <p><b>Absolute</b> positioned elements are <b>removed from the normal flow</b>, and can overlap other elements.</p>
+         </article><hr>
+
+         <!-- Fixed -->
+         <article>
+            <h6>Fixed</h6>
+            <p><span class="firstWord">F</span>ixed positioning will position an element relative to the <b>top, left</b> corner of the "<b>browser window</b>".</p>
+            <p>This is significantly different than <b>absolute</b> positioning where an element might be positioned to the top, left corner of the webpage. Because with <b>fixed</b> positioning, the element is being fixed to the browser window, which means that if you scroll down a webpage, the element will remain in the same place, where <b>absolute</b> positioning would scroll with the page.</p>
+            <p>A <b>Fixed</b> element does not leave a gap in the page where it would normally have been located..</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
