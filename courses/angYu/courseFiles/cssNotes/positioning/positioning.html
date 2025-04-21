@@ -92,6 +92,44 @@
             </div>
             <p>And if we remove the <b>position: relative</b> from the green box, the blue box would then move relative to the top left corner of the webpage. Also, <b>z-index</b> could be relevant here as well.</p>
             <p><b>Absolute</b> positioned elements are <b>removed from the normal flow</b>, and can overlap other elements.</p>
+            <p>Here is the CSS Code to make this work:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li class="commentStyle"><span class="colorBlue">style</span>.css</li>
+                  <li>div.greenBox{
+                     <ul>
+                        <li>width: 250px;</li>
+                        <li> height: 250px;</li>
+                        <li>background-color: seagreen;</li>
+                        <li>position: <b>relative</b>;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li>div.blueBox{
+                     <ul>
+                        <li>width: 150px;</li>
+                        <li> height: 150px;</li>
+                        <li>background-color: blue;</li>
+                        <li>position: <b>absolute</b>;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            and to "move" the blue box:
+               <ul class="sectHighlight">
+                  <li>div.blueBox{
+                     <ul>
+                        <li>width: 150px;</li>
+                        <li> height: 150px;</li>
+                        <li>background-color: blue;</li>
+                        <li>position: <b>absolute</b>;</li>
+                        <li><b>top: 25px;</b></li>
+                        <li><b>left: 25px;</b></li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
          </article><hr>
 
          <!-- Fixed -->
