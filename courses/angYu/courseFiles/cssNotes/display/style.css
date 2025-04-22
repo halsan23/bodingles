@@ -1,0 +1,35 @@
+#margin {
+   width: 400px;
+   height: 200px;
+   text-align: center;
+   position: relative;
+   background-color: #d0d0d0;
+}
+
+#margin > div {
+   background-color: #c1a480;
+   width: 90%;
+   height: 82%;
+   top: 10%;
+   left: 5%;
+   position: absolute;
+}
+
+#margin > div > div {
+   background-color: #adc38b;
+   width: 90%;
+   height: 77%;
+   top: 13%;
+   left: 5%;
+   position: absolute;
+}
+
+#margin > div > div > div {
+   background-color: #eceee8;
+   width: 90%;
+   height: 55px;
+   top: 17%;
+   left: 5%;
+   padding-top: 35px;
+   position: absolute;
+}

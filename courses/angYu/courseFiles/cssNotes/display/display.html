@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h3>Complete 2024 Web Development Bootcamp</h3>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../cssIndex.html">Back to CSS Index Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>CSS Display</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">I</span>f we want to understand the <b>display</b> property, we need to understand the "<b>box model</b>" of CSS display.</p>
+            <p>The CSS Box Model is a fundamental concept in web design that defines how elements are sized, positioned, and rendered on a webpage. Each HTML element is represented as a rectangular box, which consists of four parts: content, padding, border, and margin.</p>
+            <p>The Box Model</p>
+            <div id="margin">Margin
+               <div>Border
+                  <div>Padding
+                     <div>Content</div>
+                  </div>
+               </div>
+            </div>
+            <ul>
+               <li><b>Content</b>: This is the area where the actual content of the element is displayed, such as text or images.</li>
+               <li><b>Padding</b>: Space between the content and the element’s border.</li>
+               <li><b>Border</b>: A frame that wraps around the padding and content.</li>
+               <li><b>Margin</b>: Space between the element’s border and neighboring elements.</li>
+            </ul>
+            <p>When setting the width and height of an element, the default <b>box-sizing</b> is content-box, where the specified width and height only apply to the content area, and padding and borders are added to these dimensions.</p>
+            <ul>
+               <li>For example, if an element has a width of 100px, padding of 20px, and a border of 10px, the total width will be 160px (100 + 20 + 20 + 10 + 10).</li>
+            </ul>
+            <p>To ensure that the width and height properties include the padding and border, you can set box-sizing: border-box on the element. This way, the specified width and height include the padding and border, making it easier to predict the total size of the element.</p>
+         </article><hr>
+
+         <!-- Block & Inline -->
+         <article>
+            <h6>Block & Inline</h6>
+            <p><span class="firstWord">N</span>ext we need to understand the difference between "<b>block-level</b>" elements, and "<b>inline</b>" elements.</p>
+            <p><b>Block-Level Elements</b>: start on a new line and take up the full width available, stretching out to the left and right as far as they can. They also have top and bottom margins by default.</p>
+               <ul>
+                  <li>examples include &lt;div>, &lt;p>, &lt;h1> to &lt;h6>, and &lt;ul>.</li>
+               </ul>
+            <p><b>Inline elements</b>: do not start on a new line and only take up as much width as necessary. They do not have top and bottom margins by default.</p>
+            <ul>
+               <li>examples include &lt;span>, &lt;a>, &lt;strong>, and &lt;em>.</li>
+            </ul>
+            <p><b>Key Differences</b>:
+               <ul>
+                  <li>Line Breaks:
+                     <ul>
+                        <li>Block-level elements always start on a new line.</li>
+                        <li>Inline elements do not start on a new line and flow within the content.</li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul>
+                  <li>Width:
+                     <ul>
+                        <li>Block-level elements take up the full width of their parent container.</li>
+                        <li>Inline elements take up only the necessary width.</li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul>
+                  <li>Margins:
+                     <ul>
+                        <li>Block-level elements have top and bottom margins by default.</li>
+                        <li>Inline elements do not have top and bottom margins by default.</li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul>
+                  <li>Nesting:
+                     <ul>
+                        <li>Block-level elements can contain inline elements.</li>
+                        <li>Inline elements can be nested within block-level elements but not vice versa.</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+         </article><hr>
+
+         <!-- Display Properties -->
+         <article>
+            <h6>Display Properties</h6>
+            <p><span class="firstWord">A</span>nd this brings us to our <b>display</b> properties. There are several CSS <b>display properties</b> available for use, but there are four main properties that we will use most often:
+               <ul>
+                  <li><b>inline</b>: Displays an element as an inline element (like &lt;span>). Any height and width properties will have no effect. This is default. An inline element's width property is only as wide as the content it contains, and it wiil stretch to fit it's content. Can not set height or width.</li>
+                  <li><b>block</b>: Displays an element as a block element (like &lt;p>). It starts on a new line, and takes up the whole width. Can set the height and width properties.</li>
+                  <li><b>inline-block</b>: Displays an element as an inline-level block container. The element itself is formatted as an inline element, but you can set the height and width properties.</li>
+                  <li><b>none</b>: used to hide an element entirely, removing it from the document flow. This means the element and its space are not rendered in the document, and other elements can occupy the space it would have taken.
+                     <ul>
+                        <li><b>*note</b>: this is similar to <i>visibility: hidden</i>, which hides an element, but keeps its space in the layout, so other elements can not occupy the space it is taking.</li>
+                     </ul>
+                  </li>
+               </ul>
+               More information can be <a href="https://www.w3schools.com/cssref/pr_class_display.php" target="_blank">found here</a>.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
