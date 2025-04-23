@@ -12,6 +12,27 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
+   <style>
+      .img1 {
+         border: 1px solid black;
+         border-radius: 15px;
+         box-shadow: 5px 5px 12px #929292;
+      }
+      .img2 {
+         border: 1px solid black;
+         border-radius: 15px;
+         box-shadow: 5px 5px 12px #929292;
+         margin-right: 20px;
+         float: left;
+      }
+      .img3 {
+         border: 1px solid black;
+         border-radius: 15px;
+         box-shadow: 5px 5px 12px #929292;
+         margin-left: 20px;
+         float: right;
+      }
+   </style>
 </head>
 
 <body>
@@ -34,7 +55,59 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord"></span></p>
+            <p><span class="firstWord">T</span>ext and images, by default, are "block-level" elements which means that they take up their entire row on a webpage. We can over-ride this behaviour using the <b>float</b> property in CSS.</p>
+            <p>The CSS <b>float</b> property is used for positioning and layout on web pages. It allows an element to be placed on the left or right side of its container, enabling text and inline elements to wrap around it. This property is commonly used to float images to one side and let text wrap around them, similar to how text wraps around images in print design.</p>
+            <p>The float property can have several values:
+               <ul>
+                  <li><b>left</b>: The element floats to the left of its container.</li>
+                  <li><b>right</b>: The element floats to the right of its container.</li>
+                  <li><b>none</b>: The element does not float and remains in its normal position in the text (this is the default value).</li>
+                  <li><b>inline-start</b>: The element floats to the start of the inline direction.</li>
+                  <li><b>inline-end</b>: The element floats to the end of the inline direction.</li>
+                  <li><b>inherit</b>: The element inherits the float value of its parent.</li>
+               </ul>
+            </p>
+            <p>When an element is floated, it is automatically treated as a block-level element. This means that floated elements can be styled with properties like width, height, and margin.</p>
+            <p>It's important to note that floated elements remain part of the document flow, unlike elements that are absolutely positioned. This means that floated elements can affect the layout of other elements around them, which can sometimes require additional techniques like clearing floats to manage the layout properly.</p>
+            <p>The float property is widely supported across all modern browsers, and it is a fundamental part of CSS for creating layouts and positioning elements. However, it is worth noting that floated elements can sometimes cause issues with layout, especially when the floated element is taller than its containing element, leading to overflow issues that may need to be addressed with techniques like the "clearfix" hack.</p>
+         </article><hr>
+
+         <!-- Demo -->
+         <article>
+            <h6>Demonstration</h6>
+            <p><span class="firstWord">W</span>e are going to demonstrate this concept using this image:</p>
+            <p><img class="img1" src="../../../assets/images/lightbulbRainbow.png" alt="Colorful Lightbulb"></p>
+            <p>with some random lorem ipsum text:
+               <ul>
+                  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, ratione eum dolorem culpa placeat ipsum at quasi voluptatibus deserunt sapiente, consectetur ut quo enim fuga optio, doloremque id voluptatem. Placeat. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur possimus quisquam nesciunt consequuntur in, sed optio quae sapiente quia eius! Temporibus, sunt? Quidem vel vero voluptate necessitatibus sunt illum aliquid?</li>
+               </ul>
+            </p>
+         </article><hr>
+
+         <!-- float: left -->
+         <article>
+            <h6>float: left</h6>
+            <p>irst we will apply the <b>float: left</b> property to cause the image to float to the left and wrap the text around to the right of it, like so:</p>
+            <p><img class="img2" src="../../../assets/images/lightbulbRainbow.png" alt="Colorful Lightbulb"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde totam eligendi, asperiores ea earum in rerum? Cupiditate est, assumenda, nemo aliquid, officia deleniti dicta voluptate quo temporibus porro at dolorem! Eum, obcaecati? Debitis eligendi accusamus quos iste nobis porro, facere blanditiis officia. Dolores temporibus fugit consectetur, iste quasi hic eos dicta sed nemo fuga commodi libero soluta, sapiente perferendis? Harum. Rem tenetur sit hic, distinctio obcaecati omnis velit magnam necessitatibus, qui veritatis praesentium? Autem unde rerum sequi odio laudantium. Necessitatibus voluptates modi laborum quaerat soluta natus ab numquam cum dolore! Sequi culpa ullam animi maiores quasi aspernatur ex quidem earum fuga ipsum sunt tempore harum, placeat ab alias molestias porro, atque impedit praesentium labore. Facilis nisi eius inventore ab velit! Possimus perspiciatis suscipit pariatur aliquid in, nemo dolores non quis similique quidem! Nobis corporis totam cupiditate et ex eos vitae numquam exercitationem accusantium voluptate autem, sint, neque soluta beatae itaque!</p>
+         </article><hr>
+
+         <!-- float: right -->
+         <article>
+            <h6>float: right</h6>
+            <p><span class="firstWord">A</span>nd similarly, we can <b>float: right</b>, like so:</p>
+            <p><img class="img3" src="../../../assets/images/lightbulbRainbow.png" alt="Colorful Lightbulb"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde totam eligendi, asperiores ea earum in rerum? Cupiditate est, assumenda, nemo aliquid, officia deleniti dicta voluptate quo temporibus porro at dolorem! Eum, obcaecati? Debitis eligendi accusamus quos iste nobis porro, facere blanditiis officia. Dolores temporibus fugit consectetur, iste quasi hic eos dicta sed nemo fuga commodi libero soluta, sapiente perferendis? Harum. Rem tenetur sit hic, distinctio obcaecati omnis velit magnam necessitatibus, qui veritatis praesentium? Autem unde rerum sequi odio laudantium. Necessitatibus voluptates modi laborum quaerat soluta natus ab numquam cum dolore! Sequi culpa ullam animi maiores quasi aspernatur ex quidem earum fuga ipsum sunt tempore harum, placeat ab alias molestias porro, atque impedit praesentium labore. Facilis nisi eius inventore ab velit! Possimus perspiciatis suscipit pariatur aliquid in, nemo dolores non quis similique quidem! Nobis corporis totam cupiditate et ex eos vitae numquam exercitationem accusantium voluptate autem, sint, neque soluta beatae itaque!</p>
+         </article><hr>
+
+         <!-- float: clear -->
+         <article>
+            <h6>Clearing a Float</h6>
+            <p><span class="firstWord">T</span>o clear an existing float, we use <b>clear</b> property. We use this property on the <b>first</b> element, <b>after</b> the float that you want to clear. The syntax is:
+               <ul>
+                  <li>clear: left;</li>
+                  <li>clear: right;</li>
+                  <li>clear: both;</li>
+               </ul>
+            </p>
          </article>
       </section>
 
