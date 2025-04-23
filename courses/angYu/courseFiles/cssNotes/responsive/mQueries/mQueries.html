@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <style>
+      .divBox {
+         width: 600px;
+         height: 200px;
+         background-color: #9bb185;
+      }
+
+      @media (max-width: 1000px) {
+         .divBox {
+            width: 300px;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h3>Complete 2024 Web Development Bootcamp</h3>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../responsiveIndex.html">Back to Responsive Design Page</a></p>
+         <hr style="width: 40%;">
+         <p>&nbsp;</p>
+         <h5>Media Queries</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">M</span>edia queries are a CSS technique introduced in CSS3 that are commonly used to create responsive designs that adapt to different screen sizes and orientations. Media queries are a key component of responsive design, enabling the conditional setting of CSS styles depending on the current user environment.</p>
+            <p>Media queries can target various features such as viewport width and height, device orientation, screen resolution, and user preferences like preferring reduced motion or data usage.</p>
+            <p>Media queries can also be used to change the layout of a page depending on the orientation of the browser. For instance, you can apply styles when the browser window is wider than its height (landscape mode). In addition to CSS, media queries can be used in HTML and JavaScript to conditionally load resources or execute scripts based on the device characteristics.</p>
+         </article><hr>
+
+         <!-- Setup -->
+         <article>
+            <h6>Setup</h6>
+            <p><span class="firstWord">I</span>n oder for <b>media queries</b> to work, we need to add the following line to the <b>&lt;head></b> section of our HTML page:
+               <ul class="sectHighlight">
+                  <li>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"></li>
+               </ul>
+               This is setting the initial device width and scale of the screen that is displaying the webpage. Once this is determined, we can start writing our specific CSS code. The basic syntax looks like this:
+               <ul class="sectHighlight">
+                  <li>@media (max-width: 600px) {
+                     <ul>
+                        <li>insert css code here</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>In this particular case,
+               <ul>
+                  <li><b>@media</b>: is defining this as a media query</li>
+                  <li><b>(max-width: 600px)</b>: is saying, if the current viewport is less than, or equal to 600px, the use this styling</li>
+               </ul>
+            You would then add the styling that would apply under the current conditions. And where do we get the current width? From the "meta viewport" tag in the <b>&lt;head></b> section of the originating webpage, as shown above.
+            </p>
+         </article><hr>
+
+         <!-- demonstrate -->
+         <article>
+            <h6>Demonstration</h6>
+            <p><span class="firstWord">W</span>e're going to demonstrate by creating a box with a &lt;div>
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li>&lt;div>&lt;/div></li>
+               </ul>
+            In the CSS, we'll build the box:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>div {
+                     <ul>
+                        <li>width: 600px;</li>
+                        <li>height: 200px;</li>
+                        <li>background-color: #9bb185;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            and it will look like this:</p>
+            <div class="divBox"></div>
+            <p>Now we'll write our media query:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>@media (max-width: 1000px) {
+                     <ul>
+                        <li>div {
+                           <ul>
+                              <li>width: 300px;</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            And now if we drag thr right side of our window to the left, reducing the viewport size, you will see the box shrink to 300px wide, once we hit the 100px threshold set by the media query.</p>
+            <p>In contrast, we could use <b>(min-width: 600px)</b> to say if the viewport is greater than, or equal to 600px, then do a particular styling. We can also combine definitions, by calling <b>(min-width: 600px) and (max-width: 900px)</b> so that we are targeting the screen sizes between 600px and 900px <i>(specifically 601px to 899px)</i>.</p>
+         </article><hr>
+
+         <!-- Orientation -->
+         <article>
+            <h6>Orientation</h6>
+            <p><span class="firstWord">A</span>nother way to define a media query is with <b>orientation</b>. We could say:
+               <ul class="sectHighlight">
+                  <li>@media (orientation: landscape)</li>
+               </ul>
+            which would target for styling, any screens that are in "landscape" mode. More information can be found at:
+            <ul>
+               <li><a href="https://www.w3schools.com/css/css3_mediaqueries.asp" target="_blank">W3Schools CSS Media Queries</a></li>
+               <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries" target="_blank">MDN Using media queries</a></li>
+            </ul>
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
