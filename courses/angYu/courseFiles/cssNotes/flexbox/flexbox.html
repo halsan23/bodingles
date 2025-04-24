@@ -35,7 +35,145 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord"></span></p>
+            <p><span class="firstWord">W</span>hat is Flexbox? Flexbox is a one-dimensional layout method for arranging items in rows or columns. Items will expand to fill additional space, or shrink to fit into smaller spaces making it a <B>flexible</B> way of displaying content.</p>
+            <p class="tlinks">
+               <a href="https://www.w3schools.com/cssref/css3_pr_flex.php" target="_blank">W3Schools CSS Flexbox and Its Properties</a> |
+               <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank">MDN Flexbox</a> |
+               <a href="https://www.geeksforgeeks.org/css-flexbox-and-its-properties/" target="_blank">Geeks4Geeks CSS Flexbox and Its Properties</a> |
+               <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background" target="_blank">CSS Flexbox Layout Guide</a>
+            </p>
+            <p><b>Why Use Flexbox?</b></p>
+            <p>CSS flexible layout enables you to:
+               <ul>
+                  <li>- Center a block of content inside its parent.</li>
+                  <li>- Make all the children of a container take up an equal amount of the available width/height,
+                     regardless of how much width/height is available.</li>
+                  <li>- Make all columns in a multiple-column layout adopt the same height even if they contain a
+                     different amount of content.</li>
+               </ul>
+            </p>
+         </article><hr>
+
+         <!-- Using Flex -->
+         <article>
+            <h6>Using Flex</h6>
+            <p><span class="firstWord">F</span>lexbox consists of a <b>parent</b> container that is designated as a <b>flex container</b>, and the
+               <b>child</b> elements that become the <b>flex items.</b></p>
+            <p>Flex also works off of the premise of a <b>MAIN</b> and <b>CROSS</b> axis. These are determined
+               by the flex designation, <b>row</b> or <b>column</b>, with <b>row</b> being the default.
+               <ul>
+                  <li>flex-direction: <b>row;</b> - gives you a left to right horizontal <b>main</b> axis and a vertical
+                     <b>cross</b> axis.
+                     <ul>
+                        <li><b>*note</b>: this is the default axis setup for flex, so if you want a left to right
+                           main axis with a vertical cross axis, you can omit this statement.</li>
+                     </ul>
+                  </li>
+                  <li>flex-direction: <b>row-reverse;</b> - gives you a right to left horizontal <b>main</b> axis and a
+                     vertical <b>cross</b> axis
+                  </li>
+                  <li>flex-direction: <b>column;</b> - gives you a top to bottom vertical <b>main</b> axis and a
+                     horizontal <b>cross</b> axis
+                  </li>
+                  <li>flex-direction: <b>column-reverse;</b> - gives you a bottom to top vertical <b>main</b> axis and
+                     a horizontal <b>cross</b> axis
+                  </li>
+               </ul>
+            </p>
+            <p>Once you have designated a container as a <b>flex container</b>, AND determined which are the <b>main</b>
+               and <b>cross</b> axises, you can then use <b>flex properties</b> to effect the layout of the content,
+               <i>within</i> the flex container. Below is a partial list of <i>some</i> of these properties.
+               <b><i>Consult the documentation for more information</i></b>.</p>
+         </article><hr>
+
+         <!-- Parent Properties -->
+         <article>
+            <h6>Parent Properties</h6>
+            <ul>
+               <li><b>display: flex;</b> Defines a parent container as a <b>flex</b> container.</li>
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction" target="_blank" rel="noopener noreferrer">flex-direction</a>
+                  : Defines the main axis direction.
+                  <ul>
+                     <li><b>row | row-reverse | column | column-reverse</b></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap" target="_blank" rel="noopener noreferrer">flex-wrap</a>
+                  : allows child items to wrap onto multiple lines.
+                  <ul>
+                     <li><b>wrap | nowrap | wrap-reverse</b></li>
+                  </ul>
+               </li>
+
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow" target="_blank" rel="noopener noreferrer">flex-flow</a>
+                  : shorthand for flex-direction and flex-wrap.
+                  <ul>
+                     <li><b>row wrap | row-reverse nowrap | column wrap-reverse | column wrap</b></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content" target="_blank" rel="noopener noreferrer">justify-content</a>
+                  : aligns child items along the main axis.
+                  <ul>
+                     <li><b>start | center | end | flex-start | flex-end | space-between | space-around | space-evenly |
+                           stretch</b></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content" target="_blank" rel="noopener noreferrer">align-content</a>
+                  : aligns child items along the cross axis.
+                  <ul>
+                     <li>
+                        same as justify-content plus <b>baseline | first baseline | last baseline |</b> and others
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items" target="_blank" rel="noopener noreferrer">align-items</a>
+                  : aligns multiple lines of child items on the cross axis.
+                  <ul>
+                     <li>Too many to list - consult the documentation</li>
+                  </ul>
+               </li>
+            </ul>
+         </article><hr>
+
+         <!-- Child Properties -->
+         <article>
+            <h6>Child Properties</h6>
+            <p><b>Children/Flex-items Properties:</b></p>
+            <ul>
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items#the_order_property" target="_blank" rel="noopener noreferrer">order</a>
+                  : changes the order of items without altering the source order.
+               </li>
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow" target="_blank" rel="noopener noreferrer">flex-grow</a>
+                  : allows an item to grow to fill available space.
+               </li>
+
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink" target="_blank" rel="noopener noreferrer">flex-shrink</a>
+                  : allows an item to shrink if there’s insufficient space.
+               </li>
+
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis" target="_blank" rel="noopener noreferrer">flex-basis</a>
+                  : defines the initial size of an item.
+               </li>
+
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex" target="_blank" rel="noopener noreferrer">flex</a>
+                  : shorthand for flex-grow , flex-shrink , and flex-basis.
+               </li>
+
+               <li>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self" target="_blank" rel="noopener noreferrer">align-self</a>
+                  : aligns a single item within the flex container.
+               </li>
+            </ul>
          </article>
       </section>
 
