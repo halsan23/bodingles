@@ -1,19 +1,83 @@
-h1, h2 {
-   color: blueviolet;
+body {
+   margin: 50px 50px;
 }
 
-div > p {
-   color: firebrick
+h1 {
+   width: 60%;
+   font-family: "Special Gothic Expanded One", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 5rem;
+   line-height:7.5rem;
 }
 
-div li {
-   color: blue;
+.creative {
+   color: darkblue;
 }
 
-li.done {
-   color: seagreen;
+.tile-image {
+   width: 300px;
+   height: auto;
+   float: left;
+   padding-right: 40px;
 }
 
-ul p.done {
-   font-size: 0.5rem;
+.main {
+   position: relative;
+}
+
+.left {
+   position: absolute;
+   width: 45%;
+   left: 0;
+   display: inline-block;
+}
+
+.right {
+   position: absolute;
+   right: 0;
+   width: 45%;
+   display: inline-block;
+}
+
+.card {
+   padding-right: 50px;
+}
+
+.card-title {
+   font-size: 2rem;
+}
+
+.card-text {
+   font-size: 1.25rem;
+}
+
+footer p {
+   position: absolute;
+   font-size: 1.25rem;
+   color: darkblue;
+   bottom: 0;
+   right: 50px;
+}
+
+@media (max-width: 680px) {
+   .logo {
+      width: 100px;
+   }
+   h1 {
+      font-size: 3.5rem;
+      text-align: center;
+   }
+   .card {
+      width: 100%;
+      display: block;
+      margin-bottom: 30px;
+      text-align: justify;
+   }
+   .card img {
+      margin-bottom: 10px;
+      width: 100%;
+      display: inline;
+      object-fit: cover;
+   }
 }
