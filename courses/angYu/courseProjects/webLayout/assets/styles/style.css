@@ -1,0 +1,88 @@
+h1 {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 3.5rem;
+   font-weight: 700;
+   text-align: left;
+   line-height: 4rem;
+   clear: left;
+}
+
+h2 {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 2rem;
+   font-weight: 600;
+   text-align: left;
+   line-height: 2rem;
+}
+
+.bod {
+   font-family: "Poppins", sans-serif;
+   margin: 0 50px;
+   display: flex;
+   flex-direction: column;
+   min-height: 67vh;
+}
+
+.card {
+width: 45%;
+padding-top: 20px;
+}
+
+.card > p {
+   text-align: justify;
+}
+
+.creative {
+color: midnightblue;
+}
+
+.foot {
+   text-align: right;
+   color: midnightblue;
+   font-size: 1.4rem;
+   font-weight: 600;
+}
+
+.layout {
+   flex: 1;
+}
+
+.left {
+float: left;
+}
+
+.logo {
+   float: left;
+   margin-bottom: 25px;
+}
+
+.right {
+float: right;
+}
+
+.tile-image {
+height: 200px;
+float: left;
+margin-right: 40px;
+}
+
+/* ============================================ */
+
+@media (max-width: 680px) {
+   h1 {
+      font-size: 3.5rem;
+      text-align: center;
+   }
+   .card {
+      width: 100%;
+      display: block;
+      margin-bottom: 30px;
+      text-align: justify;
+   }
+   .card img {
+      margin-bottom: 10px;
+      width: 100%;
+      display: inline;
+      object-fit: cover;
+   }
+}

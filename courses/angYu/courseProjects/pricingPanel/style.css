@@ -4,8 +4,12 @@ body {
    font-family: "Sono", sans-serif;
 }
 
+hr {
+   margin-top: 15px;
+}
+
 .pricing-container {
-   margin-top: 75px;
+   margin: 50px 50px 100px 50px;
    display: flex;
    gap: 25px;
    justify-content: space-evenly;
@@ -16,10 +20,14 @@ body {
    padding: 30px;
    background-color: rgb(235, 235, 235);
    border: 1px solid #888;
-   border-radius: 30px;
+   border-radius: 20px;
    display: flex;
    flex-direction: column;
    align-items: center;
+   /* flex: 1; tells all within this container to be flexile and have the same width */
+   flex: 1;
+   /* set a max-width for the items in this container */
+   max-width: 300px;
 }
 
 .plan-title {
@@ -51,7 +59,7 @@ body {
 }
 
 .plan-button {
-   margin-top: 25px;
+   margin-top: 30px;
    padding: 8px 12px;
    border: 1px solid #888;
    border-radius: 10px;
@@ -62,14 +70,24 @@ body {
    color: white;
 }
 
+.plan-button:hover {
+   background-color: orangered;
+   border: 1px solid #444;
+   box-shadow: none;
+}
+
+.stuff {
+   margin-top: 25px;
+   font-size: .9rem;
+   font-weight: 500;
+   color: brown;
+}
+
 
  /* Hint: What can you do with a media query and flexbox? */
- @media (max-width: 1250px) {
+ @media (max-width: 1100px) {
    .pricing-container {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      gap: 25px;
       flex-direction: column;
+      height: 100%;
    }
  }
