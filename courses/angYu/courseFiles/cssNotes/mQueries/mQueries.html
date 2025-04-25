@@ -119,6 +119,22 @@
             <p>In contrast, we could use <b>(min-width: 600px)</b> to say if the viewport is greater than, or equal to 600px, then do a particular styling. We can also combine definitions, by calling <b>(min-width: 600px) and (max-width: 900px)</b> so that we are targeting the screen sizes between 600px and 900px <i>(specifically 601px to 899px)</i>.</p>
          </article><hr>
 
+         <!-- min/max width -->
+         <article>
+            <h6>min/max width</h6>
+            <p><span class="firstWord">W</span>hen setting our min-width, or max-width, we can specify both at the same time. For example, If we wanted to target a viewport larger than 500px, <b>and</b> smaller than 1000px, we would use:
+               <ul class="sectHighlight">
+                  <li>@media (min-width: 500px) <b>and</b> (max-width: 1000px) {}</li>
+               </ul>
+            which is saying, if the viewport is greater than or equal to 500px, <b>AND</b> less than or equal to 1000px, the apply the styling indicated.
+            </p>
+            <p>If we look at the docs on the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries" target="_blank">MDN Website</a>, we can see a newer version of the syntax:
+               <ul class="sectHighlight">
+                  <li>@media ( 500px <b><=</b> width <= 1000px ) {}</li>
+               </ul>
+            </p>
+         </article><hr>
+
          <!-- Orientation -->
          <article>
             <h6>Orientation</h6>
@@ -132,6 +148,26 @@
                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries" target="_blank">MDN Using media queries</a></li>
             </ul>
             </p>
+         </article><hr>
+
+         <!-- Viewport Sizes -->
+         <article>
+            <h6>Viewport Sizes</h6>
+            <p><span class="firstWord">S</span>tandard @media viewport sizes are typically determined based on common device screen sizes and orientations. Commonly used breakpoints include:
+               <ul>
+                  <li>320px: Mobile portrait view</li>
+                  <li>480px: Mobile landscape view</li>
+                  <li>768px: Tablet portrait view</li>
+                  <li>1024px: Desktop or tablet landscape view</li>
+                  <li>1200px: Larger desktop screens</li>
+                  <li>1600px: Extra-large screens</li>
+               </ul>
+            </p>
+            <p>These sizes are often used to ensure a website is responsive and functions well across various devices and screen sizes.</p>
+            <p>When designing media queries, it's important to consider the specific layout and design needs of your site rather than targeting specific devices.
+                This approach helps in creating a more flexible and adaptable design that works well across a range of screen sizes and orientations.</p>
+            <p><b>*note</b>: on a webpage, open the developers <b>inspector</b>. On the top menu bar, left side is an icon for "<b>Toggle device toolbar</b>", <i>(ctrl+sh+M)</i>. If the icon isn't there, click the 3-dots in the top right corner. Select "<b>Developer Resources</b>", then look for the icon.</p>
+            <p>This will open a window where you can either specify viewport sizes for different devices, or manually resize the window for different sizes.</p>
          </article>
       </section>
 

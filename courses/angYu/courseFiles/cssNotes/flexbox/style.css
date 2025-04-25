@@ -1,10 +1,10 @@
 .tlinks {
    margin: 0 auto;
-   padding: 15px;
    display: flex;
    justify-content: space-evenly;
 }
 
-hr {
-   width: 100%;
+.container {
+   display: flex;
+   gap: 10px;
 }
