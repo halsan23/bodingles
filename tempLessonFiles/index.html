@@ -1,49 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <title>Flexbox Pricing Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Sono", sans-serif;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flex Direction</title>
-  <!-- HINT:
-  https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors
-  https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators
-  -->
-  <style>
-    .container {
-      color: white;
-      border: 5px solid gold;
-      display: inline-flex;
-      flex-direction: column;
-    }
+      /* Hint: What can you do with a media query and flexbox? */
+      @media (max-width: 1250px) {
+      }
+    </style>
+  </head>
 
-    /*
-Select all the elements that are the direct
-children of the .container class.
-    */
-    .container>* { flex-basis: 100px; }
-
-    .red {background-color: #eb4d4b;}
-    .orange {background-color: #f0932b;}
-    .yellow {background-color: #f6e58d;}
-    .green {background-color: #6ab04c;}
-    .blue {background-color: #4834d4;}
-    .indigo {background-color: #30336b;}
-    .purple {background-color: #be2edd;}
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <div class="red">Red</div>
-    <div class="orange">Orange</div>
-    <div class="yellow">Yellow</div>
-    <div class="green">Green</div>
-    <div class="blue">Blue</div>
-    <div class="indigo">Indigo</div>
-    <div class="purple">Purple</div>
-  </div>
-
-</body>
-
+  <body>
+    <div class="pricing-container">
+      <div class="pricing-plan">
+        <div class="plan-title">Basic</div>
+        <div class="plan-price">$9.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 10GB Storage</li>
+          <li>✅ 1 User</li>
+          <li>🚫 Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+      <div class="pricing-plan">
+        <div class="plan-title">Standard</div>
+        <div class="plan-price">$19.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 50GB Storage</li>
+          <li>✅ 5 Users</li>
+          <li>✅ Phone &amp; Email Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+      <div class="pricing-plan">
+        <div class="plan-title">Premium</div>
+        <div class="plan-price">$49.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 100GB Storage</li>
+          <li>✅ 10 Users</li>
+          <li>✅ 24/7 Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+    </div>
+  </body>
 </html>
