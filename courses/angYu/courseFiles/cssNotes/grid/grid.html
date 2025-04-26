@@ -12,6 +12,7 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -34,8 +35,159 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord"></span></p>
-         </article>
+            <p><span class="firstWord">W</span>hat is CSS Grid? We learned a lot about Flexbox, so why do we need css grid? This is a very common question. We'll start by saying that they are both "alignment" tools for web design.</p>
+            <p>The biggest difference is that flexbox is better for single flow alignment, one dimensional, meaning horizontal or vertical alignment. Whereas css grid is is a much better for two dimensional, complex layouts.</p>
+            <p>The truth is that most developers will use a combination of both, flexbox AND css grid. They'll use the grid system for the general, sometimes complicated  layout, and then use flexbox for aligning items, horizontally and vertically, within individual grid containers.</p>
+         </article><hr>
+
+         <!-- Defining Grid -->
+         <article>
+            <h6>Defining Grid</h6>
+            <p><span class="firstWord">W</span>ith flexbox, we built a structure in HTML, and then defined it as a "<b>flex</b>" container in CSS. The <b>grid</b> system works essentially the same. We start by building our structure in HTML. We'll create a "parent" container, with some "child" elements, like so:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li>&lt;div class="parent">
+                     <ul>
+                        <li>&lt;p class="child">&lt;/p></li>
+                        <li>&lt;p class="child">&lt;/p></li>
+                        <li>&lt;p class="child">&lt;/p></li>
+                        <li>&lt;p class="child">&lt;/p></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+               </ul>
+            </p>
+            <p>And then we go in to our css and define our "parent" container, as a <b>grid</b> container, like so:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>.parent {
+                     <ul>
+                        <li>display: <b>grid</b>;</li>
+                        <li>grid-template-columns: 1fr 2fr;</li>
+                        <li>grid-template-rows: 1fr 1fr;</li>
+                        <li>gap: 10px;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>Now you can see the familiar <b>gap</b> property. In the case of a grid layout, the gap is the distance between all of our grid boxes. But what are these <grid-template-b>columns/rows</grid-template-b>, and <b>1fr/2fr</b>? What's this all about?</p>
+            <p>Well, the grid box system works off of a "fractional" sizing system, which is what <b>fr</b> represents. The grid-template-columns/rows are simply the terms used to define our grid columns and rows.</p>
+            <p>So, in this example, we are defining two columns, and two rows. We want the second column to be "fractionally" twice as wide as the first column, and we want both rows, to be "fractionally" the same height.</p>
+         </article><hr>
+
+         <!-- Chessboard -->
+          <article>
+            <h6>Practical Use</h6>
+            <p><span class="firstWord">L</span>et's show a practical example of using a <b>grid</b> layout. We're going to build a Chessboard, using grid.</p>
+            <div class="container">
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+            </div>
+            <p>We'll define eight columns, and eight rows for our grid. Each individual square is 100px x 100px and we're going to set the board width to 800px.
+            <p>The code is simple and clean:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li>&lt;div class="container">
+                     <ul>
+                        <li>&lt;div class="white">&lt;/div></li>
+                        <li>&lt;div class="black">&lt;/div></li>
+                        <li><i>repeat 62 more times</i></li>
+                     </ul>
+                  <li>&lt;/div></li>
+               </ul>
+               So we have a "parent" container with 64 "child" &lt;div>s, alternating between white and black. <b>*note</b>: we are using light brown and dark brown for our white and black colors.
+            </p>
+            <p>Now for the css:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>.container {
+                     <ul>
+                        <li>display: grid;</li>
+                        <li>width: 800px;</li>
+                        <li>grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;</li>
+                        <li>grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;</li>
+                        <li>border: 2px solid #453426;</li>
+                     </ul>
+                  <li>}</li>
+                  <li>.white {
+                     <li>background-color: #f0d9b5;</li>
+                     <li>width: 100px;</li>
+                     <li>height: 100px;</li>
+                  </li>
+                  <li>}</li>
+                  <li>.white {
+                     <li>background-color: #b58863;</li>
+                     <li>width: 100px;</li>
+                     <li>height: 100px;</li>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>Very simple code. Set our width, height, and colors for our individual boxes. Make the "parent" container a <b>flex</b> container. Set its width to 800px. Next we defined eight equal width columns, and eight equal height rows. And finally, we set a border for the entire board.</p>
+          </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>

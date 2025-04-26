@@ -54,12 +54,42 @@
             </p>
          </article><hr>
 
+         <!-- Defining Flex -->
+         <article>
+            <h6>Defining Flex</h6>
+            <p><span class="firstWord">F</span>lexbox consists of a <b>parent</b> container that is designated as a <b>flex container</b>, and the <b>child</b> elements that become the <b>flex items.</b></p>
+            <p>So to start we need to define our "parent" and our "children". On our html page, we'll set a "container div" and nested within, we'll have four "child divs", like so:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li>&lt;div class="parent">
+                     <ul>
+                        <li>&lt;div class="child">&lt;/div></li>
+                        <li>&lt;div class="child">&lt;/div></li>
+                        <li>&lt;div class="child">&lt;/div></li>
+                        <li>&lt;div class="child">&lt;/div></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+               </ul>
+            </p>
+            <p>And now in our css, we define the "parent" container as being a "<b>flex</b>" container, like so:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>.parent {
+                     <ul>
+                        <li>display: <b>flex</b>;</li>
+                        <li>gap: 10px;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            We have defined our "parent" container as a <b>flex</b> container, and we set a "gap" between our flex items of 10px. We can now start defining the rest of our flex structure.</p>
+         </article><hr>
+
          <!-- Using Flex -->
          <article>
             <h6>Using Flex</h6>
-            <p><span class="firstWord">F</span>lexbox consists of a <b>parent</b> container that is designated as a <b>flex container</b>, and the
-               <b>child</b> elements that become the <b>flex items.</b></p>
-            <p>Flex also works off of the premise of a <b>MAIN</b> and <b>CROSS</b> axis. These are determined
+            <p><span class="firstWord">F</span>lex works off of the premise of a <b>MAIN</b> and <b>CROSS</b> axis. These are determined
                by the flex designation, <b>row</b> or <b>column</b>, with <b>row</b> being the default.
                <ul>
                   <li>flex-direction: <b>row;</b> - gives you a left to right horizontal <b>main</b> axis and a vertical
@@ -204,7 +234,119 @@
                </ul>
             When your viewport exceeds the minimum for width, then the extra that doesn't fit, remains <b>outside</b> of the viewing area, meaning that it is no longer visible to the user.
             </p>
-         </article>
+         </article><hr>
+
+         <!-- Chessboard -->
+          <article>
+            <h6>Practical Use</h6>
+            <p><span class="firstWord">L</span>et's show a practical example of using a <b>flexbox</b> layout. We're going to build a Chessboard, using flex.</p>
+            <div class="container2">
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+               <div class="black"></div>
+               <div class="white"></div>
+            </div>
+            <p>Each individual square is 100px x 100px. We set the board width to 800px and set <b>flex-wrap: wrap;</b>. With these set, it will lay out eight squares, and then wrap to the next row, and continue until the board is built.</p>
+            <p>The code is simple and clean:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li>&lt;div class="container">
+                     <ul>
+                        <li>&lt;div class="white">&lt;/div></li>
+                        <li>&lt;div class="black">&lt;/div></li>
+                        <li><i>repeat 62 more times</i></li>
+                     </ul>
+                  <li>&lt;/div></li>
+               </ul>
+               So we have a "parent" container with 64 "child" &lt;div>s, alternating between white and black. <b>*note</b>: we are using light brown and dark brown for our white and black colors.
+            </p>
+            <p>Now for the css:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>.container {
+                     <ul>
+                        <li>display: flex;</li>
+                        <li>width: 800px;</li>
+                        <li>flex-wrap: wrap;</li>
+                        <li>border: 2px solid #453426;</li>
+                     </ul>
+                  <li>}</li>
+                  <li>.white {
+                     <li>background-color: #f0d9b5;</li>
+                     <li>width: 100px;</li>
+                     <li>height: 100px;</li>
+                  </li>
+                  <li>}</li>
+                  <li>.white {
+                     <li>background-color: #b58863;</li>
+                     <li>width: 100px;</li>
+                     <li>height: 100px;</li>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>Very simple code. Set our width, height, and colors for our individual boxes. Make the "parent" container a <b>flex</b> container. Set its width to 800px, and enable <b>flex-wrap: wrap;</b> And finally, we set a border for the entire board.</p>
+          </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>

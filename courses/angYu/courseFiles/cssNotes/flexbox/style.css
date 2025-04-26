@@ -8,3 +8,22 @@
    display: flex;
    gap: 10px;
 }
+
+.container2 {
+   display: flex;
+   width: 800px;
+   flex-wrap: wrap;
+   border: 2px solid #453426;
+}
+
+.white {
+   background-color: #f0d9b5;
+   width: 100px;
+   height: 100px;
+}
+
+.black {
+   background-color: #b58863;
+   width: 100px;
+   height: 100px;
+}

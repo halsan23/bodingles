@@ -1,16 +1,4 @@
-/* Write your code here */
-/* Each square should be 100px by 100px */
-/* My colours for white: #f0d9b5, black: #b58863 */
-
-
 .container {
-   display: flex;
-   width: 800px;
-   flex-wrap: wrap;
-   border: 2px solid #453426;
-}
-
-.container2 {
    display: grid;
    width: 800px;
    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
