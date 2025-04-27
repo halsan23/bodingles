@@ -124,7 +124,7 @@
             <p><span class="firstWord">S</span>ometimes we may need to limit the minimum or maximum sixz of a grid cell and we can accomplish this easily using the <b>minmax</b> keyword, like so:
                <ul class="sectHighlight">
                   <li>grid-template-rows: 200px 400px;</li>
-                  <li>grid-template-columns: 200px <b>minmax( 400px 800px)</b>;</li>
+                  <li>grid-template-columns: 200px <b>minmax(400px, 800px)</b>;</li>
                </ul>
             Here we are telling it to have a first column 200px wide, and the second column can vary between 400px and 800px. The end result here being that we have a <b>responsive</b> page, that respects the minimum and maximum size constraints. It will reduce up until it reaches the min-width, and it will enlarge until it reaches the max-width, at which point it will no longer shrink, or grow.
             </p>
