@@ -111,7 +111,7 @@
                </ul>
             So in the following code:
                <ul class="sectHighlight">
-                  <li>grid-template-rows: 100px <b>auto</b></b>;</li>
+                  <li>grid-template-rows: 100px <b>auto</b>;</li>
                   <li>grid-template-columns: 200px <b>auto</b>;</li>
                </ul>
             the first <b>row</b> will be 100px and the second <b>row</b> wil try to auto-fit to the height of the content. Likewise, the first <b>column</b> will be 200px wide, but the second <b>column</b> will extend to the rest of the width of the viewport.
@@ -121,13 +121,83 @@
          <!-- min-max Sizing -->
          <article>
             <h6>min-max Sizing</h6>
-            <p><span class="firstWord"></span>
-               </p>
-            </article><hr>
+            <p><span class="firstWord">S</span>ometimes we may need to limit the minimum or maximum sixz of a grid cell and we can accomplish this easily using the <b>minmax</b> keyword, like so:
+               <ul class="sectHighlight">
+                  <li>grid-template-rows: 200px 400px;</li>
+                  <li>grid-template-columns: 200px <b>minmax( 400px 800px)</b>;</li>
+               </ul>
+            Here we are telling it to have a first column 200px wide, and the second column can vary between 400px and 800px. The end result here being that we have a <b>responsive</b> page, that respects the minimum and maximum size constraints. It will reduce up until it reaches the min-width, and it will enlarge until it reaches the max-width, at which point it will no longer shrink, or grow.
+            </p>
+         </article><hr>
 
+         <!-- grid repeat -->
+         <article>
+            <h6>Grid Repeat</h6>
+            <p><span class="firstWord">W</span>e have an example below where we created a Chessboard using grid. There are two easy ways to accomplish this. After we define our parent container to be a grid container, we need to define our rows and columns.</p>
+            <p>Now our chessboard consists of an 8x8 grid of squares. 8 rows, and 8 columns. So we could defing our rows and columns like so:
+               <ul class="sectHighlight">
+                  <li>grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;</li>
+                  <li>grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;</li>
+               </ul>
+            which defines our 8 grid rows, and our 8 grid columns, but we could also use <b>grid-repeat</b>, like so:
+            <ul class="sectHighlight">
+               <li>grid-template-rows: <b>repeat(8, 50px)</b>;</li>
+               <li>grid-template-columns: <b>repeat(8, 50px)</b>;</li>
+            </ul>
+            </p>
+         </article><hr>
+
+         <!-- overflow -->
+         <article>
+            <h6>Overflow</h6>
+            <p><span class="firstWord">W</span>hat if we define more columns than can fit on a viewport? This is where the overflow concept comes in. If we have the following code:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li>&lt;div class="parent">
+                     <ul>
+                        <li>&lt;p class="child">&lt;/p></li>
+                        <li>&lt;p class="child">&lt;/p></li>
+                        <li>&lt;p class="child">&lt;/p></li>
+                        <li>&lt;p class="child">&lt;/p></li>
+                        <li>&lt;p class="child">&lt;/p></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+               </ul>
+            we have created five &lt;div>'s. And now if we define our rows and columns, like this:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>grid-template-rows: repeat(2, 200px);</li>
+                  <li>grid-template-columns: repeat(3, 200px);</li>
+               </ul>
+            we've only defined three columns in our CSS, but we have five &lt;div>'s in our HTML. Well, we've also defined two rows, so the extra columns can <b>overflow</b> on to the next row.
+            </p>
+            <p>But what if we had only defined two rows, and two columns in our CSS, like so:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>grid-template-rows: repeat(2, 200px);</li>
+                  <li>grid-template-columns: repeat(2, 200px)</li>
+               </ul>
+            with only two rows, and two columns defined. Where does the last &lt;div> go? Well, it will be bumped down to a new row, in the first column. This new cell's width will be the same size as the other cells in this column, and it's height will be sized to fit it's contents.
+            </p>
+         </article><hr>
+
+         <!-- auto-rows -->
+         <article>
+            <h6>grid-auto-rows</h6>
+            <p><span class="firstWord">A</span>t some point in the future, as a developer, you may need to add more &lt;div>'s to add more content. And if we have more &lt;div>'s than we have rows and columns defined, we can just add a pre-defined row definition, like so:
+               <ul class="sectHighlight">
+                  <li>grid-auto-rows: 200px;</li>
+               </ul>
+            This is just defining, that if we need more rows, automatically make them 200px. You can also use <b>grid=auto=columns</b> in the same manner.
+            </p>
+         </article>
+      </section>
+
+      <section id="textWindow4" class="just">
          <!-- Chessboard -->
           <article>
-            <h6>Practical Use</h6>
+            <h6>Practical Use - The Standard Chessboard</h6>
             <p><span class="firstWord">L</span>et's show a practical example of using a <b>grid</b> layout. We're going to build a Chessboard, using grid.</p>
             <div class="container">
                <div class="white"></div>
@@ -216,8 +286,8 @@
                      <ul>
                         <li>display: grid;</li>
                         <li>width: 400px;</li>
-                        <li>grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;</li>
-                        <li>grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;</li>
+                        <li>grid-template-columns: repeat(8, 50px);</li>
+                        <li>grid-template-rows: repeat(8, 50px);</li>
                         <li>border: 2px solid #453426;</li>
                      </ul>
                   <li>}</li>
