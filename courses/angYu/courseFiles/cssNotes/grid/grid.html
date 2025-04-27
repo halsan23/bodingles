@@ -74,7 +74,56 @@
             <p>Now you can see the familiar <b>gap</b> property. In the case of a grid layout, the gap is the distance between all of our grid boxes. But what are these <grid-template-b>columns/rows</grid-template-b>, and <b>1fr/2fr</b>? What's this all about?</p>
             <p>Well, the grid box system works off of a "fractional" sizing system, which is what <b>fr</b> represents. The grid-template-columns/rows are simply the terms used to define our grid columns and rows.</p>
             <p>So, in this example, we are defining two columns, and two rows. We want the second column to be "fractionally" twice as wide as the first column, and we want both rows, to be "fractionally" the same height.</p>
+            <p>One note about <b>fractional sizing</b>. When this method is used, the grid <b>is responsive</b> and will stretch across the entire width of the viewport.</p>
+            <p>Another interesting point is that with <b>fractional sizing</b>, individual cells are allowed to "<b>grow</b>" vertically, and stretch to fit the content. But they will do this <b>while maintaining</b> the fractional ratio's. If for example we have two rows defined as:
+               <ul class="sectHighlight">
+                  <li>grid-template-rows: 1fr 2fr;</li>
+               </ul>
+            and you add content to the second row that causes it to grow vertically, the first row will also grow vertically, to maintain it's fractional ratio.
+            </p>
          </article><hr>
+
+         <!-- Fixed Sizing -->
+         <article>
+            <h6>Fixed Sizing</h6>
+            <p><span class="firstWord">N</span>ow it's important to understand that we don't have to define our rows and columns "<b>fractionally</b>". We could also define <b>fixed</b> sizes with pixels (<b>px</b>), or rem's (<b>rem</b>), such as:
+               <ul class="sectHighlight">
+                  <li>grid-template-rows: <b>400px 800px</b>;</li>
+                  <li>grid-template-columns: <b>1rem 2rem</b>;</li>
+               </ul>
+            However, if we define <b>fixed</b> sizes, the grid is <b>no longer "responsive"</b>. It will not adjust it's sizing based on the viewport width.
+            </p>
+            <p>We can also simplify our code by defining our rows and columns on one line, like so:
+               <ul class="sectHighlight">
+                  <li>grid-template: <b>100px 200px / 400px 800px</b>;</li>
+               </ul>
+            Here we are defining our <b>rows first</b>: (100px 200px), and our <b>columns second</b> (400px 800px).
+            </p>
+         </article><hr>
+
+         <!-- auto sizes -->
+         <article>
+            <h6>Auto Sizing</h6>
+            <p><span class="firstWord">W</span>e can also define sizes automatically using the <b>auto</b> property. If used on both rows and columns, this will have two different effects:
+               <ul>
+                  <li>When applied to <b>rows</b>, it will automatically try to size itself based on the height of the content.</li>
+                  <li>When applied to <b>columns</b>, it will try to size the grid to the width of the current viewport.</li>
+               </ul>
+            So in the following code:
+               <ul class="sectHighlight">
+                  <li>grid-template-rows: 100px <b>auto</b></b>;</li>
+                  <li>grid-template-columns: 200px <b>auto</b>;</li>
+               </ul>
+            the first <b>row</b> will be 100px and the second <b>row</b> wil try to auto-fit to the height of the content. Likewise, the first <b>column</b> will be 200px wide, but the second <b>column</b> will extend to the rest of the width of the viewport.
+            </p>
+         </article><hr>
+
+         <!-- min-max Sizing -->
+         <article>
+            <h6>min-max Sizing</h6>
+            <p><span class="firstWord"></span>
+               </p>
+            </article><hr>
 
          <!-- Chessboard -->
           <article>
