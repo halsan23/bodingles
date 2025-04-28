@@ -191,6 +191,100 @@
                </ul>
             This is just defining, that if we need more rows, automatically make them 200px. You can also use <b>grid=auto=columns</b> in the same manner.
             </p>
+         </article><hr>
+
+         <!-- grid placement -->
+         <article>
+            <h6>Grid Placement</h6>
+            <p><span class="firstWord">W</span>hen we set up our grid, we may want to do some complex layouts with cells stretching across multiple rows or columns. And just like &lt;table> layout, we can accomplish this with <b>spans</b>.
+            </p>
+            <p>Let's start with setting up our HTML:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li>&lt;div class="container">
+                     <ul>
+                        <li>&lt;div class="item1">&lt;/div></li>
+                        <li>&lt;div class="item2">&lt;/div></li>
+                        <li>&lt;div class="item3">&lt;/div></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+               </ul>
+            which gives us our "parent" container with three &lt;div>'s.
+            </p>
+            <p>We style it to be three 100px x 100px boxes, like so:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>.container {
+                     <ul>
+                        <li>display: grid;</li>
+                        <li>grid-template-rows: 100px 100px;</li>
+                        <li>grid-template-columns: 100px 100px 100px;</li>
+                        <li>gap: 3px;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            we'll give the boxes different background colors to differentiate them:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>.item1 {
+                     <ul>
+                        <li>background-color: green;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            doing the same for the other two boxes, giving them red, and blue
+            </p>
+            <div class="demo1">
+               <div class="item1"></div>
+               <div class="item2"></div>
+               <div class="item3"></div>
+            </div>
+            <p>Now lets make the green box "<b>span</b>" across two columns. We do this is the CSS, in the individual cell formatting, where we assigned the green color, like so:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>.item1 {
+                     <ul>
+                        <li>background-color: green;</li>
+                        <li>grid-<b>column</b>: span 2;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            and we get:
+            </p>
+            <div class="demo1a">
+               <div class="item1a"></div>
+               <div class="item2a"></div>
+               <div class="item3a"></div>
+            </div>
+            <p> And now we'll do the same with the blue box, but we'll make the red box span two rows, like so:
+               <ul class="sectHighlight">
+                  <li>CSS</li>
+                  <li>.item2 {
+                     <ul>
+                        <li>background-color: red;</li>
+                        <li>grid-<b>row</b>: span 2;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li>.item3 {
+                     <ul>
+                        <li>background-color: blue;</li>
+                        <li>grid-<b>column</b>: span 2;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            and we get:
+            </p>
+            <div class="demo1b">
+               <div class="item1b"></div>
+               <div class="item2b"></div>
+               <div class="item3b"></div>
+            </div>
          </article>
       </section>
 
