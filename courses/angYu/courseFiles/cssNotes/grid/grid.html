@@ -285,6 +285,47 @@
                <div class="item2b"></div>
                <div class="item3b"></div>
             </div>
+            <p>So we can create some complex grid layouts using <b>span</b>, but we need to break this down a little because <b>span</b> is actually a "shortcut" term. When we make a designation such as grid-column/row: <b>span 2</b>, what we're really saying is:
+               <ul>
+                  <li>span <b>start</b> at the cell that we are currently in</li>
+                  <li>span <b>end</b> after the specified number of cells(2).</li>
+               </ul>
+            If we write this out "longhand", the syntax would look like this:
+               <ul class="sectHighlight">
+                  <li><b>grid-row/column-start</b>: 1;</li>
+                  <li><b>grid-row/column-end</b>: 2;</li>
+               </ul>
+            Which tells us to start the span at cell 1 and span across 2 rows or columns. Another way to write the same thing would be:
+               <ul class="sectHighlight">
+                  <li>grid-row/column: 1 / span 2;</li>
+               </ul>
+            which once again, starts the span at cell 1 and span across 2 rows or columns.</p>
+            <p>This opens up a whole new way of looking at <b>spans</b>, and utilizing them. We could for example, start on the second column and <b>span</b> three columns from there, like so:
+               <ul class="sectHighlight">
+                  <li>span-column: 2 / span 3</li>
+               </ul>
+            </p>
+            <p>We can also use negative numbers in our designation. This is fairly common on some layouts where you don't know how many rows or columns there are. You could say:
+               <ul class="sectHighlight">
+                  <li><b>grid-row/column-start</b>: 2;</li>
+                  <li><b>grid-row/column-end</b>: -1;</li>
+               </ul>
+            This would start the span on the second cell, and end the span on the last cell.
+            </p>
+            <p><b>grid-area</b></p>
+            <p>
+               Another way to specify our spans, for a more direct placement, would be to specify a starting and ending position for both the rows and columns. If we wanted our blue box to be the first box on the top/left, we could designate it using <b>grid-area</b>, like so:
+               <ul class="sectHighlight">
+                  <li><b>grid-area</b>: 1 / 3 / 1 / 2</li>
+               </ul>
+            This corresponds to <b>row-start / column-start / row-end / column-end</b>, and would give us,
+            </p>
+            <div class="demo1c">
+               <div class="item1c"></div>
+               <div class="item2c"></div>
+               <div class="item3c"></div>
+            </div>
+            <p>It's important to note that if you use <b>grid-area</b> on one aspect of your layout, then you must use it on all of the other cells. Otherwise, your layout will not want to cooperate and come out properly.</p>
          </article>
       </section>
 

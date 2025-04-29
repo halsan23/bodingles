@@ -82,3 +82,27 @@
    background-color: darkblue;
    grid-column: span 2;
 }
+
+
+
+.demo1c {
+   display: grid;
+   grid-template-rows: 100px 100px;
+   grid-template-columns: 100px 100px 100px;
+   gap: 5px;
+}
+
+.item1c {
+   background-color: darkgreen;
+   grid-column: span 2;
+}
+
+.item2c {
+   background-color: darkred;
+   grid-row: span 2;
+}
+
+.item3c {
+   background-color: darkblue;
+   grid-area: 1 / 1 / 1 / -1;
+}
