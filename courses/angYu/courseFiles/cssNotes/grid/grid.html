@@ -326,6 +326,28 @@
                <div class="item3c"></div>
             </div>
             <p>It's important to note that if you use <b>grid-area</b> on one aspect of your layout, then you must use it on all of the other cells. Otherwise, your layout will not want to cooperate and come out properly.</p>
+         </article><hr>
+
+         <!-- grid-template -->
+         <article>
+            <h6>grid-template</h6>
+            <p><span class="firstWord">O</span>ne last thing to discuss here is <b>grid-template</b>, which is another "shorthand" for defining our rows and columns. The basic syntax is :
+               <ul class="sectHighlight">
+                  <li>grid-template: none || grid-template-rows / grid-template-columns || grid-template-areas || initial || inherit;</li>
+               </ul>
+               <ul>
+                  <li style="list-style: disc;"><b>none</b> - Default value. No specific sizing of the columns or rows.</li>
+                  <li style="list-style: disc;"><b>grid-template rows / grid-template-columns</b> - Specifies the size(s) of the columns and rows</li>
+                  <li style="list-style: disc;"><b>grid-template-areas</b> - Specifies the grid layout using named items</li>
+                  <li style="list-style: disc;"><b>initial</b> - Sets this property to its default value. Read about initial.</li>
+                  <li style="list-style: disc;"><b>inherit</b> - Inherits this property from its parent element. Read about inherit.</li>
+               </ul>
+            The most basic use would be to define grid-template-rows and grid-template-columns in shorthand, like so:
+               <ul>
+                  <li>grid-template: define the rows / define the columns</li>
+               </ul>
+            and you can use all of the known methods to define the rows and columns. It's just that using <b>grid-template</b> is a "shortcut" to define everything on one line as opposed to two lines for separate <b>grid-template-rows:</b> and <b>grid-template-columns:</b> designations.
+            </p>
          </article>
       </section>
 
