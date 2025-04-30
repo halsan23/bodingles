@@ -12,6 +12,7 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -34,7 +35,120 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord"></span></p>
+            <p><span class="firstWord">W</span>hat is Bootstrap? Bootstrap is one of many "external" layout systems known as CSS Frameworks. The power of Bootstrap is that it comes with prebuilt CSS files that you can include in your project, in order to use their components and styling.</p>
+            <p>Bootstrap works on a 12-column layout that is built on top of flexbox. This makes it really easy to create "responsive" web sites, that look great and just work, on both mobile devices and desktops. The "mobile first" design concept. More information can be found on the <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank">Bootstrap Documentation</a> web page.</p>
+         </article><hr>
+
+         <!-- 12 Column System -->
+         <article>
+            <h6>12 Column System</h6>
+            <p><span class="firstWord">B</span>ootstrap is built upon the "12 Column System" which consists of:
+               <ul>
+                  <li>- a "parent container" &lt;div></li>
+                  <li>- inside of this &lt;div> is another &lt;div> with a class="row"</li>
+                  <li>- and finally our items that take up the 12-columns.</li>
+               </ul>
+            so the HTML looks like this:
+               <ul class="sectHighlight">
+                  <li>&lt;div class="<b>container</b>">
+                     <ul>
+                           <li>&lt;div class="<b>row</b>"><ul>
+                              <li>&lt;div class="<b>col</b>">items taking up our 12 columns&lt;/div></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/div></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+               </ul>
+            </p>
+            <p>So you can define up to 12 columns per row and the interesting thing is that bootstrap will try to space everything evenly, depending on how many items are in a specific row.</p>
+         </article><hr>
+
+         <!-- The Container System -->
+         <article>
+            <h6>The Container System</h6>
+            <p><span class="firstWord">B</span>ootstrap is utilizing a "container" system to enable "responsiveness" in the design. Containers are the most basic layout element in Bootstrap and are required when using our default grid system. Containers are used to contain, pad, and (sometimes) center the content within them. While containers can be nested, most layouts do not require a nested container. More information can be <a href="https://getbootstrap.com/docs/5.3/layout/containers/" target="_blank">found here</a>.
+            </p>
+            <p>Here is how the container system determines its breakpoints. This is based on viewport size, and container size:</p>
+            <div class="tabl">
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Viewport<br>Size</th>
+                        <th>Breakpoint<br>Extra small<br>&lt; 576px</th>
+                        <th>Breakpoint<br>Small<br>≥ 576px</th>
+                        <th>Breakpoint<br>Medium<br>≥ 768px</th>
+                        <th>Breakpoint<br>Large<br>≥ 992px</th>
+                        <th>Breakpoint<br>X-Large<br>≥ 1200px</th>
+                        <th>Breakpoint<br>XX-Large<br>≥ 1400px</th>
+                     </tr>
+                  </thead>
+                  <tr>
+                     <td class="colTitle">.container</td>
+                     <td class="tdSel">100%</td>
+                     <td>540px</td>
+                     <td>720px</td>
+                     <td>960px</td>
+                     <td>1140px</td>
+                     <td>1320px</td>
+                  </tr>
+                  <tr>
+                     <td class="colTitle">.container-sm</td>
+                     <td class="tdSel">100%</td>
+                     <td>540px</td>
+                     <td>720px</td>
+                     <td>960px</td>
+                     <td>1140px</td>
+                     <td>1320px</td>
+                  </tr>
+                  <tr>
+                     <td class="colTitle">.container-md</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td>720px</td>
+                     <td>960px</td>
+                     <td>1140px</td>
+                     <td>1320px</td>
+                  </tr>
+                  <tr>
+                     <td class="colTitle">.container-lg</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td>960px</td>
+                     <td>1140px</td>
+                     <td>1320px</td>
+                  </tr>
+                  <tr>
+                     <td class="colTitle">.container-xl</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td>1140px</td>
+                     <td>1320px</td>
+                  </tr>
+                  <tr>
+                     <td class="colTitle">.container-xxl</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td>1320px</td>
+                  </tr>
+                  <tr>
+                     <td class="colTitle">.container-fluid</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                     <td class="tdSel">100%</td>
+                  </tr>
+               </table>
+            </div>
          </article>
       </section>
 

@@ -1,0 +1,31 @@
+.tabl {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+table {
+   border: 2px solid black;
+   font-size: .8rem;
+}
+
+th {
+   padding: 10px 20px;
+   text-align: center;
+   border: 1px solid black;
+}
+
+td {
+   padding: 10px 20px;
+   text-align: center;
+   font-weight: 500;
+   border: 1px solid black;
+}
+
+.colTitle {
+   font-weight: 600;
+}
+
+.tdSel {
+   font-weight: 200;
+}
