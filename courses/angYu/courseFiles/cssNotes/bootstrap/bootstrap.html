@@ -149,6 +149,78 @@
                   </tr>
                </table>
             </div>
+            <p>Notice the bottom row here, <b>.container-fluid</b>. With this container, the viewport size does not matter, Bootstrap will render the output at 100% width. Also, the top row of this table shows the <b>default breakpoints</b> for Bootstrap, and these defaults are designed as:
+               <div class="tabl">
+                  <table>
+                     <thead>
+                        <tr>
+                           <th class="th2">Breakpoint</th>
+                           <th class="th2">Class infix</th>
+                           <th class="th2">Dimensions</th>
+                        </tr>
+                     </thead>
+                     <tr>
+                        <td class="colTitle">X-Small</td>
+                        <td><i>none</i></td>
+                        <td>&lt; 576px</td>
+                     </tr>
+                     <tr>
+                        <td class="colTitle">Small</td>
+                        <td>sm</td>
+                        <td>≥ 576px</td>
+                     </tr>
+                     <tr>
+                        <td class="colTitle">Medium</td>
+                        <td>md</td>
+                        <td>≥ 768px</td>
+                     </tr>
+                     <tr>
+                        <td class="colTitle">Large</td>
+                        <td>lg</td>
+                        <td>≥ 992px</td>
+                     </tr>
+                     <tr>
+                        <td class="colTitle">Extra Large</td>
+                        <td>xl</td>
+                        <td>≥ 1200px</td>
+                     </tr>
+                     <tr>
+                        <td class="colTitle">Extra extra Large</td>
+                        <td>xxl</td>
+                        <td>≥ 1400px</td>
+                     </tr>
+                  </table>
+               </div>
+            </p>
+            <p>This is one of the advantages of using an external Framework such as Bootstrap. It comes with pre-defined breakpoints built into its containers, that creates an auto-resizing layout for us. No more having to hard code our media-queries.</p>
+         </article><hr>
+
+         <!-- column sizing -->
+         <article>
+            <h6>column sizing</h6>
+            <p><span class="firstWord">W</span>e stated earlier that Bootstrap works off of a <b>12-column</b> system. This means that every row is made up of 12 columns, but you can size these, or combine these, any way you wish. You could for example, have one wide column that takes up the entire 12 columns. Or you could have 3 columns that are "4-wide". You can mix and match these columns any way you like, as long as you stay within the 12 column maximum.
+            </p>
+            <p>This sizing is accomplished with the <b>col</b> class. If we take our basic bootstrap example from above, and define some columns, it would look something like this:
+               <ul class="sectHighlight">
+                  <li>&lt;div class="<b>container</b>">
+                     <ul>
+                           <li>&lt;div class="<b>row</b>"><ul>
+                              <li>&lt;div class="<b>col-2</b>">this &lt;div> takes up 2 columns&lt;/div></li>
+                              <li>&lt;div class="<b>col-4</b>">this &lt;div> takes up 4 columns&lt;/div></li>
+                              <li>&lt;div class="<b>col-6</b>">this &lt;div> takes up 6 columns&lt;/div></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/div></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+               </ul>
+            This gives us a row with 3 differently sized columns that take up the entire 12 columns. The second column is twice as wide as the first, and the third column is three times as wide.</p>
+            <p>Where this sizing comes in to play is when we are defining our columns. From the charts above, we first define the base size of our container, and then define our columns, such as:
+               <ul>
+                  <li>&lt;div class="<b>col-md-2</b>">This defines a 2-wide column set for a medium viewport&lt;/div></li>
+               </ul>
+            </p>
          </article>
       </section>
 

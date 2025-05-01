@@ -15,6 +15,13 @@ th {
    border: 1px solid black;
 }
 
+.th2 {
+   padding: 10px 50px;
+   font-size: 1rem;
+   text-align: center;
+   border: 1px solid black;
+}
+
 td {
    padding: 10px 20px;
    text-align: center;
