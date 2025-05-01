@@ -157,37 +157,44 @@
                            <th class="th2">Breakpoint</th>
                            <th class="th2">Class infix</th>
                            <th class="th2">Dimensions</th>
+                           <th class="th2">Device</th>
                         </tr>
                      </thead>
                      <tr>
                         <td class="colTitle">X-Small</td>
                         <td><i>none</i></td>
                         <td>&lt; 576px</td>
+                        <td>Tall/Narrow<br>Devices</td>
                      </tr>
                      <tr>
                         <td class="colTitle">Small</td>
                         <td>sm</td>
                         <td>≥ 576px</td>
+                        <td>Mobile Phones</td>
                      </tr>
                      <tr>
                         <td class="colTitle">Medium</td>
                         <td>md</td>
                         <td>≥ 768px</td>
+                        <td>Ipads & Tablets</td>
                      </tr>
                      <tr>
                         <td class="colTitle">Large</td>
                         <td>lg</td>
                         <td>≥ 992px</td>
+                        <td>Laptops</td>
                      </tr>
                      <tr>
                         <td class="colTitle">Extra Large</td>
                         <td>xl</td>
                         <td>≥ 1200px</td>
+                        <td>Desktops</td>
                      </tr>
                      <tr>
                         <td class="colTitle">Extra extra Large</td>
                         <td>xxl</td>
                         <td>≥ 1400px</td>
+                        <td>TVs & Lg Screens</td>
                      </tr>
                   </table>
                </div>
@@ -198,9 +205,24 @@
          <!-- column sizing -->
          <article>
             <h6>column sizing</h6>
-            <p><span class="firstWord">W</span>e stated earlier that Bootstrap works off of a <b>12-column</b> system. This means that every row is made up of 12 columns, but you can size these, or combine these, any way you wish. You could for example, have one wide column that takes up the entire 12 columns. Or you could have 3 columns that are "4-wide". You can mix and match these columns any way you like, as long as you stay within the 12 column maximum.
+            <p><span class="firstWord">W</span>e stated earlier that Bootstrap works off of a <b>12-column</b> system. This means that every row is made up of 12 columns. With bootstrap's 12 columns, you can size these, or combine these, any way you wish. This sizing is accomplished with the <b>col</b> class.</p>
+            <p>You could for example, have one wide column that takes up the entire 12 columns. Or you could have 3 columns that are "4-wide", like this:
+               <ul class="sectHighlight">
+                  <li>&lt;div class="<b>container</b>">
+                     <ul>
+                           <li>&lt;div class="<b>row</b>"><ul>
+                              <li>&lt;div class="<b>col</b>">this &lt;div> takes up 4 columns&lt;/div></li>
+                              <li>&lt;div class="<b>col</b>">this &lt;div> takes up 4 columns&lt;/div></li>
+                              <li>&lt;div class="<b>col</b>">this &lt;div> takes up 4 columns&lt;/div></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/div></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+               </ul>
             </p>
-            <p>This sizing is accomplished with the <b>col</b> class. If we take our basic bootstrap example from above, and define some columns, it would look something like this:
+            <p>You can mix and match these columns any way you like, as long as you stay within the 12 column maximum. If we take our basic bootstrap example from above, and redefine our columns by specifying different sizes, it could look something like this:
                <ul class="sectHighlight">
                   <li>&lt;div class="<b>container</b>">
                      <ul>
@@ -216,9 +238,18 @@
                   <li>&lt;/div></li>
                </ul>
             This gives us a row with 3 differently sized columns that take up the entire 12 columns. The second column is twice as wide as the first, and the third column is three times as wide.</p>
-            <p>Where this sizing comes in to play is when we are defining our columns. From the charts above, we first define the base size of our container, and then define our columns, such as:
+            <p>Now, if we look at our "Breakpoint Chart" from above we see that for small viewports, any screen (≥ 576px) will display our row as defined, but the small screens below 576px, will shift our row into columns into individual rows that will take up 100% of the width of the screen.
+            </p>
+            <p><b>Multiple Breakpoints</b></p>
+            <p>You can also define multiple breakpoints in one single <b>col</b> definition, like so:
+               <ul class="sectHighlight">
+                  <li>col-sm-12 col-md-8 col-lg-4</li>
+               </ul>
+            which means, for this column only:
                <ul>
-                  <li>&lt;div class="<b>col-md-2</b>">This defines a 2-wide column set for a medium viewport&lt;/div></li>
+                  <li style="list-style: disc;">for small viewports, make this column 12-wide</li>
+                  <li style="list-style: disc;">for medium viewports, make this column 8-wide</li>
+                  <li style="list-style: disc;">for large and above viewports, make this column 4-wide</li>
                </ul>
             </p>
          </article>
