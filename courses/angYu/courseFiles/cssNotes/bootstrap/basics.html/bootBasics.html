@@ -10,6 +10,9 @@
    <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
 
    <!-- link stylesheet -->
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
    <link rel="stylesheet" href="./style.css">
@@ -25,10 +28,10 @@
       <section>
          <h4>Complete 2024 Web Development Bootcamp</h4>
          <p>Dr. Angela Yu</p>
-         <p><a href="../cssIndex.html">Back to CSS Index Page</a></p>
+         <p><a href="../bootIndex.html">Back to Bootstrap Index Page</a></p>
          <hr style="width: 40%;">
          <p>&nbsp;</p>
-         <h5>Bootstrap</h5>
+         <h5>Bootstrap Basics</h5>
       </section>
 
       <section id="textWindow4" class="just">
@@ -243,15 +246,27 @@
             <p><b>Multiple Breakpoints</b></p>
             <p>You can also define multiple breakpoints in one single <b>col</b> definition, like so:
                <ul class="sectHighlight">
-                  <li>col-sm-12 col-md-8 col-lg-4</li>
+                  <li>&lt;div class="col-10 col-sm-12 col-lg-6">column 1&lt;/div></li>
+                  <li>&lt;div class="col-10 col-sm-6 col-lg-3">column 2&lt;/div></li>
+                  <li>&lt;div class="col-10 col-sm-6 col-lg-3">column 3&lt;/div></li>
                </ul>
-            which means, for this column only:
+            This is defining the behavior for 3 columns, in 1 row, which means, for this row:
                <ul>
-                  <li style="list-style: disc;">for small viewports, make this column 12-wide</li>
-                  <li style="list-style: disc;">for medium viewports, make this column 8-wide</li>
-                  <li style="list-style: disc;">for large and above viewports, make this column 4-wide</li>
+                  <li style="list-style: disc;">for all viewport sizes, make each column 10-wide,</li>
+                  <li style="list-style: disc;">but for sm and above viewports, make the first column 12-wide, and the other 2 columns 6-wide</li>
+                  <li style="list-style: disc;">and for large and above viewports, make the first column 6-wide, and the other 2 columns 3-wide</li>
                </ul>
+            This is demonstrated here, and as you can see if you resize the width of the page, you will get three different layout, based on the width of the screen.
             </p>
+            <p>
+               <div class="container">
+                  <div class="row">
+                     <div class="col-10 col-sm-12 col-lg-6 text-bg-primary">column 1</div>
+                     <div class="col-10 col-sm-6 col-lg-3 text-bg-success">column 2</div>
+                     <div class="col-10 col-sm-6 col-lg-3 text-bg-danger">column 3</div>
+                  </div>
+               </div><br>
+            So bootstrap does all the work automatically, based on your definitions, saving you the trouble of writing the media queries yourself.</p>
          </article>
       </section>
 
