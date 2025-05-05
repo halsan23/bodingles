@@ -220,7 +220,122 @@
          <!-- features section -->
          <article>
             <h6>Features Section</h6>
-            <p><span class="firstWord">N</span>ext we'll create a section displaying some of the important features of our brand. Once again we will go to the <a href="https://getbootstrap.com/docs/5.3/examples/features/" target="_blank">Bootstrap Examples</a> and find something similar to what we want to display. We're going to use the "<b>Columns with Icons</b>" display, so once again, use the "Inspector" to get our HTML Code.
+            <p><span class="firstWord">N</span>ext we'll create a section displaying some of the important features of our brand. Go to the <a href="https://getbootstrap.com/docs/5.3/examples/features/" target="_blank">Bootstrap Examples</a> and find something similar to what we want to display. We're going to use the "<b>Columns with Icons</b>" display because it's the closest to what we want for our page. So once again, use the "Inspector" to get our HTML Code, paste it into our project, and modify it for our use. </p>
+            <p>The final layout will look something like this:</p>
+            <div class="container px-4 py-1" id="featured-3">
+               <h4 class="pl-0 pb-2 border-bottom">Why Move With Us?</h4>
+               <div class="row g-4 py-2 row-cols-1 row-cols-lg-3">
+                 <div class="feature col">
+                   <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1">
+                     <img src="./assets/images/briefcase.svg" alt="Briefcase Icon" height="25">
+                   </div>
+                   <h5 class="fs-2 text-body-emphasis">Professional</h4>
+                   <p>Our team of professional movers are trained to prioritize efficiency, organization, and attention to detail. We understand that your possessions are more than just objects - they are a reflection of your life, memories, and experiences. That's why we take extra care to ensure that everything is packed and transported with the utmost care and attention. Your memories are safe with us.</p>
+                   <a href="#" class="icon-link">
+                     Get a quote
+                     <img src="./assets/images/chevron-right.svg" alt="Chevron Right Icon">
+                   </a>
+                 </div>
+                 <div class="feature col">
+                   <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                     <img src="./assets/images/bus-front.svg" alt="Bus Front Icon" height="25">
+                   </div>
+                   <h5 class="fs-2 text-body-emphasis">Country Wide</h4>
+                   <p>We offer a range of services to suit your individual needs, whether you're moving locally or across the country. Our team can handle everything from packing and loading to unloading and unpacking, so you can focus on settling into your new home. And with our transparent pricing and no hidden fees, you can trust that you're getting a fair and competitive rate for our services.</p>
+                   <a href="#" class="icon-link">
+                     Get a quote
+                     <img src="./assets/images/chevron-right.svg" alt="Chevron Right Icon">
+                   </a>
+                 </div>
+                 <div class="feature col">
+                   <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                     <img src="./assets/images/chat-square-heart.svg" alt="Chat Square Icon" height="25">
+                   </div>
+                   <h5 class="fs-2 text-body-emphasis">Personal Touch</h4>
+                   <p>At our core, we believe that moving should be an exciting and positive experience, not a stressful one. By providing exceptional moving services in the US, we hope to revolutionize the way people think about moving and provide a better, more personalized experience for our customers. Contact us today to learn more about how we can help you with your next move.</p>
+                   <a href="#" class="icon-link">
+                     Get a quote
+                     <img src="./assets/images/chevron-right.svg" alt="Chevron Right Icon">
+                   </a>
+                 </div>
+               </div>
+            </div>
+            <p>And here is the final "Features" code:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li>&lt;div class="container px-4 py-5" id="featured-3">
+                     <ul>
+                        <li>&lt;h4 class="pl-0 pb-2 border-bottom">Why Move With Us?&lt;/h4></li>
+                        <li>&lt;div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                           <ul>
+                              <li>&lt;div class="feature col">
+                                 <ul>
+                                    <li>&lt;div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                                       <ul>
+                                          <li>&lt;img src="./assets/images/briefcase.svg" alt="Briefcase Icon" height="30"></li>
+                                       </ul>
+                                    </li>
+                                    <li>&lt;/div></li>
+                                    <li>&lt;h5 class="fs-2 text-body-emphasis">Professional&lt;/h4></li>
+                                    <li>&lt;p>Our team of professional movers are trained to prioritize efficiency, .... Your memories are safe with us.&lt;/p></li>
+                                    <li>&lt;a href="#" class="icon-link">Get a quote
+                                       <ul>
+                                          <li>&lt;img src="./assets/images/chevron-right.svg" alt="Chevron Right Icon"></li>
+                                       </ul>
+                                    </li>
+                                    <li>&lt;/a></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;/div></li>
+                           </ul>
+                           <ul>
+                              <li>&lt;div class="feature col">
+                                 <ul>
+                                    <li>&lt;div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                                       <ul>
+                                          <li>&lt;img src="./assets/images/bus-front.svg" alt="Bus Front Icon" height="30">></li>
+                                       </ul>
+                                    </li>
+                                    <li>&lt;/div></li>
+                                    <li>&lt;h5 class="fs-2 text-body-emphasis">Country Wide&lt;/h4></li>
+                                    <li>&lt;p>We offer a range of services to suit your .... for our services.&lt;/p></li>
+                                    <li>&lt;a href="#" class="icon-link">Get a quote
+                                       <ul>
+                                          <li>&lt;img src="./assets/images/chevron-right.svg" alt="Chevron Right Icon"></li>
+                                       </ul>
+                                    </li>
+                                    <li>&lt;/a></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;/div></li>
+                           </ul>
+                           <ul>
+                              <li>&lt;div class="feature col">
+                                 <ul>
+                                    <li>&lt;div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                                       <ul>
+                                          <li>&lt;img src="./assets/images/chat-square-heart.svg" alt="Chat Square Icon" height="30">></li>
+                                       </ul>
+                                    </li>
+                                    <li>&lt;/div></li>
+                                    <li>&lt;h5 class="fs-2 text-body-emphasis">Personal Touch&lt;/h4></li>
+                                    <li>&lt;p>At our core, we believe that moving should be .... we can help you with your next move.&lt;/p></li>
+                                    <li>&lt;a href="#" class="icon-link">Get a quote
+                                       <ul>
+                                          <li>&lt;img src="./assets/images/chevron-right.svg" alt="Chevron Right Icon"></li>
+                                       </ul>
+                                    </li>
+                                    <li>&lt;/a></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;/div></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/div></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+               </ul>
             </p>
          </article>
       </section>
