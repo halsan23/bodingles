@@ -26,3 +26,25 @@
   height: 100px;
   border-radius: 50%;
 }
+
+/* ============================================================================== */
+
+.container {
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container, h1, h3, h5 {
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.small {
+   font-size: .9rem;
+}
+
+.happyDog {
+   margin-top: 5px;
+   margin-bottom: 2px;
+   height: 100px;
+   width: auto;
+   border-radius: 50%;
+}
