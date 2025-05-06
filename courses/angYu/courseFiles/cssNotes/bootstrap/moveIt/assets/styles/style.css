@@ -1,7 +1,13 @@
-
-
 .feature-icon {
    width: 3rem;
    height: 3rem;
    border-radius: 0.75rem;
+}
+
+.foot {
+   background-color: #fff;
+}
+
+.foot li {
+   text-align: center;
 }

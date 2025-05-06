@@ -38,7 +38,8 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">T</span>here are too many Bootstrap Components to try and describe in detail here, but we're going to create a website "Front Page" for a fictional Moving Company called <b>Move It</b>. This will allow us to demonstrate the configuration and use of some of the more useful Bootstrap components. We will be discussing in detail the layout of the page here, and the end result can be <a href="/courses/angYu/courseProjects/moveIt/moveIt.html" target="_blank">found here</a>.</p>
+            <p><span class="firstWord">T</span>here are too many Bootstrap Components to try and describe in detail here, but we're going to create a website "Front Page" for a fictional Moving Company called <b>Move It</b>. This will allow us to demonstrate the configuration and use of some of the more useful Bootstrap components. We will be discussing in detail the layout of the page here, and the end result can be <a href="/courses/angYu/courseProjects/moveIt/moveIt.html" target="_blank">found here</a>.</p><hr>
+            <h6>Link Bootstrap Files</h6>
             <p>Remember that when we're using Bootstrap, we need to go to the <a href="https://getbootstrap.com/docs/5.3/getting-started/download/" target="_blank">download page</a> to get the links for the bootstrap code. There is one link for the CSS, which goes inside the &lt;head> section of our page. And then there is a JavaScript link, which goes at the very bottom of our page, right before our closing &lt;/body> tag.
                <ul class="sectHighlight">
                   <li>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous"></li>
@@ -434,14 +435,134 @@
          <!-- footer -->
          <article>
             <h6>Footer</h6>
-            <p><span class="firstWord">T</span>
+            <p><span class="firstWord">F</span>or the "<b>footer</b>" section we are going to, once again, go to the <a href="https://getbootstrap.com/docs/5.3/examples/footers/" target="_blank">Bootstrap Docs</a> to find something similar to what we want for our page. In this case, we are going to use the very bottom example and modify it for our page. We'll have to "<b> inspect</b>" the element to get our code, and once it's modified for our use, it will look like this:
+            </p>
+            <!-- footer -->
+            <div class="container">
+               <footer class="my-5 pt-4 pb-1 foot">
+                  <div class="row flex justify-content-around">
+                     <div class="col-6 col-md-2 mb-3">
+                        <h5>Section</h5>
+                        <ul class="nav flex-column">
+                           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                        </ul>
+                     </div>
+                     <div class="col-6 col-md-2 mb-3">
+                        <h5>Section</h5>
+                        <ul class="nav flex-column">
+                           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                        </ul>
+                     </div>
+                     <div class="col-md-5 offset-md-1 mt-3 mb-3">
+                        <form>
+                           <h5>Subscribe to our newsletter</h5>
+                           <p>Monthly digest of what's new and exciting from us.</p>
+                           <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                              <label for="newsletter1" class="visually-hidden">Email address</label>
+                              <input id="newsletter1" type="email" class="form-control" placeholder="Email address">
+                              <button class="btn btn-primary" type="button">Subscribe</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+                  <div class="d-flex justify-content-start px-5 pt-4 my-1 border-top">
+                     <p>© 2025 Company, Inc. All rights reserved.</p>
+                  </div>
+               </footer>
+            </div>
+            <p>and here is the <b>footer</b> code:
+               <ul class="sectHighlight">
+                  <li>HTML</li>
+                  <li>&lt;div class="container">
+                     <ul>
+                        <li>&lt;footer class="my-5 pt-4 pb-1 foot">
+                           <ul>
+                              <li>&lt;div class="row flex justify-content-around">
+                                 <ul>
+                                    <li>&lt;div class="col-6 col-md-2 mb-3">
+                                       <ul>
+                                          <li>&lt;h5>Section&lt;/h5></li>
+                                          <li>&lt;ul class="nav flex-column">
+                                             <ul>
+                                                <li>&lt;li class="nav-item mb-2">&lt;a href="#" class="nav-link p-0 text-body-secondary">Home&lt;/a>&lt;/li></li>
+                                                <li>&lt;li class="nav-item mb-2">&lt;a href="#" class="nav-link p-0 text-body-secondary">Features&lt;/a>&lt;/li></li>
+                                                <li>&lt;li class="nav-item mb-2">&lt;a href="#" class="nav-link p-0 text-body-secondary">Pricing&lt;/a>&lt;/li></li>
+                                                <li>&lt;li class="nav-item mb-2">&lt;a href="#" class="nav-link p-0 text-body-secondary">FAQs&lt;/a>&lt;/li></li>
+                                                <li>&lt;li class="nav-item mb-2">&lt;a href="#" class="nav-link p-0 text-body-secondary">About&lt;/a>&lt;/li></li>
+                                             </ul>
+                                          </li>
+                                       <li>&lt;/ul></li>
+                                       </ul>
+                                    </li>
+                                    <li>&lt;/div></li>
+                                 </ul>
+                                 <ul>
+                                    <li>&lt;div class="col-6 col-md-2 mb-3">
+                                       <ul>
+                                          <li>&lt;h5>Section&lt;/h5></li>
+                                          <li>&lt;ul class="nav flex-column">
+                                             <ul>
+                                                <li>&lt;li class="nav-item mb-2">&lt;a href="#" class="nav-link p-0 text-body-secondary">Home&lt;/a>&lt;/li></li>
+                                                <li>&lt;li class="nav-item mb-2">&lt;a href="#" class="nav-link p-0 text-body-secondary">Features&lt;/a>&lt;/li></li>
+                                                <li>&lt;li class="nav-item mb-2">&lt;a href="#" class="nav-link p-0 text-body-secondary">Pricing&lt;/a>&lt;/li></li>
+                                                <li>&lt;li class="nav-item mb-2">&lt;a href="#" class="nav-link p-0 text-body-secondary">FAQs&lt;/a>&lt;/li></li>
+                                                <li>&lt;li class="nav-item mb-2">&lt;a href="#" class="nav-link p-0 text-body-secondary">About&lt;/a>&lt;/li></li>
+                                             </ul>
+                                          </li>
+                                       <li>&lt;/ul></li>
+                                       </ul>
+                                    </li>
+                                    <li>&lt;/div></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;/div></li>
+                              <li>&lt;div class="col-md-5 offset-md-1 mt-3 mb-3">
+                                 <ul>
+                                    <li>&lt;form>
+                                       <ul>
+                                          <li>&lt;h5>Subscribe to our newsletter</h5></li>
+                                          <li>&lt;p>Monthly digest of what's new and exciting from us.&lt;/p></li>
+                                          <li>&lt;div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                                             <ul>
+                                                <li>&lt;label for="newsletter1" class="visually-hidden">Email address&lt;/label></li>
+                                                <li>&lt;input id="newsletter1" type="email" class="form-control" placeholder="Email address"></li>
+                                                <li>&lt;button class="btn btn-primary" type="button">Subscribe&lt;/button></li>
+                                             </ul>
+                                          </li>
+                                          <li>&lt;/div></li>
+                                       </ul>
+                                    <li>&lt;/form></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;/div></li>
+                              <li>&lt;div class="d-flex justify-content-start px-5 pt-4 my-1 border-top">
+                                 <ul>
+                                    <li>&lt;p>© 2025 Company, Inc. All rights reserved.&lt;/p></li>
+                                 </ul>
+                              </li>
+                              <li>&lt;/div></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/footer></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+               </ul>
             </p>
          </article><hr>
 
          <!-- Conclusion -->
          <article>
             <h6>Conclusion</h6>
-            <p><span class="firstWord">T</span>
+            <p><span class="firstWord">I</span>n conclusion, we have learned that we can take "<b>pre-built</b>" Bootstrap Examples, and incorporate them into our design very quickly, to produce a professional and effective webpage. And of course if we were building a real, working website, we would make all of the links, and inputs work as designed.
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
