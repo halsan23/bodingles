@@ -48,3 +48,8 @@
    width: auto;
    border-radius: 50%;
 }
+
+.foot {
+   border: 0;
+   box-shadow: 0 0 0;
+}
