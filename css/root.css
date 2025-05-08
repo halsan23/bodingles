@@ -551,7 +551,7 @@ in the parent section, but aligned to the left side of container */
 
 /* --------------  Media Queries  --------------  */
 /* ============================================= */
-@media screen and (max-width:700px) {
+@media screen and (max-width:760px) {
    .headSlogan {
       display: none;
    }
