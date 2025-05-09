@@ -26,7 +26,7 @@
 }
 
 .code img {
-   width: 71%;
+   width: 80%;
    height: auto;
    border-radius: 10px;
    opacity: .9;
@@ -61,7 +61,7 @@
 }
 
 .programmer img {
-   width: 65%;
+   width: 80%;
    height: auto;
    border-radius: 30%;
    opacity: .6;
@@ -69,7 +69,7 @@
 
 /* --------------  Media Queries  --------------  */
 /* ============================================= */
-@media screen and (max-width:700px) {
+@media screen and (max-width:760px) {
    .code img {
       display: none;
    }
