@@ -20,7 +20,7 @@
    <!-- Header -->
    <header>
       <nav class="navbar navbar-expand-lg rounded">
-         <div class="container">
+         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                <span class="headTitleShadow">Bodingles<sub>TM</sub></span>
                <span class="headTitle">Bo</span>
@@ -32,11 +32,12 @@
                <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-lg-center" id="navbarsExample09">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarsExample09">
                <ul class="navbar-nav mb-2 mb-lg-0 align-items-end">
-                  <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-                  <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Disabled</a></li>
+                  <li class="nav-item"><a class="nav-link active" aria-current="page" href="#top">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#types">Development Types</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                </ul>
             </div>
 
@@ -44,17 +45,6 @@
          </div>
       </nav>
    </header>
-
-   <!-- <span class="headLogo"></span>
-   <span class="headTitleShadow">Bodingles<sub>TM</sub></span>
-   <a href="/index.html">
-      <span class="headTitle">Bo</span>
-      <span class="headTitleb">dingles</span>
-   </a>
-   <span class="headScroll"><img src="/images/scroll.png" alt=""></span> -->
-   <!--  -->
-
-
 
    <!-- Hero -->
    <div class="container-fluid hero">
@@ -64,8 +54,8 @@
          </div>
          <div class="col col-md-4 col-11 d-flex-row justify-content-between align-items-center m-3">
             <h6>Mad Dog Chico</h6>
-            <img src="./assets/images/dog-img.png" class="doggyPic d-block img-fluid mt-3 mb-3" alt="badDoggy Image" loading="lazy">
-            <p>Lead Programmer & Rabble Rouser</p>
+            <img src="./assets/images/dog-img.png" class="doggyPic d-block img-fluid mt-3" alt="badDoggy Image" loading="lazy">
+            <p class="chicoTxt mt-2 mb-3">Lead Programmer & Rabble Rouser</p>
             <h1 class="display-5 fw-bold text-body-emphasis mx-3">FullStack Web-Based Applications Development</h1>
             <p class="lead">Complete development, implementation, and maintenance of web-based applications including all aspects of both Front-End, and Back-End systems.</p>
          </div>
@@ -76,7 +66,7 @@
    </div>
 
    <!-- Features -->
-   <div class="container px-4 py-5" id="icon-grid">
+   <div itemid="types" class="container px-4 py-5" id="icon-grid">
       <h2 class="pb-2 border-bottom">Development Types</h2>
       <p>HTML / CSS / GRID / FLEX / BOOTSTRAP / JavaScript</p>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
