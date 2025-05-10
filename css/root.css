@@ -412,14 +412,6 @@ p {
 }
 
 /* Header Styling */
-.headBoot {
-   top: 5px;
-}
-
-.headBootb {
-   top: 5px;
-}
-
 .headLogo {
    content: url(../images/logos/bodinglesLogo3.png);
    position: absolute;
@@ -551,6 +543,12 @@ in the parent section, but aligned to the left side of container */
 
 /* --------------  Media Queries  --------------  */
 /* ============================================= */
+@media screen and (max-width:760px) {
+   .headLogo {
+      display: none;
+   }
+ }
+
 @media screen and (max-width:760px) {
    .headSlogan {
       display: none;

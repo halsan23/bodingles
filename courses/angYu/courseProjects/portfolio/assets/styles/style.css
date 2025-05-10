@@ -16,6 +16,71 @@
     background-position: 0% 50%;
   }
 } */
+/* ============================================================================== */
+
+/* header setup */
+.headTitle {
+   position: absolute;
+   top: 20px;
+   left: 30px;
+   color: #404d1e;
+   font-size: 3.25rem;
+   font-family: "SUSE", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 600;
+   font-style: normal;
+   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+   letter-spacing: 3px;
+   z-index: 25;
+}
+
+.headTitleb {
+   position: absolute;
+   top: 20px;
+   left: 98px;
+   color: #927b50;
+   font-size: 3.25rem;
+   font-family: "SUSE", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 600;
+   font-style: normal;
+   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+   letter-spacing: 3px;
+   z-index: 25;
+}
+
+.headTitleShadow {
+   position: absolute;
+   top: 21px;
+   left: 31px;
+   color: #7a7a7a;
+   font-size: 3.25rem;
+   font-family: "SUSE", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 600;
+   font-style: normal;
+   letter-spacing: 3px;
+   text-shadow: 3px 3px 6px #373737;
+   z-index: 0;
+}
+
+.headScroll img {
+   top: 65px;
+   left: 10px;
+}
+
+.navbar {
+   margin-top: 5px;
+   background-color: #d5d5d5;
+   z-index: 100;
+}
+
+.navLinks {
+   margin-left: 80%;
+   padding-right: 20px;
+   font-size: 1.2rem;
+   font-weight: 600;
+}
 
 /* ============================================================================== */
 
@@ -69,6 +134,12 @@
 
 /* --------------  Media Queries  --------------  */
 /* ============================================= */
+@media screen and (max-width:992px) {
+   .headSlogan {
+      display: none;
+   }
+ }
+
 @media screen and (max-width:760px) {
    .code img {
       display: none;
