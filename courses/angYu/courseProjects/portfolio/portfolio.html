@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-   <title>Bodingles | Portfolio</title>
+   <title>Bodingles | Portfolio | aYu</title>
    <!-- Link Favicon -->
    <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
 
@@ -36,7 +36,7 @@
                <ul class="navbar-nav g-0 align-items-end">
                   <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="#top">Home</a></li>
                   <li class="nav-item px-2"><a class="nav-link" href="#icon-grid">Development Types</a></li>
-                  <li class="nav-item px-2"><a class="nav-link" href="#">Projects</a></li>
+                  <li class="nav-item px-2"><a class="nav-link" href="#projects">Projects</a></li>
                   <li class="nav-item px-2"><a class="nav-link" href="#">About</a></li>
                </ul>
             </div>
@@ -61,12 +61,13 @@
          </div>
          <div class="programmer col-md-3 d-flex justify-content-center align-items-center m-0">
             <img class="my-5" src="./assets/images/programmer-2.png" alt="Programmer Image">
+            <span id="icon-grid"></span>
          </div>
       </div>
    </div>
 
    <!-- Types -->
-   <div class="container types p-5" id="icon-grid">
+   <div class="container-fluid types p-5">
          <h2 class="pb-2 border-bottom">Development Types</h2>
          <p>HTML / CSS / GRID / FLEX / BOOTSTRAP / JavaScript</p>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
@@ -122,7 +123,7 @@
          <div class="col d-flex align-items-start">
             <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em" aria-hidden="true"><use xlink:href="#tools"></use></svg>
             <div>
-               <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">MongoDB</h3>
+               <h3 class="fw-bold mb-0 fs-4 text-body-emphasis" id="projects">MongoDB</h3>
                <p>MongoDB is a NoSQL database used to store data in non-relational tables. These are considered non-structured databases.</p>
             </div>
          </div>
@@ -130,8 +131,9 @@
    </div>
 
    <!-- Projects -->
-   <div class="container">
+   <div class="container mb-5">
       <h2 class="pb-2 border-bottom">Projects</h2>
+      <p class="projP">All projects are fully responsive designs that reflect proper display, irregardless of the device they are being viewed on.</p>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
          <div class="col">
             <div class="card fullCard">
@@ -141,7 +143,7 @@
                   <p class="card-text pb-3">A basic Flex-Based design with full media responsiveness.</p>
                   <div class="d-flex justify-content-between align-items-center">
                      <div class="btn-group">
-                        <a class="butt" href="/courses/angYu/courseProjects/webLayout/webLayout.html" target="_blank">View</a>
+                        <a class="butt" href="/courses/angYu/courseProjects/webLayout/webLayout.html" target="_blank">View Full Page</a>
                      </div>
                   </div>
                </div>
@@ -155,7 +157,7 @@
                   <p class="card-text pb-3">Pricing panels to be added as multiples in a set reflecting different pricing levels.</p>
                   <div class="d-flex justify-content-between align-items-center">
                      <div class="btn-group">
-                        <a class="butt" href="/courses/angYu/courseProjects/pricingPanel/pricePanelIndex.html" target="_blank">View</a>
+                        <a class="butt" href="/courses/angYu/courseProjects/pricingPanel/pricePanelIndex.html" target="_blank">View Full Page</a>
                      </div>
                   </div>
                </div>
@@ -169,7 +171,7 @@
                   <p class="card-text pb-3">Another flex-based webpage with very specific design requirements.</p>
                   <div class="d-flex justify-content-between align-items-center">
                      <div class="btn-group">
-                        <a class="butt" href="/courses/angYu/courseProjects/teaCozy/teaCozyIndex.html" target="_blank">View</a>
+                        <a class="butt" href="/courses/angYu/courseProjects/teaCozy/teaCozyIndex.html" target="_blank">View Full Page</a>
                      </div>
                   </div>
                </div>
@@ -177,18 +179,90 @@
          </div>
          <div class="col">
             <div class="card fullCard">
-               <div class="cardHead"><h6>Flex Layout</h6></div>
-               <img class="border-bottom" src="./assets/images/portfolios/flex-1.png" alt="">
+               <div class="cardHead"><h6>Mondrian Painting</h6></div>
+               <img class="border-bottom" src="./assets/images/portfolios/mondrian.png" alt="">
                <div class="card-body">
-                  <p class="card-text pb-3">A basic Flex-Based design with full media responsiveness.</p>
+                  <p class="card-text pb-3">A Mondrian style painting built completely with CSS Grid.</p>
                   <div class="d-flex justify-content-between align-items-center">
                      <div class="btn-group">
-                        <a class="butt" href="/courses/angYu/courseProjects/webLayout/webLayout.html" target="_blank">View</a>
+                        <a class="butt" href="/courses/angYu/courseProjects/mondrian/mondrian.html" target="_blank">View Full Page</a>
                      </div>
                   </div>
                </div>
             </div>
          </div>
+         <div class="col">
+            <div class="card fullCard">
+               <div class="cardHead"><h6>Move It</h6></div>
+               <img class="border-bottom" src="./assets/images/portfolios/moveIt.png" alt="">
+               <div class="card-body">
+                  <p class="card-text pb-3">A Moving Company webpage built with Bootstrap.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                     <div class="btn-group">
+                        <a class="butt" href="/courses/angYu/courseProjects/moveIt/moveIt.html" target="_blank">View Full Page</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class="card fullCard">
+               <div class="cardHead"><h6>Tin Dog</h6></div>
+               <img class="border-bottom" src="./assets/images/portfolios/tinDog.png" alt="">
+               <div class="card-body">
+                  <p class="card-text pb-3">A meeting web page for all those lost and lonely dogs out there.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                     <div class="btn-group">
+                        <a class="butt" href="/courses/angYu/courseProjects/tinDog/tinDog.html" target="_blank">View Full Page</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- About Me -->
+    <div class="container-fluid">
+      <div class="row my-3 p-3">
+         <div class="col-1"></div>
+         <div class="col-5 pb-4">
+            <h2 class="text-center">About Me</h2>
+            <p class="about">I have computer interests stretching back to the late 1980s. My first computer was a Texas Instruments TI-99a. From there I moved to a IBM PC jr, to an Apple II, and finally to a Compaq 486sx. This was the last computer I ever bought as I have been building my own since then. I currently own three Desktops, three Laptops and two Tablets.</p>
+            <p class="about">I started writing code with the IBM and learned MS-DOS and Basic. Later I learned HTML, CSS1, PHP, and SQL, but it has been many years since I practiced the art of programming. I am now retired and have the time needed to get back in the saddle.</p>
+            <p class="about">I am currently taking Full-Stack Web classes for HTML, CSS, JavaScript, Flex, Grid, Bootstrap, Node, Express, MongoDB, and SQL. I consider myself to be very dedicated and a hard worker, willing to take the time to learn how to do a job properly.</p>
+         </div>
+         <div class="col-1"></div>
+         <div class="col-2 justify-content-around">
+            <h2>Skill Levels</h2>
+            <table>
+               <tr>
+                  <td>HTML</td>
+                  <td><img src="assets/images/star.png" alt="">
+                     <img src="assets/images/star.png" alt="">
+                     <img src="assets/images/star.png" alt="">
+                     <img src="assets/images/star.png" alt="">
+                     <img src="assets/images/star.png" alt="">
+                  </td>
+               </tr>
+               <tr>
+                  <td>CSS</td>
+                  <td><img src="assets/images/star.png" alt="">
+                     <img src="assets/images/star.png" alt="">
+                     <img src="assets/images/star.png" alt="">
+                     <img src="assets/images/star.png" alt="">
+                  </td>
+               </tr>
+               <tr>
+                  <td>JavaScript</td>
+                  <td><img src="assets/images/star.png" alt="">
+                     <img src="assets/images/star.png" alt="">
+                     <img src="assets/images/star.png" alt="">
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="col-1"></div>
       </div>
    </div>
 

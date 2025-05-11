@@ -83,6 +83,23 @@
 }
 
 /* ============================================================================== */
+table {
+   text-align: center;
+}
+
+td {
+   padding: 5px;
+   text-align: left;
+}
+
+td img {
+   vertical-align: top;
+}
+
+.about {
+   text-align: justify;
+}
+
 .chicoTxt {
    font-size: .8rem;
 }
@@ -95,7 +112,8 @@
 
 .code img {
    width: 80%;
-   height: auto;
+   height: 87%;
+   border: 5px solid #000000;
    border-radius: 10px;
    opacity: .9;
 }
@@ -130,8 +148,16 @@
 .programmer img {
    width: 85%;
    height: auto;
+   border: 5px solid #000000;
    border-radius: 30%;
-   opacity: .6;
+   opacity: .5;
+}
+
+.projP {
+   font-family: "Akaya Telivigala", system-ui;
+   font-style: italic;
+   font-size: 1rem;
+   margin-bottom: 30px;
 }
 
 .fullCard {
