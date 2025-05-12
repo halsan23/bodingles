@@ -96,25 +96,6 @@ td img {
    vertical-align: top;
 }
 
-.footer {
-   background-color: #d5d5d5;
-   font-size: 0.9rem;
-   font-style: italic;
-   font-weight: 500;
-   text-align: center;
-   box-shadow: none;
-   border-top: 1px solid #000;
-}
-
-.footer a {
-   color: #000;
-}
-
-.footer a:hover {
-   background-color: #bebebe;
-   border-radius: 10px;
-}
-
 .about {
    margin: 0 auto;
    text-align: justify;
@@ -122,20 +103,47 @@ td img {
    padding: 0;
 }
 
+.butt {
+   padding: 2px 5px;
+   color: #000;
+   font-weight: 300;
+   border: 1px solid #565656;
+   border-radius: 5px;
+}
+
+.butt:hover {
+   background-color: #3e3e3e;
+   color: #d5d5d5;
+}
+
+.card {
+   background-color: #d5d5d5;
+}
+
+.card-text {
+   border-bottom: 1px solid #bebebe;
+}
+
+.cardHead {
+   background-color: #1e1e1e;
+   color: #fff;
+   border-radius: 10px;
+}
+
 .chicoTxt {
    font-size: .8rem;
 }
 
 .code {
-   background-color: #bebebe;
-   margin: 0;
-   padding: 0;
+   /* background-color: #bebebe; */
+   background-image: url('../images/sideBar.png');
+   background-repeat: repeat;
 }
 
 .code img {
    width: 80%;
    height: auto;
-   border: 5px solid #000000;
+   border: 3px solid #000000;
    border-radius: 10px;
    opacity: .9;
 }
@@ -156,30 +164,23 @@ td img {
    padding: 0;
 }
 
-.types {
-   margin: 0 auto;
-   padding:25px;
-}
-
-.programmer {
-   background-color: #bebebe;
-   margin: 0;
-   padding: 0;
-}
-
-.programmer img {
-   width: 85%;
-   height: auto;
-   border: 5px solid #000000;
-   border-radius: 30%;
-   opacity: .5;
-}
-
-.projP {
-   font-family: "Akaya Telivigala", system-ui;
+.footer {
+   background-color: #d5d5d5;
+   font-size: 0.9rem;
    font-style: italic;
-   font-size: 1rem;
-   margin-bottom: 30px;
+   font-weight: 500;
+   text-align: center;
+   box-shadow: none;
+   border-top: 1px solid #000;
+}
+
+.footer a {
+   color: #000;
+}
+
+.footer a:hover {
+   background-color: #bebebe;
+   border-radius: 10px;
 }
 
 .fullCard {
@@ -194,31 +195,30 @@ td img {
    object-fit: contain;
 }
 
-.card {
-   background-color: #d5d5d5;
+.programmer {
+   /* background-color: #bebebe; */
+   background-image: url('../images/sideBar.png');
+   background-repeat: repeat;
 }
 
-.card-text {
-   border-bottom: 1px solid #bebebe;
+.programmer img {
+   width: 85%;
+   height: auto;
+   border: 3px solid #000000;
+   border-radius: 30%;
+   opacity: .5;
 }
 
-.cardHead {
-   background-color: #1e1e1e;
-   color: #fff;
-   border-radius: 10px;
+.projP {
+   font-family: "Akaya Telivigala", system-ui;
+   font-style: italic;
+   font-size: 1rem;
+   margin-bottom: 30px;
 }
 
-.butt {
-   padding: 2px 5px;
-   color: #000;
-   font-weight: 300;
-   border: 1px solid #565656;
-   border-radius: 5px;
-}
-
-.butt:hover {
-   background-color: #3e3e3e;
-   color: #d5d5d5;
+.types {
+   margin: 0 auto;
+   padding:25px;
 }
 
 /* --------------  Media Queries  --------------  */
