@@ -1,8 +1,7 @@
-/* .gradient-background {
-  background: linear-gradient(300deg, #7b6b43, #7e846b, #a5ae9e);
+.gradient-background {
+  background: linear-gradient(320deg, #878787, #888888, #c8c8c8);
   background-size: 180% 180%;
   animation: gradient-animation 12s ease infinite;
->>>>>>> e1d73dfabb9bff8f559d2981798fe8251ce365e9
 }
 
 @keyframes gradient-animation {
@@ -15,7 +14,7 @@
   100% {
     background-position: 0% 50%;
   }
-} */
+}
 /* ============================================================================== */
 
 /* header setup */
@@ -142,20 +141,6 @@ td img {
    font-size: .8rem;
 }
 
-.code {
-   /* background-color: #bebebe; */
-   background-image: url('../images/sideBar.png');
-   background-repeat: repeat;
-}
-
-.code img {
-   width: 80%;
-   height: auto;
-   border: 3px solid #000000;
-   border-radius: 10px;
-   opacity: .9;
-}
-
 .doggyPic {
    margin: 0 auto;
    width: 25%;
@@ -191,20 +176,6 @@ td img {
    border-radius: 10px;
 }
 
-.programmer {
-   /* background-color: #bebebe; */
-   background-image: url('../images/sideBar.png');
-   background-repeat: repeat;
-}
-
-.programmer img {
-   width: 85%;
-   height: auto;
-   border: 3px solid #000000;
-   border-radius: 30%;
-   opacity: .5;
-}
-
 .projects {
    background-color: #ededed;
 }
@@ -238,19 +209,3 @@ td img {
    }
  }
  /* ============================================= */
-
-
- .row {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.box {
-  flex: 1;
-}
-
-.card-img-top {
-  width: 100%;
-  height: 30vh; /* Adjust height as needed */
-  object-fit: cover; /* or contain, depending on your needs */
-}
