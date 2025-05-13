@@ -1,4 +1,4 @@
-.gradient-background {
+/* .gradient-background {
   background: linear-gradient(320deg, #878787, #888888, #c8c8c8);
   background-size: 180% 180%;
   animation: gradient-animation 12s ease infinite;
@@ -14,6 +14,12 @@
   100% {
     background-position: 0% 50%;
   }
+} */
+
+.gradient-backgroundL-R {
+   background-image: linear-gradient(to right, #888888 , #d5d5d5);
+}.gradient-backgroundR-L {
+   background-image: linear-gradient(to left, #888888 , #d5d5d5);
 }
 /* ============================================================================== */
 
@@ -104,9 +110,9 @@ td img {
 
 .butt {
    padding: 2px 5px;
+   border: 1px solid #565656;
    color: #000;
    font-weight: 300;
-   border: 1px solid #565656;
    border-radius: 5px;
 }
 
@@ -115,19 +121,12 @@ td img {
    color: #d5d5d5;
 }
 
-.card img {
-   max-width: 100%;
-   object-fit: contain;
-}
-
 .card {
    background-color: #d5d5d5;
+   max-width:300px;
+   min-width: 225px;
    font-size: .9rem;
    box-shadow: 3px 3px 12px #5f5f5f;
-}
-
-.card-text {
-   border-bottom: 1px solid #bebebe;
 }
 
 .cardHead {
@@ -137,8 +136,28 @@ td img {
    border-top-right-radius: 10px;
 }
 
+.card-text {
+   height: 100px;
+   border-bottom: 1px solid #bebebe;
+}
+
+.card img {
+   max-width: 100%;
+   object-fit: contain;
+}
+
 .chicoTxt {
    font-size: .8rem;
+}
+
+.contact {
+   padding: 10px 10px;
+   background-color: #d5d5d5;
+}
+
+.copy {
+   padding-left: 65px;
+   text-align: left;
 }
 
 .doggyPic {
@@ -153,18 +172,19 @@ td img {
 
 .hero {
    background-color: #d5d5d5;
-   margin-top: 123px;
    padding: 0;
+   padding-top: 123px;
 }
 
 .footer {
+   margin: 0 auto;
+   padding: 0;
    background-color: #d5d5d5;
    font-size: 0.9rem;
    font-style: italic;
    font-weight: 500;
    text-align: center;
    box-shadow: none;
-   border-top: 1px solid #000;
 }
 
 .footer a {
@@ -174,6 +194,10 @@ td img {
 .footer a:hover {
    background-color: #bebebe;
    border-radius: 10px;
+}
+
+.footer ul {
+   display: inline-block;
 }
 
 .projects {
@@ -200,12 +224,9 @@ td img {
    }
  }
 
-@media screen and (max-width:992px) {
-   .code img {
-      display: none;
+@media screen and (max-width:1140px) {
+   .card-text {
+      font-size: .8rem;
    }
-   .programmer img {
-      display: none;
-   }
- }
+}
  /* ============================================= */
