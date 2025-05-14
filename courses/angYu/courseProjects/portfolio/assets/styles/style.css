@@ -53,9 +53,9 @@
 }
 
 .headTitleShadow {
-   /* position: absolute;
+   position: fixed;
    top: 21px;
-   left: 31px; */
+   left: 31px;
    color: #7a7a7a;
    font-size: 3.25rem;
    font-family: "SUSE", sans-serif;
