@@ -216,11 +216,18 @@ td img {
 
 /* --------------  Media Queries  --------------  */
 /* ============================================= */
+@media screen and (max-width:576px) {
+.headTitleShadow {
+      top: 10px;
+      left: 1px;
+   }
+}
+
 @media screen and (max-width:992px) {
    .headSlogan {
       display: none;
    }
- }
+}
 
 @media screen and (max-width:1140px) {
    .card-text {
