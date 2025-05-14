@@ -217,7 +217,8 @@ td img {
 /* --------------  Media Queries  --------------  */
 /* ============================================= */
 @media screen and (max-width:768px) {
-.headTitleShadow {
+   .headTitleShadow {
+      position: relative;
       top: 10px;
       left: 1px;
    }
