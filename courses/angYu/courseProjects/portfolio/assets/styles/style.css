@@ -27,7 +27,7 @@
 .headTitle {
    position: absolute;
    top: 20px;
-   left: 29px;
+   left: 27px;
    color: #404d1e;
    font-size: 3.25rem;
    font-family: "SUSE", sans-serif;
@@ -42,7 +42,7 @@
 .headTitleb {
    position: absolute;
    top: 20px;
-   left: 98px;
+   left: 95px;
    color: #927b50;
    font-size: 3.25rem;
    font-family: "SUSE", sans-serif;
@@ -57,7 +57,7 @@
 .headTitleShadow {
    position: absolute;
    top: 21px;
-   left: 31px;
+   left: 28px;
    color: #7a7a7a;
    font-size: 3.25rem;
    font-family: "SUSE", sans-serif;
