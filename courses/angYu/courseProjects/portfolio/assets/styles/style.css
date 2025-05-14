@@ -211,6 +211,14 @@ td img {
 /* --------------  Media Queries  --------------  */
 /* ============================================= */
 @media screen and (max-width:992px) {
+   .headTitle {
+      position: fixed;
+      top: 100px;
+      left: 25px;
+   }
+}
+
+@media screen and (max-width:992px) {
    .headSlogan {
       display: none;
    }
