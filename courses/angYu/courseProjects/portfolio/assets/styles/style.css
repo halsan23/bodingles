@@ -222,7 +222,7 @@ td img {
    .headTitle {
       position: fixed;
       top: 24px;
-      left: 15px;
+      left: 1px;
       color: #404d1e;
       font-size: 3.5rem;
       font-family: "SUSE", sans-serif;
