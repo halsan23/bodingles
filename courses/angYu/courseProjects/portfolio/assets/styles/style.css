@@ -55,7 +55,7 @@
 }
 
 .headTitleShadow {
-   position: absolute;
+   position: fixed;
    top: 21px;
    left: 28px;
    color: #7a7a7a;
