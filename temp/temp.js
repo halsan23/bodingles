@@ -1,2 +1,7 @@
-let rndNum = Math.floor(Math.random() * 6) + 1;
-console.log(rndNum);
+let loveScore = Math.floor(Math.random() * 100) + 1;
+
+// prompt("Who is Lover A?")
+// prompt("Who is Lover B?")
+
+
+console.log(`Our Love Score is: ${loveScore}%`);
