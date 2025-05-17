@@ -37,6 +37,7 @@
             <ul>
                <li>- <a href="https://www.w3schools.com/js/js_functions.asp" target="_blank">W3Schools Functions</a></li>
                <li>- <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank">MDN Functions</a></li>
+               <li>- <a href="https://www.geeksforgeeks.org/functions-in-javascript/" target="_blank">Geeks4Geeks Functions</a></li>
             </ul>
             <p>In JavaScript, functions are considered "first-class objects", because they can be passed to other functions, returned from functions, and assigned to variables and properties. They can also have properties and methods just like any other object. What distinguishes them from other objects is that functions can be called.</p>
             <p>There are several types of functions that serve different purposes. The main types include <b>named</b> functions, <b>anonymous</b> functions, and <b>arrow</b> functions.</p>
@@ -45,14 +46,71 @@
          <!-- function types -->
           <article>
             <h6>Different Function Types</h6>
-            <p><a href="https://www.geeksforgeeks.org/different-ways-of-writing-functions-in-javascipt/" target="_blank">Geeks</a></p>
-            <p><a href="https://www.w3schools.com/js/js_functions.asp" target="_blank">W3Schools</a></p>
-            <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions" target="_blank">MDN</a></p>
-            <p><a href="https://search.brave.com/search?q=javascript+function+types&summary=1&conversation=dae065bcd2df116acb2e55" target="_blank">Search</a></p>
-            <p><span class="firstWord">Declaration</span></p>
-            <p><span class="firstWord">Expression</span></p>
-            <p><span class="firstWord">Arrow Functions</span></p>
-          </article>
+            <p><b>Declaration</b>
+               <ul>
+                  <li>A Function Declaration is the traditional way to define a function. It starts with the function keyword, followed by the function name and any parameters the function needs. eg:</li>
+                  <li>&nbsp;
+                     <ul class="sectHighlight">
+                        <li><span class="colorPurple">function</span> <b>add</b>( a, b ) {
+                           <ul>
+                              <li>console.log( a + b );</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                        <li class="commentStyle">// Call the function</li>
+                        <li><b>add</b>( 2, 3 );</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p><b>Expression</b>
+               <ul>
+                  <li>A Function Expression is another way to define a function. Here, the function is defined inside a variable, and the function's value (its returned value) is stored within that variable. Here, the whole function is an expression and the returned value is stored in the variable. We use the variable name to call the function. eg:</li>
+                  <li>&nbsp;
+                     <ul class="sectHighlight">
+                        <li><b>const</b> <span class="colorGreen">add</span> = <span class="colorPurple">function</span> ( a, b ) {
+                           <ul>
+                              <li>console.log( a + b );</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                        <li class="commentStyle">// Call the function</li>
+                        <li><span class="colorGreen">add</span>( 2, 3 );</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p><b>Key Differences: Function Declaration vs. Function Expression</b>
+               <ul>
+                  <li style="list-style: disc;"><b>Function Declaration</b>: The function is defined and can be called anywhere in the code (even before it’s defined, due to something called "hoisting").</li>
+                  <li style="list-style: disc;"><b>Function Expression</b>: The function is defined as part of an expression (usually assigned to a variable), and it can only be called after the line where it’s defined.</li>
+               </ul>
+            For a detailed comparison, you can refer to the article on the <a href="https://www.geeksforgeeks.org/difference-between-function-declaration-and-function-expression-in-javascript/" target="_blank">Difference between Function Declaration and Function Expression</a>.</p>
+         </article><hr>
+
+         <!-- Arrow Functions -->
+         <article>
+            <h6>Arrow Functions</h6>
+            <p><span class="firstWord">A</span>n arrow function is a shorter syntax for writing functions in JavaScript. Introduced in ES6, arrow functions allow for a more concise and readable code, especially in cases of small functions. Unlike regular functions, arrow functions <b>don't have their own this</b>, but instead, inherit it from the surrounding context.
+               <ul>
+                  <li>
+                     <ul>
+                        <li style="list-style: disc;">Arrow functions are written with the <b>=></b> symbol, which makes them compact.</li>
+                        <li style="list-style: disc;">They <b>don't have their own this</b>. They inherit this from the surrounding context.</li>
+                        <li style="list-style: disc;">For functions with a single expression, the return is implicit, making the code more concise.</li>
+                        <li style="list-style: disc;">Arrow functions do not have access to the arguments object, which is available in regular functions.</li>
+                        <li style="list-style: disc;">Like any variable, an arrow function can be declared using const, var or let. However it is a best practice to use const with arrow function unless we have a strong reason to reassign them.</li>
+                     </ul>
+                  <li>&nbsp;
+                     <ul class="sectHighlight">
+                        <li><span class="colorPurple">let</span> <span class="colorGreen">add</span> = ( a, b ) <b>=></b> a + b;</li>
+                        <li class="commentStyle">// Call the function</li>
+                        <li>console.log( <span class="colorGreen">add</span>( 3, 2 ));</li>
+                     </ul>
+                  </li>
+               </ul>
+            Much more information about <b>Arrow Functions</b>, can be <a href="https://www.geeksforgeeks.org/arrow-functions-in-javascript/" target="_blank">found here</a>.</p>
+         </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
