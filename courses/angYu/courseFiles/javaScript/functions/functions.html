@@ -88,6 +88,50 @@
             For a detailed comparison, you can refer to the article on the <a href="https://www.geeksforgeeks.org/difference-between-function-declaration-and-function-expression-in-javascript/" target="_blank">Difference between Function Declaration and Function Expression</a>.</p>
          </article><hr>
 
+         <!-- function types -->
+          <article>
+            <h6>Returning Data</h6>
+            <p><span class="firstWord">W</span>hen we process our data in a function, we may wish to output our results for use within our code. We do this with the <b>return</b> statement. In the above example we used "console.log()" within the function to output our results to the console. We could also <b>return</b> the results and output it outside of the function, like so:
+               <ul class="sectHighlight">
+                  <li><b>const</b> <span class="colorOrange">add</span> = <span class="colorPurple">function</span> ( a, b ) {
+                     <ul>
+                        <li><b>return</b> <span class="colorGreen">( a + b )</span>;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li class="commentStyle">// Call the function</li>
+                  <li>console.log( <span class="colorOrange">add</span>( 2, 3 ) );</li>
+               </ul>
+            and this would return the output from the function. You can also assign this to a variable, and console.log() the variable, like so:
+               <ul class="sectHighlight">
+                  <li class="commentStyle">// Call the function</li>
+                  <li>let <span class="colorGreen">addition</span> = <span class="colorOrange">add</span>( 2, 3 )</li>
+                  <li>console.log( <span class="colorGreen">addition</span> );</li>
+               </ul>
+            </p>
+            <p><b>Returning Multiple Outputs</b></p>
+            <p>You can also return multiple pieces of data from a function, but it has to be returned, and called, in either an array, or an object, like so:
+               <ul class="sectHighlight">
+                  <li><b>const</b> <span class="colorOrange">add</span> = <span class="colorPurple">function</span> ( a, b ) {
+                     <ul>
+                        <li><b>return</b> <span class="colorGreen">[ a, b, ( a + b ) ]</span>;</li>
+                        <li>- or -</li>
+                        <li><b>return</b> <span class="colorGreen">{ a, b, ( a + b ) }</span>;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            then you would call the function:
+               <ul class="sectHighlight">
+                  <li class="commentStyle">// Call the function</li>
+                  <li>let [ a, b, c ] = <span class="colorOrange">add</span>( 2, 3 );</li>
+                  <li>- or -</li>
+                  <li>let [ a, b, c ] = <span class="colorOrange">add</span>( 2, 3 );</li>
+               </ul>
+            It is important to understand that when we "call" the function we are assigning the returned result to variables. In this example, we are assigning three (3) variables, because we are <b>returning</b> three (3) pieces of data. Also note that when we call the function, and return the data, it <b>must</b> be in the form of either an array, or an object.</p>
+         </article><hr>
+            <p><br></p>
+
          <!-- Arrow Functions -->
          <article>
             <h6>Arrow Functions</h6>
