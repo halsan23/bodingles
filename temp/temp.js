@@ -1,18 +1,14 @@
-function leapYear(year) {
-   if ((year % 4) === 0) {
-      if ((year % 100) === 0 && (year % 400) === 0) {
-         return `The year ${year} is a Leap Year.`;
-      } else {
-         if ((year % 100) !== 0 || (year % 400) === 0) {
-            return `The year ${year} is a Leap Year.`;
-         } else {
-            return `The year ${year} is not a Leap Year.`;
-         }
-      }
-   } else {
-         return `The year ${year} is not a Leap Year.`;
-   }
+function whosPaying(names) {
+
+/******Don't change the code above*******/
+
+    let people = ["Angela", "Ben", "Jenny", "Michael", "Chloe"];
+    let number = Math.floor(Math.random() * people.length);
+    return people[number] + " is going to buy lunch today!";
+
+
+
+/******Don't change the code below*******/
 }
 
-
-console.log( leapYear(1963) );
+console.log(whosPaying());
