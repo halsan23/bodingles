@@ -1,9 +1,9 @@
-.flex-container {
-   margin: 0;
-   padding: 0;
-   height: 100vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   border: 5px solid #272727;
+section {
+   margin-top: 150px;
+   padding-left: 25px;
+   text-align: left;
+}
+
+button:active {
+   color:red;
 }
