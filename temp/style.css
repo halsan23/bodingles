@@ -1,9 +1,13 @@
 section {
-   margin-top: 150px;
+   margin-top: 175px;
    padding-left: 25px;
    text-align: left;
 }
 
 button:active {
    color:red;
+}
+
+.huge {
+   font-size: 10rem;
 }

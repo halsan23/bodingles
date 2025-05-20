@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&display=swap');
+
+
+h1 {
+   padding: 50px;
+   text-shadow: 5px 5px 8px #000000;
+   font-size: 7rem;
+   color: #4ECCA3;
+}
+
+
+.container {
+   width: 80%;
+   margin: 25px auto 0;
+   padding: 50px 50px 0;
+   background-color: #393E46;
+   text-align: center;
+   border-radius: 25px;
+   box-shadow: 3px 3px 12px;
+}
+
+.container img {
+   margin: 0;
+   padding: 0;
+   width: 80%;
+   border: 2px solid #d1d2c2;
+   border-radius: 15px;
+}
+
+.container p {
+   font-size: 2rem;
+   color: #4ECCA3;
+   font-family: 'Indie Flower', cursive;
+}
+
+.dice {
+   margin: 25px;
+   text-align: center;
+   display: inline-block;
+}
+
+.gameRow {
+   display: flex;
+   justify-content: space-around;
+}
