@@ -62,8 +62,8 @@ h1 img {
    margin: 0;
    padding: 0;
    width: 80%;
-   border: 2px solid #d1d2c2;
    border-radius: 15px;
+   box-shadow: 5px 5px 18px #000000;
 }
 
 .gameRow {

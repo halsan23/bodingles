@@ -1,26 +1,28 @@
-let heading = document.querySelector('h1');
+let heading = document.querySelector('.head');
+let imgL = document.querySelector('.imgL');
+let imgR = document.querySelector('.imgR');
 let btn = document.querySelector('.butt');
 let img1 = document.querySelector(".img1");
 let img2 = document.querySelector(".img2");
 
 btn.addEventListener('click', function() {
    let [dice1, dice2] = roll();
+
    if (dice1 === dice2) {
-      heading.innerHTML = `
-         <img src="./images/victory1.png">
-         &nbsp;It's a Tie Game&nbsp;
-         <img src="./images/victory2.png">
-      `;
+      imgL.setAttribute("src",  "./images/victory1.png");
+      heading.innerText = "It's a Tie Game";
+      imgR.setAttribute("src",  "./images/victory2.png");
+
    } else if (dice1 > dice2) {
-      heading.innerHTML = `
-         <img src="./images/victory1.png">
-         &nbsp;Player 1 Wins!
-      `;
+      heading.innerText = "Player 1 Wins!";
+      imgL.setAttribute("src",  "./images/victory1.png");
+      imgR.setAttribute("src",  "");
+
+
    } else {
-      heading.innerHTML = `
-         Player 2 Wins!&nbsp;
-         <img src="./images/victory2.png">
-      `;
+      heading.innerText = "Player 2 Wins!";
+      imgL.setAttribute("src",  "");
+      imgR.setAttribute("src",  "./images/victory2.png");
    }
 });
 
@@ -34,9 +36,8 @@ let roll = function() {
    return [dice1, dice2];
 }
 
-heading.innerHTML = `
-   <img src="./images/victory1.png">
-   Random Dice Roll
-   <img src="./images/victory2.png">
-`;
+heading.innerText = "Random Dice Roll";
+imgL.setAttribute("src",  "./images/victory1.png");
+imgR.setAttribute("src",  "./images/victory2.png");
+
 roll();
