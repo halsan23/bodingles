@@ -2,15 +2,24 @@
 
 
 h1 {
-   padding: 50px;
    text-shadow: 5px 5px 8px #000000;
    font-size: 6rem;
    color: #4ECCA3;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+h1 img {
+   margin: 0;
+   padding: 0;
+   width: 70px;
+   border: none;
 }
 
 .butt {
    width: 200px;
-   margin: 15px auto 0;
+   margin: 75px auto 0;
    padding: 8px 10px;
    font-size: 1.75rem;
    background-color: #c4c47e;
@@ -27,21 +36,13 @@ h1 {
 }
 
 .container {
+   margin: 25px auto;
+   padding: 50px;
    width: 70%;
-   margin: 25px auto 0;
-   padding: 50px 50px 0;
    background-color: #393E46;
    text-align: center;
    border-radius: 25px;
    box-shadow: 3px 3px 12px;
-}
-
-.container img {
-   margin: 0;
-   padding: 0;
-   width: 80%;
-   border: 2px solid #d1d2c2;
-   border-radius: 15px;
 }
 
 .container p {
@@ -56,8 +57,15 @@ h1 {
    display: inline-block;
 }
 
+.dice img {
+   margin: 0;
+   padding: 0;
+   width: 80%;
+   border: 2px solid #d1d2c2;
+   border-radius: 15px;
+}
+
 .gameRow {
-   padding-bottom: 50px;
    display: flex;
    justify-content: space-around;
 }

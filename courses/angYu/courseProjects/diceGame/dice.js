@@ -1,4 +1,4 @@
-let heading = document.querySelector('.container h1');
+let heading = document.querySelector('h1');
 let btn = document.querySelector('.butt');
 let img1 = document.querySelector(".img1");
 let img2 = document.querySelector(".img2");
@@ -9,9 +9,15 @@ btn.addEventListener('click', function() {
    if (dice1 === dice2) {
       heading.innerText = "It's a Tie Game";
    } else if (dice1 > dice2) {
-      heading.innerText = "Player 1 Wins!";
+      heading.innerHTML = `
+         <img src="./images/victory1.png">
+         &nbsp;Player 1 Wins!
+      `;
    } else {
-      heading.innerText = "Player 2 Wins!";
+      heading.innerHTML = `
+         Player 2 Wins!&nbsp;
+         <img src="./images/victory2.png">
+      `;
    }
 });
 
@@ -24,5 +30,4 @@ let roll = function() {
 
    return [dice1, dice2];
 }
-
 roll();
