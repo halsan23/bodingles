@@ -1,5 +1,5 @@
 let heading = document.querySelector('.container h1');
-let btn = document.querySelector('button');
+let btn = document.querySelector('.butt');
 let img1 = document.querySelector(".img1");
 let img2 = document.querySelector(".img2");
 let initial = 0;
@@ -21,6 +21,7 @@ let roll = function() {
 
    img1.setAttribute("src",  "./images/dice" + dice1 + ".png");
    img2.setAttribute("src",  "./images/dice" + dice2 + ".png");
+
    return [dice1, dice2];
 }
 
