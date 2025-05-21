@@ -27,7 +27,7 @@ h1 {
 }
 
 .container {
-   width: 80%;
+   width: 70%;
    margin: 25px auto 0;
    padding: 50px 50px 0;
    background-color: #393E46;
@@ -57,7 +57,7 @@ h1 {
 }
 
 .gameRow {
-   padding-bottom: 30px;
+   padding-bottom: 50px;
    display: flex;
    justify-content: space-around;
 }
