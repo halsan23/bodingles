@@ -2,12 +2,15 @@ let heading = document.querySelector('h1');
 let btn = document.querySelector('.butt');
 let img1 = document.querySelector(".img1");
 let img2 = document.querySelector(".img2");
-let initial = 0;
 
 btn.addEventListener('click', function() {
    let [dice1, dice2] = roll();
    if (dice1 === dice2) {
-      heading.innerText = "It's a Tie Game";
+      heading.innerHTML = `
+         <img src="./images/victory1.png">
+         &nbsp;It's a Tie Game&nbsp;
+         <img src="./images/victory2.png">
+      `;
    } else if (dice1 > dice2) {
       heading.innerHTML = `
          <img src="./images/victory1.png">
@@ -30,4 +33,10 @@ let roll = function() {
 
    return [dice1, dice2];
 }
+
+heading.innerHTML = `
+   <img src="./images/victory1.png">
+   Random Dice Roll
+   <img src="./images/victory2.png">
+`;
 roll();
