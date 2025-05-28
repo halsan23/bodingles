@@ -1,17 +1,9 @@
-// let btn = ['w', 'a', 's', 'd', 'j', 'k', 'l']
+// Higher Functions
+// ------------------------------------------------------------
+// allows you to call  function from within another function
+// ============================================================
 
-// // loop through all drums to add event listener
-// for ( let i = 0; i < document.querySelectorAll('.drum').length; i++) {
-
-//    // add event listeners
-//    document.querySelectorAll('.drum')[i].addEventListener('click', function () {
-//       alert(`${btn[i]} was clicked`);
-//    });
-// }
-
-
-
-
+// base functions
 function add ( num1, num2 ) {
    return num1 + num2;
 }
@@ -32,6 +24,8 @@ function calc ( num1, num2, operator ) {
    return operator( num1, num2 );
 }
 
+// assign the variables and run the higher function
+// ------------------------------------------------------------
 let n1 = 25;
 let n2 = 75;
 
