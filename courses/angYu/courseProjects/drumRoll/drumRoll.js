@@ -1,41 +1,45 @@
-// let btn = ['w', 'a', 's', 'd', 'j', 'k', 'l']
+// loop through all drums to add event listener
+for ( let i = 0; i < document.querySelectorAll('.drum').length; i++) {
 
-// // loop through all drums to add event listener
-// for ( let i = 0; i < document.querySelectorAll('.drum').length; i++) {
+   // add event listener for each individual button
+   document.querySelectorAll('.drum')[i].addEventListener('click', function () {
 
-//    // add event listeners
-//    document.querySelectorAll('.drum')[i].addEventListener('click', function () {
-//       alert(`${btn[i]} was clicked`);
-//    });
-// }
+      // "this" represents the individual button that was clicked
+      // this.innerHTML represents the letter that was set inside the html code for each individual button
+      // so we are "trapping" for the individual letter of each button
+      switch (this.innerHTML) {
+         case "w":
+            let tom1 = new Audio(`./sounds/tom-1.mp3`);
+            tom1.play();
+            break;
+         case "a":
+            let tom2 = new Audio(`./sounds/tom-2.mp3`);
+            tom2.play();
+            break;
+         case "s":
+            let tom3 = new Audio(`./sounds/tom-3.mp3`);
+            tom3.play();
+            break;
+         case "d":
+            let tom4 = new Audio(`./sounds/tom-4.mp3`);
+            tom4.play();
+            break;
+         case "j":
+            let snare = new Audio(`./sounds/snare.mp3`);
+            snare.play();
+            break;
+         case "k":
+            let crash = new Audio(`./sounds/crash.mp3`);
+            crash.play();
+            break;
+         case "l":
+            let kick = new Audio(`./sounds/kick-bass.mp3`);
+            kick.play();
+            break;
 
+         default:
+            alert(`Incorrect Key [${this.innerHTML}] Pressed!!`);
+      }
 
-
-
-function add ( num1, num2 ) {
-   return num1 + num2;
+   });
 }
-
-function subt ( num1, num2 ) {
-   return num1 - num2;
-}
-
-function mult ( num1, num2 ) {
-   return num1 * num2;
-}
-
-function divi ( num1, num2 ) {
-   return num1 / num2;
-}
-
-function calc ( num1, num2, operator ) {
-   return operator( num1, num2 );
-}
-
-let n1 = 25;
-let n2 = 75;
-
-console.log(`${n1} + ${n2} = ${calc(n1,n2,add)}`);
-console.log(`${n1} - ${n2} = ${calc(n1,n2,subt)}`);
-console.log(`${n1} * ${n2} = ${calc(n1,n2,mult)}`);
-console.log(`${n1} / ${n2} = ${calc(n1,n2,divi)}`);
