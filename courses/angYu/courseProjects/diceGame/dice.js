@@ -6,7 +6,11 @@ let img1 = document.querySelector(".img1");
 let img2 = document.querySelector(".img2");
 
 btn.addEventListener('click', function() {
+   clearInterval(interval);
+   interval = null;
+
    let [dice1, dice2] = roll();
+
 
    if (dice1 === dice2) {
       heading.innerText = "It's a Tie Game";
@@ -40,4 +44,6 @@ heading.innerText = "Random Dice Roll";
 imgL.setAttribute("src",  "./images/victory1.png");
 imgR.setAttribute("src",  "./images/victory2.png");
 
-roll();
+let interval = setInterval(function() {
+      roll();
+}, 500);

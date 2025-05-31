@@ -33,7 +33,8 @@
       <section id="textWindow4" class="just">
          <!-- Intro -->
          <article>
-            <p><span class="firstWord">T</span>he <b>Dice Roll Game</b> is an exercise in random number generation. It's a simple game where we generate two random numbers between 1 and 6, and assign them each to a dice. One dice represents Player 1 and the other represents Player 2. The outcome of the the game can either be a tie, or a win by either Player 1 or Player 2. The one with the highest dice roll wins.</p>
+            <p><span class="firstWord">T</span>he <b>Dice Roll Game</b> is an exercise in random number generation. The game itself is here: <a href="../../../courseProjects/diceGame/dicee.html" target="_blank">Dice Roll Game.</a>.</p>
+            <p>This is a simple game where we generate two random numbers between 1 and 6, and assign them each to a dice. One dice represents Player 1 and the other represents Player 2. The outcome of the the game can either be a tie, or a win by either Player 1 or Player 2. The one with the highest dice roll wins.</p>
          </article><hr>
 
          <!-- the HTML -->
@@ -97,11 +98,30 @@
             </ul>
          and inside this function, we roll the dice (re-run the number generators), check to see which player won (which random number is higher) or if it is a tie. Then we display the results as an output to the screen.
          </p>
+         <h6>One Final Note</h6>
+         <P>I added some code to display random dice <b>until</b> you start playing the game. So up until you click the "Roll the Dice" button, you will get random dice displayed every 500ms.</P>
+         <p>This code will start the random dice:
+            <ul class="sectHighlight">
+                  <li>let <span class="colorGreen">interval</span> = setInterval(function() {
+                     <ul>
+                        <li><span class="colorPurple">roll()</span>;</li>
+                     </ul>
+                  </li>
+                  <li>}, <span class="colorRed">500</span>);</li>
+            </ul>
+         </p>
+         <p>and this code, <i>(which resides inside the button click event)</i>, will stop the continuous random dice display, for game play:
+            <ul class="sectHighlight">
+               <li>clearInterval(<span class="colorGreen">interval</span>);</li>
+               <li><span class="colorGreen">interval</span> = null;</li>
+            </ul>
+         </p>
          </article><hr>
 
          <!-- Final Code -->
          <article>
             <h6>Final Code</h6>
+            <!-- HTML Code -->
             <ul class="sectHighlight">
                <li><b>HTML</b></li>
                <li>&lt;div class="<span class="colorOrange">container</span>">
@@ -143,7 +163,7 @@
                </li>
                <li>&lt;/div</li>
             </ul>
-            <!--======================================================================================= -->
+            <!--JavaScript Code -->
             <ul class="sectHighlight">
                <li><b>JavaScript</b></li>
                <li class="commentStyle">// assign variables to our HTML objects for manipulation</li>
@@ -157,6 +177,10 @@
                <li class="commentStyle">// add event listener for "Roll the Dice" button</li>
                <li><span class="colorGreen">btn</span>.addEventListener('click', function() {
                   <ul>
+                     <li class="commentStyle">// stop random dice display before start of game</li>
+                     <li>clearInterval(<span class="colorGreen">interval</span>);</li>
+                     <li><span class="colorGreen">interval</span> = null;</li>
+                     <li>&nbsp;</li>
                      <li class="commentStyle">// assign random numbers to dice variables</li>
                      <li class="commentStyle">// this also displays the appropriate dice image</li>
                      <li>let [<span class="colorGreen">dice1</span>, <span class="colorGreen">dice2</span>] = <span class="colorPurple">roll()</span>;</li>
@@ -206,7 +230,15 @@
                <li><span class="colorGreen">heading</span>.innerText = "Random Dice Roll";</li>
                <li><span class="colorGreen">imgL</span>.setAttribute("src",  "./images/victory1.png");</li>
                <li><span class="colorGreen">imgR</span>.setAttribute("src",  "./images/victory2.png");</li>
-               <li><span class="colorPurple">roll()</span>;</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// random dice display before game start</li>
+               <li class="commentStyle">// displays ne random dice every 500ms</li>
+               <li>let <span class="colorGreen">interval</span> = setInterval(function() {
+                  <ul>
+                     <li><span class="colorPurple">roll()</span>;</li>
+                  </ul>
+               </li>
+               <li>}, <span class="colorRed">500</span>);</li>
             </ul>
          </article>
       </section>
