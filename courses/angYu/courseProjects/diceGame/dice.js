@@ -9,8 +9,8 @@ btn.addEventListener('click', function() {
    let [dice1, dice2] = roll();
 
    if (dice1 === dice2) {
-      imgL.setAttribute("src",  "./images/victory1.png");
       heading.innerText = "It's a Tie Game";
+      imgL.setAttribute("src",  "./images/victory1.png");
       imgR.setAttribute("src",  "./images/victory2.png");
 
    } else if (dice1 > dice2) {
