@@ -33,8 +33,122 @@
       <section id="textWindow4" class="just">
          <!-- Intro -->
          <article>
-            <h6></h6>
-            <p><span class="firstWord"></span></p>
+            <h6>Intro</h6>
+            <p><span class="firstWord">T</span>he Drum Roll app is an exercise in adding eventListener's for both a mouse click, and also a keypress, to accomplish the same output. We are also going to see how to play sounds with JavaScript. The finished app can be <a href="../../../courseProjects/drumRoll/drumRoll.html" target="_blank">found here</a>.</p>
+            <p>To start we need our sound and image files for the various drum components. These can be found in the following folders:
+               <ul>
+                  <li><img src="/images/folder_16x16.png" alt="folder icon">&nbsp;&nbsp;images
+                     <ul>
+                        <li>crash.png</li>
+                        <li>kick.png</li>
+                        <li>snare.png</li>
+                        <li>tom1.png</li>
+                        <li>tom2.png</li>
+                        <li>tom3.png</li>
+                        <li>tom4.png</li>
+                     </ul>
+                  </li>
+                  <li><img src="/images/folder_16x16.png" alt="folder icon">&nbsp;&nbsp;sounds
+                     <ul>
+                        <li>crash.mp3</li>
+                        <li>kick.mp3</li>
+                        <li>snare.mp3</li>
+                        <li>tom1.mp3</li>
+                        <li>tom2.mp3</li>
+                        <li>tom3.mp3</li>
+                        <li>tom4.mp3</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p><br>
+         </article><hr><br>
+
+         <!-- HTML -->
+         <article>
+            <h6>The HTML</h6>
+            <p><span class="firstWord">N</span>ow, the basic HTML is pretty simple and the complete code will be listed below, but basically, we're going to set up a &lt;div> container and fill it with buttons that represent the different drum kit components.
+               <ul class="sectHighlight">
+                  <li>&lt;div class="set">
+                     <ul>
+                        <li>&lt;button class="w drum"><b>w</b>&lt;/button></li>
+                        <li>&lt;button class="a drum"><b>a</b>&lt;/button></li>
+                        <li>&lt;button class="s drum"><b>s</b>&lt;/button></li>
+                        <li>&lt;button class="d drum"><b>d</b>&lt;/button></li>
+                        <li>&lt;button class="j drum"><b>j</b>&lt;/button></li>
+                        <li>&lt;button class="k drum"><b>k</b>&lt;/button></li>
+                        <li>&lt;button class="l drum"><b>l</b>&lt;/button></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+               </ul>
+
+            So our container has a class of <b>set</b>. But notice how each drum component has two classes assigned, <b>a letter</b> and <b>drum</b>.</p>
+            <p>The <b>letter</b> class allows for CSS styling to produce the proper drum image for each letter. So each drum image is produced in the CSS and is controlled by the letter that identifies each drum component. The <b>letter</b> is also assigned as a <b>label</b>, to indicate which key the user needs to press to press to get the drum sound. These are controlled with a "keydown" eventListener.</p>
+            <p>The <b>drum</b> class is used by the JavaScript to identify that a drum component has been <b>clicked</b>. This is controlled with a "click" eventListener.</p>
+            <p>The scheme is that you can either "click" a drum component image to get a sound, or you can "press" the corresponding key to get the sound.</p><br>
+         </article><hr><br>
+
+         <!-- the JavaScript -->
+         <article>
+            <h6>The JavaScript</h6>
+            <p><span class="firstWord">F</span>or the JavaScript, the first thing we should do is to create a "click" eventListener to see if a drum image was clicked on. Since we gave all of the buttons a class of <b>a letter</b>, we can use a for loop to add a "click" eventListener to each drum component. From there we can use the keyword <span class="colorRed">this</span> to determine which drum image was actually clicked.
+               <ul class="sectHighlight">
+                  <li><b>The "click" eventListener</b></li>
+                  <li class="commentStyle">// loop through all of the HTML elements that have a class of <b>drum</b></li>
+                  <li>for ( let i = 0; i < document.<span class="colorOrange">querySelectorAll</span>('<b>.drum</b>').length; i++) {
+                     <ul>
+                        <li>&nbsp;</li>
+                        <li class="commentStyle">// add a "click" eventListener to each of these items</li>
+                        <li>document.querySelectorAll('.drum')[i].<span class="colorOrange">addEventListener</span>('<b>click</b>', function () {
+                           <ul>
+                              <li>&nbsp;</li>
+                              <li class="commentStyle">// add the innerHTML which is the button label, to a variable</li>
+                              <li>let <span class="colorGreen">buttonInnerHTML</span> = <span class="colorRed">this</span>.innerHTML;</li>
+                              <li>&nbsp;</li>
+                              <li class="commentStyle">// run the function to produce the sound</li>
+                              <li><span class="colorPurple">makeSound</span>(<span class="colorGreen">buttonInnerHTML</span>);</li>
+                           </ul>
+                        </li>
+                        <li>});</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>So we're going to run through every HTML element that has a class of <b>drum</b>, and for each element:
+               <ul>
+                  <li style="list-style: disc;">attach a "click" eventListener to it</li>
+                  <li style="list-style: disc;">take the letter, (that is the <b>label</b> for the button) that represents <i><span class="colorRed">this</span></i> drum, and assign it to the  variable <span class="colorGreen">buttonInnerHTML</span>
+                     <ul>
+                        <li><i>in this instance, <span class="colorRed">this</span> refers to the individual item in our <b>for</b> loop</i></li>
+                     </ul>
+                  </li>
+                  <li style="list-style: disc;">call the <span class="colorPurple">makeSound(<span class="colorGreen">buttonInnerHTML</span>)</span> function, passing in our variable, to actually produce the appropriate drum sound</li>
+               </ul>
+            </p>
+            <p>Note that we are using <i><span class="colorRed">this</span></i> to represent each individual item as we progress through the <b>for</b> loop.</p>
+            <p>And next we should create our eventListener for our <b>key presses</b>.
+               <ul class="sectHighlight">
+                  <li><b>The "keydown" eventListener</b></li>
+                  <li>document.<span class="colorOrange">addEventListener</span>('<b>keydown</b>', (<span class="colorBlue">evt</span>) => {
+                     <ul>
+                        <li>makeSound(<span class="colorBlue">evt</span>.<span class="colorRed">key</span>);</li>
+                     </ul>
+                  </li>
+                  <li>});</li>
+               </ul>
+            </p>
+            <p>This is pretty simple and straight forward:
+               <ul>
+                  <li style="list-style: disc;">We are adding a <b>keydown</b> eventListener that is checking the entire document for a key "down" press.</li>
+                  <li style="list-style: disc;">We are passing in an argument (<span class="colorBlue">evt</span>) that is used to determine which key is pressed
+                     <ul>
+                        <li class="commentStyle">- if we console.log(<span class="colorBlue">evt</span>) we can get all kinds of information on the key that was pressed</li>
+                        <li class="commentStyle">- one of these properties is <span class="colorRed">key</span> which tells us exactly which key was pressed</li>
+                     </ul>
+                  </li>
+                  <li style="list-style: disc;">finally we call the <span class="colorPurple">makeSound</span>(<span class="colorBlue">evt</span>.<span class="colorRed">key</span>) function, passing in the data for which key was pressed.</li>
+               </ul></p>
          </article>
       </section>
 

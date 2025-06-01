@@ -2,12 +2,12 @@
 // ========================================================================================
 
 
-// add "click trap" to process id drum was "clicked"
+// add "click trap" to process which drum was "clicked"
 // ----------------------------------------------------------------------------------------
-// loop through all drums to add "click" event listener
+// loop through all drums to add "click" event listener to them all
 for ( let i = 0; i < document.querySelectorAll('.drum').length; i++) {
 
-   // add event listener for each individual html button
+   // add event listener for each individual drum button
    document.querySelectorAll('.drum')[i].addEventListener('click', function () {
 
       // "this" represents the individual button that was clicked
@@ -57,7 +57,7 @@ function makeSound (key) {
             crash.play();
             break;
          case "l":
-            let kick = new Audio(`./sounds/kick-bass.mp3`);
+            let kick = new Audio(`./sounds/kick.mp3`);
             kick.play();
             break;
 
