@@ -81,7 +81,6 @@
                   </li>
                   <li>&lt;/div></li>
                </ul>
-
             So our container has a class of <b>set</b>. But notice how each drum component has two classes assigned, <b>a letter</b> and <b>drum</b>.</p>
             <p>The <b>letter</b> class allows for CSS styling to produce the proper drum image for each letter. So each drum image is produced in the CSS and is controlled by the letter that identifies each drum component. The <b>letter</b> is also assigned as a <b>label</b>, to indicate which key the user needs to press to press to get the drum sound. These are controlled with a "keydown" eventListener.</p>
             <p>The <b>drum</b> class is used by the JavaScript to identify that a drum component has been <b>clicked</b>. This is controlled with a "click" eventListener.</p>
@@ -102,7 +101,7 @@
                         <li>document.querySelectorAll('.drum')[i].<span class="colorOrange">addEventListener</span>('<b>click</b>', function () {
                            <ul>
                               <li>&nbsp;</li>
-                              <li class="commentStyle">// add the innerHTML which is the button label, to a variable</li>
+                              <li class="commentStyle">// add the innerHTML (this is the HTML button label), to a variable</li>
                               <li>let <span class="colorGreen">buttonInnerHTML</span> = <span class="colorRed">this</span>.innerHTML;</li>
                               <li>&nbsp;</li>
                               <li class="commentStyle">// run the function to produce the sound</li>
@@ -115,10 +114,10 @@
                   <li>}</li>
                </ul>
             </p>
-            <p>So we're going to run through every HTML element that has a class of <b>drum</b>, and for each element:
+            <p>So we're going to run through all of the HTML elements that have a class of <b>drum</b>. In our app this will be all of the HTML Buttons that represent a drum component. And for each element:
                <ul>
                   <li style="list-style: disc;">attach a "click" eventListener to it</li>
-                  <li style="list-style: disc;">take the letter, (that is the <b>label</b> for the button) that represents <i><span class="colorRed">this</span></i> drum, and assign it to the  variable <span class="colorGreen">buttonInnerHTML</span>
+                  <li style="list-style: disc;">take the letter, (this is the button <b>label</b>) that represents <i><span class="colorRed">this</span></i> drum, and assign it to the  variable <span class="colorGreen">buttonInnerHTML</span>
                      <ul>
                         <li><i>in this instance, <span class="colorRed">this</span> refers to the individual item in our <b>for</b> loop</i></li>
                      </ul>
@@ -148,8 +147,81 @@
                      </ul>
                   </li>
                   <li style="list-style: disc;">finally we call the <span class="colorPurple">makeSound</span>(<span class="colorBlue">evt</span>.<span class="colorRed">key</span>) function, passing in the data for which key was pressed.</li>
-               </ul></p>
-         </article>
+               </ul>
+            </p>
+            <p>So whether we click on a drum image, or press the appropriate key, we should end up with the same variable being passed into the <span class="colorPurple">makeSound()</span> function. This variable will be a letter that either comes from the <b>button innerHTML</b> or from the <b>keypress</b> which produces <span class="colorBlue">evt</span>.<span class="colorRed">key</span>.</p>
+            <p>And now that we have our <b>letter</b> that we can pass in to our <span class="colorPurple">makeSound()</span> function, let's go ahead and build the function.</p><br>
+         </article><hr><br>
+
+         <!-- the makeSound function -->
+         <article>
+            <h6>The makeSound() function</h6>
+            <p><span class="firstWord">S</span>o we're building a function that is going to have one argument passed into it. This is the letter that represents which drum component was selected, either by a mouse click, or by a key press. And because we a trying to process a letter, the <b>Switch/Case</b> method is the best way to go.</p>
+            <p>The <b>switch</b> statement is used to execute different blocks of code depending on the value of an expression (in our case, the letter that is being passed into the function).</p>
+            <p>The <b>switch</b> expression is then evaluated, and if it matches the value of one of the <b>case</b> labels, the code block associated with that case is executed. If <b>none</b> of the case labels match the value of the expression, the code block associated with the <b>default</b> clause is executed.</p>
+            <p>So our <span class="colorPurple">makeSound()</span> function will look something like this:
+               <ul class="sectHighlight">
+                  <li>function <span class="colorPurple">makeSound</span> (<span class="colorGreen">key</span>) {
+                     <ul>
+                        <li>switch (<span class="colorGreen">key</span>) {
+                           <ul>
+                              <li>case "<b>w</b>":
+                                 <ul>
+                                    <li>let <span class="colorGreen">tom1</span> = <span class="colorOrange">new</span> Audio(`./sounds/<b>tom-1.mp3</b>`);</li>
+                                    <li><span class="colorGreen">tom1</span>.<span class="colorPurple">play()</span>;</li>
+                                    <li>break;</li>
+                                 </ul>
+                              </li>
+                              <li>case "<b>a</b>":
+                                 <ul>
+                                    <li>let <span class="colorGreen">tom2</span> = <span class="colorOrange">new</span> Audio(`./sounds/<b>tom-2.mp3</b>`);</li>
+                                    <li><span class="colorGreen">tom2</span>.<span class="colorPurple">play()</span>;</li>
+                                    <li>break;</li>
+                                 </ul>
+                              </li>
+                              <li>...</li>
+                              <li>...</li>
+                              <li><b>default</b>:
+                                 <ul>
+                                    <li>alert(`Incorrect Key "${key}" Pressed!!`);</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            Let's break this down.</p>
+            <p>First off, we're only showing the code for the first two <b>case</b> match possibilities. Remember, our letters that will be passed into the function are limited to: w, a, s, d, j, k, and l. We've shown th code for w, and a, and the rest of the case code blocks will be the same except for the variable names and the mp3 that is being called.</p>
+            <p>So we are passing in our "key" letter and processing it through the <b>case</b> code blocks. If the letter passed in is NOT one of our letters, (w, a, s, d, j, k, l) then the <b>default</b> code block runs and in this case, just identifies that a key outside of our range was pressed.</p>
+            <p>If the key matches one of our <b>case</b> conditions that that code block will run and play the appropriate mp3 file. Lets break that code down:
+               <ul class="sectHighlight">
+                  <li>let <span class="colorGreen">tom1</span> = <span class="colorOrange">new</span> Audio(`./sounds/<b>tom-1.mp3</b>`);</li>
+                  <li><span class="colorGreen">tom1</span>.<span class="colorPurple">play()</span>;</li>
+                  <li>break;</li>
+               </ul>
+            </p>
+            <p>Umm, what is this <span class="colorOrange">new</span> and what does it mean? Well, <span class="colorOrange">new</span> is signifying that this is a "<b>High Function</b>", also known as a "<b>Higher-order Function</b>".</p>
+            <p><b>Higher-order functions</b> in JavaScript are functions that can accept other functions as arguments or return functions as output</p>
+            <p>In our case, the <span class="colorOrange">new</span> Audio (Higher-order function) is selecting a file path and then outputting the <span class="colorPurple">play()</span> function, to play the audio file specified in the path statement.</p>
+            <p>So we are using a <b>Higher-order Function</b> get a filepath to a file, assign it to a variable, and then output the file using the <span class="colorPurple">play()</span> function.</p>
+            <p>The <b>break</b> statement at the end of each <b>case</b> code block simple exits out of the switch statement.</p>
+         </article><br><hr><br>
+
+         <!-- Final Code -->
+         <article>
+            <h6>The Final Code</h6>
+            <ul class="sectHighlight">
+               <li><b>HTML</b></li>
+               <li class="commentStyle">// the HTML Code</li>
+            </ul>
+            <p>&nbsp;</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// the JavaScript Code</li>
+            </ul>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
