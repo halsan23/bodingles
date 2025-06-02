@@ -210,6 +210,75 @@
             <p>The <b>break</b> statement at the end of each <b>case</b> code block simple exits out of the switch statement.</p>
          </article><br><hr><br>
 
+         <!-- Drum Animation -->
+         <article>
+            <h6>Drum Animation</h6>
+            <p><span class="firstWord">W</span>e should have everything running nicely now, but let's add one more piece. How about when we select a drum either by mouse click, or by key press, let's add some type of animation that gives a visual cue that the drum was selected.
+            </p>
+            <p>In order to accomplish this, we're going to create the following function:
+               <ul class="sectHighlight">
+                  <li>function <span class="colorPurple">buttonAnimation</span> (<span class="colorGreen">currentKey</span>) {
+                     <ul>
+                        <li>let <span class="colorGreen">activeButton</span> = document.querySelector("<b>.</b>" + <span class="colorGreen">currentKey</span>);</li>
+                        <li><span class="colorGreen">activeButton</span>.<span class="colorBlue">classList</span>.<span class="colorOrange">add</span>("<b>pressed</b>");</li>
+                        <li>setTimeout(function() {
+                           <ul>
+                              <li><span class="colorGreen">activeButton</span>.<span class="colorBlue">classList</span>.<span class="colorOrange">remove</span>("<b>pressed</b>");</li>
+                           </ul>
+                        </li>
+                        <li>}, 175);</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>So we've created a function that is going to have one variable passed in to it. This variable will be the <b>letter</b> of the drum component that was selected, (w, a, s, d, j, k, l).</p>
+            <p>We're going to use <b>classList</b> to add our animation. <b>classList</b> can return all of the classes assigned to an HTML element. But it has some interesting properties such as:
+               <ul>
+                  <li><b>add</b> - adds a new class to an HTML element</li>
+                  <li><b>remove</b> - removes a class from an HTML element.</li>
+               </ul>
+            </p>
+            <p>Since we're working with classes, we need to convert our variable that is passed into the function, (<span class="colorGreen">currentKey</span>), into a class. Our second line of code does that by adding a dot (<b>.</b>) before the <b>letter</b> that was passed in. So <span class="colorGreen">activeButton</span> becomes a class name that represents the drum component that was selected.</p>
+            <p>So if you look at the drum components, you see the letters are a blue color with a yellow glow effect around them. We already have a class that defines that.</p>
+            <p>But our next line of code:
+               <ul>
+                  <li><span class="colorGreen">activeButton</span>.<span class="colorBlue">classList</span>.<span  class="colorOrange">add</span>("<b>pressed</b>");</li>
+               </ul>
+            is <b>adding</b> a NEW class (<b>pressed</b>) to this HTML element only. So all we have to do is write a new class rule for the class <b>pressed</b>. In our case we are simply going to change the <span style="color: #041dda;">blue</span> text color to <span style="color: #da0404;">red</span>. In the css file:
+               <ul class="sectHighlight">
+                  <li><b>css</b></li>
+                  <li>.pressed {
+                     <ul>
+                        <li>color: #da0404;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>Now we don't want the text to stay red, so we've added a timeout function, and after 175ms, we will reove the class from the element with the line of code:
+               <ul>
+                  <li><span class="colorGreen">activeButton</span>.<span class="colorBlue">classList</span>.<span class="colorOrange">remove</span>("<b>pressed</b>");</li>
+               </ul>
+            </p>
+            <p>Now we should understand that we are not creating a new class with <b>classList.add</b>. The class <b>pressed</b> is created in our CSS stylesheet. All we are doing is adding, and then removing the class, to one single HTML element.</p>
+            <h6>and finally</h6>
+            <p>We need to call this function. And the place to call it is right after we call our <span class="colorPurple">makeSound()</span> function to that whether we select a drum component with a mouse click, or with a key press, we still get the visual animation.</p>
+            <p>So we need to call the function from two places:
+               <ul class="sectHighlight">
+                  <li>Inside the "<b>click</b>" event:</li>
+                  <li>after: <span class="colorPurple">makeSound</span>(<span class="colorGreen">buttonInnerHTML</span>);</li>
+                  <li>add: <span class="colorPurple">buttonAnimation</span>(<span class="colorGreen">buttonInnerHTML</span>);</li>
+               </ul>
+            and
+               <ul class="sectHighlight">
+                  <li>Inside the "<b>keypress</b>" event:</li>
+                  <li>after: <span class="colorPurple">makeSound</span>(evt.<span class="colorRed">key</span>);</li>
+                  <li>add: <span class="colorPurple">buttonAnimation</span>(evt.<span class="colorRed">key</span>);</li>
+               </ul>
+            </p>
+         </article><br><hr><br>
+
          <!-- Final Code -->
          <article>
             <h6>The Final Code</h6>
@@ -254,6 +323,8 @@
                            <li>&nbsp;</li>
                            <li class="commentStyle">// run the function to produce the sound</li>
                            <li><span class="colorPurple">makeSound</span>(<span class="colorGreen">buttonInnerHTML</span>);</li>
+                           <li class="commentStyle">// add the text animation</li>
+                           <li><span class="colorPurple">buttonAnimation</span>(<span class="colorGreen">buttonInnerHTML</span>);</li>
                         </ul>
                      </li>
                      <li>});</li>
@@ -264,13 +335,17 @@
                <li class="commentStyle">The "keydown" eventListener</li>
                <li>document.<span class="colorOrange">addEventListener</span>('<b>keydown</b>', (<span class="colorBlue">evt</span>) => {
                   <ul>
+                     <li class="commentStyle">// run the function to produce the sound</li>
                      <li>makeSound(<span class="colorBlue">evt</span>.<span class="colorRed">key</span>);</li>
+                     <li class="commentStyle">// add the text animation</li>
+                     <li><span class="colorPurple">buttonAnimation</span>(evt.<span class="colorRed">key</span>);</li>
                   </ul>
                </li>
                <li>});</li>
                <li>&nbsp;</li>
                <li class="commentStyle">The makeSound() function</li>
-               <li>function <span class="colorPurple">makeSound</span> (<span class="colorGreen">key</span>) {
+               <li>function <span class="colorPurple">makeSound</span> (<span class="colorGreen">key</span>) {</li>
+                  <li class="commentStyle">// add the text animation</li>
                   <ul>
                      <li>switch (<span class="colorGreen">key</span>) {
                         <ul>

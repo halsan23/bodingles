@@ -19,6 +19,9 @@ for ( let i = 0; i < document.querySelectorAll('.drum').length; i++) {
       // based on html button "click"
       makeSound(buttonInnerHTML);
 
+      // add a button animation when a drum is clicked
+      buttonAnimation(buttonInnerHTML);
+
    });
 }
 
@@ -26,7 +29,26 @@ document.addEventListener('keydown', (evt) => {
    // call th function to actually produce the sound
    // based on "key press"
    makeSound(evt.key);
+
+   // add a button animation when a drum is clicked
+   buttonAnimation(evt.key);
 });
+
+// function for button animation
+// function buttonAnimation (currentKey) {
+//    let activeButton = document.querySelector("." + currentKey);
+//    activeButton.classList.add("pressed");
+//    setTimeout(function() {
+//       activeButton.classList.remove("pressed");
+//    }, 150);
+// }
+function buttonAnimation (currentKey) {
+   let activeButton = document.querySelector("." + currentKey);
+   activeButton.classList.add("pressed");
+   setTimeout(function() {
+      activeButton.classList.remove("pressed");
+   }, 175);
+}
 
 // play the sound based on html button clicked,
 // or key pressed
