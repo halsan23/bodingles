@@ -90,7 +90,7 @@
          <!-- the JavaScript -->
          <article>
             <h6>The JavaScript</h6>
-            <p><span class="firstWord">F</span>or the JavaScript, the first thing we should do is to create a "click" eventListener to see if a drum image was clicked on. Since we gave all of the buttons a class of <b>a letter</b>, we can use a for loop to add a "click" eventListener to each drum component. From there we can use the keyword <span class="colorRed">this</span> to determine which drum image was actually clicked.
+            <p><span class="firstWord">F</span>or the JavaScript, the first thing we should do is to create a "click" eventListener to see if a drum image was clicked on. Since we gave all of the buttons a class of <b>.drum</b>, we can use a <b>for loop</b> to add a "click" eventListener to each drum component. From there we can use the keyword <span class="colorRed">this</span> to determine which drum image was actually clicked.
                <ul class="sectHighlight">
                   <li><b>The "click" eventListener</b></li>
                   <li class="commentStyle">// loop through all of the HTML elements that have a class of <b>drum</b></li>
@@ -114,18 +114,18 @@
                   <li>}</li>
                </ul>
             </p>
-            <p>So we're going to run through all of the HTML elements that have a class of <b>drum</b>. In our app this will be all of the HTML Buttons that represent a drum component. And for each element:
+            <p>So we're going to run through all of the HTML elements that have a class of <b>.drum</b>. In our app this will be all of the HTML Buttons that represent a drum component. And for each element:
                <ul>
                   <li style="list-style: disc;">attach a "click" eventListener to it</li>
-                  <li style="list-style: disc;">take the letter, (this is the button <b>label</b>) that represents <i><span class="colorRed">this</span></i> drum, and assign it to the  variable <span class="colorGreen">buttonInnerHTML</span>
+                  <li style="list-style: disc;">take the letter, (this is the button <b>label</b>, (innerHTML)) that represents <i><span class="colorRed">this</span></i> drum, and assign it to the  variable <span class="colorGreen">buttonInnerHTML</span>
                      <ul>
                         <li><i>in this instance, <span class="colorRed">this</span> refers to the individual item in our <b>for</b> loop</i></li>
                      </ul>
                   </li>
-                  <li style="list-style: disc;">call the <span class="colorPurple">makeSound(<span class="colorGreen">buttonInnerHTML</span>)</span> function, passing in our variable, to actually produce the appropriate drum sound</li>
+                  <li style="list-style: disc;">call the <span class="colorPurple">makeSound()</span> function, passing in our variable (<span class="colorGreen">buttonInnerHTML</span>), to actually produce the appropriate drum sound</li>
                </ul>
             </p>
-            <p>Note that we are using <i><span class="colorRed">this</span></i> to represent each individual item as we progress through the <b>for</b> loop.</p>
+            <p>Note that we are using <i><span class="colorRed">this</span></i> to represent each individual item as we progress through the <b>for</b> loop.</p><hr>
             <p>And next we should create our eventListener for our <b>key presses</b>.
                <ul class="sectHighlight">
                   <li><b>The "keydown" eventListener</b></li>
@@ -146,9 +146,9 @@
                         <li class="commentStyle">- one of these properties is <span class="colorRed">key</span> which tells us exactly which key was pressed</li>
                      </ul>
                   </li>
-                  <li style="list-style: disc;">finally we call the <span class="colorPurple">makeSound</span>(<span class="colorBlue">evt</span>.<span class="colorRed">key</span>) function, passing in the data for which key was pressed.</li>
+                  <li style="list-style: disc;">finally we call the <span class="colorPurple">makeSound()</span> function, passing in the data, (<span class="colorBlue">evt</span>.<span class="colorRed">key</span>) for which key was pressed.</li>
                </ul>
-            </p>
+            </p><hr>
             <p>So whether we click on a drum image, or press the appropriate key, we should end up with the same variable being passed into the <span class="colorPurple">makeSound()</span> function. This variable will be a letter that either comes from the <b>button innerHTML</b> or from the <b>keypress</b> which produces <span class="colorBlue">evt</span>.<span class="colorRed">key</span>.</p>
             <p>And now that we have our <b>letter</b> that we can pass in to our <span class="colorPurple">makeSound()</span> function, let's go ahead and build the function.</p><br>
          </article><hr><br>
@@ -203,8 +203,8 @@
                   <li>break;</li>
                </ul>
             </p>
-            <p>Umm, what is this <span class="colorOrange">new</span> and what does it mean? Well, <span class="colorOrange">new</span> is signifying that this is a "<b>High Function</b>", also known as a "<b>Higher-order Function</b>".</p>
-            <p><b>Higher-order functions</b> in JavaScript are functions that can accept other functions as arguments or return functions as output</p>
+            <p>Umm, what is this <span class="colorOrange">new</span> keyword and what does it mean? Well, <span class="colorOrange">new</span> is signifying that this is a "<b>High Function</b>", also known as a "<b>Higher-order Function</b>".</p>
+            <p><b>Higher-order functions</b> in JavaScript are functions that can accept other functions as arguments or return functions as output.</p>
             <p>In our case, the <span class="colorOrange">new</span> Audio (Higher-order function) is selecting a file path and then outputting the <span class="colorPurple">play()</span> function, to play the audio file specified in the path statement.</p>
             <p>So we are using a <b>Higher-order Function</b> get a filepath to a file, assign it to a variable, and then output the file using the <span class="colorPurple">play()</span> function.</p>
             <p>The <b>break</b> statement at the end of each <b>case</b> code block simple exits out of the switch statement.</p>
@@ -216,12 +216,130 @@
             <ul class="sectHighlight">
                <li><b>HTML</b></li>
                <li class="commentStyle">// the HTML Code</li>
+               <li>&lt;div class="container">
+                  <ul>
+                     <li>&lt;h1 id="title">Drum 🥁 Roll&lt;/h1></li>
+                     <li>&lt;div class="set">
+                        <ul>
+                           <li>&lt;button class="w drum">w&lt;/button</li>
+                           <li>&lt;button class="a drum">a&lt;/button</li>
+                           <li>&lt;button class="s drum">s&lt;/button</li>
+                           <li>&lt;button class="d drum">d&lt;/button</li>
+                           <li>&lt;button class="j drum">j&lt;/button</li>
+                           <li>&lt;button class="k drum">k&lt;/button</li>
+                           <li>&lt;button class="l drum">l&lt;/button</li>
+                        </ul>
+                     </li>
+                     <li>&lt;/div</li>
+                  </ul>
+               </li>
+               <li>&lt;/div</li>
             </ul>
             <p>&nbsp;</p>
             <ul class="sectHighlight">
                <li><b>JavaScript</b></li>
                <li class="commentStyle">// the JavaScript Code</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">The "click" eventListener</li>
+               <li class="commentStyle">// loop through all of the HTML elements that have a class of <b>drum</b></li>
+               <li>for ( let i = 0; i < document.<span class="colorOrange">querySelectorAll</span>('<b>.drum</b>').length; i++) {
+                  <ul>
+                     <li>&nbsp;</li>
+                     <li class="commentStyle">// add a "click" eventListener to each of these items</li>
+                     <li>document.querySelectorAll('.drum')[i].<span class="colorOrange">addEventListener</span>('<b>click</b>', function () {
+                        <ul>
+                           <li>&nbsp;</li>
+                           <li class="commentStyle">// add the innerHTML (this is the HTML button label), to a variable</li>
+                           <li>let <span class="colorGreen">buttonInnerHTML</span> = <span class="colorRed">this</span>.innerHTML;</li>
+                           <li>&nbsp;</li>
+                           <li class="commentStyle">// run the function to produce the sound</li>
+                           <li><span class="colorPurple">makeSound</span>(<span class="colorGreen">buttonInnerHTML</span>);</li>
+                        </ul>
+                     </li>
+                     <li>});</li>
+                  </ul>
+               </li>
+               <li>}</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">The "keydown" eventListener</li>
+               <li>document.<span class="colorOrange">addEventListener</span>('<b>keydown</b>', (<span class="colorBlue">evt</span>) => {
+                  <ul>
+                     <li>makeSound(<span class="colorBlue">evt</span>.<span class="colorRed">key</span>);</li>
+                  </ul>
+               </li>
+               <li>});</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">The makeSound() function</li>
+               <li>function <span class="colorPurple">makeSound</span> (<span class="colorGreen">key</span>) {
+                  <ul>
+                     <li>switch (<span class="colorGreen">key</span>) {
+                        <ul>
+                           <li>case "<b>w</b>":
+                              <ul>
+                                 <li>let <span class="colorGreen">tom1</span> = <span class="colorOrange">new</span> Audio(`./sounds/<b>tom-1.mp3</b>`);</li>
+                                 <li><span class="colorGreen">tom1</span>.<span class="colorPurple">play()</span>;</li>
+                                 <li>break;</li>
+                              </ul>
+                           </li>
+                           <li>case "<b>a</b>":
+                              <ul>
+                                 <li>let <span class="colorGreen">tom2</span> = <span class="colorOrange">new</span> Audio(`./sounds/<b>tom-2.mp3</b>`);</li>
+                                 <li><span class="colorGreen">tom2</span>.<span class="colorPurple">play()</span>;</li>
+                                 <li>break;</li>
+                              </ul>
+                           </li>
+                           <li>case "<b>s</b>":
+                              <ul>
+                                 <li>let <span class="colorGreen">tom3</span> = <span class="colorOrange">new</span> Audio(`./sounds/<b>tom-3.mp3</b>`);</li>
+                                 <li><span class="colorGreen">tom3</span>.<span class="colorPurple">play()</span>;</li>
+                                 <li>break;</li>
+                              </ul>
+                           </li>
+                           <li>case "<b>d</b>":
+                              <ul>
+                                 <li>let <span class="colorGreen">tom4</span> = <span class="colorOrange">new</span> Audio(`./sounds/<b>tom-4.mp3</b>`);</li>
+                                 <li><span class="colorGreen">tom4</span>.<span class="colorPurple">play()</span>;</li>
+                                 <li>break;</li>
+                              </ul>
+                           </li>
+                           <li>case "<b>j</b>":
+                              <ul>
+                                 <li>let <span class="colorGreen">snare</span> = <span class="colorOrange">new</span> Audio(`./sounds/<b>snare.mp3</b>`);</li>
+                                 <li><span class="colorGreen">snare</span>.<span class="colorPurple">play()</span>;</li>
+                                 <li>break;</li>
+                              </ul>
+                           </li>
+                           <li>case "<b>k</b>":
+                              <ul>
+                                 <li>let <span class="colorGreen">crash</span> = <span class="colorOrange">new</span> Audio(`./sounds/<b>crash.mp3</b>`);</li>
+                                 <li><span class="colorGreen">crash</span>.<span class="colorPurple">play()</span>;</li>
+                                 <li>break;</li>
+                              </ul>
+                           </li>
+                           <li>case "<b>l</b>":
+                              <ul>
+                                 <li>let <span class="colorGreen">kick</span> = <span class="colorOrange">new</span> Audio(`./sounds/<b>kick.mp3</b>`);</li>
+                                 <li><span class="colorGreen">kick</span>.<span class="colorPurple">play()</span>;</li>
+                                 <li>break;</li>
+                              </ul>
+                           </li>
+                           <li><b>default</b>:
+                              <ul>
+                                 <li>alert(`Incorrect Key "${<span class="colorGreen">key</span>}" Pressed!!`);</li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>}</li>
             </ul>
+         </article>
+
+         <p>Download Complete Code</p>
+         <p><img style="vertical-align: bottom;" src="/images/zip-icon.png" alt="zip file icon" width="32px">&nbsp;&nbsp;<a href="../../../courseProjects/drumRoll/drumRoll.zip"> drumRoll.zip</a></p>
+         <p>&nbsp;</p>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
