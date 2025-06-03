@@ -82,8 +82,12 @@
                   <li>&lt;/div></li>
                </ul>
             So our container has a class of <b>set</b>. But notice how each drum component has two classes assigned, <b>a letter</b> and <b>drum</b>.</p>
-            <p>The <b>letter</b> class allows for CSS styling to produce the proper drum image for each letter. So each drum image is produced in the CSS and is controlled by the letter that identifies each drum component. The <b>letter</b> is also assigned as a <b>label</b>, to indicate which key the user needs to press to press to get the drum sound. These are controlled with a "keydown" eventListener.</p>
             <p>The <b>drum</b> class is used by the JavaScript to identify that a drum component has been <b>clicked</b>. This is controlled with a "click" eventListener.</p>
+
+            <p>The <b>letter</b> class allows for CSS styling to produce the proper drum image for each letter. So each drum image is produced in the CSS and is controlled by the letter that identifies each drum component.</p>
+
+            <p>The <b>letter</b> is also assigned as a <b>label</b>, to indicate which key the user needs to press to press to get the drum sound. These are controlled with a "keydown" eventListener.</p>
+
             <p>The scheme is that you can either "click" a drum component image to get a sound, or you can "press" the corresponding key to get the sound.</p><br>
          </article><hr><br>
 
@@ -256,14 +260,14 @@
                   <li>}</li>
                </ul>
             </p>
-            <p>Now we don't want the text to stay red, so we've added a timeout function, and after 175ms, we will reove the class from the element with the line of code:
+            <p>Now we don't want the text to stay red, so we've added a timeout function, and after 175ms, we will remove the class from the element with the line of code:
                <ul>
                   <li><span class="colorGreen">activeButton</span>.<span class="colorBlue">classList</span>.<span class="colorOrange">remove</span>("<b>pressed</b>");</li>
                </ul>
             </p>
             <p>Now we should understand that we are not creating a new class with <b>classList.add</b>. The class <b>pressed</b> is created in our CSS stylesheet. All we are doing is adding, and then removing the class, to one single HTML element.</p>
             <h6>and finally</h6>
-            <p>We need to call this function. And the place to call it is right after we call our <span class="colorPurple">makeSound()</span> function to that whether we select a drum component with a mouse click, or with a key press, we still get the visual animation.</p>
+            <p>We need to call this function. And the place to call it is right after we call our <span class="colorPurple">makeSound()</span> function so that whether we select a drum component with a mouse click, or with a key press, we still get the visual animation.</p>
             <p>So we need to call the function from two places:
                <ul class="sectHighlight">
                   <li>Inside the "<b>click</b>" event:</li>
