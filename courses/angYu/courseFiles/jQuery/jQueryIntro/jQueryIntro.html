@@ -45,7 +45,7 @@
             <h6>Installation</h6>
             <p><span class="firstWord">L</span>ike Bootstrap, we want to utilize the <b>jQuery CDN</b>. So we need to go to the <a href="https://jquery.com/download/" target="_blank">Download Page</a>, and scroll down the page to the <b>jQuery CDN</b> section. You'll see different CDN versions but the one used most often is the Google version. This is the version we want to use because if it is more widely used, then there is a greater chance that the library will already be "cached" on client computers, which speeds up our webpage loading.</p>
             <p>So, we'll click on the <b>Google CDN</b> link and you'll see the most recent versions of their CDN. At this point in time, the latest version is 3.7.1 so that's the version we're going to use.</p>
-            <p>Now you'll notice that the CDN is a <b>&lt;script></b>, just like JavaScript. So we'll install it the same way, which is to insert the &lt;script> tag and the bottom of the HTML page, right before the closing &lt;body> tag. Here is the current &lt;script> element:
+            <p>Now you'll notice that the CDN is a <b>&lt;script></b>, just like JavaScript. So we'll install it the same way as JavaScript, which is to insert the &lt;script> tag and the bottom of the HTML page, right before the closing &lt;body> tag. Here is the current &lt;script> element:
                <ul class="sectHighlight">
                   <li>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">&lt;/script></li>
                </ul>
@@ -61,13 +61,13 @@
                <ul class="sectHighlight">
                   <li>&lt;h1>H1 Heading Element&lt;/h1></li>
                </ul>
-            We could write some code in a Js file to change thew color of the &lt;h1> text:
+            We could write some jQuery code in a Js file to change the color of the &lt;h1> text:
                <ul class="sectHighlight">
                   <li>$("h1").css("color", "blue");</li>
                </ul>
             </p>
             <p>This is valid jQuery code, but if we loaded the jQuery &lt;script> element into our "<b>head</b>" section, this code will not work, because the script will try to run the jQuery code, before it has been downloaded and cached. But, as mentioned above, there is a fix.</p>
-            <p>We can use the jQuery method <b>ready</b>, which forces the page to finish downloading and caching the jQuery CDN before it runs the jQuery code. Here's the syntax that goes in you .js file:
+            <p>We can use the jQuery method <b>ready</b>, which forces the page to finish downloading and caching the jQuery CDN before it runs the jQuery code. Here's the syntax that goes into your .js file:
                <ul class="sectHighlight">
                   <li>$ ( <span class="colorRed">document</span> ) . <b>ready</b> ( <span class="colorPurple">function()</span> {
                      <ul>
@@ -76,8 +76,8 @@
                   </li>
                   <li>});</li>
                </ul>
-            What this does is force the page wait until jQuery is <b>ready</b>, before running ang jQuery scripts.</p>
-            <p><b>Note</b>: this should only be necessary if you are installing the jQuery CDN into the "<b>head</b>" section of the page. Installing your jQuery and JavaScript "scripts" at the bottom of the webpage, before the closing &lt;body> element, does the exact same thing as <b>ready</b>. Remember, jQuery first, then JavaScript &lt;script>'s.</p>
+            What this does is force the page wait until jQuery is <b>ready</b>, before running any jQuery scripts.</p>
+            <p><b>Note</b>: this should only be necessary if you are installing the jQuery CDN into the "<b>head</b>" section of the page. Installing your jQuery and JavaScript "scripts" at the bottom of the webpage, before the closing &lt;body> element, does the exact same thing as <b>ready</b>. Remember, jQuery first, then the JavaScript &lt;script>'s.</p>
          </article>
       </section>
 
