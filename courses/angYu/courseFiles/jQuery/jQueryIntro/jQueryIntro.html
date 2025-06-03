@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../jQueryIndex.html">Back to jQuery Index Page</a></p>
+         <hr style="width: 40%;">
+         <h5>jQuery Intro</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">W</span>hat is jQuery? Like Bootstrap, jQuery is a web api Library. It was created to simplify the JavaScript coding. The jQuery website defines it as:
+            <ul>
+               <li><i>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.</i></li>
+            </ul>
+         so it is essentially a open source library that will simplify our JavaScript coding. And like Bootstrap, jQuery needs to be downloaded and installed into your web project.</p>
+         </article><hr>
+
+         <!-- Installation -->
+         <article>
+            <h6>Installation</h6>
+            <p><span class="firstWord">L</span>ike Bootstrap, we want to utilize the <b>jQuery CDN</b>. So we need to go to the <a href="https://jquery.com/download/" target="_blank">Download Page</a>, and scroll down the page to the <b>jQuery CDN</b> section. You'll see different CDN versions but the one used most often is the Google version. This is the version we want to use because if it is more widely used, then there is a greater chance that the library will already be "cached" on client computers, which speeds up our webpage loading.</p>
+            <p>So, we'll click on the <b>Google CDN</b> link and you'll see the most recent versions of their CDN. At this point in time, the latest version is 3.7.1 so that's the version we're going to use.</p>
+            <p>Now you'll notice that the CDN is a <b>&lt;script></b>, just like JavaScript. So we'll install it the same way, which is to insert the &lt;script> tag and the bottom of the HTML page, right before the closing &lt;body> tag. Here is the current &lt;script> element:
+               <ul class="sectHighlight">
+                  <li>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">&lt;/script></li>
+               </ul>
+            <b>However</b>: It is important to note that the jQuery &lt;script> element <b>must be placed before any JavaScript elements</b>, at the bottom of the HTML document. The reason for this is that if you have the JavaScript elements first, it will try to run jQuery code before the jQuery script tag has actually downloaded and cached. So the page won't know what to do with the jQuery code and will have errors.</p>
+         </article><hr>
+
+         <!-- jQuery Ready -->
+         <article>
+            <h6>jQuery Ready</h6>
+            <p><span class="firstWord">W</span>e learned in our JavaScript lessons that we could actually load our Js &lt;script> elements into the "<b>head</b>" section of our HTML document. But we don't because it may cause problems in the way the page loads and runs.</p>
+            <p>The same is true for jQuery. If we load our jQuery &lt;script> element into the"<b>head</b>" section, it is possible that the page will finish downloading, before jQuery has had enough time to download and cache it's library. This will result in the jQuery code not working. But there is a fix.</p>
+            <p>Let's say we have a page with an &lt;h1> element:
+               <ul class="sectHighlight">
+                  <li>&lt;h1>H1 Heading Element&lt;/h1></li>
+               </ul>
+            We could write some code in a Js file to change thew color of the &lt;h1> text:
+               <ul class="sectHighlight">
+                  <li>$("h1").css("color", "blue");</li>
+               </ul>
+            </p>
+            <p>This is valid jQuery code, but if we loaded the jQuery &lt;script> element into our "<b>head</b>" section, this code will not work, because the script will try to run the jQuery code, before it has been downloaded and cached. But, as mentioned above, there is a fix.</p>
+            <p>We can use the jQuery method <b>ready</b>, which forces the page to finish downloading and caching the jQuery CDN before it runs the jQuery code. Here's the syntax that goes in you .js file:
+               <ul class="sectHighlight">
+                  <li>$ ( <span class="colorRed">document</span> ) . <b>ready</b> ( <span class="colorPurple">function()</span> {
+                     <ul>
+                        <li>$ ( "h1" ) . css ( "color", "blue" );</li>
+                     </ul>
+                  </li>
+                  <li>});</li>
+               </ul>
+            What this does is force the page wait until jQuery is <b>ready</b>, before running ang jQuery scripts.</p>
+            <p><b>Note</b>: this should only be necessary if you are installing the jQuery CDN into the "<b>head</b>" section of the page. Installing your jQuery and JavaScript "scripts" at the bottom of the webpage, before the closing &lt;body> element, does the exact same thing as <b>ready</b>. Remember, jQuery first, then JavaScript &lt;script>'s.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
