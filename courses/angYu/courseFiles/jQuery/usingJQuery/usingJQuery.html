@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../jQueryIndex.html">Back to jQuery Index Page</a></p>
+         <hr style="width: 40%;">
+         <h5>Using jQuery</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">S</span>o jQuery was created as a sort of shorthand for JavaScript. It simplifies the coding and makes it easier to read. Let's start by explaining that all jQuery statements begin with <b>$</b> (dollar sign).</p>
+            <p>In JavaScript, in order to "import" an HTML element in for processing, most of the time we're going to use <b>querySelector</b> or <b>querySelectorAll</b>. We could use <b>getElementById</b> or <b>getElementByClass</b>, but <b>querySelector</b> is more useful and universal. For example, if we're trying to import an &lt;>h1> element, with <b>querySelector</b> we could call:
+               <ul class="sectHighlight">
+                  <li>document.querySelector('h1'); - returns the first &lt;h1> element</li>
+                  <li>document.querySelectorAll('h1'); - returns all of the &lt;h1> elements</li>
+               </ul>
+            </p>
+            <p>But with jQuery, we would call:
+               <ul class="sectHighlight">
+                  <li>$('h1'); - this would return all of the &lt;h1> elements</li>
+               </ul>
+            </p>
+            <p>Once you have your element selected in JavaScript, you can the utilize all of the jQuery methods <a href="https://api.jquery.com/" target="_blank">listed here</a>. For example, say we wanted to change the text color of our &lt;h1>. We could use the <b>css</b> method, like so:
+               <ul class="sectHighlight">
+                  <li>$("h1").<b>css</b>("color", "blue"); - this would change the text color to blue</li>
+               </ul>
+            </p>
+            <p>Now we can be more specific in our element selection. We can use ID's, Classes, and any other form of selection that querySelector uses:
+               <ul class="sectHighlight">
+                  <li>$(".important"); - select's all items with the class = important</li>
+                  <li>$("#temp"); - select's the item with an ID of temp</li>
+                  <li>$("div p"); - select's all of the &lt;p> elements that reside in a &lt;div> element</li>
+               </ul>
+            so pretty much any way you can select an element with querySelector, you can also use with jQuery.
+            </p>
+            <p>Now, jQuery will return ALL matching elements when looking for a match. To single out one, or more, (but not all) of the elements to match, you can use the methods such as first, last, first-of-type, nth-child, and so on. There are many ways to find elements and the jQuery methods are <a href="https://api.jquery.com/" target="_blank">listed here</a>.</p>
+         </article><br><hr><br>
+
+         <!-- Manipulating Styles -->
+         <article>
+            <h6>Manipulating Styles</h6>
+            <p><span class="firstWord">M</span>anipulating styles with jQuery is achieved bu using the <b>CSS</b> method. Info on the CSS Methods can be <a href="https://api.jquery.com/css/" target="_blank">found here</a>.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
