@@ -64,7 +64,81 @@
          <!-- Manipulating Styles -->
          <article>
             <h6>Manipulating Styles</h6>
-            <p><span class="firstWord">M</span>anipulating styles with jQuery is achieved bu using the <b>CSS</b> method. Info on the CSS Methods can be <a href="https://api.jquery.com/css/" target="_blank">found here</a>.</p>
+            <p><span class="firstWord">M</span>anipulating styles with jQuery is achieved by using the <b>CSS</b> method. Info on the CSS Methods can be <a href="https://api.jquery.com/css/" target="_blank">found here</a>. The basic syntax is:
+               <ul class="sectHighlight">
+                  <li>$(selector).css(property, value);
+                     <ul>
+                        <li>- <b>selector</b>: the HTML element you have selected for manipulation</li>
+                        <li>- <b>property</b>: the css property you wish to utilize</li>
+                        <li>- <b>value</b>: the css property you wish to change</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+            <p>Now, if you just define the property:
+               <ul class="sectHighlight">
+                  <li>$(selector).css(property);</li>
+               </ul>
+            then jQuery will return the current value. For example, if we want some info about an &lt;h1> element, we could use:
+               <ul class="sectHighlight">
+                  <li>console.log($("h1").css("color"));</li>
+                  <li>or,</li>
+                  <li>console.log($("h1").css("font-size"));</li>
+               </ul>
+            this would log the &lt;h1> rgbColor, and the &lt;h1> font size. So setting a default property with no value will return the current value of that property.
+            </p>
+            <p>And if you want to change a value, just add a new property. For example, change our &lt;h1> text color to red, just use:
+               <ul class="sectHighlight">
+                  <li>console.log($("h1").css("color", "red"));</li>
+               </ul>
+            </p>
+         </article>
+
+         <!-- Adding/Removing Styles -->
+         <article>
+            <h6>Adding/Removing Styles</h6>
+            <p><span class="firstWord">N</span>ow normally, you don't want to be setting and changing styles in JavaScript, either by Js code, or jQuery code. Remember, HTML for basic structure, CSS for styling, and JavaScript for functionality.</p>
+            <p>What we mean is that normally you would create your styling in CSS and then add or remove that defined style in JavaScript. Now we've already seen how to do this with vanilla JavaScript, and jQuery makes it even easier.</p>
+            <p>Let's define our class in CSS, we'll call it <b>h1Style</b>, and it will look a little like this:
+               <ul class="sectHighlight">
+                     <li>.h1Style {<ul>
+                        <li>font-size: 10rem;</li>
+                        <li>color: red;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            Now the style speaks for itself. We're changing the font size of an element that utilizes our style, a larger font size and red text. Now in jQuery we can "add" the style:
+               <ul class="sectHighlight">
+                  <li>$("h1").<b>css</b>.<span class="colorRed">addClass</span>("h1Style");</li>
+               </ul>
+            So we are adding the class <b>h1Style</b> to ALL of the &lt;h1>'s on our page. Remember, we are not creating this class in JavaScript. It was created in CSS. We are simply adding an already existing class to our &lt;h1> elements. And in the same way, we can "remove" the class, like so:
+               <ul class="sectHighlight">
+                  <li>$("h1").<b>css</b>.<span class="colorRed">removeClass</span>("h1Style");</li>
+               </ul>
+            </p>
+         </article>
+
+         <!-- Multiple Styles -->
+         <article>
+            <h6>Multiple Styles</h6>
+            <p><span class="firstWord">A</span>nd lastly, you can manipulate multiple styles in one call. If we want to add or remove more than one class, we would do it like so:
+               <ul class="sectHighlight">
+                  <li>$("h1").<b>css</b>.<span class="colorRed">addClass</span>("h1Style style2 style3"); <i>// or removeClass</i></li>
+               </ul>
+            which would add/remove all of the classes defined. Just separate the class names with a space, (but keep them contained with the parenthesis).
+            </p>
+         </article>
+
+         <!-- Has a Class -->
+         <article>
+            <h6>Has a Class</h6>
+            <p><span class="firstWord">W</span>e can also check to see if an element has a class assigned to it by using <b>hasClass</b>, like so:
+               <ul class="sectHighlight">
+                  <li>$("h1").<span class="colorRed">hasClass</span>("className");</li>
+               </ul>
+            which will return <b>true</b> or <b>false</b> depending on whether or not the element has the class assigned to it.
+            </p>
          </article>
       </section>
 
