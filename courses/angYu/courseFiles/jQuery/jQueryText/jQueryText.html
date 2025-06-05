@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../jQueryIndex.html">Back to jQuery Index Page</a></p>
+         <hr style="width: 40%;">
+         <h5>jQuery & Text</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">T</span>o understand how to manipulate text with jQuery, let's start with the basics. Everything in jQuery that relates to text is done with, that's right, you guessed it. The <b>text</b> method.</p>
+            <p>So for starters, how would you use jQuery to see any text that an element might already contain. Well, with jQuery, it's easy. All you have to do is call an empty <b>text</b> method.</p>
+            <p>Let's say we have the following HTML element:
+               <ul class="sectHighlight">
+                  <li>&lt;h1>I am a Heading Tag&lt;/h1></li>
+               </ul>
+            and we make the following jQuery:
+               <ul class="sectHighlight">
+                  <li>$("h1") . <span class="colorRed">text</span>();</li>
+               </ul>
+            it would return: I am a Heading Tag.
+            </p>
+            <p>And if we wanted to change the text, all we have to do is supply some new text for the <b>text</b> method:
+               <ul class="sectHighlight">
+                  <li>$("h1") . <span class="colorRed">text</span>("This is the new text");</li>
+               </ul>
+            and it will update our &lt;h1> to reflect the new text.
+            </p>
+         </article><br><hr><br>
+
+         <!-- innerHTML -->
+          <article>
+            <h6>jQuery innerHTML</h6>
+            <p><span class="firstWord">W</span>ith vanilla JavaScript we had a method called <b>innerHTML</b> which allows us to add or change the HTML coding within an element. We can do the same with the jQuery <b>html</b> method, like so:
+               <ul class="sectHighlight">
+                  <li>$("h1") . <span class="colorRed">html</span>("&lt;b>Some text here.&lt;/b>");</li>
+               </ul>
+            and this would result in bold text for our &lt;h1>, <b>Some text here</b>. So we've added some "inner" html code to the element.
+            </p>
+          </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>

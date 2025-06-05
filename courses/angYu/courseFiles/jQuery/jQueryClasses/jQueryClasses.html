@@ -26,7 +26,7 @@
          <p>Dr. Angela Yu</p>
          <p><a href="../jQueryIndex.html">Back to jQuery Index Page</a></p>
          <hr style="width: 40%;">
-         <h5>Using jQuery</h5>
+         <h5>jQuery & Classes</h5>
       </section>
 
       <section id="textWindow4" class="just">
@@ -42,7 +42,7 @@
             </p>
             <p>But with jQuery, we would call:
                <ul class="sectHighlight">
-                  <li>$('h1'); - this would return all of the &lt;h1> elements</li>
+                  <li>$('h1'); // <i>this would return all of the &lt;h1> elements</i></li>
                </ul>
             </p>
             <p>Once you have your element selected in JavaScript, you can the utilize all of the jQuery methods <a href="https://api.jquery.com/" target="_blank">listed here</a>. For example, say we wanted to change the text color of our &lt;h1>. We could use the <b>css</b> method, like so:
@@ -52,11 +52,11 @@
             </p>
             <p>Now we can be more specific in our element selection. We can use ID's, Classes, and any other form of selection that querySelector uses:
                <ul class="sectHighlight">
-                  <li>$(".important"); - select's all items with the class = important</li>
-                  <li>$("#temp"); - select's the item with an ID of temp</li>
-                  <li>$("div p"); - select's all of the &lt;p> elements that reside in a &lt;div> element</li>
+                  <li>$(".important"); // <i>select's all items with the class = important</i></li>
+                  <li>$("#temp"); // <i>select's the item with an ID of temp</i></li>
+                  <li>$("div p"); // <i>select's all of the &lt;p> elements that reside in a &lt;div> element</i></li>
                </ul>
-            so pretty much any way you can select an element with querySelector, you can also use with jQuery.
+            so pretty much any way you can select an element with querySelector, you can also use with jQuery, just with much simpler coding.
             </p>
             <p>Now, jQuery will return ALL matching elements when looking for a match. To single out one, or more, (but not all) of the elements to match, you can use the methods such as first, last, first-of-type, nth-child, and so on. There are many ways to find elements and the jQuery methods are <a href="https://api.jquery.com/" target="_blank">listed here</a>.</p>
          </article><br><hr><br>
@@ -122,9 +122,9 @@
          <!-- Multiple Styles -->
          <article>
             <h6>Multiple Styles</h6>
-            <p><span class="firstWord">A</span>nd lastly, you can manipulate multiple styles in one call. If we want to add or remove more than one class, we would do it like so:
+            <p><span class="firstWord">Y</span>ou can also manipulate multiple styles in one call. If we want to add or remove more than one class, we would do it like so:
                <ul class="sectHighlight">
-                  <li>$("h1").<b>css</b>.<span class="colorRed">addClass</span>("h1Style style2 style3"); <i>// or removeClass</i></li>
+                  <li>$("h1").<b>css</b>.<span class="colorRed">addClass</span>("style1 style2 style3"); <i>// or removeClass</i></li>
                </ul>
             which would add/remove all of the classes defined. Just separate the class names with a space, (but keep them contained with the parenthesis).
             </p>
