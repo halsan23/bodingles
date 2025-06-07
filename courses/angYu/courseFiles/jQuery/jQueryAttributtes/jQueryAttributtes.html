@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../jQueryIndex.html">Back to jQuery Index Page</a></p>
+         <hr style="width: 40%;">
+         <h5>jQuery & Attributes</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">A</span>s a little refresher here, attributes are the data in an element to defines the element. For example, and &lt;img> element's attributes are <b>src</b>, <b>alt</b> and others. An &lt;a> element would have attributes like <b>href</b>, and maybe <b>target</b>.
+            </p>
+            <p>To get the current value of an attribute, we use the following syntax:
+               <ul class="sectHighlight">
+                  <li>$("element").<b>attr</b>("currentAttribute");</li>
+               </ul>
+            so if we set:
+               <ul class="sectHighlight">
+                  <li>$("img").<b>attr</b>("src");</li>
+               </ul>
+            it will return the current image's source, if there is one. <i>(if the src is set in JavaScript, it may not be defined yet)</i>.
+            </p>
+            <p>To set, or change an attribute, we simply add a second input:
+               <ul class="sectHighlight">
+                  <li>$("element").<b>attr</b>("currentAttribute", "newAttributeToSet");</li>
+               </ul>
+            so we might say:
+               <ul class="sectHighlight">
+                  <li>$("img").<b>attr</b>("currentSrc", "newSrc");</li>
+               </ul>
+            </p>
+            <p>Now remember, when selecting an element, like the &lt;img> element in this example, we are selecting ALL of the like elements on the page. So if you only want to select one element, you must refine your query using a class, id, or other selector method, to limit the scope of your query.</p>
+            <h6>One last note here.</h6>
+            <p>Remember that a class, or ID are also attributes, so we can also use the <b>attr</b> method to change these. If we set:
+               <ul class="sectHighlight">
+                  <li>$("element").<b>attr</b>("class");</li>
+               </ul>
+            would return all of the classes associated with the element(s), and:
+               <ul class="sectHighlight">
+                  <li>$("element").<b>attr</b>("class", "newClass");</li>
+               </ul>
+            would assign a new class to the element(s).
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
