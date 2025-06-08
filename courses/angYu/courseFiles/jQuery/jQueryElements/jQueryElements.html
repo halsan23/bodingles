@@ -31,11 +31,51 @@
       </section>
 
       <section id="textWindow4" class="just">
-         <!-- Intro -->
+         <!-- .before / .after -->
          <article>
-            <h6>Intro</h6>
-            <p><span class="firstWord"></span>
+            <h6>.before / .after</h6>
+            <p><span class="firstWord">A</span>dding new elements with jQuery is also pretty simple. Just decide whether you want your new element to be <b>.before</b> or <b>.after</b> an existing element. And then to actually add the new element, you write the code just as if you were writing innerHTML.
             </p>
+            <p>Let's say we have an <b>&lt;h1>This is an H1&lt;/h1></b> and we want to add a button element. The code would be something like:
+               <ul class="sectHighlight">
+                  <li>$("h1")<b>.before</b>("&lt;button>New Button&lt;/button>");</li>
+               </ul>
+            would add a &lt;button> <b>before</b> the &lt;h1>, and
+               <ul class="sectHighlight">
+                  <li>$("h1")<b>.after</b>("&lt;button>New Button&lt;/button>");</li>
+               </ul>
+            would add the &lt;button> <b>after</b> the &lt;h1> element. Notice that we are writing the code just like <b>innerHTML</b> and we're including the code for the new &lt;button> and the button text.
+            </p>
+         </article><br><hr><br>
+
+         <!-- .prepend / .append -->
+         <article>
+            <h6>.prepend / .append</h6>
+            <p><span class="firstWord">W</span>e can also use <b>.prepend</b> and <b>.append</b> in the same way as <b>.before</b> and <b>.after</b>.</p>
+            <p>The difference here is that <b>.before</b> and <b>.after</b> will place the NEW element <b>before</b> or <b>after</b> the element that you have selected as a reference, but <b>.prepend</b> and <b>.append</b> will actually place the new element <b>inside</b> the current element.</p>
+            <p>In our example, we used an &lt;h1> element and place a new button before, and after the actual &lt;h1> element.</p>
+            <p>But with <b>,prepend</b> and <b>.append</b>, it's going to actually place the new button, <i><b>inside the &lt;h1> elements itself</b></i> with <b>.prepend</b> placing it at the beginning of the &lt;h1> element, and <b>.append</b> placing it at the end of the &lt;h1> element, but still within the &lt;h1> element itself.</p>
+            <p>If we <b>.prepend</b> our &lt;h1>, and <i>inspect</i> our code, we should see:
+               <ul class="sectHighlight">
+                  <li>&lt;h1><b>&lt;button>NewButton&lt;/button></b>"This is an H1"&lt;/h1></li>
+               </ul>
+            </p>
+            <p>and if we <b>.append</b> our &lt;h1>, and <i>inspect</i> our code, we should see:
+               <ul class="sectHighlight">
+                  <li>&lt;h1>"This is an H1"<b>&lt;button>NewButton&lt;/button></b>&lt;/h1></li>
+               </ul>
+            </p>
+         </article><br><hr><br>
+
+         <!-- .remove -->
+         <article>
+            <h6>.remove</h6>
+            <p><span class="firstWord">W</span>e can also remove elements using the <b>.remove</b> method. In our previous example, if we wanted to remove our newly created &lt;button>'s, we just write:
+               <ul class="sectHighlight">
+                  <li>$("button").remove();</li>
+               </ul>
+            and this will remove all of our new buttons.</p>
+            <p>Now we have to bve careful here, because this will remove <b>every</b> button on the page, and we may only want to remove one. So we have to be carefule in our element selection, and we may want to use a more specific selector.</p>
          </article>
       </section>
 
