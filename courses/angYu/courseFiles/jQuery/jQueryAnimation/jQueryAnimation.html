@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../jQueryIndex.html">Back to jQuery Index Page</a></p>
+         <hr style="width: 40%;">
+         <h5>jQuery Animation</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">W</span>e've learned that jQuery likes to work off of methods. These methods perform different duties and one of these duties is controlled by a group of methods called, <b>jQuery Effect Methods</b>. These methods are built in and provide different types of functionality commonly referred to as "animations".</p>
+            <p>More information on these jQuery Effect Methods can be <a href="https://www.w3schools.com/jquery/jquery_ref_effects.asp" target="_blank">found here</a>.</p>
+         </article><br><hr><br>
+
+         <!-- show / hide -->
+         <article>
+            <h6>show / hide</h6>
+            <p><span class="firstWord">T</span>he first animation method we want to discuss is the <b>show / hide</b> methods. Now most programmers would not consider <b>show</b> and <b>hide</b> as an animation. After all, we already know how to do this in CSS with <b>display: none;</b> and <b>display: block;</b>. But jQuery considers it's version as an animation effect.</p>
+            <p>As we would expect, <b>show</b> will "show" and element, and <b>hide</b> will "hide" an element. We can demonstrate this with an HTML page with on &lt;h1> element.
+               <ul class="sectHighlight">
+                  <li><b>HTML</b></li>
+                  <li>&lt;h1>An H1 Element&lt;/h1></li>
+               </ul>
+            With jQuery, the syntax to hide an element is:
+               <ul class="sectHighlight">
+                  <li><b>jQuery</b></li>
+                  <li>$("h1").<b>hide()</b>;</li>
+               </ul>
+            </p>
+            <p><span class="firstWord">Show / Hide effects</span>
+               <ul>
+                  <li><span class="firstWord">show / hide</span>
+                     <ul>
+                        <li><b>show</b>: shows the element</li>
+                        <li><b>hide</b>: hides the element</li>
+                        <li><b>toggle</b>: toggles the display of the element</li>
+                     </ul>
+                  </li>
+                  <li><span class="firstWord">fade</span>
+                     <ul>
+                        <li><b>fadeIn</b>: fades the element in</li>
+                        <li><b>fadeOut</b>: fades the element out</li>
+                        <li><b>fadeToggle</b>: toggles the element in & out</li>
+                     </ul>
+                  </li>
+                  <li><span class="firstWord">slide</span>
+                     <ul>
+                        <li><b>slideUp</b>: slides the element up</li>
+                        <li><b>slideDown</b>: slides the element down</li>
+                        <li><b>slideToggle</b>: toggles the slide effect up & down</li>
+                     </ul>
+                  </li>
+               </ul>
+            </p>
+         </article><br><hr><br>
+
+         <!-- animate -->
+         <article>
+            <h6>animate</h6>
+            <p><span class="firstWord">T</span>he <b>animate</b> method allows us to create our own "custom" animation effects.
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>

@@ -1,4 +1,8 @@
-$("input").keypress(function(evt) {
-    $("h1").text(evt.key);
+$("input").keypress(function() {
+    $("input").css("backgroundColor", "#EBEC90");
    //  console.log(evt.key);
+});
+
+$("button").click(function() {
+   $("h1").slideToggle();
 });
