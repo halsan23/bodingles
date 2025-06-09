@@ -4,5 +4,5 @@ $("input").keypress(function() {
 });
 
 $("button").click(function() {
-   $("h1").slideToggle();
+   $("h1").slideUp(1000).slideDown(1000).animate({opacity: 0.5}, 1000);
 });

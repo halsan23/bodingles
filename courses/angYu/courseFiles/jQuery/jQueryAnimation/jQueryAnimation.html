@@ -35,18 +35,18 @@
             <h6>Intro</h6>
             <p><span class="firstWord">W</span>e've learned that jQuery likes to work off of methods. These methods perform different duties and one of these duties is controlled by a group of methods called, <b>jQuery Effect Methods</b>. These methods are built in and provide different types of functionality commonly referred to as "animations".</p>
             <p>More information on these jQuery Effect Methods can be <a href="https://www.w3schools.com/jquery/jquery_ref_effects.asp" target="_blank">found here</a>.</p>
-         </article><br><hr><br>
+         </article><hr>
 
          <!-- show / hide -->
          <article>
             <h6>show / hide</h6>
-            <p><span class="firstWord">T</span>he first animation method we want to discuss is the <b>show / hide</b> methods. Now most programmers would not consider <b>show</b> and <b>hide</b> as an animation. After all, we already know how to do this in CSS with <b>display: none;</b> and <b>display: block;</b>. But jQuery considers it's version as an animation effect.</p>
+            <p><span class="firstWord">T</span>he first animation methods we want to discuss are the <b>show / hide</b> method. Now most programmers would not consider <b>show</b> and <b>hide</b> as an animation. After all, we already know how to do this in CSS with <b>display: none;</b> and <b>display: block;</b> but jQuery considers it's version as an animation effect.</p>
             <p>As we would expect, <b>show</b> will "show" and element, and <b>hide</b> will "hide" an element. We can demonstrate this with an HTML page with on &lt;h1> element.
                <ul class="sectHighlight">
                   <li><b>HTML</b></li>
                   <li>&lt;h1>An H1 Element&lt;/h1></li>
                </ul>
-            With jQuery, the syntax to hide an element is:
+            With jQuery, the syntax to hide the &lt;h1> element is:
                <ul class="sectHighlight">
                   <li><b>jQuery</b></li>
                   <li>$("h1").<b>hide()</b>;</li>
@@ -77,12 +77,36 @@
                   </li>
                </ul>
             </p>
-         </article><br><hr><br>
+         </article><hr>
 
          <!-- animate -->
          <article>
             <h6>animate</h6>
-            <p><span class="firstWord">T</span>he <b>animate</b> method allows us to create our own "custom" animation effects.
+            <p><span class="firstWord">T</span>he <b>animate</b> method allows us to create our own "custom" animation effects. More information on this can be <a href="https://www.w3schools.com/jquery/eff_animate.asp" target="_blank">found here</a>.</p>
+            <p>The basic syntax for animate is:
+               <ul class="sectHighlight">
+                  <li>$(element).animate( {styles}, speed, easing, callback);</li>
+               </ul>
+            </p>
+            <p>Now it's important to understand that we can only animate things with a numeric value. For example margin, size, opacity, etc. If we try to say animate color from red to blue, it will not work. You'll get an error, because this is not a numeric change.</p>
+            <p>So we could take our &lt;h1> from above and say:
+               <ul class="sectHighlight">
+                  <li><b>jQuery</b></li>
+                  <li>$("h1").animate( {opacity: 0.5} );</li>
+                  <li>$("h1").animate( {margin: 10} );</li>
+                  <li>$("h1").animate( {margin: "10%"} ); // to make a % write it as a string</li>
+               </ul>
+            </p>
+         </article><hr>
+
+         <!-- chaining -->
+         <article>
+            <h6>chaining</h6>
+            <p><span class="firstWord">A</span>nother thing we can do is <b>chain</b> animations together. Say we want our &lt;h1> to <b>slideUp</b>, then <b>slideDown</b>, and finally change the opacity to 0.5. We can <b>chain</b> these animations together, like so:
+               <ul class="sectHighlight">
+                  <li><b>jQuery</b></li>
+                  <li>$("h1") . slideUp() . slideDown() . animate( { opacity: 0.5} );</li>
+               </ul>
             </p>
          </article>
       </section>
