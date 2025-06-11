@@ -39,8 +39,9 @@
    display: inline-block;
    height: 175px;
    width: 175px;
-   border: 10px solid black;
-   border-radius: 20%;
+   border: 10px solid #292929;
+   border-radius: 25%;
+   box-shadow: 8px 8px 15px #000;
 }
 
 .game-over {
@@ -67,4 +68,5 @@
 .pressed {
    box-shadow: 0 0 20px white;
    background-color: grey;
+   box-shadow: none;
 }

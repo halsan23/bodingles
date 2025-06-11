@@ -5,7 +5,7 @@
 
 // Set Initial Variables
 // ----------------------------------------------------------
-let buttonColours = ["red", "blue", "green", "yellow"];
+let buttonColors = ["red", "blue", "green", "yellow"];
 let gamePattern = [];
 let userClickedPattern = [];
 let level = 0;
@@ -19,12 +19,16 @@ $(document).keypress( function() {
 
 
 $(".btn").click( function() {
+   let userChosenColor = $(this).attr("id");
+   userClickedPattern.push(userChosenColor);
 
-   let userChosenColour = $(this).attr("id");
-   userClickedPattern.push(userChosenColour);
+   // console.log(`User Pattern: ${userClickedPattern}`);
 
-   playSound(userChosenColour);
-   animatePress(userChosenColour);
+   playSound(userChosenColor);
+   animatePress(userChosenColor);
+
+   // console.log(`Last Index: ${(userClickedPattern.length) - 1}`)
+   checkAnswer(userClickedPattern.length - 1);
 });
 
 
@@ -32,12 +36,14 @@ function nextSequence() {
    level++;
    $("#level-title").text(`Level ${level}`);
 
-   let randomNumber = Math.floor(Math.random() * 4 );
-   let randomChosenColour = buttonColours[randomNumber];
-   gamePattern.push(randomChosenColour);
+   userClickedPattern = [];
 
-   $(`#${randomChosenColour}`).fadeIn(100).fadeOut(100).fadeIn(100);
-   playSound(randomChosenColour);
+   let randomNumber = Math.floor(Math.random() * 4 );
+   let randomChosenColor = buttonColors[randomNumber];
+   gamePattern.push(randomChosenColor);
+
+   $(`#${randomChosenColor}`).fadeIn(100).fadeOut(100).fadeIn(100);
+   playSound(randomChosenColor);
 }
 
 
@@ -47,9 +53,27 @@ function playSound(name) {
 }
 
 
-function animatePress(currentColour) {
-   $(`#${currentColour}`).addClass("pressed");
+function animatePress(currentColor) {
+   $(`#${currentColor}`).addClass("pressed");
    setTimeout(function() {
-      $(`#${currentColour}`).removeClass("pressed");
+      $(`#${currentColor}`).removeClass("pressed");
    }, 100);
+}
+
+function checkAnswer(currentLevel) {
+   console.log(`Game Pattern = ${gamePattern}`)
+   console.log(`User Pattern = ${userClickedPattern}`)
+
+   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+      console.log("Correct Answer");
+
+      if(userClickedPattern.length === gamePattern.length) {
+         setTimeout(function() {
+            nextSequence();
+         }, 1000);
+
+      } else {
+         console.log("Wrong Answer");
+      }
+   }
 }
