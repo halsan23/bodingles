@@ -9,38 +9,45 @@ let buttonColors = ["red", "blue", "green", "yellow"];
 let gamePattern = [];
 let userClickedPattern = [];
 let level = 0;
+let gameOver = 0;
+$('#restart-title').hide();
 
 
 // press any key to start the game
 $(document).keypress( function() {
-   if (level === 0) {
+   if (!gameOver) {
+      level = 1;
       nextSequence();
+   } else {
+      startOver();
    }
 });
 
 
 // click function for color buttons
 $(".btn").click( function() {
-   // which button was clicked - assign to variable
-   let userChosenColor = $(this).attr("id");
-   userClickedPattern.push(userChosenColor);
-   // console.log(`User Pattern: ${userClickedPattern}`);
+   console.log(level);
+   if (level && !gameOver) {
+      // which button was clicked - assign to variable
+      let userChosenColor = $(this).attr("id");
+      userClickedPattern.push(userChosenColor);
+      // console.log(`User Pattern: ${userClickedPattern}`);
 
-   // play sound and animate button that was clicked
-   playSound(userChosenColor);
-   animatePress(userChosenColor);
+      // play sound and animate button that was clicked
+      playSound(userChosenColor);
+      animatePress(userChosenColor);
 
-   // console.log(`Last Index: ${(userClickedPattern.length) - 1}`)
+      // console.log(`Last Index: ${(userClickedPattern.length) - 1}`)
 
-   // check is user sequence is correct
-   checkAnswer(userClickedPattern.length - 1);
+      // check is user sequence is correct
+      checkAnswer(userClickedPattern.length - 1);
+   }
 });
 
 
 // continue playing game
 function nextSequence() {
-   // increase level # and output it as text
-   level++;
+   // display level on screen
    $("#level-title").text(`Level ${level}`);
 
    // reset user input sequence
@@ -54,6 +61,42 @@ function nextSequence() {
    // flash button for game generated button and play sound
    $(`#${randomChosenColor}`).fadeIn(100).fadeOut(100).fadeIn(100);
    playSound(randomChosenColor);
+}
+
+
+// check for win / loss scenario
+//      1st - chk if last user input matches last generated color
+//      2nd - check if length of both arrays is the same
+// if you check this every round, and it all matches up, then it is a correct match
+function checkAnswer(currentLevel) {
+
+   // check if last input matches last generated color
+   if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
+
+      // check if user array is the same length as the generated array
+      if (userClickedPattern.length === gamePattern.length) {
+
+         // update level # and display on screen
+         setTimeout(function() {
+            level++;
+            $("#level-title").text(`Level ${level}`);
+         }, 500);
+
+         // after 1 second run the next sequence
+         setTimeout(function() {
+            nextSequence();
+         }, 1000);
+      }
+   } else {
+      playSound("wrong");
+      $(".contain").addClass("game-over");
+      setTimeout(function() {
+         $(".contain").removeClass("game-over");
+      }, 175);
+      document.querySelector('#level-title').innerHTML = `Level ${level}<br>Game Over`;
+      $('#restart-title').show();
+      gameOver = 1;
+   }
 }
 
 
@@ -72,22 +115,12 @@ function animatePress(currentColor) {
    }, 100);
 }
 
-
-// check for win / loss scenario
-function checkAnswer(currentLevel) {
-   console.log(`Game Pattern = ${gamePattern}`)
-   console.log(`User Pattern = ${userClickedPattern}`)
-
-   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-      console.log("Correct Answer");
-
-      if(userClickedPattern.length === gamePattern.length) {
-         setTimeout(function() {
-            nextSequence();
-         }, 1000);
-
-      } else {
-         console.log("Wrong Answer");
-      }
-   }
+function startOver () {
+   gamePattern = [];
+   userClickedPattern = [];
+   level = 1;
+   gameOver = 0;
+   $("#level-title").text(`Level ${level}`);
+   $('#restart-title').hide();
+   nextSequence()
 }
