@@ -15,11 +15,15 @@ $('#restart-title').hide();
 
 // press any key to start, or restart a game
 $(document).keypress( function() {
-   if (!gameOver) {
+   // if first round of game, do this to start new game
+   if (!level) {
       level = 1;
       nextSequence();
+      // if game is over, do this to reset and replay
    } else {
-      startOver();
+      if (gameOver) {
+         startOver();
+      }
    }
 });
 

@@ -34,10 +34,9 @@
       <section id="textWindow4" class="just">
          <!-- Intro -->
          <article>
-            <h6>Intro</h6>
             <img class="simon" src="simon.png" alt="Image of the Simon Game">
-            <p>&nbsp;</p>
-            <p><span class="firstWord">T</span>he Simon Game is an old Hasbro video game. It consisted of four colored buttons (red, green, blue, and yellow) that each play a unique note. Players must repeat an increasingly long string of tones that Simon creates. If a player gets the order wrong, they lose</p>
+            <h6>Intro</h6>
+            <p><span class="firstWord">T</span>he Simon Game is an old Hasbro video game. It consisted of four colored buttons (red, green, blue, and yellow) that each play a unique tone. Players must repeat an increasingly long string of tones that Simon creates. If a player gets the order wrong, they lose</p>
             <p>This is the documentation on how we created our version of the game. The game itself can be <a href="../../../courseProjects/simonGame/simonGame.html" target="_blank">found here</a>.</p>
             <p>The complete final "File Package" can be <a href="../../../courseProjects/simonGame/simonGame.zip" target="_blank">downloaded here</a>.</p>
             <h6>How to Play</h6>
@@ -127,7 +126,7 @@
 
          <!-- JavaSCript/jQuery variables -->
          <article>
-            <h5>JavaSCript/jQuery Setup</h5>
+            <h5>JavaScript/jQuery Setup</h5>
             <h6>- the Variables -</h6>
             <p><span class="firstWord">A</span>nd now for the interesting part, the JavaScript and jQuery code. The first thing we're going to do is set up our variables:</p>
             <ul class="sectHighlight">
@@ -158,14 +157,14 @@
          <!-- the event functions -->
          <article>
             <h6>- the event functions -</h6>
-            <p><span class="firstWord">N</span>ext we're going to add our <b>event functions</b> to trap for a <b>keypress</b>, which is used to start a new game, or to restart a game. And also a <b>click</b> event to allow for the player to click on the buttons when playing the game. Because of the HTML <b>id</b>, and <b>class</b> assignments, we refer to the buttons by their color name, Red, Blue, Green, and Yellow.</p>
-            <p>First, the <b>keypress</b> event:</p>
+            <p><span class="firstWord">N</span>ext we're going to add our <b>event functions</b>.</p>
+            <p>The first event we want to create is the <b>keypress</b> event. This will be used to start a new game, or to restart a game.</p>
             <ul class="sectHighlight">
                <li><b>JavaScript / jQuery</b></li>
                <li class="commentStyle">// define the keypress event</li>
                <li>$(document).<b>keypress</b>( <span class="colorPurple">function()</span> {
                   <ul>
-                     <li>if (<span class="colorRed">!</span>gameOver) {
+                     <li>if (<span class="colorRed">!</span>level) {
                         <ul>
                            <li><span class="colorGreen">level</span> = 1;</li>
                            <li><span class="colorPurple">nextSequence()</span>;</li>
@@ -173,7 +172,12 @@
                      </li>
                      <li>} else {
                         <ul>
-                           <li><span class="colorPurple">startOver()</span>;</li>
+                           <li>if (gameOver) {
+                              <ul>
+                                 <li><span class="colorPurple">startOver()</span>;</li>
+                              </ul>
+                           </li>
+                           <li>}</li>
                         </ul>
                      </li>
                      <li>}</li>
@@ -181,15 +185,15 @@
                </li>
                <li>});</li>
             </ul>
-            <p>This is pretty straight forward code here:
-               <ul>
-                  <li>- First we are add a <b>keypress</b> event on the entire webpage (<b>document</b>).</li>
-                  <li>&nbsp;</li>
-                  <li>- Initially, AND when we Restart a game, our <span class="colorGreen">gameOver</span> variable is set to <b>0</b>. So when a <b>keypress</b> event is detected, the first part of the <b>if</b> statement will execute. This will set <span class="colorGreen">level</span> to <b>1</b>, and generate our first random color with (<span class="colorPurple">nextSequence()</span>). So what this is really checking for is, "is this the first run of the game", because after the first run, <span class="colorGreen">gameOver</span> will be set to <b>1</b>, and this part of the <b>if</b> statement will no longer run.</li>
-                  <li>&nbsp;</li>
-                  <li>- The only other time we utilize a <b>keypress</b> event is if the game ends, and the user has pressed a key to "Restart the Game". In this case, the <span class="colorGreen">gameOver</span> variable has a value of <b>1</b>, so if a <b>keypress</b> event is detected, the <span class="colorPurple">startOver()</span> function will run and reset the game variables for a new game.</li>
-               </ul>
-            </p>
+            <p>This is pretty straight forward code here:</p>
+            <ul>
+               <li>- First we are add a <b>keypress</b> event on the entire webpage (<b>document</b>).<br></li>
+               <li>- Initially, AND when we Restart a game, our <span class="colorGreen">level</span> variable is set to <b>0</b>. So when a <b>keypress</b> event is detected, the first part of the <b>if</b> statement will execute. This will set <span class="colorGreen">level</span> to <b>1</b>, and generate our first random color with (<span class="colorPurple">nextSequence()</span>). So what this is really checking for is, "is this the first run of the game", because after the first run, <span class="colorGreen">level</span> will be set to <b>1</b>, or greater, and this part of the <b>if</b> statement will no longer run.<br></li>
+               <li>- The only other time we utilize a <b>keypress</b> event is if the game ends, and the user has pressed a key to "Restart the Game". In this case, the <span class="colorGreen">gameOver</span> variable has a value of <b>1</b>, so if a <b>keypress</b> event is detected, the <span class="colorPurple">startOver()</span> function will run and reset the game variables for a new game.</li>
+            </ul>
+            <p>This code has another effect here. The game will ignore any <b>keypress</b> events, either after the game has started, or before the game has ended. This halts either of the conditions from running in the middle of the game.</p>
+            <hr>
+            <p>The next event we want to listen for is a <b>click</b> event which will allow the player to click on the buttons when playing the game. Because of the HTML <b>id</b>, and <b>class</b> assignments, we refer to the buttons by their color name, Red, Blue, Green, and Yellow.</p>
          </article>
       </section>
 
