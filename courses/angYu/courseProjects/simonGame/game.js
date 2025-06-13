@@ -13,7 +13,7 @@ let gameOver = 0;
 $('#restart-title').hide();
 
 
-// press any key to start the game
+// press any key to start, or restart a game
 $(document).keypress( function() {
    if (!gameOver) {
       level = 1;
@@ -26,18 +26,14 @@ $(document).keypress( function() {
 
 // click function for color buttons
 $(".btn").click( function() {
-   console.log(level);
    if (level && !gameOver) {
       // which button was clicked - assign to variable
       let userChosenColor = $(this).attr("id");
       userClickedPattern.push(userChosenColor);
-      // console.log(`User Pattern: ${userClickedPattern}`);
 
       // play sound and animate button that was clicked
       playSound(userChosenColor);
       animatePress(userChosenColor);
-
-      // console.log(`Last Index: ${(userClickedPattern.length) - 1}`)
 
       // check is user sequence is correct
       checkAnswer(userClickedPattern.length - 1);
@@ -115,6 +111,7 @@ function animatePress(currentColor) {
    }, 100);
 }
 
+// reset the variables to start over
 function startOver () {
    gamePattern = [];
    userClickedPattern = [];
