@@ -154,15 +154,15 @@
             </ul>
          </article><hr>
 
-         <!-- the event functions -->
+         <!-- the keypress event -->
          <article>
-            <h6>- the event functions -</h6>
+            <h6>- the keypress event -</h6>
             <p><span class="firstWord">N</span>ext we're going to add our <b>event functions</b>.</p>
             <p>The first event we want to create is the <b>keypress</b> event. This will be used to start a new game, or to restart a game.</p>
             <ul class="sectHighlight">
                <li><b>JavaScript / jQuery</b></li>
                <li class="commentStyle">// define the keypress event</li>
-               <li>$(document).<b>keypress</b>( <span class="colorPurple">function()</span> {
+               <li>$(<span class="colorOrange">document</span>).<b>keypress</b>( <span class="colorPurple">function()</span> {
                   <ul>
                      <li>if (<span class="colorRed">!</span>level) {
                         <ul>
@@ -192,8 +192,49 @@
                <li>- The only other time we utilize a <b>keypress</b> event is if the game ends, and the user has pressed a key to "Restart the Game". In this case, the <span class="colorGreen">gameOver</span> variable has a value of <b>1</b>, so if a <b>keypress</b> event is detected, the <span class="colorPurple">startOver()</span> function will run and reset the game variables for a new game.</li>
             </ul>
             <p>This code has another effect here. The game will ignore any <b>keypress</b> events, either after the game has started, or before the game has ended. This halts either of the conditions from running in the middle of the game.</p>
-            <hr>
-            <p>The next event we want to listen for is a <b>click</b> event which will allow the player to click on the buttons when playing the game. Because of the HTML <b>id</b>, and <b>class</b> assignments, we refer to the buttons by their color name, Red, Blue, Green, and Yellow.</p>
+         </article><hr>
+
+         <!-- the click event -->
+         <article>
+            <h6>- the click event -</h6>
+            <p><span class="firstWord">T</span>he next event we want to listen for is a <b>click</b> event which will allow the player to click on the buttons when playing the game. Because of the HTML <b>id</b>, and <b>class</b> assignments, we refer to the buttons by their color name, Red, Blue, Green, and Yellow.</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript / jQuery</b></li>
+               <li class="commentStyle">// click function for color buttons</li>
+               <li>$(".<span class="colorRed">btn</span>").<b>click</b>( <span class="colorPurple">function()</span> {<ul>
+                  <li class="commentStyle">// if level > 0 AND gameOver = 0</li>
+                  <li>if (level && <span class="colorRed">!</span>gameOver) {
+                     <ul>
+                        <li class="commentStyle">// which button was clicked - assign to variable</li>
+                        <li>let <span class="colorGreen">userChosenColor</span> = $(<span class="colorRed">this</span>).<b>attr</b>("<span class="colorBlue">id</span>");</li>
+                        <li><span class="colorBlue">userClickedPattern</span>.<b>push</b>(<span class="colorGreen">userChosenColor</span>);</li>
+                        <li>&nbsp;</li>
+                        <li class="commentStyle">// play sound and animate button that was clicked</li>
+                        <li><span class="colorPurple">playSound</span>(<span class="colorGreen">userChosenColor</span>);</li>
+                        <li><span class="colorPurple">animatePress</span>(<span class="colorGreen">userChosenColor</span>);</li>
+                        <li>&nbsp;</li>
+                        <li class="commentStyle">// check is user sequence is correct</li>
+                        <li><span class="colorPurple">checkAnswer</span>(<span class="colorBlue">userClickedPattern</span>.<b>length - 1</b>);</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <p>Not too complicated, but let's break it down.</p>
+            <ul>
+               <li>- We are assigning our <b>click</b> event to the "<b>.btn</b>" class. If we look at our HTML code above, we notice that this class is assigned to every button. So we are assigning a "click" event to all four buttons.<br></li>
+               <li>- The next thing we do is an <b>if</b> statement. What this does is prevent any output from the click events, if the game is not actually running. The only time <b>level</b> will be greater than <b>0</b>, AND <b>gameOver</b> is equal to <b>0</b>, is when the game is actually running. This is the only time we want to process a button click.</li>
+            </ul>
+            <p>Now that we know the game is actually running, the next thing we want to do is to actually process the <b>click</b> event. If we look again at our HTML code we see that each button has an "<b>id</b>" assigned to it that is the color of that button. (green, red, yellow, blue). We can use this to see which button was actually "clicked".</p>
+            <ul>
+               <li>- We use the <span class="colorRed">this</span> keyword to detect <span class="colorRed">this</span> <b>button click</b>. Retrieve the <b>attr</b> <i>(attribute)</i> of the <b>id</b> for <span class="colorRed">this</span> button, and assign it to the variable <span class="colorGreen">userChosenColor</span>. So, <span class="colorGreen">userChosenColor</span> becomes green, red, yellow, or blue depending on which button was clicked.<br></li>
+               <li>- Add <span class="colorGreen">userChosenColor</span> to the end of our <span class="colorBlue">userClickedPattern</span> array using the <b>push</b> method. Over subsequent levels, this builds up our <span class="colorBlue">userClickedPattern</span> array with all of the colors the user has clicked.<br></li>
+               <li>- Next we run the <span class="colorPurple">playSound</span> function, which will play the appropriate sound for the <span class="colorGreen">userChosenColor</span>.<br></li>
+               <li>- Next we run the <span class="colorPurple">animatePress</span> function, which will animate the button that was clicked, for the <span class="colorGreen">userChosenColor</span>.<br></li>
+               <li>- And finally, we're going to run the <span class="colorPurple">checkAnswer</span> function, to check that the <span class="colorGreen">userChosenColor</span> is the correct color in the sequence. We are passing in the variable, <span class="colorBlue">userClickedPattern</span>.<b>length - 1</b>, which is the last element in the array. Remember that the array starts counting at zero, so we must check <b>length - 1</b> to make sure we checking, the last element in the array.</li>
+            </ul>
          </article>
       </section>
 
