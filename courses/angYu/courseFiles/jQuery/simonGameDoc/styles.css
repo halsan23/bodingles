@@ -8,3 +8,7 @@ h5 {
    height: auto;
    float: left;
 }
+
+ul.listItems li {
+   list-style: disc;
+}

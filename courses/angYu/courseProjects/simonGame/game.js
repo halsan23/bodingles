@@ -100,7 +100,7 @@ function checkAnswer(currentLevel) {
 }
 
 
-// play the audion that matches the button clicked
+// play the audio that matches the button clicked
 function playSound(name) {
    let audio = new Audio(`sounds/${name}.mp3`);
    audio.play();
