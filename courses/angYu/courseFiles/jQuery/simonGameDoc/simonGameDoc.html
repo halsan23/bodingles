@@ -40,11 +40,11 @@
             <p>This is the documentation on how we created our version of the game. The game itself can be <a href="../../../courseProjects/simonGame/simonGame.html" target="_blank">found here</a>.</p>
             <p>The complete final "File Package" can be <a href="../../../courseProjects/simonGame/simonGame.zip" target="_blank">downloaded here</a>.</p>
             <h6>How to Play</h6>
-            <ul>
-               <li>- The game shows the first color in a sequence. The user clicks on the button with the same color.</li>
-               <li>- The game shows the next color, and the user has to remember the color sequence (first color, second color) and so on and so forth.</li>
-               <li>- The game continues to build the color sequence and the player has to remember ALL of the colors in order.</li>
-               <li>- If the player messes up the sequence, then the game ends.</li>
+            <ul class="listItems"">
+               <li>The game shows the first color in a sequence. The user clicks on the button with the same color.</li>
+               <li>The game shows the next color, and the user has to remember the color sequence (first color, second color) and so on and so forth.</li>
+               <li>The game continues to build the color sequence and the player has to remember ALL of the colors in order.</li>
+               <li>If the player messes up the sequence, then the game ends.</li>
             </ul>
          </article><hr>
 
@@ -317,6 +317,73 @@
             <p>So in our JavaScript, we're going to "pull in" the color of the button that was pressed <span class="colorGreen">currentColor</span>. We then "call" that button with jQuery, <b>$(`#${currentColor}`)</b>. Notice that we are using a string temperate literal to select the button based on it's <b>id</b> and color name (<span class="colorGreen">currentColor</span>).</p>
             <p>This allows us to select the button with the <b>id</b> of whatever color was clicked. Now that we have our "selected" button, we can add the class "<span class="colorOrange">pressed</span>" to that button, which changes the look of the button, and 100ms later, we <b>remove</b> the <span class="colorOrange">pressed</span> class.</p>
             <p>This gives us our "animated" effect.</p>
+         </article><hr>
+
+         <!-- Play the Game -->
+         <article>
+            <h5>Let's Play</h5>
+            <p><span class="firstWord">S</span>o we've got our HTML and CSS set up. Our JavaScript has defined all of the variables, created our <b>keypress</b> and <b>click</b> event listeners that allow us to start and play the game. We've added our sound and animation effects to the game. I think we're actually ready to start writing the code that controls the game flow.</p>
+            <p>Now if we look at the code for our <b>keypress</b> event, we see that the first part of the <b>if</b> statement is checking whether or not it is the first round of game play. <b>If</b> it is, then we make <b>level = 1</b> and we run a function called <span class="colorPurple">nextSequence()</span>.</p>
+            <p>The <span class="colorPurple">nextSequence()</span> function is where we pick a random number, between 0 abd 3, and assign it as the computer's pick for a color. Once we get a random number, we pull the actual color name from the <span class="colorBlue">buttonColors</span><b>[]</b> array that we defined with all of our other variables. So if the random number generated is 2, the the computer's picked color will be <span class="colorBlue">buttonColors</span><b>[2]</b>, or "<b>blue</b>".</p>
+            <p>So, we're going to run the <span class="colorPurple">nextSequence()</span> function initially at the start of the game so the AI can pick a color for the user to match. After the AI picks a color, the user will try to match the color sequence. If they get it correct, the we will run the <span class="colorPurple">nextSequence()</span> function again, pick a new AI color, and continue the game.</p>
+            <p>Now we're getting a little ahead of ourselves here. We will have to write a function that checks the user input, and if it is correct, continue the game. If not, then end the game. But first, let's concentrate on creating the <span class="colorPurple">nextSequence()</span> function.</p>
+         </article><hr>
+
+         <!-- nextSequence() -->
+         <article>
+            <h6><span class="colorPurple">nextSequence()</span></h6>
+            <p><span class="firstWord">L</span>et's go ahead and write the code, and then we'll beak it all down:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// game play code</li>
+               <li>function <span class="colorPurple">nextSequence()</span> {
+                  <ul>
+                     <li class="commentStyle">// display level on screen</li>
+                     <li>$("#level-title").<b>text</b>(`Level ${level}`);</li>
+                     <li>&nbsp;</li>
+                     <li class="commentStyle">// reset user input sequence</li>
+                     <li><span class="colorGreen">userClickedPattern</span> = [];</li>
+                     <li>&nbsp;</li>
+                     <li class="commentStyle">// generate random game color and add it to the game sequence array</li>
+                     <li>let <span class="colorOrange">randomNumber</span> = Math.floor(Math.random() * 4 );</li>
+                     <li>let <span class="colorGreen">randomChosenColor</span> = <b>buttonColors[</b><span class="colorOrange">randomNumber</span><b>]</b>>;</li>
+                     <li><span class="colorGreen">gamePattern</span>.<b>push</b>(<span class="colorGreen">randomChosenColor</span>);</li>
+                     <li>&nbsp;</li>
+                     <li class="commentStyle">// flash button for game generated button and play sound</li>
+                     <li>$(`#${<span class="colorGreen">randomChosenColor</span>}`).fadeIn(100).fadeOut(100).fadeIn(100);</li>
+                     <li>playSound(<span class="colorGreen">randomChosenColor</span>);</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <p>So every time we run a round of the game, we're going to call this function.</p>
+            <ul class="listItems">
+               <li>First we use jQuery to change our <b>#level-title</b> to display the current level.</li>
+               <li>Next we set the <span class="colorGreen">userClickedPattern</span>[] to be an empty array.
+               <ul>
+                  <li style="list-style: none;"><i>(this array will hold the user color selections as we play the game. Each new level, this resets).</i></li>
+               </ul>
+            </li>
+            <li>Next, we pick a random number between 0 and 3:
+               <ul>
+                  <li>With that number, pick a color from the <span class="colorGreen">buttonColors</span>[] array.</li>
+                  <li>Add this color to the <span class="colorGreen">gamePattern</span>[] array using the <b>push</b> keyword.
+                     <ul>
+                        <li style="list-style: none;"><i>(this array will build up the AI color selections as we play the game. Each new game, this will reset).</i></li>
+                     </ul>
+                  </li>
+               </ul>
+            </li>
+            <li>And finally, we add some sound and animation to the AI picked color button, so that the player can see, and hear, which color the AI picked next.</li>
+            </ul>
+            <p>So at this point in the game, the AI has picked it's color and we are waiting for the player's response. This is controlled by the <b>.btn.click</b> event we created earlier. This allows the player to make his choice. Once the player chooses a button, we need to check and see if his color sequence matches the AI sequence. If you look the the code for the click event, you'll see that we call a the <span class="colorPurple">checkAnswer(</span><span class="colorGreen">userClickedPattern</span>.<span class="colorRed">length - 1</span><span class="colorPurple">)</span>; function, passing in the array number for the last color that was picked by the user.</p>
+            <p>Remember, we have to pas in <span class="colorRed">length - 1</span> as the last color picked because the array index starts at zero (0).</p>
+         </article><hr>
+
+         <!-- checkAnswer() -->
+         <article>
+            <h6><span class="colorPurple">checkAnswer()</span></h6>
+            <p><span class="firstWord">S</span>o the AI has picked the next color in the sequence, the player has chosen his sequence in response, and now we have to check and see if it is correct. Again, we're going to write out the code, and then we'll break it down.</p>
          </article>
       </section>
 

@@ -45,7 +45,7 @@ $(".btn").click( function() {
 });
 
 
-// continue playing game
+// game play code
 function nextSequence() {
    // display level on screen
    $("#level-title").text(`Level ${level}`);
@@ -93,7 +93,7 @@ function checkAnswer(currentLevel) {
       setTimeout(function() {
          $(".contain").removeClass("game-over");
       }, 175);
-      document.querySelector('#level-title').innerHTML = `Level ${level}<br>Game Over`;
+      document.querySelector('#level-title').innerHTML = `Level ${level}<br><br>Game Over`;
       $('#restart-title').show();
       gameOver = 1;
    }
