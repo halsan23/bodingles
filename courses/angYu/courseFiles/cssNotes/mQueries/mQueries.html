@@ -18,11 +18,20 @@
          height: 200px;
          background-color: #9bb185;
       }
-
       @media (max-width: 1000px) {
          .divBox {
             width: 300px;
          }
+      }
+      table {
+         width: 75%;
+      }
+      th {
+         padding: 5px 50px;
+      }
+      td {
+         padding: 10px 25px;
+         border: 1px solid black;
       }
    </style>
 </head>
@@ -154,15 +163,91 @@
          <article>
             <h6>Viewport Sizes</h6>
             <p><span class="firstWord">S</span>tandard @media viewport sizes are typically determined based on common device screen sizes and orientations. Commonly used breakpoints include:
-               <ul>
-                  <li>320px: Mobile portrait view</li>
-                  <li>480px: Mobile landscape view</li>
-                  <li>768px: Tablet portrait view</li>
-                  <li>1024px: Desktop or tablet landscape view</li>
-                  <li>1200px: Larger desktop screens</li>
-                  <li>1600px: Extra-large screens</li>
-               </ul>
-            </p>
+            <table>
+               <thead>
+                  <th colspan="3">Mobile Devices</th>
+               </thead>
+               <tr>
+                  <td>Mobile (small)</td>
+                  <td>0px - 479px</td>
+                  <td>@media (max-width: 479px)</td>
+               </tr>
+               <tr>
+                  <td>Mobile (large)</td>
+                  <td>480px - 767px</td>
+                  <td>@media (min-width: 480px) and (max-width: 767px)</td>
+               </tr>
+            </table><br>
+            <table>
+               <thead>
+                  <th colspan="3">Tablets</th>
+               </thead>
+               <tr>
+                  <td>Tablet (Portrait)</td>
+                  <td>768px - 899px</td>
+                  <td>@media (min-width: 768px) and (max-width: 899px)</td>
+               </tr>
+               <tr>
+                  <td>Tablet (Landscape)</td>
+                  <td>900px - 1023px</td>
+                  <td>@media (min-width: 900px) and (max-width: 1023px)</td>
+               </tr>
+            </table><br>
+            <table>
+               <thead>
+                  <th colspan="3">Desktops</th>
+               </thead>
+               <tr>
+                  <td>Desktop (Small)</td>
+                  <td>1024px - 1279px</td>
+                  <td>@media (min-width: 1024px) and (max-width: 1279px)</td>
+               </tr>
+               <tr>
+                  <td>Desktop (Medium)</td>
+                  <td>1280px - 1439px</td>
+                  <td>@media (min-width: 1280px) and (max-width: 1439px)</td>
+               </tr>
+               <tr>
+                  <td>Desktop (Large)</td>
+                  <td>1440px and above</td>
+                  <td>@media (min-width: 1440px)</td>
+               </tr>
+            </table><br>
+            <table>
+               <thead>
+                  <th colspan="3">Bootstrap Sizing</th>
+               </thead>
+               <tr>
+                  <td>X-Small Devices (Portrait Phones)</td>
+                  <td>less than 576px</td>
+                  <td>@media (max-width: 575px)</td>
+               </tr>
+               <tr>
+                  <td>Small Devices (Landscape Phones)</td>
+                  <td>576px and up</td>
+                  <td>@media (min-width: 576px)</td>
+               </tr>
+               <tr>
+                  <td>Medium Devices (Tablets)</td>
+                  <td>768px and up</td>
+                  <td>@media (min-width: 768px)</td>
+               </tr>
+               <tr>
+                  <td>Large Devices (Desktops)</td>
+                  <td>992px and up</td>
+                  <td>@media (min-width: 992px)</td>
+               </tr>
+               <tr>
+                  <td>X-Large Devices (Large Desktops)</td>
+                  <td>1200px and up</td>
+                  <td>@media (min-width: 1200px)</td>
+               </tr>
+               <tr>
+                  <td>XX-Large Devices (Larger Desktops)</td>
+                  <td>1400px and up</td>
+                  <td>@media (min-width: 1400px)</td>
+               </tr>
+            </table><br>
             <p>These sizes are often used to ensure a website is responsive and functions well across various devices and screen sizes.</p>
             <p>When designing media queries, it's important to consider the specific layout and design needs of your site rather than targeting specific devices.
                 This approach helps in creating a more flexible and adaptable design that works well across a range of screen sizes and orientations.</p>
