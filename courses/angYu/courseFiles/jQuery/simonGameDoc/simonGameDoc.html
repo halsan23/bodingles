@@ -383,7 +383,159 @@
          <!-- checkAnswer() -->
          <article>
             <h6><span class="colorPurple">checkAnswer()</span></h6>
-            <p><span class="firstWord">S</span>o the AI has picked the next color in the sequence, the player has chosen his sequence in response, and now we have to check and see if it is correct. Again, we're going to write out the code, and then we'll break it down.</p>
+            <p><span class="firstWord">S</span>o the AI has picked the next color in the sequence, the player has chosen his color sequence in response, and now we have to check and see if it is correct. This essentially happens in three steps:
+               <ol>
+                  <li>Check if the last player color matches the last AI color.</li>
+                  <li>Check the arrays for both the player colors, and the AI colors, and make sure they have the same numbers of entries (<span class="colorRed">length</span>).</li>
+                  <li>Process the results of these test's.
+                     <ul class="listItems">
+                        <li>if both of these test's pass then the user input is correct, continue the game and play another round.</li>
+                        <li>if either one of these test's fail, the user input is incorrect, and the game ends.</li>
+                     </ul>
+                  </li>
+               </ol>
+            </p>
+            <p>Again, we're going to write out the code, and then we'll break it down.</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// check for correct user input</li>
+               <li>function <span class="colorPurple">checkAnswer</span>(currentLevel) {
+                  <ul>
+                     <li class="commentStyle">// check if last input matches last generated color</li>
+                     <li><b>if</b> (<span class="colorGreen">userClickedPattern</span>[currentLevel] === <span class="colorGreen">gamePattern</span>[currentLevel]) {
+                        <ul>
+                           <li class="commentStyle">// check if user array is the same length as the generated array</li>
+                           <li><b>if</b> (<span class="colorGreen">userClickedPattern</span>.<span class="colorRed">length</span> === <span class="colorGreen">gamePattern</span>.<span class="colorRed">length</span>) {
+                              <ul>
+                                 <li class="commentStyle">// update level # and display on screen</li>
+                                 <li><span class="colorGreen">level</span>++;</li>
+                                 <li>$("").text(`Level ${<span class="colorGreen">level</span>}`);</li>
+                                 <li class="commentStyle">// run the next sequence</li>
+                                 <li><span class="colorPurple">nextSequence()</span>;</li>
+                              </ul>
+                           </li>
+                           <li>}</li>
+                        </ul>
+                     </li>
+                     <li>} <b>else</b> {
+                        <ul>
+                           <li class="commentStyle">// incorrect sequence - end the game</li>
+                           <li><span class="colorPurple">playSound</span>("wrong");</li>
+                           <li>$("<span class="colorBlue">.contain</span>").<span class="colorOrange">addClass</span>("game-over");</li>
+                           <li><b>setTimeout</b>(function() {
+                              <ul>
+                                 <li>$("<span class="colorBlue">.contain</span>").<span class="colorOrange">removeClass</span>("game-over");</li>
+                              </ul>
+                           </li>
+                           <li>}, <b>175</b>);</li>
+                           <li>document.querySelector('<span class="colorBlue">#level-title</span>').innerHTML = `Level ${<span class="colorGreen">level</span>}&lt;br>&lt;br>Game Over`;</li>
+                           <li>$('<span class="colorBlue">#restart-title</span>').<span class="colorOrange">show</span>();</li>
+                           <li><span class="colorGreen">gameOver</span> = 1;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <p>So what's going on here?</p>
+            <p>For starters, we're passing in one variable (<b>currentLevel</b>), into this function. This variable was created in the <b>click</b> event and represents the <b>index</b> number of the last item in the array of player selected colors.</p>
+            <ul>
+               <li>- First we're going to check if the <b>last</b> color the player selected matches the <b>last</b> color the AI selected.
+                  <ul>
+                     <li>if it does, move on to the next check,</li>
+                     <li>if it does not, the the player input is incorrect, the first <b>if</b> statement fails, and the code moves to the <b>else</b> statement</li>
+                     <li>&nbsp;</li>
+                  </ul>
+               </li>
+               <li>- Next we are going to check that both the player array (<span class="colorGreen">userClickedPattern</span>) and the AI array (<span class="colorGreen">gamePattern</span>) have the same number of entries (<span class="colorRed">length</span>).</li>
+               <li>&nbsp;</li>
+               <li>- If both of theses checks pass, the the player input is correct and the game continues:
+                  <ul>
+                     <li>- increase the level by 1</li>
+                     <li>- update the screen with the new level number</li>
+                     <li>- run the <span class="colorPurple">nextSequence()</span> function to start the next round</li>
+                     <li>&nbsp;</li>
+                  </ul>
+               </li>
+               <li>- If either one of these checks fail, then the <b>if</b> statement fails, and the <b>else</b> part of the statement executes:
+                  <ul>
+                     <li>- give a sound feedback indicating the the player input is correct</li>
+                     <li>- add the class <b>game-over</b> to the parent container which changes the background color of the game to an obnoxious red.</li>
+                     <li>- after <b>175ms</b>, remove the class <b>game-over</b></li>
+                     <li>- change the <span class="colorBlue">#level-title</span> <b>innerHTML</b> to reflect that the game is over</li>
+                     <li>- show the hidden <b>&lt;h1></b> element that displays "Press any key to Start Over"
+                        <ul>
+                           <li><i>this &lt;h1> is hidden at the beginning of each new game</i></li>
+                           <li><i>$('#restart-title').hide();</i></li>
+                        </ul>
+                     </li>
+                     <li>- set <span class="colorGreen">gameOver</span> to <b>1</b>
+                        <ul>
+                           <li><i>this is used in the keypress event</i></li>
+                           <li><i>if it is not the very first run of the game, it will reset the game variables with the function <span class="colorPurple">startOver()</span></i></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            <p><b>*note</b>: you may have noticed that we did not check if the user selected colors array is actually identical to the AI generated colors array. In other words, we did not check:
+               <ul>
+                  <li>if ( <span class="colorGreen">userClickedPattern</span>[] ) === ( <span class="colorGreen">gamePattern</span>[] ) {}</li>
+               </ul>
+            and that would be correct. Because we are checking every player input against every AI pick, <b>every single round</b>. So we already know that the array values before the last one we are currently checking, do indeed match. All we have to do after we check the last colors for a match is to make sure both arrays are the same length and we know they match.
+            </p>
+         </article><hr>
+
+         <!-- checkAnswer() -->
+         <article>
+            <h6>Game Reset</h6>
+            <p><span class="firstWord">A</span>nd finally, if the game has ended, and we want to play again, all that is left to do is to reset the game variables. This will re-enable the <b>keypress</b> event that will be waiting for the player to "Press any key" to start a new game.</p>
+            <p>If we look at our <b>keypress</b> event above, you will notice that we have an <b>if</b> statement:
+               <ul class="sectHighlight">
+                  <li>if (<span class="colorGreen">gameOver</span>) {
+                     <ul>
+                        <li><span class="colorPurple">startOver()</span>;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </p>
+            <p>In the <b>else</b> condition of the <span class="colorPurple">checkAnswer()</span> function, we set:
+               <ul>
+                  <li><span class="colorGreen">gameOver</span> = <b>1</b>;</li>
+               </ul>
+            and our <b>keypress</b> event says:
+               <ul>
+                  <li>if (<span class="colorGreen">gameOver</span>) or in plain english, <i>(if <span class="colorGreen">gameOver</span> = 1)</i></li>
+               </ul>
+            then run the <span class="colorPurple">startOver()</span> function.
+            </p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// reset the variables to start over</li>
+               <li>function <span class="colorPurple">startOver()</span> {
+                  <ul>
+                     <li><span class="colorGreen">gamePattern</span> = [];</li>
+                     <li><span class="colorGreen">userClickedPattern</span> = [];</li>
+                     <li><span class="colorGreen">level</span> = 1;</li>
+                     <li><span class="colorGreen">gameOver</span> = 0;</li>
+                     <li>$("<span class="colorBlue">#level-title</span>").text(`Level ${<span class="colorGreen">level</span>}`);</li>
+                     <li>$('<span class="colorBlue">#restart-title</span>').<span class="colorRed">hide()</span>;</li>
+                     <li><span class="colorPurple">nextSequence()</span></li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <p>Pretty straight forward here:
+               <ul>
+                  <li>- Reset all of the variables to default.</li>
+                  <li>- Change the <b>level</b> display.</li>
+                  <li>- <b>hide</b> the &lt;h1> that displays "Press any key to start over".</li>
+                  <li>- Run the <span class="colorPurple">nextSequence()</span> function.</li>
+               </ul>
+            and now that <span class="colorGreen">gameOver</span> = 0, the game will be waiting for the player to "Press any key to start a new game".
+            </p>
          </article>
       </section>
 
