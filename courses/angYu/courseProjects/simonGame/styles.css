@@ -78,8 +78,7 @@
 }
 
 
-/* Media Queries */
-
+/* ==========     Media Queries     ========== */
 @media (max-width: 480px) {
    #level-title {
       font-size: 0.9rem;
