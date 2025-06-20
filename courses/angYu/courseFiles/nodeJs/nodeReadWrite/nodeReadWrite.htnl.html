@@ -30,45 +30,92 @@
          <h6>File Read / Write</h6>
       </section>
 
-      <!-- File Write -->
       <section id="textWindow4" class="just">
-         <h6>File Write</h6>
-         <p><span class="firstWord">T</span>o use Node.Js to create a new file and write to it, we're going to use the <a href="https://nodejs.org/docs/latest-v18.x/api/fs.html" target="_blank">File System</a> module. So we need to "import" the module into our Js file:
-            <ul class="sectHighlight">
-               <li><b>JavaScript</b></li>
-               <li class="commentStyle">// import the file system module</li>
-               <li>const <span class="colorGreen">fs</span> = <span class="colorPurple">require</span>("<span class="colorOrange">fs</span>");</li>
-            </ul>
-         </p>
-         <p>Now that we have access to the File System module, we can <a href="https://nodejs.org/docs/latest-v18.x/api/fs.html#fswritefilefile-data-options-callback" target="_blank">write our file</a>. The basic syntax is:
-            <ul>
-               <li><span class="colorGreen">fs</span>.<b>writeFile</b> ( path/fileName, data[, <i>options</i>], <span class="colorPurple">callback</span>)</li>
-            </ul>
+         <!-- File Write -->
+         <article>
+            <h6>File Write</h6>
+            <p><span class="firstWord">T</span>o use Node.Js to create a new file and write to it, we're going to use the <a href="https://nodejs.org/docs/latest-v18.x/api/fs.html" target="_blank">File System</a> module. So we need to "import" the module into our Js file:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li class="commentStyle">// import the file system module</li>
+                  <li>const <span class="colorGreen">fs</span> = <span class="colorBlue">require</span>("<span class="colorOrange">fs</span>");</li>
+               </ul>
+            </p>
+            <p>Now that we have access to the File System module, we can <a href="https://nodejs.org/docs/latest-v18.x/api/fs.html#fswritefilefile-data-options-callback" target="_blank">write our file</a>. The basic syntax is:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">fs</span>.<span class="colorBlue">writeFile</span> ( path/fileName, data[, <i>options</i>], <span class="colorPurple">callback</span>)</li>
+               </ul>
             So we're using the <b>writeFile</b> method of the <span class="colorGreen">fs</span> module.
-            <ul>
-               <li>- <b>path/fileName</b>: the path and file name to be written - entered as a "string"</li>
-               <li>- <b>data</b>: the file data to write - this can be a variable or actual text written as a "string"</li>
-               <li>- <b>options</b>: these are optional parameters that can be use for file processing - we'll use this when we <b>read</b> a file</li>
-               <li>- <b>callback</b>: this is the callback function which could return any error encountered when trying to write the file</li>
-            </ul>
-            So, for example:
-            <ul class="sectHighlight">
-               <li><b>JavaScript</b></li>
-               <li class="commentStyle">// write the file data</li>
-               <li>fs.writeFile ( "message.txt", "Hello from badDoggy", (err) => {
-                  <ul>
-                     <li>if (err) throw err;</li>
-                     <li>console.log('File written successfully!');</li>
-                  </ul>
-               </li>
-               <li>});</li>
-            </ul>
+               <ul>
+                  <li>- <b>path/fileName</b>: the path and file name to be written - entered as a "string"</li>
+                  <li>- <b>data</b>: the file data to write - this can be a variable or actual text written as a "string"</li>
+                  <li>- <b>options</b>: these are optional parameters that can be use for file processing - we'll use this when we <b>read</b> a file</li>
+                  <li>- <b>callback</b>: this is the callback function which could return any error encountered when trying to write the file</li>
+               </ul>
+            </p>
+            <p>So, for example:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li class="commentStyle">// create a new file and add some data</li>
+                  <li><span class="colorGreen">fs</span>.<span class="colorBlue">writeFile</span> ( "message.txt", "Hello from Node.Js", <span class="colorPurple">(err) =></span> {
+                     <ul>
+                        <li>if (<span class="colorPurple">err</span>) {
+                           <ul>
+                              <li>console.error('Error writing to file:', <span class="colorPurple">err</span>);</li>
+                              <li>return;</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                        <li>console.log('File written successfully!');</li>
+                     </ul>
+                  </li>
+                  <li>});</li>
+               </ul>
+            So we are using the <b>writeFile</b> method of the <span class="colorGreen">fs</span> module. We are creating a file called <b>message.txt</b> and we are going to write the text <b>Hello from Node.Js</b> into this newly created file. Incidentally, there is no <b>path</b> associated with the file name, so the file will be created in the CWD <i>(current working directory)</i>.
+            </p>
+            <p>We have added a variable (<span class="colorPurple">err</span>) to our callback function. If there is an error creating or writing to this file, then the callback function will return the error, which we can display via the <span class="colorPurple">err</span> variable. If there is no error and the file is created and written to successfully, then we just log a message indicating a successful process.</p>
+         </article><hr>
 
-            fs.readFile("message.txt", "utf8", (err, data) => {
-  if (err) throw err;
-  console.log(data);
-});
-         </p>
+         <!-- File Read -->
+         <article>
+            <h6>File Read</h6>
+            <p><span class="firstWord">N</span>ow to <b>read</b> from an existing file is essentially the same thing. The basic syntax is:
+               <ul class="sectHighlight">
+                  <li><span class="colorGreen">fs</span>.<span class="colorBlue">readFile</span> ( path/fileName[, <i>options</i>], <span class="colorPurple">callback</span>)</li>
+               </ul>
+            So we're using the <b>readFile</b> method of the <span class="colorGreen">fs</span> module.
+               <ul>
+                  <li>- <b>path/fileName</b>: the path and file name to be read - entered as a "string"</li>
+                  <li>- <b>options</b>: these are optional parameters that can be use for file processing - we'll use this in our next example</li>
+                  <li>- <b>callback</b>: this is the callback function which could return any error encountered when trying to read the file</li>
+               </ul>
+            </p>
+            <p>So, for example:
+               <ul class="sectHighlight">
+                  <li><b>JavaScript</b></li>
+                  <li class="commentStyle">// read from an existing file</li>
+                  <li><span class="colorGreen">fs</span>.<span class="colorBlue">readFile</span> ( "message.txt", "<b>utf8</b>", <span class="colorPurple">(err, data) =></span> {
+                     <ul>
+                        <li>if (<span class="colorPurple">err</span>) {
+                           <ul>
+                              <li>console.error('Error reading from file:', <span class="colorPurple">err</span>);</li>
+                              <li>return;</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                        <li>console.log(data);;</li>
+                     </ul>
+                  </li>
+                  <li>});</li>
+               </ul>
+            Once again, we're using the <b>readFile</b> method of the <span class="colorGreen">fs</span> module. We are "reading" from a file in the CWD <i>(current working directory)</i>, called <b>message.txt</b>.</p>
+            <p><b>Notice</b> here that we are using an <b>optional</b> argument to specify that we want the output to be in <b>utf8</b> format. This is so that we get actual text and not unencoded buffer data. We could have omitted this and converted our buffer data to a string in the output, like so:
+               <ul class="sectHighlight">
+                  <li>console.log(data.<span class="colorPurple">toString()</span>);</li>
+               </ul>
+            And,once again, if there is any error reading the file, we log the error. If not, we log the file contents.
+            </p>
+         </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
