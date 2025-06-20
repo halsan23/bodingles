@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../nodeIndex.html">Back to Node.Js Index</a></p>
+         <hr style="width: 40%;">
+         <h5>Node.Js</h5>
+         <h6>File Read / Write</h6>
+      </section>
+
+      <!-- File Write -->
+      <section id="textWindow4" class="just">
+         <h6>File Write</h6>
+         <p><span class="firstWord">T</span>o use Node.Js to create a new file and write to it, we're going to use the <a href="https://nodejs.org/docs/latest-v18.x/api/fs.html" target="_blank">File System</a> module. So we need to "import" the module into our Js file:
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// import the file system module</li>
+               <li>const <span class="colorGreen">fs</span> = <span class="colorPurple">require</span>("<span class="colorOrange">fs</span>");</li>
+            </ul>
+         </p>
+         <p>Now that we have access to the File System module, we can <a href="https://nodejs.org/docs/latest-v18.x/api/fs.html#fswritefilefile-data-options-callback" target="_blank">write our file</a>. The basic syntax is:
+            <ul>
+               <li><span class="colorGreen">fs</span>.<b>writeFile</b> ( path/fileName, data[, <i>options</i>], <span class="colorPurple">callback</span>)</li>
+            </ul>
+            So we're using the <b>writeFile</b> method of the <span class="colorGreen">fs</span> module.
+            <ul>
+               <li>- <b>path/fileName</b>: the path and file name to be written - entered as a "string"</li>
+               <li>- <b>data</b>: the file data to write - this can be a variable or actual text written as a "string"</li>
+               <li>- <b>options</b>: these are optional parameters that can be use for file processing - we'll use this when we <b>read</b> a file</li>
+               <li>- <b>callback</b>: this is the callback function which could return any error encountered when trying to write the file</li>
+            </ul>
+            So, for example:
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// write the file data</li>
+               <li>fs.writeFile ( "message.txt", "Hello from badDoggy", (err) => {
+                  <ul>
+                     <li>if (err) throw err;</li>
+                     <li>console.log('File written successfully!');</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+
+            fs.readFile("message.txt", "utf8", (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+         </p>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
