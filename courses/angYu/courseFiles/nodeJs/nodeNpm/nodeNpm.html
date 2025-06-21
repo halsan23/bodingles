@@ -38,8 +38,49 @@
             </p>
             <p>Now over time, some programmers have built Js node apps than can be beneficial to other programmers. They put all the necessary files into "packages" than can then be distributed online. In order to utilize these packages we need to use the <b>npm</b> <i>(node package manager)</i>. So, <b>npm</b> is a package manager for the JavaScript programming language maintained by npm, Inc., a subsidiary of GitHub.</p>
             <p>In order to utilize any of these packages, we need to find the package on the <b>npm</b> website, and install it into our node environment. The packages will have all the documentation needed to install and utilize their package. Just go to the <b>npm</b> website and find a package that meets your needs.</p>
-            <p><a href="https://www.npmjs.com/" target="_blank">npm Website</a></p>
-            <p><a href="https://docs.npmjs.com/" target="_blank">npm Documentation</a></p>
+            <ul>
+               <li>- <a href="https://www.npmjs.com/" target="_blank">npm Website</a> -</li>
+               <li>- <a href="https://docs.npmjs.com/" target="_blank">npm Documentation</a> -</li>
+            </ul>
+         </article><hr>
+
+         <!-- Installing a Package -->
+         <article>
+            <h6>Installing a Package</h6>
+            <p><span class="firstWord">W</span>hen we find a package online that we want to install into our project, we must follow some basic steps. I'm going to list the steps here and we'll discuss each step in detail below.</p>
+            <p>All of the procedures will be ran from your Terminal application of choice. If you have <b>Node</b> installed on your system, you can also do this from a Terminal window, within VSCode. In VSCode, [<b>ctrl/sh/`</b>] to open the Terminal window.</p>
+            <p>So open a Terminal window, navigate to the working directory for your project, and:</p>
+            <ol class="sectHighlight">
+               <p><b>Steps to install an npm package</b>
+                  <ul>
+                     <li>- npm init</li>
+                     <li>- install your node package</li>
+                  </ul>
+               </p>
+            </ol>
+            <ol>
+               <li><b>npm init</b>: initializes <b>npm</b> and creates a <b>package.json</b> file which is our configuration file for our project. It will ask you a series of questions that you answer to set up this file.
+                  <ul>
+                     <li style="list-style: none;">- <b>Package Name</b>: give your project a name.</li>
+                     <li style="list-style: none;">- <b>Version Number</b>: press ENTER to accept default.</li>
+                     <li style="list-style: none;">- <b>Description</b>: brief description of your project.</li>
+                     <li style="list-style: none;">- <b>Entry Point</b>: your main Js file for your project, usually index.js.</li>
+                     <li style="list-style: none;">- <b>Test Command</b>: optional.</li>
+                     <li style="list-style: none;">- <b>GIT Repository</b>: optional.</li>
+                     <li style="list-style: none;">- <b>Keywords</b>: optional.</li>
+                     <li style="list-style: none;">- <b>Author</b>: enter author name. <i>(manually edit the package.json file after, to add multiple authors)</i></li>
+                     <li style="list-style: none;">- <b>Licenser</b>: press ENTER to accept default.</li>
+                     <li style="list-style: none;">- <b>type</b>: press ENTER to accept default.</li>
+                     <li style="list-style: none;">- <b>Is this OK?</b>: press ENTER to accept configuration.</li>
+                     <li style="list-style: none;">At this point <b>npm</b> is initialized, and your <b>package.json</b> file is created in your project folder, with all of the configuration settings.</li>
+                  </ul>
+               </li>
+               <li><b>package install</b>: at this point we can go to the <a href="https://www.npmjs.com/" target="_blank">npm Website</a>, find the package we wish to utilize, and install it into our working environment.
+                  <ul>
+                     <li style="list-style: none;">step 1</li>
+                  </ul>
+               </li>
+            </ol>
          </article>
       </section>
 
