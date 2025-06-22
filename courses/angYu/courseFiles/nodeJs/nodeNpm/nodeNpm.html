@@ -12,6 +12,7 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
@@ -34,7 +35,7 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">W</span>e saw with the node <b>read/write</b> conversation how to use native node modules in our code. With that example, we used the <b>file system (fs)</b> module to read and write data in a file. This module and many others are <b>built in to node</b>. Here is the <a href="https://nodejs.org/docs/latest/api/" target="_blank">complete list</a>.
+            <p><span class="firstWord">W</span>e saw with the node <b>read/write</b> conversation how to use <b>native</b> node modules in our code. With that example, we used the <b>file system (fs)</b> module to read and write data in a file. This module and many others are <b>built in to node</b>. Here is the <a href="https://nodejs.org/docs/latest/api/" target="_blank">complete list</a>.
             </p>
             <p>Now over time, some programmers have built Js node apps than can be beneficial to other programmers. They put all the necessary files into "packages" than can then be distributed online. In order to utilize these packages we need to use the <b>npm</b> <i>(node package manager)</i>. So, <b>npm</b> is a package manager for the JavaScript programming language maintained by npm, Inc., a subsidiary of GitHub.</p>
             <p>In order to utilize any of these packages, we need to find the package on the <b>npm</b> website, and install it into our node environment. The packages will have all the documentation needed to install and utilize their package. Just go to the <b>npm</b> website and find a package that meets your needs.</p>
@@ -77,10 +78,37 @@
                </li>
                <li><b>package install</b>: at this point we can go to the <a href="https://www.npmjs.com/" target="_blank">npm Website</a>, find the package we wish to utilize, and install it into our working environment.
                   <ul>
-                     <li style="list-style: none;">step 1</li>
+                     <li style="list-style: none;">- npm install packageName <b>or</b> npm i packageName
+                        <ul>
+                           <li style="list-style: none;"><i>(you can install multiple packages a one time by placing a <b>space</b> between the package names. eg: npm i package1 package2 package3)</i>
+                        </ul>
+                     </li>
+                     <li style="list-style: none;">Once you press ENTER the package will download and install. It creates a <b>node_modules</b> directory that includes all the files for your packages. It also adds information about your packages in the <b>package.json</b> file, about your packages under <b>dependencies</b>.</li>
+                     <li style="list-style: none;">So your <b>package.json</b> file, list's your main Js file that you specified when you ran your <b>npm init</b>, and now set's it as dependent on the package(s) you installed, which is listed in <b>package.json</b> under "dependencies".</li>
+                     <li style="list-style: none;">Once you get the package(s) installed, you'll need to look at their website for instructions on how to implement the package. All packages come with documentation on their website.</li>
                   </ul>
                </li>
             </ol>
+         </article><hr>
+
+         <!-- node ECMAScript Update -->
+         <article>
+            <h6>node ECMAScript Update</h6>
+            <p><span class="firstWord">A</span>fter we install a package, we can follow the documentation to add the package to our JavaScript file. In some cases they call for you to <b>require</b> the package, and sometimes they might have you <b>import</b> the package. So what's the difference here?</p>
+            <p>Well, it essentially has to do with older and newer node versions. Node update to v.12 added "ESM" <i>(echo script modules)</i> support to standardize the way in which node imports packages. Before v.12, node used CJS <i>(common Js)</i>. So this update provides a way to be consistent on both the front-end and the back-end.</p>
+            <p>CJS uses <b>require</b> to get our packages into our Js files, and ESM uses <b>import</b>. Let's say we have an older package and the documentation might show the following to "pull" their package into your JavaScript file.</p>
+            <ul class="sectHighlight">
+               <li>let functionName = <b>require</b>('packageName');</li>
+            </ul>
+            <p>Now this is fine and it will work, but what if you want to update your file to the new ESM standard?</p>
+            <p>First we have to update our <b>package.json</b> file. In this file we need to specify the "type" of standards that we want to use. We can either specify "<b>commonjs</b>" for the older CJS standard,  or "<b>module</b>" for the newer ESM standard. So to change from older CJS to newer ESM we would add the following line to our <b>package.json</b> file:</p>
+            <ul class="sectHighlight">
+               <li>"type": "module",</li>
+            </ul>
+            <p><b>note*</b>: it was suggested by an instructor to add this line <b>after</b> the line [<b>"main": "index.js",</b>] which is where we point our packages to our main Js file. This was added when we ran our <b>npn init</b>. Once we finish modifying <b>package.json</b>, all we have to do is change our <b>require</b> code to:</p>
+            <ul class="sectHighlight">
+               <li><b>import</b> functionName from "packageName";</li>
+            </ul>
          </article>
       </section>
 
