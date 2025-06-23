@@ -1,0 +1,15 @@
+input:focus {
+   background-color: #fffdda;
+   border: none;
+}
+
+.formInput {
+   font-size: 1.2rem;
+   line-height: 2rem;
+}
+
+.output {
+   font-size: 1.1rem;
+   font-weight: 500;
+   line-height: 2rem;
+}
