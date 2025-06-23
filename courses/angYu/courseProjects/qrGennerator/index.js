@@ -27,6 +27,7 @@
 
 
 Use npm qrcode-generator
+https://www.npmjs.com/package/qrcode-generator
 
 To use the qrcode-generator npm package, you can follow these steps. First, you need to install the package using npm. You can do this by running the command npm install qrcode-generator in your project directory.
 
