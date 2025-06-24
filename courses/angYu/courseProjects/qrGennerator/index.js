@@ -1,20 +1,14 @@
-// QR Code Generators
-// ========================================================
 // qrcode-generator
 // https://www.npmjs.com/package/qrcode-generator
-// --------------------------------------------------------
-// qrcode
-// https://www.npmjs.com/package/qrcode
 // ========================================================
-
-
 
 // define the variables
 let outPut = document.querySelector(".output");
 let barcodeOutput = document.querySelector("#placeHolder");
 
+// set options for qr-code generator
 const typeNumber = 4;
-const errorCorrectionLevel = 'L';
+const errorCorrectionLevel = 'M';
 
 
 $(document).on("keypress", "input", function(evt) {
@@ -25,11 +19,11 @@ $(document).on("keypress", "input", function(evt) {
       }
 
       // output
-      outPut.innerHTML = `<p>Barcode for ${inputVal} is:</p>`;
+      outPut.innerHTML = `<p>Barcode for <b>${inputVal}</b> is:</p>`;
       let qr = qrcode(typeNumber, errorCorrectionLevel);
       qr.addData(inputVal);
       qr.make();
-      barcodeOutput.innerHTML = qr.createImgTag();
+      barcodeOutput.innerHTML = qr.createImgTag(4,4);
    }
 });
 
@@ -40,13 +34,4 @@ textInput.addEventListener('click', () => {
    outPut.innerText = "";
    barcodeOutput.innerHTML = "";
    let qr = "";
-});
-
-$(document).keydown(function(evt) {
-   if (evt.which == 8) {
-      textInput.value = "";
-      outPut.innerText = "";
-      barcodeOutput.innerHTML = "";
-      let qr = "";
-   }
 });

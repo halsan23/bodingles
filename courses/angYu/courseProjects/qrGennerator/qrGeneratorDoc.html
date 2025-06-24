@@ -25,7 +25,7 @@
       <section>
          <h4>Complete 2024 Web Development Bootcamp</h4>
          <p>Dr. Angela Yu</p>
-         <p><a href="../../angYuIndex.html">Back to Dr. Yu Index Page</a></p>
+         <p><a href="../../angYuIndex.html">back to Dr. Yu Index Page</a></p>
          <hr style="width: 40%;">
          <h5>QR Code Generator</h5>
          <h6>documentation</h6>
@@ -35,8 +35,83 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">W</span>e're going to build a QR Code Generator app which will allow the user to input a web address and have it converted into a QR Code that can be scanned.
-            </p>
+            <p><span class="firstWord">W</span>e're going to build a QR Code Generator app which will allow the user to input a web address and have it converted into a QR Code that can be scanned. This is a pretty simple project to demonstrate how to find, install, initialize, and manipulate an <b>npm package</b> to achieve a desired result.</p>
+            <p>To achieve our goals we're going to be using a <b>npm package</b> called <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a>. All of the information we need to make this package work for our needs is documented on the package website.</p>
+         </article>
+
+         <!-- Directory Structure -->
+         <article>
+            <h6>Directory Structure</h6>
+            <p><span class="firstWord">T</span>he first thing we need to do is to get our working environment set up. So we're going to set up the following basic directory structure:</p>
+            <ul>
+               <li><img src="/images/folder_16x16.png" alt="Folder image">&nbsp;&nbsp;qrGenerator
+                  <ul>
+                     <li><img src="/images/html-5.png" alt="Folder image">&nbsp;&nbsp;qrGenerator.html</li>
+                     <li><img src="/images/js.png" alt="Folder image">&nbsp;&nbsp;index.js</li>
+                  </ul>
+               </li>
+            </ul>
+            <p>If we look at our <a href="../../courseFiles/nodeJs/nodeNpm/nodeNpm.html" target="_blank">node npm</a> documentation, we can see that the next thing we need to do is to <b>initialize npm</b>, and then install our <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a> package. So in our <b>terminal</b> app of choice, or from the VsCode <b>terminal</b> we initialize npm:</p>
+            <ul class="sectHighlight">
+               <li class="commentStyle">Terminal Command</li>
+               <li><b>npm init</b></li>
+            </ul>
+            <p>This will initialize the <b>node npm</b> environment and add the file:</p>
+            <ul>
+               <li>package.json <span class="commentStyle">// configuration file for our project</span></li>
+            </ul>
+            <p>And now we install our <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a> package. According to the documentation, we run:</p>
+            <ul class="sectHighlight">
+               <li class="commentStyle">Terminal Command</li>
+               <li><b>npm i qrcode-generator</b></li>
+            </ul>
+            <p>This will install our npm package, and add the following folder, and file:</p>
+            <ul>
+               <li>node_modules</li>
+               <li>package-lock.json</li>
+            </ul>
+            <p>So our completed directory structure now looks like this:</p>
+            <ul>
+               <li><img src="/images/folder_16x16.png" alt="Folder image">&nbsp;&nbsp;qrGenerator
+                  <ul>
+                     <li><img src="/images/folder_16x16.png" alt="Folder image">&nbsp;&nbsp;node_modules
+                     <li><img src="/images/html-5.png" alt="Folder image">&nbsp;&nbsp;qrGenerator.html</li>
+                     <li><img src="/images/js.png" alt="Folder image">&nbsp;&nbsp;index.js</li>
+                     <li><img src="/images/json.png" alt="Folder image">&nbsp;&nbsp;package.json</li>
+                     <li><img src="/images/json.png" alt="Folder image">&nbsp;&nbsp;package-lock.json</li>
+                  </ul>
+               </li>
+            </ul>
+            <p>This is our completed working environment. Let's take a look at our <b>package.json</b> file:</p>
+            <ul class="sectHighlight">
+               <li><b>package.json</b></li>
+               <li>{
+                  <ul>
+                     <li>"name": "qr_gen",</li>
+                     <li>"version": "1.0.0",</li>
+                     <li>"description": "QR Code Generator",</li>
+                     <li>"license": "ISC",</li>
+                     <li>"author": "badDoggy",</li>
+                     <li>"type": "commonjs",</li>
+                     <li>"main": "index.js",</li>
+                     <li>"scripts": {
+                        <ul>
+                           <li>"test": "echo \"Error: no test specified\" && exit 1"</li>
+                        </ul>
+                     </li>
+                     <li>},</li>
+                     <li>"dependencies": {
+                        <ul>
+                           <li>"qrcode-generator": "^1.5.0"</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <p>This becomes our initialization file for our npm package. Notice that it set's our "main" Js file as <b>index.js</b> and that this application is "dependant" on the <b>"qrcode-generator": "^1.5.0"</b> package.</p>
+            <p>So our project now has all the basics set up. Our directory structure is set up. NPM is initialized. And our <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a> package is installed and ready to go. Next we start writing the code to put it all together and make it work.</p>
          </article>
       </section>
 
