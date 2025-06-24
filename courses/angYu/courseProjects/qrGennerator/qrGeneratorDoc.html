@@ -37,7 +37,7 @@
             <h6>Intro</h6>
             <p><span class="firstWord">W</span>e're going to build a QR Code Generator app which will allow the user to input a web address and have it converted into a QR Code that can be scanned. This is a pretty simple project to demonstrate how to find, install, initialize, and manipulate an <b>npm package</b> to achieve a desired result.</p>
             <p>To achieve our goals we're going to be using a <b>npm package</b> called <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a>. All of the information we need to make this package work for our needs is documented on the package website.</p>
-         </article>
+         </article><hr>
 
          <!-- Directory Structure -->
          <article>
@@ -51,6 +51,8 @@
                   </ul>
                </li>
             </ul>
+            <hr>
+            <h6>Install our Package</h6>
             <p>If we look at our <a href="../../courseFiles/nodeJs/nodeNpm/nodeNpm.html" target="_blank">node npm</a> documentation, we can see that the next thing we need to do is to <b>initialize npm</b>, and then install our <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a> package. So in our <b>terminal</b> app of choice, or from the VsCode <b>terminal</b> we initialize npm:</p>
             <ul class="sectHighlight">
                <li class="commentStyle">Terminal Command</li>
@@ -58,17 +60,17 @@
             </ul>
             <p>This will initialize the <b>node npm</b> environment and add the file:</p>
             <ul>
-               <li>package.json <span class="commentStyle">// configuration file for our project</span></li>
+               <li><img src="/images/json.png" alt="Folder image">&nbsp;&nbsp;package.json</li>
             </ul>
-            <p>And now we install our <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a> package. According to the documentation, we run:</p>
+            <p>This is the npm configuration file for our project. Next we install our <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a> package. According to the documentation, we run:</p>
             <ul class="sectHighlight">
                <li class="commentStyle">Terminal Command</li>
                <li><b>npm i qrcode-generator</b></li>
             </ul>
             <p>This will install our npm package, and add the following folder, and file:</p>
             <ul>
-               <li>node_modules</li>
-               <li>package-lock.json</li>
+               <li><img src="/images/folder_16x16.png" alt="Folder image">&nbsp;&nbsp;node_modules</li>
+               <li><img src="/images/json.png" alt="Folder image">&nbsp;&nbsp;package-lock.json</li>
             </ul>
             <p>So our completed directory structure now looks like this:</p>
             <ul>
@@ -84,6 +86,7 @@
             </ul>
             <p>This is our completed working environment. Let's take a look at our <b>package.json</b> file:</p>
             <ul class="sectHighlight">
+               <li class="commentStyle">npm config file</li>
                <li><b>package.json</b></li>
                <li>{
                   <ul>
@@ -93,14 +96,14 @@
                      <li>"license": "ISC",</li>
                      <li>"author": "badDoggy",</li>
                      <li>"type": "commonjs",</li>
-                     <li>"main": "index.js",</li>
+                     <li><b>"main": "index.js"</b>,</li>
                      <li>"scripts": {
                         <ul>
                            <li>"test": "echo \"Error: no test specified\" && exit 1"</li>
                         </ul>
                      </li>
                      <li>},</li>
-                     <li>"dependencies": {
+                     <li><b>"dependencies"</b>: {
                         <ul>
                            <li>"qrcode-generator": "^1.5.0"</li>
                         </ul>
@@ -112,6 +115,40 @@
             </ul>
             <p>This becomes our initialization file for our npm package. Notice that it set's our "main" Js file as <b>index.js</b> and that this application is "dependant" on the <b>"qrcode-generator": "^1.5.0"</b> package.</p>
             <p>So our project now has all the basics set up. Our directory structure is set up. NPM is initialized. And our <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a> package is installed and ready to go. Next we start writing the code to put it all together and make it work.</p>
+         </article><hr>
+
+         <!-- html file -->
+         <article>
+            <h6>The HTML</h6>
+            <p><span class="firstWord">T</span>he html is pretty simple here. We have a text input to allow the user to input a web address for conversion to a QR Code. We have a &lt;p> element to display some text output. And we have a &lt;div> placeholder to display the returned QR Code. Here is the code:</p>
+            <ul class="sectHighlight">
+               <li><b>HTML</b></li>
+               <li class="commentStyle">// main container</li>
+               <li>&lt;div class="<span class="colorGreen">container</span>">
+                  <ul>
+                     <li class="commentStyle">// form input</li>
+                     <li>&lt;div class="<span class="colorGreen">formInput</span>">
+                        <ul>
+                           <li>&lt;label for="<span class="colorOrange">textInput</span>">Please enter a web address:&lt;/label></li>
+                           <li>&lt;input id="<span class="colorOrange">textInput</span>" type="text" placeholder="www.bodingles.com"></li>
+                        </ul>
+                     </li>
+                     <li>&lt;/div></li>
+                     <li class="commentStyle">// text output</li>
+                     <li>&lt;div class="<span class="colorGreen">output</span>">&lt;/div></li>
+                     <li class="commentStyle">// QR code output</li>
+                     <li>&lt;div id="<span class="colorOrange">placeHolder</span>">&lt;/div></li>
+                  </ul>
+               <li>&lt;/div></li>
+            </ul>
+            <p>Once the user enters a web address into the text input field, the <b>text output</b> &lt;div> displays the output that the QR Code is generated for, and the <b>placeHolder</b> &lt;div> displays the actual QR Code output. This is all controlled and processed in our JavaScript file.</p>
+            <p>One last thing to address here on the HTML side is that we have to include a &lt;script> element to reference our <b>index.js</b> file. Also, according the the <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">package documentation</a>, we need to add another &lt;script> element, so we're going to add the following two lines of code to our HTML file.</p>
+            <ul class="sectHighlight">
+               <li><b>HTML</b></li>
+               <li>&lt;script src="./node_modules/qrcode-generator/qrcode.js" type="text/javascript">&lt;/script></li>
+               <li>&lt;script src="./index.js">&lt;/script></li>
+            </ul>
+            <p><b>Remember</b>, these go at the very bottom of the HTML file, right before the closing &lt;body> element. And this will conclude our HTML code process.</p>
          </article>
       </section>
 
