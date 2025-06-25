@@ -35,11 +35,7 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">W</span>e're going to build a QR Code Generator app which will allow the user to input a web address and have it converted into a QR Code that can be scanned. This is a pretty simple project to demonstrate how to find, install, initialize, and manipulate an <b>npm package</b> to achieve a desired result. The finnal code and all files related to this project can be <a href="">downloaded here</a>.</p>
-            <p>Here is what the Input will look like:</p>
-            <img class="displayImg" src="images/input.png" alt="Input Image">
-            <p>and here is what the Output will look like:</p>
-            <img class="displayImg" src="images/output.png" alt="Output Image">
+            <p><span class="firstWord">W</span>e're going to build a QR Code Generator app which will allow the user to input a web address and have it converted into a QR Code that can be scanned. This is a pretty simple project to demonstrate how to find, install, initialize, and manipulate an <b>npm package</b> to achieve a desired result. The finnal code and all files related to this project can be <a href="qrGennerator.zip">downloaded here</a>.</p>
             <p>To achieve our goals we're going to be using a <b>npm package</b> called <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a>. All of the information we need to make this package work for our needs is documented on the package website.</p>
          </article><hr>
 
@@ -66,7 +62,7 @@
             <ul>
                <li><img src="/images/json.png" alt="Folder image">&nbsp;&nbsp;package.json</li>
             </ul>
-            <p>This is the npm configuration file for our project. Next we install our <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a> package. According to the documentation, we run:</p>
+            <p>This file becomes the npm configuration file for our project. Next we install our <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a> package. According to the documentation, we run:</p>
             <ul class="sectHighlight">
                <li class="commentStyle">Terminal Command</li>
                <li><b>npm i qrcode-generator</b></li>
@@ -76,7 +72,8 @@
                <li><img src="/images/folder_16x16.png" alt="Folder image">&nbsp;&nbsp;node_modules</li>
                <li><img src="/images/json.png" alt="Folder image">&nbsp;&nbsp;package-lock.json</li>
             </ul>
-            <p>So our completed directory structure now looks like this:</p>
+            <p>The <b>node_modules</b> directory is created during any npm package installation. It's created as a common place to hold all of the needed package files. The <b>package-lock.json</b> file contains information for any packages we have installed.</p>
+            <p>At this point, our updated directory structure now looks like this:</p>
             <ul>
                <li><img src="/images/folder_16x16.png" alt="Folder image">&nbsp;&nbsp;qrGenerator
                   <ul>
@@ -88,7 +85,7 @@
                   </ul>
                </li>
             </ul>
-            <p>This is our completed working environment. Let's take a look at our <b>package.json</b> file:</p>
+            <p>This is our completed working environment. The <b>node_modules</b> directory contains all of the files and directories that are necessary for our npm package. Let's take a look at our <b>package.json</b> file:</p>
             <ul class="sectHighlight">
                <li class="commentStyle">npm config file</li>
                <li><b>package.json</b></li>
@@ -124,7 +121,7 @@
          <!-- HTML file -->
          <article>
             <h6>The HTML</h6>
-            <p><span class="firstWord">T</span>he html is pretty simple here. We have a text input to allow the user to input a web address for conversion to a QR Code. We have a &lt;p> element to display some text output. And we have a &lt;div> placeholder to display the returned QR Code. Here is the code:</p>
+            <p><span class="firstWord">T</span>he html is pretty simple here. We have a text input to allow the user to input a web address for conversion to a QR Code. We have a &lt;div> element to display some text output. And we have a &lt;div> placeholder to display the returned QR Code. Here is the code:</p>
             <ul class="sectHighlight">
                <li><b>HTML</b></li>
                <li class="commentStyle">// main container</li>
@@ -145,7 +142,11 @@
                   </ul>
                <li>&lt;/div></li>
             </ul>
-            <p>Once the user enters a web address into the text input field, the <b>text output</b> &lt;div> displays the output that the QR Code is generated for, and the <b>placeHolder</b> &lt;div> displays the actual QR Code output. This is all controlled and processed in our JavaScript file.</p>
+            <p>Once the user enters a web address into the text input field, the <span class="colorBlue">output</span> &lt;div> displays the output that the QR Code is generated for, and the <span class="colorOrange">placeHolder</span> &lt;div> displays the actual QR Code output. This is all controlled and processed in our JavaScript file.</p>
+            <p>Here is what the Input will look like:</p>
+            <img class="displayImg" src="images/input.png" alt="Input Image">
+            <p>and here is what the Output will look like:</p>
+            <img class="displayImg" src="images/output.png" alt="Output Image">
             <p>One last thing to address here on the HTML side is that we have to include a &lt;script> element to reference our <b>index.js</b> file. Also, according the the <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">package documentation</a>, we need to add another &lt;script> element, so we're going to add the following two lines of code to our HTML file.</p>
             <ul class="sectHighlight">
                <li><b>HTML</b></li>
@@ -158,7 +159,7 @@
          <!-- CSS file -->
          <article>
             <h6>The CSS</h6>
-            <p><span class="firstWord">A</span>ll the CSS is doing in this case is some very basic font and color styling, so we're not going to cover it here. But it will be included in the <a href="">final code package</a>.</p>
+            <p><span class="firstWord">A</span>ll the CSS is doing in this case is some very basic font and color styling, so we're not going to cover it here. But it will be included in the <a href="qrGennerator.zip">final code package</a>.</p>
          </article><hr>
 
          <!-- JavaScript file -->
@@ -213,7 +214,7 @@
                <li>});</li>
             </ul>
             <p>So  we're using JavaScript here with a little jQuery. We've got a <b>keypress</b> event to submit the form input for processing. And we've got a <b>click</b> event to reset the form and start over.</p>
-            <p>We've set a default address as www.bodingles.com so that if the user just presses ENTER without changing the default <i>(displayed with the text input "placeholder")</i>, we still have some data to process for the output. Otherwise, when the user inputs a web address and presses ENTER, it submits the data for processing. If they "click again inside the text input, the whole thing resets to accept a new input.</p>
+            <p>We've set a default address as www.bodingles.com so that if the user just presses ENTER without changing the default <i>(displayed with the text input "placeholder" attribute)</i>, we still have some data to process for the output. Otherwise, when the user inputs a web address and presses ENTER, it submits the data for processing. If they "click again inside the text input, the whole thing resets to accept a new input.</p>
             <p>Let's go ahead and break this code down. To start, we're going to initialize our variables:</p>
             <ul>
                <li><span class="colorGreen">outPut</span>: is for the text display the confirms what the QR Code if representing.</li>
@@ -259,8 +260,9 @@
                   </ul>
                </li>
             </ul>
-            <p>And now, all that is left is to <b>reset</b> the process for new input, if the user <b>clicks</b> inside of our text input. We do this with the <b>click</b> event listener on the <b>textInput</b>, which is the actual form text input.</p>
+            <p>And now, all that is left is to code the <b>reset</b> process for new input, if the user <b>clicks</b> inside of our text input. We do this with the <b>click</b> event listener on the <b>textInput</b>, which is the actual form text input. All this is doing is setting the relevant variables to <b>""</b>, an empty string. This reset's everything leaving the cursor in the text input field waiting for another user input.</p>
             <p>Because of time constraints on this lesson, we have not incorporated any error checking to ensure that only a valid web address is entered. We will revisit this and update the code when time permits.</p>
+            <p>The complete file package can be <a href="qrGennerator.zip">downloaded here</a>.</p>
          </article>
       </section>
 
