@@ -4,26 +4,26 @@
 
 // define the variables
 let outPut = document.querySelector(".output");
-let barcodeOutput = document.querySelector("#placeHolder");
+let qrCodeOutput = document.querySelector("#placeHolder");
 
 // set options for qr-code generator
 const typeNumber = 4;
 const errorCorrectionLevel = 'M';
 
-
+// add keypress event for ENTER key
 $(document).on("keypress", "input", function(evt) {
    if (evt.which == 13) {
       let inputVal = $(this).val();
-      if (inputVal === "") {
+      if ($(this).val() === "") {
          inputVal = "www.bodingles.com";
       }
 
-      // output
-      outPut.innerHTML = `<p>Barcode for <b>${inputVal}</b> is:</p>`;
+      // process the output
+      outPut.innerHTML = `<p>QR Code for <b>${inputVal}</b> is:</p>`;
       let qr = qrcode(typeNumber, errorCorrectionLevel);
       qr.addData(inputVal);
       qr.make();
-      barcodeOutput.innerHTML = qr.createImgTag(4,4);
+      qrCodeOutput.innerHTML = qr.createImgTag(4,4);
    }
 });
 
@@ -32,6 +32,6 @@ $(document).on("keypress", "input", function(evt) {
 textInput.addEventListener('click', () => {
    textInput.value = "";
    outPut.innerText = "";
-   barcodeOutput.innerHTML = "";
-   let qr = "";
+   qrCodeOutput.innerHTML = "";
+   qr = "";
 });

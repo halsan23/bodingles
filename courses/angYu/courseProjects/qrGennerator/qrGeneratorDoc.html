@@ -35,7 +35,11 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">W</span>e're going to build a QR Code Generator app which will allow the user to input a web address and have it converted into a QR Code that can be scanned. This is a pretty simple project to demonstrate how to find, install, initialize, and manipulate an <b>npm package</b> to achieve a desired result.</p>
+            <p><span class="firstWord">W</span>e're going to build a QR Code Generator app which will allow the user to input a web address and have it converted into a QR Code that can be scanned. This is a pretty simple project to demonstrate how to find, install, initialize, and manipulate an <b>npm package</b> to achieve a desired result. The finnal code and all files related to this project can be <a href="">downloaded here</a>.</p>
+            <p>Here is what the Input will look like:</p>
+            <img class="displayImg" src="images/input.png" alt="Input Image">
+            <p>and here is what the Output will look like:</p>
+            <img class="displayImg" src="images/output.png" alt="Output Image">
             <p>To achieve our goals we're going to be using a <b>npm package</b> called <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a>. All of the information we need to make this package work for our needs is documented on the package website.</p>
          </article><hr>
 
@@ -117,17 +121,17 @@
             <p>So our project now has all the basics set up. Our directory structure is set up. NPM is initialized. And our <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator</a> package is installed and ready to go. Next we start writing the code to put it all together and make it work.</p>
          </article><hr>
 
-         <!-- html file -->
+         <!-- HTML file -->
          <article>
             <h6>The HTML</h6>
             <p><span class="firstWord">T</span>he html is pretty simple here. We have a text input to allow the user to input a web address for conversion to a QR Code. We have a &lt;p> element to display some text output. And we have a &lt;div> placeholder to display the returned QR Code. Here is the code:</p>
             <ul class="sectHighlight">
                <li><b>HTML</b></li>
                <li class="commentStyle">// main container</li>
-               <li>&lt;div class="<span class="colorGreen">container</span>">
+               <li>&lt;div class="<span class="colorBlue">container</span>">
                   <ul>
                      <li class="commentStyle">// form input</li>
-                     <li>&lt;div class="<span class="colorGreen">formInput</span>">
+                     <li>&lt;div class="<span class="colorBlue">formInput</span>">
                         <ul>
                            <li>&lt;label for="<span class="colorOrange">textInput</span>">Please enter a web address:&lt;/label></li>
                            <li>&lt;input id="<span class="colorOrange">textInput</span>" type="text" placeholder="www.bodingles.com"></li>
@@ -135,7 +139,7 @@
                      </li>
                      <li>&lt;/div></li>
                      <li class="commentStyle">// text output</li>
-                     <li>&lt;div class="<span class="colorGreen">output</span>">&lt;/div></li>
+                     <li>&lt;div class="<span class="colorBlue">output</span>">&lt;/div></li>
                      <li class="commentStyle">// QR code output</li>
                      <li>&lt;div id="<span class="colorOrange">placeHolder</span>">&lt;/div></li>
                   </ul>
@@ -149,6 +153,114 @@
                <li>&lt;script src="./index.js">&lt;/script></li>
             </ul>
             <p><b>Remember</b>, these go at the very bottom of the HTML file, right before the closing &lt;body> element. And this will conclude our HTML code process.</p>
+         </article><hr>
+
+         <!-- CSS file -->
+         <article>
+            <h6>The CSS</h6>
+            <p><span class="firstWord">A</span>ll the CSS is doing in this case is some very basic font and color styling, so we're not going to cover it here. But it will be included in the <a href="">final code package</a>.</p>
+         </article><hr>
+
+         <!-- JavaScript file -->
+         <article>
+            <h6>The JavaScript</h6>
+            <p><span class="firstWord">A</span>nd now for the fun stuff. So the JavaScript is going to take the input from a form, and convert it into a scannable QR Code. It then displays a message confirming what the QR Code is for. And finally, displays the QR Code output. We're going to list the code and then break it all down.</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// define the variables</li>
+               <li><span class="colorPurple">let</span> <span class="colorGreen">outPut</span> = document.querySelector("<b>.output</b>");</li>
+               <li><span class="colorPurple">let</span> <span class="colorGreen">QR CodeOutput</span> = document.querySelector("<b>#placeHolder</b>");</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// set options for qr-code generator</li>
+               <li>const <span class="colorGreen">typeNumber</span> = <b>4</b>;</li>
+               <li>const <span class="colorGreen">errorCorrectionLevel</span> = '<b>M</b>';</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// add keypress event for ENTER key</li>
+               <li>$(document).<b>on</b>("<span class="colorOrange">keypress</span>", "input", <span class="colorPurple">function(</span>evt<span class="colorPurple">)</span> {
+                  <ul>
+                     <li>if (evt.<span class="colorRed">which</span> == <b>13</b>) {
+                        <ul>
+                           <li><span class="colorPurple">let</span> <span class="colorGreen">inputVal</span> = $(<span class="colorRed">this</span>).<b>val()</b>;</li>
+                           <li>if (<span class="colorGreen">inputVal</span> === <b>""</b>>) {
+                              <ul>
+                                 <li><span class="colorGreen">inputVal</span> = "www.bodingles.com";</li>
+                              </ul>
+                           </li>
+                           <li>}</li>
+                           <li>&nbsp;</li>
+                           <li class="commentStyle">// process the output</li>
+                           <li><span class="colorGreen">outPut</span>.innerHTML = `&lt;p>QR Code for &lt;b>${<span class="colorGreen">inputVal</span>}&lt;/b> is:&lt;/p>`;</li>
+                           <li><span class="colorPurple">let</span> <span class="colorGreen">qr</span> = <span class="colorBlue">qrcode</span>( <span class="colorGreen">typeNumber</span>, <span class="colorGreen">errorCorrectionLevel</span> );</li>
+                           <li><span class="colorGreen">qr</span>.<b>addData</b>( <span class="colorGreen">inputVal</span> );</li>
+                           <li><span class="colorGreen">qr</span>.<span class="colorPurple">make()</span>;</li>
+                           <li><span class="colorGreen">barcodeOutput</span>.innerHTML = <span class="colorGreen">qr</span>.<span class="colorPurple">createImgTag(</span> <b>4</b>, <b>4</b> <span class="colorPurple">)</span>;</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>});</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// reset for new input</li>
+               <li><b>textInput</b>.addEventListener('<span class="colorOrange">click</span>', () => {
+                  <ul>
+                     <li><span class="colorGreen">textInput</span>.value = <b>""</b>;</li>
+                     <li><span class="colorGreen">outPut</span>.innerText = <b>""</b>;</li>
+                     <li><span class="colorGreen">barcodeOutput</span>.innerHTML = <b>""</b>;</li>
+                     <li><span class="colorGreen">qr</span> = <b>""</b>;</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <p>So  we're using JavaScript here with a little jQuery. We've got a <b>keypress</b> event to submit the form input for processing. And we've got a <b>click</b> event to reset the form and start over.</p>
+            <p>We've set a default address as www.bodingles.com so that if the user just presses ENTER without changing the default <i>(displayed with the text input "placeholder")</i>, we still have some data to process for the output. Otherwise, when the user inputs a web address and presses ENTER, it submits the data for processing. If they "click again inside the text input, the whole thing resets to accept a new input.</p>
+            <p>Let's go ahead and break this code down. To start, we're going to initialize our variables:</p>
+            <ul>
+               <li><span class="colorGreen">outPut</span>: is for the text display the confirms what the QR Code if representing.</li>
+               <li><span class="colorGreen">barcodeOutput</span>: is the actual QR Code output.</li>
+            </ul>
+            <p>The next two variables are for the code generator:</p>
+            <ul>
+               <li><span class="colorGreen">typeNumber</span>: is setting the barcode type to <b>4</b>.</li>
+               <li><span class="colorGreen">errorCorrectionLevel</span>: is setting the error correction level for the QR Code to Medium.</li>
+            </ul>
+            <p>The next step is to process the <b>keypress</b> event. Notice the use of <b>jQuery</b> here, and also that we are "trapping" for keypress <b>13</b>, which is the ENTER key. So the code will ignore any keypress other that the ENTER key.</p>
+            <p>Once it detects that the ENTER key was pressed, it checks to see if an "empty string" was passed in. This would mean that the user did not enter in a value, so the default is assigned to the variable. So <span class="colorGreen">inputVal</span> will either represent the user input, or "www.bodingles.com", which is the default.</p>
+            <p>At this point we have our data for processing (<span class="colorGreen">inputVal</span>), so we run the following:</p>
+            <ul>
+               <li><span class="colorGreen">outPut</span>.innerHTML
+                  <ul>
+                     <li>- displays a text output to confirm what the QR Code was generated for.</li>
+                  </ul>
+               </li>
+               <li><span class="colorPurple">let</span> <span class="colorGreen">qr</span> = <span class="colorBlue">qrcode</span>( <span class="colorGreen">typeNumber</span>, <span class="colorGreen">errorCorrectionLevel</span> );
+                  <ul>
+                     <li>- this code initializes a NEW <span class="colorGreen">qr</span> object - the variables were declared above when we defined all of our variables.</li>
+                  </ul>
+               </li>
+               <li><span class="colorGreen">qr</span>.<b>addData</b>( <span class="colorGreen">inputVal</span> );
+                  <ul>
+                     <li>- this is adding our user input data to the <span class="colorGreen">qr</span> object</li>
+                  </ul>
+               </li>
+               <li><span class="colorGreen">qr</span>.<span class="colorPurple">make()</span>;
+                  <ul>
+                     <li>- this is using our npm package to actually generate the QR Code.</li>
+                  </ul>
+               </li>
+               <li><span class="colorGreen">barcodeOutput</span>.innerHTML = <span class="colorGreen">qr</span>.<span class="colorPurple">createImgTag(</span> <b>4</b>, <b>4</b> <span class="colorPurple">)</span>;
+                  <ul>
+                     <li>- this is outputting the barcode image. Note the variables passed into the <span class="colorPurple">createImgTag()</span> function. According to the <a href="https://www.npmjs.com/package/qrcode-generator" target="_blank">qrcode-generator documentation</a>:
+                        <ul>
+                           <li>~ the first number is defining the "cell size" <i>(the size of the QR Code image)</i>.</li>
+                           <li>~ the second number is defining the "margin size" around the QR Code image.</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            <p>And now, all that is left is to <b>reset</b> the process for new input, if the user <b>clicks</b> inside of our text input. We do this with the <b>click</b> event listener on the <b>textInput</b>, which is the actual form text input.</p>
+            <p>Because of time constraints on this lesson, we have not incorporated any error checking to ensure that only a valid web address is entered. We will revisit this and update the code when time permits.</p>
          </article>
       </section>
 

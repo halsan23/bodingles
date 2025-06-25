@@ -3,3 +3,8 @@ li img {
    height: 20px;
    vertical-align: middle;
 }
+
+.displayImg {
+   width: 500px;
+   height: auto;
+}
