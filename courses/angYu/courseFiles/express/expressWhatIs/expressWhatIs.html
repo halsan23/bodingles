@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../expressIndex.html">Back to Express Index</a></p>
+         <hr style="width: 40%;">
+         <h5>Express</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!--What is Express -->
+         <article>
+            <h6>What is Express</h6>
+            <p><span class="firstWord">E</span>xpress is a minimal and flexible web application framework for Node.js. It is designed for building web applications and APIs. It provides a robust set of features for creating dynamic web applications and APIs, making it one of the most popular frameworks used in the development of web applications on the server side. Express simplifies routing and middleware management, and it supports various template engines for dynamic content.</p>
+            <p> It is often used to build RESTful APIs. Express is unopinionated, meaning it does not force developers to follow a particular structure or design pattern, and it offers just the essentials while allowing developers to decide how to structure their application.</p>
+            <p> It is also known for its speed and efficiency due to its minimalistic nature, making it a great choice for applications that need high-performance and low overhead. Express is used by several notable companies, including Fox Sports, PayPal, Uber, and IBM.</p>
+            <p>In simple terms, Express acts as a layer between the core Node.js server and our application’s logic, helping manage routes, requests, and responses efficiently. Whether we’re building a single-page app, a RESTful API, or a full-stack web application, Express.js makes backend development easier and more organized.</p>
+         </article><hr>
+
+         <!--key features -->
+         <article>
+            <h6>Key Features</h6>
+            <p><span class="firstWord">E</span>xpress.js comes packed with features that streamline web application development. Here are some of its standout capabilities:</p>
+            <ul class="bullets">
+               <li><b>Minimal and Flexible</b>: Express provides just the essentials to build web apps, allowing us to structure our application as preferred. We can add only the features we need using middleware and third-party packages.</li>
+               <li><b>Powerful Routing System</b>: Express’s robust routing mechanism lets us define URL patterns and HTTP methods (like GET, POST, PUT, DELETE) cleanly and organized. This is especially useful for building RESTful APIs.</li>
+               <li><b>Middleware Support</b>: Middleware functions in Express are like building blocks for the app. They can execute code, modify requests and responses, and end request-response cycles. This makes adding authentication, error handling, logging, and more easy.</li>
+               <li><b>Integration with Templating Engines</b>: Express supports multiple templating engines, such as Pug, EJS, and Handlebars, allowing developers to render dynamic HTML pages directly from the server.</li>
+               <li><b>Built-in Error Handling</b>: Express provides default error-handling mechanisms and lets us customize them to improve our application’s reliability and debugging experience.</li>
+               <li><b>Compatibility with REST and CRUD Operations</b>: Express simplifies the creation of RESTful services by mapping HTTP methods to CRUD operations with clean syntax and organized route handling.</li>
+               <li><b>Active Community and Rich Ecosystem</b>: Backed by a large and active community, Express has a vast ecosystem of plugins and middleware, making extending and customizing functionality easy.</li>
+            </ul>
+         </article><hr>
+
+         <!--how express works -->
+         <article>
+            <h6>How Express Works</h6>
+            <p><span class="firstWord">E</span>xpress is a lightweight layer that simplifies how our app listens for requests, processes them, and sends back responses. Here’s a simplified overview of how Express processes a request:</p>
+            <ol>
+               <li><b>Server Receives an HTTP Request</b>: When a client (like a browser or mobile app) sends a request to our server—for example, visiting a URL or submitting a form, Express listens for that request using the appropriate HTTP method (GET, POST, etc.).</li>
+               <li><b>Request Matches a Route</b>: Express checks the incoming request against the routes defined in our code. Each route corresponds to a specific path and method. If it finds a match, it continues to process the request.</li>
+               <li><b>Middleware Functions Kick In</b>: Before the response is sent, the request passes through a series of middleware functions. These can perform tasks like:
+                  <ul class="bullets">
+                     <li>Logging the request</li>
+                     <li>Checking user authentication</li>
+                     <li>Parsing request data (like <b>JSON</b> or form inputs)</li>
+                  </ul>
+               Middleware can either:
+                  <ul class="bullets">
+                     <li>End the request-response cycle (e.g., send a response),</li>
+                     <li>Or call next() to pass control to the next middleware.</li>
+                  </ul>
+               </li>
+               <li><b>Response is Sent to the Client</b>: Once the middleware stack has completed its job, our application sends a response to the client. This response could be HTML, JSON, a redirect, or even an error message.</li>
+               <li><b>Optional Error Handling</b>: If something goes wrong, Express allows us to handle errors using custom error-handling middleware, making debugging easier and more controlled.</li>
+            </ol>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
