@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../expressIndex.html">Back to Express Index</a></p>
+         <hr style="width: 40%;">
+         <h5>Express</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Creating an Express Server -->
+         <article>
+            <h6>Express Server</h6>
+            <p><span class="firstWord">S</span>o for the most part, we're going to use Express on a server to process request(s) from a client computer. This means we need a JavaScript file running on the server, (eg. index.js), with <b>Express</b> installed through the npm process. So how do actually create this <b>Express</b> server setup? Good question.</p>
+            <p>The process has six (6) basic steps:</p>
+            <ol>
+               <li>Create a working directory (CWD)</li>
+               <li>Create an <b>index/js</b> file</li>
+               <li>Initialize our npm structure  (<b>npm init</b>)</li>
+               <li>Install the Express package (<b>npm i express</b>)</li>
+               <li>Write the <b>Server</b> application code in index.js<br><br>
+                  <ul class="noBullets sectHighlight">
+                     <li><b>JavaScript</b></li>
+                     <li class="commentStyle">// import express and set a variable for default express functionality</li>
+                     <li><span class="colorPurple">import</span> <span class="colorRed">express</span> from '<span class="colorGreen">express</span>';</li>
+                     <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+                     <li>const <span class="colorGreen">port</span> = 3000;</li>
+                     <li>&nbsp;</li>
+                     <li class="commentStyle">// setup listening port</li>
+                     <li class="commentStyle">// when we run this file, it starts the server</li>
+                     <li>app.<span class="colorRed">listen</span>( <span class="colorGreen">port</span>, () => {
+                        <ul>
+                           <li>console.log(`Server running on port: ${<span class="colorGreen">port</span>}`);</li>
+                        </ul>
+                     </li>
+                     <li>});</li>
+                  </ul>
+                  <br>
+               </li>
+               <li>Start the server (run <b>node index.js</b>)</li>
+            </ol>
+            <p>The server should now be running and "listening" on port: 3000, for request(s) from a client. <b>Notice</b> that we are using <span class="colorPurple">import</span> to import <b>express</b> into our server file. So <b>make sure</b> your package.json file includes:
+               <ul class="sectHighlight">
+                  <li>"type": "<b>module</b>",</li>
+               </ul>
+            to allow for the use of the <span class="colorPurple">import</span> statement.
+            </p>
+            <p>Now that our server is up and running, how do we actually access the server output, in our browser? Well, simply enter <b>localhost:3000</b> into the browser address bar. Our locaL server is the "localhost" and we designated it to run on port 3000.</p>
+            <p>And while we're talking about ports, if you open a <b>Terminal</b>, and enter the command:
+               <ul class="sectHighlight">
+                  <li>netstat -ano | findstr "LISTENING"</li>
+               </ul>
+            you will actually get a list of all of the ports that are open and "Listening" on your computer.
+            </p>
+            <p>And finally, now that our server is up and running, how do we shut it down?
+               <ul>
+                  <li>press <b>ctrl - c</b></li>
+               </ul>
+            and the <b>index.js</b> file that we are running, will terminate.
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
