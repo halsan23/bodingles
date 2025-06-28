@@ -300,6 +300,16 @@ p {
    background-color: #fcffd6;
 }
 
+.bullets li {
+   list-style: disc;
+   margin: 10px auto;
+}
+
+.noBullets li {
+   list-style: none;
+   margin: 10px auto;
+}
+
 /* Set up some Color Highlights */
 .colorHighlight {
    color: #227441;

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../expressIndex.html">Back to Express Index</a></p>
+         <hr style="width: 40%;">
+         <h5>HTTP Request(s)</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Introduction</h6>
+            <p><span class="firstWord">N</span>ow that we have our server up and running, how do we actually send and receive data, to and from the server? Simple. We're going to use <b>HTTP</b> request(s). Ok, great. What are those?</p>
+            <p><b>HTTP</b> stands for Hypertext Transfer Protocol (HTTP). The key word here is <b>Transfer</b>, which is what we want to do. This "transfer" protocol is already built into the entire web structure.</p>
+            <p><b>HTTP</b> is the foundation of the World Wide Web, and is used to load webpages using hypertext links. HTTP is an application layer protocol designed to transfer information between networked devices and runs on top of other layers of the network protocol stack. A typical flow over HTTP involves a client machine making a request to a server, which then sends a response message, back to the client.</p>
+            <p>There are several different "request" types which we will discuss below:</p>
+            <ul class="bullets">
+               <li><a href="#get">GET</a></li>
+               <li><a href="#post">POST</a></li>
+               <li><a href="#put">PUT</a></li>
+               <li><a href="#patch">PATCH</a></li>
+               <li><a href="#delete">DELETE</a></li>
+            </ul>
+            <p>If you remember from our discussion on creating a <a href="../expressServer/expressServer.html" target="_blank">server setup</a>, you'll see that so far, our server code looks like this:</p>
+            <ul class="noBullets sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// import express and set a variable for default express functionality</li>
+               <li><span class="colorPurple">import</span> <span class="colorRed">express</span> from '<span class="colorGreen">express</span>';</li>
+               <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+               <li>const <span class="colorGreen">port</span> = 3000;</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// setup listening port</li>
+               <li class="commentStyle">// when we run this file, it starts the server</li>
+               <li>app.<span class="colorRed">listen</span>( <span class="colorGreen">port</span>, () => {
+                  <ul>
+                     <li>console.log(`Server running on port: ${<span class="colorGreen">port</span>}`);</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <p>And when we run <b>node index.js</b> from the terminal, our server would be up and running on port: 3000. At this point it has no functionality, it's only "<b>listening</b>" for request(s).</p>
+         </article><hr>
+
+         <!-- get request -->
+          <article>
+            <h6 id="get">GET Request</h6>
+            <p><span class="firstWord">W</span>ith GET, you are <b>getting</b> a resource <b>from</b> a server.</p>
+            <p>The HTTP GET method is used to retrieve information from a given server using a given URI. Requests using GET should only retrieve data and should have no other effect on the data. The GET method is a read-only request, meaning that it does not modify the server's state or the requested resource.</p>
+            <p>In summary, the HTTP GET method is used to request data from a specified resource, and it is designed for querying, searching, or fetching information without modifying any resources on the server.</p>
+            <p>The basic syntax for a GET request would go in our <b>server index.js</b> file and would look something like this:</p>
+            <ul class="sectHighlight">
+               <li class="commentStyle">// get request</li>
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">get</span>( "/", <span class="colorPurple">( req, res ) =></span> {
+                  <ul>
+                     <li><span class="colorPurple">res</span>.<span class="colorBlue">send</span>( "Hello World" );</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <ul class="bullets">
+               <li><span class="colorGreen">app</span> is the variable we assigned in our server setup to represent the <b>express</b> function.</li>
+               <li><span class="colorBlue">get</span> is an <b>express</b> method we are going to use to sent a <b>get</b> request.</li>
+               <li>the <b>"/"</b> represents that the result of the <b>get</b> request will point to the "<b>HTTP root</b>".
+                  <ul>
+                     <li><i>you are defining a route to handle the request, in this case, the <b>root</b> of the server or <b>http://localhost:3000/</b></i></li>
+                  </ul>
+               </li>
+               <li><span class="colorPurple">req & res</span> represent the <b>request</b> and <b>response</b> of the callback function.</li>
+               <li>the <span class="colorPurple">res</span> object is used to <span class="colorBlue">send</span> the response back to the client. In this case, "Hello World" is output on the client terminal @ http://localhost:3000/
+                  <ul>
+                     <li><i>as far as the coding goes, this response can be anything you need. It can do more that just output a text string to the webpage.</i></li>
+                  </ul>
+               </li>
+            </ul>
+          </article><hr>
+
+         <!-- post request -->
+          <article>
+            <h6 id="post">POST Request</h6>
+            <p><span class="firstWord">W</span>ith POST, you are <b>sending</b> <i>(posting)</i> a resource or data <b>to</b> a server.</p>
+            <p>Unlike the GET method, which appends data to the URL, the POST method sends data in the body of the request, allowing for larger amounts of data to be transmitted. This makes POST more suitable for submitting forms, uploading files, or sending sensitive information, as <b>the data is not exposed in the URL</b>.</p>
+            <p>Additionally, POST requests are <b>not stored in the browser history or cache</b>, enhancing security. The POST method is not idempotent, meaning that sending the same POST request multiple times may have different effects, such as creating multiple entries.</p>
+            <p>The data type in the POST request body is indicated by the Content-Type header, and the size is specified by the Content-Length header.</p>
+          </article><hr>
+
+         <!-- put request -->
+          <article>
+            <h6 id="put">PUT Request</h6>
+            <p><span class="firstWord">W</span>ith PUT, you are <b>updating</b> a resource <b>on</b> a server, by <b>replacing every aspect</b> of that resource completely.</p>
+            <p>PUT requests are idempotent, meaning that calling the same PUT request multiple times will always produce the same result. When you make an HTTP PUT request, and the Request-URI points to an existing resource, the server must completely replace that resource with the data enclosed in the body of the PUT request.</p>
+          </article><hr>
+
+         <!-- patch request -->
+          <article>
+            <h6 id="patch">PATCH Request</h6>
+            <p><span class="firstWord">W</span>ith PATCH, you are also <b>updating</b> a resource <b>on</b> a server, but you are only <b>replacing</b> the part of the resource that has changed.</p>
+            <p>Unlike the PUT method, which replaces the entire resource, PATCH is designed to update only specific parts of a resource. For example, if a resource has multiple fields, a PATCH request can update just one or a few of them without affecting the others.</p>
+          </article><hr>
+
+         <!-- delete request -->
+          <article>
+            <h6 id="del">DELETE Request</h6>
+            <p><span class="firstWord">W</span>ith DELETE, you are <b> entirely deleting</b> a resource from a server, or database.</p>
+            <p>DELETE is not safe or cacheable but is idempotent, meaning that sending the same DELETE request multiple times will have the same effect on the server and will not cause additional side effects. The DELETE method is commonly used to instruct the server to delete a specific resource identified by the provided URL or resource identifier. When a client sends a DELETE request to the server, it indicates that the client wants to remove the resource permanently.</p>
+          </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>

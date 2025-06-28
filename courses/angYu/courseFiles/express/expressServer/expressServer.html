@@ -12,7 +12,6 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
-   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
@@ -57,12 +56,11 @@
                         </ul>
                      </li>
                      <li>});</li>
-                  </ul>
-                  <br>
+                  </ul><br>
                </li>
                <li>Start the server (run <b>node index.js</b>)</li>
             </ol>
-            <p>The server should now be running and "listening" on port: 3000, for request(s) from a client. <b>Notice</b> that we are using <span class="colorPurple">import</span> to import <b>express</b> into our server file. So <b>make sure</b> your package.json file includes:
+            <p>The server should now be running and "listening" on port: 3000, for request(s) from a client. <b>Notice</b> that we are using <span class="colorPurple">import</span> to import <b>express</b> into our server file. So <b>make sure</b> your <b>package.json</b> file includes:
                <ul class="sectHighlight">
                   <li>"type": "<b>module</b>",</li>
                </ul>
@@ -81,6 +79,7 @@
                </ul>
             and the <b>index.js</b> file that we are running, will terminate.
             </p>
+            <p><b>*Important Note</b>: when writing server code, it is important to remember that if your server is running, and you make changes to your server code, YOU MUST STOP THE SERVER <i>(<b>ctrl + c</b>)</i> and RESTART THE SERVER <i>(<b>node index.js</b>)</i>.</p>
          </article>
       </section>
 
