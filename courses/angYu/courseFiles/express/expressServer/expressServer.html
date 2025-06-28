@@ -79,7 +79,18 @@
                </ul>
             and the <b>index.js</b> file that we are running, will terminate.
             </p>
+         </article><hr>
+
+         <!-- nodemon -->
+         <article id="nmon">
+            <h6>nodemon</h6>
             <p><b>*Important Note</b>: when writing server code, it is important to remember that if your server is running, and you make changes to your server code, YOU MUST STOP THE SERVER <i>(<b>ctrl + c</b>)</i> and RESTART THE SERVER <i>(<b>node index.js</b>)</i>.</p>
+            <p><b>Update</b>: some very brilliant programmers found that constantly stopping and restarting the server during the development phase was very annoying. So they developed an npm package called <a href="https://www.npmjs.com/package/nodemon" target="_blank">nodemon</a>, which will automatically restart your server for you when it detects any file changes in the directory.</p>
+            <p>It is recommended that you install this on a "global" scale, using the <b>-g</b> option:</p>
+            <ul class="sectHighlight">
+               <li>npm i -g nodemon</li>
+            </ul>
+            <p>Once <b>nodemon</b> is installed, you replace <b>node</b> <i>fileName.js</i> with <b>nodemon</b> <i>fileName.js</i>, and you're all set.</p>
          </article>
       </section>
 
