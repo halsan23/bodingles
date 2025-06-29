@@ -101,9 +101,26 @@
           <article>
             <h6 id="post">POST Request</h6>
             <p><span class="firstWord">W</span>ith POST, you are <b>sending</b> <i>(posting)</i> a resource or data <b>to</b> a server.</p>
-            <p>Unlike the GET method, which appends data to the URL, the POST method sends data in the body of the request, allowing for larger amounts of data to be transmitted. This makes POST more suitable for submitting forms, uploading files, or sending sensitive information, as <b>the data is not exposed in the URL</b>.</p>
+            <p>Unlike the GET method, which appends data to the URL, the POST method sends data in the body of the request, allowing for larger amounts of data to be transmitted. This makes POST <b>more suitable for submitting forms, uploading files, or sending sensitive information</b>, as <b>the data is not exposed in the URL</b>.</p>
             <p>Additionally, POST requests are <b>not stored in the browser history or cache</b>, enhancing security. The POST method is not idempotent, meaning that sending the same POST request multiple times may have different effects, such as creating multiple entries.</p>
             <p>The data type in the POST request body is indicated by the Content-Type header, and the size is specified by the Content-Length header.</p>
+            <p>The basic syntax for a POST request would go in our <b>server index.js</b> file and would look something like this:</p>
+            <ul class="sectHighlight">
+               <li class="commentStyle">// post request</li>
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">post</span>( "/<span class="colorOrange">register</span>", <span class="colorPurple">( req, res ) =></span> {
+                  <ul>
+                     <li class="commentStyle">// process the new data (eg. add new login to database)</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <ul class="bullets">
+               <li><span class="colorGreen">app</span> is the variable we assigned in our server setup to represent the <b>express</b> function.</li>
+               <li><span class="colorBlue">post</span> is an <b>express</b> method we are going to use to sent a <b>post</b> request.</li>
+               <li>the <b>"/<span class="colorOrange">register</span>"</b> is sending the result of the <b>post</b> request to the "<b>localhost:3000/register page</b>".</li>
+               <li><span class="colorPurple">req & res</span> represent the <b>request</b> and <b>response</b> of the callback function.</li>
+            </ul>
+            <p>So the <span class="colorBlue">post</span> method is going to send <b>new</b> data to the server for processing and return the result to the designated page.</p>
           </article><hr>
 
          <!-- put request -->

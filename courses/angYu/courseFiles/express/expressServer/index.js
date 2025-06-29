@@ -5,19 +5,37 @@ const port = 3000;
 
 
 // get request /(root)
+// get "Home Page" data
 app.get("/", (req, res) => {
    res.send("<h1>Home Page</h1>");
 });
 
-// get request /about
-app.get("/about", (req, res) => {
-   res.send("<h1>About Page</h1>");
+// post request /(register)
+// adding new data
+app.post("/register", (req, res) => {
+  //Do something with the data
+  res.sendStatus(201);
 });
 
-// get request /contact
-app.get("/contact", (req, res) => {
-   res.send("<h1>Contact Page</h1>");
+// put user (angela)
+// completely replace (angela) data
+app.put("/user/angela", (req, res) => {
+  res.sendStatus(200);
 });
+
+// patch user (angela)
+// replace part of "angela" data (update)
+app.patch("/user/angela", (req, res) => {
+  res.sendStatus(200);
+});
+
+// delete user (angela)
+// delete "angela" user data
+app.delete("/user/angela", (req, res) => {
+  //Deleting
+  res.sendStatus(200);
+});
+
 
 // setup listening port
 // when we run this file, it starts the server
