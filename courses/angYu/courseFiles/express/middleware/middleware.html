@@ -88,12 +88,21 @@
                <li class="commentStyle">// set out server to listen" for request(s)</li>
                <li>app.<span class="colorBlue">listen</span>(<span class="colorGreen">port</span>, <span class="colorPurple">() =></span> {
                   <ul>
-                     <li>console.log(`The server is running, and listening on port: ${<span class="colorGreen">port</span>}`);</li>
+                     <li>console.log(`The server is running and listening on port: ${<span class="colorGreen">port</span>}`);</li>
                   </ul>
                </li>
                <li>});</li>
             </ul>
-            <p>And now we can start our server (<b>nodemon index.js</b>) and we should see a console.log that "The server is running, and listening on port: 3000".</p>
+            <p>And now we can start our server (<b>nodemon index.js</b>) and we should see a console.log that "The server is running and listening on port: 3000".</p>
+         </article><hr>
+
+         <!-- public directory -->
+         <article>
+            <h6>public directory</h6>
+            <p><span class="firstWord">T</span>he next topic to discuss is concerning a <b>public</b> directory.</p>
+            <p>In a Node.js application, particularly when using Express, the <b>public</b> directory is a folder that contains <b>static</b> files such as HTML, CSS, JavaScript, images, and other assets that are served directly to the client without being processed by the server. This directory is typically configured to be accessible via the web server, allowing clients to request and receive these files directly.</p>
+            <p>So in the root directory of our CWD <i>(current working directory)</i>, we have created a directory call <b>public</b>. And inside we are going to create a file called <b>index.html</b>. We will use this file for our discussions here.</p>
+            <p>Remember that this file is going to be "served" from the server, so you must have the localhost up and running.</p>
          </article>
       </section>
 
