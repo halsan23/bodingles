@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../expressIndex.html">Back to Express Index</a></p>
+         <hr style="width: 40%;">
+         <h5>Express Middleware</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Middleware</h6>
+            <p><span class="firstWord">E</span>xpress middleware refers to functions that process requests before reaching the route handlers. These functions can modify the request and response objects, end the request-response cycle, or call the next middleware function. Middleware functions are executed in the order they are defined. They can perform tasks like authentication, logging, or error handling. Middleware helps separate concerns and manage complex routes efficiently.
+            </p>
+            <p><b>What Middleware Does in Express.js</b><br>
+               Middleware functions in Express.js can perform several important tasks:</p>
+               <ol>
+                  <li>Execute Code: Middleware can run any code when a request is received.</li>
+                  <li>Modify Request and Response: Middleware can modify both the request (req) and response (res) objects.</li>
+                  <li>End the Request-Response Cycle: Middleware can send a response to the client, ending the cycle.</li>
+                  <li>Call the Next Middleware: Middleware can call next() to pass control to the next function in the middleware stack.</li>
+               </ol>
+            <p><b>How Middleware Works in Express.js?</b><br>
+            In Express.js, middleware functions are executed sequentially in the order they are added to the application. Here’s how the typical flow works:</p>
+            <ol>
+               <li>Request arrives at the server.</li>
+               <li>Middleware functions are applied to the request, one by one.</li>
+               <li>Each middleware can either:
+                  <ul class="bullets">
+                     <li>Send a response and end the request-response cycle.</li>
+                     <li>Call next() to pass control to the next middleware.</li>
+                  </ul>
+               </li>
+               <li>If no middleware ends the cycle, the route handler is reached, and a final response is sent.</li>
+            </ol>
+            <p><b>Types of Middleware</b><br>
+               ExpressJS offers different types of middleware and you should choose the middleware based on functionality required.</p>
+            <ol>
+               <li>Application-level Middleware</li>
+               <li>Router-level Middleware</li>
+               <li>Error-handling Middleware</li>
+               <li>Built-in Middleware</li>
+               <li>Third-party Middleware</li>
+            </ol>
+            <p>More information can be <a href="https://www.geeksforgeeks.org/node-js/middleware-in-express-js/" target="_blank">found here</a>.</p>
+         </article><hr>
+
+         <!-- Demonstration App -->
+         <article>
+            <h6>Demonstration App</h6>
+            <p><span class="firstWord">W</span>e're going to build a very simple app tto demonstrate the concept of <b>express middleware</b>. In order to view our app, we must have our server up and running, so let's start there.</p>
+            <p>If we look at our discussions on setting up an <a href="../expressServer/expressServer.html" target="_blank">express server</a>, we specified a six step process for getting our server up and running. This is the process used when starting with a completely blank slate. For this discussion, we have been provided with a prebuilt directory structure with several files and folders already setup. It also has three npm packages already installed, <b>express</b>, <b>body-parser</b>, and <b>morgan</b>.</p>
+            <p>So our server setup is going to be a little bit different here. All we have to do is to open the terminal, navigate to our project working directory, and run <b>npm init</b>. This will set up our <b>package.json</b> file complete with the "dependencies" listed for the packages we already have installed. Now we just need to look through the file and make sure all of the entries are correct.</p>
+            <p>Next we need to get our server Js file set up. We'll get the basics first:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// import our modules</li>
+               <li><span class="colorPurple">import</span> <span class="colorRed">express</span> <span class="colorPurple">from</span> "<span class="colorGreen">express</span>";</li>
+               <li class="commentStyle">// assign our express function to a variable</li>
+               <li class="commentStyle">// assign our localhost port number</li>
+               <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+               <li>const <span class="colorGreen">port</span> = 3000;</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// set out server to listen" for request(s)</li>
+               <li>app.<span class="colorBlue">listen</span>(<span class="colorGreen">port</span>, <span class="colorPurple">() =></span> {
+                  <ul>
+                     <li>console.log(`The server is running, and listening on port: ${<span class="colorGreen">port</span>}`);</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <p>And now we can start our server (<b>nodemon index.js</b>) and we should see a console.log that "The server is running, and listening on port: 3000".</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
