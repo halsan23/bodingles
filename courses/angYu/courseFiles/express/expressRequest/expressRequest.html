@@ -82,14 +82,14 @@
             </ul>
             <ul class="bullets">
                <li><span class="colorGreen">app</span> is the variable we assigned in our server setup to represent the <b>express</b> function.</li>
-               <li><span class="colorBlue">get</span> is an <b>express</b> method we are going to use to sent a <b>get</b> request.</li>
+               <li><span class="colorBlue">get</span> is an <b>express</b> method we are going to use to send a <b>get</b> request.</li>
                <li>the <b>"/"</b> represents that the result of the <b>get</b> request will point to the "<b>HTTP root</b>".
                   <ul>
                      <li style="list-style: none;"><i>you are defining a route to handle the request, in this case, the <b>root</b> of the server or <b>http://localhost:3000/</b></i></li>
                   </ul>
                </li>
                <li><span class="colorPurple">req & res</span> represent the <b>request</b> and <b>response</b> of the callback function.</li>
-               <li>the <span class="colorPurple">res</span> object is used to <span class="colorBlue">send</span> the response back to the client. In this case, "Hello World" is output on the client terminal @ http://localhost:3000/
+               <li>the <span class="colorPurple">res</span> object is used to <span class="colorBlue">send</span> the response back to the client. In this case, "Hello World" is output on the client terminal @  (<span class="colorOrange">http://localhost:3000/</span>)
                   <ul>
                      <li style="list-style: none;"><i>as far as the coding goes, this response can be anything you need. It can do more that just output a text string to the webpage</i>.</li>
                   </ul>
@@ -116,11 +116,11 @@
             </ul>
             <ul class="bullets">
                <li><span class="colorGreen">app</span> is the variable we assigned in our server setup to represent the <b>express</b> function.</li>
-               <li><span class="colorBlue">post</span> is an <b>express</b> method we are going to use to sent a <b>post</b> request.</li>
-               <li>the <b>"/<span class="colorOrange">register</span>"</b> is sending the result of the <b>post</b> request to the "<b>localhost:3000/register page</b>".</li>
+               <li><span class="colorBlue">post</span> is an <b>express</b> method we are going to use to send a <b>post</b> request.</li>
+               <li>the <b>"/<span class="colorOrange">register</span>"</b> is sending the result of the <b>post</b> request to the "<b>localhost:3000/register</b> page".</li>
                <li><span class="colorPurple">req & res</span> represent the <b>request</b> and <b>response</b> of the callback function.</li>
             </ul>
-            <p>So the <span class="colorBlue">post</span> method is going to send <b>new</b> data to the server for processing and return the result to the designated page.</p>
+            <p>So the <span class="colorBlue">post</span> method is going to send <b>new</b> data to the server for processing and return the result to the designated page (http://localhost:3000/<span class="colorOrange">register</span>).</p>
           </article><hr>
 
          <!-- put request -->
@@ -128,6 +128,22 @@
             <h6 id="put">PUT Request</h6>
             <p><span class="firstWord">W</span>ith PUT, you are <b>updating</b> a resource <b>on</b> a server, by <b>replacing every aspect</b> of that resource completely.</p>
             <p>PUT requests are idempotent, meaning that calling the same PUT request multiple times will always produce the same result. When you make an HTTP PUT request, and the Request-URI points to an existing resource, the server must completely replace that resource with the data enclosed in the body of the PUT request.</p>
+            <ul class="sectHighlight">
+               <li class="commentStyle">// put request</li>
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">put</span>( "/<span class="colorOrange">user/angela</span>", <span class="colorPurple">( req, res ) =></span> {
+                  <ul>
+                     <li class="commentStyle">// replace the existing data with new data</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <ul class="bullets">
+               <li><span class="colorGreen">app</span> is the variable we assigned in our server setup to represent the <b>express</b> function.</li>
+               <li><span class="colorBlue">put</span> is an <b>express</b> method we are going to use to send a <b>put</b> request.</li>
+               <li>the <b>"/<span class="colorOrange">user/angela</span></b> is sending the result of the <b>post</b> request to the "<b>localhost:3000/user/angela</b> page".</li>
+               <li><span class="colorPurple">req & res</span> represent the <b>request</b> and <b>response</b> of the callback function.</li>
+            </ul>
+            <p>So the <span class="colorBlue">put</span> method is going to send <b>new</b> data to the server, that is going to completely replace the current data, and return the result to the designated page (http://localhost:3000/<span class="colorOrange">user/angela</span>).</p>
           </article><hr>
 
          <!-- patch request -->
@@ -135,6 +151,22 @@
             <h6 id="patch">PATCH Request</h6>
             <p><span class="firstWord">W</span>ith PATCH, you are also <b>updating</b> a resource <b>on</b> a server, but you are only <b>replacing</b> the part of the resource that has changed.</p>
             <p>Unlike the PUT method, which replaces the entire resource, PATCH is designed to update only specific parts of a resource. For example, if a resource has multiple fields, a PATCH request can update just one or a few of them without affecting the others.</p>
+            <ul class="sectHighlight">
+               <li class="commentStyle">// patch request</li>
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">patch</span>( "/<span class="colorOrange">user/angela</span>", <span class="colorPurple">( req, res ) =></span> {
+                  <ul>
+                     <li class="commentStyle">// update the existing data with new data</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <ul class="bullets">
+               <li><span class="colorGreen">app</span> is the variable we assigned in our server setup to represent the <b>express</b> function.</li>
+               <li><span class="colorBlue">patch</span> is an <b>express</b> method we are going to use to send a <b>patch</b> request.</li>
+               <li>the <b>"/<span class="colorOrange">user/angela</span></b> is sending the result of the <b>post</b> request to the "<b>localhost:3000/user/angela</b> page".</li>
+               <li><span class="colorPurple">req & res</span> represent the <b>request</b> and <b>response</b> of the callback function.</li>
+            </ul>
+            <p>So the <span class="colorBlue">patch</span> method is going to send <b>new</b> data to the server, that is going to update the current data, and return the result to the designated page (http://localhost:3000/<span class="colorOrange">user/angela</span>).</p>
           </article><hr>
 
          <!-- delete request -->
@@ -142,6 +174,22 @@
             <h6 id="del">DELETE Request</h6>
             <p><span class="firstWord">W</span>ith DELETE, you are <b> entirely deleting</b> a resource from a server, or database.</p>
             <p>DELETE is not safe or cacheable but is idempotent, meaning that sending the same DELETE request multiple times will have the same effect on the server and will not cause additional side effects. The DELETE method is commonly used to instruct the server to delete a specific resource identified by the provided URL or resource identifier. When a client sends a DELETE request to the server, it indicates that the client wants to remove the resource permanently.</p>
+            <ul class="sectHighlight">
+               <li class="commentStyle">// delete request</li>
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">put</span>( "/<span class="colorOrange">user/angela</span>", <span class="colorPurple">( req, res ) =></span> {
+                  <ul>
+                     <li class="commentStyle">// delete ALL of the existing data</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <ul class="bullets">
+               <li><span class="colorGreen">app</span> is the variable we assigned in our server setup to represent the <b>express</b> function.</li>
+               <li><span class="colorBlue">delete</span> is an <b>express</b> method we are going to use to send a <b>delete</b> request.</li>
+               <li>the <b>"/<span class="colorOrange">user/angela</span></b> is sending the result of the <b>delete</b> request to the "<b>localhost:3000/user/angela</b> page".</li>
+               <li><span class="colorPurple">req & res</span> represent the <b>request</b> and <b>response</b> of the callback function.</li>
+            </ul>
+            <p>So the <span class="colorBlue">delete</span> method is going to delete the current data, and return the result to the designated page (http://localhost:3000/<span class="colorOrange">user/angela</span>).</p>
           </article>
       </section>
 

@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 // post request /(register)
 // adding new data
 app.post("/register", (req, res) => {
-  //Do something with the data
+  //do something with the data
   res.sendStatus(201);
 });
 
