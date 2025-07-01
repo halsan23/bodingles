@@ -72,44 +72,7 @@
          <!-- Demonstration App -->
          <article>
             <h6>Demonstration App</h6>
-            <p><span class="firstWord">W</span>e're going to build a very simple app tto demonstrate the concept of <b>express middleware</b>. In order to view our app, we must have our server up and running, so let's start there.</p>
-            <p>If we look at our discussions on setting up an <a href="../expressServer/expressServer.html" target="_blank">express server</a>, we specified a six step process for getting our server up and running. This is the process used when starting with a completely blank slate. For this discussion, we have been provided with a prebuilt directory structure with several files and folders already setup. It also has three npm packages already installed, <b>express</b>, <b>body-parser</b>, and <b>morgan</b>.</p>
-            <p>So our server setup is going to be a little bit different here. All we have to do is to open the terminal, navigate to our project working directory, and run <b>npm init</b>. This will set up our <b>package.json</b> file complete with the "dependencies" listed for the packages we already have installed. Now we just need to look through the file and make sure all of the entries are correct.</p>
-            <p>Next we need to get our server Js file set up. We'll get the basics first:</p>
-            <ul class="sectHighlight">
-               <li><b>JavaScript</b></li>
-               <li class="commentStyle">// import our modules</li>
-               <li><span class="colorPurple">import</span> <span class="colorRed">express</span> <span class="colorPurple">from</span> "<span class="colorGreen">express</span>";</li>
-               <li class="commentStyle">// assign our express function to a variable</li>
-               <li class="commentStyle">// assign our localhost port number</li>
-               <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
-               <li>const <span class="colorGreen">port</span> = 3000;</li>
-               <li>&nbsp;</li>
-               <li class="commentStyle">// set out server to listen" for request(s)</li>
-               <li>app.<span class="colorBlue">listen</span>(<span class="colorGreen">port</span>, <span class="colorPurple">() =></span> {
-                  <ul>
-                     <li>console.log(`The server is running and listening on port: ${<span class="colorGreen">port</span>}`);</li>
-                  </ul>
-               </li>
-               <li>});</li>
-            </ul>
-            <p>And now we can start our server (<b>nodemon index.js</b>) and we should see a console.log that "The server is running and listening on port: 3000".</p>
-         </article><hr>
-
-         <!-- public directory -->
-         <article>
-            <h6>public directory</h6>
-            <p><span class="firstWord">T</span>he next topic to discuss is concerning a <b>public</b> directory.</p>
-            <p>In a Node.js application, particularly when using Express, the <b>public</b> directory is a folder that contains <b>static</b> files such as HTML, CSS, JavaScript, images, and other assets that are served directly to the client without being processed by the server. This directory is typically configured to be accessible via the web server, allowing clients to request and receive these files directly.</p>
-            <p>So in the root directory of our CWD <i>(current working directory)</i>, we have created a directory call <b>public</b>. And inside we are going to create a file called <b>index.html</b>. We will use this file for our discussions here.</p>
-            <p>Remember that this file is going to be "served" from the server, so you must have the localhost up and running.</p>
-         </article><hr>
-
-         <!-- public index.html -->
-         <article>
-            <h6>public index.html</h6>
-            <p><span class="firstWord">T</span>
-            </p>
+            <p><span class="firstWord">W</span>e're going to build a very simple app to demonstrate the concept of <b>express middleware</b>. You can view the documentation of the process to build this app, <a href="demonstrateDocum.html" target="_blank">here</a>.</p>
          </article>
       </section>
 

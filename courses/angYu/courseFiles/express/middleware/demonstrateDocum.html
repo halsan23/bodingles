@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+   <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../expressIndex.html">Back to Express Index</a></p>
+         <hr style="width: 40%;">
+         <h5>Express Middleware</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- App Documentation -->
+         <article>
+            <h6>Demo App Documentation</h6>
+            <p><span class="firstWord">W</span>e're going to build a very simple app to demonstrate the concept of <b>express middleware</b>. In order to view our app, we must have our server up and running, so let's start there.</p>
+            <p>If we look at our discussions on setting up an <a href="../expressServer/expressServer.html" target="_blank">express server</a>, we specified a six step process for getting our server up and running. This is the process used when starting with a completely blank slate. For this discussion, we have been provided with a prebuilt directory structure with several files and folders already setup. It also has three npm packages already installed, <b>express</b>, <b>body-parser</b>, and <b>morgan</b>.</p>
+            <p>So our server setup is going to be a little bit different here. All we have to do is to open the terminal, navigate to our project working directory, and run <b>npm init</b>. This will set up our <b>package.json</b> file, complete with the "dependencies" listed for the packages we already have installed. Now we just need to look through this <b>package.json</b> file and make sure all of the entries are correct.</p>
+            <p>We are going to be using <b>import</b> to import our modules into our <b>index.js</b> server file, so make sure <b>"type": "module",</b> is set. All of the final files, can be <a href="">downloaded here</a>.</p>
+            <p>Next we need to get our server Js file set up. We'll get the basics first:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// import our modules</li>
+               <li><span class="colorPurple">import</span> <span class="colorRed">express</span> <span class="colorPurple">from</span> "<span class="colorGreen">express</span>";</li>
+               <li class="commentStyle">// assign our express function to a variable</li>
+               <li class="commentStyle">// assign our localhost port number</li>
+               <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+               <li>const <span class="colorGreen">port</span> = 3000;</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// set out server to listen" for request(s)</li>
+               <li>app.<span class="colorBlue">listen</span>(<span class="colorGreen">port</span>, <span class="colorPurple">() =></span> {
+                  <ul>
+                     <li>console.log(`The server is running and listening on port: ${<span class="colorGreen">port</span>}`);</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <p>And now we can start our server (<b>nodemon index.js</b>) and we should see a console.log that "The server is running and listening on port: 3000".</p>
+         </article><hr>
+
+         <!-- public directory -->
+         <article>
+            <h6>public directory</h6>
+            <p><span class="firstWord">T</span>he next topic to discuss is concerning a <b>public</b> directory.</p>
+            <p>In a Node.js application, particularly when using Express, the <b>public</b> directory is a folder that contains <b>static</b> files such as HTML, CSS, JavaScript, images, and other assets that are served directly to the client without being processed by the server. This directory is typically configured to be accessible via the web server, allowing clients to request and receive these files directly.</p>
+            <p>So in the root directory of our CWD <i>(current working directory)</i>, we have created a directory call <b>public</b>. And inside we are going to create a file called <b>index.html</b>. We will use this file for our discussions here.</p>
+            <p>Remember that this file is going to be "served" from the server, so you must have the localhost up and running to access this file.</p>
+         </article><hr>
+
+         <!-- public index.html -->
+         <article>
+            <h6>public index.html</h6>
+            <p><span class="firstWord">T</span>he <b>index.html</b> is going to be a simple form input with two text inputs. Here is the code:</p>
+            <ul class="sectHighlight">
+               <li><b>HTML</b></li>
+               <li>&lt;h4>Band Name Generator&lt;/h4></li>
+               <li>&nbsp;</li>
+               <li>&lt;form action="/submit" method="<b>POST</b>">
+                  <ul>
+                     <li>&lt;label for="street">Street Name:&lt;/label></li>
+                     <li>&lt;input type="text" name="street" placeholder="Street Name" required></li>
+                     <li>&nbsp;</li>
+                     <li>&lt;label for="pet">My Pet Name:&lt;/label></li>
+                     <li>&lt;input type="text" name="pet" placeholder="My Pet Name" required></li>
+                     <li>&nbsp;</li>
+                     <li>&lt;input class="submit" type="submit" value="Submit"></li>
+                  </ul>
+               </li>
+               <li>&lt;/form></li>
+            </ul>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
