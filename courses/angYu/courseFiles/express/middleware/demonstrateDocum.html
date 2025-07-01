@@ -34,7 +34,7 @@
          <!-- App Documentation -->
          <article>
             <h6>Demo App Documentation</h6>
-            <p><span class="firstWord">W</span>e're going to build a very simple app to demonstrate the concept of <b>express middleware</b>. In order to view our app, we must have our server up and running, so let's start there.</p>
+            <p><span class="firstWord">W</span>e're going to build a very simple app to demonstrate the concept of <b>express middleware</b>. The finished app can be ran from the server @ <a href="http://localhost:3000" target="_blank">localhost:3000</a>. In order to view our app, we must have our server up and running, so let's start there.</p>
             <p>If we look at our discussions on setting up an <a href="../expressServer/expressServer.html" target="_blank">express server</a>, we specified a six step process for getting our server up and running. This is the process used when starting with a completely blank slate. For this discussion, we have been provided with a prebuilt directory structure with several files and folders already setup. It also has three npm packages already installed, <b>express</b>, <b>body-parser</b>, and <b>morgan</b>.</p>
             <p>So our server setup is going to be a little bit different here. All we have to do is to open the terminal, navigate to our project working directory, and run <b>npm init</b>. This will set up our <b>package.json</b> file, complete with the "dependencies" listed for the packages we already have installed. Now we just need to look through this <b>package.json</b> file and make sure all of the entries are correct.</p>
             <p>We are going to be using <b>import</b> to import our modules into our <b>index.js</b> server file, so make sure <b>"type": "module",</b> is set. All of the final files, can be <a href="">downloaded here</a>.</p>
@@ -66,11 +66,7 @@
             <p>In a Node.js application, particularly when using Express, the <b>public</b> directory is a folder that contains <b>static</b> files such as HTML, CSS, JavaScript, images, and other assets that are served directly to the client without being processed by the server. This directory is typically configured to be accessible via the web server, allowing clients to request and receive these files directly.</p>
             <p>So in the root directory of our CWD <i>(current working directory)</i>, we have created a directory call <b>public</b>. And inside we are going to create a file called <b>index.html</b>. We will use this file for our discussions here.</p>
             <p>Remember that this file is going to be "served" from the server, so you must have the localhost up and running to access this file.</p>
-         </article><hr>
-
-         <!-- public index.html -->
-         <article>
-            <h6>public index.html</h6>
+            <h6>Our <b>public</b> index.html file</h6>
             <p><span class="firstWord">T</span>he <b>index.html</b> is going to be a simple form input with two text inputs. Here is the code:</p>
             <ul class="sectHighlight">
                <li><b>HTML</b></li>
@@ -88,6 +84,42 @@
                   </ul>
                </li>
                <li>&lt;/form></li>
+            </ul>
+            <p>Now that we have our <b>public</b> directory set up, and have our <b>index.html</b> file created, we need to add some code to our server file so it can find this <b>public</b> directory and the files contained within.</p>
+         </article><hr>
+
+         <!-- the "path" module -->
+         <article>
+            <h6>the "path" module</h6>
+            <p><span class="firstWord">I</span>f we're just running this app from our localhost, designating the correct file path is as simple as setting a directory path to /public (root/public). But when you start running you server from a web host, or from a "cloud" server, things become a little more complicated. We're going to need to use the javaScript <b>path</b> module to set up our path to our <b>public</b> directory. Here is the code:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// import the modules</li>
+               <li><span class="colorPurple">import</span> { <span class="colorRed">dirname</span> } <span class="colorPurple">from</span> "<span class="colorGreen">path</span>";</li>
+               <li><span class="colorPurple">import</span> { <span class="colorRed">fileURLToPath</span> } <span class="colorPurple">from</span> "<span class="colorGreen">url</span>";</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// build the root path</li>
+               <li><span class="colorPurple">const</span> <span class="colorOrange">__dirname</span> = <span class="colorBlue">dirname</span>(<span class="colorBlue">fileURLToPath</span>(<span class="colorPurple">import</span><span class="colorRed">.meta.url</span>));</li>
+            </ul>
+            <p>Let's break it down:</p>
+            <ul>
+               <li><b>import { dirname } from "path";</b>
+                  <ul>
+                     <li>the <a href="https://www.geeksforgeeks.org/node-js/node-js-path-dirname-method/" target="_blank">path.dirname()</a> method is used to get the directory name of the given path.</li>
+                  </ul>
+               </li>
+               <li><b>import { fileURLToPath } from "url";</b>
+                  <ul>
+                     <li>the <a href="https://www.geeksforgeeks.org/node-js/node-js-url-fileurltopath-api/" target="_blank">Node.js URL.fileURLToPath</a> function decodes the file URL to a path string and ensures that the URL control characters (/, %) are correctly appended/adjusted when converting the given file URL into a path.</li>
+                  </ul>
+               </li>
+               <li class="commentStyle">// build the root path</li>
+               <li><span class="colorPurple">const</span> <span class="colorOrange">__dirname</span> = <span class="colorBlue">dirname</span>(<span class="colorBlue">fileURLToPath</span>(<span class="colorPurple">import</span><span class="colorRed">.meta.url</span>));
+                  <ul>
+                     <li>this is going to combine the <span class="colorBlue">dirname</span> and the <span class="colorBlue">fileURLToPath</span> with the <span class="colorPurple">imported</span> <span class="colorRed">meta.url</span> to give us a <b>valid path</b> to the <b>root</b> directory of our project. we then take this path and assign it to the variable <span class="colorOrange">__dirname</span> so that anytime we call <span class="colorOrange">__dirname</span>, we are indicating a path to the <b>root</b> directory of our project.</li>
+                     <li>So if we call [ <span class="colorOrange">__dirname</span> + "/public/index.html" ], we are saying <b>root/public/index.html</b>.</li>
+                  </ul>
+               </li>
             </ul>
          </article>
       </section>
