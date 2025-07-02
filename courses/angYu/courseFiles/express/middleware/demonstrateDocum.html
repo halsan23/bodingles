@@ -94,6 +94,7 @@
             <p><span class="firstWord">I</span>f we're just running this app from our localhost, designating the correct file path is as simple as setting a directory path to /public (root/public). But when you start running you server from a web host, or from a "cloud" server, things become a little more complicated. We're going to need to use the javaScript <b>path</b> module to set up our path to our <b>public</b> directory. Here is the code:</p>
             <ul class="sectHighlight">
                <li><b>JavaScript</b></li>
+               <li class="commentStyle">// addition(s) to server index.js file</li>
                <li class="commentStyle">// import the modules</li>
                <li><span class="colorPurple">import</span> { <span class="colorRed">dirname</span> } <span class="colorPurple">from</span> "<span class="colorGreen">path</span>";</li>
                <li><span class="colorPurple">import</span> { <span class="colorRed">fileURLToPath</span> } <span class="colorPurple">from</span> "<span class="colorGreen">url</span>";</li>
@@ -120,6 +121,29 @@
                      <li>So if we call [ <span class="colorOrange">__dirname</span> + "/public/index.html" ], we are saying <b>root/public/index.html</b>.</li>
                   </ul>
                </li>
+            </ul>
+         </article><hr>
+
+         <!-- the "get" request -->
+         <article>
+            <h6>the "get" request</h6>
+            <p><span class="firstWord">A</span>nd now that we have a <b>path</b> to our "root" directory defined, we can go ahead and write the code for our <b>get request</b> that will allow us to "get" our index.html page from the server and display it on the client terminal. Here is the code:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// addition(s) to server index.js file</li>
+               <li class="commentStyle">// get request for home page</li>
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">get</span>("/", <span class="colorPurple">(req, res) =></span> {
+                  <ul>
+                     <li>res.<span class="colorBlue">sendFile</span>(<span class="colorOrange">__dirname</span> + "/<span class="colorGreen">public/index.html</span>");</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <p>So we are:</p>
+
+            <ul>
+               <li>using the <b>express</b> <span class="colorBlue">get</span> method to get index.html from the root/public directory of the server</li>
+               <li>and we are <span class="colorBlue">sending the file</span> back to the client terminal for output.</li>
             </ul>
          </article>
       </section>
