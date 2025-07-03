@@ -12,7 +12,7 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
-   <link rel="stylesheet" href="./css/styles.css">
+   <link rel="stylesheet" href="./public/styles/styles.css">
 </head>
 
 <body>
@@ -31,14 +31,50 @@
       </section>
 
       <section id="textWindow4" class="just">
-         <!-- App Documentation -->
+         <!-- Intro -->
          <article>
-            <h6>Demo App Documentation</h6>
-            <p><span class="firstWord">W</span>e're going to build a very simple app to demonstrate the concept of <b>express middleware</b>. The finished app can be ran from the server @ <a href="http://localhost:3000" target="_blank">localhost:3000</a>. In order to view our app, we must have our server up and running, so let's start there.</p>
-            <p>If we look at our discussions on setting up an <a href="../expressServer/expressServer.html" target="_blank">express server</a>, we specified a six step process for getting our server up and running. This is the process used when starting with a completely blank slate. For this discussion, we have been provided with a prebuilt directory structure with several files and folders already setup. It also has three npm packages already installed, <b>express</b>, <b>body-parser</b>, and <b>morgan</b>.</p>
-            <p>So our server setup is going to be a little bit different here. All we have to do is to open the terminal, navigate to our project working directory, and run <b>npm init</b>. This will set up our <b>package.json</b> file, complete with the "dependencies" listed for the packages we already have installed. Now we just need to look through this <b>package.json</b> file and make sure all of the entries are correct.</p>
-            <p>We are going to be using <b>import</b> to import our modules into our <b>index.js</b> server file, so make sure <b>"type": "module",</b> is set. All of the final files, can be <a href="">downloaded here</a>.</p>
-            <p>Next we need to get our server Js file set up. We'll get the basics first:</p>
+            <h6>Intro</h6>
+            <p><span class="firstWord">W</span>e're going to build a very simple app to demonstrate the concept of <b>express middleware</b>. Because we are running our app from the server, the server must be "up, and listening" for request(s). Once the server is running we can access our app @ <a href="http://localhost:3000" target="_blank">localhost:3000</a>. All of the final files, can be <a href="">downloaded here</a>.</p>
+            <p>Since we're going to need our server up and running, we should start by getting it set up.</p>
+         </article><hr>
+
+         <!-- Server Setup -->
+         <article>
+            <h6>Server Setup</h6>
+            <p><span class="firstWord">I</span>f we look at our discussions on setting up an <a href="../expressServer/expressServer.html" target="_blank">express server</a>, we specified a six step process for getting our server up and running. This is the process used when starting with a completely blank slate. For this discussion, we have been provided with a prebuilt directory structure with several files and folders already setup. It also has three npm packages already installed, <b>express</b>, <b>body-parser</b>, and <b>morgan</b>.</p>
+            <p>So our server setup is going to be a little bit different here.</p>
+            <p>All we have to do is to open the terminal, navigate to our project working directory, and run <b>npm init</b>. This will set up our <b>package.json</b> file, complete with the "dependencies" listed for the packages we already have installed. Now we just need to look through this <b>package.json</b> file and make sure all of the entries are correct.</p>
+            <p>We are going to be using <b>import</b> to import our modules into our <b>index.js</b> server file, so make sure <b>"type": "module",</b> is set. Our <b>package.json</b> should look something like this:</p>
+            <ul class="sectHighlight">
+               <li><b>json</b></li>
+               <li>{
+                  <ul>
+                     <li>"name": "middleware",</li>
+                     <li>"version": "1.0.0",</li>
+                     <li>"description": "Demonstrating the use of middleware with express.",</li>
+                     <li><b>"main": "index.js",</b></li>
+                     <li><b>"type": "module",</b></li>
+                     <li>"scripts": {
+                        <ul>
+                           <li>"test": "echo \"Error: no test specified\" && exit 1"</li>
+                        </ul>
+                     </li>
+                     <li>},</li>
+                     <li>"keywords": [],</li>
+                     <li>"author": "badDoggy | aYu",</li>
+                     <li>"license": "ISC",</li>
+                     <li>"dependencies": {
+                        <ul>
+                           <li>"body-parser": "^1.20.2",</li>
+                           <li>"express": "^4.18.2",</li>
+                           <li>"morgan": "^1.10.0"</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               <li>}</li>
+            </ul>
+            <p><br>Notice our "server" file is designated as <b>index.js</b>, and that <b>"type": "module",</b> is set so that we can use <b>import</b> instead of <b>require</b> to "import" our modules. Next we need to get our server Js file set up. We'll start with the basics first:<br><br></p>
             <ul class="sectHighlight">
                <li><b>JavaScript</b></li>
                <li class="commentStyle">// import our modules</li>
@@ -49,14 +85,22 @@
                <li>const <span class="colorGreen">port</span> = 3000;</li>
                <li>&nbsp;</li>
                <li class="commentStyle">// set out server to listen" for request(s)</li>
-               <li>app.<span class="colorBlue">listen</span>(<span class="colorGreen">port</span>, <span class="colorPurple">() =></span> {
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">listen</span>(<span class="colorGreen">port</span>, <span class="colorPurple">() =></span> {
                   <ul>
                      <li>console.log(`The server is running and listening on port: ${<span class="colorGreen">port</span>}`);</li>
                   </ul>
                </li>
                <li>});</li>
             </ul>
-            <p>And now we can start our server (<b>nodemon index.js</b>) and we should see a console.log that "The server is running and listening on port: 3000".</p>
+            <p>Here we are:</p>
+            <ul>
+               <li>- importing the <span class="colorRed">express</span> module <span class="colorPurple">from</span> "<span class="colorGreen">express</span>"</li>
+               <li>- setting the variable <span class="colorGreen">app</span> to represent the <span class="colorPurple">express()</span> function of the <span class="colorRed">express</span> module</li>
+               <li>- assigning the server to run on <b>localhost</b>, <span class="colorGreen">port</span>: 3000</li>
+               <li>- and telling the <span class="colorPurple">express()</span> function, via the variable <span class="colorGreen">app</span>, to <span class="colorBlue">listen</span> on <span class="colorGreen">port</span>: <b>3000</b> for any request(s) sent to the server.</li>
+            </ul>
+            <p>And now we have our basic server functionality set up, we can start our server (<b>nodemon index.js</b>) and we should see the console.log output "The server is running and listening on port: 3000".</p>
+            </p>
          </article><hr>
 
          <!-- public directory -->
@@ -65,7 +109,7 @@
             <p><span class="firstWord">T</span>he next topic to discuss is concerning a <b>public</b> directory.</p>
             <p>In a Node.js application, particularly when using Express, the <b>public</b> directory is a folder that contains <b>static</b> files such as HTML, CSS, JavaScript, images, and other assets that are served directly to the client without being processed by the server. This directory is typically configured to be accessible via the web server, allowing clients to request and receive these files directly.</p>
             <p>So in the root directory of our CWD <i>(current working directory)</i>, we have created a directory call <b>public</b>. And inside we are going to create a file called <b>index.html</b>. We will use this file for our discussions here.</p>
-            <p>Remember that this file is going to be "served" from the server, so you must have the localhost up and running to access this file.</p>
+            <p><b>*Remember</b> that this file is going to be "served" from the server, so you must have the localhost up and running to access this file.</p><br>
             <h6>Our <b>public</b> index.html file</h6>
             <p><span class="firstWord">T</span>he <b>index.html</b> is going to be a simple form input with two text inputs. Here is the code:</p>
             <ul class="sectHighlight">
@@ -91,7 +135,8 @@
          <!-- the "path" module -->
          <article>
             <h6>the "path" module</h6>
-            <p><span class="firstWord">I</span>f we're just running this app from our localhost, designating the correct file path is as simple as setting a directory path to /public (root/public). But when you start running you server from a web host, or from a "cloud" server, things become a little more complicated. We're going to need to use the javaScript <b>path</b> module to set up our path to our <b>public</b> directory. Here is the code:</p>
+            <p><span class="firstWord">I</span>f we're just accessing our web files from a "web host", then designating the correct file path is as simple as setting a directory path to root directory, and appropriate sub-directories.</p>
+            <p>But when you start running you server from a web host, or from a "cloud" server, things become a little more complicated. We're going to need to use the javaScript <b>path</b> module to set up our path to our <b>root</b> directory. Here is the code:</p>
             <ul class="sectHighlight">
                <li><b>JavaScript</b></li>
                <li class="commentStyle">// addition(s) to server index.js file</li>
@@ -122,6 +167,45 @@
                   </ul>
                </li>
             </ul>
+            <p>At this point our server is "up, and listening" for request(s), so we can start building those next. However, we have one other thing to note before we build our first request. We mentioned above that:</p>
+            <ul>
+               <li><i>"the public directory is a folder that <b>contains static files such as HTML, CSS, JavaScript, images, and other assets</b> that are served directly to the client without being processed by the server"</i></li>
+            </ul>
+            <p>Since most webpage will contain many of these static files, we need to let the server know, where to find them. Once again, as mentioned above, we have already created our "<b>public</b>" directory. Now we just need to add a line of code to our server file, so that it knows where this public directory is located.</p>
+            <p>In our server file, we have already designated:</p>
+            <ul class="sectHighlight">
+               <li><span class="colorPurple">const</span> <span class="colorOrange">__dirname</span> = <span class="colorBlue">dirname</span>(<span class="colorBlue">fileURLToPath</span>(<span class="colorPurple">import</span><span class="colorRed">.meta.url</span>));</li>
+            </ul>
+            <p>This set's our <b>root</b> directory and assigns it to the variable, <span class="colorOrange">__dirname</span>. This tells the server where to <b>root</b> directory is, and this is where it will look for all of our files. So, when we add the following line of code:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// addition(s) to server index.js file</li>
+               <li class="commentStyle">// set a default directory for assets (images/css/header/footer)</li>
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">use</span>(express.<span class="colorBlue">static</span>("<span class="colorGreen">public</span>"));</li>
+            </ul>
+            <p>This tells the server to <span class="colorBlue">use</span> the <span class="colorBlue">static</span> directory "<span class="colorGreen">public</span>". So the server will now look at <b>root/public/</b> for all of the static files related to this project.</p>
+            <p>So if we create sub-directories in our "<span class="colorGreen">public</span>" directory for css, images, Js, or whatever, we can structure html "path(s)" to reflect this. What I mean is, for the css, we put a <b>link</b> tag in the &lt;head> section. This link would be to <b>css/cssFileName.css</b>just as you would do normally. Same for images, Js, or any other "<span class="colorBlue">static</span>" files you need for your webpage. All of the "links" in your html would be the same and the server knows to look in the "<span class="colorGreen">public</span>" directory for these assets.</p>
+            <p>When a client <b>request's</b> a page from the server, the server will send the page and all of the files necessary to display that file correctly. At this point, our directory structure would look something like:</p>
+            <ul class="sectHighlight">
+               <li><b>CWD</b>: <i>project current working directory</i></li>
+               <li>root
+                  <ul class="directories">
+                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;node_modules</li>
+                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;public
+                        <ul>
+                           <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;css</li>
+                           <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;images</li>
+                           <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;scripts</li>
+                           <li><img src="/images/html-5.png" alt="HTML Icon" width="16" height="16">&nbsp;&nbsp;index.html</li>
+                        </ul>
+                     </li>
+                     <li><img src="/images/js.png" alt="Javascript Icon">&nbsp;&nbsp;index.js</li>
+                     <li><img src="/images/json.png" alt="Folder Icon">&nbsp;&nbsp;package-lock.json</li>
+                     <li><img src="/images/json.png" alt="Folder Icon">&nbsp;&nbsp;package.jsonn</li>
+                  </ul>
+               </li>
+            </ul>
+            <p>And with our "<span class="colorGreen">public</span>" directory all sorted out, we can now start building our <b>request(s)</b>. We'll start with our first "<b>get</b>" request.</p>
          </article><hr>
 
          <!-- the "get" request -->
@@ -134,7 +218,7 @@
                <li class="commentStyle">// get request for home page</li>
                <li><span class="colorGreen">app</span>.<span class="colorBlue">get</span>("/", <span class="colorPurple">(req, res) =></span> {
                   <ul>
-                     <li>res.<span class="colorBlue">sendFile</span>(<span class="colorOrange">__dirname</span> + "/<span class="colorGreen">public/index.html</span>");</li>
+                     <li>res.<span class="colorBlue">sendFile</span>(<span class="colorOrange">__dirname</span> + "/<span class="colorGreen">index.html</span>");</li>
                   </ul>
                </li>
                <li>});</li>
@@ -142,8 +226,16 @@
             <p>So we are:</p>
 
             <ul>
-               <li>using the <b>express</b> <span class="colorBlue">get</span> method to get index.html from the root/public directory of the server</li>
-               <li>and we are <span class="colorBlue">sending the file</span> back to the client terminal for output.</li>
+               <li>using the <b>express</b> <span class="colorBlue">get</span> method to "get" <b>index.html</b> from the root/public directory of the server
+                  <ul>
+                     <li><i>remember that we have already told our server where the <b>static</b> files are located with  the statement:</i>
+                        <ul>
+                           <li><span class="colorGreen">app</span>.<span class="colorBlue">use</span>(express.<span class="colorBlue">static</span>("<span class="colorGreen">public</span>"));</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li>and we are using the <span class="colorBlue">sendFile</span> method to send the file back to the client terminal for output.</li>
             </ul>
          </article>
       </section>

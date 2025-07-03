@@ -24,3 +24,9 @@ input:focus {
    background-color: #ddfffd;
    box-shadow: none;
 }
+
+.directories img {
+   width: 16px;
+   height: 16px;
+   vertical-align: middle;
+}

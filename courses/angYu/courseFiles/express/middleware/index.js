@@ -17,7 +17,7 @@ app.use(express.static("public"));
 
 // get request for home page
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "index.html");
 });
 
 
