@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../expressIndex.html">Back to Express Index</a></p>
+         <hr style="width: 40%;">
+         <h5>Nodemon</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- nodemon -->
+         <article>
+            <p><spam class="firstWord">W</spam>hen writing server code, it is important to remember that if your server is running, and you make changes to your server code, YOU MUST STOP THE SERVER <i>(<b>ctrl + c</b>)</i> and RESTART THE SERVER <i>(<b>node index.js</b>)</i>. This can become problematic during the development process when you may have to stop, and restart the server, many times.</p>
+            <p>Some very brilliant programmers found that this constantly stopping and restarting the server during the development phase, was very annoying. So they developed an npm package called <a href="https://www.npmjs.com/package/nodemon" target="_blank">nodemon</a>, which will automatically restart your server for you when it detects any file changes in the directory.</p>
+            <p><b>nodemon</b> is a npm package, so it needs to be installed. It is also recommended that you install it with a "global" scale, using the <b>-g</b> option:</p>
+            <ul class="sectHighlight">
+               <li>npm i -g nodemon</li>
+            </ul>
+            <p>Once <b>nodemon</b> is installed, when you run your file from the terminal, you just replace <b>node</b> <i>fileName.js</i> with <b>nodemon</b> <i>fileName.js</i>, and you're all set. Once the server is running  under <b>nodemon</b>, every time you make changes to your file, nodemon will automatically stop and restart the server for you.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>

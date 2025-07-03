@@ -30,17 +30,62 @@
       </section>
 
       <section id="textWindow4" class="just">
-         <!-- Creating an Express Server -->
+         <!-- Intro -->
          <article>
-            <h6>Express Server</h6>
+            <h6>Intro</h6>
             <p><span class="firstWord">S</span>o for the most part, we're going to use Express on a server to process request(s) from a client computer. This means we need a JavaScript file running on the server, (eg. index.js), with <b>Express</b> installed through the npm process. So how do actually create this <b>Express</b> server setup? Good question.</p>
             <p>The process has six (6) basic steps:</p>
             <ol>
                <li>Create a working directory (CWD)</li>
+               <li>Set up the directory structure</li>
                <li>Create an <b>index/js</b> file</li>
                <li>Initialize our npm structure  (<b>npm init</b>)</li>
                <li>Install the Express package (<b>npm i express</b>)</li>
-               <li>Write the <b>Server</b> application code in index.js<br><br>
+               <li>Write the <b>Server</b> application code in index.js</li>
+               <li>Start the server (run <b>nodemon index.js</b>)</li>
+            </ol>
+         </article><hr>
+
+         <!-- Directory Structure -->
+         <article>
+            <h6>Directory Structure</h6>
+            <p><span class="firstWord">S</span>o the first thing we need to do is to set up our working directory. This is going to start with a <b>root</b> directory. In this example, we'll call our root directory "<b>project</b>". We also need to create a <b>public</b> directory.</p>
+            <p>What is a "<b>public</b>" directory? Well, I'm glad you asked.</p>
+            <p>In a Node.js application, particularly when using Express, the <b>public</b> directory is a folder that contains <b>static files such as HTML, CSS, JavaScript, images, and other assets</b> that are served directly to the client without being processed by the server. This directory is typically configured to be accessible via the web server, allowing clients to request and receive these files directly.</p>
+            <p>So what happens once this is all configured properly, is that when a client terminal requests a webpage from the server, the server sends that page back to the client, along with all of the required <b>static</b> files that the page requires.</p>
+            <p>This is all configured in the server setup and we'll get to that shortly, but for now we need to get our basic working directory set up <i>(including a public directory)</i>. It will look something like this:</p>
+            <ul class="sectHighlight">
+               <li><b>project</b>
+                  <ul>
+                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;public
+                        <ul>
+                           <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;css</li>
+                           <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;images</li>
+                           <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;scripts</li>
+                           <li><img src="/images/html-5.png" alt="HTML Icon" width="16" height="16">&nbsp;&nbsp;index.html</li>
+                        </ul>
+                     </li>
+                     <li><img src="/images/js.png" alt="Javascript Icon" width="16" height="16">&nbsp;&nbsp;index.js</li>
+                  </ul>
+               </li>
+            </ul>
+            <p>This will take care of steps 1 thru 3 above.</p>
+            <ol>
+               <li>We created our CWD: "<b>project</b>"</li>
+               <li>Our directory structure is set up, complete with the <b>public</b> directory and its appropriate sub-directories.
+                  <ul>
+                     <li style="list-style: none;"><i>remember that this <b>public</b> directory is where all of our "static" files will be served from.</i></li>
+                     <li style="list-style: none;"><i>also, the sub-directories are optional and you may not need any of these, or you may have others that you do need.</i></li>
+                  </ul>
+               </li>
+               <li>We created our <b>index.js</b> file which will eventually become our <b>server</b> file. For now it is an empty file.</li>
+            </ol>
+         </article>
+
+
+
+
+
                   <ul class="noBullets sectHighlight">
                      <li><b>JavaScript</b></li>
                      <li class="commentStyle">// import express and set a variable for default express functionality</li>
@@ -56,10 +101,14 @@
                         </ul>
                      </li>
                      <li>});</li>
-                  </ul><br>
-               </li>
-               <li>Start the server (run <b>node index.js</b>)</li>
-            </ol>
+                  </ul>
+
+
+
+
+
+
+
             <p>The server should now be running and "listening" on port: 3000, for request(s) from a client. <b>Notice</b> that we are using <span class="colorPurple">import</span> to import <b>express</b> into our server file. So <b>make sure</b> your <b>package.json</b> file includes:
                <ul class="sectHighlight">
                   <li>"type": "<b>module</b>",</li>
@@ -79,18 +128,6 @@
                </ul>
             and the <b>index.js</b> file that we are running, will terminate.
             </p>
-         </article><hr>
-
-         <!-- nodemon -->
-         <article id="nmon">
-            <h6>nodemon</h6>
-            <p><b>*Important Note</b>: when writing server code, it is important to remember that if your server is running, and you make changes to your server code, YOU MUST STOP THE SERVER <i>(<b>ctrl + c</b>)</i> and RESTART THE SERVER <i>(<b>node index.js</b>)</i>.</p>
-            <p><b>Update</b>: some very brilliant programmers found that constantly stopping and restarting the server during the development phase was very annoying. So they developed an npm package called <a href="https://www.npmjs.com/package/nodemon" target="_blank">nodemon</a>, which will automatically restart your server for you when it detects any file changes in the directory.</p>
-            <p>It is recommended that you install this on a "global" scale, using the <b>-g</b> option:</p>
-            <ul class="sectHighlight">
-               <li>npm i -g nodemon</li>
-            </ul>
-            <p>Once <b>nodemon</b> is installed, you replace <b>node</b> <i>fileName.js</i> with <b>nodemon</b> <i>fileName.js</i>, and you're all set.</p>
          </article>
       </section>
 
