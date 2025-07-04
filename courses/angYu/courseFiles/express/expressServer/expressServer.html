@@ -52,7 +52,7 @@
             <p><span class="firstWord">S</span>o the first thing we need to do is to set up our working directory. This is going to start with a <b>root</b> directory. In this example, we'll call our root directory "<b>project</b>". We also need to create a <b>public</b> directory.</p>
             <p>What is a "<b>public</b>" directory? Well, I'm glad you asked.</p>
             <p>In a Node.js application, particularly when using Express, the <b>public</b> directory is a folder that contains <b>static files such as HTML, CSS, JavaScript, images, and other assets</b> that are served directly to the client without being processed by the server. This directory is typically configured to be accessible via the web server, allowing clients to request and receive these files directly.</p>
-            <p>So what happens once this is all configured properly, is that when a client terminal requests a webpage from the server, the server sends that page back to the client, along with all of the required <b>static</b> files that the page requires.</p>
+            <p>So what happens once this is all configured properly, is that when a client terminal requests a webpage from the server, the server sends that page back to the client, along with <b>all</b> of the required <b>static</b> files that the page requires. So the server file is going to need to know where our "public" directory is, as it contains all of our static files.</p>
             <p>This is all configured in the server setup and we'll get to that shortly, but for now we need to get our basic working directory set up <i>(including a public directory)</i>. It will look something like this:</p>
             <ul class="sectHighlight">
                <li><b>project</b>
@@ -74,34 +74,129 @@
                <li>We created our CWD: "<b>project</b>"</li>
                <li>Our directory structure is set up, complete with the <b>public</b> directory and its appropriate sub-directories.
                   <ul>
-                     <li style="list-style: none;"><i>remember that this <b>public</b> directory is where all of our "static" files will be served from.</i></li>
-                     <li style="list-style: none;"><i>also, the sub-directories are optional and you may not need any of these, or you may have others that you do need.</i></li>
+                     <li style="list-style: none; font-size: 14px;"><i>(remember that this <b>public</b> directory is where all of our "static" files will be "served" from)</i></li>
+                     <li style="list-style: none; font-size: 14px;"><i>(also, the sub-directories are optional as you may not need any of these, or you may have others that you do need)</i></li>
+                  </ul>
+               </li>
+               <li>We created a <b>index.html</b> file which essentially becomes our website "home page", getting served from the server.
+                  <ul>
+                     <li style="list-style: none; font-size: 14px;"><i>(notice that this goes in the <b>public</b> directory as it is one of our necessary "static" files)</i></li>
                   </ul>
                </li>
                <li>We created our <b>index.js</b> file which will eventually become our <b>server</b> file. For now it is an empty file.</li>
             </ol>
-         </article>
+         </article><hr>
 
-
-
-
-
-                  <ul class="noBullets sectHighlight">
-                     <li><b>JavaScript</b></li>
-                     <li class="commentStyle">// import express and set a variable for default express functionality</li>
-                     <li><span class="colorPurple">import</span> <span class="colorRed">express</span> from '<span class="colorGreen">express</span>';</li>
-                     <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
-                     <li>const <span class="colorGreen">port</span> = 3000;</li>
-                     <li>&nbsp;</li>
-                     <li class="commentStyle">// setup listening port</li>
-                     <li class="commentStyle">// when we run this file, it starts the server</li>
-                     <li>app.<span class="colorRed">listen</span>( <span class="colorGreen">port</span>, () => {
+         <!-- npm init -->
+         <article>
+            <h6>npm init</h6>
+            <p><span class="firstWord">T</span>he next thing we need to do is run <b>npm init</b> to set up our <b>package.json</b> file. Once this is accomplished we will run [ <b> npm -i <i>packageName</i></b> ] to install any npm packages that we need for our project. This will create our <b>node_modules</b> directory, and update our <b>package.json</b> file with the needed dependencies.</p>
+            <p>When we are finished, our directory structure will look something like this:</p>
+            <ul class="sectHighlight">
+               <li><b>project</b>
+                  <ul>
+                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;<span class="colorGreen">node_modules</span>
                         <ul>
-                           <li>console.log(`Server running on port: ${<span class="colorGreen">port</span>}`);</li>
+                           <li style=" font-size: 14px;"><i>(any npm installed packages will be here)</i></li>
                         </ul>
                      </li>
-                     <li>});</li>
+                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;<b>public</b>
+                        <ul>
+                           <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;css</li>
+                           <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;images</li>
+                           <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;scripts</li>
+                           <li><img src="/images/html-5.png" alt="HTML Icon">&nbsp;&nbsp;index.html</li>
+                        </ul>
+                     </li>
+                     <li><img src="/images/js.png" alt="Javascript Icon">&nbsp;&nbsp;index.js</li>
+                     <li><img src="/images/json.png" alt="json Icon">&nbsp;&nbsp;<span class="colorRed">package-lock.json</span></li>
+                     <li><img src="/images/json.png" alt="json Icon">&nbsp;&nbsp;<span class="colorRed">package.json</span></li>
                   </ul>
+               </li>
+            </ul>
+            <p>and our <b>package.json</b> file will look something like this:</p>
+            <ul class="sectHighlight">
+               <li>{
+                  <ul>
+                     <li>"name": "projectName",</li>
+                     <li>"version": "1.0.0",</li>
+                     <li>"description": "projectDescription",</li>
+                     <li>"keywords": [any, keywords],</li>
+                     <li>"author": "authorName",</li>
+                     <li>"license": "ISC",</li>
+                     <li><b>"main": "index.js",</b></li>
+                     <li><b>"type": "module",</b> <i>// either [commonjs] or [module]</i></li>
+                     <li>"scripts": {
+                        <ul>
+                           <li>"test": "echo \"Error: no test specified\" && exit 1"</li>
+                        </ul>
+                     </li>
+                     <li>},</li>
+                     <li>"dependencies": {
+                        <ul>
+                           <li><i>any dependencies (from npm packages) are listed here</i></li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <p>This will take care of steps 4 and 5 from above.</p>
+            <p>Most of this data is assigned during the <b>npn init</b> process, unless you specify the <b>npm init -y</b> option which skips all the questions asked during the init process and just accepts default values. You can always edit this file and enter the values manually.</p>
+            <p>Notice that <b>main</b> is pointing to <b>index.js</b>. This will be your "main" Js file for the project, (usually your "server" file). Also notice the <b>type</b> definition here. This defines how you are going to import packages into your Js file:</p>
+            <ul>
+               <li><b>commonjs</b>: uses <b>require</b> for importing files - older method</li>
+               <li><b>module</b>: uses <b>import</b> for importing files - newer method</li>
+            </ul>
+            <p>This must be defined here, or your imports will not work properly.</p>
+         </article><hr>
+
+         <!-- the server code -->
+         <article>
+            <h6>Server Code</h6>
+            <p><span class="firstWord">T</span>his should get us to step 6, which is actually building the <b>index.js</b> serverfile code. We're going to go ahead and document the code, then we will break it all down.</p>
+            <ul class="noBullets sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>Server File</li>
+               <li class="commentStyle">// import modules</li>
+               <li><span class="colorPurple">import</span> <span class="colorRed">express</span> from '<span class="colorGreen">express</span>';</li>
+               <li><span class="colorPurple">import</span> { <span class="colorRed">dirname</span> } from '<span class="colorGreen">path</span>';</li>
+               <li><span class="colorPurple">import</span> { <span class="colorRed">fileURLToPath</span> } from '<span class="colorGreen">url</span>';</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// define the root path</li>
+               <li>const <span class="colorOrange">__dirname</span> = <span class="colorBlue">dirname</span>(<span class="colorBlue
+                  ">fileURLToPath</span>(<span class="colorPurple">import</span><span class="colorRed">.meta.url</span>));</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// assign variables for the express function & port #</li>
+               <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+               <li>const <span class="colorGreen">port</span> = 3000;</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// set a default directory for static assets (the "public" directory)</li>
+               <li>app.<span class="colorBlue">use</span>(express.<span class="colorBlue">static</span>("<span class="colorGreen">public</span>"));</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// get request for home page (public/index.html)</li>
+               <li>app.<span class="colorBlue">get</span>("/", <span class="colorPurple">(req, res) =></span> {
+                  <ul>
+                     <li>res.<span class="colorBlue">sendFile</span>(<span class="colorOrange">__dirname</span> + "<span class="colorGreen">index.html</span>");</li>
+                  </ul>
+               </li>
+               <li>});</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// start the server & enter "listening" mode</li>
+               <li>app.<span class="colorRed">listen</span>( <span class="colorGreen">port</span>, () => {
+                  <ul>
+                     <li>console.log(`Server running on port: ${<span class="colorGreen">port</span>}`);</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+
+
+
+
+
+
 
 
 
