@@ -12,6 +12,14 @@
    <!-- link stylesheet -->
    <link rel="stylesheet" href="/css/cssReset.css">
    <link rel="stylesheet" href="/css/root.css">
+   <style>
+      .explain {
+         background-color: #f7fffe;
+         padding: 10px 20px;
+         border: 2px solid black;
+         border-radius: 15px;
+      }
+   </style>
 </head>
 
 <body>
@@ -155,13 +163,15 @@
          <!-- the server code -->
          <article>
             <h6>Server Code</h6>
-            <p><span class="firstWord">T</span>his should get us to step 6, which is actually building the <b>index.js</b> serverfile code. We're going to go ahead and document the code, then we will break it all down.</p>
+            <p><span class="firstWord">T</span>his should get us to step 6, which is actually building the <b>index.js</b> server code. We're going to go ahead and document the code, then we will break it all down.</p>
             <ul class="noBullets sectHighlight">
                <li><b>JavaScript</b></li>
                <li>Server File</li>
-               <li class="commentStyle">// import modules</li>
+               <li class="commentStyle">// import the express object from the express module</li>
                <li><span class="colorPurple">import</span> <span class="colorRed">express</span> from '<span class="colorGreen">express</span>';</li>
+               <li class="commentStyle">// import the dirname function from the path module</li>
                <li><span class="colorPurple">import</span> { <span class="colorRed">dirname</span> } from '<span class="colorGreen">path</span>';</li>
+               <li class="commentStyle">// import the fileURLToPath function from the url module</li>
                <li><span class="colorPurple">import</span> { <span class="colorRed">fileURLToPath</span> } from '<span class="colorGreen">url</span>';</li>
                <li>&nbsp;</li>
                <li class="commentStyle">// define the root path</li>
@@ -190,6 +200,50 @@
                   </ul>
                </li>
                <li>});</li>
+            </ul>
+            <p>and let's break this all down, one line at a time</p>
+            <ul class="explain">
+               <li><b>import express from "express"</b>
+                  <ul>
+                     <li>imports the express <b>object</b> from the express.js framework</li>
+                     <li>gives us the Express.js functionality in our application</li>
+                  </ul>
+               </li>
+               <li><b>import { dirname } from 'path';</b>
+                  <ul>
+                     <li>import the <b>dirname</b> function from the path module</li>
+                     <li>used to get the directory name of a given file path</li>
+                     <li>used to define our root directory for our app</li>
+                  </ul>
+               </li>
+               <li><b>import { fileURLToPath } from 'url';</b>
+                  <ul>
+                     <li>import the fileURLToPath function from the url module</li>
+                     <li>this function converts a file URL to a local file system path</li>
+                     <li>used to define our root directory for our app</li>
+                  </ul>
+               </li>
+               <li><b>const __dirname = dirname(fileURLToPath(import.meta.url));</b>
+                  <ul>
+                     <li>this actually builds a path to our root directory and assigns it to <b>__dirname</b>, so anytime we call  __dirname, we're actually saying "root directory"</li>
+                  </ul>
+               </li>
+               <li><b>const app = express();</b>
+                  <ul>
+                     <li>this assigns the express function to a variable to make the coding simpler</li>
+                  </ul>
+               </li>
+               <li><b>const port = 3000;</b>
+                  <ul>
+                     <li>we set our port number to a variable so that if we ever want to change our port assignment we only have to change it in one place</li>
+                  </ul>
+               </li>
+               <li><b>app.use(express.static("public"));</b>
+                  <ul>
+                     <li><b>express.static</b> is a "middleware" function of express.js. it is telling the app to use "root/public" as the static files directory.</li>
+                     <li>this directory is where we build all of our relevant "static" files and folders (css, images, scripts, etc.)</li>
+                  </ul>
+               </li>
             </ul>
 
 

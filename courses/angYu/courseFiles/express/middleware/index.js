@@ -1,11 +1,12 @@
-// import modules
+// import the express object from the express module
 import express from "express";
+// import the dirname function from the path module
 import { dirname } from "path";
+// import the fileURLToPath function from the url module
 import { fileURLToPath } from "url";
 
 // define the root path
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
 
 // assign variables for the express function & port #
 const app = express();
