@@ -34,14 +34,18 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">W</span>e're going to build a very simple app to demonstrate the concept of <b>express middleware</b>. Because we are running our app from the server, the server must be "up, and listening" for request(s). Once the server is running we can access our app @ <a href="http://localhost:3000" target="_blank">localhost:3000</a>. All of the final files, can be <a href="">downloaded here</a>.</p>
-            <p>Since we're going to need our server up and running, we should start by getting it set up.</p>
+            <p><span class="firstWord">W</span>e're going to build a very simple app to demonstrate the concept of <b>express middleware</b>. But what actually is this express middleware and what do we actually do with it?</p>
+            <p>Express middleware refers to functions that are executed during the lifecycle of a request to an Express server. These functions have access to the HTTP request and response objects and can perform various tasks such as executing code, modifying the request and response objects, ending the request-response cycle, or passing control to the next middleware function.</p>
+            <p>Middleware functions are an integral part of an application built with the Express framework. They are arranged in a chain and are called in sequence, allowing developers to compartmentalize their code and create reusable middleware.</p>
+            <p>Express middleware can be categorized into different types, including built-in middleware, third-party middleware, application-level middleware, router-level middleware, and error-handling middleware.</p>
          </article><hr>
 
          <!-- Server Setup -->
          <article>
             <h6>Server Setup</h6>
-            <p><span class="firstWord">I</span>f we look at our discussions on setting up an <a href="../expressServer/expressServer.html" target="_blank">express server</a>, we specified a six step process for getting our server up and running. This is the process used when starting with a completely blank slate. For this discussion, we have been provided with a prebuilt directory structure with several files and folders already setup. It also has three npm packages already installed, <b>express</b>, <b>body-parser</b>, and <b>morgan</b>.</p>
+            <p><span class="firstWord">B</span>ecause we are building an app that we want to run from our server, the server must be "up, and listening" for request(s). Once the server is running we can access our app @ <a href="http://localhost:3000" target="_blank">localhost:3000</a>. All of the final files, can be <a href="">downloaded here</a>.</p>
+            <p>Since we're going to need our server up and running, we should start by getting it set up.</p>
+            <p>If we look at our discussions on setting up an <a href="../expressServer/expressServer.html" target="_blank">express server</a>, we specified a six step process for getting our server up and running. This is the process used when starting with a completely blank slate. For this discussion, we have been provided with a prebuilt directory structure with several files and folders already setup. It also has three npm packages already installed, <b>express</b>, <b>body-parser</b>, and <b>morgan</b>.</p>
             <p>So our server setup is going to be a little bit different here.</p>
             <p>All we have to do is to open the terminal, navigate to our project working directory, and run <b>npm init</b>. This will set up our <b>package.json</b> file, complete with the "dependencies" listed for the packages we already have installed. Now we just need to look through this <b>package.json</b> file and make sure all of the entries are correct.</p>
             <p>We are going to be using <b>import</b> to import our modules into our <b>index.js</b> server file, so make sure <b>"type": "module",</b> is set. Our <b>package.json</b> should look something like this:</p>
@@ -237,7 +241,32 @@
                </li>
                <li>and we are using the <span class="colorBlue">sendFile</span> method to send the file back to the client terminal for output.</li>
             </ul>
-            <p>Ok. So with all this work done, we have a proper directory structure built. We know where the root directory, and the "public" static files directories are. We can start our server and have it "listening" on port 3000. We know how to stop our server when we're done. And we can access our root <b>index.html</b> (our home page) from our root/public directory.</p>
+            <p>Ok. So with all this work done, we have a proper directory structure built. We know where the root directory, and the "public" static files directories are. We can start our server and have it "listening" on port 3000. We know how to stop our server when we're done. And we can access our root <b>index.html</b> (our home page) from our root/public directory @ <a href="http://localhost:3000" target="_blank">localhost:3000</a>.</p>
+         </article><hr>
+
+         <!-- body-parser -->
+         <article>
+            <h6>body-parser</h6>
+            <p><span class="firstWord">W</span>e defined express middleware at the beginning of this discussion, but a simpler way to look at it is that it simplifies many tasks when dealing with requests to a server. We've actually already used a piece of this middleware when we defined our "<b>public</b>" directory, which holds all of our static files.</p>
+            <p>The code to define our "<b>public</b>" directory was:</p>
+            <ul class="sectHighlight">
+               <li><span class="colorGreen">app</span>.<span class="colorBlue">use</span>(express.<span class="colorBlue">static</span>("<span class="colorGreen">public</span>"));</li>
+            </ul>
+            <p><b>express.static()</b> is a built-in <b>middleware</b> function in <b>Express.js</b> that allows you to serve static files (like images, HTML, CSS, and JavaScript) directly to the client. It automatically makes all files inside a specified folder accessible via HTTP requests. Using this express middleware saves you from having to create custom routes for each static asset.</p>
+            <p>So this code alone saves on development time writing code. We're going to look at another piece of middleware called <a href="https://www.npmjs.com/package/body-parser" target="_blank">body-parser</a>.</p>
+            <p>Technically, body-parer middleware is responsible for parsing the incoming request bodies in a middleware before you handle it. It's commonly used in web applications built with Express.js to handle form submissions, JSON payloads, and other types of request bodies.</p>
+            <P>In simpler terms it is used to help process data such as form submissions or JSON payloads before handling by the server.</P>
+            <p>We have already created an <b>index.html</b> file in our public directory which essentially becomes our app's home page. The page consists of a simple form with with two text inputs and a submit button. We defined the form like so:</p>
+            <ul class="sectHighlight">
+               <li>&lt;form action="<b>/submit</b>" method="<b>POST</b>">&lt;/form></li>
+            </ul>
+            <p>What this line of code says is that when we hit the <b>submit</b> button, we're going to send a <b>POST</b> request to the path we specified, which is <b>/submit</b>. So what we need to do is to create a "route handler" in our <b>index.js</b> server file, that can process the request to <b>/submit</b> with a <b>POST</b> request.</p>
+            <p>We're going to use the <b>body-parser</b> middleware to "parse" the data coming in from our form, and the add the actual form data to our request object. In simpler terms, we're going to pull the data submitted by the form and attach it to the <b>POST</b> request.</p>
+            <p>So we're going to add the following code to our server code:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li class="commentStyle">// addition(s) to server index.js file</li>
+            </ul>
          </article>
       </section>
 
