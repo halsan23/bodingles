@@ -170,18 +170,19 @@
                <li>Server File</li>
                <li class="commentStyle">// import the express object from the express module</li>
                <li><span class="colorPurple">import</span> <span class="colorRed">express</span> from '<span class="colorGreen">express</span>';</li>
-               <li class="commentStyle">// import the dirname function from the path module</li>
-               <li><span class="colorPurple">import</span> { <span class="colorRed">dirname</span> } from '<span class="colorGreen">path</span>';</li>
-               <li class="commentStyle">// import the fileURLToPath function from the url module</li>
-               <li><span class="colorPurple">import</span> { <span class="colorRed">fileURLToPath</span> } from '<span class="colorGreen">url</span>';</li>
-               <li>&nbsp;</li>
-               <li class="commentStyle">// define the root path</li>
-               <li>const <span class="colorOrange">__dirname</span> = <span class="colorBlue">dirname</span>(<span class="colorBlue
-                  ">fileURLToPath</span>(<span class="colorPurple">import</span><span class="colorRed">.meta.url</span>));</li>
                <li>&nbsp;</li>
                <li class="commentStyle">// assign variables for the express function & port #</li>
                <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
                <li>const <span class="colorGreen">port</span> = 3000;</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// dynamically build a path to the ROOT directory</li>
+               <li class="commentStyle">// import the dirname function from the path module</li>
+               <li><span class="colorPurple">import</span> { <span class="colorRed">dirname</span> } from '<span class="colorGreen">path</span>';</li>
+               <li class="commentStyle">// import the fileURLToPath function from the url module</li>
+               <li><span class="colorPurple">import</span> { <span class="colorRed">fileURLToPath</span> } from '<span class="colorGreen">url</span>';</li>
+               <li class="commentStyle">// define the root path</li>
+               <li>const <span class="colorOrange">__dirname</span> = <span class="colorBlue">dirname</span>(<span class="colorBlue
+                  ">fileURLToPath</span>(<span class="colorPurple">import</span><span class="colorRed">.meta.url</span>));</li>
                <li>&nbsp;</li>
                <li class="commentStyle">// set a default directory for static assets (the "public" directory)</li>
                <li>app.<span class="colorBlue">use</span>(express.<span class="colorBlue">static</span>("<span class="colorGreen">public</span>"));</li>
@@ -211,6 +212,19 @@
                   </ul>
                </li>
                <li><hr></li>
+               <li><b>const app = express();</b>
+                  <ul>
+                     <li class="commentStyle">- this assigns the express function to a variable to make the coding simpler</li>
+                  </ul>
+               </li>
+               <li><hr></li>
+               <li><b>const port = 3000;</b>
+                  <ul>
+                     <li class="commentStyle">- we set our port number to a variable so that if we ever want to change our port assignment we only have to change it in one place</li>
+                  </ul>
+               </li>
+               <li><hr></li>
+               <li class="commentStyle">- dynamically build a path to the ROOT directory</li>
                <li><b>import { dirname } from 'path';</b>
                   <ul>
                      <li class="commentStyle">- import the <b>dirname</b> function from the path module</li>
@@ -229,29 +243,21 @@
                <li><hr></li>
                <li><b>const __dirname = dirname(fileURLToPath(import.meta.url));</b>
                   <ul>
-                     <li class="commentStyle">- this actually builds a path to our root directory and assigns it to <b>__dirname</b>, so anytime we call  __dirname, we're actually saying "root directory"</li>
+                     <li class="commentStyle">- this is going to combine the <b>dirname</b> and the <b>fileURLToPath</b> with the <b>imported meta.url</b> to give us a valid path to the root directory of our project.</li>
+                     <li class="commentStyle">- we then take this path and assign it to the variable <b>__dirname</b> so that anytime we call __dirname, we are indicating a path to the root directory of our project.</li>
+                     <li class="commentStyle">- So if we call [ __dirname + "/index.html" ], we are saying root/index.html.</li>
                   </ul>
                </li>
                <li><hr></li>
-               <li><b>const app = express();</b>
-                  <ul>
-                     <li class="commentStyle">- this assigns the express function to a variable to make the coding simpler</li>
-                  </ul>
-               </li>
-               <li><hr></li>
-               <li><b>const port = 3000;</b>
-                  <ul>
-                     <li class="commentStyle">- we set our port number to a variable so that if we ever want to change our port assignment we only have to change it in one place</li>
-                  </ul>
-               </li>
-               <li><hr></li>
+               <li class="commentStyle">- define our public directory</li>
                <li><b>app.use(express.static("public"));</b>
                   <ul>
-                     <li class="commentStyle">- <b>express.static</b> is a "middleware" function of express.js. it is telling the app to use "root/public" as the static files directory.</li>
+                     <li class="commentStyle">- <b>express.static</b> is a "middleware" function of express.js. in this instance, it is telling the app to use "root/public" as the static files directory.</li>
                      <li class="commentStyle">- this directory is where we build all of our relevant "static" files and folders (css, images, scripts, etc.)</li>
                   </ul>
                </li>
                <li><hr></li>
+               <li class="commentStyle">- send a "get" request</li>
                <li><b>app.get("/", (req, res) => {</b>
                   <ul>
                      <li><b>res.sendFile(__dirname + index.html);</b></li>
@@ -260,7 +266,7 @@
                <li><b>});</b>
                   <ul>
                      <li class="commentStyle">- we are sending a <b>get</b> request for a file at the root directory (<b>/</b>)</li>
-                     <li class="commentStyle">- because we have a "static" directory defined, any request for (<b>/</b>) will point to <i>root/public</i>
+                     <li class="commentStyle">- because we have a "static" directory defined as <b>root/public</b>, any request for (<b>/</b>) will point to the <i>root/public</i> directory
                         <ul>
                            <li>- we are "sending" the file "<b>index.html</b>" that resides at the root of the "public" directory</li>
                         </ul>
@@ -268,6 +274,7 @@
                   </ul>
                </li>
                <li><hr></li>
+               <li class="commentStyle">- set the server to "listen" for requests</li>
                <li><b>app.listen(port, () => {</b>
                   <ul>
                      <li><b>console.log(`The server is running and listening on port: ${port}`);</b></li>
@@ -302,6 +309,7 @@
                </ul>
             you will actually get a list of all of the ports that are open and "Listening" on your computer.
             </p>
+         </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>

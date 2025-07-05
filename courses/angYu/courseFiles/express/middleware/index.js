@@ -18,11 +18,11 @@ app.use(express.static("public"));
 
 // get request for home page
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "index.html");
+   res.sendFile(__dirname + "index.html");
 });
 
 
 // enable server "listen" mode
 app.listen(port, () => {
-  console.log(`The server is running and listening on port: ${port}`);
+   console.log(`The server is running and listening on port: ${port}`);
 });

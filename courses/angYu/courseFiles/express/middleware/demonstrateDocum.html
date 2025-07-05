@@ -188,10 +188,10 @@
             <p>When a client <b>request's</b> a page from the server, the server will send the page and all of the files necessary to display that file correctly. At this point, our directory structure would look something like:</p>
             <ul class="sectHighlight">
                <li><b>CWD</b>: <i>project current working directory</i></li>
-               <li>root
+               <li><b>root</b>
                   <ul class="directories">
-                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;node_modules</li>
-                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;public
+                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;<span class="colorGreen">node_modules</span>
+                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;<b>public</b>
                         <ul>
                            <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;css</li>
                            <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;images</li>
@@ -200,12 +200,12 @@
                         </ul>
                      </li>
                      <li><img src="/images/js.png" alt="Javascript Icon">&nbsp;&nbsp;index.js</li>
-                     <li><img src="/images/json.png" alt="Folder Icon">&nbsp;&nbsp;package-lock.json</li>
-                     <li><img src="/images/json.png" alt="Folder Icon">&nbsp;&nbsp;package.jsonn</li>
+                     <li><img src="/images/json.png" alt="json Icon">&nbsp;&nbsp;<span class="colorRed">package-lock.json</span></li>
+                     <li><img src="/images/json.png" alt="json Icon">&nbsp;&nbsp;<span class="colorRed">package.json</span></li>
                   </ul>
                </li>
             </ul>
-            <p>And with our "<span class="colorGreen">public</span>" directory all sorted out, we can now start building our <b>request(s)</b>. We'll start with our first "<b>get</b>" request.</p>
+            <p>And with our "<b>public</b>" directory all sorted out, we can now start building our <b>request(s)</b>. We'll start with our first "<b>get</b>" request.</p>
          </article><hr>
 
          <!-- the "get" request -->
@@ -237,6 +237,7 @@
                </li>
                <li>and we are using the <span class="colorBlue">sendFile</span> method to send the file back to the client terminal for output.</li>
             </ul>
+            <p>Ok. So with all this work done, we have a proper directory structure built. We know where the root directory, and the "public" static files directories are. We can start our server and have it "listening" on port 3000. We know how to stop our server when we're done. And we can access our root <b>index.html</b> (our home page) from our root/public directory.</p>
          </article>
       </section>
 
