@@ -1,44 +1,28 @@
-// import express and set a variable for default express functionality
-import express from 'express';
+// import the express object from the express module
+import express from "express";
+// import the dirname function from the path module
+import { dirname } from "path";
+// import the fileURLToPath function from the url module
+import { fileURLToPath } from "url";
+
+// define the root path
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// assign variables for the express function & port #
 const app = express();
 const port = 3000;
 
+// set a default directory for assets (images/css/header/footer)
+app.use(express.static("public"));
 
-// get request /(root)
-// get "Home Page" data
+
+// get request for home page
 app.get("/", (req, res) => {
-   res.send("<h1>Home Page</h1>");
-});
-
-// post request /(register)
-// adding new data
-app.post("/register", (req, res) => {
-  //do something with the data
-  res.sendStatus(201);
-});
-
-// put user (angela)
-// completely replace (angela) data
-app.put("/user/angela", (req, res) => {
-  res.sendStatus(200);
-});
-
-// patch user (angela)
-// replace part of "angela" data (update)
-app.patch("/user/angela", (req, res) => {
-  res.sendStatus(200);
-});
-
-// delete user (angela)
-// delete "angela" user data
-app.delete("/user/angela", (req, res) => {
-  //Deleting
-  res.sendStatus(200);
+  res.sendFile(__dirname + "index.html");
 });
 
 
-// setup listening port
-// when we run this file, it starts the server
-app.listen( port, () => {
-   console.log(`Server running on port: ${port}`);
+// enable server "listen" mode
+app.listen(port, () => {
+  console.log(`The server is running and listening on port: ${port}`);
 });

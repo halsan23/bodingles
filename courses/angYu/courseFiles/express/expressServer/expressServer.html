@@ -14,7 +14,7 @@
    <link rel="stylesheet" href="/css/root.css">
    <style>
       .explain {
-         background-color: #f7fffe;
+         background-color: #efefef;
          padding: 10px 20px;
          border: 2px solid black;
          border-radius: 15px;
@@ -41,8 +41,9 @@
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">S</span>o for the most part, we're going to use Express on a server to process request(s) from a client computer. This means we need a JavaScript file running on the server, (eg. index.js), with <b>Express</b> installed through the npm process. So how do actually create this <b>Express</b> server setup? Good question.</p>
-            <p>The process has six (6) basic steps:</p>
+            <p><span class="firstWord">W</span>e're going to discuss here how to set up an <b>express server</b> but first  we  should talk about what that is. An express server is a JavaScript/Express file that resides in the root directory of the project's CWD. It is set up to process requests from a client terminal. This means we need a JavaScript file running on the server, (eg. index.js), with <b>Express</b> installed through the npm process.</p>
+            <p>You can access the "served" <b>index.html</b> file that we will create here @ <a href="http://localhost:3000" target="_blank">localhost:3000</a>, but remember, <b>our server must be up and running to retrieve this file</b>. We will discuss how to do this, here.</p>
+            <p>So how do actually create this <b>Express</b> server setup? Good question. The process has seven (7) basic steps:</p>
             <ol>
                <li>Create a working directory (CWD)</li>
                <li>Set up the directory structure</li>
@@ -201,83 +202,106 @@
                </li>
                <li>});</li>
             </ul>
-            <p>and let's break this all down, one line at a time</p>
+            <p><br>and let's break this all down, one line at a time:<br><br></p>
             <ul class="explain">
                <li><b>import express from "express"</b>
                   <ul>
-                     <li>imports the express <b>object</b> from the express.js framework</li>
-                     <li>gives us the Express.js functionality in our application</li>
+                     <li class="commentStyle">- imports the express <b>object</b> from the express.js framework</li>
+                     <li class="commentStyle">- gives us the Express.js functionality in our application</li>
                   </ul>
                </li>
+               <li><hr></li>
                <li><b>import { dirname } from 'path';</b>
                   <ul>
-                     <li>import the <b>dirname</b> function from the path module</li>
-                     <li>used to get the directory name of a given file path</li>
-                     <li>used to define our root directory for our app</li>
+                     <li class="commentStyle">- import the <b>dirname</b> function from the path module</li>
+                     <li class="commentStyle">- used to get the directory name of a given file path</li>
+                     <li class="commentStyle">- used to define our root directory for our app</li>
                   </ul>
                </li>
+               <li><hr></li>
                <li><b>import { fileURLToPath } from 'url';</b>
                   <ul>
-                     <li>import the fileURLToPath function from the url module</li>
-                     <li>this function converts a file URL to a local file system path</li>
-                     <li>used to define our root directory for our app</li>
+                     <li class="commentStyle">- import the fileURLToPath function from the url module</li>
+                     <li class="commentStyle">- this function converts a file URL to a local file system path</li>
+                     <li class="commentStyle">- used to define our root directory for our app</li>
                   </ul>
                </li>
+               <li><hr></li>
                <li><b>const __dirname = dirname(fileURLToPath(import.meta.url));</b>
                   <ul>
-                     <li>this actually builds a path to our root directory and assigns it to <b>__dirname</b>, so anytime we call  __dirname, we're actually saying "root directory"</li>
+                     <li class="commentStyle">- this actually builds a path to our root directory and assigns it to <b>__dirname</b>, so anytime we call  __dirname, we're actually saying "root directory"</li>
                   </ul>
                </li>
+               <li><hr></li>
                <li><b>const app = express();</b>
                   <ul>
-                     <li>this assigns the express function to a variable to make the coding simpler</li>
+                     <li class="commentStyle">- this assigns the express function to a variable to make the coding simpler</li>
                   </ul>
                </li>
+               <li><hr></li>
                <li><b>const port = 3000;</b>
                   <ul>
-                     <li>we set our port number to a variable so that if we ever want to change our port assignment we only have to change it in one place</li>
+                     <li class="commentStyle">- we set our port number to a variable so that if we ever want to change our port assignment we only have to change it in one place</li>
                   </ul>
                </li>
+               <li><hr></li>
                <li><b>app.use(express.static("public"));</b>
                   <ul>
-                     <li><b>express.static</b> is a "middleware" function of express.js. it is telling the app to use "root/public" as the static files directory.</li>
-                     <li>this directory is where we build all of our relevant "static" files and folders (css, images, scripts, etc.)</li>
+                     <li class="commentStyle">- <b>express.static</b> is a "middleware" function of express.js. it is telling the app to use "root/public" as the static files directory.</li>
+                     <li class="commentStyle">- this directory is where we build all of our relevant "static" files and folders (css, images, scripts, etc.)</li>
+                  </ul>
+               </li>
+               <li><hr></li>
+               <li><b>app.get("/", (req, res) => {</b>
+                  <ul>
+                     <li><b>res.sendFile(__dirname + index.html);</b></li>
+                  </ul>
+               </li>
+               <li><b>});</b>
+                  <ul>
+                     <li class="commentStyle">- we are sending a <b>get</b> request for a file at the root directory (<b>/</b>)</li>
+                     <li class="commentStyle">- because we have a "static" directory defined, any request for (<b>/</b>) will point to <i>root/public</i>
+                        <ul>
+                           <li>- we are "sending" the file "<b>index.html</b>" that resides at the root of the "public" directory</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li><hr></li>
+               <li><b>app.listen(port, () => {</b>
+                  <ul>
+                     <li><b>console.log(`The server is running and listening on port: ${port}`);</b></li>
+                  </ul>
+               </li>
+               <li><b>});</b>
+                  <ul>
+                     <li class="commentStyle">- this puts the server in "listening" mode to "listen" for server requests.</li>
+                     <li class="commentStyle">&nbsp;</li>
                   </ul>
                </li>
             </ul>
+            <p>So this will complete our Step 6 in the process. All that is left is step 7: Start the server.</p>
+         </article><hr>
 
-
-
-
-
-
-
-
-
-
-
-
-
-            <p>The server should now be running and "listening" on port: 3000, for request(s) from a client. <b>Notice</b> that we are using <span class="colorPurple">import</span> to import <b>express</b> into our server file. So <b>make sure</b> your <b>package.json</b> file includes:
-               <ul class="sectHighlight">
-                  <li>"type": "<b>module</b>",</li>
+         <!-- start/stop the server -->
+         <article>
+            <h6>Starting & Stopping the Server</h6>
+            <p><span class="firstWord">T</span>o actually "start" our server, we open up our Terminal of choice, navigate to our project's root directory, and enter <b>nodemon index.js</b>. Once the server is up and running we will see a console.log stating "The server is running and listening on port: 3000"</p>
+            <p>Now that our server is up and running, we can access the server output (our requested page), in our browser by entering <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> into the browser address bar.</p>
+            <p>Why are we're using "<b>nodemon</b>" instead of "<b>node</b>"?</p>
+            <p>Well, whether you use "<b>node</b>" or "<b>nodemon</b>" depends on where you are in the development process. While we are building and developing our project, we use "<b>nodemon</b>" because it stops and restarts our server when we make changes to the file structure. But if we are just "running" our server, we would probably just use "<b>node</b>".</p>
+            <p>And finally, now that our server is up and running, how do we shut it down? Once again, from the Terminal of choice,
+               <ul>
+                  <li>press <b>ctrl - c</b></li>
                </ul>
-            to allow for the use of the <span class="colorPurple">import</span> statement.
-            </p>
-            <p>Now that our server is up and running, how do we actually access the server output, in our browser? Well, simply enter <b>localhost:3000</b> into the browser address bar. Our locaL server is the "localhost" and we designated it to run on port 3000.</p>
-            <p>And while we're talking about ports, if you open a <b>Terminal</b>, and enter the command:
+            and the <b>index.js</b> file that we are running, will terminate shutting down our server.</p><hr>
+            <p><b>One last tidbit:</b></p>
+            <p>While we're talking about ports, if you open a <b>Terminal</b>, and enter the command:
                <ul class="sectHighlight">
                   <li>netstat -ano | findstr "LISTENING"</li>
                </ul>
             you will actually get a list of all of the ports that are open and "Listening" on your computer.
             </p>
-            <p>And finally, now that our server is up and running, how do we shut it down?
-               <ul>
-                  <li>press <b>ctrl - c</b></li>
-               </ul>
-            and the <b>index.js</b> file that we are running, will terminate.
-            </p>
-         </article>
       </section>
 
       <p><br><a href="#top">Back to Top</a></p>
