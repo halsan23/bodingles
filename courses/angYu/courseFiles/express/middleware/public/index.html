@@ -27,12 +27,13 @@
          <p>Dr. Angela Yu</p>
          <hr style="width: 40%;">
          <h5>Express Middleware</h5>
+         <h6>Demonstration</h6>
       </section>
 
       <section id="textWindow4">
 
          <h4>Band Name Generator</h4><br>
-         <form action="/submit" method="POST">
+         <form action="/" method="POST">
             <p>
                <label for="street">Street Name:</label>
                <input type="text" name="street" placeholder="Street Name" required>
@@ -46,7 +47,7 @@
             <input class="submit" type="submit" value="Submit">
          </form>
 
-         <p>&nbsp;</p>
+         <div id="message"></div>
 
       </section>
 
@@ -60,5 +61,13 @@
    <!-- scripts -->
    <script src="scripts/header.js"></script>
    <script src="scripts/footer.js"></script>
+
+   <script>
+      fetch('/api/message')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('message').innerText = data.message;
+      });
+   </script>
 </body>
 </html>

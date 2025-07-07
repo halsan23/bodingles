@@ -1,31 +1,40 @@
-// import the express object from the express module
-import express from "express";
-
-// import body-parser
-import bodyParser from 'body-parser';
-
-// build the root path
-// import the dirname function from the path module
-import { dirname } from "path";
-// import the fileURLToPath function from the url module
-import { fileURLToPath } from "url";
-// define the root path
-const __dirname = dirname(fileURLToPath(import.meta.url));
+// THE IMPORTS
+// ===============================================================
+import express from "express";       // import the express object from the express module
+import { dirname } from "path";      // import the dirname function from the path module
+import { fileURLToPath } from "url"; // import the fileURLToPath function from the url module
 
 
-// assign variables for the express function & port #
+// THE VARIABLES
+// ===============================================================
+const __dirname = dirname(fileURLToPath(import.meta.url));  // build the root path
 const app = express();
 const port = 3000;
+let bandName = "";
+
+
+// FUNCTION TO ADD FORM DATA TOGETHER TO FORM A "BAND NAME"
+function bandNameGenerator(req, res, next) {
+  console.log(req.body);
+  bandName = `${req.body["street"]} ${req.body["pet"]}`;
+  next();
+}
 
 
 // THE MIDDLEWARE
 // ===============================================================
-// set a default directory for assets (images/css/header/footer)
+// use express "static" method to set a default directory for assets (images/css/scripts/etc)
 app.use(express.static("public"));
-// use body-parser to extract the form data from public/index.html
-app.use(bodyParser.urlencoded({ extended: true }));
+// use express to extract the form data submitted from our public/index.html
+app.use(express.urlencoded({ extended: true }));
+// use bandNameGenerator to build our band name
+app.use(bandNameGenerator);
 
 
+
+
+// PROCESS REQUESTS
+// ===============================================================
 // get request for home page
 app.get("/", (req, res) => {
    res.sendFile(__dirname + "index.html");
@@ -33,12 +42,16 @@ app.get("/", (req, res) => {
 
 
 // POST request to process form data from public/index.html
-app.post("/submit", (req, res) => {
-   console.log(req.body);
+// app.post("/", (req, res) => {
+//    res.send(`<h5>Your band name is:</h5> <h6>${bandName}</h6>`);
+// });
+app.get('/api/message', (req, res) => {
+   res.json({ message: `<h5>Your band name is:</h5> <h6>${bandName}</h6>` });
 });
 
 
 // enable server "listen" mode
+// ===============================================================
 app.listen(port, () => {
    console.log(`The server is running and listening on port: ${port}`);
 });
