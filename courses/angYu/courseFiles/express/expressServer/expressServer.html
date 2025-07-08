@@ -42,6 +42,7 @@
          <article>
             <h6>Intro</h6>
             <p><span class="firstWord">W</span>e're going to discuss here how to set up an <b>express server</b> but first  we  should talk about what that is. An express server is a JavaScript/Express file that resides in the root directory of the project's CWD. It is set up to process requests from a client terminal. This means we need a JavaScript file running on the server, (eg. index.js), with <b>Express</b> installed through the npm process.</p>
+            <p>Download all of the server project files: <a href="./expressServer.zip">expressServer.zip</a>.</p>
             <p>You can access the "served" <b>index.html</b> file that we will create here @ <a href="http://localhost:3000" target="_blank">localhost:3000</a>, but remember, <b>our server must be up and running to retrieve this file</b>. We will discuss how to do this, here.</p>
             <p>So how do actually create this <b>Express</b> server setup? Good question. The process has seven (7) basic steps:</p>
             <ol>
@@ -171,10 +172,6 @@
                <li class="commentStyle">// import the express object from the express module</li>
                <li><span class="colorPurple">import</span> <span class="colorRed">express</span> from '<span class="colorGreen">express</span>';</li>
                <li>&nbsp;</li>
-               <li class="commentStyle">// assign variables for the express function & port #</li>
-               <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
-               <li>const <span class="colorGreen">port</span> = 3000;</li>
-               <li>&nbsp;</li>
                <li class="commentStyle">// dynamically build a path to the ROOT directory</li>
                <li class="commentStyle">// import the dirname function from the path module</li>
                <li><span class="colorPurple">import</span> { <span class="colorRed">dirname</span> } from '<span class="colorGreen">path</span>';</li>
@@ -183,6 +180,10 @@
                <li class="commentStyle">// define the root path</li>
                <li>const <span class="colorOrange">__dirname</span> = <span class="colorBlue">dirname</span>(<span class="colorBlue
                   ">fileURLToPath</span>(<span class="colorPurple">import</span><span class="colorRed">.meta.url</span>));</li>
+               <li>&nbsp;</li>
+               <li class="commentStyle">// assign variables for the express function & port #</li>
+               <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
+               <li>const <span class="colorGreen">port</span> = 3000;</li>
                <li>&nbsp;</li>
                <li class="commentStyle">// set a default directory for static assets (the "public" directory)</li>
                <li>app.<span class="colorBlue">use</span>(express.<span class="colorBlue">static</span>("<span class="colorGreen">public</span>"));</li>
