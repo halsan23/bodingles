@@ -183,26 +183,16 @@
                <li>&nbsp;</li>
                <li class="commentStyle">// assign variables for the express function & port #</li>
                <li>const <span class="colorGreen">app</span> = <span class="colorPurple">express()</span>;</li>
-               <li>const <span class="colorGreen">port</span> = 3000;</li>
+               <li>const <span class="colorGreen">port</span> = process.<span class="colorRed">env</span>.<b>PORT</b> || <span class="colorBlue">3000</span>;</li>
                <li>&nbsp;</li>
                <li class="commentStyle">// set a default directory for static assets (the "public" directory)</li>
                <li>app.<span class="colorBlue">use</span>(express.<span class="colorBlue">static</span>("<span class="colorGreen">public</span>"));</li>
                <li>&nbsp;</li>
                <li class="commentStyle">// get request for home page (public/index.html)</li>
-               <li>app.<span class="colorBlue">get</span>("/", <span class="colorPurple">(req, res) =></span> {
-                  <ul>
-                     <li>res.<span class="colorBlue">sendFile</span>(<span class="colorOrange">__dirname</span> + "<span class="colorGreen">index.html</span>");</li>
-                  </ul>
-               </li>
-               <li>});</li>
+               <li>app.<span class="colorBlue">get</span>( "/", <span class="colorPurple">( req, res ) =></span> res.<span class="colorBlue">sendFile</span>( <span class="colorOrange">__dirname</span> + "<b>index.html</b>") );</li>
                <li>&nbsp;</li>
                <li class="commentStyle">// start the server & enter "listening" mode</li>
-               <li>app.<span class="colorRed">listen</span>( <span class="colorGreen">port</span>, () => {
-                  <ul>
-                     <li>console.log(`Server running on port: ${<span class="colorGreen">port</span>}`);</li>
-                  </ul>
-               </li>
-               <li>});</li>
+               <li>app.<span class="colorRed">listen</span>( <span class="colorGreen">port</span>, console.log(`Server running on port: ${<span class="colorGreen">port</span>}` ) );</li>
             </ul>
             <p><br>and let's break this all down, one line at a time:<br><br></p>
             <ul class="explain">
@@ -219,9 +209,10 @@
                   </ul>
                </li>
                <li><hr></li>
-               <li><b>const port = 3000;</b>
+               <li><b>const port = process.env.PORT || 3000;</b>
                   <ul>
                      <li class="commentStyle">- we set our port number to a variable so that if we ever want to change our port assignment we only have to change it in one place</li>
+                     <li class="commentStyle">- this code is checking to see if a port has already assigned. if not, use port 3000</li>
                   </ul>
                </li>
                <li><hr></li>
@@ -259,12 +250,7 @@
                </li>
                <li><hr></li>
                <li class="commentStyle">- send a "get" request</li>
-               <li><b>app.get("/", (req, res) => {</b>
-                  <ul>
-                     <li><b>res.sendFile(__dirname + index.html);</b></li>
-                  </ul>
-               </li>
-               <li><b>});</b>
+               <li><b>app.get( "/", ( req, res ) => res.sendFile( __dirname + "index.html") );</b>
                   <ul>
                      <li class="commentStyle">- we are sending a <b>get</b> request for a file at the root directory (<b>/</b>)</li>
                      <li class="commentStyle">- because we have a "static" directory defined as <b>root/public</b>, any request for (<b>/</b>) will point to the <i>root/public</i> directory
@@ -276,15 +262,10 @@
                </li>
                <li><hr></li>
                <li class="commentStyle">- set the server to "listen" for requests</li>
-               <li><b>app.listen(port, () => {</b>
-                  <ul>
-                     <li><b>console.log(`The server is running and listening on port: ${port}`);</b></li>
-                  </ul>
-               </li>
-               <li><b>});</b>
+               <li><b>app.listen( port, console.log(`Server running on port: ${port}` ) );</b>
                   <ul>
                      <li class="commentStyle">- this puts the server in "listening" mode to "listen" for server requests.</li>
-                     <li class="commentStyle">&nbsp;</li>
+                     <li class="commentStyle">- it also sends a message to the console that the server is actually up and running</li>
                   </ul>
                </li>
             </ul>

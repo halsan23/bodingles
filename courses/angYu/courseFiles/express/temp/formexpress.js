@@ -19,10 +19,9 @@ app.get( '/thank-you', ( req, res ) => res.status( 303 ).render( 'thank-you') );
 
 
 app.post( '/form_post', ( req, res ) => {
-console.log(
-   req.body
-)
-res.redirect( 303, 'thank-you' )})
+   console.log( req.body );
+   res.redirect( 303, 'thank-you' )
+});
 
 
 app.use( ( req, res ) => res.status( 404 ).render( '404' ) );
