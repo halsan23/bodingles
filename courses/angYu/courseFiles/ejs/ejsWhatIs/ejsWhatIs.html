@@ -57,18 +57,18 @@
             <h6>How to use EJS</h6>
             <ol>
                <li>Install EJS as a dependency in your project
-                  <ul class="noBullets">
+                  <ul class="noBullets sectHighlight">
                      <li>- <b>npm install ejs</b></li>
                   </ul>
                </li>
                <li>Create a 'views' folder in your project directory (if it doesn't already exist). Inside the "views" folder, create a new file with a ".<b>ejs</b>" extension for example, "index.ejs"</li>
                <li>To integrate EJS with Express in an Express.js application, set EJS as the view engine in your Express app configuration (eg. in your index.js file). This configuration allows Express to use EJS for rendering views.
-                  <ul class="noBullets">
+                  <ul class="noBullets sectHighlight">
                      <li>- <b>app.set('view engine', 'ejs');</b></li>
                   </ul>
                </li>
                <li>In your Express route handlers we render the EJS template using '<b>res.render()</b>' and provide necessary data to be passed to the template.
-                  <ul class="noBullets">
+                  <ul class="noBullets sectHighlight">
                      <li>- <b>res.render('hello', { name: 'Geeks' });</b></li>
                   </ul>
                </li>
