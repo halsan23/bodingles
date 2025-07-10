@@ -34,6 +34,8 @@
          <article>
             <h6>What is EJS</h6>
             <p><span class="firstWord">E</span>mbedded JavaScript is a template engine for JavaScript that is used for web development which allows users to generate dynamic HTML markup using JavaScript code <i><b>within</b></i> HTML templates. It is designed to simplify the process of rendering dynamic content in web applications. It contains a mixture of HTML and JavaScript which makes it easy to generate dynamic content based on data from your application.</p>
+            <p>In simpler terms, <b>ejs</b> allows you to embed JavaScript code directly into an html document, which allows for the JavaScript functionality, without writing any Js script statements, or accessing any external Js file.</p>
+            <p>&nbsp;</p>
             <p><b>Features of EJS</b></p>
             <ul class="bullets">
                <li><b>Simple Syntax</b>: EJS offers a straightforward syntax that combines HTML and JavaScript, making it easy to learn and use.</li>
@@ -41,6 +43,7 @@
                <li><b>Layout and Partials</b>: EJS supports layouts and partials, allowing users to break templates into reusable components, reducing code duplication and enhancing maintainability.</li>
                <li><b>Error Handling</b>: EJS provides error messages that aid developers in debugging, improving the overall development experience.</li>
             </ul>
+            <p>&nbsp;</p>
             <p><b>Why Do You Need EJS?</b></p>
             <ul class="bullets">
                <li><b>Dynamic HTML Generation</b>: EJS allows you to generate dynamic HTML content based on variables, conditions, loops, and other JavaScript logic. This is particularly useful for rendering dynamic data fetched from databases or APIs.</li>
@@ -50,51 +53,6 @@
                <li><b>Familiar Syntax</b>: If you're already familiar with HTML and JavaScript, learning and using EJS is straightforward. The syntax is similar to HTML with embedded JavaScript code enclosed in <b>&lt;% %></b> tags, making it accessible to developers of varying skill levels.</li>
                <li><b>Template Inheritance and Layouts</b>: EJS supports template inheritance and layouts, allowing you to create consistent layouts for your web pages. You can define a base layout and extend it in other templates, making it easier to maintain a consistent look and feel across your application.</li>
             </ul>
-         </article><hr>
-
-         <!--how to use EJS -->
-         <article>
-            <h6>How to use EJS</h6>
-            <ol>
-               <li>Install EJS as a dependency in your project
-                  <ul class="noBullets sectHighlight">
-                     <li>- <b>npm install ejs</b></li>
-                  </ul>
-               </li>
-               <li>Create a 'views' folder in your project directory (if it doesn't already exist). Inside the "views" folder, create a new file with a ".<b>ejs</b>" extension for example, "index.ejs"</li>
-               <li>To integrate EJS with Express in an Express.js application, set EJS as the view engine in your Express app configuration (eg. in your index.js file). This configuration allows Express to use EJS for rendering views.
-                  <ul class="noBullets sectHighlight">
-                     <li>- <b>app.set('view engine', 'ejs');</b></li>
-                  </ul>
-               </li>
-               <li>In your Express route handlers we render the EJS template using '<b>res.render()</b>' and provide necessary data to be passed to the template.
-                  <ul class="noBullets sectHighlight">
-                     <li>- <b>res.render('hello', { name: 'Geeks' });</b></li>
-                  </ul>
-               </li>
-            </ol>
-         </article><hr>
-
-         <!--Directory Structure -->
-         <article>
-            <h6>EJS Directory Structure</h6>
-            <ul class="noBullets sectHighlight">
-               <li><b>cwd</b>
-                  <ul>
-                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;<span class="colorGreen">node_modules</span></li>
-                     <li><img src="/images/views_folder_16x16.png" alt="Views Folder Icon">&nbsp;&nbsp;<span class="colorBlue">views</span>
-                        <ul>
-                           <li><img src="/images/ejs.png" alt="Folder Icon">&nbsp;&nbsp;<span class="colorBlue">index.ejs</span></li>
-                        </ul>
-                     </li>
-                     <li><img src="/images/js.png" alt="JS Icon">&nbsp;&nbsp;<b>index.js</b></li>
-                     <li><img src="/images/json.png" alt="JSON Icon">&nbsp;&nbsp;<span class="colorRed">package-lock.json</span></li>
-                     <li><img src="/images/json.png" alt="JSON Icon">&nbsp;&nbsp;<span class="colorRed">package.json</span></li>
-                  </ul>
-               </li>
-            </ul>
-            <p>So instead of serving <b>html</b> files from a "<b>public</b>" directory, you're going to be serving <b>ejs</b> files from the "<b>views</b>" directory.</p>
-            <p>More info can be <a href="https://www.geeksforgeeks.org/javascript/what-is-ejs-and-why-do-i-need-it/" target="_blank">found here</a>.</p>
          </article>
       </section>
 

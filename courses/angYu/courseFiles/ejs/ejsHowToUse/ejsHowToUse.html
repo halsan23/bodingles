@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../ejsIndex.html">Back to EJS Index</a></p>
+         <hr style="width: 40%;">
+         <h5>Embedded Js (ejs)</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!--how to use EJS -->
+         <article>
+            <h6>How to use EJS</h6>
+            <p><span class="firstWord">T</span>o use ejs, there are a few considerations that have to be met:</p>
+            <ol>
+               <li>the ejs package has to be installed with node.</li>
+               <li>ejs files are saved with the <b>ejs</b> extension.</li>
+               <li>ejs files are "served" from a <b>views</b> sub-directory, similar to the "<b>public</b>" directory we already learned about.</li>
+               <li>serving "<b>static</b>" files with express, we used the <b>send</b> or <b>sendFile</b> method. with <b>ejs</b>, we use "<b>render</b>" or "<b>renderFile</b>".</li>
+            </ol>
+            <p>&nbsp;</p>
+         </article>
+
+         <!-- installing ejs -->
+          <article>
+            <h6>Installing ejs</h6>
+            <p><span class="firstWord">T</span>o utilize <b>ejs</b> in a project we need to install the package with node. BTW, the npm website for <b>ejs</b> is @ <a href="https://www.npmjs.com/package/ejs" target="_blank">https://www.npmjs.com/package/ejs</a>. We are assuming here that the CWD for the app has been set up, and that you have initialized node (npm init).</p>
+            <p>To install ejs into our application, from your terminal of choice, run:</p>
+            <ul class="noBullets sectHighlight">
+               <li>npm install ejs</li>
+            </ul>
+            <p>The next thing we need to do is to create a "<b>views</b>" directory in the "root" of our CWD. When we save html files as <b>ejs</b> files, they will be placed into this "<b>views</b>" directory, similar to when we placed our html files into our "<b>public</b>" directory with express.</p>
+            <p>With all of this completed, our file structure should look something like this:</p>
+            <ul class="noBullets sectHighlight">
+               <li><b>cwd</b>
+                  <ul>
+                     <li><img src="/images/folder_16x16.png" alt="Folder Icon">&nbsp;&nbsp;<span class="colorGreen">node_modules</span>&nbsp;&nbsp;<i>(with express and ejs installed)</i></li>
+                     <li><img src="/images/views_folder_16x16.png" alt="Views Folder Icon">&nbsp;&nbsp;<span class="colorBlue">views</span>
+                        <ul>
+                           <li><img src="/images/ejs.png" alt="Folder Icon">&nbsp;&nbsp;<span class="colorBlue">index.ejs</span></li>
+                        </ul>
+                     </li>
+                     <li><img src="/images/js.png" alt="JS Icon">&nbsp;&nbsp;<b>index.js</b></li>
+                     <li><img src="/images/json.png" alt="JSON Icon">&nbsp;&nbsp;<span class="colorRed">package-lock.json</span></li>
+                     <li><img src="/images/json.png" alt="JSON Icon">&nbsp;&nbsp;<span class="colorRed">package.json</span></li>
+                  </ul>
+               </li>
+            </ul>
+            <p>So instead of serving <b>html</b> files from a "<b>public</b>" directory, you're going to be serving <b>ejs</b> files from the "<b>views</b>" directory. More info can be <a href="https://www.geeksforgeeks.org/javascript/what-is-ejs-and-why-do-i-need-it/" target="_blank">found here</a>.</p>
+            <p>&nbsp;</p>
+         </article>
+
+         <!-- integrating ejs -->
+         <article>
+            <h6>Integrating EJS</h6>
+            <p><span class="first">A</span>nd lastly, we need to integrate the <b>ejs</b> code into our JavaScript and HTML coding.</p>
+            <p>For the JavaScript (our <b>index.js</b> server file), we have to set <b>ejs</b> as the view engine, which allows <b>express</b> to use <b>ejs</b> for <i>"<b>rendering</b>"</i> views. We do this with the <b>set</b> method:</p>
+            <ul class="sectHighlight">
+               <li>app.<b>set</b>( 'view engine', '<b>ejs</b>' );</li>
+            </ul>
+            <p>and in the same Js file, we can "<b>render</b>" our actual <b>ejs</b> file:</p>
+            <ul class="noBullets sectHighlight">
+               <li>res.<b>render</b>('Hello', { <b>name</b>: 'badDoggy' });</li>
+            </ul>
+            <p>What we have done here with the <b>render</b> is created an object with a <b>key:</b> = "name", and <b>value:</b> = "badDoggy". We can access this object within our <b>ejs</b> files.</p>
+            <p>&nbsp;</p>
+            <p><b>Incorporating into our ejs (html) file</b></p>
+            <p>Remember that an <b>ejs</b> file is simply an html file that has been saved with the <b>ejs</b> extension, inside our <b>views</b> directory. This file is built on html coding, but because it is a <b>ejs</b> file, we can embed JavaScript coding and functionality. So we can use this object that we have just created from our separate JavaScript file.</p>
+            <p>To actually use this <b>object</b> inside our <b>ejs</b> file, we add the following line of code (inside the <b>ejs</b> file):</p>
+            <ul class="sectHighlight">
+               <li>&lt;h4>Hello &lt;%= <b>name</b> %> &lt/h4></li>
+            </ul>
+            <p>The actual output for this <b>ejs</b> code would be:</p>
+            <ul>
+               <li><b>Hello badDoggy</b></li>
+            </ul>
+            <p>The html <b>&lt;h4></b> element contains the string "Hello (space) followed by the value, "<b>badDoggy</b>", that was created in the JavaScript file when we "<b>rendered</b>" the object. Notice that "<b>name</b>" way the <b>key</b> assigned by the render, and the <b>ejs</b> code is outputting the <b>value</b> of that <b>key</b>.</p>
+            <p>The <b>&lt;%= %></b> designates this as "JavaScript" code that is running inside an html environment. And in this code, we are passing in the "value" of our object that we created inside our separate Js file.</p>
+            <p>This is the fundamental of how <b>ejs</b> works. We can create usable objects in a JavaScript file and "render" them out where they can be accessed within an <b>ejs</b> file.</p>
+            <p><b>&lt;%= %></b> has a very specific meaning and there are other ejs <b>elements</b> which can be <a href="../ejsReference/ejsReference.html" target="_blank">found here</a> and also on the <a href="https://ejs.co/#docs" target="_blank">ejs documentation</a> website.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>

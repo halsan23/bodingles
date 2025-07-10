@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../ejsIndex.html">Back to EJS Index</a></p>
+         <hr style="width: 40%;">
+         <h5>EJS Reference</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!--Tags -->
+         <article>
+            <p>There is quite a bit of useful information on the <a href="https://ejs.co/#docs" target="_blank">ejs documentation</a> website. One of these references is for the different "elements", or "tags" that we can use when embedding our Js code into our html environment.</p>
+            <p>&nbsp;</p>
+            <h6>ejs tags</h6>
+            <p>First there is the syntax that defines the ejs "tag"</p>
+            <ul class="noBullets">
+               <li><b>&lt;%</b>&nbsp;&nbsp;'Scriptlet' tag, for control-flow, <b>no output</b></li>
+               <li><b>&lt;%_</b>&nbsp;&nbsp;‘Whitespace Slurping’ Scriptlet tag, strips all whitespace before it</li>
+               <li><b>&lt;%=</b>&nbsp;&nbsp;Outputs the value into the template (HTML escaped)</li>
+               <li><b>&lt;%-</b>&nbsp;&nbsp;Outputs the unescaped value into the template</li>
+               <li><b>&lt;%#</b>&nbsp;&nbsp;Comment tag, no execution, <b>no output</b></li>
+               <li><b>&lt;%%</b>&nbsp;&nbsp;Outputs a literal '&lt;%'</li>
+            </ul>
+            <p>And then we have the <b>closing</b> tags:</p>
+            <ul class="noBullets">
+               <li><b>%></b>&nbsp;&nbsp;Plain ending tag</li>
+               <li><b>-%></b>&nbsp;&nbsp;Trim-mode ('newline slurp') tag, trims following newline</li>
+               <li><b>_%></b>&nbsp;&nbsp;‘Whitespace Slurping’ ending tag, removes all whitespace after it</li>
+            </ul>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
