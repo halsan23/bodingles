@@ -76,15 +76,19 @@
          <article>
             <h6>Integrating EJS</h6>
             <p><span class="first">A</span>nd lastly, we need to integrate the <b>ejs</b> code into our JavaScript and HTML coding.</p>
-            <p>For the JavaScript (our <b>index.js</b> server file), we have to set <b>ejs</b> as the view engine, which allows <b>express</b> to use <b>ejs</b> for <i>"<b>rendering</b>"</i> views. We do this with the <b>set</b> method:</p>
+            <p>For the JavaScript (our <b>index.js</b> server file), we <b>used to have to</b> define the view engine, which allowed <b>express</b> to use <b>ejs</b> for <i>"<b>rendering</b>"</i> it's views. We did this with the <b>set</b> method:</p>
             <ul class="sectHighlight">
                <li>app.<b>set</b>( 'view engine', '<b>ejs</b>' );</li>
             </ul>
+            <p>This <b>is now built into express</b>. It is mentioned here in case you ever see this code, you'll know what it means. But this is the old way of using <b>ejs</b>. We no longer have to define a "<b>view engine</b>".</p>
             <p>and in the same Js file, we can "<b>render</b>" our actual <b>ejs</b> file:</p>
             <ul class="noBullets sectHighlight">
                <li>res.<b>render</b>('Hello', { <b>name</b>: 'badDoggy' });</li>
             </ul>
-            <p>What we have done here with the <b>render</b> is created an object with a <b>key:</b> = "name", and <b>value:</b> = "badDoggy". We can access this object within our <b>ejs</b> files.</p>
+            <p>What we have done here with the <b>render</b> is created an object with a <b>key:</b> = "name", and <b>value:</b> = "badDoggy". We can access this object within our <b>ejs</b> files. Also, just like any object, we can define multiple <b>key/value</b> pairs, separated by commas, like so:</p>
+            <ul class="noBullets sectHighlight">
+               <li>res.<b>render</b>('Hello', { <b>name</b>: 'badDoggy', <b>profile</b>: 'Very Handsome' });</li>
+            </ul>
             <p>&nbsp;</p>
             <p><b>Incorporating into our ejs (html) file</b></p>
             <p>Remember that an <b>ejs</b> file is simply an html file that has been saved with the <b>ejs</b> extension, inside our <b>views</b> directory. This file is built on html coding, but because it is a <b>ejs</b> file, we can embed JavaScript coding and functionality. So we can use this object that we have just created from our separate JavaScript file.</p>
