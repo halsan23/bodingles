@@ -19,4 +19,4 @@ app.get("/", (req, res) => {
 
 
 // enable server "listen" mode
-app.listen( port, console.log(`Server is running on http://locakhost: ${port}`) );
+app.listen( port, console.log(`Server is running on http://localhost: ${port}`) );
