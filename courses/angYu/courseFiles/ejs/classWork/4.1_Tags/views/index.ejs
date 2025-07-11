@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>localhost:3000 - EJS Tags</title>
+</head>
+
+<body>
+   <!-- output variable -->
+   <h1><%= title %></h1>
+   <p>Current seconds: <%= seconds %></p>
+
+   <!-- process js code -->
+   <% if (seconds % 2===0) { %>
+      <ul>
+         <% items.forEach((fruit) => { %>
+            <!-- output variable -->
+            <li><%= fruit %></li>
+         <% }) %>
+      </ul>
+   <% } else { %>
+      <p>No items to display</p>
+   <% } %>
+
+   <!-- output html code -->
+   <p><%- htmlContent %></p>
+
+   <!-- include a separate file -->
+   <%- include('footer') %>
+
+</body>
+</html>

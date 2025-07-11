@@ -37,12 +37,14 @@
             <h6>ejs tags</h6>
             <p>First there is the syntax that defines the ejs "tag"</p>
             <ul class="noBullets">
-               <li><b>&lt;%</b>&nbsp;&nbsp;'Scriptlet' tag, for control-flow, <b>no output</b></li>
-               <li><b>&lt;%_</b>&nbsp;&nbsp;‘Whitespace Slurping’ Scriptlet tag, strips all whitespace before it</li>
-               <li><b>&lt;%=</b>&nbsp;&nbsp;Outputs the value into the template (HTML escaped)</li>
-               <li><b>&lt;%-</b>&nbsp;&nbsp;Outputs the unescaped value into the template</li>
-               <li><b>&lt;%#</b>&nbsp;&nbsp;Comment tag, no execution, <b>no output</b></li>
-               <li><b>&lt;%%</b>&nbsp;&nbsp;Outputs a literal '&lt;%'</li>
+               <li><b>&lt;%&nbsp;&nbsp;%></b>&nbsp;&nbsp;"Js Execute" - for running Js Code - the code runs but displays no output</li>
+               <li><b>&lt;%-&nbsp;&nbsp;%></b>&nbsp;&nbsp;"Renders HTML" - processes any html tags for display - eg. &lt;h1>&lt;/h1></li>
+               <li><b>&lt;%=&nbsp;&nbsp;%></b>&nbsp;&nbsp;"Js Output" - usually for outputting a variable</li>
+               <li><b>&lt;%#&nbsp;&nbsp;%></b>&nbsp;&nbsp;"EJS Comment Tag" - no execution, no output <b>%></b></li>
+               <li><b>&lt;%%&nbsp;&nbsp;%%></b>&nbsp;&nbsp;"Escape Character for EJS" - Literally Outputs "&lt;% %>" - Could be useful for documentation purposes</li>
+               <li><b>&lt;%_&nbsp;&nbsp;%></b>&nbsp;&nbsp;‘Whitespace Slurping’ Scriptlet tag, strips all whitespace before it </li>
+               <li><b>&lt;%- include(</b>"anyFile.ejs"<b>) %></b>&nbsp;&nbsp;"Insert" another ejs file into the current ejs file</li>
+               <li>&nbsp;</li>
             </ul>
             <p>And then we have the <b>closing</b> tags:</p>
             <ul class="noBullets">
