@@ -5,7 +5,7 @@
       <% if (locals.name) { %>
          <h1><%= name %></h1>
       <% } else { %>
-         <h1>Welcome to the Band Generator 🤟</h1>
+         <h1>Funny Name Generator 🤟</h1>
       <% } %>
 
       <form action="/submit" method="POST">
@@ -13,9 +13,11 @@
       </form>
 
 
-      <%- include( "partials/footer.ejs" ) %>
+      <%- include( "partials/foot.ejs" ) %>
 
    </main>
 
+   <!-- footer -->
+   <footer><%- include( "partials/footer.ejs" ) %></footer>
 </body>
 </html>

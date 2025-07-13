@@ -118,13 +118,15 @@ header sub {
 /* footer setup */
 footer {
    background-color: #d5d5d5;
-   margin: 0 auto;
+   width: 98%;
    padding: 15px;
    font-size: 0.9rem;
    font-style: italic;
    font-weight: 400;
    box-shadow: 0 -3px 7px #888888;
    border-bottom: 1px solid #000;
+   position: absolute;
+   bottom: 0;
 }
 
 footer div {

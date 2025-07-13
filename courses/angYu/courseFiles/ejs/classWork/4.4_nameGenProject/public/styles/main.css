@@ -2,34 +2,39 @@ main {
    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
    background: #222;
    color: hotpink;
-   margin: 150px auto 25px;
+   margin: 250px auto 150px;
    width: 75%;
-   height: 500px;
    display: flex;
-   align-items: center;
-   justify-content: center;
    flex-direction: column;
+   justify-content: space-between;
+   align-items: stretch;
    text-align: center;
    border-radius: 25px;
+   box-shadow: 5px 5px 12px #505050;
 }
 
-h1 {
-  font-size: 3.5rem;
+main h1 {
+   padding: 75px 0 75px;
+   font-size: 3.5rem;
 }
 
 input {
-  appearance: none;
-  -webkit-appearance: none;
-  border: 0;
-  font-size: 0.9rem;
-  background: #888;
-  padding: 1rem;
-  color: white;
-  cursor: pointer;
-  border-radius: 12px;
+   appearance: none;
+   -webkit-appearance: none;
+   border: 0;
+   font-size: 0.9rem;
+   background: #888;
+   padding: 1rem;
+   color: white;
+   cursor: pointer;
+   border-radius: 12px;
+   box-shadow: 5px 5px 12px #505050;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
+input:hover {
+   box-shadow: none;
+}
+
+#foot {
+   margin: 75px auto 50px;
 }

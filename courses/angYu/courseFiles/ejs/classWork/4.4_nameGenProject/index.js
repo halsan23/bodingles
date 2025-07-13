@@ -15,7 +15,10 @@ app.get("/", (req, res) => {
 app.post("/submit", (req, res) => {
    const rndAdj = Math.floor(Math.random() * adj.length);
    const rndNoun = Math.floor(Math.random() * noun.length);
-   let rndName = `${adj[rndAdj]} ${noun[rndNoun]}`;
+
+   // Capitalize first letters
+   let rndName = `${adj[rndAdj][0].toUpperCase() + adj[rndAdj].substring(1)} ${noun[rndNoun][0].toUpperCase() + noun[rndNoun].substring(1)}`;
+
    res.render("index.ejs", {
       name: rndName
    });
