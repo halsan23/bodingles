@@ -7,9 +7,7 @@ app.use(express.static('public'));
 
 
 // Generate index page
-app.get("/", (req, res) => {
-  res.render( "index.ejs" );
-});
+app.get("/", (req, res) => res.render( "index.ejs" ));
 
 // Generate Random Name on Button Submit
 app.post("/submit", (req, res) => {
@@ -19,9 +17,7 @@ app.post("/submit", (req, res) => {
    // Capitalize first letters
    let rndName = `${adj[rndAdj][0].toUpperCase() + adj[rndAdj].substring(1)} ${noun[rndNoun][0].toUpperCase() + noun[rndNoun].substring(1)}`;
 
-   res.render("index.ejs", {
-      name: rndName
-   });
+   res.render("index.ejs", { name: rndName });
 });
 
 

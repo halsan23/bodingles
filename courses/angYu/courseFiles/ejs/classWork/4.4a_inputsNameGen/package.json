@@ -1,16 +1,17 @@
 {
-  "name": "3.3-middleware",
+  "name": "server_input_processing",
   "version": "1.0.0",
-  "description": "",
+  "description": "Processing form inputs & returning a result to the same page. EJS served files",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "badDoggy",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.18.2"
   }
 }

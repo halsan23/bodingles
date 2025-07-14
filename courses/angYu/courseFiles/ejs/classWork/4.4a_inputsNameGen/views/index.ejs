@@ -1,21 +1,41 @@
    <%- include( "partials/header.ejs" ) %>
 
-   <main>
 
-      <% if (locals.name) { %>
-         <h1><%= name %></h1>
-      <% } else { %>
-         <h1>Funny Name Generator 🤟</h1>
-      <% } %>
-
-      <form action="/submit" method="POST">
-         <input type="submit" value="Generate Name">
-      </form>
+   <section id="main" class="content">
 
 
-      <%- include( "partials/foot.ejs" ) %>
+      <section id="textWindow4">
 
-   </main>
+
+         <h1>EJS Form Processing</h1>
+
+         <form action="/submit" method="POST">
+
+            <p><label for="fName">First Name:
+               <input type="text" name="fName" placeholder="First Name" required>
+            </label></p>
+            <p><label for="lName">Last Name:
+               <input type="text" name="lName" placeholder="Last Name" required>
+            </label></p>
+            <p>&nbsp;</p>
+            <p><button>Submit</button></p>
+
+         </form>
+
+            <p>&nbsp;</p>
+
+         <p>
+            <% if (locals.name) { %>
+               <h6>Full Name Is: <%= name %></h6>
+            <% } else { %>
+               <h6> </h6>
+            <% } %>
+         </p>
+
+      </section>
+
+   </section>
+
 
    <!-- footer -->
    <footer><%- include( "partials/footer.ejs" ) %></footer>
