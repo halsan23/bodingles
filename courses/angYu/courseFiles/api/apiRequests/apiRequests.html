@@ -33,8 +33,61 @@
          <!--Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord"></span><a href="https://bored-api.appbrewery.com/" target="_blank">Bored API Documentation</a>
-            </p>
+            <p><span class="firstWord">I</span>n order to use an API you essentially build a <b>get</b> request, which is very similar to the <b>get</b> requests that we have already been utilizing. But instead or "requesting" a page to be rendered by the server, we're requesting "data" of some form that we will then manipulate and format for our use, and then render out to a page.</p>
+            <p>To demonstrate the concept of API's, we're going to use a "<b>Random Activity API</b>". All API's will have a "Documentation Page" detailing the utilization of their API, and the documentation we need for this API can be <a href="https://bored-api.appbrewery.com/" target="_blank">found here</a>.</p>
+            <p>API <b>requests</b> are sent to a specific web address, called a <b>base url</b>. The request(s) then contain Endpoints, Path parameters, and/or Query parameters:</p>
+            <ul class="bullets">
+               <li><b>Endpoints</b>: are a routing tool used to route your request for a specific response. For example if we use the <b>/random</b> endpoint for our request we will get a response with a random activity.</li>
+               <li><b>Path parameters</b>: provide a way of returning a specific item. For example, <b>/activity/3943506</b> would return the specific activity where key = 3943506.</li>
+               <li><b>Query parameter</b>: are a way to refine your API request for a specific response. For example, <b>/filter?type=education</b> would return all of the activities where type = education.
+                  <ul class="noBullets">
+                     <li><i>usually, you can add multiple parameters to the query string, by using the "<b>&</b>" for separation, such as queryParam1&queryParam2</i></li>
+                  </ul>
+               </li>
+            </ul>
+            <ul style=" padding: 10px 20px; background-color: #f2eee4; line-height: 1.75rem; border: 1px solid black;">
+               <li>- As a general rule, API's have many options on how to access and utilize their specific data.</li>
+               <li>- In the examples we just cited, the responses are singularly specific to the "<b>Random Activity API</b>" that we are using.</li>
+               <li>- <b>ALWAYS</b> read the documentation on any API that you wish to utilize, so that you can see how to pull out the specific data you wish to retrieve.</li>
+            </ul>
+         </article>
+
+         <!--Requests -->
+         <article>
+            <h6>Requests</h6>
+            <p><span class="firstWord">O</span>k, let's try making some requests. We're going to be using POSTMAN to test our API requests. If you don't have it installed on your system, it can be <a href="https://www.postman.com/downloads/" target="_blank">downloaded here</a>.</p>
+            <p>Go ahead and open up Postman and set it up to send <b>GET</b> requests. the <b>base url</b> for our api is:</p>
+                  <ul class="sectHighlight">
+               <li>https://bored-api.appbrewery.com</li>
+            </ul>
+            <p>So we'll type that into the address field of our <b>GET</b> request.</p>
+            <h6>Generate Our Requests</h6>
+            <ul>
+               <li>The first query we'll run is for a <b>random activity</b>, so we'll enter the base url followed by a specific <b>Endpoint</b>:
+                  <ul class="sectHighlight">
+                     <li>https://bored-api.appbrewery.com<b>/random</b></li>
+                  </ul>
+               </li>
+               <li>and when we hit <b>Send</b> in Postman, it should return a random activity.</li>
+            </ul>
+            <hr>
+            <ul>
+               <li>The next query we'll run is for a <b>specific activity</b>, so we'll enter the base url followed by a specific <b>Path</b> parameter:
+                  <ul class="sectHighlight">
+                     <li>https://bored-api.appbrewery.com<b>/activity/3943506</b></li>
+                  </ul>
+               </li>
+               <li>and when we hit <b>Send</b> in Postman, it should return the specific activity related to <b>key</b> = <b>3943506</b>. We know it's going to return this specific key because we read the documentation.</li>
+            </ul>
+            <hr>
+            <ul>
+               <li>The last query we'll run is a search for all <b>social</b> activities for <b>2 participants</b>, so we'll enter the base url followed by a specific <b>Query</b> parameter:
+                  <ul class="sectHighlight">
+                     <li>https://bored-api.appbrewery.com<b>/filter?type=social&participants=2</b></li>
+                  </ul>
+               </li>
+               <li>and when we hit <b>Send</b> in Postman, it should return all of the activities where <b>type</b> = <b>social</b> AND <b>participants</b> = <b>2</b>.</li>
+            </ul>
          </article>
       </section>
 
