@@ -15,11 +15,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/recipe", (req, res) => {
-   let category = req.body.choice;
-   console.log(category);
-   res.render( "index.ejs", { category });
-  //Step 3: Write your code here to make this behave like the solution website.
-  //Step 4: Add code to views/index.ejs to use the received recipe object.
+   if (req.body.choice === "beef" ) {
+      data = JSON.parse(recipeJSON)[1];
+      res.redirect("/");
+   }
 });
 
 app.listen(port, () => {

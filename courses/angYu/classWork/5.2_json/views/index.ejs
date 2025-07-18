@@ -17,9 +17,11 @@
    </form>
 
    <div id="recipeContainer" class="hidden">
-      <!-- If no recipe yet, show: -->
-      <h2>👆 Pick your favorite taco ingredient 👆</h2>
-      <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
+      <% if ( locals.recipe ) { %>
+      <h2><%= recipe.name %> Recipe</h2>
+      <% } else { %>
+      <h2>👆 Pick your favorite kind of taco 👆</h2>
+      <% } %>
 
       <h3>Ingredients:</h3>
 
