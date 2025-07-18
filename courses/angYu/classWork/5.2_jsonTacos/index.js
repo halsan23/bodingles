@@ -18,14 +18,12 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
    data.forEach( taco => {
-
       if (req.body.choice === taco.ingredients.protein.name) {
          console.log(taco);
          res.render( "index.ejs", { taco } );
       }
    });
 });
-
 
 
 app.listen(port, () => console.log(`Server running on port: ${port}`));
