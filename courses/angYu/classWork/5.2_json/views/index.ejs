@@ -18,19 +18,18 @@
 
    <div id="recipeContainer" class="hidden">
       <% if ( locals.tacoType ) { %>
-      <h2><%= tacoType.name %> $<%= tacoType.price %></h2>
+         <h2><%= tacoType.name %>s&nbsp;&nbsp;-&nbsp;&nbsp;Only $<%= tacoType.price %> ea.</h2>
       <% } else { %>
-      <h2>👆 Pick your favorite kind of taco 👆</h2>
+         <h2>👆 Pick your favorite kind of taco 👆</h2>
       <% } %>
 
       <h3>Ingredients:</h3>
 
       <ul id="ingredientsList">
          <li><%= tacoType.ingredients.protein.preparation %> <%= tacoType.ingredients.protein.name %></li>
-         <li>with <%= tacoType.ingredients.salsa.spiciness %> <%= tacoType.ingredients.salsa.name %></li>
+         <li><%= tacoType.ingredients.salsa.spiciness %> <%= tacoType.ingredients.salsa.name %></li>
          <li>&nbsp;</li>
-         <li>Topped with:</li>
-
+         <li><b>Topped with:</b></li>
          <% for (  i =0; i < tacoType.ingredients.toppings.length; i++ )  { %>
             <li><%= tacoType.ingredients.toppings[i].quantity %> <%= tacoType.ingredients.toppings[i].name %> ( <%= tacoType.ingredients.toppings[i].ingredients %> )</li>
          <% } %>
