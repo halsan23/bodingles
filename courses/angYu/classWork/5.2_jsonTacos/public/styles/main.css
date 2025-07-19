@@ -94,5 +94,7 @@ button {
 }
 
 .sub {
-   font-size: .8rem;
+   font-style: italic;
+   font-size: .9rem;
+   opacity: 0.7;
 }

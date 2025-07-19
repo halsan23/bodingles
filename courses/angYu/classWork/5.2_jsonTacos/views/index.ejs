@@ -23,7 +23,7 @@
          <ul>
             <li><h3>Ingredients:</h3></li>
             <li class="info"><%= taco.ingredients.protein.name %> : <%= taco.ingredients.protein.preparation %></li>
-            <li class="info"><%= taco.ingredients.salsa.spiciness %> : <%= taco.ingredients.salsa.name %></li>
+            <li class="info"><%= taco.ingredients.salsa.spiciness %> <%= taco.ingredients.salsa.name %></li>
             <li><h3>Toppings:</h3></li>
             <% taco.ingredients.toppings.forEach( topping => { %>
                <li class="info"><%= topping.quantity %> <%= topping.name %>
