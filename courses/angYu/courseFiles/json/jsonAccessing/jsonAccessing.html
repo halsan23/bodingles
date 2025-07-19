@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../jsonIndex.html">Back to JSON Index</a></p>
+         <hr style="width: 40%;">
+         <h5>JSON Files</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!--Accessing JSON Data -->
+         <article>
+            <h6>Accessing JSON Data</h6>
+            <p><span class="firstWord">H</span>ere is an example of a small piece of json data that we can use for our discussions.</p>
+            <ul class="sectHighlight">
+               <li>{ "firstName": "John", "lastName": "Smith", "isAlive": true, "age": 27, "address": { "streetAddress": "21 2nd Street", "city": "New York", "state": "NY", "postalCode": "10021-3100" }, "phoneNumbers": [ { "type": "home", "number": "212 555-1234" }, { "type": "office", "number": "646 555-4567" } ], "children": [], "spouse": null }</li>
+            </ul>
+         </article>
+
+         <!--the Viewer -->
+         <article>
+            <h6>the Viewer</h6>
+            <p><span class="firstWord">I</span>t's a bit jumbled up so one of the first things we could do is use a "json viewer" to break it down and display the data in a more human friendly way. There are many of these viewers online you can find by doing a search. We're going to use the one at <a href="https://jsonviewer.stack.hu/" target="_blank">https://jsonviewer.stack.hu/</a>.</p>
+            <p>Simply copy our json data, open up the "viewer" page and paste our data into the open box. Once done, click the <b>Format</b> option. This will display our json string data in it's original JavaScript object format.</p>
+            <p>Next, click the tab at the very top that says "<b>Viewer</b>". This gives us a way to open or close portions of the object so that we can focus on the pieces we need to. It also gives us some info in the right pane displaying information about the "key", "value" pairs.</p>
+         </article><hr>
+
+         <!--Using the Data -->
+         <article>
+            <h6>Using the Data</h6>
+            <p><span class="firstWord">S</span>o we can use a "json viewer" to view the data in a more human friendly way, but this just allows us to "view" the data. Let's talk about how to actually utilize the data.</p>
+            <p>In our last discussion, we talked about using two methods to work with json data:</p>
+            <ul>
+               <li><a href="https://search.brave.com/search?q=json+stringify&summary=1&conversation=2febdf664022a23003bf86" target="_blank">JSON.stringify()</a>: converts some JavaScript Object data into JSON string data</li>
+               <li><a href="https://search.brave.com/search?q=json+parse&summary=1&conversation=c182bb154128d603b75a5c" target="_blank">JSON.parse()</a>: converts some JSON string data back into a useable JavaScript object.</li>
+            </ul>
+            <p>So let's suppose we have some JavaScript code, and we have the json data from above assigned to a variable:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>const <span class="colorGreen">userJSON</span> = '{ "firstName": "John", "lastName": "Smith", "isAlive": true, "age": 27, "address": { "streetAddress": "21 2nd Street", "city": "New York", "state": "NY", "postalCode": "10021-3100" }, "phoneNumbers": [ { "type": "home", "number": "212 555-1234" }, { "type": "office", "number": "646 555-4567" } ], "children": [], "spouse": null }'</li>
+            </ul>
+            <p>Notice how our json data is enclosed in quotes. This is because jason data is "string" data.</p>
+            <p>So, we have our json string data. The first thing we need to do is to "<b>parse()</b>"" it, which converts it into a useable JavaScript Object.</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>const <span class="colorGreen">data</span> = <span class="colorOrange">JSON</span>.<span class="colorBlue">parse</span>( <span class="colorGreen">userJSON</span> );</li>
+            </ul>
+            <p>Now that we have access to the data, AND a way to view the data (in our json viewer), we can start pulling out the pieces of data we want. We just need to access our variable we assigned to the "parsed" data and use "dot" notation to get to the key/value pairs we need. Example: <span class="colorGreen">data</span>.key1.key2</p>
+            <p>If we look at our viewer we can see that this is some data about a person, possibly an end user. Let's say we need his first and last names.</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>const <span class="colorGreen">data</span><b>.firstName</b> would give us : "John"</li>
+               <li>const <span class="colorGreen">data</span><b>.lastName</b> would give us : "Smith"</li>
+            </ul>
+            <p>For the address we would use:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>const <span class="colorGreen">data</span><b>.address.streetAddress</b> would give us : "21 2nd Street"</li>
+               <li>const <span class="colorGreen">data</span><b>.address.city</b> would give us : "New York"</li>
+            </ul>
+            <p>Notice how we are using "dot" notation on our variable that represents our "parsed" json string data.</p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
