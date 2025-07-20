@@ -49,20 +49,20 @@ button {
    align-items: center;
    justify-content: center;
    border: 3px solid #1d5256;
-   background-color: white;
+   background-color: #faf7c9;
    cursor: pointer;
    padding: 0;
    margin: 0 10px;
    width: 180px;
    height: 180px;
    border-radius: 50%;
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+   box-shadow: 5px 5px 15px #000;
    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .buttons button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+  box-shadow: none;
 }
 
 .buttons button img {
