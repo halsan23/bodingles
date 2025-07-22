@@ -2,12 +2,12 @@ import express from "express";
 import axios from "axios";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const API_URL = "https://secrets-api.appbrewery.com/";
 
 //TODO 1: Fill in your values for the 3 types of auth.
-const yourUsername = "";
-const yourPassword = "";
+const yourUsername = "userName";
+const yourPassword = "passWord";
 const yourAPIKey = "";
 const yourBearerToken = "";
 
@@ -49,13 +49,12 @@ app.get("/bearerToken", (req, res) => {
   // https://stackoverflow.com/a/52645402
   /*
   axios.get(URL, {
-    headers: { 
-      Authorization: `Bearer <YOUR TOKEN HERE>` 
+    headers: {
+      Authorization: `Bearer <YOUR TOKEN HERE>`
     },
   });
   */
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+
+app.listen(port, () => console.log(`Server is running on port ${port}`));
