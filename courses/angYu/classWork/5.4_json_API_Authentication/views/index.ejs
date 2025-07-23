@@ -49,16 +49,16 @@
 </head>
 
 <body>
-  <button type="submit" id="noAuth" onclick="window.location.href='/noAuth'">No Auth</button>
-  <button id="basicAuth" onclick="window.location.href='/basicAuth'">Basic Auth</button>
-  <button id="apiKey" onclick="window.location.href='/apiKey'">API Key</button>
-  <button id="bearerToken" onclick="window.location.href='/bearerToken'">Bearer Token</button>
+   <h1>API Authorization Demo</h1>
+   <h4>api @ https://secrets-api.appbrewery.com/</h4>
+   <button type="submit" id="noAuth" onclick="window.location.href='/noAuth'">No Auth</button>
+   <button id="basicAuth" onclick="window.location.href='/basicAuth'">Basic Auth</button>
+   <button id="apiKey" onclick="window.location.href='/apiKey'">API Key</button>
+   <button id="bearerToken" onclick="window.location.href='/bearerToken'">Bearer Token</button>
 
-  <div class="response-area">
-    <p>
-      <%= content %>
-    </p>
-  </div>
+   <div class="response-area">
+       <p><%= content %></p>
+   </div>
+
 </body>
-
 </html>

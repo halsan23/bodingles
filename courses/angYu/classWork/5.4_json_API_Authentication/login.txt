@@ -1,0 +1,12 @@
+AppBrewery API
+https://secrets-api.appbrewery.com/
+
+
+username: userName
+password: passWord
+
+
+api key: 36340182-655c-48b3-a826-078fd3f6eb54
+
+
+Bearer Token: 0882c14d-075c-444e-a2d4-03c5c7f3a924

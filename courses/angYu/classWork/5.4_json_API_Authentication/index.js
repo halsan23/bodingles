@@ -6,34 +6,37 @@ const port = process.env.PORT || 3000;
 const API_URL = "https://secrets-api.appbrewery.com/";
 
 //TODO 1: Fill in your values for the 3 types of auth.
-const yourUsername = "userName";
-const yourPassword = "passWord";
-const yourAPIKey = "";
-const yourBearerToken = "";
+const user = "userName";
+const pswd = "passWord";
+const apiKey = "36340182-655c-48b3-a826-078fd3f6eb54";
+const bearToken = "0882c14d-075c-444e-a2d4-03c5c7f3a924";
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", { content: "API Response." });
+   res.render("index.ejs", { content: "API Request Data" });
 });
 
-app.get("/noAuth", (req, res) => {
-  //TODO 2: Use axios to hit up the /random endpoint
-  //The data you get back should be sent to the ejs file as "content"
-  //Hint: make sure you use JSON.stringify to turn the JS object from axios into a string.
+app.get("/noAuth", async (req, res) => {
+   try {
+      const result = await axios.get(`${API_URL}random`)
+      const data = JSON.stringify(result.data.secret);
+      res.render("index.ejs", { content: data });
+   } catch (error) {
+      res.render("index.ejs", { content: error.message });
+   }
 });
 
-app.get("/basicAuth", (req, res) => {
-  //TODO 3: Write your code here to hit up the /all endpoint
-  //Specify that you only want the secrets from page 2
-  //HINT: This is how you can use axios to do basic auth:
-  // https://stackoverflow.com/a/74632908
-  /*
-   axios.get(URL, {
-      auth: {
-        username: "abc",
-        password: "123",
-      },
-    });
-  */
+app.get("/basicAuth", async (req, res) => {
+   try {
+      const result = await axios.get(`${API_URL}all?page=2`, {
+         auth: {
+            username: user,
+            password: pswd,
+         },
+      })
+      res.render("index.ejs", { content: JSON.stringify(result.data.secret) });
+   } catch (error) {
+      res.render("index.ejs", { content: error.message });
+   }
 });
 
 app.get("/apiKey", (req, res) => {
