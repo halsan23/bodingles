@@ -26,7 +26,7 @@ app.get("/noAuth", async (req, res) => {
 
 app.get("/basicAuth", async (req, res) => {
   try {
-    const result = await axios.get(API_URL + "/all?page=2", {
+    const result = await axios.get(API_URL + "/all?page=1", {
       auth: {
         username: yourUsername,
         password: yourPassword,
