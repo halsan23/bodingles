@@ -57,7 +57,20 @@
    <button id="bearerToken" onclick="window.location.href='/bearerToken'">Bearer Token</button>
 
    <div class="response-area">
-       <p><%= content %></p>
+      <% if (!locals.content) { %>
+         <p>API Request Data</p>
+      <% } else { %>
+         <% temp = JSON.parse(content) %>
+         <% if (temp.constructor === Array) { %>
+            <ol>
+            <% temp.forEach( sec => { %>
+               <li><%= sec.secret %></li>
+            <% }) %>
+            </ol>
+         <% } else { %>
+            <p><%= content %></p>
+         <% } %>
+      <% } %>
    </div>
 
 </body>
