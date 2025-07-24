@@ -15,6 +15,7 @@
     }
 
     button {
+      width: 200px;
       margin: 10px;
       padding: 15px 30px;
       font-size: 16px;
@@ -60,16 +61,9 @@
       <% if (!locals.content) { %>
          <p>API Request Data</p>
       <% } else { %>
-         <% temp = JSON.parse(content) %>
-         <% if (temp.constructor === Array) { %>
-            <ol>
-            <% temp.forEach( sec => { %>
-               <li><%= sec.secret %></li>
-            <% }) %>
-            </ol>
-         <% } else { %>
-            <p><%= content %></p>
-         <% } %>
+         <% const data = JSON.parse(content) %>
+         <h4><%= data.title %></h4>
+         <p><%= data.secrets[0] %></p>
       <% } %>
    </div>
 
