@@ -25,6 +25,13 @@ app.get("/", (req, res) => {
 });
 
 
+// STANDARDIZATION
+// data results with only one result are converted to array's for display purposes in index.ejs
+// data results with multiple results are already in array format so no conversion is necessary
+// this simplifies the output process in index.ejs
+// ========================================================================================== //
+
+
 // generate no authentication page
 app.get("/noAuth", async (req, res) => {
    try {
@@ -80,7 +87,7 @@ app.get("/bearerToken", async (req, res) => {
    try {
       const result = await axios.get(`${API_URL}/secrets/42`, config );
       const data = {
-         title: "Random Secret",
+         title: "Secret #42",
          secrets: [ result.data ]
       }
       res.render("index.ejs", { content: JSON.stringify(data) });

@@ -58,15 +58,24 @@
    <button id="bearerToken" onclick="window.location.href='/bearerToken'">Bearer Token</button>
 
    <div class="response-area">
+      <!-- default output when no data -->
       <% if (!locals.content) { %>
          <p>API Request Data</p>
+
+      <!-- process received data -->
       <% } else { %>
          <% const data = JSON.parse(content) %>
          <h4><%= data.title %></h4>
+
+         <!-- Check if multiple items for listing purposes -->
          <% if (data.secrets.length === 1) { %>
+
+            <!-- displays one single item in a <p> tag -->
             <% data.secrets.forEach( sec => { %>
                <p><%= sec.secret %></p>
             <% }) %>
+
+         <!-- displays multiple items in an ordered list -->
          <% } else { %>
             <ol>
                <% data.secrets.forEach( sec => { %>
@@ -74,6 +83,7 @@
                <% }) %>
             </ol>
          <% } %>
+
       <% } %>
    </div>
 

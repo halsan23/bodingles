@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="/css/cssReset.css">
+   <link rel="stylesheet" href="/css/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu</p>
+         <p><a href="../apiIndex.html">Back to API Index</a></p>
+         <hr style="width: 40%;">
+         <h5>API Authorization</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">I</span>n order to talk about API Authorization we need to understand the difference between <b>Authentication</b> and <b>Authorization</b>.</p>
+            <ul>
+               <li><b>Authentication</b> the process of verifying the identity of a user, device, or system. It ensures that the entity claiming to be who or what it is, actually is who or what it claims to be.</li>
+               <li><b>Authorization</b> is the process of determining whether an authenticated entity has the right to access a specific resource or perform a specific action.</li>
+            </ul>
+            <p>When using APIs we are usually talking about <b>Authorization</b>. We are going to verify that this user has "Authorization" to access this APIs resources.</p>
+         </article><hr>
+
+         <!-- Resources -->
+         <article>
+            <h6>Discussion Resources</h6>
+            <p><span class="firstWord">F</span>or the purpose of this discussion, we have created some relevant resources. First, we are going to be using an API written by Dr. Angela Yu. It's called <b>Secrets</b> and can be found @ <a href="https://secrets-api.appbrewery.com/" target="_blank">https://secrets-api.appbrewery.com/</a>. This  API essentially lets users add "Secret" things that they do when they think no one is watching, to the API Database.</p>
+            <p>We are going to be writing code that will allow us to work with this API, which allows us to demonstrate some of the different methods of <b>Authentication</b>. This process is all "<b>server</b>" driven, so you must have your "<b>localhost</b>" up and running to view the results.</p>
+            <p>The completed files can be downloaded here:&nbsp;&nbsp;
+               <img src="/images/zip-icon.png" alt="">
+               <a href="../../../classWork/5.4_json_API_Authentication/jsonApiAuth.zip">jsonApiAuth.zip</a></p>
+            <p>We are going to be using the following technologies and middleware on this project:</p>
+            <ul>
+               <li>node.js</li>
+               <li>express</li>
+               <li>ejs</li>
+               <li>axios</li>
+            </ul>
+            <p>We should be familiar with <b>node.js</b> and <b>express</b>, and also, how to get our server up and running. As a refresher, you can access the "Server Setup" discussion <a href="../../express/expressServer/expressServer.html" target="_blank">here</a>.</p>
+            <p><b>Axios</b> is middleware that was designed to facilitate an improved method of communicating with APIs through <b>get</b> and <b>post</b> requests. <b>ejs</b> allows us to embed JavaScript directly into html files with the .ejs extension, which are usually located in a <b>views</b> directory.</p>
+            <p>And lastly, we used <b>Postman</b> (which can be <a href="https://www.postman.com/downloads/" target="_blank">downloaded here</a>), to create all of our Authentications. We did this separately as it is outside of the scope of this discussion, which is the different types of Authentication methods and how to apply them. All of the information on creating your API Authentication credentials, can be found with their <a href="https://secrets-api.appbrewery.com/" target="_blank">API documentation</a>.</p>
+         </article><hr>
+
+         <!-- Authentication Types -->
+         <article>
+            <h6>Authentication Types</h6>
+            <p><span class="firstWord">T</span>here are many ways to Authenticate a user's access. Here are a couple of articles discussing the concept:</p>
+            <ul>
+               <li><a href="https://frontegg.com/guides/api-authentication-api-authorization" target="_blank">frontegg API Authentication and Authorization</a></li>
+               <li><a href="https://www.postman.com/api-platform/api-authentication/" target="_blank">Postman API Authentication</a></li>
+            </ul>
+            <p>In this discussion we are going to be detailing four different types of Authentication:</p>
+            <ol>
+               <li>No Authentication</li>
+               <li>Basic Authentication (username / password)</li>
+               <li>API Key Authentication</li>
+               <li>Token Based Authentication</li>
+            </ol>
+         </article><hr>
+
+         <!-- No Authentication -->
+         <article>
+            <h6>No Authentication</h6>
+            <p><span class="firstWord"></span>
+            </p>
+         </article><hr>
+
+         <!-- Basic Authentication -->
+         <article>
+            <h6>Basic Authentication</h6>
+            <p><span class="firstWord"></span>
+            </p>
+         </article><hr>
+
+         <!-- API Key Authentication -->
+         <article>
+            <h6>API Key Authentication</h6>
+            <p><span class="firstWord"></span>
+            </p>
+         </article><hr>
+
+         <!-- Token Based Authentication -->
+         <article>
+            <h6>Token Based Authentication</h6>
+            <p><span class="firstWord"></span>
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="/header.js"></script>
+   <script src="/footer.js"></script>
+</body>
+</html>
