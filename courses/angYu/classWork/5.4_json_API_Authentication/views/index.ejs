@@ -63,7 +63,17 @@
       <% } else { %>
          <% const data = JSON.parse(content) %>
          <h4><%= data.title %></h4>
-         <p><%= data.secrets[0] %></p>
+         <% if (data.secrets.length === 1) { %>
+            <% data.secrets.forEach( sec => { %>
+               <p><%= sec.secret %></p>
+            <% }) %>
+         <% } else { %>
+            <ol>
+               <% data.secrets.forEach( sec => { %>
+                  <li><%= sec.secret %></li>
+               <% }) %>
+            </ol>
+         <% } %>
       <% } %>
    </div>
 

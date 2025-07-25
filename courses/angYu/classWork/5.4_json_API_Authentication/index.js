@@ -51,7 +51,7 @@ app.get("/basicAuth", async (req, res) => {
       });
       const data = {
          title: "Secrets: Page 2",
-         secret: [ result.data ]
+         secrets: result.data
       }
       res.render("index.ejs", { content: JSON.stringify(data) });
    } catch (error) {
@@ -66,7 +66,7 @@ app.get("/apiKey", async (req, res) => {
       const result = await axios.get(`${API_URL}/filter?score=5&apiKey=${apiKey}`);
       const data = {
          title: "Secrets with a EM Score of at least 5",
-         secrets: [ result.data ]
+         secrets: result.data
       }
       res.render("index.ejs", { content: JSON.stringify(data) });
    } catch (error) {
