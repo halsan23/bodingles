@@ -26,26 +26,27 @@
          <p>Dr. Angela Yu</p>
          <p><a href="../apiIndex.html">Back to API Index</a></p>
          <hr style="width: 40%;">
-         <h5>API Authorization</h5>
+         <h5>API Authentication</h5>
       </section>
 
       <section id="textWindow4" class="just">
          <!-- Intro -->
          <article>
             <h6>Intro</h6>
-            <p><span class="firstWord">I</span>n order to talk about API Authorization we need to understand the difference between <b>Authentication</b> and <b>Authorization</b>.</p>
+            <p><span class="firstWord">I</span>n order to talk about API Authentication we need to understand the difference between <b>Authentication</b> and <b>Authorization</b>. API Authentication and Authorization are two distinct but closely related concepts crucial for securing APIs.</p>
             <ul>
-               <li><b>Authentication</b> the process of verifying the identity of a user, device, or system. It ensures that the entity claiming to be who or what it is, actually is who or what it claims to be.</li>
-               <li><b>Authorization</b> is the process of determining whether an authenticated entity has the right to access a specific resource or perform a specific action.</li>
+               <li><b>Authentication</b> is the process of verifying the identity of a user or application making a request, ensuring that they are who they claim to be. An example would be authenticating a user's login credentials.</li>
+               <li><b>Authorization</b>, on the other hand, occurs after authentication and involves determining what resources or actions an authenticated user is allowed to access or perform. This process ensures that even if a user is authenticated, they can only access the data or functionality they are permitted to.</li>
             </ul>
-            <p>When using APIs we are usually talking about <b>Authorization</b>. We are going to verify that this user has "Authorization" to access this APIs resources.</p>
+            <p>When using APIs we are usually talking about <b>Authentication</b>. We are going to verify that this user has "Authentication" to access this APIs resources.</p>
          </article><hr>
 
          <!-- Resources -->
          <article>
             <h6>Discussion Resources</h6>
             <p><span class="firstWord">F</span>or the purpose of this discussion, we have created some relevant resources. First, we are going to be using an API written by Dr. Angela Yu. It's called <b>Secrets</b> and can be found @ <a href="https://secrets-api.appbrewery.com/" target="_blank">https://secrets-api.appbrewery.com/</a>. This  API essentially lets users add "Secret" things that they do when they think no one is watching, to the API Database.</p>
-            <p>We are going to be writing code that will allow us to work with this API, which allows us to demonstrate some of the different methods of <b>Authentication</b>. This process is all "<b>server</b>" driven, so you must have your "<b>localhost</b>" up and running to view the results.</p>
+            <p>Remember, the purpose of this discussion is <b>API Authentication</b> which means that we are not going to be dissecting this API and talking about how to manipulate every aspect of it. We are only discussing the Authentication aspect here. To that end, we are going to be writing code that will allow us to work with this API to allow us to demonstrate some of the different methods of <b>Authentication</b>.</p>
+            <p>This process is all "<b>server</b>" driven, so you must have your "<b>localhost</b>" up and running to view the results. We should be familiar with how to get our server up and running. As a refresher, you can access the "Server Setup" discussion <a href="../../express/expressServer/expressServer.html" target="_blank">here</a>.</p>
             <p>The completed files can be downloaded here:&nbsp;&nbsp;
                <img src="/images/zip-icon.png" alt="">
                <a href="../../../classWork/5.4_json_API_Authentication/jsonApiAuth.zip">jsonApiAuth.zip</a></p>
@@ -56,17 +57,17 @@
                <li>ejs</li>
                <li>axios</li>
             </ul>
-            <p>We should be familiar with <b>node.js</b> and <b>express</b>, and also, how to get our server up and running. As a refresher, you can access the "Server Setup" discussion <a href="../../express/expressServer/expressServer.html" target="_blank">here</a>.</p>
+            <p>We should be familiar with <b>node.js</b> and <b>express</b> as they are the basics of the client-server operations we have been utilizing for some time now.</p>
             <p><b>Axios</b> is middleware that was designed to facilitate an improved method of communicating with APIs through <b>get</b> and <b>post</b> requests. <b>ejs</b> allows us to embed JavaScript directly into html files with the .ejs extension, which are usually located in a <b>views</b> directory.</p>
-            <p>And lastly, we used <b>Postman</b> (which can be <a href="https://www.postman.com/downloads/" target="_blank">downloaded here</a>), to create all of our Authentications. We did this separately as it is outside of the scope of this discussion, which is the different types of Authentication methods and how to apply them. All of the information on creating your API Authentication credentials, can be found with their <a href="https://secrets-api.appbrewery.com/" target="_blank">API documentation</a>.</p>
+            <p>And lastly, we used <b>Postman</b> <i>(which can be <a href="https://www.postman.com/downloads/" target="_blank">downloaded here</a>)</i>, to create all of our credentials to access to API. We did this separately as it is outside of the scope of this discussion. All of the information on creating your API Authentication credentials, can be found with their <a href="https://secrets-api.appbrewery.com/" target="_blank">API documentation</a>.</p>
          </article><hr>
 
          <!-- Authentication Types -->
          <article>
             <h6>Authentication Types</h6>
-            <p><span class="firstWord">T</span>here are many ways to Authenticate a user's access. Here are a couple of articles discussing the concept:</p>
+            <p><span class="firstWord">T</span>here are many ways to Authorize a user's access. Here are a couple of articles discussing the concept:</p>
             <ul>
-               <li><a href="https://frontegg.com/guides/api-authentication-api-authorization" target="_blank">frontegg API Authentication and Authorization</a></li>
+               <li><a href="https://frontegg.com/guides/api-authentication-api-Authentication" target="_blank">frontegg API Authentication and Authentication</a></li>
                <li><a href="https://www.postman.com/api-platform/api-authentication/" target="_blank">Postman API Authentication</a></li>
             </ul>
             <p>In this discussion we are going to be detailing four different types of Authentication:</p>
@@ -81,7 +82,7 @@
          <!-- No Authentication -->
          <article>
             <h6>No Authentication</h6>
-            <p><span class="firstWord"></span>
+            <p><span class="firstWord">N</span>o
             </p>
          </article><hr>
 

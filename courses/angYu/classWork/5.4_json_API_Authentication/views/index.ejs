@@ -15,14 +15,30 @@
     }
 
     button {
+      color: white;
       width: 200px;
       margin: 10px;
       padding: 15px 30px;
       font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      color: white;
+      font-weight: 800;
       cursor: pointer;
+      border: 2px solid black;
+      border-radius: 10px;
+      box-shadow: 4px 4px 12px #5f5f5f;
+    }
+
+    button:hover {
+      box-shadow: none;
+    }
+
+    h1 {
+      margin: 10px;
+      padding: 0;
+    }
+
+    h4 {
+      margin: 10px;
+      padding: 0;
     }
 
     #noAuth {
@@ -43,24 +59,47 @@
 
     .response-area {
       margin-top: 20px;
+      padding: 25px 50px;
       background-color: white;
-      padding: 20px;
+      border: 2px solid black;
+      border-radius: 20px;
+      box-shadow: 4px 4px 12px #5f5f5f;
+    }
+
+    ol li {
+      line-height: 2rem;
+    }
+
+    .small {
+      color: #000;
+      font-size: .8rem;
+      font-style: normal;
+      font-weight: normal;
     }
   </style>
 </head>
 
 <body>
    <h1>API Authorization Demo</h1>
-   <h4>api @ https://secrets-api.appbrewery.com/</h4>
-   <button type="submit" id="noAuth" onclick="window.location.href='/noAuth'">No Auth</button>
-   <button id="basicAuth" onclick="window.location.href='/basicAuth'">Basic Auth</button>
-   <button id="apiKey" onclick="window.location.href='/apiKey'">API Key</button>
-   <button id="bearerToken" onclick="window.location.href='/bearerToken'">Bearer Token</button>
+   <h4>api @ https://secrets-api.appbrewery.com/</h4><br>
+
+   <button type="submit" id="noAuth" onclick="window.location.href='/noAuth'">No Auth<br>
+      <span class="small">returns 1 random secret</span>
+   </button>
+   <button id="basicAuth" onclick="window.location.href='/basicAuth'">Basic Auth<br>
+      <span class="small">returns a full page of 10</span>
+   </button>
+   <button id="apiKey" onclick="window.location.href='/apiKey'">API Key<br>
+      <span class="small">returns all with emScore of 5 or better</span>
+   </button>
+   <button id="bearerToken" onclick="window.location.href='/bearerToken'">Bearer Token<br>
+      <span class="small">returns secret # 42</span>
+   </button>
 
    <div class="response-area">
       <!-- default output when no data -->
       <% if (!locals.content) { %>
-         <p>API Request Data</p>
+         <p>API Requested Data Display</p>
 
       <!-- process received data -->
       <% } else { %>
