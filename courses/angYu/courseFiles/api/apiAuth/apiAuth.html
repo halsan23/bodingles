@@ -110,6 +110,7 @@
 
          <!-- No Authentication -->
          <article>
+            <h5>The Authentication Methods</h5><br>
             <h6>No Authentication</h6>
             <p><span class="firstWord">N</span>o Authentication is the simplest form of API access. It allows anyone to access the API without any credentials. This is often used for public APIs where data is not sensitive or restricted. In this example, our <b>get</b> request will return a <b>random</b> secret from the API.</p>
             <p>The code to submit our <b>get</b> request is simple considering no Authentication is required and will become the <b>Basic Get Request</b> layout for all of our subsequent <b>get</b> request's. Here is the code:</p>
@@ -146,11 +147,9 @@
                <li>- We are using the <span class="colorPurple">try/catch</span> method to process our request. If the request is successful, we <span class="colorBlue">render</span> the output, if not, we <span class="colorBlue">render</span> the  error.</li>
                <li>- The address we are using (https://secrets-api.appbrewery.com/random) comes from the <a href="https://secrets-api.appbrewery.com/" target="_blank">API Documentation</a> and will return one random secret.</li>
             </ul>
-            <p>And finally, we are using <span class="colorBlue">stringify</span> to send our result back to <span class="colorGreen">index.ejs</span>. We use this method because <span class="colorBlue">stringify</span> converts our data objects into strings, which allows for easier storage and transmission of the data. And because we  are using <span class="colorBlue">stringify</span>, we will have to <span class="colorBlue">parse</span> this output in our <span class="colorGreen">index.ejs</span> file to return the data to it's original "object" form.</p>
-            <p>This is the "basics" of our API <span class="colorBlue">get</span> request. All of the following requests will follow the same overall format with minor changes reflecting which "button" the user selects in <span class="colorGreen">index.ejs</span>, and the actual <span class="colorBlue">get</span>("requestAddress").</p>
+            <p>And finally, we are using <span class="colorBlue">stringify</span> to send our result back to <span class="colorGreen">index.ejs</span>. We use this method because <span class="colorBlue">stringify</span> converts our data objects into strings, which allows for easier storage and transmission of the data. And because we  are using <span class="colorBlue">stringify()</span>, we will have to <span class="colorBlue">parse()</span> this output in our <span class="colorGreen">index.ejs</span> file to return the data to it's original "object" form.</p>
+            <p>This code outlines the "basics" for all of our API <span class="colorBlue">get</span> request's. All of the rest of our requests will follow the same overall format with minor changes reflecting which "button" the user selects in <span class="colorGreen">index.ejs</span>, the actual <span class="colorBlue">get</span>("requestAddress") and of course, the unique Authentication method used by each <span class="colorBlue">get</span> request.</p>
          </article><hr>
-
-
 
          <!-- Basic Authentication -->
          <article>
