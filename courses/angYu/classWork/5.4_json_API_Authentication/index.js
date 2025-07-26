@@ -84,6 +84,7 @@ app.get("/apiKey", async (req, res) => {
       }
       res.render("index.ejs", { content: JSON.stringify(data) });
    } catch (error) {
+      console.log(error.message)
       res.render("index.ejs", { content: error.message });
    }
 });
@@ -99,6 +100,7 @@ app.get("/bearerToken", async (req, res) => {
       }
       res.render("index.ejs", { content: JSON.stringify(data) });
    } catch (error) {
+      console.log(error.message)
       res.render("index.ejs", { content: error.message });
    }
 });
