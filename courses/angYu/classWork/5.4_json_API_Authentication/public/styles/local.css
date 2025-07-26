@@ -1,0 +1,72 @@
+body {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   font-family: Arial, sans-serif;
+   background-color: #f0f0f0;
+}
+
+button {
+   color: white;
+   width: 200px;
+   margin: 10px;
+   padding: 15px 30px;
+   font-size: 16px;
+   font-weight: 800;
+   cursor: pointer;
+   border: 2px solid black;
+   border-radius: 10px;
+   box-shadow: 4px 4px 12px #5f5f5f;
+}
+
+button:hover {
+   box-shadow: none;
+}
+
+h1 {
+   margin: 10px;
+   padding: 0;
+}
+
+h4 {
+   margin: 10px;
+   padding: 0;
+}
+
+#noAuth {
+   background-color: #3498db;
+}
+
+#basicAuth {
+   background-color: #2ecc71;
+}
+
+#apiKey {
+   background-color: #f1c40f;
+}
+
+#bearerToken {
+   background-color: #e74c3c;
+}
+
+.response-area {
+   margin-top: 20px;
+   padding: 25px 50px;
+   background-color: white;
+   border: 2px solid black;
+   border-radius: 20px;
+   box-shadow: 4px 4px 12px #5f5f5f;
+}
+
+ol li {
+   line-height: 2rem;
+}
+
+.small {
+   color: #000;
+   font-size: .8rem;
+   font-style: normal;
+   font-weight: normal;
+}

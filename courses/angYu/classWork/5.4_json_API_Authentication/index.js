@@ -9,9 +9,16 @@ const port = process.env.PORT || 3000;
 const API_URL = "https://secrets-api.appbrewery.com";
 
 
+app.use(express.static("public"));
+
+
 // authentication variables
 const user = "userName";
 const pswd = "passWord";
+// const user = "badDoggy";
+// const pswd = "bd";
+// const user = "halsan";
+// const pswd = "hs";
 const apiKey = "36340182-655c-48b3-a826-078fd3f6eb54";
 const bearToken = "0882c14d-075c-444e-a2d4-03c5c7f3a924";
 const config = {
