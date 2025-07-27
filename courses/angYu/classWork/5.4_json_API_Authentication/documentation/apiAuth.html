@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bodingles | Angela Yu</title>
+
+   <!-- Link Favicon -->
+   <link rel="icon" href="assets/images/logos/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="assets/styles/cssReset.css">
+   <link rel="stylesheet" href="assets/styles/root.css">
+</head>
+
+<body>
+   <!-- Header -->
+   <header id="app-header"></header>
+
+   <!-- Main Body -->
+   <section id="main" class="content">
+      <!-- Title -->
+      <section>
+         <h4>Complete 2024 Web Development Bootcamp</h4>
+         <p>Dr. Angela Yu || badDoggy</p>
+         <hr style="width: 40%;">
+         <h5>API Authentication</h5>
+      </section>
+
+      <section id="textWindow4" class="just">
+         <!-- Intro -->
+         <article>
+            <h6>Intro</h6>
+            <p><span class="firstWord">I</span>n order to talk about API Authentication we need to understand the difference between <b>Authentication</b> and <b>Authorization</b>. API Authentication and Authorization are two distinct but closely related concepts crucial for securing APIs.</p>
+            <ul>
+               <li><b>Authentication</b> is the process of verifying the identity of a user or application making a request, ensuring that they are who they claim to be. An example would be authenticating a user's login credentials.</li>
+               <li><b>Authorization</b>, on the other hand, occurs after authentication and involves determining what resources or actions an authenticated user is allowed to access or perform. This process ensures that even if a user is authenticated, they can only access the data or functionality they are permitted to.</li>
+            </ul>
+            <p>When using APIs we are usually talking about <b>Authentication</b>. We are going to verify that this user has "Authentication" to access this APIs resources.</p>
+         </article><hr>
+
+         <!-- Resources -->
+         <article>
+            <h6>Discussion Resources</h6>
+            <p><span class="firstWord">F</span>or the purpose of this discussion, we have created some relevant resources. First, we are going to be using an API written by Dr. Angela Yu. It's called <b>Secrets</b> and can be found @ <a href="https://secrets-api.appbrewery.com/" target="_blank">https://secrets-api.appbrewery.com/</a>. This  API essentially lets users add "Secret" things that they do when they think no one is watching, to the API Database.</p>
+            <p>Remember, the purpose of this discussion is <b>API Authentication</b> which means that we are not going to be dissecting this API and talking about how to manipulate every aspect of it. We are only discussing the Authentication aspect here. To that end, we are going to be writing code that will allow us to work with this API to allow us to demonstrate some of the different methods of <b>Authentication</b>.</p>
+            <p>This process is all "<b>server</b>" driven, so you must have your "<b>localhost</b>" up and running to view the results. We should be familiar with how to get our server up and running. As a refresher, you can access the "Server Setup" discussion <a href="../../express/expressServer/expressServer.html" target="_blank">here</a>.</p>
+            <p>The completed files can be downloaded here:&nbsp;&nbsp;
+               <img src="/images/zip-icon.png" alt="">
+               <a href="../../../classWork/5.4_json_API_Authentication/jsonApiAuth.zip">jsonApiAuth.zip</a></p>
+            <p>We are going to be using the following technologies and middleware on this project:</p>
+            <ul>
+               <li>node.js</li>
+               <li>express</li>
+               <li>ejs</li>
+               <li>axios</li>
+            </ul>
+            <p>We should be familiar with <b>node.js</b> and <b>express</b> as they are the basics of the client-server operations we have been utilizing for some time now.</p>
+            <p><b>Axios</b> is middleware that was designed to facilitate an improved method of communicating with APIs through <b>get</b> and <b>post</b> requests. <b>ejs</b> allows us to embed JavaScript directly into html files with the .ejs extension, which are usually located in a <b>views</b> directory.</p>
+            <p>And lastly, we used <b>Postman</b> <i>(which can be <a href="https://www.postman.com/downloads/" target="_blank">downloaded here</a>)</i>, to create all of our credentials to access to API. We did this separately as it is outside of the scope of this discussion. All of the information on creating your API Authentication credentials, can be found with their <a href="https://secrets-api.appbrewery.com/" target="_blank">API documentation</a>.</p>
+         </article><hr>
+
+         <!-- Authentication Types -->
+         <article>
+            <h6>Authentication Types</h6>
+            <p><span class="firstWord">T</span>here are many ways to Authorize a user's access. Here are a couple of articles discussing the concept:</p>
+            <ul>
+               <li><a href="https://frontegg.com/guides/api-authentication-api-Authentication" target="_blank">frontegg API Authentication and Authentication</a></li>
+               <li><a href="https://www.postman.com/api-platform/api-authentication/" target="_blank">Postman API Authentication</a></li>
+            </ul>
+            <p>In this discussion we are going to be detailing four different types of Authentication:</p>
+            <ol>
+               <li>No Authentication</li>
+               <li>Basic Authentication (username / password)</li>
+               <li>API Key Authentication</li>
+               <li>Token Based Authentication</li>
+            </ol>
+         </article><hr>
+
+         <!-- Basic Setup -->
+         <article>
+            <h6>Basic Setup</h6>
+            <p><span class="firstWord">F</span>or all of our examples below, we have set up some basic variables that will be used:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>const <span class="colorGreen">user</span> = "yourUserName";</li>
+               <li>const <span class="colorGreen">pswd</span> = "yourPassword";</li>
+               <li>const <span class="colorGreen">apiKey</span> = "yourAPIkey";</li>
+               <li>const <span class="colorGreen">bearToken</span> = "yourBearToken";</li>
+               <li>const <span class="colorOrange">config</span> = {</li>
+               <li>
+                  <ul>
+                     <li><span class="colorRed">headers</span>: { Authorization: `Bearer ${<span class="colorGreen">bearToken</span>}` },</li>
+                  </ul>
+               </li>
+               <li>};</li>
+            </ul>
+            <p>In our <b>index.ejs</b> file that displays our page, we have a series of four buttons that you "click" to request our different <b>get</b> request's. They each have an <i><b>inline</b></i> Js "click event" to establish which <b>get</b> request is processed. We will list all four, but remember, each click event is unique to each button.</p>
+            <ul class="sectHighlight">
+               <li><b>index.ejs</b></li>
+               <li>&lt;<span class="colorBlue">button</span> type="submit" <span class="colorRed">onclick</span>="window.<span class="colorRed">location.href</span>='/<span class="colorGreen">noAuth</span>'&lt;/button></li>
+               <li>&lt;<span class="colorBlue">button</span> <span class="colorRed">onclick</span>="window.<span class="colorRed">location.href</span>='/<span class="colorGreen">basicAuth</span>''&lt;/button></li>
+               <li>&lt;<span class="colorBlue">button</span> <span class="colorRed">onclick</span>="window.<span class="colorRed">location.href</span>='/<span class="colorGreen">apiKey</span>''&lt;/button></li>
+               <li>&lt;<span class="colorBlue">button</span> <span class="colorRed">onclick</span>="window.<span class="colorRed">location.href</span>='/<span class="colorGreen">bearerToken</span>''&lt;/button></li>
+            </ul>
+            <p>Using this method allows our server file (<b>index.js</b>) to know which button was "clicked" and which <b>get</b> request to process.</p>
+         </article><br>
+
+         <!-- No Authentication -->
+         <article>
+            <h5>The Authentication Methods</h5>
+            <hr style="width: 30%; margin-left: 7px;"><br>
+            <h6>No Authentication</h6>
+            <p><span class="firstWord">N</span>o Authentication is the simplest form of API access. It allows anyone to access the API without any credentials. This is often used for public APIs where data is not sensitive or restricted. The code to submit our <b>get</b> request is simple considering no Authentication is required and will become the <b>Basic Get Request</b> layout for all of our subsequent <b>get</b> request's.</p>
+            <p>In this example, our <b>get</b> request will return a <b>random</b> secret from the API. Here is the code:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>app.<span class="colorBlue">get</span>("/<span class="colorGreen">noAuth</span>", <span class="colorPurple">async</span> (req, res) => {
+                  <ul>
+                     <li><span class="colorPurple">try</span> {
+                        <ul>
+                           <li>const <span class="colorGreen">result</span> = <span class="colorPurple">await</span> <span class="colorOrange">axios</span>.<span class="colorBlue">get</span>("https://secrets-api.appbrewery.com<span class="colorGreen">/random</span>")</li>
+                           <li>res.<span class="colorBlue">render</span>("<span class="colorGreen">index.ejs</span>", { <span class="colorRed">content</span>: <span class="colorOrange">JSON</span>.<span class="colorBlue">stringify</span>(<span class="colorGreen">result</span>.data) });</li>
+                        </ul>
+                     </li>
+                     <li>} <span class="colorPurple">catch</span> (error) {
+                        <ul>
+                           <li>res.<span class="colorBlue">render</span>("<span class="colorGreen">index.ejs</span>", { <span class="colorRed">content</span>: error.<b>message</b> });</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <p>This is fairly simple code, which is exactly why we're using the <b>middleware</b> <span class="colorOrange">axios</span>. If we were just using vanilla JavaScript and not using <span class="colorOrange">axios</span>, we would have many, many more lines of code to accomplish the same result.</p>
+            <p>Let's break this code snippet down:</p>
+            <ul>
+               <li>- We are processing a <span class="colorBlue">get</span> request for /<span class="colorGreen">noAuth</span> because that was the button "click event" that the user selected &nbsp;<i>(in <b>index.ejs</b>)</i>.</li>
+               <li>- We are using an <span class="colorPurple">async</span> function so that we can <span class="colorPurple">await</span> the result of or request.
+                  <ul>
+                     <li>~ we need to <span class="colorPurple">await</span> our request so that the code does not move on before our <span class="colorBlue">get</span> request is completed.</li>
+                     <li>~ we can only use <span class="colorPurple">await</span> inside an <span class="colorPurple">async</span> function.</li>
+                  </ul>
+               </li>
+               <li>- We are using the <span class="colorPurple">try/catch</span> method to process our request. If the request is successful, we <span class="colorBlue">render</span> the output, if not, we <span class="colorBlue">render</span> the  error.</li>
+               <li>- The address we are using (https://secrets-api.appbrewery.com<b>/random</b>) comes from the <a href="https://secrets-api.appbrewery.com/" target="_blank">API Documentation</a> and will return one random secret.</li>
+            </ul>
+            <p>And finally, we are using <span class="colorBlue">stringify</span> to send our result back to <b>index.ejs</b>. We use this method because <span class="colorBlue">stringify</span> converts our data objects into strings, which allows for easier storage and transmission of the data. And because we  are using <span class="colorBlue">stringify()</span>, we will have to <span class="colorBlue">parse()</span> this output in our <b>index.ejs</b> file to return the data to it's original "object" form, for output processing.</p>
+            <p>This code outlines the "basics" for all of our API <span class="colorBlue">get</span> request's. All of the rest of our requests will follow the same overall format with minor changes reflecting which "button" the user selects in <b>index.ejs</b>, the actual <span class="colorBlue">get</span>("requestAddress") and of course, the unique <b>Authentication</b> method used by each <span class="colorBlue">get</span> request.</p>
+         </article><hr>
+
+         <!-- Basic Authentication -->
+         <article>
+            <h6>Basic Authentication</h6>
+            <p><span class="firstWord">W</span>ith this API, you could request a list of every "secret" in the database, and the API would normally return ten items at a time. With this particular <span class="colorBlue">get</span> request, we are going to be requesting <b>all</b> of the secrets for <b>page 2</b>, so this should give us ten secrets.</p>
+            <p>Since the "<b>Basic Authentication</b>" for this API requires the use of a <b>username</b> and <b>password</b> we're going to need to modify our "Basic <span class="colorBlue">get</span> request" a little. Here is the code:</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>app.<span class="colorBlue">get</span>("/<span class="colorGreen">basicAuth</span>", <span class="colorPurple">async</span> (req, res) => {
+                  <ul>
+                     <li><span class="colorPurple">try</span> {
+                        <ul>
+                           <li>const <span class="colorGreen">result</span> = <span class="colorPurple">await</span> <span class="colorOrange">axios</span>.<span class="colorBlue">get</span>("https://secrets-api.appbrewery.com<span class="colorGreen">/all?page=2</span>", {
+                              <ul>
+                                 <li><span class="colorRed">auth</span>: {
+                                    <ul>
+                                       <li><span class="colorRed">username</span>: yourUserName,</li>
+                                       <li><span class="colorRed">password</span>: yourPassword,</li>
+                                    </ul>
+                                 </li>
+                                 <li>}</li>
+                              </ul>
+                           </li>
+                           <li>});</li>
+                           <li>res.<span class="colorBlue">render</span>("<span class="colorGreen">index.ejs</span>", { <span class="colorRed">content</span>: <span class="colorOrange">JSON</span>.<span class="colorBlue">stringify</span>(<span class="colorGreen">result</span>.data) });</li>
+                        </ul>
+                     </li>
+                     <li>} <span class="colorPurple">catch</span> (error) {
+                        <ul>
+                           <li>res.<span class="colorBlue">render</span>("<span class="colorGreen">index.ejs</span>", { <span class="colorRed">content</span>: error.<b>message</b> });</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <p>Now this is essentially the same basic code as above with the following changes:</p>
+            <ul>
+               <li>- The app.<span class="colorBlue">get</span> request has changed to /<span class="colorGreen">basicAuth</span> to reflect the button "click event" that was initiated from <b>index.ejs</b>.</li>
+               <li>- The <span class="colorOrange">axios</span>.<span class="colorBlue">get</span> address has changed to retrieve <span class="colorGreen">/all</span> of the secrets from <span class="colorGreen">page=2</span> of the total "Secrets" list.</li>
+               <li>- And we've added our <span class="colorRed">authentication</span> credentials that this API requires for the type of data we want to retrieve.</li>
+            </ul>
+            <p>The <span class="colorBlue">get</span> request wil pass our <span class="colorRed">authentication</span> credentials in the header as <b>base64</b> encoded data. This is not considered a "<b>secure</b>" way of transferring this information. If someone intercepts the header, they could use any of a number of different base64 decryption apps available today to decode this data and have full access to it.</p>
+            <p>While this code works, there are much  better ways to transmit our "sensitive" Authentication credentials, such as <a href="https://oauth.net/2/" target="_blank">OAuth</a>, or other modern authentication protocols.</p>
+         </article><hr>
+
+         <!-- API Key Authentication -->
+         <article>
+            <h6>API Key Authentication</h6>
+            <p><span class="firstWord">T</span>his API has set up a "Scoring" method to basically rate user's "Secrets". This rating is called an "<b>emScore</b>". With our code here we are requesting all of the "Secrets" with a "<b>score</b>" of 5 or greater.</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>app.<span class="colorBlue">get</span>("/<span class="colorGreen">apiKey</span>", <span class="colorPurple">async</span> (req, res) => {
+                  <ul>
+                     <li><span class="colorPurple">try</span> {
+                        <ul>
+                           <li>const <span class="colorGreen">result</span> = <span class="colorPurple">await</span> <span class="colorOrange">axios</span>.<span class="colorBlue">get</span>("https://secrets-api.appbrewery.com<span class="colorGreen">/filter?</span>score=5<span class="colorGreen">&apiKey=</span>yourApiKey</span>")</li>
+                           <li>res.<span class="colorBlue">render</span>("<span class="colorGreen">index.ejs</span>", { <span class="colorRed">content</span>: <span class="colorOrange">JSON</span>.<span class="colorBlue">stringify</span>(<span class="colorGreen">result</span>.data) });</li>
+                        </ul>
+                     </li>
+                     <li>} <span class="colorPurple">catch</span> (error) {
+                        <ul>
+                           <li>res.<span class="colorBlue">render</span>("<span class="colorGreen">index.ejs</span>", { <span class="colorRed">content</span>: error.<b>message</b> });</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <p>And once again, this is essentially the same basic code as above with the following changes:</p>
+            <ul>
+               <li>- The app.<span class="colorBlue">get</span> request has changed to /<span class="colorGreen">apiKey</span> to reflect the button "click event" that was initiated from <b>index.ejs</b>.</li>
+               <li>- The <span class="colorOrange">axios</span>.<span class="colorBlue">get</span> address has changed to retrieve "<span class="colorGreen">/filter?</span>score=5". &nbsp;<i>(retrieve all secrets with an emScore of 5 or greater)</i></li>
+               <li>- And notice how we've added our <b>API KEY</b> <span class="colorRed">authentication</span> credentials to the end or our query string for our <span class="colorOrange">axios</span>.<span class="colorBlue">get</span> request &nbsp;(<span class="colorGreen">&apiKey=</span>yourApiKey</span>).</li>
+            </ul>
+         </article><hr>
+
+         <!-- Token Based Authentication -->
+         <article>
+            <h6>Token Based Authentication</h6>
+            <p><span class="firstWord">W</span>ith this API, every "Secret" is given a specific <b>ID</b> number when they are input into the database. With this final request, we are going to request secret number <b>42</b>.</p>
+            <p>With <b>Token Based Authentication</b>, we're going to do something a little different. We're adding a variable to our server file <i>(<b>index.js</b>)</i> that will contain our <b>Authentication</b> credentials.</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>const <span class="colorOrange">config</span> = {
+                  <ul>
+                     <li><span class="colorRed">headers</span>: { <span class="colorRed">Authorization</span>: `Bearer ${yourBearerToken}` },</li>
+                  </ul>
+               </li>
+               <li>};</li>
+            </ul>
+            <p>This just simplifies the code for our <span class="colorOrange">axios</span>.<span class="colorBlue">get</span> request. <b>*Note</b>: if we wanted to, we could also create separate variables for <b>all</b> of our <b>Authentication</b> credentials. And once again, the rest of our <span class="colorBlue">get</span> request is pretty much the same as the others, with minor changes.</p>
+            <ul class="sectHighlight">
+               <li><b>JavaScript</b></li>
+               <li>app.<span class="colorBlue">get</span>("/<span class="colorGreen">bearerToken</span>", <span class="colorPurple">async</span> (req, res) => {
+                  <ul>
+                     <li><span class="colorPurple">try</span> {
+                        <ul>
+                           <li>const <span class="colorGreen">result</span> = <span class="colorPurple">await</span> <span class="colorOrange">axios</span>.<span class="colorBlue">get</span>("https://secrets-api.appbrewery.com<span class="colorGreen">/secrets/42</span>", <span class="colorOrange">config</span>)</li>
+                           <li>res.<span class="colorBlue">render</span>("<span class="colorGreen">index.ejs</span>", { <span class="colorRed">content</span>: <span class="colorOrange">JSON</span>.<span class="colorBlue">stringify</span>(<span class="colorGreen">result</span>.data) });</li>
+                        </ul>
+                     </li>
+                     <li>} <span class="colorPurple">catch</span> (error) {
+                        <ul>
+                           <li>res.<span class="colorBlue">render</span>("<span class="colorGreen">index.ejs</span>", { <span class="colorRed">content</span>: error.<b>message</b> });</li>
+                        </ul>
+                     </li>
+                     <li>}</li>
+                  </ul>
+               </li>
+               <li>});</li>
+            </ul>
+            <p>And the changes here are:</p>
+            <ul>
+               <li>- The app.<span class="colorBlue">get</span> request has changed to /<span class="colorGreen">bearerToken</span> to reflect the button "click event" that was initiated from <b>index.ejs</b>.</li>
+               <li>- The <span class="colorOrange">axios</span>.<span class="colorBlue">get</span> address has changed to retrieve "<span class="colorGreen">/secrets/42</span>. &nbsp;<i>(retrieve secret number 42)</i></li>
+               <li>- And notice how we've added our <b>bearerToken</b> <span class="colorOrange">config</span>, which is our Authentication credentials to our query string for our <span class="colorOrange">axios</span>.<span class="colorBlue">get</span> request.</li>
+            </ul>
+         </article><hr>
+
+         <!-- Conclusion -->
+         <article>
+            <h6>Conclusion</h6>
+            <p><span class="firstWord">T</span>his covers the basics of the four main authentication methods commonly used with APIs:</p>
+            <ol>
+               <li>No Authentication</li>
+               <li>Basic Authentication</li>
+               <li>API Key Authentication</li>
+               <li>Token Based Authentication</li>
+            </ol>
+            <p>Each method has its own use cases, advantages, and security considerations. When working with APIs, always choose the authentication method that best fits the sensitivity of your data and the requirements of your application. For more advanced scenarios, consider exploring <a href="https://oauth.net/2/" target="_blank">OAuth</a> or other modern authentication protocols.</p>
+            </p>
+         </article>
+      </section>
+
+      <p><br><a href="#top">Back to Top</a></p>
+      <p>&nbsp;</p>
+   </section>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="assets/scripts/header.js"></script>
+   <script src="assets/scripts/footer.js"></script>
+</body>
+</html>
