@@ -10,7 +10,19 @@
    <div class="container">
 
       <div class="response-area">
-         <p><%= content %></p>
+         <% if ( !locals.content ) { %>
+            <p>To view an existing Secret: Enter the ID# (1 - 50): and submit a GET request.</p>
+            <p>To add a new Secret: enter the New Secret & emScore: send a POST Request.</p>
+            <p>To edit a Secret: enter ID# (1 - 50): enter new data: send a PUT/PATCH Request.</p>
+            <p>To delete a Secret, enter ID# (1 - 50): send a DELETE Request.</p>
+         <% } else { %>
+            <% const data = JSON.parse(content); %>
+            <p>Secret #: <%= data.id %></p>
+            <p><%= data.secret %></p>
+            <p>emScore: <%= data.emScore %></p>
+            <p>Posted by: <%= data.username %></p>
+            <p>Posted on <%= data.timestamp %></p>
+         <% } %>
       </div>
 
       <form id="myForm" method="post">
