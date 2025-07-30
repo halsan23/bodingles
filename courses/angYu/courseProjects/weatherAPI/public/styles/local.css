@@ -1,0 +1,14 @@
+a {
+   color: #003088;
+   font-weight: 600;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+a:hover {
+   color: #aa9042;
+}
+
+ul li {
+   line-height: 1.5rem;
+}

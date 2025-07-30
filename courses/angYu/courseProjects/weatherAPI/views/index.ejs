@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Weather Prognosticator</title>
+   <!-- Link Favicon -->
+   <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon" />
+   <!-- styles -->
+    <link rel="stylesheet" href="styles/local.css">
+</head>
+
+
+<body>
+
+   <div>
+      <h1>Weather Data Output</h1>
+      <hr>
+      <% if (!locals.content) { %>
+         <p>No Data Available</p>
+         <p>Check Console Log</p>
+      <% } else { %>
+         <p><%= content  %></p>
+      <% } %>
+      <hr>
+   </div>
+
+
+   <div>
+      <p>&nbsp;</p>
+      <h3>Resources</h3>
+      <ul>
+         <li><a href="https://medium.com/@electra_chong/what-is-cors-what-is-it-used-for-308cafa4df1a" target="_blank">What is ‘CORS’</a></li>
+         <li><a href="https://github.com/appbrewery/public-api-lists" target="_blank">AppBrewery public-api-list</a></li>
+         <li><a href="https://search.brave.com/videos?q=how+to+build+Open-Meteo+weather+app&source=web" target="_blank">how to build Open-Meteo weather app</a></li>
+         <li><a href="https://www.youtube.com/watch?v=LHAAT9cnQlY" target="_blank">using Open Weather API | Recharts | Open-Meteo API</a></li>
+         <li><a href="https://open-meteo.com/en/docs#api_documentation" target="_blank">Open-Meteo Weather API Documentation</a></li>
+         <li><a href="https://openweathermap.org/api/one-call-3" target="_blank">Open Weather - One Call API 3.0</a></li>
+      </ul>
+   </div>
+
+
+
+</body>
+</html>
