@@ -15,13 +15,17 @@
 
    <div>
       <h1>Dinkle Weatherby's</h1>
+      <p><img src="images/dinkleWeatherby.png" alt="" width="150px"></p>
       <h2>Weather Prognosticator</h2>
       <hr>
       <% if (!locals.content) { %>
          <p>No Data Available</p>
          <p>Check Console Log</p>
       <% } else { %>
-         <p><%= content %></p>
+         <% data = JSON.parse(content) %>
+         <p><b>City</b>: <%= data.name %></p>
+         <p><b>Latitude</b>: <%= data.lat %></p>
+         <p><b>Longitude</b>: <%= data.lon %></p>
       <% } %>
       <hr>
    </div>
