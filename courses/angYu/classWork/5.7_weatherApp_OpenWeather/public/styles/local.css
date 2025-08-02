@@ -13,6 +13,16 @@ form {
    padding: 5px 0;
 }
 
+img {
+   border-radius: 45px;
+}
+
 ul li {
    line-height: 1.5rem;
+}
+
+.error {
+   font-size: 1.1rem;
+   font-weight: 600;
+   color: #a82929;
 }

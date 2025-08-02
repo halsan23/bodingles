@@ -20,10 +20,10 @@
       <hr>
 
       <div>
-         <form action="" method="post">
+         <form action="/" method="post">
             <p><label for="location">Enter City Name:&nbsp;&nbsp;</label></p>
             <p><input type="text" name="location" id="location" placeholder="City Name" required>&nbsp;&nbsp;
-            <button>Submit</button></p>
+            <button>Search</button></p>
          </form>
       </div>
 
@@ -32,6 +32,14 @@
          <p>No Data Available</p>
          <p>Check Console Log</p>
       <% } else { %>
+         <% const weather = JSON.parse(content) %>
+         <% if (weather.error) { %>
+            <p class="error"><%= weather.error %></p>
+         <% } else { %>
+            <p><%= weather.name %></p>
+            <p><%= weather.lat %></p>
+            <p><%= weather.lon %></p>
+         <% } %>
       <% } %>
       <hr>
    </div>
@@ -41,16 +49,13 @@
       <p>&nbsp;</p>
       <h3>Resources</h3>
       <ul>
-         <li><a href="https://medium.com/@electra_chong/what-is-cors-what-is-it-used-for-308cafa4df1a" target="_blank">What is ‘CORS’</a></li>
-         <li><a href="https://github.com/appbrewery/public-api-lists" target="_blank">AppBrewery public-api-list</a></li>
+         <li><a href="https://openweathermap.org/api/one-call-3" target="_blank">Open Weather - One Call API 3.0</a></li>
+         <li><a href="https://openweathermap.org/api/geocoding-api" target="_blank">Open Weather - Geocoding - City, St, Zip</a></li>
+         <li><a href="https://openweathermap.org/weather-conditions" target="_blank">Open Weather - Weather Conditions - Codes - Icons</a></li>
          <li style="list-style: none;">&nbsp;</li>
          <li><a href="https://search.brave.com/videos?q=how+to+build+Open-Meteo+weather+app&source=web" target="_blank">Search Page | how to build Open-Meteo weather app</a></li>
-         <li style="list-style: none;">&nbsp;</li>
          <li><a href="https://open-meteo.com/en/docs#api_documentation" target="_blank">Open-Meteo Weather API Documentation</a></li>
          <li><a href="https://www.youtube.com/watch?v=HS7GfTuJgA8" target="_blank">Video | Weather App with JavaScript & Open Meteo API | Full Guide</a></li>
-         <li><a href="https://github.com/ArsenTech/source-codes/tree/main/Weather%20App" target="_blank">Source Code | ArsenTech | Weather App with JavaScript & Open Meteo API</a></li>
-         <li style="list-style: none;">&nbsp;</li>
-         <li><a href="https://openweathermap.org/api/one-call-3" target="_blank">Open Weather - One Call API 3.0</a></li>
       </ul>
    </div>
 
