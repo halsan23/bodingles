@@ -56,6 +56,7 @@ function displayWeather(weather, city, country) {
    const temp = document.getElementById("temperature");
    const condition = document.getElementById("condition");
    const windSpeed = document.getElementById("windSpeed");
+   let weatherDescriptions = [];
 
    const weatherCondition =
       weatherDescriptions[weather.weathercode] || "Unknown Condition";
