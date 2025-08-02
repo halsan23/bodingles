@@ -13,6 +13,9 @@ app.use(express.static('public'));
 
 async function geoLoc(city) {
    const res = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`);
+   console.log(`City: ${res.data[0].name}`);
+   console.log(`Latitude: ${res.data[0].lat}`);
+   console.log(`Longitude: ${res.data[0].lon}`);
    return {
       name: res.data[0].name || "",
       lat: res.data[0].lat,
@@ -24,12 +27,17 @@ async function geoLoc(city) {
 app.get("/", async ( req, res ) => {
    try {
       const {name, lat, lon} = await geoLoc("rock springs");
-      const data = {
-         name: name,
-         lat: lat,
-         lon: lon
-      };
-      res.render('index.ejs', { content: JSON.stringify(data) });
+
+      const result = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&appid=${API_KEY}`)
+
+      console.log(result.data[0]);
+      // const data = {
+      //    name: name,
+      //    lat: lat,
+      //    lon: lon
+      // };
+      // res.render('index.ejs', { content: JSON.stringify(data) });
+      res.render('index.ejs');
    } catch (error) {
       res.render('index.ejs', { content: error.message });
    }
