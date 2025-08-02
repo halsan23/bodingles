@@ -9,6 +9,10 @@ a:hover {
    color: #aa9042;
 }
 
+form {
+   padding: 5px 0;
+}
+
 ul li {
    line-height: 1.5rem;
 }

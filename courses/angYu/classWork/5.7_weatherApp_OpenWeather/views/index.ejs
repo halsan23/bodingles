@@ -18,6 +18,16 @@
       <p><img src="images/dinkleWeatherby.png" alt="" width="150px"></p>
       <h2>Weather Prognosticator</h2>
       <hr>
+
+      <div>
+         <form action="" method="post">
+            <p><label for="location">Enter City Name:&nbsp;&nbsp;</label></p>
+            <p><input type="text" name="location" id="location" placeholder="City Name" required>&nbsp;&nbsp;
+            <button>Submit</button></p>
+         </form>
+      </div>
+
+      <hr>
       <% if (!locals.content) { %>
          <p>No Data Available</p>
          <p>Check Console Log</p>
