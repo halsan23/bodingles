@@ -36,11 +36,14 @@
             <p class="error"><%= weather.error %></p>
          <% } else { %>
             <p>Weather for <%= weather.city %>, <%= weather.state %></p>
-            <p>Current Temp: <%= weather.conditions.current.temperature_2m %>° F</p>
-            <p>Feels Like: <%= weather.conditions.current.apparent_temperature %>° F</p>
-            <p>Wind: <%= weather.conditions.current.wind_speed_10m %>mph from
-               <%= weather.conditions.current.wind_direction_10m %>°
-            gusts to <%= weather.conditions.current.wind_gusts_10m %>mph</p>
+            <p>Current Temp: <%= Math.floor(weather.conditions.current.temperature_2m) %>° F</p>
+            <p>Feels Like: <%= Math.floor(weather.conditions.current.apparent_temperature) %>° F</p>
+            <p>Winds <%= weather.windDirect %> @
+               <%= Math.floor(weather.conditions.current.wind_speed_10m) %><sub>mph</sub> with
+               Gusts to <%= Math.floor(weather.conditions.current.wind_gusts_10m) %><sub>mph</sub>
+            </p>
+            <p>Barometric Pressure: <%= weather.baro %> inHg
+            </p>
          <% } %>
       <% } %>
       <hr>
