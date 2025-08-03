@@ -15,7 +15,8 @@ async function geoLoc(location) {
    const result = await axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=1&language=en&format=json`);
 
    return {
-      name: result.data.results[0].name || "",
+      city: result.data.results[0].name || "",
+      state: result.data.results[0].admin1,
       lat: result.data.results[0].latitude,
       lon: result.data.results[0].longitude
    }
@@ -26,24 +27,25 @@ app.get('/', async (req, res) => {
    res.render('index.ejs');
 })
 
+// ================================================= //
+// inHg = 0.02953 * hPa
+// ================================================= //
 
 app.post('/', async (req, res) => {
    let location = req.body.location;
    try {
-      const {name, lat, lon} = await geoLoc(location);
+      const {city, state, lat, lon} = await geoLoc(location);
+      const result = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=is_day&current=temperature_2m,apparent_temperature,is_day,precipitation,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=auto&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`);
 
-      // const result = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_min,temperature_2m_max&models=gfs_seamless&current=temperature_2m,relative_humidity_2m,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=auto&forecast_days=1&wind_speed_unit=mph&precipitation_unit=inch&temperature_unit=fahrenheit`);
+      console.log(result.data);
 
-      // console.log(result.data);
+      let weatherData = {
+         city: city,
+         state: state,
+         conditions: result.data
+      }
 
-      // let weatherData = {
-      //    name: name,
-      //    lat: lat,
-      //    lon: lon
-      //    // weather: result.data
-      // }
-
-      // res.render('index.ejs', { content: JSON.stringify(weatherData) });
+      res.render('index.ejs', { content: JSON.stringify(weatherData) });
 
 
    } catch (err) {

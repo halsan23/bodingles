@@ -29,16 +29,18 @@
 
       <hr>
       <% if (!locals.content) { %>
-         <p>No Data Available</p>
-         <p>Check Console Log</p>
+         <p>Local Weather:</p>
       <% } else { %>
          <% const weather = JSON.parse(content) %>
          <% if (weather.error) { %>
             <p class="error"><%= weather.error %></p>
          <% } else { %>
-            <p><%= weather.name %></p>
-            <p><%= weather.lat %></p>
-            <p><%= weather.lon %></p>
+            <p>Weather for <%= weather.city %>, <%= weather.state %></p>
+            <p>Current Temp: <%= weather.conditions.current.temperature_2m %>° F</p>
+            <p>Feels Like: <%= weather.conditions.current.apparent_temperature %>° F</p>
+            <p>Wind: <%= weather.conditions.current.wind_speed_10m %>mph from
+               <%= weather.conditions.current.wind_direction_10m %>°
+            gusts to <%= weather.conditions.current.wind_gusts_10m %>mph</p>
          <% } %>
       <% } %>
       <hr>
@@ -49,10 +51,6 @@
       <p>&nbsp;</p>
       <h3>Resources</h3>
       <ul>
-         <li><a href="https://openweathermap.org/api/one-call-3" target="_blank">Open Weather - One Call API 3.0</a></li>
-         <li><a href="https://openweathermap.org/api/geocoding-api" target="_blank">Open Weather - Geocoding - City, St, Zip</a></li>
-         <li><a href="https://openweathermap.org/weather-conditions" target="_blank">Open Weather - Weather Conditions - Codes - Icons</a></li>
-         <li style="list-style: none;">&nbsp;</li>
          <li><a href="https://search.brave.com/videos?q=how+to+build+Open-Meteo+weather+app&source=web" target="_blank">Search Page | how to build Open-Meteo weather app</a></li>
          <li><a href="https://open-meteo.com/en/docs#api_documentation" target="_blank">Open-Meteo Weather API Documentation</a></li>
          <li><a href="https://www.youtube.com/watch?v=HS7GfTuJgA8" target="_blank">Video | Weather App with JavaScript & Open Meteo API | Full Guide</a></li>
