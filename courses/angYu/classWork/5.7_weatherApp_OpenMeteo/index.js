@@ -62,7 +62,6 @@ app.post('/', async (req, res) => {
 
 
       const windDir = windConvert(result.data.current.wind_direction_10m);
-      // const press = (result.data.current.surface_pressure * 0.02952998);
       const pressure = Math.round(((result.data.current.surface_pressure * 0.02952998) + Number.EPSILON) * 100) / 100;
 
 
