@@ -125,7 +125,9 @@ async function getWeather(city, state, lat, lon) {
    const windDir = windConvert(result.data.current.wind_direction_10m);
    const pressure = Math.round(((result.data.current.surface_pressure * 0.02952998) + Number.EPSILON) * 100) / 100;
 
-   const icon = `images/icons/${wmoCodes[result.data.current.weather_code]}.svg`;
+   // const icon = `images/icons/${wmoCodes[result.data.current.weather_code]}.svg`;
+
+   const icon = 'images/icons/partly-cloudy.svg';
 
    let weatherData = {
       city: city,

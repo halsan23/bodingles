@@ -1,3 +1,17 @@
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-size: 1rem;
+}
+
+body {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
 a {
    color: #003088;
    font-weight: 600;
@@ -25,4 +39,21 @@ ul li {
    font-size: 1.1rem;
    font-weight: 600;
    color: #a82929;
+}
+
+.heading {
+   margin: 20px auto;
+}
+
+.mainCard {
+   margin: 30px auto 0;
+}
+
+.resources {
+   margin: 10px auto;
+   margin-left: 50px;
+}
+
+.searchBox {
+   margin: 20px auto;
 }
