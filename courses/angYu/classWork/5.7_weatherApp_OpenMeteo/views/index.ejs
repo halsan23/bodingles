@@ -39,8 +39,10 @@
                <p>Feels Like: <%= weather.feelsLike %>° F</p>
                <p>Low: <%= weather.lowTemp %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High: <%= weather.highTemp %></p>
                <p>Winds <%= weather.windDirect %> @
-                  <%= weather.windSpeed %>,
-                  Gusts to <%= weather.gusts %>
+                  <%= weather.windSpeed %>
+                  <% if (weather.gusts) %>
+                     , Gusts to <%= weather.gusts %>
+                  %>
                </p>
                <p><img src="<%= weather.icon %>" alt="" width="100"></p>
                <p>Barometric Pressure: <%= weather.baro %> inHg</p>

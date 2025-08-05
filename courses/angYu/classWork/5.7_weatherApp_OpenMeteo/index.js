@@ -7,7 +7,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // open weather api key
-// const API_KEY = 'a443ef5ce9ff06d140f287deeb37e819';
 const API_KEY = '8b5d73b32057640275ed690dbbc81510';
 // openWeather wmoCodes
 // https://openweathermap.org/weather-conditions
@@ -15,13 +14,6 @@ const API_KEY = '8b5d73b32057640275ed690dbbc81510';
 
 // GENERAL FUNCTIONS //
 // ===================================================== //
-
-// process city/zip inputs
-function processInput(locationInput) {
-   const zipRegex = /^[0-9]{5}(?:-[0-9]{4})?$/;
-   const loc = zipRegex.test(locationInput);
-   console.log(loc);
-}
 
 // Convert unix time to standard time format
 function getTime(unix_timestamp) {
@@ -110,14 +102,6 @@ function windConvert(wd) {
    }
 }
 
-// WMO Codes
-const wmoCodes = {
-   0: 'clear',
-   1: 'partly-cloudy',
-   2: 'partly-cloudy',
-   3: 'overcast'
-}
-
 
 // Flow Control Designations //
 app.use(express.urlencoded({ extended: true }));
@@ -125,56 +109,61 @@ app.use(express.static('public'));
 // ===================================================== //
 
 
+// process city/zip inputs
+async function processInput(location) {
+   const zipRegex = /^[0-9]{5}(?:-[0-9]{4})?$/;
+   const isZipCode = zipRegex.test(location);
+
+   if (isZipCode) {
+      try {
+         const result = await axios.get(`
+            http://api.openweathermap.org/geo/1.0/zip?zip=${location}&appid=${API_KEY}`);
+         return result.data.name;
+      } catch (err) {
+         console.log(err);
+      }
+   } else {
+      return location;
+   }
+}
+
 // get latitude, longitude needed for weather API
 async function geoLoc(location) {
-   const result = await axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=1&language=en&format=json`);
-
-   // console.log(result.data.results[0].latitude);
-   // console.log(result.data.results[0].longitude);
-
+   const result = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${API_KEY}
+`);
    return {
-      city: result.data.results[0].name || "",
-      state: result.data.results[0].admin1,
-      lat: result.data.results[0].latitude,
-      lon: result.data.results[0].longitude
+      city: result.data[0].name || "",
+      state: result.data[0].state,
+      lat: result.data[0].lat,
+      lon: result.data[0].lon
    }
 }
 
 // get weather data
 async function getWeather(city, state, lat, lon) {
-   const result = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=is_day&current=temperature_2m,apparent_temperature,is_day,precipitation,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=auto&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`);
+   const result = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${API_KEY}`);
 
-   // assign weather data to variables
-   const cTemp = result.data.current.temperature_2m;
-   const aTemp = result.data.current.apparent_temperature;
-   const hTemp = result.data.daily.temperature_2m_max[0];
-   const lTemp = result.data.daily.temperature_2m_min[0];
-   const windDir = windConvert(result.data.current.wind_direction_10m);
-   const wSpd = result.data.current.wind_speed_10m;
-   const wGust = result.data.current.wind_gusts_10m;
-   const pressure = Math.round(((result.data.current.surface_pressure * 0.02952998) + Number.EPSILON) * 100) / 100;
 
-   // build Current Weather Icon from WMO_Code
-   const icon = `images/icons/${wmoCodes[result.data.current.weather_code]}.svg`;
    // Convert unix timestamp into regular time
-   // console.log(getTime(1684977332));
+   console.log(getTime(1684977332));
 
 
    // build Weather Data Object
    let weatherData = {
       city: city,
       state: states[state],
-      currTemp: Math.floor(cTemp),
-      feelsLike: Math.floor(aTemp),
-      highTemp: Math.floor(hTemp),
-      lowTemp: Math.floor(lTemp),
-      windDirect: windDir,
-      windSpeed: Math.floor(wSpd),
-      gusts: Math.floor(wGust),
-      baro: pressure,
-      icon: icon
+      currTemp: Math.floor(result.data.current.temp),
+      feelsLike: Math.floor(result.data.current.feels_like),
+      baro: Math.round(((result.data.current.pressure * 0.02953) + Number.EPSILON) * 100) / 100,
+      lowTemp: Math.floor(result.data.daily[0].temp.night),
+      highTemp: Math.floor(result.data.daily[0].temp.max),
+      windDirect: windConvert(result.data.current.wind_deg),
+      windSpeed: Math.floor(result.data.current.wind_speed),
+      gusts: Math.floor(result.data.current.wind_gust),
+      icon: 'images/icons/' + result.data.current.weather[0].icon + '.svg'
    }
 
+      console.log(weatherData);
    // return the finished Weather Data Object for output
    return weatherData;
 }
@@ -203,10 +192,10 @@ app.get('/', async (req, res) => {
 
 // process input for weather display
 app.post('/', async (req, res) => {
-   let location = processInput(req.body.location.trim());
-   // const {city, state, lat, lon} = await geoLoc(location);
+   let location = await processInput(req.body.location.trim());
+   const {city, state, lat, lon} = await geoLoc(location);
    try {
-      // const weatherData = await getWeather(city, state, lat, lon);
+      const weatherData = await getWeather(city, state, lat, lon);
       res.render('index.ejs', { content: JSON.stringify(weatherData) });
    } catch (err) {
       let weatherData = {
