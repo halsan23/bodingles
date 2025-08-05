@@ -7,7 +7,33 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // open weather api key
-const API_KEY = 'a443ef5ce9ff06d140f287deeb37e819';
+// const API_KEY = 'a443ef5ce9ff06d140f287deeb37e819';
+const API_KEY = '8b5d73b32057640275ed690dbbc81510';
+// openWeather wmoCodes
+// https://openweathermap.org/weather-conditions
+
+
+// GENERAL FUNCTIONS //
+// ===================================================== //
+
+// process city/zip inputs
+function processInput(locationInput) {
+   const zipRegex = /^[0-9]{5}(?:-[0-9]{4})?$/;
+   const loc = zipRegex.test(locationInput);
+   console.log(loc);
+}
+
+// Convert unix time to standard time format
+function getTime(unix_timestamp) {
+   var date = new Date(unix_timestamp * 1000);
+   var hours = date.getHours();
+   var minutes = date.getMinutes();
+   var ampm = hours >= 12 ? 'PM' : 'AM';
+   hours = hours % 12;
+   hours = hours ? hours : 12; // the hour '0' should be '12'
+   minutes = minutes < 10 ? '0' + minutes : minutes;
+   return hours + ':' + minutes + ' ' + ampm;
+}
 
 // State name conversion to two letter designation
 const states = {
@@ -63,31 +89,6 @@ const states = {
    Wyoming: 'WY'
 }
 
-// WMO Codes
-const wmoCodes = {
-   0: 'clear',
-   1: 'partly-cloudy',
-   2: 'partly-cloudy',
-   3: 'overcast'
-}
-// openWeather wmoCodes
-// https://openweathermap.org/weather-conditions
-
-
-// ================================================= //
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
-
-// =========================================================================== //
-
-// convert Barometric Pressure from hPa to inHg
-// inHg = 0.02953 * hPa
-// -----------------------------------------------------------------
-// the math is correct but we are getting unreliable pressure data
-// from the API, so we can't display the Baro  Press data
-
-
 // convert wind direction degrees to common directions
 function windConvert(wd) {
    if (wd > 22 && wd <= 67) {
@@ -109,9 +110,27 @@ function windConvert(wd) {
    }
 }
 
+// WMO Codes
+const wmoCodes = {
+   0: 'clear',
+   1: 'partly-cloudy',
+   2: 'partly-cloudy',
+   3: 'overcast'
+}
+
+
+// Flow Control Designations //
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+// ===================================================== //
+
+
 // get latitude, longitude needed for weather API
 async function geoLoc(location) {
    const result = await axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=1&language=en&format=json`);
+
+   // console.log(result.data.results[0].latitude);
+   // console.log(result.data.results[0].longitude);
 
    return {
       city: result.data.results[0].name || "",
@@ -123,36 +142,46 @@ async function geoLoc(location) {
 
 // get weather data
 async function getWeather(city, state, lat, lon) {
-   // const result = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=is_day&current=temperature_2m,apparent_temperature,is_day,precipitation,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=auto&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`);
+   const result = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=is_day&current=temperature_2m,apparent_temperature,is_day,precipitation,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=auto&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`);
 
-   const result = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${API_KEY}`);
+   // assign weather data to variables
+   const cTemp = result.data.current.temperature_2m;
+   const aTemp = result.data.current.apparent_temperature;
+   const hTemp = result.data.daily.temperature_2m_max[0];
+   const lTemp = result.data.daily.temperature_2m_min[0];
+   const windDir = windConvert(result.data.current.wind_direction_10m);
+   const wSpd = result.data.current.wind_speed_10m;
+   const wGust = result.data.current.wind_gusts_10m;
+   const pressure = Math.round(((result.data.current.surface_pressure * 0.02952998) + Number.EPSILON) * 100) / 100;
 
-   console.log(lat);
-   console.log(lon);
+   // build Current Weather Icon from WMO_Code
+   const icon = `images/icons/${wmoCodes[result.data.current.weather_code]}.svg`;
+   // Convert unix timestamp into regular time
+   // console.log(getTime(1684977332));
 
-   console.log(result);
 
-   // const windDir = windConvert(result.data.current.wind_direction_10m);
-   // const pressure = Math.round(((result.data.current.surface_pressure * 0.02952998) + Number.EPSILON) * 100) / 100;
+   // build Weather Data Object
+   let weatherData = {
+      city: city,
+      state: states[state],
+      currTemp: Math.floor(cTemp),
+      feelsLike: Math.floor(aTemp),
+      highTemp: Math.floor(hTemp),
+      lowTemp: Math.floor(lTemp),
+      windDirect: windDir,
+      windSpeed: Math.floor(wSpd),
+      gusts: Math.floor(wGust),
+      baro: pressure,
+      icon: icon
+   }
 
-   // const icon = `images/icons/${wmoCodes[result.data.current.weather_code]}.svg`;
-
-   // const icon = 'images/icons/partly-cloudy.svg';
-
-   // let weatherData = {
-   //    city: city,
-   //    state: states[state],
-   //    windDirect: windDir,
-   //    baro: pressure,
-   //    icon: icon,
-   //    conditions: result.data
-   // }
-
-   // return weatherData;
+   // return the finished Weather Data Object for output
+   return weatherData;
 }
 
-// =========================================================================== //
 
+// GET / POST requests
+// ===================================================== //
 
 // display basic page
 app.get('/', async (req, res) => {
@@ -174,10 +203,10 @@ app.get('/', async (req, res) => {
 
 // process input for weather display
 app.post('/', async (req, res) => {
-   let location = req.body.location;
-   const {city, state, lat, lon} = await geoLoc(location);
+   let location = processInput(req.body.location.trim());
+   // const {city, state, lat, lon} = await geoLoc(location);
    try {
-      const weatherData = await getWeather(city, state, lat, lon);
+      // const weatherData = await getWeather(city, state, lat, lon);
       res.render('index.ejs', { content: JSON.stringify(weatherData) });
    } catch (err) {
       let weatherData = {

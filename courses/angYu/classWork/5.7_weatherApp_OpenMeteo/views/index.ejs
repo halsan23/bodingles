@@ -12,40 +12,47 @@
 
 
 <body>
-
-   <section class="heading">
-      <h1>Dinkle Weatherby's</h1>
-      <p><img src="images/dinkleWeatherby.png" alt="" width="150px"></p>
-      <h2>Weather Prognosticator</h2>
-   </section><hr>
-
-   <section class="searchBox">
-      <form action="/" method="post">
-         <p><input type="text" name="location" id="location" placeholder="City Name or Zip Code" required>&nbsp;&nbsp;
-         <button>Search</button></p>
-      </form>
-   </section><hr>
-
    <section class="mainCard">
-      <% if (!locals.content) { %>
-         <p>Local Weather:</p>
-      <% } else { %>
-         <% const weather = JSON.parse(content) %>
-         <% if (weather.error) { %>
-            <p class="error"><%= weather.error %></p>
+      <div class="heading">
+         <h1>Dinkle Weatherby's</h1>
+         <p><img src="images/dinkleWeatherby.png" alt="" width="150px"></p>
+         <h2>Weather Prognosticator</h2>
+      </div><hr>
+
+      <div class="searchBox">
+         <form action="/" method="post">
+            <p><input type="text" name="location" id="location" placeholder="City Name or Zip Code" required>&nbsp;&nbsp;
+            <button id="searchButton">Search</button></p>
+         </form>
+      </div><hr>
+
+      <div class="weatherDisplay">
+         <% if (!locals.content) { %>
+            <p>Local Weather:</p>
          <% } else { %>
-            <p><b><%= weather.city %>, <%= weather.state %></b></p>
-            <p>Current Temp: <%= Math.floor(weather.conditions.current.temperature_2m) %>° F</p>
-            <p>Feels Like: <%= Math.floor(weather.conditions.current.apparent_temperature) %>° F</p>
-            <p>Winds <%= weather.windDirect %> @
-               <%= Math.floor(weather.conditions.current.wind_speed_10m) %>,
-               Gusts to <%= Math.floor(weather.conditions.current.wind_gusts_10m) %>
-            </p>
-            <p><img src="<%= weather.icon %>" alt="" width="128"></p>
-            <p>Barometric Pressure: <%= weather.baro %></p>
+            <% const weather = JSON.parse(content) %>
+            <% if (weather.error) { %>
+               <p class="error"><%= weather.error %></p>
+            <% } else { %>
+               <p><b><%= weather.city %>, <%= weather.state %></b></p>
+               <p>Current Temp: <%= weather.currTemp %>° F</p>
+               <p>Feels Like: <%= weather.feelsLike %>° F</p>
+               <p>Low: <%= weather.lowTemp %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High: <%= weather.highTemp %></p>
+               <p>Winds <%= weather.windDirect %> @
+                  <%= weather.windSpeed %>,
+                  Gusts to <%= weather.gusts %>
+               </p>
+               <p><img src="<%= weather.icon %>" alt="" width="100"></p>
+               <p>Barometric Pressure: <%= weather.baro %> inHg</p>
+            <% } %>
          <% } %>
-      <% } %>
-   </section><hr>
+      </div>
+   </section>
+
+
+
+
+   <hr>
 
 
    <section class="resources">
@@ -55,6 +62,12 @@
          <li style="list-style: none;">&nbsp;</li>
          <li><a href="https://bas.dev/work/meteocons" target="_blank">Meteocons</a></li>
          <li style="list-style: none;">&nbsp;</li>
+         <li style="list-style: none;">Open Weather</li>
+         <li><a href="https://openweathermap.org/api/geocoding-api" target="_blank">Open Weather geoLocate</a></li>
+         <li><a href="https://openweathermap.org/api/one-call-3" target="_blank">Open Weather API</a></li>
+         <li><a href="https://openweathermap.org/weather-conditions" target="_blank">Open Weather Icon Codes</a></li>
+         <li style="list-style: none;">&nbsp;</li>
+         <li style="list-style: none;">Open-Meteo</li>
          <li><a href="https://search.brave.com/videos?q=how+to+build+Open-Meteo+weather+app&source=web" target="_blank">Search Page | how to build Open-Meteo weather app</a></li>
          <li><a href="https://open-meteo.com/en/docs#api_documentation" target="_blank">Open-Meteo Weather API Documentation</a></li>
          <li><a href="https://www.youtube.com/watch?v=HS7GfTuJgA8" target="_blank">Video | Weather App with JavaScript & Open Meteo API | Full Guide</a></li>
