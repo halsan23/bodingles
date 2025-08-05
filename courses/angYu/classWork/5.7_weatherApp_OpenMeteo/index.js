@@ -85,7 +85,7 @@ app.use(express.static('public'));
 // inHg = 0.02953 * hPa
 // -----------------------------------------------------------------
 // the math is correct but we are getting unreliable pressure data
-// from the API, so we can't display the Baro Press data
+// from the API, so we can't display the Baro  Press data
 
 
 // convert wind direction degrees to common directions
