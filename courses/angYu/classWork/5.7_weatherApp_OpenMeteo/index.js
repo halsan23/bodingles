@@ -6,6 +6,9 @@ import axios from 'axios';
 const app = express();
 const port = process.env.PORT || 3000;
 
+// open weather api key
+const API_KEY = 'a443ef5ce9ff06d140f287deeb37e819';
+
 // State name conversion to two letter designation
 const states = {
    'Arizona': 'AZ',
@@ -109,6 +112,7 @@ function windConvert(wd) {
 // get latitude, longitude needed for weather API
 async function geoLoc(location) {
    const result = await axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=1&language=en&format=json`);
+
    return {
       city: result.data.results[0].name || "",
       state: result.data.results[0].admin1,
@@ -119,26 +123,32 @@ async function geoLoc(location) {
 
 // get weather data
 async function getWeather(city, state, lat, lon) {
-   const result = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=is_day&current=temperature_2m,apparent_temperature,is_day,precipitation,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=auto&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`);
+   // const result = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=is_day&current=temperature_2m,apparent_temperature,is_day,precipitation,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=auto&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`);
 
+   const result = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${API_KEY}`);
 
-   const windDir = windConvert(result.data.current.wind_direction_10m);
-   const pressure = Math.round(((result.data.current.surface_pressure * 0.02952998) + Number.EPSILON) * 100) / 100;
+   console.log(lat);
+   console.log(lon);
+
+   console.log(result);
+
+   // const windDir = windConvert(result.data.current.wind_direction_10m);
+   // const pressure = Math.round(((result.data.current.surface_pressure * 0.02952998) + Number.EPSILON) * 100) / 100;
 
    // const icon = `images/icons/${wmoCodes[result.data.current.weather_code]}.svg`;
 
-   const icon = 'images/icons/partly-cloudy.svg';
+   // const icon = 'images/icons/partly-cloudy.svg';
 
-   let weatherData = {
-      city: city,
-      state: states[state],
-      windDirect: windDir,
-      baro: pressure,
-      icon: icon,
-      conditions: result.data
-   }
+   // let weatherData = {
+   //    city: city,
+   //    state: states[state],
+   //    windDirect: windDir,
+   //    baro: pressure,
+   //    icon: icon,
+   //    conditions: result.data
+   // }
 
-   return weatherData;
+   // return weatherData;
 }
 
 // =========================================================================== //
@@ -167,11 +177,11 @@ app.post('/', async (req, res) => {
    let location = req.body.location;
    const {city, state, lat, lon} = await geoLoc(location);
    try {
-      const weatherData = await getWeather(city, state, lat, lon)
+      const weatherData = await getWeather(city, state, lat, lon);
       res.render('index.ejs', { content: JSON.stringify(weatherData) });
    } catch (err) {
       let weatherData = {
-         error: "Location Not Found"
+         error: { err }
       }
       res.render('index.ejs', { content: JSON.stringify(weatherData) });
    }
