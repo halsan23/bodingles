@@ -5,36 +5,33 @@
 
 
 *{
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     font-size: 1rem;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
+   position: relative;
    font-family: "SUSE", sans-serif;
-   font-optical-sizing: auto;
-   font-weight: 400;
-   font-style: normal;
-   font-size: 1.25rem;
-   line-height: 2rem;
-   background-image: url('/images/background.png');
-   background-size: cover;
+   background: url('/images/background.png') no-repeat center/cover;
+   min-height: 100vh;
    display: flex;
    flex-direction: column;
    justify-content: center;
+   align-items: center;
+   padding: 15px;
 }
 
 a {
-   color: #003088;
+   color: #55dcd5;
    font-weight: 600;
    text-decoration: none;
    cursor: pointer;
 }
 
 a:hover {
-   color: #aa9042;
+   color: #ceaf52;
 }
 
 form {
@@ -42,35 +39,11 @@ form {
 }
 
 /* custom heading tags */
-h1 {
-   font-family: "Akaya Telivigala", system-ui;
-   font-weight: 400;
-   font-style: normal;
-   font-size: 3.4rem;
-   margin: 15px auto 25px;
-}
-
-h2 {
-   font-family: "Akaya Telivigala", system-ui;
-   font-weight: 400;
-   font-style: normal;
-   font-size: 3rem;
-   margin: 15px auto 25px;
-}
-
-h3 {
-   font-family: "Akaya Telivigala", system-ui;
-   font-weight: 400;
-   font-style: normal;
-   font-size: 2.7rem;
-   margin: 13px auto 20px;
-}
-
 h4 {
    font-family: "Akaya Telivigala", system-ui;
    font-weight: 600;
    font-style: normal;
-   font-size: 2.5rem;
+   font-size: 2.25rem;
    margin: 10px auto 15px;
 }
 
@@ -78,20 +51,13 @@ h5 {
    font-family: "Akaya Telivigala", system-ui;
    font-weight: 500;
    font-style: normal;
-   font-size: 2rem;
+   font-size: 1.75rem;
    margin: 7px auto 9px;
 }
 
-h6 {
-   font-family: "Akaya Telivigala", system-ui;
-   font-weight: 300;
-   font-style: normal;
-   font-size: 1.5rem;
-   margin: 5px auto 8px;
-}
-
-ul li {
-   line-height: 1.5rem;
+img {
+   width: 40px;
+   vertical-align: middle;
 }
 
 #location {
@@ -99,12 +65,13 @@ ul li {
    margin: 0 8px;
    padding-left: 10px;
    height: 35px;
+   width: 55%;
    border-radius: 10px;
 }
 
 #searchButton {
    margin: 0 8px;
-   padding: 5px 15px;
+   padding: 5px 25px;
    height: 35px;
    border-radius: 11px;
    box-shadow: 2px 2px 5px #000;
@@ -116,11 +83,12 @@ ul li {
 }
 
 .city {
-   font-size: 1.25rem;
+   font-size: 1.15rem;
    font-weight: 700;
 }
 
 .dinkle {
+   width: 115px;
    border-radius: 45px;
 }
 
@@ -129,11 +97,23 @@ ul li {
    text-align: center;
    font-size: 1.25rem;
    font-weight: 700;
-   color: #be251a;
+   color: #850d05;
+}
+
+.forecast {
+   padding: 0 25px;
+}
+
+.gratuity {
+   background-color: #3a3a3a98;
+   color: #c2cde2;
+   margin: 20px 50px;
+   padding: 7px 20px;
+   border-radius: 20px;
 }
 
 .heading {
-   margin: 20px auto;
+   margin: 10px auto 20px;
    text-align: center;
 }
 
@@ -143,10 +123,11 @@ ul li {
 }
 
 .mainCard {
-   width: 400px;
-   margin: 50px auto;
+   width: 35%;
+   min-width: 350px;
+   margin: 10px auto 30px;
    padding: 20px 0;
-   background-color: #d3d3d35f;
+   background-color: #d3d3d350;
    border-radius: 25px;
    box-shadow: 5px 5px 15px #000;
 }
@@ -164,51 +145,47 @@ ul li {
 .weatherImage {
    margin: 0;
    padding: 0;
-   width: 100px;
+   width: 125px;
 }
 
-/* grid layout */
-/* -------------------------------------------------- */
-.weatherGrid {
-   margin: 0;
-   padding: 0;
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   grid-template-rows: 1fr 1fr 1fr;
-   gap: 0px 0px;
-   grid-template-areas:
-      "r1c1 r1c2 ."
-      "row2 row2 ."
-      "row3 row3 .";
+/* Weather Rows Styling */
+/* ==================================== */
+.row1 {
+   margin-bottom: 10px;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
 }
 
 .r1c1 {
-   grid-area: r1c1;
    display: flex;
    flex-direction: column;
-   justify-content: start;
+   justify-content: center;
    align-items: center;
 }
 
 .r1c2 {
-   grid-area: r1c2;
+   line-height: 2rem;
    display: flex;
    flex-direction: column;
-   justify-content: space-evenly;
-   align-items: flex-start;
+   justify-content: flex-end;
+   align-items: start;
 }
 
 .row2 {
-   grid-area: row2;
+   margin: 10px;
+   line-height: 1.75rem;
    display: flex;
    flex-direction: column;
+   justify-content: space-evenly;
    align-items: center;
 }
 
 .row3 {
-   grid-area: row3;
+   margin: 10px;
+   line-height: 1.85rem;
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: space-evenly;
    align-items: center;
 }

@@ -26,68 +26,68 @@
          <% if (!locals.content) { %>
             <p class="error">Location Not Found</p>
          <% } else { %>
-      </div><hr>
-
-      <div class="weatherGrid">
-         <div class="r1c1">
                <% const weather = JSON.parse(content) %>
                <% if (weather.error) { %>
                   <p class="error"><%= weather.error %></p>
                <% } else { %>
+      </div><hr>
 
-                  <img class="weatherImage" src="<%= weather.icon %>">
-                  <br><b><%= weather.today %></b>
+      <div class="row1">
+         <div class="r1c1">
+            <img class="weatherImage" src="<%= weather.icon %>">
+            <b><%= weather.today %></b>
          </div>
          <div class="r1c2">
+            <p>&nbsp;</p>
             <p class="city"><%= weather.city %>, <%= weather.state %></p>
             <p>Current Temp: <b><%= weather.currTemp %>° F</b></p>
             <p>Feels Like: <b><%= weather.feelsLike %>° F</b></p>
          </div>
-         <div class="row2">
-            <p>Todays High: <b><%= weather.highTemp %></b>
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               Tonights Low: <b><%= weather.lowTemp %></b>
-            </p>
-            <p>Winds: <b><%= weather.windDirect %> @
-               <%= weather.windSpeed %></b> with
-                Gusts to <b><%= weather.gusts %></b>
-            </p>
-            <p>Barometric Pressure: <b><%= weather.baro %></b> inHg</p>
-            <p>Sunrise: <b><%= weather.sunrise %></b> | Sunset: <b><%= weather.sunset %></b></p>
-            <p><%= weather.todaysForecast %>.</p>
-         </div>
-
-         <div class="row3">
-         </div>
-               <% } %>
-            <% } %>
       </div>
 
+       <div class="row2">
+          <p class="forecast"><%= weather.todaysForecast %>.</p>
+      </div><hr>
+
+      <div class="row3">
+          <p><img src="images/icons/high.svg" alt="">
+            Todays High: <b><%= weather.highTemp %></b>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="images/icons/low.svg" alt="">
+            Tonights Low: <b><%= weather.lowTemp %></b>
+          </p>
+          <p>Winds :
+            <b><%= weather.windDirect %> @
+             <%= weather.windSpeed %></b> with
+              Gusts to <b><%= weather.gusts %></b>
+              <img src="images/icons/wind.svg" alt="">
+          </p>
+          <p>Barometric Pressure: <b><%= weather.baro %></b> inHg</p>
+          <p><img src="images/icons/sunrise.svg" alt="">
+            Sunrise: <b><%= weather.sunrise %></b>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="images/icons/sunset.svg" alt="">
+            Sunset: <b><%= weather.sunset %></b></p>
+       </div>
+
+       <div class="row4">
+
+       </div>
+
+         <% } %>
+      <% } %>
    </section>
 
-   <hr>
-
-
-   <section class="resources">
-      <h3>Resources</h3><br>
-      <ul>
-         <li><a href="https://www.joshwcomeau.com/css/interactive-guide-to-grid/" target="_blank">Grids Explained</a></li>
-         <li style="list-style: none;">&nbsp;</li>
-         <li><a href="https://bas.dev/work/meteocons" target="_blank">Meteocons</a></li>
-         <li style="list-style: none;">&nbsp;</li>
-         <li style="list-style: none;">Open Weather</li>
-         <li><a href="https://openweathermap.org/api/geocoding-api" target="_blank">Open Weather geoLocate</a></li>
-         <li><a href="https://openweathermap.org/api/one-call-3" target="_blank">Open Weather API</a></li>
-         <li><a href="https://openweathermap.org/weather-conditions" target="_blank">Open Weather Icon Codes</a></li>
-         <li style="list-style: none;">&nbsp;</li>
-         <li style="list-style: none;">Open-Meteo</li>
-         <li><a href="https://search.brave.com/videos?q=how+to+build+Open-Meteo+weather+app&source=web" target="_blank">Search Page | how to build Open-Meteo weather app</a></li>
-         <li><a href="https://open-meteo.com/en/docs#api_documentation" target="_blank">Open-Meteo Weather API Documentation</a></li>
-         <li><a href="https://www.youtube.com/watch?v=HS7GfTuJgA8" target="_blank">Video | Weather App with JavaScript & Open Meteo API | Full Guide</a></li>
-      </ul>
-   </section><hr>
-
-
+   <section>
+      <a href="" target="_blank"></a>
+      <a href="" target="_blank"></a>
+      <span class="gratuity">Dinkle's Image by:
+         <a href="" target="_blank">pending</a></span>
+      <span class="gratuity">Background Image by:
+         <a href="" target="_blank">pending</a></span>
+      <span class="gratuity">Weather Icons by:
+         <a href="https://bas.dev/work/meteocons" target="_blank">Meteocons</a></span>
+   </section>
 
 </body>
 </html>
