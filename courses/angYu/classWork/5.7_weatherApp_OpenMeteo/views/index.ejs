@@ -14,45 +14,56 @@
 <body>
    <section class="mainCard">
       <div class="heading">
-         <h1>Dinkle Weatherby's</h1>
-         <p><img src="images/dinkleWeatherby.png" alt="" width="150px"></p>
-         <h2>Weather Prognosticator</h2>
+         <h4>Dinkle Weatherby's</h4>
+         <p><img class="dinkle" src="images/dinkleWeatherby.png" alt="" width="150px"></p>
+         <h5>Weather Prognosticator</h5>
       </div><hr>
-
       <div class="searchBox">
          <form action="/" method="post">
             <p><input type="text" name="location" id="location" placeholder="City Name or Zip Code" required>&nbsp;&nbsp;
             <button id="searchButton">Search</button></p>
          </form>
+         <% if (!locals.content) { %>
+            <p class="error">Location Not Found</p>
+         <% } else { %>
       </div><hr>
 
-      <div class="weatherDisplay">
-         <% if (!locals.content) { %>
-            <p>Local Weather:</p>
-         <% } else { %>
-            <% const weather = JSON.parse(content) %>
-            <% if (weather.error) { %>
-               <p class="error"><%= weather.error %></p>
-            <% } else { %>
-               <p><b><%= weather.city %>, <%= weather.state %></b></p>
-               <p>Current Temp: <%= weather.currTemp %>° F</p>
-               <p>Feels Like: <%= weather.feelsLike %>° F</p>
-               <p>Low: <%= weather.lowTemp %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High: <%= weather.highTemp %></p>
-               <p>Winds <%= weather.windDirect %> @
-                  <%= weather.windSpeed %>
-                  <% if (weather.gusts) %>
-                     , Gusts to <%= weather.gusts %>
-                  %>
-               </p>
-               <p><img src="<%= weather.icon %>" alt="" width="100"></p>
-               <p>Barometric Pressure: <%= weather.baro %> inHg</p>
+      <div class="weatherGrid">
+         <div class="r1c1">
+               <% const weather = JSON.parse(content) %>
+               <% if (weather.error) { %>
+                  <p class="error"><%= weather.error %></p>
+               <% } else { %>
+
+                  <img class="weatherImage" src="<%= weather.icon %>">
+                  <br><b><%= weather.today %></b>
+         </div>
+         <div class="r1c2">
+            <p class="city"><%= weather.city %>, <%= weather.state %></p>
+            <p>Current Temp: <b><%= weather.currTemp %>° F</b></p>
+            <p>Feels Like: <b><%= weather.feelsLike %>° F</b></p>
+         </div>
+         <div class="row2">
+            <p>Todays High: <b><%= weather.highTemp %></b>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               Tonights Low: <b><%= weather.lowTemp %></b>
+            </p>
+            <p>Winds: <b><%= weather.windDirect %> @
+               <%= weather.windSpeed %></b> with
+                Gusts to <b><%= weather.gusts %></b>
+            </p>
+            <p>Barometric Pressure: <b><%= weather.baro %></b> inHg</p>
+            <p>Sunrise: <b><%= weather.sunrise %></b> | Sunset: <b><%= weather.sunset %></b></p>
+            <p><%= weather.todaysForecast %>.</p>
+         </div>
+
+         <div class="row3">
+         </div>
+               <% } %>
             <% } %>
-         <% } %>
       </div>
+
    </section>
-
-
-
 
    <hr>
 

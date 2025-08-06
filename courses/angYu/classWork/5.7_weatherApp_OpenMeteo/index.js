@@ -129,13 +129,20 @@ async function processInput(location) {
 
 // get latitude, longitude needed for weather API
 async function geoLoc(location) {
-   const result = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${API_KEY}
-`);
-   return {
-      city: result.data[0].name || "",
-      state: result.data[0].state,
-      lat: result.data[0].lat,
-      lon: result.data[0].lon
+   try {
+      const result = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${API_KEY}`);
+      return {
+         city: result.data[0].name || "",
+         state: result.data[0].state,
+         lat: result.data[0].lat,
+         lon: result.data[0].lon
+      }
+   } catch (err) {return {
+         city: "",
+         state: "",
+         lat: "",
+         lon: ""
+      }
    }
 }
 
@@ -144,26 +151,28 @@ async function getWeather(city, state, lat, lon) {
    const result = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${API_KEY}`);
 
 
-   // Convert unix timestamp into regular time
-   console.log(getTime(1684977332));
-
-
    // build Weather Data Object
    let weatherData = {
       city: city,
       state: states[state],
       currTemp: Math.floor(result.data.current.temp),
       feelsLike: Math.floor(result.data.current.feels_like),
-      baro: Math.round(((result.data.current.pressure * 0.02953) + Number.EPSILON) * 100) / 100,
+      baro: (Math.round(((result.data.current.pressure * 0.02953) + Number.EPSILON) * 100) / 100).toFixed(2),
       lowTemp: Math.floor(result.data.daily[0].temp.night),
       highTemp: Math.floor(result.data.daily[0].temp.max),
       windDirect: windConvert(result.data.current.wind_deg),
       windSpeed: Math.floor(result.data.current.wind_speed),
       gusts: Math.floor(result.data.current.wind_gust),
-      icon: 'images/icons/' + result.data.current.weather[0].icon + '.svg'
+      icon: `images/icons/${result.data.current.weather[0].icon}.svg`,
+      today: result.data.current.weather[0].main,
+      sunrise: getTime(result.data.current.sunrise),
+      sunset: getTime(result.data.current.sunset),
+      todaysForecast: result.data.daily[0].summary
    }
 
-      console.log(weatherData);
+   // console.log(weatherData);
+   // console.log(Math.floor(result.data.current.wind_gust));
+
    // return the finished Weather Data Object for output
    return weatherData;
 }
@@ -194,14 +203,16 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
    let location = await processInput(req.body.location.trim());
    const {city, state, lat, lon} = await geoLoc(location);
-   try {
-      const weatherData = await getWeather(city, state, lat, lon);
-      res.render('index.ejs', { content: JSON.stringify(weatherData) });
-   } catch (err) {
-      let weatherData = {
-         error: { err }
+   if (city !== "") {
+      try {
+         const weatherData = await getWeather(city, state, lat, lon);
+         res.render('index.ejs', { content: JSON.stringify(weatherData) });
+      } catch (err) {
+         let weatherData = {error: { err }};
+         res.render('index.ejs', { content: JSON.stringify(weatherData) });
       }
-      res.render('index.ejs', { content: JSON.stringify(weatherData) });
+   } else {
+      res.render('index.ejs');
    }
 })
 

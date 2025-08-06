@@ -1,3 +1,9 @@
+/* import <hx> tag fonts */
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+/* Body font */
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&display=swap');
+
+
 *{
      margin: 0;
      padding: 0;
@@ -7,6 +13,12 @@
 }
 
 body {
+   font-family: "SUSE", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 1.25rem;
+   line-height: 2rem;
    background-image: url('/images/background.png');
    background-size: cover;
    display: flex;
@@ -29,16 +41,53 @@ form {
    padding: 5px 0;
 }
 
+/* custom heading tags */
 h1 {
-   font-size: 1.8rem;
+   font-family: "Akaya Telivigala", system-ui;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 3.4rem;
+   margin: 15px auto 25px;
 }
 
 h2 {
-   font-size: 1.4rem;
+   font-family: "Akaya Telivigala", system-ui;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 3rem;
+   margin: 15px auto 25px;
 }
 
-img {
-   border-radius: 45px;
+h3 {
+   font-family: "Akaya Telivigala", system-ui;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 2.7rem;
+   margin: 13px auto 20px;
+}
+
+h4 {
+   font-family: "Akaya Telivigala", system-ui;
+   font-weight: 600;
+   font-style: normal;
+   font-size: 2.5rem;
+   margin: 10px auto 15px;
+}
+
+h5 {
+   font-family: "Akaya Telivigala", system-ui;
+   font-weight: 500;
+   font-style: normal;
+   font-size: 2rem;
+   margin: 7px auto 9px;
+}
+
+h6 {
+   font-family: "Akaya Telivigala", system-ui;
+   font-weight: 300;
+   font-style: normal;
+   font-size: 1.5rem;
+   margin: 5px auto 8px;
 }
 
 ul li {
@@ -66,10 +115,21 @@ ul li {
    box-shadow: none;
 }
 
+.city {
+   font-size: 1.25rem;
+   font-weight: 700;
+}
+
+.dinkle {
+   border-radius: 45px;
+}
+
 .error {
-   font-size: 1.1rem;
-   font-weight: 600;
-   color: #a82929;
+   margin: 10px auto;
+   text-align: center;
+   font-size: 1.25rem;
+   font-weight: 700;
+   color: #be251a;
 }
 
 .heading {
@@ -77,10 +137,15 @@ ul li {
    text-align: center;
 }
 
+.hr {
+   width: 100%;
+   border-top: 2px solid #6b6b6b;
+}
+
 .mainCard {
    width: 400px;
    margin: 50px auto;
-   padding: 20px;
+   padding: 20px 0;
    background-color: #d3d3d35f;
    border-radius: 25px;
    box-shadow: 5px 5px 15px #000;
@@ -96,7 +161,54 @@ ul li {
    text-align: center;
 }
 
-.weatherDisplay {
-   margin: 20px auto;
-   text-align: center;
+.weatherImage {
+   margin: 0;
+   padding: 0;
+   width: 100px;
+}
+
+/* grid layout */
+/* -------------------------------------------------- */
+.weatherGrid {
+   margin: 0;
+   padding: 0;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr 1fr;
+   gap: 0px 0px;
+   grid-template-areas:
+      "r1c1 r1c2 ."
+      "row2 row2 ."
+      "row3 row3 .";
+}
+
+.r1c1 {
+   grid-area: r1c1;
+   display: flex;
+   flex-direction: column;
+   justify-content: start;
+   align-items: center;
+}
+
+.r1c2 {
+   grid-area: r1c2;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: flex-start;
+}
+
+.row2 {
+   grid-area: row2;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.row3 {
+   grid-area: row3;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
