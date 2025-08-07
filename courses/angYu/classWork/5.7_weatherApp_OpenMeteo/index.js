@@ -167,11 +167,9 @@ async function getWeather(city, state, lat, lon) {
       today: result.data.current.weather[0].main,
       sunrise: getTime(result.data.current.sunrise),
       sunset: getTime(result.data.current.sunset),
-      todaysForecast: result.data.daily[0].summary
+      todaysForecast: result.data.daily[0].summary,
+      dewPoint: Math.floor(result.data.current.dew_point)
    }
-
-   // console.log(weatherData);
-   // console.log(Math.floor(result.data.current.wind_gust));
 
    // return the finished Weather Data Object for output
    return weatherData;

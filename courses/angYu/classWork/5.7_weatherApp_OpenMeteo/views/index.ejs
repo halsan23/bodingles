@@ -56,13 +56,16 @@
             <img src="images/icons/low.svg" alt="">
             Tonights Low: <b><%= weather.lowTemp %></b>
           </p>
+          <p>Dew Point: <b><%= weather.dewPoint %></b></p>
+          <p>Barometric Pressure: <b><%= weather.baro %></b> inHg</p>
           <p>Winds :
             <b><%= weather.windDirect %> @
-             <%= weather.windSpeed %></b> with
-              Gusts to <b><%= weather.gusts %></b>
-              <img src="images/icons/wind.svg" alt="">
+            <%= weather.windSpeed %></b>
+            <% if (weather.gusts) { %>
+               with Gusts to <b><%= weather.gusts %></b>
+               <img src="images/icons/wind.svg" alt="">
+            <% } %>
           </p>
-          <p>Barometric Pressure: <b><%= weather.baro %></b> inHg</p>
           <p><img src="images/icons/sunrise.svg" alt="">
             Sunrise: <b><%= weather.sunrise %></b>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -79,12 +82,13 @@
    </section>
 
    <section>
-      <a href="" target="_blank"></a>
-      <a href="" target="_blank"></a>
       <span class="gratuity">Dinkle's Image by:
-         <a href="" target="_blank">pending</a></span>
-      <span class="gratuity">Background Image by:
-         <a href="" target="_blank">pending</a></span>
+         <a href="" target="_blank">pending</a>
+      </span>
+      <span class="gratuity">Background Image by
+         <a href="https://pixabay.com/users/gdmoonkiller-4679220/" target="_blank">gdmoonkiller</a> @
+         <a href="https://pixabay.com/photos/lightning-storm-sky-cloud-mountain-7401119/" target="_blank">Pixabay</a>
+      </span>
       <span class="gratuity">Weather Icons by:
          <a href="https://bas.dev/work/meteocons" target="_blank">Meteocons</a></span>
    </section>
