@@ -127,7 +127,8 @@ img {
    min-width: 350px;
    margin: 10px auto 30px;
    padding: 20px 0;
-   background-color: #d3d3d35c;
+   /* background-color: #d3d3d35c; */
+   background-color: #eaeaea6d;
    border-radius: 25px;
    box-shadow: 5px 5px 15px #000;
 }
@@ -150,6 +151,14 @@ img {
 
 /* Weather Rows Styling */
 /* ==================================== */
+.row1a {
+   padding: 10px 20px 0;
+   font-size: 1.1rem;
+   font-weight: 700;
+   display: flex;
+   justify-content: flex-start;
+}
+
 .row1 {
    margin-bottom: 10px;
    display: flex;
@@ -188,4 +197,17 @@ img {
    flex-direction: column;
    justify-content: space-evenly;
    align-items: center;
+}
+
+.row4 {
+   margin: 10px;
+   padding: 0 10px;
+   line-height: 1.85rem;
+}
+
+.alert {
+   padding-left: 20px;
+   color: #850d05;
+   font-size: 1.1rem;
+   font-weight: 700;
 }

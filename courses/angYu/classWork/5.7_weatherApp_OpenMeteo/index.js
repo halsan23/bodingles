@@ -119,9 +119,7 @@ async function processInput(location) {
          const result = await axios.get(`
             http://api.openweathermap.org/geo/1.0/zip?zip=${location}&appid=${API_KEY}`);
          return result.data.name;
-      } catch (err) {
-         console.log(err);
-      }
+      } catch (err) { console.log(err); }
    } else {
       return location;
    }
@@ -148,7 +146,7 @@ async function geoLoc(location) {
 
 // get weather data
 async function getWeather(city, state, lat, lon) {
-   const result = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${API_KEY}`);
+   const result = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&cnt=1&appid=${API_KEY}`);
 
 
    // build Weather Data Object
@@ -168,7 +166,10 @@ async function getWeather(city, state, lat, lon) {
       sunrise: getTime(result.data.current.sunrise),
       sunset: getTime(result.data.current.sunset),
       todaysForecast: result.data.daily[0].summary,
-      dewPoint: Math.floor(result.data.current.dew_point)
+      dewPoint: Math.floor(result.data.current.dew_point),
+      date: Date(result.data.current.dt * 1000).substring(4,10),
+      alertName: result.data.alerts[0].event,
+      alert: result.data.alerts[0].description
    }
 
    // return the finished Weather Data Object for output
@@ -189,9 +190,7 @@ app.get('/', async (req, res) => {
       const weatherData = await getWeather(city, state, lat, lon)
       res.render('index.ejs', { content: JSON.stringify(weatherData) });
    } catch (err) {
-      let weatherData = {
-         error: "Location Not Found"
-      }
+      let weatherData = { error: "Location Not Found" }
       res.render('index.ejs', { content: JSON.stringify(weatherData) });
    }
 })

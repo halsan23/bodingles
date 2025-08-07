@@ -32,6 +32,8 @@
                <% } else { %>
       </div><hr>
 
+      <div class="row1a"><%= weather.date %></div>
+
       <div class="row1">
          <div class="r1c1">
             <img class="weatherImage" src="<%= weather.icon %>">
@@ -73,9 +75,12 @@
             Sunset: <b><%= weather.sunset %></b></p>
        </div>
 
-       <div class="row4">
-
-       </div>
+            <% if (weather.alert) { %>
+               <div class="row4"><hr>
+                  <p class="alert"><%= weather.alertName %>:</p>
+                  <p><%= weather.alert %></p>
+               </div>
+            <% } %>
 
          <% } %>
       <% } %>
