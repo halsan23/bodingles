@@ -1,75 +1,176 @@
-table {
-   margin: 0 auto;
-}
-
-
-.parent {
-   margin: 0 auto;
-   padding: 0;
-   width: 800px;
-   height: fit-content;
-   border: 1px solid black;
-
+/* ================================ */
+/* MAIN PAGE STYLES                 */
+/* ================================ */
+/* body {
+   min-width: 300px;
    display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   grid-template-rows: repeat(4, 1fr);
-   grid-column-gap: 0px;
-   grid-row-gap: 0px;
-}
+   grid-template-rows: 1fr auto
+} */
 
-.div1 {
-   background-color: #c7a7a7;
-   grid-area: 1 / 1 / 3 / 2;
+body {
+   min-width: 300px;
    display: flex;
    flex-direction: column;
-   justify-content: center;
-   align-items: center;
+   justify-content: flex-start;
 }
 
-.div2 {
-   background-color: #c7bfa7;
-   grid-area: 1 / 2 / 2 / 3;
+a {
+   color: #ffde5b;
+   font-size: .7rem;
+   font-weight: 400;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+a:hover {
+   color: #cae155;
+}
+
+#main {
+   margin-bottom: 0;
+   padding-bottom: 0;
+   height: min-content;
+   background: url('../images/background.png') no-repeat center/cover;
+
+}
+
+.gratuityMain {
+   width:70%;
+   margin: 30px auto 30px;
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+}
+
+.gratuity {
+   background-color: #3a3a3a98;
+   color: #c2cde2;
+   margin: 10px;
+   padding: 5px 15px;
+   font-size: .7rem;
+   border-radius: 20px;
+}
+
+/* ================================ */
+/* FLEX LAYOUT                      */
+/* ================================ */
+.mainCard {
+   margin: 20px auto 40px;
+   padding: 15px;
+   max-width: 800px;
+   min-width: 300px;
+
+   background-color: #e8e8e86c;
+   border-radius: 18px;
+   box-shadow: 5px 5px 15px #000;
+}
+
+.row1 {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.dinkle {
+   width: 35%;
    display: flex;
    flex-direction: column;
-   justify-content: center;
    align-items: center;
+   justify-content: center;
 }
 
-.div3 {
-   background-color: #b7c7a7;
-   grid-area: 1 / 3 / 2 / 4;
+.dinkle img {
+   width: 50%;
+   border-radius: 40px;
+}
+
+.currentMain {
+   width: 65%;
    display: flex;
    flex-direction: column;
-   justify-content: center;
    align-items: center;
+   justify-content: space-evenly;
 }
 
-.div4 {
-   background-color: #a7c7c2;
-   grid-area: 2 / 2 / 3 / 4;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-}
-
-.div5 {
-   background-color: #bea7c7;
-   grid-area: 3 / 1 / 4 / 4;
-   display: flex;
-   justify-content: start;
-   align-items: center;
-}
-
-.div6 {
-   background-color: #bd7171;
-   grid-area: 4 / 1 / 5 / 4;
+.currentMainDisplay {
+   width: 100%;
    display: flex;
    justify-content: space-evenly;
+   align-items: flex-start;
+}
+
+.search {
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   align-items: flex-end;
+}
+
+.currentSubDisplay {
+   display: flex;
+   flex-direction: column;
    align-items: center;
+   justify-content: center;
+}
+
+.alerts {
+   padding-left: 25px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: flex-start;
+}
+
+.sevenDay {
+   margin: 0 10px;
+   display: flex;
+   align-items: flex-start;
+   overflow-x: auto;
+}
+
+.div4-container .miniCard:first-child {
+    margin-left: auto;
+}
+
+.div4-container .miniCard:last-child {
+    margin-right: auto;
 }
 
 .miniCard {
-   background-color: #bfa179;
-   padding: 25px;
+   background-color: #e6e6e6;
+   margin: 8px;
+   padding: 5px;
+   border: 1px solid #252525;
+   border-radius: 15px;
+   box-shadow: 3px 3px 8px #252525;
+}
+
+
+/* ================================ */
+/* MEDIA QUERIES                    */
+/* ================================ */
+@media (max-width: 850px) {
+   .mainCard {
+      margin: 10px 20px;
+      padding: 10px;
+   }
+   h5 {
+      font-size: 1.5rem;
+   }
+   h6 {
+      font-size: 1.2rem;
+   }
+}
+@media (max-width: 600px) {
+   .dinkle {
+      width: 100%;
+   }
+   .currentMain {
+      width: 100%;
+   }
+   .sevenDay {
+      margin: 0 15px;
+   }
+   .dinkle img {
+      width: 25%;
+   }
 }
