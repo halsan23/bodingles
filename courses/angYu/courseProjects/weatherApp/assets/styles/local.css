@@ -105,6 +105,12 @@ a:hover {
    align-items: flex-end;
 }
 
+.todaysDate {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
 .currentSubDisplay {
    display: flex;
    flex-direction: column;
