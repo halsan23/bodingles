@@ -1,0 +1,26 @@
+{
+    "results": [
+        {
+            "id": 5836898,
+            "name": "Rock Springs",
+            "latitude": 41.58746,
+            "longitude": -109.2029,
+            "elevation": 1947.0,
+            "feature_code": "PPL",
+            "country_code": "US",
+            "admin1_id": 5843591,
+            "admin2_id": 5840426,
+            "timezone": "America/Denver",
+            "population": 23962,
+            "postcodes": [
+                "82901",
+                "82902"
+            ],
+            "country_id": 6252001,
+            "country": "United States",
+            "admin1": "Wyoming",
+            "admin2": "Sweetwater"
+        }
+    ],
+    "generationtime_ms": 0.94616413
+}

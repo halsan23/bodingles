@@ -33,10 +33,14 @@
 
             <div class="currentMain">
                <div class="search">
-                  <p>Search Bar</p>
+                  <form>
+                     <input type="text" name="location" id="location" placeholder="City Name or Zip Code" required>&nbsp;&nbsp;
+                     <input id="searchButton" type="submit" value="Search">
+                  </form>
+                  <p id="errText" class="errText"></p>
                </div><hr>
 
-               <div class="todaysDate">Today's Date</div>
+               <div id="todaysDate" class="todaysDate"></div>
 
                <div class="currentMainDisplay">
                   <div>
@@ -116,5 +120,6 @@
    <!-- scripts -->
    <script src="/header.js"></script>
    <script src="/footer.js"></script>
+   <script src="assets/scripts/process.js"></script>
 </body>
 </html>
