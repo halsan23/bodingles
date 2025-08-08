@@ -76,18 +76,3 @@ form.addEventListener('submit', async evt => {
       errText.textContent = "Location Not Found"
    }
 });
-
-
-
-
-
-
-
-
-
-
-
-// Email Validation
-function emailIsValid(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
