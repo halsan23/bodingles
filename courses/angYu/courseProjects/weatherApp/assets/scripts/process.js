@@ -355,6 +355,6 @@ form.addEventListener('submit', async evt => {
 
 
    } catch {
-      todaysDate.innerHTML = '<span style="color: #b10000;">Location Not Found</span>';
+      todaysDate.innerHTML = '<span style="color: #b10000;"><b>Location Not Found</b></span>';
    }
 });
