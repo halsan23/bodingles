@@ -15,6 +15,15 @@ const currTemp = document.querySelector('#currTemp');
 const feelsLike = document.querySelector('#feelsLike');
 const highTemp = document.querySelector('#highTemp');
 const lowTemp = document.querySelector('#lowTemp');
+const todayOutlook = document.querySelector('#todayOutlook');
+const todaysWinds = document.querySelector('#todaysWinds');
+const dewPoint = document.querySelector('#dewPoint');
+const todayRise = document.querySelector('#todayRise');
+const todaySet = document.querySelector('#todaySet');
+const alertName = document.querySelector('#alertName');
+const alertTime = document.querySelector('#alertTime');
+const alertDescr = document.querySelector('#alertDescr');
+
 
 
 // get weather code Name & icon from wmo_code
@@ -286,6 +295,27 @@ const st = {
    'Wyoming': 'WY'
 }
 
+// covert wind degrees into standard notation
+function winds(direction) {
+   if (direction > 23 && direction <= 68) {
+      return 'NE';
+   } else if (direction > 68 && direction <= 114) {
+      return 'E';
+   } else if (direction > 114 && direction <= 159) {
+      return 'SE';
+   } else if (direction > 159 && direction <= 204) {
+      return 'S';
+   } else if (direction > 204 && direction <= 249) {
+      return 'SW';
+   } else if (direction > 249 && direction <= 294) {
+      return 'W';
+   } else if (direction > 294 && direction <= 339) {
+      return 'NW';
+   } else {
+      return 'N';
+   }
+}
+
 // FUNCTIONS //
 // get geo location Data (lat, lon)
 async function getLocation(location){
@@ -304,14 +334,15 @@ async function getLocation(location){
 // get weather Data from lat, lon
 async function getWeather(location){
    const {city, state, lat, lon} = await getLocation(location);
-   const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,surface_pressure,pressure_msl,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=America%2FDenver&forecast_days=1&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch&daily=weather_code,temperature_2m_max,temperature_2m_min`);
+   const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=imperial&appid=8b5d73b32057640275ed690dbbc81510`);
    const data = await res.json();
 
    return {
       city,
       state,
       current: data.current,
-      daily: data.daily
+      daily: data.daily,
+      alerts: data.alerts
    }
 }
 
@@ -322,39 +353,69 @@ form.addEventListener('submit', async evt => {
    evt.preventDefault();
    const locate = document.getElementById('location').value;
 
-   try{
+   try {
       const weather = await getWeather(locate);
 
       // process variables returned from api for output
       // Todays Date
-      const mon = month[weather.current.time.substring(5,7)];
-      const day = weather.current.time.substring(8,10);
-      const yr = weather.current.time.substring(0,4);
-      const today = `${mon} ${day}, ${yr}`;
-      todaysDate.innerHTML = `<b>${today}</b>`;
+      todaysDate.innerHTML = `<b>${new Date(weather.current.dt*1000).toDateString()}</b>`;
 
       // weather Icon and Status
-      let currStatus = weather_codes[weather.current.weather_code].name;
-      if (weather.current.is_day === 1) {
-         todayIcon.innerHTML = `<img src="assets/images/icons/${weather_codes[weather.current.weather_code].icons.day}" alt="${currStatus} Image">`;
-      } else {
-         todayIcon.innerHTML = `<img src="assets/images/icons/${weather_codes[weather.current.weather_code].icons.night}" alt="${currStatus} Image">`;
-      }
-      todayConditions.innerHTML = `<b>${currStatus}</b>`;
+      const todaysIcon = ``;
+      todayIcon.innerHTML = `<img src="assets/images/icons/${weather.current.weather[0].icon}.svg" alt="Weather Image">`;
+      todayConditions.innerHTML = `<b>${weather.current.weather[0].main}</b>`;
 
       // City, State
       cityState.innerText = `${weather.city}, ${st[weather.state]}`;
 
       // current temp / feels like
-       currTemp.innerText = `Current Temp: ${Math.floor(weather.current.temperature_2m)}°F`;
-       feelsLike.innerText = `Feels Like: ${Math.floor(weather.current.apparent_temperature)}°F`;
+      currTemp.innerText = `Current Temp: ${Math.floor(weather.current.temp)}°F`;
+      feelsLike.innerText = `Feels Like: ${Math.floor(weather.current.feels_like)}°F`;
 
-      //  todays high / low
-      highTemp.innerText = `High: ${Math.floor(weather.daily.temperature_2m_max[0])}°F`;
-      lowTemp.innerText = `Low: ${Math.floor(weather.daily.temperature_2m_min[0])}°F`;
+      // todays high / low
+      highTemp.innerText = `High: ${Math.floor(weather.daily[0].temp.max)}°F`;
+      lowTemp.innerText = `Low: ${Math.floor(weather.daily[0].temp.min)}°F`;
 
+      // todays forecast
+      todayOutlook.innerText = `Today's Outlook: ${weather.daily[0].summary}.`;
+
+      // winds
+      let todaysWind = `Winds ${winds(weather.current.wind_deg)} @ ${Math.floor(weather.current.wind_speed)}`;
+      if (weather.current.wind_gust) {
+         todaysWind+= ` with gusts to ${Math.floor(weather.current.wind_gust)}`;
+      }
+      todaysWinds.innerText = todaysWind;
+
+      // dew point
+      dewPoint.innerText = `Dew Point ${Math.floor(weather.current.dew_point)}°F`;
+
+      // Barometric Pressure
+      const tbaro = Math.round(((weather.current.pressure * 0.029529983071445) + Number.EPSILON) * 100) / 100;
+      if (tbaro.toString().length < 3 ) {
+         let baro = tbaro + '.00';
+         todaysBaro.innerText = `Barometric Pressure ${baro} inHg`;
+      } else {
+         todaysBaro.innerText = `Barometric Pressure ${Math.round(((weather.current.pressure * 0.029529983071445) + Number.EPSILON) * 100) / 100} inHg`;
+      }
+
+      // sunrise
+      todayRise.innerText = `Sunrise: ${new Date(weather.current.sunrise*1000).toTimeString().substring(0,5)} AM`;
+      // sunset
+      const tempSet = new Date(weather.current.sunset*1000).toTimeString().substring(0,2);
+      if ( tempSet > 12 ) {
+         let set = tempSet - 12;
+         let newTempSet = set + new Date(weather.current.sunset*1000).toTimeString().substring(2,5);
+         todaySet.innerText = `Sunset: ${newTempSet} PM`;
+      } else {
+         todaySet.innerText = `Sunset: ${new Date(weather.current.sunset*1000).toTimeString().substring(0,5)} PM`;
+      }
+
+      if (weather.alerts) {
+         alertName.innerHTML =`<b>Alert: </b>${weather.alerts[0].event}`;
+         alertTime.innerHTML = `${new Date(weather.alerts.start*1000).toTimeString()}`;
+      }
 
    } catch {
-      todaysDate.innerHTML = '<span style="color: #b10000;"><b>Location Not Found</b></span>';
+      todaysDate.innerHTML = '<span style="color: #b10000;"><b>Data Error</b></span>';
    }
 });
