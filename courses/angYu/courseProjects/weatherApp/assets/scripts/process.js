@@ -10,6 +10,11 @@ const errText = document.querySelector('#errText');
 const todaysDate = document.querySelector('#todaysDate');
 const todayIcon = document.querySelector('#todayIcon');
 const todayConditions = document.querySelector('#todayConditions');
+const cityState = document.querySelector('#cityState');
+const currTemp = document.querySelector('#currTemp');
+const feelsLike = document.querySelector('#feelsLike');
+const highTemp = document.querySelector('#highTemp');
+const lowTemp = document.querySelector('#lowTemp');
 
 
 // get weather code Name & icon from wmo_code
@@ -226,30 +231,88 @@ const month = {
    '11': 'Nov.',
    '12': 'Dec.',
 }
+// abbreviate state names
+const st = {
+   'Alabama': 'AL',
+   'Alaska': 'AK',
+   'Arkansas': 'AR',
+   'Arizona': 'AZ',
+   'California': 'CA',
+   'Colorado': 'CO',
+   'Connecticut': 'CT',
+   'Delaware': 'DE',
+   'District of Columbia': 'DC',
+   'Florida': 'FL',
+   'Georgia': 'GA',
+   'Hawaii': 'HI',
+   'Idaho': 'ID',
+   'Illinois': 'IL',
+   'Indiana': 'IN',
+   'Iowa': 'IA',
+   'Kansas': 'KS',
+   'Kentucky': 'KY',
+   'Louisiana': 'LA',
+   'Maine': 'ME',
+   'Maryland': 'MD',
+   'Massachusetts': 'MA',
+   'Michigan': 'MI',
+   'Minnesota': 'MN',
+   'Mississippi': 'MS',
+   'Missouri': 'MO',
+   'Montana': 'MT',
+   'Nebraska': 'NE',
+   'Nevada': 'NV',
+   'New Hampshire': 'NH',
+   'New Jersey': 'NJ',
+   'New Mexico': 'NM',
+   'New York': 'NY',
+   'North Carolina': 'NC',
+   'North Dakota': 'ND',
+   'Ohio': 'OH',
+   'Oklahoma': 'OK',
+   'Oregon': 'OR',
+   'Pennsylvania': 'PA',
+   'Rhode Island': 'RI',
+   'South Carolina': 'SC',
+   'South Dakota': 'SD',
+   'Tennessee': 'TN',
+   'Texas': 'TX',
+   'Utah': 'UT',
+   'Vermont': 'VT',
+   'Virginia': 'VA',
+   'Washington': 'WA',
+   'West Virginia': 'WV',
+   'Wisconsin': 'WI',
+   'Wyoming': 'WY'
+}
 
 // FUNCTIONS //
 // get geo location Data (lat, lon)
 async function getLocation(location){
-     const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=1&language=en&format=json&countryCode=US`);
-     const data = await res.json();
-     const result = data.results[0];
-     return {
-          name: result.name || "",
-          lat: result.latitude,
-          lon: result.longitude
-     }
+   const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=1&language=en&format=json`);
+   const data = await res.json();
+   const result = data.results[0];
+
+   return {
+      city: result.name || "",
+      state: result.admin1,
+      lat: result.latitude,
+      lon: result.longitude
+   }
 }
 
 // get weather Data from lat, lon
 async function getWeather(location){
-     const {lat,lon,name} = await getLocation(location);
-     const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,wind_speed_10m,wind_direction_10m,wind_gusts_10m,weather_code,precipitation,rain,showers,snowfall&timezone=auto&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`);
-     const data = await res.json();
-     return {
-          name,
-          current: data.current,
-          daily: data.daily
-     }
+   const {city, state, lat, lon} = await getLocation(location);
+   const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,surface_pressure,pressure_msl,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=America%2FDenver&forecast_days=1&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch&daily=weather_code,temperature_2m_max,temperature_2m_min`);
+   const data = await res.json();
+
+   return {
+      city,
+      state,
+      current: data.current,
+      daily: data.daily
+   }
 }
 
 
@@ -262,29 +325,35 @@ form.addEventListener('submit', async evt => {
    try{
       const weather = await getWeather(locate);
 
-      // process variables return from api for output
+      // process variables returned from api for output
       // Todays Date
       const mon = month[weather.current.time.substring(5,7)];
       const day = weather.current.time.substring(8,10);
       const yr = weather.current.time.substring(0,4);
       const today = `${mon} ${day}, ${yr}`;
+      todaysDate.innerHTML = `<b>${today}</b>`;
+
       // weather Icon and Status
+      let currStatus = weather_codes[weather.current.weather_code].name;
       if (weather.current.is_day === 1) {
-         let currIcon = `../images/icons/${weather_codes[weather.current.code].day.icon}.svg`;
+         todayIcon.innerHTML = `<img src="assets/images/icons/${weather_codes[weather.current.weather_code].icons.day}" alt="${currStatus} Image">`;
       } else {
-         let currIcon = `../images/icons/${weather_codes[weather.current.code].night.icon}.svg`;
+         todayIcon.innerHTML = `<img src="assets/images/icons/${weather_codes[weather.current.weather_code].icons.night}" alt="${currStatus} Image">`;
       }
-      let currStatus = weather_codes[weather.current.code].name;
+      todayConditions.innerHTML = `<b>${currStatus}</b>`;
+
+      // City, State
+      cityState.innerText = `${weather.city}, ${st[weather.state]}`;
+
+      // current temp / feels like
+       currTemp.innerText = `Current Temp: ${Math.floor(weather.current.temperature_2m)}°F`;
+       feelsLike.innerText = `Feels Like: ${Math.floor(weather.current.apparent_temperature)}°F`;
+
+      //  todays high / low
+      highTemp.innerText = `High: ${Math.floor(weather.daily.temperature_2m_max[0])}°F`;
+      lowTemp.innerText = `Low: ${Math.floor(weather.daily.temperature_2m_min[0])}°F`;
 
 
-
-      // Output Weather Data
-      todaysDate.innerText = today;
-      todayIcon.innerHTML = `<img src="${currIcon}" alt="${currStatus} Image">`;
-      todayConditions.innerText = currStatus;
-
-
-      // console.log(today);
    } catch {
       todaysDate.innerHTML = '<span style="color: #b10000;">Location Not Found</span>';
    }

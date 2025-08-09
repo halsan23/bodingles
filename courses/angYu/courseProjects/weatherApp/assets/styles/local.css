@@ -8,6 +8,7 @@
 } */
 
 body {
+   line-height: 2.5rem;
    min-width: 300px;
    display: flex;
    flex-direction: column;
@@ -26,12 +27,8 @@ a:hover {
    color: #cae155;
 }
 
-#main {
-   margin-bottom: 0;
-   padding-bottom: 0;
-   height: min-content;
-   background: url('../images/background.png') no-repeat center/cover;
-
+#cityState {
+   font-weight: 700;
 }
 
 #location {
@@ -41,6 +38,14 @@ a:hover {
    height: 35px;
    width: 55%;
    border-radius: 10px;
+}
+
+#main {
+   margin-bottom: 0;
+   padding-bottom: 0;
+   height: min-content;
+   background: url('../images/background.png') no-repeat center/cover;
+
 }
 
 #searchButton {
@@ -56,40 +61,38 @@ a:hover {
    box-shadow: none;
 }
 
-.gratuityMain {
-   width:70%;
-   margin: 30px auto 30px;
-   display: flex;
-   justify-content: space-around;
-   flex-wrap: wrap;
-}
-
-.gratuity {
-   background-color: #3a3a3a98;
-   color: #c2cde2;
-   margin: 10px;
-   padding: 5px 15px;
-   font-size: .7rem;
-   border-radius: 20px;
-}
-
 /* ================================ */
 /* FLEX LAYOUT                      */
 /* ================================ */
-.mainCard {
-   margin: 20px auto 40px;
-   padding: 15px;
-   max-width: 800px;
-   min-width: 300px;
-
-   background-color: #e8e8e86c;
-   border-radius: 18px;
-   box-shadow: 5px 5px 15px #000;
+.alerts {
+   padding-left: 25px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: flex-start;
 }
 
-.row1 {
+.currentMain {
+   width: 65%;
    display: flex;
-   flex-wrap: wrap;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-evenly;
+}
+
+.currentMainDisplay {
+   width: 100%;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+}
+
+.currentSubDisplay {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }
 
 .dinkle {
@@ -105,19 +108,66 @@ a:hover {
    border-radius: 40px;
 }
 
-.currentMain {
-   width: 65%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: space-evenly;
+.div4-container .miniCard:first-child {
+    margin-left: auto;
 }
 
-.currentMainDisplay {
-   width: 100%;
+.div4-container .miniCard:last-child {
+    margin-right: auto;
+}
+
+.gratuity {
+   background-color: #3a3a3a98;
+   color: #c2cde2;
+   margin: 10px;
+   padding: 5px 15px;
+   font-size: .7rem;
+   border-radius: 20px;
+}
+
+.gratuityMain {
+   width:70%;
+   margin: 30px auto 30px;
    display: flex;
-   justify-content: space-evenly;
-   align-items: flex-start;
+   justify-content: space-around;
+   flex-wrap: wrap;
+}
+
+.mainCard {
+   margin: 20px auto 40px;
+   padding: 15px;
+   max-width: 800px;
+   min-width: 300px;
+
+   background-color: #e8e8e86c;
+   border-radius: 18px;
+   box-shadow: 5px 5px 15px #000;
+}
+
+.miniCard {
+   background-color: #e6e6e6;
+   padding: 5px;
+   border: 1px solid #252525;
+   border-radius: 15px;
+   box-shadow: 3px 3px 8px #252525;
+}
+
+.mainCurr {
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+}
+
+.mainIcon {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.row1 {
+   display: flex;
+   flex-wrap: wrap;
 }
 
 .search {
@@ -128,30 +178,6 @@ a:hover {
    justify-content: space-evenly;
 }
 
-.todaysDate {
-   padding-left: 90px;
-   font-size: 1.1rem;
-   font-weight: 600;
-   width: 100%;
-   display: flex;
-   justify-content: flex-start;
-}
-
-.currentSubDisplay {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-}
-
-.alerts {
-   padding-left: 25px;
-   display: flex;
-   flex-direction: column;
-   align-items: flex-start;
-   justify-content: flex-start;
-}
-
 .sevenDay {
    margin: 0 10px;
    display: flex;
@@ -159,28 +185,29 @@ a:hover {
    overflow-x: auto;
 }
 
-.div4-container .miniCard:first-child {
-    margin-left: auto;
+.todaysDate {
+   font-size: 1rem;
+   font-weight: 500;
+   width: 100%;
+   display: flex;
+   justify-content: center;
 }
 
-.div4-container .miniCard:last-child {
-    margin-right: auto;
+.todayOutlook {
+   width: 100%;
+   padding-left: 3rem;
+   font-weight: 600;
+   display: flex;
+   justify-content: flex-start;
 }
-
-.miniCard {
-   background-color: #e6e6e6;
-   margin: 8px;
-   padding: 5px;
-   border: 1px solid #252525;
-   border-radius: 15px;
-   box-shadow: 3px 3px 8px #252525;
-}
-
 
 /* ================================ */
 /* MEDIA QUERIES                    */
 /* ================================ */
 @media (max-width: 850px) {
+   body {
+      line-height: 1.5rem;
+   }
    .mainCard {
       margin: 10px 20px;
       padding: 10px;
@@ -193,6 +220,9 @@ a:hover {
    }
 }
 @media (max-width: 600px) {
+   body {
+      line-height: 1rem;
+   }
    .dinkle {
       width: 100%;
    }

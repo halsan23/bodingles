@@ -23,13 +23,11 @@
       <div class="mainCard">
 
          <div class="row1">
-
             <div class="dinkle">
                <h5>Dinkle Weatherby's</h5>
                <img src="assets/images/dinkleWeatherby.png" alt="Dinkle Weatherby Image">
                <h6>Weather Prognosticator</h6>
             </div>
-
 
             <div class="currentMain">
                <div class="search">
@@ -39,27 +37,33 @@
                   </form>
                </div><hr>
 
-               <div id="todaysDate" class="todaysDate"></div>
+               <div id="todaysDate" class="todaysDate">Today's Date</div>
 
                <div class="currentMainDisplay">
-                  <div>
-                     <p id="todayIcon"></p>
-                     <p id="todayConditions" State</p>
+                  <div class="mainIcon">
+                     <p id="todayIcon">Weather Icon</p>
+                     <p id="todayConditions">Today's Status</p>
                   </div>
-                  <div>
-                     <p>City, ST</p>
-                     <p>Current Temp</p>
-                     <p>Feels Like</p>
+                  <div class="mainCurr">
+                     <p id="cityState">City, ST</p>
+                     <p id="currTemp">Current Temp</p>
+                     <p id="feelsLike">Feels Like</p>
                   </div>
                </div>
 
             </div>
 
-         </div>
+         </div><hr>
 
 
-         <div class="currentSubDisplay"><hr>
-            <p>High Temp / Low Temp</p>
+         <div class="currentSubDisplay">
+            <p class="todayOutlook">Today's Outlook:</p>
+            <p id="todayOutlook">Forecast</p>
+            <p>
+               <span id="highTemp">High Temp</span>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <span id="lowTemp">Low Temp</span>
+            </p>
             <p>Winds</p>
             <p>Dew Point</p>
             <p>Barometric Pressure</p>

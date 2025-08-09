@@ -1,11 +1,11 @@
 {
     "latitude": 41.580853,
     "longitude": -109.20697,
-    "generationtime_ms": 2.248406410217285,
+    "generationtime_ms": 0.8486509323120117,
     "utc_offset_seconds": -21600,
     "timezone": "America/Denver",
     "timezone_abbreviation": "GMT-6",
-    "elevation": 1929.0,
+    "elevation": 1948.0,
     "current_units": {
         "time": "iso8601",
         "interval": "seconds",
@@ -13,30 +13,26 @@
         "relative_humidity_2m": "%",
         "apparent_temperature": "°F",
         "is_day": "",
+        "weather_code": "wmo code",
+        "surface_pressure": "hPa",
+        "pressure_msl": "hPa",
         "wind_speed_10m": "mp/h",
         "wind_direction_10m": "°",
-        "wind_gusts_10m": "mp/h",
-        "weather_code": "wmo code",
-        "precipitation": "inch",
-        "rain": "inch",
-        "showers": "inch",
-        "snowfall": "inch"
+        "wind_gusts_10m": "mp/h"
     },
     "current": {
-        "time": "2025-08-08T15:30",
+        "time": "2025-08-09T11:30",
         "interval": 900,
-        "temperature_2m": 78.5,
-        "relative_humidity_2m": 16,
-        "apparent_temperature": 67.6,
+        "temperature_2m": 69.6,
+        "relative_humidity_2m": 13,
+        "apparent_temperature": 63.0,
         "is_day": 1,
-        "wind_speed_10m": 20.9,
-        "wind_direction_10m": 277,
-        "wind_gusts_10m": 31.1,
         "weather_code": 3,
-        "precipitation": 0.000,
-        "rain": 0.000,
-        "showers": 0.000,
-        "snowfall": 0.000
+        "surface_pressure": 812.9,
+        "pressure_msl": 1014.5,
+        "wind_speed_10m": 9.6,
+        "wind_direction_10m": 274,
+        "wind_gusts_10m": 15.7
     },
     "daily_units": {
         "time": "iso8601",
@@ -46,40 +42,40 @@
     },
     "daily": {
         "time": [
-            "2025-08-08",
             "2025-08-09",
             "2025-08-10",
             "2025-08-11",
             "2025-08-12",
             "2025-08-13",
-            "2025-08-14"
+            "2025-08-14",
+            "2025-08-15"
         ],
         "weather_code": [
             3,
             3,
             1,
-            0,
-            1,
+            3,
+            3,
             3,
             3
         ],
         "temperature_2m_max": [
-            78.5,
-            78.1,
-            78.8,
-            84.6,
-            88.9,
-            89.1,
-            92.8
+            76.1,
+            77.1,
+            84.2,
+            88.7,
+            91.4,
+            84.7,
+            86.8
         ],
         "temperature_2m_min": [
-            57.4,
-            47.1,
-            47.7,
-            57.2,
-            63.9,
-            64.6,
-            63.2
+            43.7,
+            48.0,
+            50.0,
+            61.5,
+            64.4,
+            65.5,
+            63.8
         ]
     }
 }
