@@ -20,6 +20,7 @@ const todaysWinds = document.querySelector('#todaysWinds');
 const dewPoint = document.querySelector('#dewPoint');
 const todayRise = document.querySelector('#todayRise');
 const todaySet = document.querySelector('#todaySet');
+const alerts = document.querySelector('#alerts');
 const alertName = document.querySelector('#alertName');
 const alertTime = document.querySelector('#alertTime');
 const alertDescr = document.querySelector('#alertDescr');
@@ -410,7 +411,10 @@ form.addEventListener('submit', async evt => {
          todaySet.innerText = `Sunset: ${new Date(weather.current.sunset*1000).toTimeString().substring(0,5)} PM`;
       }
 
-      if (weather.alerts) {
+      if (!weather.alerts) {
+         alerts.style.display = 'none';
+      } else {
+         alerts.style.display = 'block';
          alertName.innerHTML =`<b>Alert: </b>${weather.alerts[0].event}`;
          alertTime.innerHTML = `${new Date(weather.alerts.start*1000).toTimeString()}`;
       }

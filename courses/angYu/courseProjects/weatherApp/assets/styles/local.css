@@ -146,6 +146,7 @@ a:hover {
 
 .miniCard {
    background-color: #e6e6e6;
+   margin: 5px;
    padding: 5px;
    border: 1px solid #252525;
    border-radius: 15px;
