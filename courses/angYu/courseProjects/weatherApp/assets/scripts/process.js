@@ -27,6 +27,18 @@ const sevenDay = document.getElementById("sevenDay")
 document.getElementById('location').value = '';
 
 
+// set initial screen
+async function initial (locate) {
+   try {
+   const weather = await getWeather(locate);
+   processData(weather);
+   } catch {
+      todaysDate.innerHTML = '<span style="color: #b10000;"><b>Location Not Found</b></span>';
+   }
+}
+initial ('Salt Lake City');
+
+
 // get weather code Name & icon from wmo_code
 const weather_codes = {
      0: {
