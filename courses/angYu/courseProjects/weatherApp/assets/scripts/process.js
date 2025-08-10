@@ -25,8 +25,6 @@ const alertName = document.querySelector('#alertName');
 const alertTime = document.querySelector('#alertTime');
 const alertDescr = document.querySelector('#alertDescr');
 
-
-
 // get weather code Name & icon from wmo_code
 const weather_codes = {
      0: {
@@ -296,6 +294,8 @@ const st = {
    'Wyoming': 'WY'
 }
 
+
+// FUNCTIONS //
 // covert wind degrees into standard notation
 function winds(direction) {
    if (direction > 23 && direction <= 68) {
@@ -317,7 +317,18 @@ function winds(direction) {
    }
 }
 
-// FUNCTIONS //
+// Convert Time from UNIX
+function amPM (time) {
+   const tempSet = new Date(time * 1000).toTimeString().substring(0,2);
+   if ( tempSet > 12 ) {
+      let set = tempSet - 12;
+      let newTempSet = set + new Date(time * 1000).toTimeString().substring(2,5);
+      return `${newTempSet} PM`;
+   } else {
+      return `${new Date(time * 1000).toTimeString().substring(0,5)} AM`;
+   }
+}
+
 // get geo location Data (lat, lon)
 async function getLocation(location){
    const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=1&language=en&format=json`);
@@ -399,24 +410,19 @@ form.addEventListener('submit', async evt => {
          todaysBaro.innerText = `Barometric Pressure ${Math.round(((weather.current.pressure * 0.029529983071445) + Number.EPSILON) * 100) / 100} inHg`;
       }
 
-      // sunrise
-      todayRise.innerText = `Sunrise: ${new Date(weather.current.sunrise*1000).toTimeString().substring(0,5)} AM`;
-      // sunset
-      const tempSet = new Date(weather.current.sunset*1000).toTimeString().substring(0,2);
-      if ( tempSet > 12 ) {
-         let set = tempSet - 12;
-         let newTempSet = set + new Date(weather.current.sunset*1000).toTimeString().substring(2,5);
-         todaySet.innerText = `Sunset: ${newTempSet} PM`;
-      } else {
-         todaySet.innerText = `Sunset: ${new Date(weather.current.sunset*1000).toTimeString().substring(0,5)} PM`;
-      }
+      // sunrise / sunset
+      todayRise.innerText = `Sunrise: ${amPM(weather.current.sunrise)}`;
+      todaySet.innerText = `Sunset: ${amPM(weather.current.sunset)}`;
 
       if (!weather.alerts) {
          alerts.style.display = 'none';
       } else {
          alerts.style.display = 'block';
-         alertName.innerHTML =`<b>Alert: </b>${weather.alerts[0].event}`;
-         alertTime.innerHTML = `${new Date(weather.alerts.start*1000).toTimeString()}`;
+         alertName.innerHTML =`Alert: ${weather.alerts[0].event}`;
+         alertTime.innerHTML = `Start: ${amPM(weather.alerts[0].start)}
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         End: ${amPM(weather.alerts[0].end)}`;
+         alertDescr.innerText = weather.alerts[0].description;
       }
 
    } catch {

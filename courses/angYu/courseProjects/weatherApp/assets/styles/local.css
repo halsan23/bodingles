@@ -27,6 +27,23 @@ a:hover {
    color: #cae155;
 }
 
+#alertName {
+   color: #9e0000;
+   font-weight: 700;
+   display: flex;
+   justify-content: flex-start;
+}
+
+#alertTime {
+   display: flex;
+   justify-content: flex-start;
+}
+
+#alertDescr {
+   width: 100%;
+   text-align: left;
+}
+
 #cityState {
    font-weight: 700;
 }
@@ -65,7 +82,8 @@ a:hover {
 /* FLEX LAYOUT                      */
 /* ================================ */
 .alerts {
-   padding-left: 25px;
+   width: 90%;
+   margin-left: 25px;
    display: flex;
    flex-direction: column;
    align-items: flex-start;
@@ -145,7 +163,7 @@ a:hover {
 }
 
 .miniCard {
-   background-color: #e6e6e6;
+   background-color: #e6e6e670;
    margin: 5px;
    padding: 5px;
    border: 1px solid #252525;
@@ -180,7 +198,7 @@ a:hover {
 }
 
 .sevenDay {
-   margin: 0 10px;
+   margin: 20px 10px 0;
    display: flex;
    align-items: flex-start;
    overflow-x: auto;
