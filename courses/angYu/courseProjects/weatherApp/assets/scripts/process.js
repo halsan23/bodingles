@@ -24,6 +24,8 @@ const alerts = document.querySelector('#alerts');
 const alertName = document.querySelector('#alertName');
 const alertTime = document.querySelector('#alertTime');
 const alertDescr = document.querySelector('#alertDescr');
+const sevenDay = document.getElementById("sevenDay")
+document.getElementById('location').value = '';
 
 // get weather code Name & icon from wmo_code
 const weather_codes = {
@@ -363,6 +365,7 @@ async function getWeather(location){
 // process the weather request
 form.addEventListener('submit', async evt => {
    evt.preventDefault();
+   sevenDay.innerHTML = '';
    const locate = document.getElementById('location').value;
 
    try {
@@ -374,7 +377,7 @@ form.addEventListener('submit', async evt => {
 
       // weather Icon and Status
       const todaysIcon = ``;
-      todayIcon.innerHTML = `<img src="assets/images/icons/${weather.current.weather[0].icon}.svg" alt="Weather Image">`;
+      todayIcon.innerHTML = `<img src="assets/images/icons/${weather.current.weather[0].icon}.svg" width="100" alt="Weather Image">`;
       todayConditions.innerHTML = `<b>${weather.current.weather[0].main}</b>`;
 
       // City, State
@@ -425,7 +428,25 @@ form.addEventListener('submit', async evt => {
          alertDescr.innerText = weather.alerts[0].description;
       }
 
+      // seven day outlook
+      for (let i=1; i<8; i++) {
+         const dailyDate = new Date(weather.daily[i].dt * 1000).toDateString().substring(4,10);
+         const dailyHigh = `H ${Math.floor(weather.daily[i].temp.max)}°F`;
+         const dailyLow = `L ${Math.floor(weather.daily[i].temp.night)}°F`;
+         const dailyIcon = `<img src="assets/images/icons/${weather.daily[i].weather[0].icon}.svg" width="70" alt="Weather Image">`;
+
+         const elem = document.createElement("div");
+         elem.className = "miniCard";
+
+         elem.innerHTML = `
+            <p>${dailyDate}</p>
+            <p>${dailyIcon}</p>
+            <p>${dailyHigh}</p>
+            <p>${dailyLow}</p>
+         `;
+         sevenDay.appendChild(elem);
+      }
    } catch {
-      todaysDate.innerHTML = '<span style="color: #b10000;"><b>Data Error</b></span>';
+      todaysDate.innerHTML = '<span style="color: #b10000;"><b>Location Not Found</b></span>';
    }
 });
