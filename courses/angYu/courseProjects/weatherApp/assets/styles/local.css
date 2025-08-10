@@ -238,8 +238,8 @@ button:hover {
 }
 @media (max-width: 600px) {
    body {
-      font-size: 10px;
-      line-height: 1rem;
+      font-size: 11px;
+      line-height: .8rem;
    }
    .dinkle {
       width: 100%;
