@@ -3,7 +3,6 @@
 //  badDoggy  --  08/25     //
 // =========================//
 
-
 // assign variables
 const form = document.querySelector('form');
 const errText = document.querySelector('#errText');
@@ -26,6 +25,7 @@ const alertTime = document.querySelector('#alertTime');
 const alertDescr = document.querySelector('#alertDescr');
 const sevenDay = document.getElementById("sevenDay")
 document.getElementById('location').value = '';
+
 
 // get weather code Name & icon from wmo_code
 const weather_codes = {
@@ -360,6 +360,84 @@ async function getWeather(location){
    }
 }
 
+// process weather data for output
+function processData(weather) {
+   // Todays Date
+   todaysDate.innerHTML = `<b>${new Date(weather.current.dt*1000).toDateString()}</b>`;
+
+   // weather Icon and Status
+   const todaysIcon = ``;
+   todayIcon.innerHTML = `<img src="assets/images/icons/${weather.current.weather[0].icon}.svg" width="100" alt="Weather Image">`;
+   todayConditions.innerHTML = `<b>${weather.current.weather[0].main}</b>`;
+
+   // City, State
+   cityState.innerText = `${weather.city}, ${st[weather.state]}`;
+
+   // current temp / feels like
+   currTemp.innerText = `Current Temp: ${Math.floor(weather.current.temp)}°F`;
+   feelsLike.innerText = `Feels Like: ${Math.floor(weather.current.feels_like)}°F`;
+
+   // todays high / low
+   highTemp.innerText = `High: ${Math.floor(weather.daily[0].temp.max)}°F`;
+   lowTemp.innerText = `Low: ${Math.floor(weather.daily[0].temp.min)}°F`;
+
+   // todays forecast
+   todayOutlook.innerText = `Today's Outlook: ${weather.daily[0].summary}.`;
+
+   // winds
+   let todaysWind = `Winds ${winds(weather.current.wind_deg)} @ ${Math.floor(weather.current.wind_speed)}`;
+   if (weather.current.wind_gust) {
+      todaysWind+= ` with gusts to ${Math.floor(weather.current.wind_gust)}`;
+   }
+   todaysWinds.innerText = todaysWind;
+
+   // dew point
+   dewPoint.innerText = `Dew Point ${Math.floor(weather.current.dew_point)}°F`;
+
+   // Barometric Pressure
+   const tbaro = Math.round(((weather.current.pressure * 0.029529983071445) + Number.EPSILON) * 100) / 100;
+   if (tbaro.toString().length < 3 ) {
+      let baro = tbaro + '.00';
+      todaysBaro.innerText = `Barometric Pressure ${baro} inHg`;
+   } else {
+      todaysBaro.innerText = `Barometric Pressure ${Math.round(((weather.current.pressure * 0.029529983071445) + Number.EPSILON) * 100) / 100} inHg`;
+   }
+
+   // sunrise / sunset
+   todayRise.innerText = `Sunrise: ${amPM(weather.current.sunrise)}`;
+   todaySet.innerText = `Sunset: ${amPM(weather.current.sunset)}`;
+
+   if (!weather.alerts) {
+      alerts.style.display = 'none';
+   } else {
+      alerts.style.display = 'block';
+      alertName.innerHTML =`Alert: ${weather.alerts[0].event}`;
+      alertTime.innerHTML = `Start: ${amPM(weather.alerts[0].start)}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      End: ${amPM(weather.alerts[0].end)}`;
+      alertDescr.innerText = weather.alerts[0].description;
+   }
+
+   // seven day outlook
+   for (let i=1; i<8; i++) {
+      const dailyDate = new Date(weather.daily[i].dt * 1000).toDateString().substring(4,10);
+      const dailyHigh = `H ${Math.floor(weather.daily[i].temp.max)}°F`;
+      const dailyLow = `L ${Math.floor(weather.daily[i].temp.night)}°F`;
+      const dailyIcon = `<img src="assets/images/icons/${weather.daily[i].weather[0].icon}.svg" width="70" alt="Weather Image">`;
+
+      const elem = document.createElement("div");
+      elem.className = "miniCard";
+
+      elem.innerHTML = `
+         <p>${dailyDate}</p>
+         <p>${dailyIcon}</p>
+         <p>${dailyHigh}</p>
+         <p>${dailyLow}</p>
+      `;
+      sevenDay.appendChild(elem);
+   }
+}
+
 
 // add click event to html form input
 // process the weather request
@@ -367,85 +445,9 @@ form.addEventListener('submit', async evt => {
    evt.preventDefault();
    sevenDay.innerHTML = '';
    const locate = document.getElementById('location').value;
-
    try {
       const weather = await getWeather(locate);
-
-      // process variables returned from api for output
-      // Todays Date
-      todaysDate.innerHTML = `<b>${new Date(weather.current.dt*1000).toDateString()}</b>`;
-
-      // weather Icon and Status
-      const todaysIcon = ``;
-      todayIcon.innerHTML = `<img src="assets/images/icons/${weather.current.weather[0].icon}.svg" width="100" alt="Weather Image">`;
-      todayConditions.innerHTML = `<b>${weather.current.weather[0].main}</b>`;
-
-      // City, State
-      cityState.innerText = `${weather.city}, ${st[weather.state]}`;
-
-      // current temp / feels like
-      currTemp.innerText = `Current Temp: ${Math.floor(weather.current.temp)}°F`;
-      feelsLike.innerText = `Feels Like: ${Math.floor(weather.current.feels_like)}°F`;
-
-      // todays high / low
-      highTemp.innerText = `High: ${Math.floor(weather.daily[0].temp.max)}°F`;
-      lowTemp.innerText = `Low: ${Math.floor(weather.daily[0].temp.min)}°F`;
-
-      // todays forecast
-      todayOutlook.innerText = `Today's Outlook: ${weather.daily[0].summary}.`;
-
-      // winds
-      let todaysWind = `Winds ${winds(weather.current.wind_deg)} @ ${Math.floor(weather.current.wind_speed)}`;
-      if (weather.current.wind_gust) {
-         todaysWind+= ` with gusts to ${Math.floor(weather.current.wind_gust)}`;
-      }
-      todaysWinds.innerText = todaysWind;
-
-      // dew point
-      dewPoint.innerText = `Dew Point ${Math.floor(weather.current.dew_point)}°F`;
-
-      // Barometric Pressure
-      const tbaro = Math.round(((weather.current.pressure * 0.029529983071445) + Number.EPSILON) * 100) / 100;
-      if (tbaro.toString().length < 3 ) {
-         let baro = tbaro + '.00';
-         todaysBaro.innerText = `Barometric Pressure ${baro} inHg`;
-      } else {
-         todaysBaro.innerText = `Barometric Pressure ${Math.round(((weather.current.pressure * 0.029529983071445) + Number.EPSILON) * 100) / 100} inHg`;
-      }
-
-      // sunrise / sunset
-      todayRise.innerText = `Sunrise: ${amPM(weather.current.sunrise)}`;
-      todaySet.innerText = `Sunset: ${amPM(weather.current.sunset)}`;
-
-      if (!weather.alerts) {
-         alerts.style.display = 'none';
-      } else {
-         alerts.style.display = 'block';
-         alertName.innerHTML =`Alert: ${weather.alerts[0].event}`;
-         alertTime.innerHTML = `Start: ${amPM(weather.alerts[0].start)}
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         End: ${amPM(weather.alerts[0].end)}`;
-         alertDescr.innerText = weather.alerts[0].description;
-      }
-
-      // seven day outlook
-      for (let i=1; i<8; i++) {
-         const dailyDate = new Date(weather.daily[i].dt * 1000).toDateString().substring(4,10);
-         const dailyHigh = `H ${Math.floor(weather.daily[i].temp.max)}°F`;
-         const dailyLow = `L ${Math.floor(weather.daily[i].temp.night)}°F`;
-         const dailyIcon = `<img src="assets/images/icons/${weather.daily[i].weather[0].icon}.svg" width="70" alt="Weather Image">`;
-
-         const elem = document.createElement("div");
-         elem.className = "miniCard";
-
-         elem.innerHTML = `
-            <p>${dailyDate}</p>
-            <p>${dailyIcon}</p>
-            <p>${dailyHigh}</p>
-            <p>${dailyLow}</p>
-         `;
-         sevenDay.appendChild(elem);
-      }
+      processData(weather);
    } catch {
       todaysDate.innerHTML = '<span style="color: #b10000;"><b>Location Not Found</b></span>';
    }
