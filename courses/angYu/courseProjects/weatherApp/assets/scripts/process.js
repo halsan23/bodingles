@@ -398,9 +398,9 @@ function processData(weather) {
    const tbaro = Math.round(((weather.current.pressure * 0.029529983071445) + Number.EPSILON) * 100) / 100;
    if (tbaro.toString().length < 3 ) {
       let baro = tbaro + '.00';
-      todaysBaro.innerText = `Barometric Pressure ${baro} inHg`;
+      todaysBaro.innerText = `Barom. ${baro} inHg`;
    } else {
-      todaysBaro.innerText = `Barometric Pressure ${Math.round(((weather.current.pressure * 0.029529983071445) + Number.EPSILON) * 100) / 100} inHg`;
+      todaysBaro.innerText = `Baro. ${Math.round(((weather.current.pressure * 0.029529983071445) + Number.EPSILON) * 100) / 100} inHg`;
    }
 
    // sunrise / sunset
