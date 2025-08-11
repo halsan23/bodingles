@@ -21,7 +21,6 @@ app.get('/', async (req, res) => {
    }
 })
 
-
 // process input for weather display
 app.post('/', async (req, res) => {
    let location = await processInput(req.body.location.trim());
@@ -31,7 +30,6 @@ app.post('/', async (req, res) => {
       res.render('index.ejs', { error: { err } });
       }
 })
-
 
 // start server in "listening mode"
 app.listen( port, () => console.log(`Server listening on port ${port}`));
