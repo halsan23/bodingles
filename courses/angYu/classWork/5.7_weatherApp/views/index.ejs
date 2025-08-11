@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dinkle Weatherby</title>
+   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+   <link rel="stylesheet" href="styles/local.css">
+</head>
+
+<body>
+      <section id="main" class="content">
+      <div class="mainCard">
+
+         <div class="row1">
+            <div class="dinkle">
+               <h5>Dinkle Weatherby's</h5>
+               <img src="assets/images/dinkleWeatherby.png" alt="Dinkle Weatherby Image">
+               <h6>Weather Prognosticator</h6>
+            </div>
+
+            <div class="currentMain">
+               <form class="search">
+                  <input type="text" name="location" id="location" placeholder="City Name or Zip Code" required>&nbsp;&nbsp;
+                  <button>Search</button>
+               </form><hr>
+
+               <div id="todaysDate" class="todaysDate">Enter a City Name or 5-Digit Zip Code</div>
+
+               <div class="currentMainDisplay">
+                  <div>
+                     <p id="todayIcon">Weather Icon</p>
+                     <p id="todayConditions">Today's Status</p>
+                  </div>
+                  <div class="mainCurr">
+                     <p id="cityState">City, ST</p>
+                     <p id="currTemp">Currently</p>
+                     <p id="feelsLike">Feels Like</p>
+                  </div>
+               </div>
+
+            </div>
+
+         </div><hr>
+
+         <div>
+            <p id="todayOutlook" class="todayOutlook">Today's Outlook:</p>
+         </div><hr>
+
+
+         <div class="currentSubDisplay">
+            <p><span id="highTemp">High Temp</span>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <span id="lowTemp">Low Temp</span>
+            </p>
+            <p id="todaysWinds">Winds</p>
+            <p id="dewPoint">Dew Point</p>
+            <p id="todaysBaro">Baro.</p>
+            <p><span id="todayRise">Sunrise</span>
+               &nbsp;&nbsp;&nbsp;
+               <span id="todaySet">Sunset</span>
+            </p>
+         </div><hr>
+
+
+         <div id="alerts" class="alerts">
+            <p id="alertName"></p>
+            <p id="alertTime"></p>
+            <p>&nbsp;</p>
+            <p id="alertDescr"></p>
+         </div>
+
+
+         <div id="sevenDay" class="sevenDay"></div>
+      </div>
+
+
+      <div class="gratuityMain">
+         <span class="gratuity">Dinkle's Image by:
+            <a href="#" title="Attribution pending" tabindex="-1">Attribution pending</a>
+         </span>
+         <span class="gratuity">Background Image by
+            <a href="https://pixabay.com/users/gdmoonkiller-4679220/" target="_blank">gdmoonkiller</a> @
+            <a href="https://pixabay.com/photos/lightning-storm-sky-cloud-mountain-7401119/" target="_blank">Pixabay</a>
+         </span>
+         <span class="gratuity">Weather Icons by:
+            <a href="https://bas.dev/work/meteocons" target="_blank">Meteocons</a>
+         </span>
+      </div>
+   </section>
+
+</body>
+</html>
