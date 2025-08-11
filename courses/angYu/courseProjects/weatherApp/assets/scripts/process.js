@@ -12,11 +12,12 @@ const todayConditions = document.querySelector('#todayConditions');
 const cityState = document.querySelector('#cityState');
 const currTemp = document.querySelector('#currTemp');
 const feelsLike = document.querySelector('#feelsLike');
-const highTemp = document.querySelector('#highTemp');
+const highTempElem = document.querySelector('#highTemp');
 const lowTemp = document.querySelector('#lowTemp');
 const todayOutlook = document.querySelector('#todayOutlook');
 const todaysWinds = document.querySelector('#todaysWinds');
 const dewPoint = document.querySelector('#dewPoint');
+const todaysBaro = document.querySelector('#todaysBaro');
 const todayRise = document.querySelector('#todayRise');
 const todaySet = document.querySelector('#todaySet');
 const alerts = document.querySelector('#alerts');
@@ -36,7 +37,7 @@ async function initial (locate) {
       todaysDate.innerHTML = '<span style="color: #b10000;"><b>Location Not Found</b></span>';
    }
 }
-initial ('Salt Lake City');
+initial ('Cheyenne');
 
 
 // get weather code Name & icon from wmo_code
@@ -386,15 +387,15 @@ function processData(weather) {
    cityState.innerText = `${weather.city}, ${st[weather.state]}`;
 
    // current temp / feels like
-   currTemp.innerText = `Current Temp: ${Math.floor(weather.current.temp)}°F`;
+   currTemp.innerText = `Currently: ${Math.floor(weather.current.temp)}°F`;
    feelsLike.innerText = `Feels Like: ${Math.floor(weather.current.feels_like)}°F`;
 
    // todays high / low
-   highTemp.innerText = `High: ${Math.floor(weather.daily[0].temp.max)}°F`;
+   highTempElem.innerText = `High: ${Math.floor(weather.daily[0].temp.max)}°F`;
    lowTemp.innerText = `Low: ${Math.floor(weather.daily[0].temp.min)}°F`;
 
    // todays forecast
-   todayOutlook.innerText = `Today's Outlook: ${weather.daily[0].summary}.`;
+   todayOutlook.innerHTML = `<span style="font-weight: 700;">Today's Outlook:</span>&nbsp;&nbsp;${weather.daily[0].summary}.`;
 
    // winds
    let todaysWind = `Winds ${winds(weather.current.wind_deg)} @ ${Math.floor(weather.current.wind_speed)}`;

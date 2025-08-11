@@ -7,8 +7,11 @@
    grid-template-rows: 1fr auto
 } */
 
+html {
+  font-size: 16px;
+}
+
 body {
-   font-size: 15px;
    line-height: 2.25rem;
    min-width: 300px;
    display: flex;
@@ -18,8 +21,6 @@ body {
 
 a {
    color: #ffde5b;
-   font-size: .7rem;
-   font-weight: 400;
    text-decoration: none;
    cursor: pointer;
 }
@@ -59,6 +60,7 @@ button:hover {
 }
 
 #cityState {
+   font-size: 1.1rem;
    font-weight: 700;
 }
 
@@ -101,7 +103,6 @@ button:hover {
    width: 100%;
    display: flex;
    justify-content: space-evenly;
-   align-items: center;
 }
 
 .currentSubDisplay {
@@ -136,15 +137,15 @@ button:hover {
 .gratuity {
    background-color: #3a3a3a98;
    color: #c2cde2;
-   margin: 10px;
-   padding: 5px 15px;
+   margin: 10px auto;
+   padding: 0 15px;
    font-size: .7rem;
    border-radius: 20px;
 }
 
 .gratuityMain {
    width:70%;
-   margin: 30px auto 30px;
+   margin: 30px auto 20px;
    display: flex;
    justify-content: space-around;
    flex-wrap: wrap;
@@ -155,7 +156,6 @@ button:hover {
    padding: 15px;
    max-width: 800px;
    min-width: 300px;
-
    background-color: #e8e8e86c;
    border-radius: 18px;
    box-shadow: 5px 5px 15px #000;
@@ -165,20 +165,14 @@ button:hover {
    height: 100%;
    display: flex;
    flex-direction: column;
-   justify-content: space-around;
-}
-
-.mainIcon {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+   justify-content: center;
 }
 
 .miniCard {
    background-color: #e6e6e670;
    margin: 5px 8px;
    padding: 5px;
-   font-size: .8rem;
+   font-size: .9rem;
    border: 1px solid #252525;
    border-radius: 15px;
    box-shadow: 3px 3px 8px #252525;
@@ -202,7 +196,6 @@ button:hover {
 }
 
 .todaysDate {
-   font-size: 1rem;
    font-weight: 500;
    width: 100%;
    display: flex;
@@ -221,8 +214,8 @@ button:hover {
 /* MEDIA QUERIES                    */
 /* ================================ */
 @media (max-width: 850px) {
-   body {
-      font-size: 12px;
+   html {
+      font-size: .9rem;
       line-height: 1.5rem;
    }
    .mainCard {
@@ -237,8 +230,8 @@ button:hover {
    }
 }
 @media (max-width: 600px) {
-   body {
-      font-size: 10px;
+   html {
+      font-size: .8rem;
       line-height: .8rem;
    }
    .dinkle {
