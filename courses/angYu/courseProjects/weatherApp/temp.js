@@ -15,3 +15,8 @@ function getCityName() {
 }
 
 getCityName();
+
+
+
+How to Get a User's Current Location from the Browser with the Geolocation API - JavaScript
+https://www.youtube.com/watch?v=OvDu9c8PYrk
