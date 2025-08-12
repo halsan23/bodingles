@@ -5,9 +5,11 @@ const port = process.env.PORT || 3000;
 
 // API Documentation
 // https://documenter.getpostman.com/view/6048123/2s9XxsTv8Y
+const API_URL = 'http://localhost:3000';
 const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 
 const jokes = [
@@ -583,7 +585,21 @@ const jokes = [
   },
 ];
 
+
+// app.get("/", ( req, res ) => {
+//    try {
+//       res.render('index.ejs');
+//    } catch (err) {
+//       res.render('index.ejs', { err });
+//    }
+// })
+
 //1. GET a random joke
+app.get("/random", (req, res) => {
+   const jokeNumber = Math.floor(Math.random() * jokes.length);
+   res.json(jokes[jokeNumber].jokeText);
+});
+
 
 //2. GET a specific joke
 
