@@ -507,6 +507,10 @@ p {
    text-align: justify;
 }
 
+.liShowBullets {
+   list-style: disc;
+}
+
 /* setup a list container so the lists will to be centered
 in the parent section, but aligned to the left side of container */
 .lists {
