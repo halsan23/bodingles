@@ -10,7 +10,7 @@
    <link rel="icon" href="/images/logos/favicon.ico" type="image/x-icon">
 
    <!-- link stylesheet -->
-   <link rel="stylesheet" href="/css/cssReset.css">
+   <!-- <link rel="stylesheet" href="/css/cssReset.css"> -->
    <link rel="stylesheet" href="/css/root.css">
 </head>
 
@@ -27,7 +27,7 @@
          <p><a href="../../angYuIndex.html">Back to Class Page</a></p>
          <hr style="width: 40%;"><br>
          <h3>
-            <img src="elephant.png" width="32" alt="Postgre Logo">
+            <img src="assets/images/elephant.png" width="32" alt="Postgre Logo">
             PostgreSQL
          </h3>
       </section>
@@ -46,30 +46,73 @@
          </ul>
       </section>
 
-      <!-- PostgreSQL Topics -->
       <section id="textWindow4" class="just">
-         <h6>Using PostgreSQL</h6>
-         <p><span class="firstWord">I</span>n order to use PostgreSQL you must download and install it. The download link is listed above. Just run the installer. During the installation process, it sets the default username to <b>postgres</b>. You will need to supply a <b>password</b>. Write this password down and don't loose it. It will also want to assign the default port of <b>5432</b> but you can change this if you wish.
-         </p>
-         <p>&nbsp;</p>
+         <!-- Using PostgreSQL -->
+         <article>
+            <h6>Using PostgreSQL</h6>
+            <p><span class="firstWord">I</span>n order to use PostgreSQL you must download and install it. The download link is listed above. Just run the installer. During the installation process, it sets the default username to <b>postgres</b>. You will need to supply a <b>password</b>. Write this password down and don't loose it. It will also want to assign the default port of <b>5432</b> but you can change this if you wish.</p>
+         </article><hr>
 
-         <h6>Build a Table</h6>
-         <p><span class="firstWord">T</span>he process to build a table in <b>PostgreSQL</b> is very similar to basic <b>SQL</b>.</p><br>
-         <ul class="sectHighlight">
-            <li>CREATE TABLE capitols (
-               <ul>
-                  <li>id SERIAL PRIMARY KEY,
-                     <ul>
-                        <li><i>SERIAL</i> will auto-increment the PRIMARY KEY ID number</li>
-                     </ul>
-                  </li>
-                  <li>country VARCHAR(45),</li>
-                  <li>capitol VARCHAR(45)</li>
-               </ul>
-            </li>
-            <li>)</li>
-         </ul><br>
-         <p>We're using <b>VARCHAR(45)</b> to set a maximum length for these fields.</p>
+         <!-- Create a Database -->
+         <article>
+            <h6>Create a Database</h6>
+            <p><span class="firstWord">N</span>ow that we have PostgreSQL installed we can open <b>pgAdmin</b>. This is what we will be using to build and manage our PostgreSQL databases. The first thing <b>pgAdmin</b> will do is ask for the password you set up when PostgreSQL was installed. Once you enter your password, we are ready to begin.</p>
+            <p>We are going to create a database that will contain capital names and flags for the world's countries. We have been supplied with two "csv" files that contain the <b>country</b> data and the <b>flag</b> data. Once we have our database built, we can import this data into it.</p>
+            <p>The first thing we need to do is create a new database.
+               <ol>
+                  <li>In <b>pgAdmin</b>, expand the "Servers" list in the Object Explorer <i>(the left hand pane)</i>.</li>
+                  <li>Next, right click on "Databases" and select Create, Database</li>
+                  <li>A window will open and on the "General" tab, under Database, enter a name for your database.</li>
+                  <li>Click "SAVE" and your new database has been created. It will now show up in the "Database" list.</li>
+               </ol></p>
+         </article><hr>
+
+         <!-- Create a Database -->
+         <article>
+            <h6>Build a Table</h6>
+            <p><span class="firstWord">W</span>e need to set this up in <b>pgAdmin</b>, so in the "Object Explorer", click the arrow next to the <b>world</b> database we just created to expand it, then do the same under the "Schema" element. In the list you will find a section for our <b>Tables</b>.</p>
+            <p>Right click on <b>Tables</b> and select <b>Query Tool</b>. In the <b>Query</b> window, enter the following code:</p>
+            <ul class="sectHighlight">
+               <li>CREATE TABLE capitals (
+                  <ul>
+                     <li>id SERIAL PRIMARY KEY,
+                        <ul>
+                           <li class="commentStyle">SERIAL: will auto-increment the PRIMARY KEY ID number</li>
+                        </ul>
+                     </li>
+                     <li>country VARCHAR(45),</li>
+                     <li>capitol VARCHAR(45)
+                        <ul>
+                           <li class="commentStyle">VARCHAR(45): sets a maximun length for the field to 45 characters</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li>)</li>
+            </ul>
+            <p>Press the <b>RUN</b> key from the <b>Query</b> window and your table will be created. Right click on our <b>Tables</b> section in the <b>Object Explorer</b> and select <b>Refresh</b>, and our newly created table will show in the list.</p>
+            <p>Once this is done we can Right Click on our newly created <b>capitals</b> table and select <b>View/Edit Data</b> to view our table. Notice that when we tell <b>pgAdmin</b> to do something, the SQL Code to complete the process shows up un the "<b>Query Window</b>".</p>
+            <p>Lastly, we want to <b>Import</b> our data from the "capitals.csv" file we were given for this assignment.</p>
+            <ol>
+               <li>Right click on our <b>capitals</b> table and select Import/Export Data.</li>
+               <li>On the <b>General</b> tab, under "Filename", locate the file we are importing.</li>
+               <li>Because our csv file contains a "Header" row, we need to go to the <b>Options</b> tab and check the "Header" box.</li>
+               <li>*NOTE: it's important to note that our column names from the csv file <b>must</b> match exactly the column names we used when build the table. You can check the names on the <b>Columns</b> tab.</li>
+            </ol>
+            <p>And now when we right click on our table, and select "View/Edit" we should see the table populated with the data from our csv file.</p>
+            <p>We duplicated the process to create a "<b>Flags</b>" table populated with data from the "flags.csv" file. Here is the Query Code:</p>
+            <ul class="sectHighlight">
+               <li>CREATE TABLE flags (
+                  <ul>
+                     <li>id SERIAL PRIMARY KEY,</li>
+                     <li>name text,</li>
+                     <li>flag text</li>
+                  </ul>
+               </li>
+               <li>)</li>
+            </ul>
+            <p>We now have two tables (<b>capitals</b> and <b>flags</b>) populated with the data from our two csv files.</p>
+         </article><hr>
       </section>
    </section>
 

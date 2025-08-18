@@ -304,12 +304,12 @@ p {
 
 .bullets li {
    list-style: disc;
-   margin: 10px auto;
+   margin: 10px auto 10px 30px;
 }
 
 .noBullets li {
    list-style: none;
-   margin: 10px auto;
+   margin: 10px auto 10px 30px;
 }
 
 /* Set up some Color Highlights */
@@ -505,10 +505,6 @@ p {
 /* default text alignment */
 .just {
    text-align: justify;
-}
-
-.liShowBullets {
-   list-style: disc;
 }
 
 /* setup a list container so the lists will to be centered
