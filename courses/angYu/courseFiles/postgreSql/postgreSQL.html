@@ -32,7 +32,7 @@
          </h3>
       </section>
 
-      <!-- SQL Resources -->
+      <!-- PostgreSQL Resources -->
       <section id="textWindow4">
          <h6>PostgreSQL Resources</h6>
          <hr style="width: 40%;">
@@ -46,11 +46,30 @@
          </ul>
       </section>
 
-      <!-- SQL Topics -->
+      <!-- PostgreSQL Topics -->
       <section id="textWindow4" class="just">
-         <h6>PostgreSQL Topics</h6>
-         <p><span class="firstword"></span>
+         <h6>Using PostgreSQL</h6>
+         <p><span class="firstWord">I</span>n order to use PostgreSQL you must download and install it. The download link is listed above. Just run the installer. During the installation process, it sets the default username to <b>postgres</b>. You will need to supply a <b>password</b>. Write this password down and don't loose it. It will also want to assign the default port of <b>5432</b> but you can change this if you wish.
          </p>
+         <p>&nbsp;</p>
+
+         <h6>Build a Table</h6>
+         <p><span class="firstWord">T</span>he process to build a table in <b>PostgreSQL</b> is very similar to basic <b>SQL</b>.</p><br>
+         <ul class="sectHighlight">
+            <li>CREATE TABLE capitols (
+               <ul>
+                  <li>id SERIAL PRIMARY KEY,
+                     <ul>
+                        <li><i>SERIAL</i> will auto-increment the PRIMARY KEY ID number</li>
+                     </ul>
+                  </li>
+                  <li>country VARCHAR(45),</li>
+                  <li>capitol VARCHAR(45)</li>
+               </ul>
+            </li>
+            <li>)</li>
+         </ul><br>
+         <p>We're using <b>VARCHAR(45)</b> to set a maximum length for these fields.</p>
       </section>
    </section>
 
