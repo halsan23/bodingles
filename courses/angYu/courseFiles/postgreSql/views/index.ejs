@@ -12,53 +12,41 @@
 </head>
 
 <body id="app">
-   <!-- Header -->
-   <header id="app-header"></header>
-   <p>&nbsp;</p>
-   <p>&nbsp;</p>
-
 
    <form class="container" action="/submit" method="post">
       <div class="horizontal-container">
-         <h6>
+         <h4>
             Total Score:
             <span id="score">
                <%= locals.totalScore ? totalScore : "0" %>
             </span>
-         </h6>
+         </h4>
       </div>
 
-      <h4 id="countryName">
-         <%=question.country %>
-      </h4>
+      <h1 id="countryName">
+         <%= question.country %>
+      </h1>
 
       <div class="answer-container">
          <input type="text" name="answer" id="userInput" placeholder="Enter the capital" autofocus autocomplete="off">
       </div>
 
       <button type="submit">SUBMIT
-         <% if(locals.wasCorrect){ %>
+         <% if (locals.wasCorrect) { %>
             <span class="checkmark">✔</span>
-         <% } else if (locals.wasCorrect===false) { %>
+         <% } else if (locals.wasCorrect === false) { %>
             <span class="cross" id="error">✖</span>
          <% } %>
       </button>
    </form>
 
-   <!-- footer -->
-   <footer id="app-footer"></footer>
-
-   <!-- scripts -->
-   <script src="scripts/header.js"></script>
-   <script src="scripts/footer.js"></script>
    <script>
       var wasCorrect = "<%= locals.wasCorrect %>";
-      console.log(wasCorrect)
+      // console.log(wasCorrect)
       if (wasCorrect === "false") {
-         alert('Game over! Final best score: <%= locals.totalScore %>');
+         alert('Game over! Final Score: <%= locals.totalScore %>');
          document.getElementById("app").innerHTML = '<a href="/" class="restart-button">Restart</a>'
       }
    </script>
 </body>
-
 </html>

@@ -18,12 +18,11 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding-top: 10px;
 }
-
 h1 {
   text-align: center;
 }
 
-h3 {
+h4 {
   margin: 0;
 }
 
@@ -42,6 +41,7 @@ input {
 }
 
 button {
+   text-align: center;
   font-weight: 800;
   letter-spacing: 2px;
   font-size: large;
@@ -55,13 +55,13 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: #ffd500;
+}
+
 .horizontal-container {
   display: flex;
   justify-content: space-between;
-}
-
-button:hover {
-  background-color: #ffd500;
 }
 
 #result {
@@ -98,9 +98,13 @@ button:hover {
 }
 
 .restart-button {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
   color: #333;
+  width: 50px;
+  margin: 10px auto;
   padding: 15px 30px;
   font-size: 18px;
   text-align: center;
