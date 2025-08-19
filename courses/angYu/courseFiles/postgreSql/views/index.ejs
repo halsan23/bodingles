@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Capital City Quiz</title>
+   <link rel="icon" href="styles/images/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="styles/cssReset.css">
+   <link rel="stylesheet" href="styles/root.css">
+   <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body id="app">
+   <!-- Header -->
+   <header id="app-header"></header>
+   <p>&nbsp;</p>
+   <p>&nbsp;</p>
+
+
+   <form class="container" action="/submit" method="post">
+      <div class="horizontal-container">
+         <h6>
+            Total Score:
+            <span id="score">
+               <%= locals.totalScore ? totalScore : "0" %>
+            </span>
+         </h6>
+      </div>
+
+      <h4 id="countryName">
+         <%=question.country %>
+      </h4>
+
+      <div class="answer-container">
+         <input type="text" name="answer" id="userInput" placeholder="Enter the capital" autofocus autocomplete="off">
+      </div>
+
+      <button type="submit">SUBMIT
+         <% if(locals.wasCorrect){ %>
+            <span class="checkmark">✔</span>
+         <% } else if (locals.wasCorrect===false) { %>
+            <span class="cross" id="error">✖</span>
+         <% } %>
+      </button>
+   </form>
+
+   <!-- footer -->
+   <footer id="app-footer"></footer>
+
+   <!-- scripts -->
+   <script src="scripts/header.js"></script>
+   <script src="scripts/footer.js"></script>
+   <script>
+      var wasCorrect = "<%= locals.wasCorrect %>";
+      console.log(wasCorrect)
+      if (wasCorrect === "false") {
+         alert('Game over! Final best score: <%= locals.totalScore %>');
+         document.getElementById("app").innerHTML = '<a href="/" class="restart-button">Restart</a>'
+      }
+   </script>
+</body>
+
+</html>
