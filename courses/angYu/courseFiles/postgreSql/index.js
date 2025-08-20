@@ -22,7 +22,6 @@ let currentQuestion = {};
 app.get("/", async (req, res) => {
    totalCorrect = 0;
    await nextQuestion();
-   console.log(currentQuestion);
    res.render("index.ejs", { question: currentQuestion });
 });
 
@@ -33,7 +32,6 @@ app.post("/submit", (req, res) => {
    let isCorrect = false;
    if (currentQuestion.capital.toLowerCase() === answer.toLowerCase()) {
       totalCorrect++;
-      console.log(totalCorrect);
       isCorrect = true;
    }
 

@@ -6,8 +6,6 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Capital City Quiz</title>
    <link rel="icon" href="styles/images/favicon.ico" type="image/x-icon">
-   <link rel="stylesheet" href="styles/cssReset.css">
-   <link rel="stylesheet" href="styles/root.css">
    <link rel="stylesheet" href="styles/main.css">
 </head>
 
@@ -27,25 +25,23 @@
          <%= question.country %>
       </h1>
 
-      <div class="answer-container">
-         <input type="text" name="answer" id="userInput" placeholder="Enter the capital" autofocus autocomplete="off">
+      <div id="butt" class="answer-container">
+         <input type="text" name="answer" id="userInput" placeholder="Enter the capital" autofocus autocomplete="off" required>
       </div>
 
-      <button type="submit">SUBMIT
-         <% if (locals.wasCorrect) { %>
-            <span class="checkmark">✔</span>
-         <% } else if (locals.wasCorrect === false) { %>
-            <span class="cross" id="error">✖</span>
-         <% } %>
-      </button>
+      <button type="submit">SUBMIT</button>
    </form>
 
    <script>
-      var wasCorrect = "<%= locals.wasCorrect %>";
-      // console.log(wasCorrect)
+      let wasCorrect = "<%= locals.wasCorrect %>";
+      console.log(`wasCorrect: ${wasCorrect}`);
       if (wasCorrect === "false") {
          alert('Game over! Final Score: <%= locals.totalScore %>');
          document.getElementById("app").innerHTML = '<a href="/" class="restart-button">Restart</a>'
+      } else {
+         setTimeout(function() {
+            document.getElementById("butt").innerText = 'CORRECT ✔'
+         }, 25000);
       }
    </script>
 </body>
