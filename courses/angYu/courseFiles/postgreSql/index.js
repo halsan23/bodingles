@@ -39,7 +39,7 @@ app.post("/submit", (req, res) => {
    res.render("index.ejs", {
       question: currentQuestion,
       wasCorrect: isCorrect,
-      totalScore: totalCorrect,
+      totalScore: totalCorrect
    });
 });
 

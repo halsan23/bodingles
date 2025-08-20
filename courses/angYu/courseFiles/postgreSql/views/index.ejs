@@ -25,23 +25,24 @@
          <%= question.country %>
       </h1>
 
-      <div id="butt" class="answer-container">
+      <div class="answer-container">
          <input type="text" name="answer" id="userInput" placeholder="Enter the capital" autofocus autocomplete="off" required>
       </div>
 
-      <button type="submit">SUBMIT</button>
+      <button id="butt" type="submit">SUBMIT</button>
    </form>
 
    <script>
       let wasCorrect = "<%= locals.wasCorrect %>";
-      console.log(`wasCorrect: ${wasCorrect}`);
-      if (wasCorrect === "false") {
+      let score = "<%= locals.totalScore %>";
+      if (wasCorrect === 'false') {
          alert('Game over! Final Score: <%= locals.totalScore %>');
          document.getElementById("app").innerHTML = '<a href="/" class="restart-button">Restart</a>'
-      } else {
+      } else if (score) {
+         document.getElementById("butt").innerText = 'CORRECT ✔';
          setTimeout(function() {
-            document.getElementById("butt").innerText = 'CORRECT ✔'
-         }, 25000);
+            document.getElementById("butt").innerText = 'SUBMIT'
+         }, 2000);
       }
    </script>
 </body>
