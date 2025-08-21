@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Country Flag Quiz</title>
+   <link rel="icon" href="styles/images/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body id="app">
+
+   <form class="container" action="/submit" method="post">
+      <div class="score-container">
+         <h4>
+            Total Score:
+            <span id="score">
+               <%= locals.totalScore ? totalScore : "0" %>
+            </span>
+         </h4>
+      </div>
+
+      <div class="horizontal-container">
+         <h2>Guess this Flag's Country</h2>
+         <h1 id="countryName"><%= question.flag %></h1>
+
+         <div class="answer-container">
+            <input type="text" name="answer" id="userInput" placeholder="Enter the Country" autofocus autocomplete="off" required>
+         </div>
+
+         <button id="butt" type="submit">SUBMIT</button>
+      </div>
+   </form>
+
+   <script>
+      let wasCorrect = "<%= locals.wasCorrect %>";
+      let score = "<%= locals.totalScore %>";
+      if (wasCorrect === 'false') {
+         alert('Game over! Final Score: <%= locals.totalScore %>');
+         document.getElementById("app").innerHTML = '<a href="/" class="restart-button">Restart</a>'
+      } else if (score) {
+         document.getElementById("butt").innerText = 'CORRECT ✔';
+         setTimeout(function() {
+            document.getElementById("butt").innerText = 'SUBMIT'
+         }, 1500);
+      }
+   </script>
+</body>
+</html>

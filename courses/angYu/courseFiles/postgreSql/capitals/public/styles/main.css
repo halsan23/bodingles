@@ -1,0 +1,156 @@
+@keyframes checkmark {
+   0% {
+      color: transparent;
+   }
+   100% {
+      color: green;
+   }
+}
+
+@keyframes cross {
+   0% {
+      color: transparent;
+   }
+   100% {
+      color: red;
+   }
+}
+
+body {
+   background-image: url(../images/background.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   font-family: Arial, sans-serif;
+}
+
+button {
+   width: 50%;
+   margin: 40px auto 20px;
+   padding: 10px;
+   font-weight: 700;
+   letter-spacing: 2px;
+   font-size: large;
+   text-decoration: none;
+   background-color: #60d0c3;
+   color: #000;
+   border: 1px solid black;
+   border-radius: 15px;
+   box-shadow: 3px 3px 8px #414141;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+}
+
+button:hover {
+   background-color: #37a094;
+   color: #ffffff;
+   box-shadow: none;
+}
+
+h1 {
+   text-align: center;
+}
+
+h4 {
+   margin: 0;
+}
+
+input {
+   padding: 10px;
+   width: 60%;
+   font-size: 1.1rem;
+   font-weight: 500;
+   text-align: center;
+   border: 1px solid #4f4f4f;
+   border-radius: 8px;
+}
+
+#app {
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#countryName {
+   color: #002aff;
+   text-shadow: 2px 2px 5px #202020;
+}
+
+#result {
+   text-align: center;
+   font-size: 24px;
+}
+
+#score {
+   color: #ff0000;
+}
+
+.answer-container {
+   width: 100%;
+   margin: 25px;
+   display: flex;
+   justify-content: center;
+}
+
+.checkmark {
+   color: transparent;
+   animation: checkmark 0.5s ease;
+}
+
+.container {
+   min-width: 35%;
+   max-width: 50%;
+   padding: 20px;
+   background-image: url(../images/parchment.png);
+   background-size: cover;
+   border: 2px solid black;
+   border-radius: 15px;
+   box-shadow: 4px 4px 12px #464646;
+}
+
+.cross {
+   color: transparent;
+   animation: cross 0.5s ease;
+}
+
+.horizontal-container {
+   font-size: 1.2rem;
+   font-weight: 800;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-evenly;
+}
+
+.restart-button {
+   margin: 100px auto;
+   padding: 10px;
+   width: 20%;
+   font-weight: 700;
+   letter-spacing: 2px;
+   font-size: large;
+   text-decoration: none;
+   background-color: #60d0c3;
+   color: #000;
+   border: 1px solid black;
+   border-radius: 15px;
+   box-shadow: 3px 3px 8px #414141;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   transition: background-color 0.3s, color 0.3s;
+}
+
+.restart-button:hover {
+   background-color: #37a094;
+   color: #ffffff;
+   box-shadow: none;
+}
+
+.score-container {
+   font-size: 1.2rem;
+   font-weight: 800;
+   display: flex;
+   justify-content: flex-start;
+}
