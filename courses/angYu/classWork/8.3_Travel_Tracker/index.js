@@ -18,7 +18,7 @@ app.use(express.static("public"));
 // ====================================================================== //
 
 app.get("/", async (req, res) => {
-  const result = await db.query('select country_code from visited_countries');
+   const result = await db.query('select country_code from visited_countries');
    let countries = [];
    result.rows.forEach((country) => {
       countries.push(country.country_code);
