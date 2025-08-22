@@ -1,15 +1,26 @@
-import express from "express";
-
+import express from 'express';
+import pg from 'pg';
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+const db = new pg.Client({
+   user: "postgres",
+   password: "password",
+   host: "localhost",
+   database: "world",
+   port: 5432
+});
+db.connect();
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+// ====================================================================== //
+
 app.get("/", async (req, res) => {
-  //Write your code here.
+   res.render('index.ejs');
 });
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+// ====================================================================== //
+
+app.listen(port, () => console.log(`Server Listening on Port: ${port}`));
