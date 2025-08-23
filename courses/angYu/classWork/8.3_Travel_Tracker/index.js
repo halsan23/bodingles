@@ -46,7 +46,7 @@ app.post("/add", async (req, res) => {
       res.render("index.ejs", {
          countries: countries,
          total: countries.length,
-         error: "No Match, Please try again.",
+         error: "No Matches found, Please try again.",
       });
 
    // if multiple matches
@@ -55,7 +55,7 @@ app.post("/add", async (req, res) => {
       res.render("index.ejs", {
          countries: countries,
          total: countries.length,
-         error: "Multiple matches, Please refine search.",
+         error: "Multiple matches, Please refine your search criteria.",
       });
 
    } else {
