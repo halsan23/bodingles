@@ -12,7 +12,7 @@
    <form action="/add" method="post">
       <input type="text" name="country" autofocus placeholder="<%= locals.error ? error :  'Enter country name' %>" required>
       <span><button type="submit">Add</button></span>
-      <span><h2>Travel Tracker</h2></span>
+      <span><h1>Travel Tracker</h1></span>
    </form>
 
    <section class="ag-canvas">
@@ -374,7 +374,7 @@
    </section>
 
    <p></p>
-   <h2 class="total-count">How many countriehave you have visited? <%= total %></h2>
+   <h3 class="total-count">How many countries have you have visited? <%= total %></h3>
 
    <script>
       // "<%= countries %>" is returned as a STRING //
