@@ -18,7 +18,7 @@ INSERT INTO contact_detail (id, tel, address)
 VALUES (1, '+123456789', '123 App Brewery Road');
 
 -- Join --
-SELECT * 
+SELECT *
 FROM student
 JOIN contact_detail
 ON student.id = contact_detail.id
@@ -70,12 +70,12 @@ INSERT INTO enrollment (student_id ,class_id) VALUES (2, 2), (2, 3);
 
 -- Join --
 SELECT *
-FROM enrollment 
+FROM enrollment
 JOIN student ON student.id = enrollment.student_id
 JOIN class ON class.id = enrollment.class_id;
 
 SELECT student.id AS id, first_name, last_name, title
-FROM enrollment 
+FROM enrollment
 JOIN student ON student.id = enrollment.student_id
 JOIN class ON class.id = enrollment.class_id;
 
