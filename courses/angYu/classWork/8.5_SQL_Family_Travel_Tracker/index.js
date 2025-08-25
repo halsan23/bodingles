@@ -46,6 +46,8 @@ app.get("/", async (req, res) => {
     color: currentUser.color,
   });
 });
+
+
 app.post("/add", async (req, res) => {
   const input = req.body["country"];
   const currentUser = await getCurrentUser();
