@@ -1,4 +1,5 @@
--- EXERCISE SOLUTION AND SETUP --
+-- Family Travel Tracker --
+-- DB SETUP --
 DROP TABLE IF EXISTS visited_countries, users;
 
 CREATE TABLE users(

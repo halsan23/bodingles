@@ -1,16 +1,16 @@
+-- School --
+-- DB SETUP --
 CREATE TABLE student (
   id SERIAL PRIMARY KEY,
   first_name TEXT,
   last_name TEXT
 );
-
 -- One to One --
 CREATE TABLE contact_detail (
   id INTEGER REFERENCES student(id) UNIQUE,
   tel TEXT,
   address TEXT
 );
-
 -- Data --
 INSERT INTO student (first_name, last_name)
 VALUES ('Angela', 'Yu');
@@ -22,7 +22,6 @@ SELECT *
 FROM student
 JOIN contact_detail
 ON student.id = contact_detail.id
-
 
 -- Many to One --
 CREATE TABLE homework_submission (
