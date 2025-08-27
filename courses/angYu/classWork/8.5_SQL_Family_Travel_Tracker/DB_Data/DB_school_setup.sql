@@ -1,16 +1,16 @@
 -- School DB Setup --
 -- =============== --
 CREATE TABLE student (
-  id SERIAL PRIMARY KEY,
-  first_name TEXT,
-  last_name TEXT
+   id SERIAL PRIMARY KEY,
+   first_name TEXT,
+   last_name TEXT
 );
 
 -- One to One --
 CREATE TABLE contact_detail (
-  id INTEGER REFERENCES student(id) UNIQUE,
-  tel TEXT,
-  address TEXT
+   id INTEGER REFERENCES student(id) UNIQUE,
+   tel TEXT,
+   address TEXT
 );
 
 -- Data --
@@ -28,9 +28,9 @@ ON student.id = contact_detail.id
 
 -- Many to One --
 CREATE TABLE homework_submission (
-  id SERIAL PRIMARY KEY,
-  mark INTEGER,
-  student_id INTEGER REFERENCES student(id)
+   id SERIAL PRIMARY KEY,
+   mark INTEGER,
+   student_id INTEGER REFERENCES student(id)
 );
 
 -- Data --
@@ -50,14 +50,14 @@ ON student.id = student_id
 
 -- Many to Many --
 CREATE TABLE class (
-  id SERIAL PRIMARY KEY,
-  title VARCHAR(45)
+   id SERIAL PRIMARY KEY,
+   title VARCHAR(45)
 );
 
 CREATE TABLE enrollment (
-  student_id INTEGER REFERENCES student(id),
-  class_id INTEGER REFERENCES class(id),
-  PRIMARY KEY (student_id, class_id)
+   student_id INTEGER REFERENCES student(id),
+   class_id INTEGER REFERENCES class(id),
+   PRIMARY KEY (student_id, class_id)
 );
 
 -- Data --
