@@ -17,34 +17,34 @@ input[type="radio"]:checked + label span {
   transform: scale(1.25);
 }
 input[type="radio"]:checked + label .burlywood {
-  border: 2px solid #987b55;
+  border: 3px solid #614827;
 }
 input[type="radio"]:checked + label .lightsalmon {
-  border: 2px solid #be7457;
+  border: 3px solid #88513b;
 }
 input[type="radio"]:checked + label .lemonchiffon {
-  border: 2px solid #b0a752;
+  border: 3px solid #676128;
 }
 input[type="radio"]:checked + label .yellowgreen {
-  border: 2px solid #5d7c1e;
+  border: 3px solid #374a11;
 }
 input[type="radio"]:checked + label .lightgreen {
-  border: 2px solid #56a456;
+  border: 3px solid #295829;
 }
 input[type="radio"]:checked + label .turquoise {
-  border: 2px solid #2a9187;
+  border: 3px solid #195750;
 }
 input[type="radio"]:checked + label .lightskyblue {
-  border: 2px solid #4a7e9e;
+  border: 3px solid #254152;
 }
 input[type="radio"]:checked + label .tomato {
-  border: 2px solid #b44734;
+  border: 3px solid #68271b;
 }
 input[type="radio"]:checked + label .plum {
-  border: 2px solid #7a477a;
+  border: 3px solid #4b2a4b;
 }
 input[type="radio"]:checked + label .pink {
-  border: 2px solid #851554;
+  border: 3px solid #651449;
 }
 label {
   display: inline-block;
