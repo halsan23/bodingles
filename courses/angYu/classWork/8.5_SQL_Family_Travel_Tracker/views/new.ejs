@@ -10,44 +10,47 @@
 </head>
 
 <body>
-  <h1>Add a Family Member</h1>
-  <form action="/new" method="post">
-    <p>What's your name?</p>
-    <input type="text" name="name">
+   <h1>Add a Family Member</h1>
+   <form action="/new" method="post">
+      <p>What's your name?</p>
+      <input type="text" name="name" autofocus placeholder="Enter First Name" required>
 
-    <p>Pick a color:</p>
-    <input type="radio" name="color" id="burlywood" value="burlywood" />
-    <label for="burlywood"><span class="burlywood"></span></label>
+      <p>Pick a color:</p>
+      <input type="radio" name="color" id="burlywood" value="burlywood" />
+      <label for="burlywood"><span class="burlywood"></span></label>
 
-    <input type="radio" name="color" id="lightsalmon" value="lightsalmon" />
-    <label for="lightsalmon"><span class="lightsalmon"></span></label>
+      <input type="radio" name="color" id="lightsalmon" value="lightsalmon" />
+      <label for="lightsalmon"><span class="lightsalmon"></span></label>
 
-    <input type="radio" name="color" id="lemonchiffon" value="lemonchiffon" />
-    <label for="lemonchiffon"><span class="lemonchiffon"></span></label>
+      <input type="radio" name="color" id="lemonchiffon" value="lemonchiffon" />
+      <label for="lemonchiffon"><span class="lemonchiffon"></span></label>
 
-    <input type="radio" name="color" id="yellowgreen" value="yellowgreen" />
-    <label for="yellowgreen"><span class="yellowgreen"></span></label>
+      <input type="radio" name="color" id="yellowgreen" value="yellowgreen" />
+      <label for="yellowgreen"><span class="yellowgreen"></span></label>
 
-    <input type="radio" name="color" id="lightgreen" value="lightgreen" />
-    <label for="lightgreen"><span class="lightgreen"></span></label>
+      <input type="radio" name="color" id="lightgreen" value="lightgreen" />
+      <label for="lightgreen"><span class="lightgreen"></span></label>
 
-    <input type="radio" name="color" id="turquoise" value="turquoise" />
-    <label for="turquoise"><span class="turquoise"></span></label>
+      <input type="radio" name="color" id="turquoise" value="turquoise" />
+      <label for="turquoise"><span class="turquoise"></span></label>
 
-    <input type="radio" name="color" id="lightskyblue" value="lightskyblue" />
-    <label for="lightskyblue"><span class="lightskyblue"></span></label>
+      <input type="radio" name="color" id="lightskyblue" value="lightskyblue" />
+      <label for="lightskyblue"><span class="lightskyblue"></span></label>
 
-    <input type="radio" name="color" id="tomato" value="tomato" />
-    <label for="tomato"><span class="tomato"></span></label>
+      <input type="radio" name="color" id="tomato" value="tomato" />
+      <label for="tomato"><span class="tomato"></span></label>
 
-    <input type="radio" name="color" id="plum" value="plum" />
-    <label for="plum"><span class="plum"></span></label>
+      <input type="radio" name="color" id="plum" value="plum" />
+      <label for="plum"><span class="plum"></span></label>
 
-    <input type="radio" name="color" id="pink" value="pink" />
-    <label for="pink"><span class="pink"></span></label>
-    <div class="spacer"></div>
-    <button type="submit">Add</button>
-  </form>
+      <input type="radio" name="color" id="pink" value="pink" />
+      <label for="pink"><span class="pink"></span></label>
+      <div class="spacer"></div>
+
+      <button type="submit">Add</button>
+      <button type="reset">Reset</button>
+      <button type="button" onclick="window.location.href='/';">Cancel</button>
+   </form>
 </body>
 
 </html>
