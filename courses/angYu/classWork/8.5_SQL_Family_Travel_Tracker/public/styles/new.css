@@ -16,32 +16,32 @@ input[type="radio"] {
 input[type="radio"]:checked + label span {
   transform: scale(1.25);
 }
-input[type="radio"]:checked + label .red {
-  border: 2px solid #711313;
+input[type="radio"]:checked + label .burlywood {
+  border: 2px solid #987b55;
 }
-input[type="radio"]:checked + label .orange {
-  border: 2px solid #873a08;
+input[type="radio"]:checked + label .lightsalmon {
+  border: 2px solid #be7457;
 }
-input[type="radio"]:checked + label .yellow {
-  border: 2px solid #816102;
+input[type="radio"]:checked + label .lemonchiffon {
+  border: 2px solid #b0a752;
 }
-input[type="radio"]:checked + label .olive {
-  border: 2px solid #505a0b;
+input[type="radio"]:checked + label .yellowgreen {
+  border: 2px solid #5d7c1e;
 }
-input[type="radio"]:checked + label .green {
-  border: 2px solid #0e4e1d;
+input[type="radio"]:checked + label .lightgreen {
+  border: 2px solid #56a456;
 }
-input[type="radio"]:checked + label .teal {
-  border: 2px solid #003633;
+input[type="radio"]:checked + label .turquoise {
+  border: 2px solid #2a9187;
 }
-input[type="radio"]:checked + label .blue {
-  border: 2px solid #103f62;
+input[type="radio"]:checked + label .lightskyblue {
+  border: 2px solid #4a7e9e;
 }
-input[type="radio"]:checked + label .violet {
-  border: 2px solid #321a64;
+input[type="radio"]:checked + label .tomato {
+  border: 2px solid #b44734;
 }
-input[type="radio"]:checked + label .purple {
-  border: 2px solid #501962;
+input[type="radio"]:checked + label .plum {
+  border: 2px solid #7a477a;
 }
 input[type="radio"]:checked + label .pink {
   border: 2px solid #851554;
@@ -62,33 +62,33 @@ label span {
   height: 100%;
   transition: transform 0.2s ease-in-out;
 }
-label span.red {
-  background: #db2828;
+label span.burlywood {
+  background: #deb887;
 }
-label span.orange {
-  background: #f2711c;
+label span.lightsalmon {
+  background: #ffa07a;
 }
-label span.yellow {
-  background: #fbbd08;
+label span.lemonchiffon {
+  background: #fffacd;
 }
-label span.olive {
-  background: #b5cc18;
+label span.yellowgreen {
+  background: #9acd32;
 }
-label span.green {
-  background: #21ba45;
+label span.lightgreen {
+  background: #90ee90;
 }
-label span.teal {
-  background: #00b5ad;
+label span.turquoise {
+  background: #40e0d0;
 }
-label span.blue {
-  background: #2185d0;
+label span.lightskyblue {
+  background: #87cefa;
 }
-label span.violet {
-  background: #6435c9;
+label span.tomato {
+  background: #ff6347;
 }
-label span.purple {
-  background: #a333c8;
+label span.plum {
+  background: #dda0dd;
 }
 label span.pink {
-  background: #e03997;
+  background: #ffc0cb;
 }
