@@ -1,0 +1,8 @@
+Open Library API's
+https://openlibrary.org/developers/api
+
+interactive OpenAPI Sandbox
+https://openlibrary.org/swagger/docs
+
+Open Library Covers API
+https://openlibrary.org/dev/docs/api/covers
