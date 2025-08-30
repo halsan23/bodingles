@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&display=swap');
+
+
+body {
+   background-color: #dddddd;
+   width: 100%;
+   font-family: "SUSE", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 1em;
+   text-align: center;
+}
+
+.container {
+   display: flex;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+}
+
+.card{
+   margin: 20px 10px;
+   position: relative;
+}
+
+.bookBack{
+   background-color: cadetblue;
+   background-image: url("../images/backImg.jpg");
+   background-size: cover;
+   padding-top: 10px;
+   text-align: center;
+   width: 300px;
+   height: 500px;
+   border-radius: 10px;
+}
+
+.bookText{
+   background-color: #cccccc;
+   width: 260px;
+   padding: 5px 10px;
+   text-align: justify;
+   position: absolute;
+   bottom: 10px;
+   left: 10px;
+   z-index: 10;
+   border-radius: 10px;
+   opacity: 0;
+   transition: opacity 1s;
+}
+
+.bookText:hover {
+   opacity: .8;
+   transition: opacity 2s;
+}
