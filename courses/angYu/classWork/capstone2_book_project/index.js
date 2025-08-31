@@ -20,8 +20,39 @@ db.connect();
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-// ===================================================//
+// ========================================================================================//
 
+async function getBook(book) {
+   try {
+      const response = await axios.get(`https://openlibrary.org/search.json?q=${book}&limit=1`);
+      const result = response.data;
+
+      let bookData = {
+         olid: result.docs[0].cover_edition_key,
+         title: result.docs[0].title,
+         published: result.docs[0].first_publish_year,
+         // coverImg: `https://covers.openlibrary.org/b/olid/${olid}-M.jpg`,
+      }
+   console.log(`Book Data: ${bookData}`);
+      return bookData;
+   } catch (err) {
+      console.log('Book not Found');
+   }
+}
+
+async function getDescr(olid) {
+   try {
+      const response = await axios.get(`https://openlibrary.org/works/${olid}.json`);
+      const result = response.data;
+      bookDescr = result.data.description.value;
+      return bookDescr;
+   } catch (err) {
+      console.log('Book description not Found');
+   }
+}
+
+
+// ========================================================================================//
 // Display default page - index.ejs
 app.get("/", (req, res) => {
    res.render("index.ejs");
@@ -30,29 +61,11 @@ app.get("/", (req, res) => {
 
 app.post('/', async (req, res) => {
    let book = req.body.bookTitle.trim();
-      console.log(`Book Input: ${book}`);
+   let bookData = await getBook(book);
+   console.log(`Book Data: ${bookData}`);
+   // const bookDescr = await getDescr(bookData.olid);
+   // let bookData.descr = bookDescr;
 
-      const searchString = book.replace(/ /g, '+');
-      console.log(`Search String: ${searchString}`);
-
-   try {
-      const response = await axios.get(`https://openlibrary.org/search.json?q=${searchString}&limit=1`);
-      const result = response.data;
-      const olid = result.docs[0].cover_edition_key;
-      const title = result.docs[0].title;
-      const published = result.docs[0].first_publish_year;
-      console.log(`OLID: ${olid}`);
-      console.log(`Title: ${title}`);
-      console.log(`First Published: ${published}`);
-
-      const coverImg = `https://covers.openlibrary.org/b/olid/${olid}-M.jpg`;
-      console.log(`Cover Image: ${coverImg}`);
-
-
-
-   } catch (err) {
-      console.log(err);
-   }
 });
 
 
