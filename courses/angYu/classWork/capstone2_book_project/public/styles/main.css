@@ -2,7 +2,7 @@
 
 .gradient-background {
   /* background: linear-gradient(320deg, #878787, #888888, #c8c8c8); */
-  background: linear-gradient(320deg, #ded1bd, #b2b2b2, #ddd9d2);
+  background: linear-gradient(320deg, #989898, #c2c2c2, #dcd6cc);
   background-size: 100% 100vh;
   animation: gradient-animation 12s ease infinite;
 }
