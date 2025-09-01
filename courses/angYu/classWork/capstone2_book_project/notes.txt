@@ -6,7 +6,13 @@ https://openlibrary.org/swagger/docs
 
 Open Library Covers API
 https://openlibrary.org/dev/docs/api/covers
-https://covers.openlibrary.org/b/olid/OL7440033M-S.jpg
+https://covers.openlibrary.org/b/olid/OL4086564W-M.jpg
+
+description
+https://openlibrary.org/works/OL4086564W.json
+
+ratings
+https://openlibrary.org/works/OL4086564W/ratings.json
 
 
 Flowchart Creator
