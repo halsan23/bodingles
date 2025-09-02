@@ -47,12 +47,23 @@ async function getDescr(olid) {
       const response = await axios.get(`https://openlibrary.org/works/${olid}.json`);
       const result = response.data;
 
-      let bookDescr = result.description.value.substr(0, 600) + ". . .";
+      let bookDescr = result.description.value.substr(0, 500) + ". . .";
       return bookDescr;
    } catch (err) {
       console.log('Book description not Found');
    }
 }
+
+async function getRating(olid) {
+   try {
+      const response = await axios.get(`https://openlibrary.org/works/${olid}/ratings.json`);
+      const result = response.data;
+      return Math.round(result.summary.average * 10) / 10;
+   } catch (err) {
+      console.log('Book description not Found');
+   }
+}
+
 
 // ===================================================================//
 // Display default page - index.ejs
@@ -65,14 +76,20 @@ app.post('/', async (req, res) => {
    let book = req.body.bookTitle.trim();
    let bookData = await getBook(book);
    const bookDesc = await getDescr(bookData.olid);
+   bookData.descr = bookDesc;
+   const rating = await getRating(bookData.olid);
+   bookData.rating = rating;
+   bookData.webAddress = `https://openlibrary.org/works/${bookData.editionOlid}`
 
+   // console.log(`bookData: ${JSON.stringify(bookData)}`);
    console.log(`olid: ${bookData.olid}`);
    console.log(`edition olid: ${bookData.editionOlid}`);
    console.log(`Title: ${bookData.title}`);
    console.log(`Published: ${bookData.published}`);
    console.log(`cover: ${bookData.cover}`);
-   console.log(`Description: ${bookDesc}`);
-
+   console.log(`Description: ${bookData.descr}`);
+   console.log(`Rating: ${bookData.rating}`);
+   console.log(`Web Link: ${bookData.webAddress}`);
 
 });
 
