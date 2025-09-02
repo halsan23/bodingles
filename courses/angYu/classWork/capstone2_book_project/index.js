@@ -30,6 +30,7 @@ async function getBook(book) {
          olid: result.docs[0].key.substr(7),
          editionOlid: result.docs[0].cover_edition_key,
          title: result.docs[0].title,
+         author: result.docs[0].author_name,
          published: result.docs[0].first_publish_year
       }
 
@@ -81,15 +82,18 @@ app.post('/', async (req, res) => {
    bookData.rating = rating;
    bookData.webAddress = `https://openlibrary.org/works/${bookData.editionOlid}`
 
-   // console.log(`bookData: ${JSON.stringify(bookData)}`);
    console.log(`olid: ${bookData.olid}`);
    console.log(`edition olid: ${bookData.editionOlid}`);
    console.log(`Title: ${bookData.title}`);
+   console.log(`Author: ${bookData.author}`);
    console.log(`Published: ${bookData.published}`);
    console.log(`cover: ${bookData.cover}`);
    console.log(`Description: ${bookData.descr}`);
    console.log(`Rating: ${bookData.rating}`);
    console.log(`Web Link: ${bookData.webAddress}`);
+
+
+   // console.log(`bookData: ${JSON.stringify(bookData)}`);
 
 });
 
