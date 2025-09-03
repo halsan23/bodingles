@@ -26,19 +26,21 @@
    </div>
 
    <div class="container">
-      <% for (const book of bookdata) { %>
-         <div class="card">
-            <div class="bookCover" style="background-image: url('<%= book.cover %>');">
+      <% if (bookdata.length) { %>
+         <% bookdata.forEach((book) => { %>
+            <div class="card">
+               <div class="bookCover" style="background-image: url('<%= book.cover %>');">
+               </div>
+               <div class="bookText"><%= book.descr %>
+               </div>
+               <div class="bookDetails">
+                  <a class="bookTitle" href="<%= book.webaddress %>" target="_blank"><%= book.title %></a>
+                  <p><%= book.author %></p>
+                  <p>First Published: <%= book.published %></p>
+                  <p><%= book.rating %></p>
+               </div>
             </div>
-            <div class="bookText"><%= book.descr %>
-            </div>
-            <div class="bookDetails">
-               <a class="bookTitle" href="<%= book.webaddress %>" target="_blank"><%= book.title %></a>
-               <p><%= book.author %></p>
-               <p>First Published: <%= book.published %></p>
-               <p><%= book.rating %></p>
-            </div>
-         </div>
+         <% }) %>
       <% } %>
    </div>
 
