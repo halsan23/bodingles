@@ -11,7 +11,7 @@ const db = new pg.Client({
    user: "postgres",
    password: "password",
    host: "localhost",
-   database: "toDoList",
+   database: "books",
    port: 5432,
 });
 db.connect();
@@ -65,10 +65,30 @@ async function getRating(olid) {
    }
 }
 
+async function getBookData() {
+   let books = {};
+   const result = await db.query("SELECT * FROM bookdata");
+   result.rows.forEach((book) => {
+      books.olid = book.olid,
+      books.editolid = book.editolid,
+      books.title = book.title,
+      books.author = book.author,
+      books.published = book.published,
+      books.descr = book.descr,
+      books.rating = book.rating,
+      books.cover = book.cover,
+      books.webaddress = book.webaddress
+   });
+   // console.log(`Book: ${JSON.stringify(books)}`);
+   return books;
+}
+
 
 // ===================================================================//
 // Display default page - index.ejs
 app.get("/", (req, res) => {
+   let bookdata = getBookData();
+   console.log(`Book: ${JSON.stringify(bookdata)}`);
    res.render("index.ejs");
 });
 
@@ -82,15 +102,15 @@ app.post('/', async (req, res) => {
    bookData.rating = rating;
    bookData.webAddress = `https://openlibrary.org/works/${bookData.editionOlid}`
 
-   console.log(`olid: ${bookData.olid}`);
-   console.log(`edition olid: ${bookData.editionOlid}`);
-   console.log(`Title: ${bookData.title}`);
-   console.log(`Author: ${bookData.author}`);
-   console.log(`Published: ${bookData.published}`);
-   console.log(`cover: ${bookData.cover}`);
-   console.log(`Description: ${bookData.descr}`);
-   console.log(`Rating: ${bookData.rating}`);
-   console.log(`Web Link: ${bookData.webAddress}`);
+   // console.log(`olid: ${bookData.olid}`);
+   // console.log(`edition olid: ${bookData.editionOlid}`);
+   // console.log(`Title: ${bookData.title}`);
+   // console.log(`Author: ${bookData.author}`);
+   // console.log(`Published: ${bookData.published}`);
+   // console.log(`Description: ${bookData.descr}`);
+   // console.log(`Rating: ${bookData.rating}`);
+   // console.log(`cover: ${bookData.cover}`);
+   // console.log(`Web Link: ${bookData.webAddress}`);
 
 
    // console.log(`bookData: ${JSON.stringify(bookData)}`);
