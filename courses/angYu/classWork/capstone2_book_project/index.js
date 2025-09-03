@@ -65,31 +65,21 @@ async function getRating(olid) {
    }
 }
 
-async function getBookData() {
-   let books = {};
-   const result = await db.query("SELECT * FROM bookdata");
-   result.rows.forEach((book) => {
-      books.olid = book.olid,
-      books.editolid = book.editolid,
-      books.title = book.title,
-      books.author = book.author,
-      books.published = book.published,
-      books.descr = book.descr,
-      books.rating = book.rating,
-      books.cover = book.cover,
-      books.webaddress = book.webaddress
-   });
-   // console.log(`Book: ${JSON.stringify(books)}`);
-   return books;
-}
-
-
 // ===================================================================//
 // Display default page - index.ejs
 app.get("/", (req, res) => {
-   let bookdata = getBookData();
-   console.log(`Book: ${JSON.stringify(bookdata)}`);
-   res.render("index.ejs");
+   const result = 'SELECT * FROM bookdata ORDER BY id ASC';
+   db.query(result, (error, results) => {
+      if (error) {
+         throw error;
+      } else {
+         const books = results.rows
+
+         console.log(books[0].rating);
+
+         res.render("index.ejs", { bookdata: books });
+      }
+   });
 });
 
 

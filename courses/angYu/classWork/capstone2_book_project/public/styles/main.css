@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&display=swap');
 
-.gradient-background {
-  /* background: linear-gradient(320deg, #878787, #888888, #c8c8c8); */
+/* .gradient-background {
   background: linear-gradient(320deg, #989898, #c2c2c2, #dcd6cc);
-  background-size: 100% 100vh;
+  background-size: 100% 100%;
   animation: gradient-animation 12s ease infinite;
-}
+} */
 
 body {
    background-color: #dddddd;
@@ -30,8 +29,10 @@ body {
 }
 
 .bookDetails {
-   background-color: #e5e5e5;
+   background-color: #ffffff;
+   padding: 10px 0 0;
    width: 225px;
+   line-height: 1rem;
    border: 1px solid black;
    border-radius: 0 0 10px 10px;
 }
@@ -42,7 +43,7 @@ body {
    width: 201px;
    padding: 5px 10px;
    position: absolute;
-   bottom: 145px;
+   top: 10px;
    left: 8px;
    z-index: 10;
    font-size: .8rem;
@@ -56,6 +57,16 @@ body {
 .bookText:hover {
    opacity: .8;
    transition: opacity 1s;
+}
+
+.bookTitle {
+   color:#303030;
+   font-weight: 700;
+}
+
+.bookTitle:hover {
+   color:#006ab0;
+   cursor: pointer;
 }
 
 .container {

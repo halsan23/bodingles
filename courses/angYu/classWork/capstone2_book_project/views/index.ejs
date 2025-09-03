@@ -26,20 +26,21 @@
    </div>
 
    <div class="container">
-      <div class="card">
-         <div class="bookCover" style="background-image: url('https://covers.openlibrary.org/b/olid/OL3572399M-M.jpg');">
+      <% for (const book of bookdata) { %>
+         <div class="card">
+            <div class="bookCover" style="background-image: url('<%= book.cover %>');">
+            </div>
+            <div class="bookText"><%= book.descr %>
+            </div>
+            <div class="bookDetails">
+               <a class="bookTitle" href="<%= book.webaddress %>" target="_blank"><%= book.title %></a>
+               <p><%= book.author %></p>
+               <p>First Published: <%= book.published %></p>
+               <p><%= book.rating %></p>
+            </div>
          </div>
-         <div class="bookText">
-            Bobby Pendragon is a seemingly normal fourteen-year-old boy. He has a family, a home, and even Marley, his beloved dog. But there is something very special about Bobby. He is going to save the world. And not just Earth as we know it. Bobby is slowly starting to realize that life in the cosmos isn't quite what he thought it was. And before he can object, he is swept off to an alternate dimension known as Denduron, a territory inhabited by strange beings, ruled by a magical tyrant, and plagu. . .
-         </div>
-         <div class="bookDetails">
-            <h3>The Merchant of Death</h3>
-            <p>D.J. MacHale</p>
-            <p>First Published: 2002</p>
-         </div>
-      </div>
+      <% } %>
    </div>
-
 
 </body>
 </html>
