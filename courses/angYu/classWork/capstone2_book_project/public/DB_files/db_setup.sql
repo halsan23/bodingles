@@ -10,3 +10,26 @@ create table bookdata (
 	cover text,
 	webaddress text
 )
+
+insert into bookdata (
+		olid,
+		editolid,
+		title,
+		author,
+		published,
+		descr,
+		rating,
+		cover,
+		webaddress
+	)
+	values (
+		'bookolid',
+		'editionolid',
+		'title',
+		'author',
+		'date',
+		E'descr',
+		'rat',
+		'cover link',
+		'book link'
+	)

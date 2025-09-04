@@ -30,15 +30,16 @@ body {
 
 .bookDetails {
    background-color: #ffffff;
-   padding: 10px 0 0;
+   padding: 10px 0;
    width: 225px;
+   height: 150px;
    line-height: 1rem;
    border: 1px solid black;
    border-radius: 0 0 10px 10px;
 }
 
 .bookText{
-   background-color: #303030;
+   background-color: #151515;
    color: #f0f0f0;
    width: 201px;
    padding: 5px 10px;
@@ -60,12 +61,19 @@ body {
 }
 
 .bookTitle {
+   height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.bookTitle a {
    color:#303030;
    font-weight: 700;
 }
 
-.bookTitle:hover {
-   color:#006ab0;
+.bookTitle a:hover {
+   color:#286993;
    cursor: pointer;
 }
 
@@ -80,4 +88,18 @@ body {
    margin: 20px 10px 0;
    padding: 5px;
    position: relative;
+}
+
+.rating {
+   width: 90%;
+   margin: 0 auto;
+   padding: 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+
+.rating img {
+   vertical-align: middle;
 }

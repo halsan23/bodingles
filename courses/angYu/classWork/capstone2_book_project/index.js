@@ -74,8 +74,9 @@ app.get("/", (req, res) => {
          throw error;
       } else {
          const books = results.rows
-
-         console.log(books[0].rating);
+         const rating = books[0].rating;
+         books.stars = Math.trunc(rating);
+         books.halfstars = rating % 1;
 
          res.render("index.ejs", { bookdata: books });
       }
@@ -87,24 +88,19 @@ app.post('/', async (req, res) => {
    let book = req.body.bookTitle.trim();
    let bookData = await getBook(book);
    const bookDesc = await getDescr(bookData.olid);
-   bookData.descr = bookDesc;
+   bookData.descr = `E${bookDesc}`;
    const rating = await getRating(bookData.olid);
    bookData.rating = rating;
-   bookData.webAddress = `https://openlibrary.org/works/${bookData.editionOlid}`
-
-   // console.log(`olid: ${bookData.olid}`);
-   // console.log(`edition olid: ${bookData.editionOlid}`);
-   // console.log(`Title: ${bookData.title}`);
-   // console.log(`Author: ${bookData.author}`);
-   // console.log(`Published: ${bookData.published}`);
-   // console.log(`Description: ${bookData.descr}`);
-   // console.log(`Rating: ${bookData.rating}`);
-   // console.log(`cover: ${bookData.cover}`);
-   // console.log(`Web Link: ${bookData.webAddress}`);
-
-
-   // console.log(`bookData: ${JSON.stringify(bookData)}`);
-
+   bookData.webAddress = `https://openlibrary.org/works/${bookData.editionOlid}`;
+   try {
+      await db.query(
+         'INSERT INTO bookdata (olid, editolid, title, author, published, descr, rating, cover, webaddress) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)',
+         [bookData.olid, bookData.editionOlid, bookData.title, bookData.author, bookData.published, bookData.descr, bookData.rating, bookData.cover, bookData.webAddress]
+      );
+      res.redirect("/");
+   } catch (err) {
+      console.log(err);
+   }
 });
 
 

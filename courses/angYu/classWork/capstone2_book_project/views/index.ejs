@@ -29,15 +29,28 @@
       <% if (bookdata.length) { %>
          <% bookdata.forEach((book) => { %>
             <div class="card">
-               <div class="bookCover" style="background-image: url('<%= book.cover %>');">
-               </div>
-               <div class="bookText"><%= book.descr %>
-               </div>
+               <div class="bookCover" style="background-image: url('<%= book.cover %>');"></div>
+               <div class="bookText"><%= book.descr %></div>
                <div class="bookDetails">
-                  <a class="bookTitle" href="<%= book.webaddress %>" target="_blank"><%= book.title %></a>
+                  <div class="bookTitle">
+                     <a href="<%= book.webaddress %>" target="_blank"><%= book.title %></a>
+                  </div>
+
                   <p><%= book.author %></p>
                   <p>First Published: <%= book.published %></p>
-                  <p><%= book.rating %></p>
+                  <div class="rating">
+                     <div>D</div>
+                     <div>
+                        <% for (i=1; i<=bookdata.stars; i++) {%>
+                           <img src="../images/starFull.png" alt="rating" width="26">
+                        <% } %>
+                        <% if (bookdata.halfstars > 0.0) { %>
+                           <img src="../images/starHalf.png" alt="rating" width="26">
+                        <%  } %>
+                     </div>
+                     <div>E</div>
+                  </div>
+                  <div><%= book.rating %></div>
                </div>
             </div>
          <% }) %>
