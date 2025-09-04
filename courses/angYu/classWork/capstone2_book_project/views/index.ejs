@@ -35,16 +35,15 @@
                   <div class="bookTitle">
                      <a href="<%= book.webaddress %>" target="_blank"><%= book.title %></a>
                   </div>
-
                   <p><%= book.author %></p>
                   <p>First Published: <%= book.published %></p>
                   <div class="rating">
                      <div>D</div>
                      <div>
-                        <% for (i=1; i<=bookdata.stars; i++) {%>
+                        <% for (i=1; i<=book.stars; i++) {%>
                            <img src="../images/starFull.png" alt="rating" width="26">
                         <% } %>
-                        <% if (bookdata.halfstars > 0.0) { %>
+                        <% if (book.halfstars) { %>
                            <img src="../images/starHalf.png" alt="rating" width="26">
                         <%  } %>
                      </div>
