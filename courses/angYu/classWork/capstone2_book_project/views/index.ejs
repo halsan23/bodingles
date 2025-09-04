@@ -19,9 +19,8 @@
    <div>
       <p>Search for a book to add to our DataBase.</p>
       <form action="/" method="post">
-         <label for="bookSearch">Book Name: </label>
-         <input type="text" id="bookSearch" name="bookTitle">
-         <button>Submit</button>
+         <input class="bookSearch" type="text" id="bookSearch" name="bookTitle" placeholder="Book Title">
+         <button class="searchButton">Submit</button>
       </form>
    </div>
 
@@ -38,21 +37,37 @@
                   <p><%= book.author %></p>
                   <p>First Published: <%= book.published %></p>
                   <div class="rating">
-                     <div>D</div>
+                     <% let stars = Math.trunc(book.rating) %>
+                     <% let halfstars = book.rating - stars %>
+                     <div class="delete">
+                        <form action="/delete" method="post">
+                           <input type="hidden" name="id" value="<%= book.id %>">
+                           <button type="submit">
+                              <img src="../images/trash.png" alt="delete" width="20px">
+                           </button>
+                        </form>
+                     </div>
                      <div>
-                        <% for (i=1; i<=book.stars; i++) {%>
-                           <img src="../images/starFull.png" alt="rating" width="26">
+                        <% for (i=1; i<=stars; i++) {%>
+                           <img src="../images/starFull.png" alt="rating" width="22">
                         <% } %>
-                        <% if (book.halfstars) { %>
-                           <img src="../images/starHalf.png" alt="rating" width="26">
+                        <% if (halfstars > 0) { %>
+                           <img src="../images/starHalf.png" alt="rating" width="22">
                         <%  } %>
                      </div>
-                     <div>E</div>
+                     <div class="edit">
+                        <form action="/edit" method="post">
+                           <button type="submit">
+                              <img src="../images/pencil.png" alt="delete" width="20px">
+                           </button>
+                        </form>
+                     </div>
                   </div>
-                  <div><%= book.rating %></div>
                </div>
             </div>
          <% }) %>
+      <% } else { %>
+         <h3>No Books In Database</h3>
       <% } %>
    </div>
 

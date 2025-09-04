@@ -48,7 +48,7 @@ async function getDescr(olid) {
       const response = await axios.get(`https://openlibrary.org/works/${olid}.json`);
       const result = response.data;
 
-      let bookDescr = result.description.value.substr(0, 500) + ". . .";
+      let bookDescr = result.description.value.substr(0, 500) + " . . .";
       return bookDescr;
    } catch (err) {
       console.log('Book description not Found');
@@ -69,15 +69,11 @@ async function getRating(olid) {
 // Display default page - index.ejs
 app.get("/", (req, res) => {
    const result = 'SELECT * FROM bookdata ORDER BY id ASC';
-   db.query(result, (error, results) => {
-      if (error) {
-         throw error;
+   db.query(result, (err, results) => {
+      if (err) {
+         console.log(err);
       } else {
          const books = results.rows
-         const rating = books[0].rating;
-         books.stars = Math.trunc(rating);
-         books.halfstars = rating % 1;
-
          res.render("index.ejs", { bookdata: books });
       }
    });
@@ -88,7 +84,7 @@ app.post('/', async (req, res) => {
    let book = req.body.bookTitle.trim();
    let bookData = await getBook(book);
    const bookDesc = await getDescr(bookData.olid);
-   bookData.descr = `E${bookDesc}`;
+   bookData.descr = `${bookDesc}`;
    const rating = await getRating(bookData.olid);
    bookData.rating = rating;
    bookData.webAddress = `https://openlibrary.org/works/${bookData.editionOlid}`;
@@ -101,6 +97,24 @@ app.post('/', async (req, res) => {
    } catch (err) {
       console.log(err);
    }
+});
+
+
+app.post('/edit', async (req, res) => {
+   console.log('edit route');
+});
+
+
+app.post('/delete', async (req, res) => {
+   const id = req.body.id;
+   const result = `DELETE FROM bookdata WHERE id = ${id}`;
+   db.query(result, (err, results) => {
+      if (err) {
+         console.log(err);
+      } else {
+      res.redirect("/");
+      }
+   });
 });
 
 

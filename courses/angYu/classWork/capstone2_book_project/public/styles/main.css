@@ -17,6 +17,11 @@ body {
    text-align: center;
 }
 
+button {
+   background-color: #fff;
+   border: none;
+}
+
 .bookCover{
    background-color: #4d6162;
    background-size: cover;
@@ -33,9 +38,23 @@ body {
    padding: 10px 0;
    width: 225px;
    height: 150px;
+   font-size: .9rem;
    line-height: 1rem;
    border: 1px solid black;
    border-radius: 0 0 10px 10px;
+}
+
+.bookSearch {
+   margin: 0 10px;
+   padding: 3px 10px;
+   height: 20px;
+   font-size: 1.1rem;
+   border-color: #303030;
+   border-radius: 6px;
+}
+
+.bookSearch:focus {
+   background-color: #ffebda;
 }
 
 .bookText{
@@ -69,6 +88,8 @@ body {
 
 .bookTitle a {
    color:#303030;
+   padding: 0 10px;
+   font-size: 1rem;
    font-weight: 700;
 }
 
@@ -102,4 +123,19 @@ body {
 
 .rating img {
    vertical-align: middle;
+}
+
+.searchButton {
+   margin: 0 10px;
+   padding: 3px 10px;
+   font-size: 1rem;
+   border: 2px solid #303030;
+   border-radius: 6px;
+   box-shadow: 2px 2px 8px #303030;
+}
+
+.searchButton:hover {
+   background-color: #b3f3f4;
+   box-shadow: none;
+   cursor: pointer;
 }
