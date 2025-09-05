@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&display=swap');
 
-/* .gradient-background {
+.gradient-background {
   background: linear-gradient(320deg, #989898, #c2c2c2, #dcd6cc);
   background-size: 100% 100%;
   animation: gradient-animation 12s ease infinite;
-} */
+}
 
 body {
    background-color: #dddddd;
@@ -66,7 +66,7 @@ button {
    top: 10px;
    left: 8px;
    z-index: 10;
-   font-size: .8rem;
+   font-size: .9rem;
    line-height: 1.1rem;
    text-align: center;
    border-radius: 10px;
@@ -91,6 +91,7 @@ button {
    padding: 0 10px;
    font-size: 1rem;
    font-weight: 700;
+   text-decoration: none;
 }
 
 .bookTitle a:hover {
@@ -109,6 +110,37 @@ button {
    margin: 20px 10px 0;
    padding: 5px;
    position: relative;
+}
+
+.error {
+   color: #932929;
+   font-weight: 700;
+}
+
+.heading {
+   font-size: 2rem;
+   margin: 30px auto;
+}
+
+.hr {
+   width: 80%;
+}
+
+.intro {
+   width: 75%;
+   margin: 0 auto 30px;
+   line-height: 1.5rem;
+   text-align: left;
+}
+
+.intro a {
+   color: #885f17;
+   font-weight: 700;
+   text-decoration: none;
+}
+
+.intro a:hover {
+   color: #16679d;
 }
 
 .rating {

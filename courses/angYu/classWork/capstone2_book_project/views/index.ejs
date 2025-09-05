@@ -13,16 +13,39 @@
 </head>
 
 <body class="gradient-background">
-
-   <h1>The Book Project</h1>
+   <h1 class="heading">The Book Project</h1>
+   <div class="intro">
+      <p>This project was a class assignment requiring us to create an API, to pull some book data from the records at <a href="https://openlibrary.org/" target="_blank">Open Library</a>. This was supposed to be a list of books the we have read, but I haven't been a "reader" for probably 40 years or more. So instead of books I have read, I just pulled some random books into my database.</p>
+      <p>The requirements for this project were:
+         <ol>
+            <li>Use an API to retrieve data about a book fro Open Library</li>
+            <li>Store that data in a Database the we have to create</li>
+            <li>Pull the data from the database to create a functional output which is presented here.</li>
+            <li>Maintain full CRUD functionality:
+               <ul>
+                  <li><b>C</b>reate</li>
+                  <li><b>R</b>ead</li>
+                  <li><b>U</b>pdate</li>
+                  <li><b>D</b>elete</li>
+               </ul>
+            </li>
+         </ol>
+      </p>
+      <p>In the end, I found that I needed to run 3 API's to retrieve all of the data I wanted to display. And the end result, simply enter a book title and the AI will fetch the relevant data and store it in the database. It then retrieves all of the data, formats it, and outputs the results for display. </p>
+   </div><hr>
 
    <div>
-      <p>Search for a book to add to our DataBase.</p>
+      <% if (locals.error) { %>
+         <p class="error">Error: Book Not Found</p>
+      <% } else { %>
+         <p>Search for a book to add to our DataBase.</p>
+      <% } %>
       <form action="/" method="post">
-         <input class="bookSearch" type="text" id="bookSearch" name="bookTitle" placeholder="Book Title">
+         <input class="bookSearch" type="text" id="bookSearch" name="bookTitle" placeholder="Book Title" required>
          <button class="searchButton">Submit</button>
       </form>
-   </div>
+      <br>
+   </div><hr>
 
    <div class="container">
       <% if (bookdata.length) { %>
