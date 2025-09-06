@@ -70,13 +70,18 @@
                            </button>
                         </form>
                      </div>
-                     <div>
-                        <% for (i=1; i<=stars; i++) {%>
-                           <img src="../images/starFull.png" alt="rating" width="22">
-                        <% } %>
-                        <% if (halfstars > 0) { %>
-                           <img src="../images/starHalf.png" alt="rating" width="22">
-                        <%  } %>
+                     <div class="rateDisp">
+                        <div class="rateStars">
+                           <% for (i=1; i<=stars; i++) {%>
+                              <img src="../images/starFull.png" alt="rating" width="22">
+                           <% } %>
+                           <% if (halfstars > 0) { %>
+                              <img src="../images/starHalf.png" alt="rating" width="22">
+                           <%  } %>
+                        </div>
+                        <div class="rateNums">
+                           <%= book.rating %>
+                        </div>
                      </div>
                      <div class="edit">
                         <form action="/edit" method="post">
