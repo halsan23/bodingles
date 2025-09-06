@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&display=swap');
 
 .gradient-background {
-  background: linear-gradient(320deg, #989898, #c2c2c2, #dcd6cc);
+  background: linear-gradient(320deg, #989898, #d8cfbf, #f4efe6);
   background-size: 100% 100%;
   animation: gradient-animation 12s ease infinite;
 }
 
 body {
-   background-color: #dddddd;
    width: 100%;
+   margin: 0;
+   padding: 0;
    font-family: "SUSE", sans-serif;
    font-optical-sizing: auto;
    font-weight: 400;
@@ -20,6 +21,23 @@ body {
 button {
    background-color: #fff;
    border: none;
+}
+
+footer {
+   background-color: #ffebda;
+   width: 100%;
+   margin: 35px 0 0;
+   text-align: center;
+   border: 1px solid black;
+}
+
+h1 {
+   background-color: #ffebda;
+   width: 100%;
+   margin: 0 0 25px;
+   padding: 15px 0;
+   border: 2px solid black;
+   font-size: 2.5rem;
 }
 
 .bookCover{
@@ -116,11 +134,6 @@ button {
    font-weight: 700;
 }
 
-.heading {
-   font-size: 2rem;
-   margin: 30px auto;
-}
-
 .hr {
    width: 80%;
 }
@@ -129,17 +142,18 @@ button {
    width: 75%;
    margin: 0 auto 30px;
    line-height: 1.5rem;
-   text-align: left;
+   font-size: 1.1rem;
+   text-align: justify;
 }
 
 .intro a {
-   color: #885f17;
+   color: #1f5c85;
    font-weight: 700;
    text-decoration: none;
 }
 
 .intro a:hover {
-   color: #16679d;
+   color: #885f17;
 }
 
 .rateDisp {
