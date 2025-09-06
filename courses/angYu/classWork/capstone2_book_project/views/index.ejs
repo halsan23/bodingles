@@ -87,8 +87,9 @@
                      </div>
                      <div class="edit">
                         <form action="/edit" method="post">
+                           <input type="hidden" name="id" value="<%= book.id %>">
                            <button type="submit">
-                              <img src="../images/pencil.png" alt="delete" width="20px">
+                              <img src="../images/pencil.png" alt="edit" width="20px">
                            </button>
                         </form>
                      </div>

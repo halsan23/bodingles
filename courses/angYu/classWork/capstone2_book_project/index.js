@@ -98,7 +98,6 @@ app.post('/', async (req, res) => {
          }
       });
    } else {
-
       const bookDesc = await getDescr(bookData.olid);
       bookData.descr = `${bookDesc}`;
       const rating = await getRating(bookData.olid);
@@ -118,7 +117,9 @@ app.post('/', async (req, res) => {
 
 
 app.post('/edit', async (req, res) => {
-   console.log('edit route');
+   const bookId = req.body.id;
+   const result = `SELECT * FROM bookdata WHERE id = ${bookId}`;
+   console.log(`Edit Book ID: ${bookId}`);
 });
 
 
