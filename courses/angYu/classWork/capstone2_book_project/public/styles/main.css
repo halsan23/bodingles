@@ -67,8 +67,8 @@ h1 {
    top: 0;
    left: 0;
    z-index: 10;
-   font-size: 1vw;
-   line-height: 1.35vw;
+   font-size: .9vw;
+   line-height: 1.30vw;
    text-align: center;
    border-radius: 10px;
    opacity: 0;
