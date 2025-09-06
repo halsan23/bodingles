@@ -16,6 +16,7 @@ body {
    font-style: normal;
    font-size: 1em;
    text-align: center;
+   overflow-x: hidden;
 }
 
 button {
@@ -40,24 +41,53 @@ h1 {
    font-size: 2.5rem;
 }
 
+.card{
+   width: 235px;
+   height: 450px;
+   margin: 25px 20px 50px;
+   position: relative;
+}
+
 .bookCover{
    background-color: #4d6162;
    background-size: cover;
-   width: 225px;
-   height: 340px;
+   width: 100%;
+   height: 70%;
    text-align: center;
-   border: 1px solid black;
+   border: 2px solid black;
    border-radius: 10px 10px 0 0;
+}
+
+.bookText{
+   background-color: #151515;
+   color: #f0f0f0;
+   margin: 5px 5px;
+   padding: 5px 10px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   font-size: 1.1vw;
+   line-height: 1.1rem;
+   text-align: center;
+   border-radius: 10px;
+   opacity: 0;
+   transition: opacity 1s;
+}
+
+.bookText:hover {
+   opacity: .8;
+   transition: opacity 1s;
 }
 
 .bookDetails {
    background-color: #ffffff;
    padding: 10px 0;
-   width: 225px;
-   height: 150px;
+   width: 100%;
+   height: 30%;
    font-size: .9rem;
    line-height: 1rem;
-   border: 1px solid black;
+   border: 2px solid black;
    border-radius: 0 0 10px 10px;
 }
 
@@ -72,28 +102,6 @@ h1 {
 
 .bookSearch:focus {
    background-color: #ffebda;
-}
-
-.bookText{
-   background-color: #151515;
-   color: #f0f0f0;
-   width: 201px;
-   padding: 5px 10px;
-   position: absolute;
-   top: 10px;
-   left: 8px;
-   z-index: 10;
-   font-size: .9rem;
-   line-height: 1.1rem;
-   text-align: center;
-   border-radius: 10px;
-   opacity: 0;
-   transition: opacity 1s;
-}
-
-.bookText:hover {
-   opacity: .8;
-   transition: opacity 1s;
 }
 
 .bookTitle {
@@ -117,16 +125,10 @@ h1 {
 }
 
 .container {
+   width: 100%;
    display: flex;
    justify-content: center;
    flex-wrap: wrap;
-}
-
-.card{
-   width: 245px;
-   margin: 20px 10px 0;
-   padding: 5px;
-   position: relative;
 }
 
 .error {
