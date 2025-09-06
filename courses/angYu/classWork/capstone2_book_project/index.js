@@ -25,9 +25,6 @@ async function getBook(book) {
    try {
       const response = await axios.get(`https://openlibrary.org/search.json?q=${book}&limit=1`);
       const result = response.data;
-
-
-
       let bookData = {
          olid: result.docs[0].key.substr(7),
          editionOlid: result.docs[0].cover_edition_key,
@@ -49,7 +46,6 @@ async function getDescr(olid) {
    try {
       const response = await axios.get(`https://openlibrary.org/works/${olid}.json`);
       const result = response.data;
-
       let bookDescr = result.description.value.substr(0, 450) + " . . .";
       return bookDescr;
    } catch (err) {
@@ -119,7 +115,16 @@ app.post('/', async (req, res) => {
 app.post('/edit', async (req, res) => {
    const bookId = req.body.id;
    const result = `SELECT * FROM bookdata WHERE id = ${bookId}`;
-   console.log(`Edit Book ID: ${bookId}`);
+   db.query(result, (err, results) => {
+      if (err) {
+         console.log(err);
+      } else {
+         const book = results.rows[0];
+         console.log(`Edit Book ID: ${bookId}`);
+         console.log(`Book Data: ${JSON.stringify(book)}`);
+         // res.render("index.ejs", { bookdata: books });
+      }
+   });
 });
 
 
