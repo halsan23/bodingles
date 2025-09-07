@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>The Books Project</title>
+   <!-- Link Favicon -->
+   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+   <!-- link stylesheet -->
+   <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body class="gradient-background">
+   <div class="header"><h1>The&nbsp;&nbsp;&nbsp;Book&nbsp;&nbsp;&nbsp; Project</h1></div>
+
+   <div class="editHeader">
+      <h2>Book Edit</h2>
+   </div>
+
+   <div class="editFormLayout">
+      <% let book = locals.bookdata %>
+      <form class="editForm" action="/update" method="post">
+
+         <label class="editLabel" for="bookTitle">Title : </label>
+         <input class="editTextInput" type="text" id="bookTitle" name="bookTitle" value="<%= book.title %>" required>
+
+         <label class="editLabel" for="bookolid">OLID # : </label>
+         <input class="editTextInput" type="text" id="bookolid" name="bookolid" value="<%= book.olid %>" required>
+
+         <label class="editLabel" for="editolid">Edition OLID # : </label>
+         <input class="editTextInput" type="text" id="editolid" name="editolid" value="<%= book.editolid %>" required>
+
+         <label class="editLabel" for="author">Author : </label>
+         <input class="editTextInput" type="text" id="author" name="author" value="<%= book.author %>" required>
+
+         <label class="editLabel" for="published">First Published : </label>
+         <input class="editTextInput" type="text" id="published" name="published" value="<%= book.published %>" required>
+
+         <label class="editLabel" for="rating">Rating : </label>
+         <input class="editTextInput" type="text" id="rating" name="rating" value="<%= book.rating %>" required>
+
+         <label class="editLabel" for="cover">Cover Link : </label>
+         <input class="editTextInput" type="text" id="cover" name="cover" value="<%= book.cover %>" required>
+
+         <label class="editLabel" for="webaddress">Book Link : </label>
+         <input class="editTextInput" type="text" id="webaddress" name="webaddress" value="<%= book.webaddress %>" required>
+
+         <label class="editDescrLabel" for="descr">Book Description : </label>
+         <textarea class="editDescrArea" id="descr" name="descr" required rows="15" cols="1"><%= book.descr %></textarea>
+         <div class="editButtonRow">
+            <button class="editButton" type="reset">Reset</button>
+            <button class="editButton" type="submit">Submit</button>
+            <button class="editButton" type="button" onclick="window.location.href='/';">Cancel</button>
+         </div>
+      </form>
+      <p>&nbsp;</p>
+   </div>
+
+
+   <%- include('footer') %>

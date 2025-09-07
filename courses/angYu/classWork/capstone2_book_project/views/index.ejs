@@ -13,8 +13,7 @@
 </head>
 
 <body class="gradient-background">
-   <h1>The&nbsp;&nbsp;&nbsp;Book&nbsp;&nbsp;&nbsp; Project</h1>
-
+   <div class="header"><h1>The&nbsp;&nbsp;&nbsp;Book&nbsp;&nbsp;&nbsp; Project</h1></div>
 
    <div class="intro">
       <p>This project was a class assignment requiring us to create an API, to pull some book data from the records at <a href="https://openlibrary.org/" target="_blank">Open Library</a>. This was supposed to be a list of books the we have read, but I haven't been a "reader" for probably 40 years or more. So instead of books I have read, I just pulled some random books into my database.</p>
@@ -57,7 +56,7 @@
                <div class="bookText"><%= book.descr %></div>
                <div class="bookDetails">
                   <div class="bookTitle">
-                     <h3><a href="<%= book.webaddress %>" target="_blank"><%= book.title %></a></h3>
+                     <a href="<%= book.webaddress %>" target="_blank"><%= book.title %></a>
                   </div>
                   <p><%= book.author %></p>
                   <p>First Published: <%= book.published %></p>

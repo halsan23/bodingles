@@ -120,11 +120,33 @@ app.post('/edit', async (req, res) => {
          console.log(err);
       } else {
          const book = results.rows[0];
-         console.log(`Edit Book ID: ${bookId}`);
-         console.log(`Book Data: ${JSON.stringify(book)}`);
-         // res.render("index.ejs", { bookdata: books });
+         res.render("edit.ejs", { bookdata: book });
       }
    });
+});
+
+
+app.post('/update', async (req, res) => {
+   const bookTitle = req.body.bookTitle;
+   const bookolid = req.body.bookolid;
+   const editolid = req.body.editolid;
+   const author = req.body.author;
+   const published = req.body.published;
+   const rating = req.body.rating;
+   const cover = req.body.cover;
+   const webaddress = req.body.webaddress;
+   const descr = req.body.descr;
+
+   console.log(`Title: ${bookTitle}`);
+   console.log(`Olid: ${bookolid}`);
+   console.log(`Edition Olid: ${editolid}`);
+   console.log(`Author: ${author}`);
+   console.log(`First Published: ${published}`);
+   console.log(`Rating: ${rating}`);
+   console.log(`Cover Address: ${cover}`);
+   console.log(`Web Address: ${webaddress}`);
+   console.log('Book Description: ');
+   console.log(descr);
 });
 
 

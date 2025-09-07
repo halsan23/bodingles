@@ -14,7 +14,7 @@ body {
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
-   font-size: 1em;
+   font-size: 12px;
    text-align: center;
    overflow-x: hidden;
 }
@@ -29,24 +29,23 @@ footer {
    width: 100%;
    margin: 35px 0 0;
    text-align: center;
+   font-style: italic;
    border: 1px solid black;
 }
 
 h1 {
-   background-color: #ffebda;
-   width: 100%;
-   margin: 0 0 25px;
-   padding: 15px 0;
-   border: 2px solid black;
    font-size: 2.5rem;
 }
 
+h2 {
+   font-size: 1.75rem;
+}
+
 .card{
-   width: 235px;
+   width: 250px;
    height: 450px;
    margin: 25px 20px 100px;
    font-size: .9vw;
-   line-height: 1.30vw;
    text-align: center;
    position: relative;
 }
@@ -54,39 +53,16 @@ h1 {
 .bookCover{
    background-color: #4d6162;
    background-size: cover;
-   /* width: 100%; */
    height: 70%;
    text-align: center;
    border: 2px solid black;
    border-radius: 10px 10px 0 0;
 }
 
-.bookText{
-   background-color: #151515;
-   color: #f0f0f0;
-   margin: 5px 5px;
-   padding: 5px 10px;
-   position: absolute;
-   top: 0;
-   left: 0;
-   z-index: 10;
-   border-radius: 10px;
-   opacity: 0;
-   transition: opacity 1s;
-}
-
-.bookText:hover {
-   opacity: .8;
-   transition: opacity 1s;
-}
-
 .bookDetails {
    background-color: #ffffff;
-   padding: 5px 8px 15px;
-   /* width: 100%; */
+   padding: 5px 8px 25px;
    height: 30%;
-   /* font-size: .9rem; */
-   /* line-height: 1rem; */
    border: 2px solid black;
    border-radius: 0 0 10px 10px;
 }
@@ -104,10 +80,31 @@ h1 {
    background-color: #ffebda;
 }
 
+.bookText{
+   background-color: #151515;
+   color: #f0f0f0;
+   margin: 5px 5px;
+   padding: 5px 10px;
+   font-size: 0.9rem;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   border-radius: 10px;
+   opacity: 0;
+   transition: opacity 1s;
+}
+
+.bookText:hover {
+   opacity: .8;
+   transition: opacity 1s;
+}
+
 .bookTitle {
-   /* margin: 10px 0 0; */
    padding: 0;
    height: 40px;
+   font-size: 1.1rem;
+   font-weight: 600;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -131,9 +128,106 @@ h1 {
    flex-wrap: wrap;
 }
 
+.editButton {
+   grid-column: span 2;
+   width: 150px;
+   margin: 0 20px;
+   padding: 3px 10px;
+   font-size: 1rem;
+   border: 2px solid #303030;
+   border-radius: 6px;
+   box-shadow: 2px 2px 8px #303030;
+}
+
+.editButton:hover {
+   background-color: #b3f3f4;
+   box-shadow: none;
+   cursor: pointer;
+}
+
+.editButtonRow {
+   grid-column: span 2;
+   width: 70%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+}
+
+.editDescrLabel {
+   grid-column: span 2;
+   width: 100%;
+   padding-left: 25px;
+   font-size: 1.1rem;
+   font-weight: 500;
+   text-align: left;
+}
+
+.editDescrArea {
+   grid-column: span 2;
+   margin: 0 auto;
+   width: 95%;
+   font-size: .9rem;
+   text-align: left;
+   border: 1px solid black;
+}
+
+.editDescrArea:focus {
+   background-color: #ffebda;
+}
+
+.editFormLayout {
+   display: flex;
+   justify-content: center;
+}
+
+.editForm {
+   width: 600px;
+   margin: 10px auto;
+   font-size: 1rem;
+   display: grid;
+   grid-template-columns: 1fr 3fr;
+   gap: 20px;
+}
+
+.editHeader {
+   width: 100%;
+   margin: 10px auto;
+   font-size: italic;
+}
+
+
+.editLabel {
+   width: auto;
+   margin-top: 4px;
+   font-size: 1.1rem;
+   font-weight: 500;
+   text-align: right;
+}
+
+.editTextInput {
+   width: auto;
+   padding: 3px 10px;
+   height: 20px;
+   font-size: .9rem;
+   border-color: #303030;
+   border-radius: 6px;
+}
+
+.editTextInput:focus {
+   background-color: #ffebda;
+}
+
 .error {
    color: #932929;
    font-weight: 700;
+}
+
+.header {
+   background-color: #ffebda;
+   width: 100%;
+   margin: 0 0 25px;
+   padding: 10px 0;
+   border: 2px solid black;
 }
 
 .hr {
