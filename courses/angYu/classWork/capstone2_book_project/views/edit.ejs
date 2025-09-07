@@ -13,7 +13,9 @@
 </head>
 
 <body class="gradient-background">
-   <div class="header"><h1>The&nbsp;&nbsp;&nbsp;Book&nbsp;&nbsp;&nbsp; Project</h1></div>
+   <div class="header">
+      <h1>The&nbsp;&nbsp;&nbsp;Book&nbsp;&nbsp;&nbsp; Project</h1>
+   </div>
 
    <div class="editHeader">
       <h2>Book Edit</h2>
@@ -22,6 +24,7 @@
    <div class="editFormLayout">
       <% let book = locals.bookdata %>
       <form class="editForm" action="/update" method="post">
+         <input type="hidden" name="id" value="<%= book.id %>">
 
          <label class="editLabel" for="bookTitle">Title : </label>
          <input class="editTextInput" type="text" id="bookTitle" name="bookTitle" value="<%= book.title %>" required>

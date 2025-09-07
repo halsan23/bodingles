@@ -49,7 +49,8 @@ async function getDescr(olid) {
       let bookDescr = result.description.value.substr(0, 450) + " . . .";
       return bookDescr;
    } catch (err) {
-      console.log('Book description not Found');
+      let bookDescr = 'No Data returned from Open Library API';
+      return bookDescr;
    }
 }
 
@@ -127,6 +128,7 @@ app.post('/edit', async (req, res) => {
 
 
 app.post('/update', async (req, res) => {
+   const bookId = req.body.id;
    const bookTitle = req.body.bookTitle;
    const bookolid = req.body.bookolid;
    const editolid = req.body.editolid;
@@ -137,16 +139,12 @@ app.post('/update', async (req, res) => {
    const webaddress = req.body.webaddress;
    const descr = req.body.descr;
 
-   console.log(`Title: ${bookTitle}`);
-   console.log(`Olid: ${bookolid}`);
-   console.log(`Edition Olid: ${editolid}`);
-   console.log(`Author: ${author}`);
-   console.log(`First Published: ${published}`);
-   console.log(`Rating: ${rating}`);
-   console.log(`Cover Address: ${cover}`);
-   console.log(`Web Address: ${webaddress}`);
-   console.log('Book Description: ');
-   console.log(descr);
+   try {
+      await db.query("UPDATE bookdata SET olid = ($1), editolid = ($2), title = ($3), author = ($4), published = ($5), descr = ($6), rating = ($7), cover = ($8), webaddress = ($9) WHERE id = $10", [bookolid, editolid, bookTitle, author, published, descr, rating, cover, webaddress, bookId]);
+      res.redirect("/");
+   } catch (err) {
+      console.log(err);
+   }
 });
 
 

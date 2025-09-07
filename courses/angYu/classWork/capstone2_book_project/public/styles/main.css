@@ -25,7 +25,7 @@ button {
 }
 
 footer {
-   background-color: #ffebda;
+   background-color: #d9d2cc;
    width: 100%;
    margin: 35px 0 0;
    text-align: center;
@@ -195,7 +195,6 @@ h2 {
    font-size: italic;
 }
 
-
 .editLabel {
    width: auto;
    margin-top: 4px;
@@ -223,11 +222,9 @@ h2 {
 }
 
 .header {
-   background-color: #ffebda;
+   background-color: #d9d2cc;
    width: 100%;
-   margin: 0 0 25px;
-   padding: 10px 0;
-   border: 2px solid black;
+   border: 1px solid black;
 }
 
 .hr {
