@@ -67,7 +67,7 @@ async function getRating(olid) {
 // ===================================================================//
 // Display default page - index.ejs
 app.get("/", (req, res) => {
-   const result = 'SELECT * FROM bookdata ORDER BY id ASC';
+   const result = 'SELECT * FROM bookdata ORDER BY id DESC';
    db.query(result, (err, results) => {
       if (err) {
          console.log(err);
