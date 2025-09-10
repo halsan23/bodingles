@@ -314,3 +314,39 @@ h2 {
    box-shadow: none;
    cursor: pointer;
 }
+
+
+/* ======================================== */@media screen and (max-width: 576px) {
+   .bookText{
+      font-size: 0.6rem;
+      line-height: 0.7rem;
+   }
+}
+
+@media screen and (max-width: 992px) {
+   .bookText{
+      font-size: 0.6rem;
+      line-height: 0.8rem;
+   }
+}
+
+@media screen and (max-width: 1400px) {
+   .bookText{
+      font-size: 0.7rem;
+      line-height: 0.8rem;
+   }
+}
+
+@media screen and (max-width: 2560px) {
+   .bookText{
+      font-size: 0.8rem;
+      line-height: 1rem;
+   }
+}
+
+@media screen and (max-width: 3840px) {
+   .bookText{
+      font-size: 0.9rem;
+      line-height: 1.1rem;
+   }
+}
