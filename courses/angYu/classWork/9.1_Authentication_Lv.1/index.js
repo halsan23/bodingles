@@ -38,10 +38,26 @@ app.post("/login", async (req, res) => {
    let email = req.body.email.trim();
    let pswd = req.body.password.trim();
 
-   // console.log(`Email: ${email}`);
-   // console.log(`Password: ${pswd}`);
-
-   res.redirect(`/`);
+   try {
+      const result = await db.query("SELECT * FROM users WHERE email = $1", [
+         email,
+      ]);
+      if (result.rows.length > 0) {
+         const user = result.rows[0];
+         const storedPassword = user.pswd;
+         if (pswd === storedPassword) {
+            res.render("secrets.ejs");
+         } else {
+            let err = "Incorrect Password";
+            res.render('login.ejs', {error: {err}});
+         }
+      } else {
+         let err = "User not found";
+         res.render('login.ejs', {error: {err}});
+      }
+   } catch (err) {
+      console.log(err);
+   }
 });
 
 
@@ -49,17 +65,21 @@ app.post("/register", async (req, res) => {
    let email = req.body.email.trim();
    let pswd = req.body.password.trim();
 
-   const chkResult = await db.query("SELECT * FROM users WHERE email = $1", [email]);
+   try {
+      const chkResult = await db.query("SELECT * FROM users WHERE email = $1", [email]);
 
-   if ( chkResult.rows.length > 0 ) {
-      res.send('Email already exists, try logging in.');
-   } else {
-      const results = await db.query(
-         'INSERT INTO users (email, pswd) VALUES ($1, $2)',
-         [email, pswd]
-      );
-      console.log(results);
-      res.render("secrets.ejs");
+      if ( chkResult.rows.length > 0 ) {
+         res.send('Email already exists, try logging in.');
+      } else {
+         const results = await db.query(
+            'INSERT INTO users (email, pswd) VALUES ($1, $2)',
+            [email, pswd]
+         );
+         console.log(results);
+         res.render("secrets.ejs");
+      }
+   } catch (err) {
+      console.log(err);
    }
 });
 
