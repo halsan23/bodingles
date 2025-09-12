@@ -7,20 +7,27 @@
          <div class="col-sm-8">
             <div class="card">
                <div class="card-body">
-
                   <!-- Makes POST request to /register route -->
                   <form action="/register" method="POST">
-                  <div class="form-group">
-                     <label for="email">Email</label>
-                     <input type="email" class="form-control" name="email">
-                  </div>
-                  <div class="form-group">
-                     <label for="password">Password</label>
-                     <input type="password" class="form-control" name="password">
-                  </div>
-                  <button type="submit" class="btn btn-dark">Register</button>
+                     <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email">
+                     </div>
+                     <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password">
+                     </div>
+                     <div>
+                        <button type="submit" class="btn btn-dark">Register</button>
+                        <a href="/" class="btn btn-dark">Cancel</a>
+                        <span class="error">
+                           <% if (locals.error) { %>
+                              <% let err = locals.error.err %>
+                              <%= err %>
+                           <% } %>
+                        </span>
+                     </div>
                   </form>
-
                </div>
             </div>
          </div>

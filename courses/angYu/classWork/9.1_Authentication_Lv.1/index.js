@@ -69,7 +69,8 @@ app.post("/register", async (req, res) => {
       const chkResult = await db.query("SELECT * FROM users WHERE email = $1", [email]);
 
       if ( chkResult.rows.length > 0 ) {
-         res.send('Email already exists, try logging in.');
+         let err = "Email already exists, try logging in.";
+         res.render('register.ejs', {error: {err}});
       } else {
          const results = await db.query(
             'INSERT INTO users (email, pswd) VALUES ($1, $2)',
