@@ -17,15 +17,16 @@
                      <label for="password">Password</label>
                      <input type="password" class="form-control" name="password">
                   </div>
-                  <button type="submit" class="btn btn-dark">Login</button>
+                  <div>
+                     <button type="submit" class="btn btn-dark">Login</button>
+                     <span class="error">
+                        <% if (locals.error) { %>
+                           <% let err = locals.error.err %>
+                           <%= err %>
+                        <% } %>
+                     </span>
+                  </div>
                </form>
-            </div>
-
-            <div>
-               <% if (locals.error) { %>
-                  <% let err = locals.error.err %>
-                  <%= err %>
-               <% } %>
             </div>
          </div>
       </div>
