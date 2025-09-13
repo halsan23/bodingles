@@ -10,8 +10,7 @@ body {
 
 .error {
    color: #981e1e;
-   padding-left: 100px;
-   text-align: left;
+   margin-left: 75px;
    font-weight: 600;
 }
 
