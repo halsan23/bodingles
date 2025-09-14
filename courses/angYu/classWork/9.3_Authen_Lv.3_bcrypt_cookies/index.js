@@ -2,26 +2,15 @@ import express from 'express';
 import pg from 'pg';
 import bcrypt from 'bcrypt';
 
-// imports for cookies & sessions
-import session from 'express-session';  // starts a new session to save data (our login data)
+// imports for login authentication
 import passport from 'passport';  // authentication middleware
 import { Strategy } from 'passport-local';  //local "Strategy" for controlling our session
+// imports for cookies & sessions
+import session from 'express-session';  // starts a new session to save data (our login data)
 
 const app = express();
 const port = process.env.PORT || 3000;
 const saltRounds = 10;
-
-const db = new pg.Client({
-   user: "postgres",
-   password: "password",
-   host: "localhost",
-   database: "secrets",
-   port: 5432,
-});
-db.connect();
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
 
 // create a new instance of the user session created above, to save our login info
 // ** this must be done BEFORE initializing Passport **
@@ -39,14 +28,26 @@ app.use(
    })
 );
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
 // need to initialize passport
 // ** this must be done AFTER setting up the SESSION **
 app.use(passport.initialize());
 app.use(passport.session());
 
 
+const db = new pg.Client({
+   user: "postgres",
+   password: "password",
+   host: "localhost",
+   database: "secrets",
+   port: 5432,
+});
+db.connect();
+
 // GET Routes
-// ============================================================================== //
+// ================================================================ //
 app.get("/", (req, res) => {
    res.render("home.ejs");
 });
@@ -67,15 +68,15 @@ app.get('/secrets', (req, res) => {
 
    // use the "isAuthenticated" module of Passport to check for authentication
    if (req.isAuthenticated()) {
-      res.render('secrets.ejs');
+      res.render("secrets.ejs");
    } else {
-      res.redirect('/login');
+      res.redirect("/login");
    }
 });
 
 
 // POST Routes
-// ============================================================================== //
+// ================================================================ //
 
 // NO LONGER NEEDED DUE TO THE PASSPORT.USE STRATEGY BELOW
 // ---------------------------------------- //
@@ -126,7 +127,7 @@ app.get('/secrets', (req, res) => {
 
 // change from original file for passport control
 // this will trigger the "passport.use" code section below to check isAuthorized utilizing a "local" strategy
-app.post("/login", passport.authenticate('local', {
+app.post("/login", passport.authenticate("local", {
    successRedirect: "/secrets",  // redirect to "/secrets" if authorized
    failureRedirect: "/login"  // redirect to "/login" if unauthorized
 }));
@@ -166,64 +167,75 @@ app.post("/register", async (req, res) => {
 
 
 // passport strategy - ** must go at the bottom of the code before the app.listen
-// ============================================================================== //
+// ================================================================ //
 // register a "New Strategy"
 // in passport, the callback is always referred to as 'cb'
 // this will verify if the user isAuthenticated and replaces the original '/login' POST route
 // passport grabs the email and password from the originating inputs within login.ejs
 passport.use(new Strategy(async function verify(email, password, cb) {
-   try {
-      const result = await db.query("SELECT * FROM users WHERE email = $1", [
-         email,
-      ]);
-      if (result.rows.length > 0) {
-         const user = result.rows[0];
-         const pswdHash = user.pswd;
 
-         // decrypt the store password hash to compare with users entered password
-         // syntax:
-         // bcrypt.compare(user entered password, password hash stored in db)
-         bcrypt.compare(password, pswdHash, (err, result) => {
-            if (err) {
-               // change from original file for passport control
-               // if comparison error, log the error
-               // console.log('Error comparing password to hash', err);
-               return cb(err);
+      console.log(`Email: ${email}`);
+      console.log(`Password: ${password}`);
 
-               // ** RETURN AN ERROR IF THERE IS A PROBLEM RUNNING BCRYPT.COMPARE
-            } else {
-               // result returns true/false
-               // if we got to here, userName & password match
-               if (result) {
+      try {
+         const result = await db.query("SELECT * FROM users WHERE email = $1", [email]);
+
+         if (result.rows.length > 0) {
+
+            console.log('Found a email match.');
+
+            const user = result.rows[0];
+            const pswdHash = user.pswd;
+
+            // decrypt the store password hash to compare with users entered password
+            // syntax:
+            // bcrypt.compare(user entered password, password hash stored in db)
+            bcrypt.compare(password, pswdHash, (err, valid) => {
+               if (err) {
                   // change from original file for passport control
-                  // res.render("secrets.ejs");
-                  return cb(null, user);  // null because nno errors
+                  // if comparison error, log the error
+                  // console.log('Error comparing password to hash', err);
+                  console.error("Error comparing passwords:", err);
+                  return cb(err);
+
+                  // ** RETURN AN ERROR IF THERE IS A PROBLEM RUNNING BCRYPT.COMPARE
                } else {
-                  // change from original file for passport control
-                  // if we got to here, userName matches but, password does not
-                  // let err = "Incorrect Password";
-                  // res.render('login.ejs', {error: {err}});
-                  return cb(null, false);  // password match is false - null because invalid match is not a code error
+                  // result returns true/false
+                  // if we got to here, userName & password match
+                  if (valid) {
+                     // change from original file for passport control
+                     // res.render("secrets.ejs");
+                     return cb(null, user);  // null because nno errors
+                  } else {
+                     // change from original file for passport control
+                     // if we got to here, userName matches but, password does not
+                     // let err = "Incorrect Password";
+                     // res.render('login.ejs', {error: {err}});
+                     return cb(null, false);  // password match is false - null because invalid match is not a code error
 
-                  // ** SO WE ARE GOING TO RETURN USER EMAIL/PASSWORD IF AUTHENTICATED
-                  // ** AND RETURN FALSE IF USER EMAIL/PASSWORD IS NOT AUTHENTICATED
+                     // ** SO WE ARE GOING TO RETURN USER EMAIL/PASSWORD IF AUTHENTICATED
+                     // ** AND RETURN FALSE IF USER EMAIL/PASSWORD IS NOT AUTHENTICATED
+                  }
                }
-            }
-         });
-      } else {
+            });
+         } else {
+            // change from original file for passport control
+            // if username does not match db
+            // let err = "Invalid Email";
+            // res.render('login.ejs', {error: {err}});
+            return cb('User Not Found');
+         }
+      } catch (err) {
          // change from original file for passport control
-         // if username does not match db
-         // let err = "Invalid Email";
-         // res.render('login.ejs', {error: {err}});
-         return cb('User Not Found');
+         // if problem with db query
+         // console.log('Problem with db query', err);
+
+         // if problem with db query
+         console.log(err);
+         return cb(err);
       }
-   } catch (err) {
-      // change from original file for passport control
-      // if problem with db query
-      // console.log('Problem with db query', err);
-      return cb(err);  // if problem with db query
-   }
-}));
+   })
+);
 
 // and just before the app.listen ...
 // save the data of the user that is logged in, to the local storage,
@@ -238,6 +250,6 @@ passport.deserializeUser((user, cb) => {
 });
 
 
-// ============================================================================== //
+// ================================================================ //
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
