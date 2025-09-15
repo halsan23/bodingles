@@ -90,7 +90,7 @@ app.post("/register", async (req, res) => {
                );
                const user = result.rows[0];
                req.login(user, (err) => {
-                  console.log("success");
+                  console.log("Successful Registration");
                   res.redirect("/secrets");
                });
             }
@@ -143,8 +143,12 @@ passport.use(new Strategy(async function verify(email, password, cb) {
    })
 );
 
-passport.serializeUser((user, cb) => {cb(null, user)});
-passport.deserializeUser((user, cb) => {cb(null, user)});
+passport.serializeUser((user, cb) => {
+   cb(null, user)
+});
+passport.deserializeUser((user, cb) => {
+   cb(null, user)
+});
 
 
 // ================================================================ //
