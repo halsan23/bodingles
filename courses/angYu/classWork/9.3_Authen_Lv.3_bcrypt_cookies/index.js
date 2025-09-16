@@ -5,11 +5,13 @@ import bcrypt from 'bcrypt';
 import passport from 'passport';
 import { Strategy } from 'passport-local';
 import session from 'express-session';
+import env from "dotenv";
 
 
 const app = express();
 const port = process.env.PORT || 3000;
 const saltRounds = 10;
+env.config();
 
 app.use(
    session({
@@ -50,9 +52,17 @@ app.get("/register", (req, res) => {
    res.render("register.ejs");
 });
 
+app.get("/logout", (req, res) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+});
+
 app.get('/secrets', (req, res) => {
    console.log(req.user);
-
    if (req.isAuthenticated()) {
       console.log('Is Authenticated')
       res.render("secrets.ejs");
@@ -65,28 +75,31 @@ app.get('/secrets', (req, res) => {
 
 // POST Routes
 // ================================================================ //
-app.post("/login", passport.authenticate("local", {
-   successRedirect: "/secrets",  // redirect to "/secrets" if authorized
-   failureRedirect: "/login",  // redirect to "/login" if unauthorized
+app.post(
+   "/login",
+   passport.authenticate("local", {
+      successRedirect: "/secrets",  // redirect to "/secrets" if authorized
+      failureRedirect: "/login",  // redirect to "/login" if unauthorized
 }));
 
 app.post("/register", async (req, res) => {
-   let email = req.body.email.trim();
-   let pswd = req.body.password.trim();
+   const email = req.body.email.trim();
+   const password = req.body.password.trim();
 
    try {
-      const chkResult = await db.query("SELECT * FROM users WHERE email = $1", [email]);
+      const chkResult = await db.query("SELECT * FROM users WHERE email = $1", [
+         email,
+      ]);
 
       if ( chkResult.rows.length > 0 ) {
-         let err = "Email already exists, try logging in.";
-         res.render('register.ejs', {error: {err}});
+         req.redirect("/login");
       } else {
-         bcrypt.hash(pswd, saltRounds, async (err, hash) => {
+         bcrypt.hash(password, saltRounds, async (err, hash) => {
             if (err) {
-               console.log('Error creating hash:', err)
+               console.error("Error hashing password:", err);
             } else {
                const result = await db.query(
-                  'INSERT INTO users (email, pswd) VALUES ($1, $2)',
+                  'INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *',
                   [email, hash]
                );
                const user = result.rows[0];
@@ -95,7 +108,7 @@ app.post("/register", async (req, res) => {
                   res.redirect("/secrets");
                });
             }
-         })
+         });
       }
    } catch (err) {
       console.log(err);
@@ -104,22 +117,22 @@ app.post("/register", async (req, res) => {
 
 // Passport POST Routes
 // ================================================================ //
-passport.use(new Strategy(async function verify(email, password, cb) {
+passport.use(
+   new Strategy(async function verify(email, password, cb) {
 
       console.log(`Email: ${email}`);
       console.log(`Password: ${password}`);
 
       try {
-         const result = await db.query("SELECT * FROM users WHERE email = $1", [email]);
+         const result = await db.query("SELECT * FROM users WHERE email = $1", [
+            email,
+         ]);
 
          if (result.rows.length > 0) {
-
-            console.log('Found a email match.');
-
             const user = result.rows[0];
-            const pswdHash = user.pswd;
+            const storedHashedPassword = user.password;
 
-            bcrypt.compare(password, pswdHash, (err, valid) => {
+            bcrypt.compare(password, storedHashedPassword, (err, valid) => {
                if (err) {
                   console.error("Error comparing passwords:", err);
                   return cb(err);
@@ -139,13 +152,12 @@ passport.use(new Strategy(async function verify(email, password, cb) {
          }
       } catch (err) {
          console.log(err);
-         return cb(err);
       }
    })
 );
 
 passport.serializeUser((user, cb) => {
-   cb(null, user)
+   cb(null, user);
 });
 passport.deserializeUser((user, cb) => {
    cb(null, user)

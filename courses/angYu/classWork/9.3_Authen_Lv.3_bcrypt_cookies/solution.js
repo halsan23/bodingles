@@ -29,13 +29,13 @@ const db = new pg.Client({
   user: "postgres",
   host: "localhost",
   database: "secrets",
-  password: "123456",
+  password: "password",
   port: 5432,
 });
 db.connect();
 
 app.get("/", (req, res) => {
-  res.render("home.ejs");
+  res.render("index.ejs");
 });
 
 app.get("/login", (req, res) => {
