@@ -35,10 +35,11 @@ const db = new pg.Client({
 });
 db.connect();
 
+
 // GET Routes
 // ================================================================ //
 app.get("/", (req, res) => {
-   res.render("home.ejs");
+   res.render("index.ejs");
 });
 
 app.get("/login", (req, res) => {
@@ -50,7 +51,7 @@ app.get("/register", (req, res) => {
 });
 
 app.get('/secrets', (req, res) => {
-   // console.log(req.user);
+   console.log(req.user);
 
    if (req.isAuthenticated()) {
       console.log('Is Authenticated')
