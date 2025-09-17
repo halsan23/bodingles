@@ -179,7 +179,7 @@ hr {
 li {
    margin-top: 5px;
    list-style: none;
-   text-align: left;
+   /* text-align: left; */
 }
 
 ol li {
@@ -496,9 +496,9 @@ p {
 /* setup a list container so the lists will to be centered
 in the parent section, but aligned to the left side of container */
 .lists {
+   margin: 0 auto;
    display: inline-block;
    text-align: left;
-   margin: 0 auto;
 }
 
 /* styling needed for MongoDB logo */
