@@ -178,6 +178,7 @@ hr {
 /* adds a top margin for list item spacing */
 li {
    margin-top: 5px;
+   padding-left: 30px;
    list-style: none;
    /* text-align: left; */
 }
