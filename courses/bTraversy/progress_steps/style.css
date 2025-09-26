@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?Muli&display=swap');
+
+/* define css variables on the ROOT */
+:root {
+   --line-border-full: #3498db;
+   --line-border-empty: #d1d1d1;
+}
+/* now we can use these variables below */
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   background-color: #f6f7fb;
+   font-family: "Muli", sans-serif;
+
+   height: 100vh;
+   margin: 0;
+   overflow: hidden;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-start;
+}
+
+h1 {
+   margin-top: 100px;
+}
+
+h4 {
+   padding-bottom: 150px;
+}
+
+.container {
+   text-align: center;
+}
+
+.progress-container {
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+   margin-bottom: 30px;
+   max-width: 100%;
+   width: 350px;
+}
+
+/* insert a grey line BEFORE our other content */
+.progress-container::before {
+   /* have to add this line when using ::before or ::after */
+   /* https://www.w3schools.com/cssref/sel_before.php */
+   content: '';
+
+   background-color: var(--line-border-empty); /* variable defined a top of style sheet */
+   position: absolute;
+   top: 50%;
+   left: 0;
+   transform: translateY(-50%);
+   height: 4px;
+   width: 100%;
+   z-index: -1;
+}
+
+.progress {
+   background-color: var(--line-border-full); /* variable defined a top of style sheet */
+   position: absolute;
+   top: 50%;
+   left: 0;
+   transform: translateY(-50%);
+   height: 4px;
+   width: 0%;
+   z-index: -1;
+   transition: 0.4s ease;
+}
+
+.circle {
+   background-color: #f6f7fb;
+   color: #5f5f5f;
+   font-size: 15px;
+   border-radius: 50%;
+   width: 30px;
+   height: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: 3px solid var(--line-border-empty); /* variable defined a top of style sheet */
+   transition: 0.4s ease;
+}
+
+.circle.active {
+   border-color: var(--line-border-full); /* variable defined a top of style sheet */;
+}
+
+.btn {
+   background-color: var(--line-border-full); /* variable defined a top of style sheet */;
+   color: #fff;
+   border: 0;
+   border-radius: 6px;
+   cursor: pointer;
+   font-family: inherit;
+   padding: 8px 30px;
+   margin: 5px;
+   font-size: 14px;
+   box-shadow: 2px 2px 4px #6b6b6b;
+}
+
+.btn:active {
+   transform: scale(0.97);
+   box-shadow: none;
+}
+
+.btn:focus {
+   outline: 0;
+}
+
+/* we're going to use Js to disable the buttons if the progress bar is at min or max, so we set the disabled mode styling here */
+.btn:disabled {
+   background-color: var(--line-border-empty); /* variable defined a top of style sheet */
+   cursor: not-allowed;
+   box-shadow: none;
+}
