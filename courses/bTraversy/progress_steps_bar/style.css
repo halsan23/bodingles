@@ -2,7 +2,7 @@
 
 /* define css variables on the ROOT */
 :root {
-   --line-border-full: #3498db;
+   --line-border-full: #1c7422;
    --line-border-empty: #d1d1d1;
 }
 /* now we can use these variables below */
@@ -107,6 +107,7 @@ h4 {
 
 .btn:active {
    transform: scale(0.97);
+   font-size: 13px;
    box-shadow: none;
 }
 
