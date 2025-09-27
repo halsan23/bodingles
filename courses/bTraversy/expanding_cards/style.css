@@ -14,10 +14,25 @@ body {
    /* overflow: hidden; */
 }
 
+a {
+   color: #4486ff;
+   font-weight: 600;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+a:hover {
+   color: #aa9042;
+}
+
 h1 {
    font-size: 40px;
    margin-top: 20px;
    margin-bottom: 0;
+}
+
+p {
+   margin-top: 0;
 }
 
 .heading {
