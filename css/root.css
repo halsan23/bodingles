@@ -29,7 +29,6 @@
 }
 */
 
-
 /* body Fade in Effect */
 @keyframes fadeInAnimation {
    0% {
@@ -40,7 +39,6 @@
       opacity: 1;
    }
 }
-
 
 /* --------------  HTML Elements  -------------- */
 /* ============================================= */
@@ -65,13 +63,13 @@ body {
    width: 100%;
    /* height: 100%; */
    color: #000;
-   font-family: "SUSE", sans-serif;
+   font-family: 'SUSE', sans-serif;
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
    font-size: 1rem;
    text-align: center;
-   letter-spacing: .03em;
+   letter-spacing: 0.03em;
    line-height: 1.4rem;
 }
 
@@ -85,7 +83,7 @@ header {
    height: 120px;
    margin: 0;
    padding: 0;
-   background-image: url("../images/headBack2.png");
+   background-image: url('../images/headBack2.png');
    background-repeat: repeat-x;
    text-align: left;
    box-shadow: 0 3px 7px #888888;
@@ -94,7 +92,7 @@ header {
 
 header sub {
    font-weight: 700;
-   font-size: .7rem;
+   font-size: 0.7rem;
    color: #7a7a7a;
    padding-left: 2px;
    text-shadow: none;
@@ -122,7 +120,7 @@ footer div {
 
 /* custom heading tags */
 h1 {
-   font-family: "Akaya Telivigala", system-ui;
+   font-family: 'Akaya Telivigala', system-ui;
    font-weight: 400;
    font-style: normal;
    font-size: 3.4rem;
@@ -130,15 +128,15 @@ h1 {
 }
 
 h2 {
-  font-family: "Akaya Telivigala", system-ui;
-  font-weight: 400;
+   font-family: 'Akaya Telivigala', system-ui;
+   font-weight: 400;
    font-style: normal;
    font-size: 3rem;
    margin: 15px auto 25px;
 }
 
 h3 {
-   font-family: "Akaya Telivigala", system-ui;
+   font-family: 'Akaya Telivigala', system-ui;
    font-weight: 400;
    font-style: normal;
    font-size: 2.7rem;
@@ -146,7 +144,7 @@ h3 {
 }
 
 h4 {
-   font-family: "Akaya Telivigala", system-ui;
+   font-family: 'Akaya Telivigala', system-ui;
    font-weight: 400;
    font-style: normal;
    font-size: 2.4rem;
@@ -154,7 +152,7 @@ h4 {
 }
 
 h5 {
-   font-family: "Akaya Telivigala", system-ui;
+   font-family: 'Akaya Telivigala', system-ui;
    font-weight: 400;
    font-style: normal;
    font-size: 2rem;
@@ -162,7 +160,7 @@ h5 {
 }
 
 h6 {
-   font-family: "Akaya Telivigala", system-ui;
+   font-family: 'Akaya Telivigala', system-ui;
    font-weight: 300;
    font-style: normal;
    font-size: 1.5rem;
@@ -192,7 +190,6 @@ p {
    line-height: 1.5rem;
 }
 /* ============================================= */
-
 
 /* --------------  ID Elements  --------------  */
 /* ============================================= */
@@ -276,7 +273,6 @@ p {
    height: auto;
 }
 /* ============================================= */
-
 
 /* -------------  Class Elements  -------------  */
 /* ============================================= */
@@ -367,7 +363,7 @@ p {
 
 /* Contact Me Styling */
 .contact {
-   background-color: rgba(255, 255, 255, .5);
+   background-color: rgba(255, 255, 255, 0.5);
    margin: 12px 14px;
    border-radius: 7px;
 }
@@ -381,7 +377,7 @@ p {
 
 .contactWindow {
    background-color: #5b78a2;
-   background-image: url("/images/email.png");
+   background-image: url('/images/email.png');
    background-repeat: no-repeat;
    background-size: 35% auto;
    background-position: center;
@@ -406,7 +402,7 @@ p {
 
 /* Larger First Word in a paragraph */
 .firstWord {
-   font-family: "Akaya Telivigala", system-ui;
+   font-family: 'Akaya Telivigala', system-ui;
    font-size: 1.4rem;
 }
 
@@ -442,7 +438,7 @@ p {
    left: 121px;
    color: #404d1e;
    font-size: 3.25rem;
-   font-family: "SUSE", sans-serif;
+   font-family: 'SUSE', sans-serif;
    font-optical-sizing: auto;
    font-weight: 600;
    font-style: normal;
@@ -457,7 +453,7 @@ p {
    left: 189px;
    color: #927b50;
    font-size: 3.25rem;
-   font-family: "SUSE", sans-serif;
+   font-family: 'SUSE', sans-serif;
    font-optical-sizing: auto;
    font-weight: 600;
    font-style: normal;
@@ -472,7 +468,7 @@ p {
    left: 122px;
    color: #7a7a7a;
    font-size: 3.25rem;
-   font-family: "SUSE", sans-serif;
+   font-family: 'SUSE', sans-serif;
    font-optical-sizing: auto;
    font-weight: 600;
    font-style: normal;
@@ -504,13 +500,14 @@ in the parent section, but aligned to the left side of container */
 
 /* styling needed for MongoDB logo */
 .mongodb {
-   width: .7%;
-   height: .7%;
+   width: 0.7%;
+   height: 0.7%;
 }
 
 /* Styling cor code snippets */
 .sectHighlight {
    background-color: #e5e5e5;
+   width: 95%;
    font-weight: 450;
    padding: 3px 20px 10px;
    border: 2px solid #000000;
@@ -539,18 +536,17 @@ in the parent section, but aligned to the left side of container */
 }
 /* ============================================= */
 
-
 /* --------------  Media Queries  --------------  */
 /* ============================================= */
-@media screen and (max-width:760px) {
+@media screen and (max-width: 760px) {
    .headLogo {
       display: none;
    }
 }
 
-@media screen and (max-width:760px) {
+@media screen and (max-width: 760px) {
    .headSlogan {
       display: none;
    }
 }
- /* ============================================= */
+/* ============================================= */
