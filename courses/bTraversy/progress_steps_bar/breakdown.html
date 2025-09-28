@@ -28,7 +28,7 @@
       <!-- Intro -->
       <section id="textWindow3" class="just">
          <h6>Introduction</h6>
-         <p><span class="firstWord">A</span> "Progress Step Bar" can be useful for many applications that need to show a progress for something. Amazon for example utilizes one in it's tracking page where it shows the progress of your shipment. This could be usefull in many applications and we're going to see how to build one here.
+         <p><span class="firstWord">A</span> "Progress Step Bar" can be useful for many applications that need to show a progress for something. Amazon for example utilizes one in it's tracking page where it shows the progress of your shipment. This could be useful in many applications and we're going to see how to build one here.
          </p>
          <p>The complete source code for this project can be <a href="progress_steps_bar.zip">downloaded here</a>.</p>
       </section>
@@ -146,6 +146,61 @@
             <li>}</li>
          </ul>
          <p>&nbsp;</p>
+         <p>Next we need to define our <b>progress <u>bar</u></b>. This is a horizontal bar that will grow or shrink when we press <b>Prev</b> and <b>Next</b> buttons respectively.</p>
+         <ul class="sectHighlight">
+            <li><b>progress</b> {
+               <ul>
+                  <li>background-color: <b>var(--line-border-full)</b>;</li>
+                  <li>position: <b>absolute</b>;</li>
+                  <li>top: 50%;</li>
+                  <li>left: 0;</li>
+                  <li>width: 0%;</li>
+                  <li>height: 4px;</li>
+                  <li>transform: translateY(-50%);</li>
+                  <li><b>z-index: -1;</b></li>
+                  <li>transition: 0.7s ease;</li>
+               </ul>
+            </li>
+            <li>}</li>
+         </ul>
+         <p>Remember, this is just styling the horizontal bar.</p>
+         <ul>
+            <li>- we're giving it a background color using the variable <b>var(--line-border-full)</b></li>
+            <li>- we positioned the "<b>parent</b>" <i>(progress-container)</i> <b>relative</b>, so we could position this bar <b>absolute</b> within the parent</li>
+            <li>- we positioned the bar <b>left: 0</b> and <b>top: 50%</b> which places it vertically in the middle of the parent, however, it was not centered vertically behind the circle numbers, so</li>
+            <li>- we added a <b>transform: translateY(-50%)</b> which moves the bar up 50% of it's height, which centers it behind the circle numbers</li>
+            <li></li>
+            <li>- we gave it a <b>z-index: -1</b> so the bar would be behind the circles</li>
+            <li>- and finally we gave it a <b>transition</b> which will be a slight animation effect when the bar grows or shrinks</li>
+         </ul>
+         <p>&nbsp;</p>
+         <p>Next we want to add a grey line behind our progress <b>bar</b> that just shows as kind of a placeholder for where thr progress bar grows and shrinks. This line will always be there irregardless of the progress bar position.</p>
+         <p>To accomplish this, we're going to actually <b>insert</b> this grey line using the <b>::before</b> pseudo-class.</p>
+         <p><i>The <b>::before</b> pseudo-element inserts generated content as the first child of a selected element, appearing before the element's actual content.</i></p>
+         <p>Now the <b>progress-container</b> is the "parent" container and we want to insert our <b>grey bar</b> as the first child. Here is the code:</p>
+         <ul class="sectHighlight">
+            <li><b>progress-container::before</b> {
+               <ul>
+                  <li><b>content: '';</b></li>
+                  <li>background-color: <b>var(--line-border-empty)</b>;</li>
+                  <li>position: absolute;</li>
+                  <li>top: 50%;</li>
+                  <li>left: 0;</li>
+                  <li><b>width: 100%</b>;</li>
+                  <li>height: 4px;</li>
+                  <li>transform: translateY(-50%);</li>
+                  <li><b>z-index: -1;</b></li>
+               </ul>
+            </li>
+            <li>}</li>
+         </ul>
+         <p>So this is essentially the same code as we had for the <b>progress bar</b> we already defined with a few changes.</p>
+         <ul>
+            <li>- first, when using the <b>::before</b> pseudo-element you must provide some content, and this content must be the first "styling" call. So with the very first line, we a providing an empty string as our content.</li>
+            <li>- next we are using a grey color for the bar so our background-color variable changes</li>
+            <li>- this bar will always be visible, will not grow and shrink like our main progress bar, so we set the width to 100%</li>
+            <li>- and finally, since this bar is always going to be 100%, we do not need the transition effect, so we removed that line</li>
+         </ul>
       </section>
 
       <!-- the JavaScript -->
