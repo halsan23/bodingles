@@ -509,8 +509,9 @@ in the parent section, but aligned to the left side of container */
    background-color: #e5e5e5;
    width: 95%;
    font-weight: 450;
-   padding: 3px 20px 10px;
-   border: 2px solid #000000;
+   margin: 10px auto;
+   padding: 3px 5px 10px;
+   border: 1px solid #000000;
    border-radius: 10px;
 }
 

@@ -33,7 +33,7 @@
          <!-- Intro -->
          <section id="textWindow3" class="just">
             <h6>Introduction</h6>
-            <p><span class="firstWord"></span>
+            <p><span class="firstWord">A</span> "Progress Step Bar" can be useful for many applications that need to show a progress for something. Amazon for example utilizes one in it's tracking page where it shows the progress of your shipment. This could be usefull in many applications and we're going to see how to build one here.
             </p>
             <p>The complete source code for this project can be <a href="progress_steps_bar.zip">downloaded here</a>.</p>
          </section>
@@ -41,15 +41,116 @@
          <!-- the HTML -->
          <section id="textWindow3" class="just">
             <h6>the HTML</h6>
-            <p><span class="firstWord"></span>
+            <p><span class="firstWord">T</span>he HTML is very straight forward here. We'll set up a main <b>container</b> &lt;div>. Inside, we'll need a &lt;div> for a line we want to progress along, and another &lt;div> for each step along the way.
+            </p>The number of steps is determined by us when we build the &lt;div>'s. For example, if we want four steps, we need four &lt;div>'s. If we want five steps, we need five &lt;div>'s, and so on.
             </p>
+            <p>Here is the code:</p>
+            <ul class="sectHighlight">
+               <li><b>HTML</b></li>
+               <li>&lt;div class="<b>container</b>">
+                  <ul>
+                     <li>&lt;div class="<b>progress-container</b>">
+                        <ul>
+                           <li>&lt;div <span class="colorRed">id="progress"</span> class="<b>progress</b>">&lt;/div></li>
+                           <li>&lt;div class="<b>circle active</b>">1&lt;/div></li>
+                           <li>&lt;div class="<b>circle</b>">2&lt;/div></li>
+                           <li>&lt;div class="<b>circle</b>">3&lt;/div></li>
+                           <li>&lt;div class="<b>circle</b>">4&lt;/div></li>
+                        </ul>
+                     </li>
+                     <li>&lt;/div></li>
+                     <li>&nbsp;</li>
+                     <li>&lt;button <span class="colorRed">id="prev"</span> class="<b>btn</b>" <span class="colorOrange">disabled</span>>Prev&lt;/button></li>
+                     <li>&lt;button <span class="colorRed">id="next"</span> class="<b>btn</b>">Next&lt;/button></li>
+                  </ul>
+               </li>
+               <li>&lt;/div></li>
+            </ul>
+            <p>- the <b>progress-container</b> &lt;div> sets up the container that holds the progress bar, and progress number circles.</p>
+            <p>- the <b>progress</b> &lt;div> is for the progress bar.</p>
+            <p>- the <b>circle</b> &lt;div>'s are used to display the number circles, with "1" being the <b>active</b> circle, initially.</p>
+            <p>We'll control the length of the <b>progress bar</b> and which circle is <b>active</b>, with JavaScript.</p>
+            <p>- the <b>id</b>'s are used for functionality within the JavaScript.</p>
+            <p>- the circle <b>class</b>'s are used both for styling, and functionality within the JavaScript.</p>
+            <p>Notice that initially the <b>Prev</b> button is disabled. This functionality is controlled within the JavaScript such that the buttons are only functional when needed. In other words, if the progress bar is at 1, we don't need the <b>Prev</b> button, and when it is at 4, we won't need the <b>Next</b> button. All other progress steps, both buttons will be <b>active</b>.</p>
+            <p>- when <b>disabled</b>, the buttons will be "greyed out" and non-functional.</p>
          </section>
 
          <!-- the CSS -->
          <section id="textWindow3" class="just">
             <h6>the CSS</h6>
-            <p><span class="firstWord"></span>
+            <p><span class="firstWord">T</span>he CSS isn't too bad, but we've learned a few very interesting things here. For example, we can utilize <b>variables</b> within our CSS file. The way it was described was that, "<i>in this application, we want to assign the variables at the <b>root level</b></i>".</p>
+            <p>So the code looks like this:</p>
+            <ul class="sectHighlight">
+               <li><span class="colorOrange">:root</span> {
+                  <ul>
+                     <li><span class="colorRed">--line-border-full</span>: <span style="background-color: #1c7422; color: #fff;">#1c7422;</span></li>
+                     <li><span class="colorRed">--line-border-empty</span>: <span style="background-color: #d1d1d1; color: #363636;">#d1d1d1;</span></li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <p>These "variable" definitions must go at the top os the CSS file before they are utilized by the CSS Code. What we're doing here is:
+               <ul>
+                  <li>- defining two variables at the <span class="colorOrange">:root</span> level</li>
+                  <li>- the 1st variable <span class="colorRed">--line-border-full</span>, has a value of <span style="background-color: #1c7422; color: #fff;">#1c7422;</span></li>
+                  <li>- the 2nd variable <span class="colorRed">--line-border-empty</span>, has a value of <span style="background-color: #d1d1d1; color: #363636;">#d1d1d1;</span></li>
+               </ul>
             </p>
+            <p>We'll use these variables throughout the CSS file to style the progress bar, circles, and buttons. To utilize the variable, we use the following syntax:
+               <ul class="sectHighlight">
+                  <li>background-color: <b>var</b>(<span class="colorRed">--line-border-full</span>);</li>
+                  <li>or</li>
+                  <li>background-color: <b>var</b>(<span class="colorRed">--line-border-empty</span>);</li>
+               </ul>
+            </p>
+            <p>This example utilizes the variables to set the "background color", but they can be utilized for any CSS property that you want to set the color for.</p>
+            <p>Also, the variables are not limited to colors. You can set any CSS property and give it an appropriate <span class="colorRed">name</span> to identify the variable.</p>
+            <hr>
+            <p>And the rest of the CSS:</p>
+            <p>We're setting a <b>flex column</b> layout with main and cross axis's centered, setting a 100vh height, 0 margin and hide any overflow.</p>
+            <ul class="sectHighlight">
+               <li><b>body</b> {
+                  <ul>
+                     <li>height: 100vh;</li>
+                     <li>margin: 0;</li>
+                     <li>overflow: hidden;</li>
+                     <li>display: flex;</li>
+                     <li>flex-direction: column;</li>
+                     <li>align-items: center;</li>
+                     <li>justify-content: flex-start;</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <p>&nbsp;</p>
+            <p>Our main <b>container</b> just sets up some basic alignment.</p>
+            <ul class="sectHighlight">
+               <li><b>container</b> {
+                  <ul>
+                     <li>margin-top: 100px;</li>
+                     <li>text-align: center;</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <p>&nbsp;</p>
+            <p>This next bit of styling sets up our <b>progress-container</b> which, if we recall, is the container tha holds our progress bar and circles. We're positioning this &lt;div> as <b>relative</b> to control the alignment of the bar and circles, when we style them below.</p>
+            <p>We're setting this as a <b>flex row</b> layout which allows us to space the <b>progress circles</b> evenly.</p>
+            <ul class="sectHighlight">
+               <li><b>progress-container</b> {
+                  <ul>
+                     <li>display: flex;</li>
+                     <li>justify-content: space-between;</li>
+                     <li>position: relative;</li>
+                     <li>margin-bottom: 30px;</li>
+                     <li>max-width: 100%;</li>
+                     <li>width: 350px;</li>
+                  </ul>
+               </li>
+               <li>}</li>
+            </ul>
+            <p>&nbsp;</p>
          </section>
 
          <!-- the JavaScript -->
