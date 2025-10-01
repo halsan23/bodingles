@@ -201,13 +201,195 @@
             <li>- this bar will always be visible, will not grow and shrink like our main progress bar, so we set the width to 100%</li>
             <li>- and finally, since this bar is always going to be 100%, we do not need the transition effect, so we removed that line</li>
          </ul>
+         <p><b>*note:</b> the instructor chose to use this <b>::before</b> pseudo class to "insert" the grey background bar underneath our progress bar. We could have just as easily added this bar as the first &lt;div> in our <b>progress-container</b>, with it's own class to style. But since the instructor did it this way, we left it in the code for future reference on how to utilize the <b>::before</b> pseudo class.</p>
+         <p>&nbsp;</p>
+         <p>Next we need to style our circles. Here is their code:</p>
+         <ul class="sectHighlight">
+            <li>.circle {
+               <ul>
+                  <li>background-color: #f6f7fb;</li>
+                  <li>color: #5f5f5f;</li>
+                  <li>font-size: 15px;</li>
+                  <li>border-radius: 50%;</li>
+                  <li>width: 36px;</li>
+                  <li>height: 36px;</li>
+                  <li>display: flex;</li>
+                  <li>justify-content: center;</li>
+                  <li>align-items: center;</li>
+                  <li>background-color: <b>var</b>(<span class="colorRed">--line-border-empty</span>);</li>
+                  <li>transition: 0.4s ease;</li>
+               </ul>
+            </li>
+            <li>}</li>
+         </ul>
+         <p>Pretty straight forward here. Notice that:</p>
+         <ul>
+            <li>- we are setting the background color with a variable</li>
+            <li>- we are also setting a transition that comes in to play when a circle becomes active and changes color. We don't want the color change to be instant, we want it to ease in.</li>
+         </ul>
+         <p>&nbsp;</p>
+         <p>So we need to code for this color change on the circles when they become active:</p>
+         <ul class="sectHighlight">
+            <li>.circle.<b>active</b> {
+               <ul>
+                  <li>background-color: <b>var</b>(<span class="colorRed">--line-border-full</span>);</li>
+                  <li>color: #eeeeee;</li>
+                  <li>background-color: <b>var</b>(<span class="colorRed">--line-border-empty</span>);</li>
+               </ul>
+            </li>
+            <li>}</li>
+         </ul>
+         <p>Notice how this defines a style for the circles when they are <b>active</b>. We'll use JavaScript to determine whether the class is active or inactive.</p>
+         <p>&nbsp;</p>
+         <p>And finally, we need to define the styles for <b>Prev</b> and <b>Next</b> buttons. First, the basic button styling</p>
+         <ul class="sectHighlight">
+            <li class="commentStyle">// Basic Button</li>
+            <li>.btn {
+               <ul>
+                  <li>background-color: <b>var</b>(<span class="colorRed">--line-border-full</span>);</li>
+                  <li>color: #fff;</li>
+                  <li>border: 0;</li>
+                  <li>border-radius: 6px;</li>
+                  <li>cursor: pointer;</li>
+                  <li>font-family: inherit;</li>
+                  <li>padding: 8px 30px;</li>
+                  <li>margin: 5px;</li>
+                  <li>font-size: 14px;</li>
+                  <li>box-shadow: 2px 2px 4px #6b6b6b;</li>
+               </ul>
+            </li>
+            <li>}</li>
+         </ul>
+         <p>&nbsp;</p>
+         <p>and when you click on a button, remove the shadow, make the text slightly smaller, and move it up slightly. This all gives an animation effect of actually pressing the button.</p>
+         <ul class="sectHighlight">
+            <li class="commentStyle">// Active Button</li>
+            <li>.btn:<b>active</b> {
+               <ul>
+                  <li>transform: scale(0.97);</li>
+                  <li>font-size: 11px;</li>
+                  <li>box-shadow: none;</li>
+               </ul>
+            </li>
+            <li>}</li>
+         </ul>
+         <p>&nbsp;</p>
+         <p>and finally, when the progress bar is at the minimum or maximum positions, we don't want the corresponding button to be "clickable", so we disable it. We're setting the styling here, but the functionality is controlled through JavaScript.</p>
+         <ul class="sectHighlight">
+            <li class="commentStyle">// Disabled Button</li>
+            <li>.btn:<b>disabled</b> {
+               <ul>
+                  <li>background-color: <b>var</b>(<span class="colorRed">--line-border-empty</span>);</li>
+                  <li>cursor: not-allowed;</li>
+                  <li>box-shadow: none;</li>
+               </ul>
+            </li>
+            <li>}</li>
+         </ul>
+         <p>And that will do it for the CSS. Next up, we'll set the functionality with the JavaScript.</p>
       </section>
 
       <!-- the JavaScript -->
       <section id="textWindow3" class="just">
          <h6>the JavaScript</h6>
-         <p><span class="firstWord"></span>
-         </p>
+         <p><span class="firstWord">T</span>he first thing we need to do is to import our <b>id</b>'s and <b>class</b>es for our progress bar, buttons, and circles.</p>
+         <ul class="sectHighlight">
+            <li>const <span class="colorGreen">progress</span> = document.querySelector('<b>#progress</b>')</li>
+            <li>const <span class="colorGreen">prev</span> = document.querySelector('<b>#prev</b>')</li>
+            <li>const <span class="colorGreen">next</span> = document.querySelector('<b>#next</b>')</li>
+            <li>const <span class="colorGreen">circles</span> = document.querySelectorAll('<b>.circle</b>')</li>
+            <li>&nbsp;</li>
+            <li>let <span class="colorGreen">currActive</span> = 1;</li>
+         </ul>
+         <p>We are using <b>querySelectorAll</b> to import our &lt;div>'s with a class of <b>circle</b>. This gives us a <b>Node List</b> that behaves kind of like and array in the sense that we can identify each circle &lt;div> by it's <b>idx</b> (index) number. We have four circle &lt;div>'s so our <b>Node List</b> would have a length of 4, and we would reference each individual node item by it's <b>idx</b> (0, 1, 2, 3).</p>
+         <p>The <b>currActive</b> variable is used to determine which circle is currently active, with circle #1 being set to <b>active</b> initially.</p>
+         <p>&nbsp;</p>
+         <p>Next we're going to set up our "click events" for the <b>Prev</b> and <b>Next</b> buttons:</p>
+         <ul class="sectHighlight">
+            <li><b>next</b>.<span class="colorBlue">addEventListener</span>('<b>click</b>', <span class="colorPurple">() =></span> {
+               <ul>
+                  <li><span class="colorGreen">currActive</span>++</li>
+                  <li>if (<span class="colorGreen">currActive</span> > <b>circles</b>.<span class="colorRed">length</span>) {
+                     <ul>
+                        <li><span class="colorGreen">currActive</span> = <b>circles</b>.<span class="colorRed">length</span>;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li><span class="colorPurple">update()</span>;</li>
+               </ul>
+            </li>
+            <li>})</li>
+         </ul>
+         <p>We're going to increment our <b>active</b> circle by 1. Remember that our length of our Node List for the circle &lt;div>'s is 4, so if the <b>currActive</b> increases beyond 4, set it back to 4. This ensures we never increment past our max number of circles.</p>
+         <p>We'll do the same for the <b>Prev</b> button, but in reverse:</p>
+         <ul class="sectHighlight">
+            <li><b>prev</b>.<span class="colorBlue">addEventListener</span>('<b>click</b>', <span class="colorPurple">() =></span> {
+               <ul>
+                  <li><span class="colorGreen">currActive</span>--</li>
+                  <>if (<span class="colorGreen">currActive</span> < <b>1</b>) {
+                     <ul>
+                        <li><span class="colorGreen">currActive</span> = <b>1</b>;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+                  <li><span class="colorPurple">update()</span>;</li>
+               </ul>
+            </li>
+            <li>})</li>
+         </ul>
+         <p>So we're going to subtract 1 from the current circle index, but if it drops below 1, we set it to 1, ensuring we never go below the first circle &lt;div>.</p>
+         <p>Notice that both of our "click events" call the <b>update()</b> function that is going to add or remove the <b>active</b> class to our circle &lt;div>'s. Remember that in our style sheet we set the <b>active</b> circles to be formatted differently than the <b>inactive</b> circles.</p>
+         <ul class="sectHighlight">
+            <li><span class="colorBlue">function</span> <span class="colorPurple">update()</span> => {
+               <ul>
+                  <li class="commentStyle">// set active circles for styling</li>
+                  <li>circles.<span class="colorBlue">forEach</span> ((circle, idx) => {
+                     <ul>
+                        <li>if (idx < <span class="colorGreen">currActive</span>) {
+                           <ul>
+                              <li>circle.<span class="colorRed">classList</span>.<span class="colorBlue">add</span>('<b>active</b>')</li>
+                           </ul>
+                        </li>
+                        <li>} else {
+                           <ul>
+                              <li>circle.<span class="colorRed">classList</span>.<span class="colorBlue">remove</span>('<b>active</b>');</li>
+                           </ul>
+                        </li>
+                        <li>}</li>
+                     </ul>
+                  </li>
+                  <li>})</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// set the width of the progress bar</li>
+                  <li>const <span class="colorGreen">actives</span> = document.querySelectorAll('<b>.active</b>');</li>
+                  <li><span class="colorGreen">progress</span>.style.width = (<span class="colorGreen">actives</span>.<span class="colorRed">length</span> - 1) / (<b>circles</b>.<span class="colorRed">length</span> - 1) * 100 + '%';</li>
+                  <li>&nbsp;</li>
+                  <li class="commentStyle">// set Prev/Next buttons to active or inactive</li>
+                  <li>if (<span class="colorGreen">currActive</span> === 1) {
+                     <ul>
+                        <li><span class="colorGreen">prev</span>.<span class="colorRed">disabled</span> = <span class="colorOrange">true</span>;</li>
+                     </ul>
+                  </li>
+                  <li>} else if (<span class="colorGreen">currActive</span> === <b>circles</b>.<span class="colorRed">length</span>) {
+                     <ul>
+                        <li><span class="colorGreen">next</span>.<span class="colorRed">disabled</span> = <span class="colorOrange">true</span>;</li>
+                     </ul>
+                  </li>
+                  <li>} else {
+                     <ul>
+                        <li><span class="colorGreen">prev</span>.<span class="colorRed">disabled</span> = <span class="colorOrange">false</span>;</li>
+                        <li><span class="colorGreen">next</span>.<span class="colorRed">disabled</span> = <span class="colorOrange">false</span>;</li>
+                     </ul>
+                  </li>
+                  <li>}</li>
+               </ul>
+            </li>
+            <li>}</li>
+         </ul>
+         <p>We're passing in two variables to the function, our <b>circles</b> Node List, and the <b>idx</b> (index) numbers. This gives us the ability to loop through the node list and compare the index numbers to the current active circle.</p>
+         <p>We then set all of the circles below the current circle to <b>active</b>, and set all of the other circles to <b>inactive</b>. This sets our styles that we had set up in the styles sheet.</p>
+         <p>Next we calculate the width of the progress bar based on the number of active circles.</p>
+         <p>And finally we determine whether the <b>Prev</b> and/or <b>Next</b> buttons are active or inactive. This determination is based on how many current active circles we have.</p>
       </section>
 
       <p><a href="#top">Back to Top</a><br /><br /></p>

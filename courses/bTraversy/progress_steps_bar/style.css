@@ -129,10 +129,6 @@ p {
    box-shadow: none;
 }
 
-.btn:focus {
-   outline: 0;
-}
-
 /* we're going to use Js to disable the buttons if the progress bar is at min or max, so we set the disabled mode styling here */
 .btn:disabled {
    background-color: var(--line-border-empty); /* variable defined a top of style sheet */
