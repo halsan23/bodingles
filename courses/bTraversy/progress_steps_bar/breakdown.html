@@ -301,7 +301,7 @@
             <li>&nbsp;</li>
             <li>let <span class="colorGreen">currActive</span> = 1;</li>
          </ul>
-         <p>We are using <b>querySelectorAll</b> to import our &lt;div>'s with a class of <b>circle</b>. This gives us a <b>Node List</b> that behaves kind of like and array in the sense that we can identify each circle &lt;div> by it's <b>idx</b> (index) number. We have four circle &lt;div>'s so our <b>Node List</b> would have a length of 4, and we would reference each individual node item by it's <b>idx</b> (0, 1, 2, 3).</p>
+         <p>We are using <b>querySelectorAll</b> to import our &lt;div>'s with a class of <b>circle</b>. This gives us a <b>Node List</b> that behaves kind of like and array in the sense that we can identify each circle &lt;div> by it's <b>idx</b> (index) number. We have four circle &lt;div>'s so our <b>Node List</b> would have a length of 5, and we would reference each individual node item by it's <b>idx</b> (0, 1, 2, 3, 4).</p>
          <p>The <b>currActive</b> variable is used to determine which circle is currently active, with circle #1 being set to <b>active</b> initially.</p>
          <p>&nbsp;</p>
          <p>Next we're going to set up our "click events" for the <b>Prev</b> and <b>Next</b> buttons:</p>
@@ -320,7 +320,7 @@
             </li>
             <li>})</li>
          </ul>
-         <p>We're going to increment our <b>active</b> circle by 1. Remember that our length of our Node List for the circle &lt;div>'s is 4, so if the <b>currActive</b> increases beyond 4, set it back to 4. This ensures we never increment past our max number of circles.</p>
+         <p>We're going to increment our <b>active circle</b> by 1. Remember that our length of our Node List for the circle &lt;div>'s is 5, so if the <b>currActive</b> increases beyond 5, set it back to 5. This ensures we never increment past our max number of circles.</p>
          <p>We'll do the same for the <b>Prev</b> button, but in reverse:</p>
          <ul class="sectHighlight">
             <li><b>prev</b>.<span class="colorBlue">addEventListener</span>('<b>click</b>', <span class="colorPurple">() =></span> {
@@ -338,7 +338,7 @@
             <li>})</li>
          </ul>
          <p>So we're going to subtract 1 from the current circle index, but if it drops below 1, we set it to 1, ensuring we never go below the first circle &lt;div>.</p>
-         <p>Notice that both of our "click events" call the <b>update()</b> function that is going to add or remove the <b>active</b> class to our circle &lt;div>'s. Remember that in our style sheet we set the <b>active</b> circles to be formatted differently than the <b>inactive</b> circles.</p>
+         <p>Notice that both of our "click events" call an <span class="colorPurple">update()</span> function that is going to add or remove the <b>active</b> class to our circle &lt;div>'s. Remember that in our style sheet we set the <b>active</b> circles to be formatted differently than the <b>inactive</b> circles.</p>
          <ul class="sectHighlight">
             <li><span class="colorBlue">function</span> <span class="colorPurple">update()</span> => {
                <ul>
