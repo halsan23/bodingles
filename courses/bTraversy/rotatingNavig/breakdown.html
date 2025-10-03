@@ -28,14 +28,84 @@
       <!-- Intro -->
       <section id="textWindow3" class="just">
          <h6>Introduction</h6>
-         <p><span class="firstWord"></span></p>
+         <p><span class="firstWord">T</span>his project adds an interesting take on the standard Navigation Bar. Typically you would have something like a horizontal nav  bar at the top of the page, or a vertical menu that displays when you click on a "Hamburger" icon.</p>
+         <p>Instead, with this concept, when you click on the "hamburger" icon, the entire page is going to rotate counter-clockwise 20°, and then display a hidden vertical nav bar in the left bottom portion of the screen.</p>
+         <p>We set the pivot point for the rotation to be the top left corner of the page, so when the page rotates, it opens up that bottom left area that the page has rotated away from.</p>
          <p>The complete source code for this project can be <a href="rotatingNavig.zip">downloaded here</a>.</p>
       </section>
 
       <!-- the HTML -->
       <section id="textWindow3" class="just">
          <h6>the HTML</h6>
-         <p><span class="firstWord"></span></p>
+         <p><span class="firstWord">W</span>ith the html, we create a "parent" <b>container</b> &lt;div> that holds the circle at the top left corner, and our "main page" content.</p>
+         <p>The circle will hold our icons that display to either open or close our "nav bar". And the main page consists of a basic page containing an &lt;h1>, &lt;h3>, a couple or "lorem ipsum" paragraphs, and an image.</p>
+         <p>After the "parent" container, we have an unordered list inside a &lt;nav> container, that become our actual nav links. It's important to note that this &lt;nav> container is after the main "parent" container and is a separate entity unto itself. It is not part of the "parent" container.</p>
+         <p>We are utilizing <b>font-awesome</b> in this page so we need the following link in the <b>head</b> section of our page:</p>
+         <ul>
+            <li>&nbsp;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></li>
+         </ul>
+         <p>&nbsp;</p>
+         <p>and here is the html code:</p>
+         <ul class="sectHighlight">
+            <li>HTML</li>
+            <li class="commentStyle">// main "parent" container</li>
+            <li>&lt;div class="container"></li>
+            <li>&nbsp;
+               <ul>
+                  <li class="commentStyle">// container for the "nav" circle</li>
+                  <li>&lt;div class="circle-container">
+                     <ul>
+                        <li>&lt;div class="circle">
+                           <ul>
+                              <li class="commentStyle">// font-awesome coding</li>
+                              <li>&lt;button id="open">&lt;i class="fas fa-bars">&lt;/i>&lt;/button></li>
+                              <li>&lt;button id="close">&lt;i class="fas fa-times">&lt;/i>&lt;/button></li>
+                           </ul>
+                        </li>
+                        <li>&lt;/div></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+                  <li>&nbsp;</li>
+               </ul>
+               <ul>
+                  <li class="commentStyle">// container for the "main page" content</li>
+                  <li>&lt;div class="content">
+                     <ul>
+                        <li>&lt;h1>Rotating Navigation&lt;/h1></li>
+                        <li>&lt;p>lorem3&lt;/p></li>
+                        <li>&lt;h3>Mad Dog Chico&lt;/h3></li>
+                        <li>&lt;img src="images/100_0145.JPG" alt="Chico" /></li>
+                        <li>&lt;p>lorem2&lt;/p></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/div></li>
+                  <li>&nbsp;</li>
+               </ul>
+               <ul>
+                  <li class="commentStyle">// container for the "nav bar" content</li>
+                  <li>&lt;nav>
+                     <ul>
+                        <li>&lt;ul>
+                           <ul>
+                              <li class="commentStyle">// font-awesome coding</li>
+                              <li>&lt;li>&lt;i class="fas fa-home">Home&lt;/i>&lt;/li></li>
+                              <li>&lt;li>&lt;i class="fas fa-user-alt">About&lt;/i>&lt;/li></li>
+                              <li>&lt;li>&lt;i class="fas fa-envelope">Contact&lt;/i>&lt;/li></li>
+                              <li>&lt;li>&lt;/li></li>
+                              <li>&lt;li>*non-functional links&lt;br/>display purposes only&lt;/li></li>
+                           </ul>
+
+                        </li>
+                        <li>&lt;/ul></li>
+                     </ul>
+                  </li>
+                  <li>&lt;/nav></li>
+               </ul>
+            </li>
+            <li>&nbsp;</li>
+            <li>&lt;/div></li>
+         </ul>
       </section>
 
       <!-- the CSS -->
