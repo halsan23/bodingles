@@ -183,7 +183,44 @@
          </ul>
          <p><b>nav:</b> sets the nav &lt;div> to a "fixed" position 40px up from the bottom of the page, with a <b>z-index</b> of 100 to place it on top of all other elements on the page.</p>
          <p><b>nav ul:</b> removes "bullets" from the list and move it right 30px.</p>
-         <p><b>nav ul li</b>: </p>
+         <p><b>nav ul li</b>: text-transform/color/margin are setting the styling for each list item in the <b>&lt;nav></b> ul, which is our navigation links. And this is where it gets interesting:</p>
+         <ul>
+            <li>as stated above we're going to use a "<b>show-nav</b>" class to either show or hide this &lt;nav> section. As a default, it is hidden. So we have the lines:
+               <ul>
+                  <li><b>transform: translateX(-300%);</b>
+                     <ul>
+                        <li>sets the default "hidden" position to be 300px to the left of the page, effectively hiding the section.</li>
+                     </ul>
+                  </li>
+                  <li><b>transition: transform 0.4s ease-in;</b>
+                     <ul>
+                        <li>sets an "<b>ease-in</b>" transition on the transform causing a gradual change when the &lt;nav> section is shown or hidden.</li>
+                     </ul>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+         <p><b>nav ul li i:</b> is setting the styling for the font-awesome images for the nav links.</p>
+         <p><b>nav ul li:nth-of-type(2)</b>, and <b>nav ul li:nth-of-type(3)</b> are just setting different horizontal positions for the nav links so that when displayed, the links are offset from to the right, instead of in a vertical column.</p>
+         <p>and <b>nav ul li:last-child</b> is setting some styling for the information &lt;li> indicating that the &lt;nav> section is non-functional.</p>
+         <p>&nbsp;</p>
+         <p>Next we need to style our main "<b>container</b>" which holds the main body of our page. This styling defines the page rotation that happens when our JavaScript instructs the page to rotate.</p>
+         <p>Remember that the JavaScript will control this page rotation through "click" events. And when a "click" event is detected, this styling determines <b>how</b> the page actually rotates.</p>
+         <p>Here's the code:</p>
+         <ul class="sectHighlight">
+            <li><b>css</b></li>
+            <li>.container {
+               <ul>
+                  <li>background-color: #fafafa;</li>
+                  <li>width: 100vw;</li>
+                  <li>padding: 50px 75px;</li>
+                  <li>font-size: 16px;</li>
+                  <li>transform-origin: top left;</li>
+                  <li>transition: transform 0.5s linear;</li>
+               </ul>
+            </li>
+            <li>}</li>
+         </ul>
       </section>
 
       <!-- the JavaScript -->
