@@ -4,22 +4,19 @@
 # badDoggy - 9/2/26
 # ====================================================
 
-
-# Basic heading
-print("Input number of miles to convert?")
+# Display title heading
+print("\nMiles to Kilometers Converter\n")
 
 
 # Input how many miles to convert
-miles = input()
+# float converts the str input into a usable math variable
+miles = float(input("Input number of miles to convert? "))
 
-# Input is a string - convert it to a float
-miles = float(miles)
 
-# convert miles to kilometers and round to 2 decimal places
-klms = round(miles*1.609344, 2)
+# convert the miles to kilometers, round to 2 decimal places
+kms = round(miles*1.609344, 2)
 
-# Display output using "f-string"
-print()
-print(f"{miles} miles equals {klms} kilometers.")
-print("End of Line")
-print()
+
+# Display the output using "f-string"
+print("\n" + f"{miles} miles equals {kms} kilometers.")
+print("End of Line\n")
