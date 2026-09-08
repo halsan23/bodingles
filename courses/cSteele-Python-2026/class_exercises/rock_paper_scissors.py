@@ -33,25 +33,15 @@ else:
    if p1 == p2:
       print(f'It\'s a tie - Both players picked {p1.capitalize()}')
 
-   elif p1 == 'rock':
-      if p2 == 'scissors':
-         print('Player 1 wins! - Rock smashes scissors')
-      else:
-         print('Player 2 wins! - Paper covers Rock')
-
-
-   elif p1 == 'paper':
-      if p2 == 'rock':
-         print('Player 1 wins! - Paper covers Rock')
-      else:
-         print('Player 2 wins! - Scissors cut Paper')
-
-
-   elif p1 == 'scissors':
-      if p2 == 'paper':
+   elif p1 == 'rock' and p2 == 'scissors':
+         print('Player 1 wins! - Rock beats scissors')
+   elif p1 == 'paper' and p2 == 'rock':
+         print('Player 1 wins! - Paper beats Rock')
+   elif p1 == 'scissors' and p2 == 'paper':
          print('Player 1 wins! - Scissors cut Paper')
-      else:
-         print('Player 2 wins! - Rock smashes Scissors')
+
+   else:
+      print(f'Player 2 wins! - {p2.capitalize()} beats {p1.capitalize()}')
 
 
 print('\n-- End of Line --\n')
